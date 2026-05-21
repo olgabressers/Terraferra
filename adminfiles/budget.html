@@ -44,7 +44,19 @@ h3{font-size:14px;font-weight:800;color:var(--ink);margin:24px 0 10px;letter-spa
 .chapter{margin-bottom:24px}
 .chapter-body{transition:max-height .25s ease}
 .chapter-body.collapsed{display:none}
-.chapter-sales{background:#FEF7F1;padding:28px 28px 24px;margin-left:-28px;margin-right:-28px;margin-top:32px}
+.chapter-sales{background:#FEF7F1;padding:28px 28px 24px;margin-left:-28px;margin-right:-28px;margin-top:48px}
+
+/* Big chapter dividers — visual breaks between Budget & Revenue */
+.chapter-divider{margin:0 0 36px;padding:24px 0 22px;border-top:5px solid var(--ink);border-bottom:1px solid var(--rule)}
+.chapter-divider .cd-num{font-size:11px;font-weight:800;letter-spacing:3.5px;text-transform:uppercase;color:var(--orange);margin-bottom:10px}
+.chapter-divider .cd-title{font-size:38px;font-weight:800;letter-spacing:-1.2px;color:var(--ink);margin:0;border:none;padding:0;line-height:1.1}
+.chapter-divider .cd-sub{font-size:13px;color:var(--sub);margin-top:8px;line-height:1.5}
+.chapter-divider-budget{border-top-color:var(--tf)}
+.chapter-divider-budget .cd-num{color:var(--tf)}
+.chapter-divider-budget .cd-title{color:var(--tf-dark)}
+.chapter-divider-sales{border-top-color:var(--orange)}
+.chapter-divider-sales .cd-num{color:var(--orange)}
+.chapter-divider-sales .cd-title{color:#A6481A}
 
 /* TOC card colors — strongly differentiated */
 .toc-card.toc-budget{background:var(--tf-light);border-color:var(--tf);border-top-color:var(--tf)}
@@ -162,6 +174,11 @@ ul li strong{color:var(--ink);font-weight:700}
 
   <!-- ══════════ CHAPTER I ══════════ -->
   <div class="chapter chapter-budget" id="chapter-budget">
+    <div class="chapter-divider chapter-divider-budget">
+      <div class="cd-num">Part I</div>
+      <h2 class="cd-title">Budget</h2>
+      <div class="cd-sub">Cost breakdown · People, Operating, One-time, Contingency, Total · Operating Assumptions · Fashion Fairs Reference</div>
+    </div>
     <div class="chapter-body">
 
   <!-- ============================================ -->
@@ -606,6 +623,11 @@ ul li strong{color:var(--ink);font-weight:700}
 
   <!-- ══════════ CHAPTER II ══════════ -->
   <div class="chapter chapter-sales" id="chapter-sales">
+    <div class="chapter-divider chapter-divider-sales">
+      <div class="cd-num">Part II</div>
+      <h2 class="cd-title">Revenue · Sales Scenarios</h2>
+      <div class="cd-sub">Monthly run-rate projections across three execution scenarios at 6 mo, 1 yr, 1.5 yr, 2 yr · Target $10K MRR for follow-on funding</div>
+    </div>
     <div class="chapter-body">
   
   <div class="target-banner">
@@ -616,11 +638,11 @@ ul li strong{color:var(--ink);font-weight:700}
 
   <p class="lead">Revenue projections across three execution scenarios using the stated 7% take rate and $75/month designer subscription. Base case is calibrated to the $10K MRR milestone at Year 1. Horizons match the budget timeframes.</p>
 
-  <h3>Headline — Monthly Revenue (MRR) at each horizon · target $10K</h3>
+  <h3>Headline — Monthly &amp; Annual Revenue at each horizon · target $10K MRR / $120K ARR</h3>
   <table>
     <thead>
       <tr>
-        <th>Scenario</th>
+        <th>Scenario · Metric</th>
         <th class="num">6 Months</th>
         <th class="num">1 Year</th>
         <th class="num">1.5 Years</th>
@@ -629,25 +651,46 @@ ul li strong{color:var(--ink);font-weight:700}
     </thead>
     <tbody>
       <tr>
-        <td><strong>Pessimistic</strong></td>
+        <td><strong>Pessimistic</strong> — MRR (monthly)</td>
         <td class="num mrr-miss">€708 <span class="usd">$779</span></td>
         <td class="num mrr-miss">€3,045 <span class="usd">$3,350</span></td>
         <td class="num mrr-miss">€6,303 <span class="usd">$6,933</span></td>
         <td class="num mrr-hit">€12,216 <span class="usd">$13,438</span></td>
       </tr>
       <tr>
-        <td><strong>Base</strong></td>
+        <td><strong>Pessimistic</strong> — Total Annual Revenue (ARR)</td>
+        <td class="num">€8,500 <span class="usd">$9,350</span></td>
+        <td class="num">€36,545 <span class="usd">$40,200</span></td>
+        <td class="num">€75,636 <span class="usd">$83,200</span></td>
+        <td class="num">€146,591 <span class="usd">$161,250</span></td>
+      </tr>
+      <tr>
+        <td><strong>Base</strong> — MRR (monthly)</td>
         <td class="num mrr-miss">€2,205 <span class="usd">$2,425</span></td>
         <td class="num mrr-hit">€9,773 <span class="usd">$10,750</span></td>
         <td class="num mrr-hit">€20,818 <span class="usd">$22,900</span></td>
         <td class="num mrr-hit">€37,879 <span class="usd">$41,667</span></td>
       </tr>
       <tr>
-        <td><strong>Optimistic</strong></td>
+        <td><strong>Base</strong> — Total Annual Revenue (ARR)</td>
+        <td class="num">€26,455 <span class="usd">$29,100</span></td>
+        <td class="num">€117,273 <span class="usd">$129,000</span></td>
+        <td class="num">€249,818 <span class="usd">$274,800</span></td>
+        <td class="num">€454,545 <span class="usd">$500,000</span></td>
+      </tr>
+      <tr>
+        <td><strong>Optimistic</strong> — MRR (monthly)</td>
         <td class="num mrr-miss">€4,568 <span class="usd">$5,025</span></td>
         <td class="num mrr-hit">€22,348 <span class="usd">$24,583</span></td>
         <td class="num mrr-hit">€50,000 <span class="usd">$55,000</span></td>
         <td class="num mrr-hit">€104,318 <span class="usd">$114,750</span></td>
+      </tr>
+      <tr>
+        <td><strong>Optimistic</strong> — Total Annual Revenue (ARR)</td>
+        <td class="num">€54,818 <span class="usd">$60,300</span></td>
+        <td class="num">€268,182 <span class="usd">$295,000</span></td>
+        <td class="num">€600,000 <span class="usd">$660,000</span></td>
+        <td class="num">€1,251,818 <span class="usd">$1,377,000</span></td>
       </tr>
     </tbody>
   </table>
