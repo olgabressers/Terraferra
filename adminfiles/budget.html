@@ -47,8 +47,8 @@ th{background:var(--tf);color:white;text-align:left;padding:10px 12px;font-size:
 td{padding:10px 12px;border-bottom:1px solid var(--rule);vertical-align:top}
 tr:last-child td{border-bottom:none}
 td.num{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap;font-size:12px;line-height:1.5}
-td.num .usd{display:block;color:var(--sub);font-size:11px;font-weight:500}
-td.note{color:var(--sub);font-size:12px}
+td.num .usd{display:block;color:#1E40AF;font-size:12px;font-weight:600}
+td.note{color:var(--ink);font-size:12px}
 tr.subtotal td{background:var(--tf-ghost);font-weight:700;border-top:1px solid var(--rule)}
 tr.total td{background:var(--tf);color:white;font-weight:800}
 tr.total td.num{color:white}
@@ -93,6 +93,59 @@ ul li strong{color:var(--ink);font-weight:700}
   </div>
 
   <!-- ============================================ -->
+  <h2><span class="sec-num">0.</span>Budget Summary</h2>
+  <p class="lead">Total operating cost at each horizon. Detail by category in sections 1–5.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Block</th>
+        <th class="num">6 Months</th>
+        <th class="num">1 Year</th>
+        <th class="num">1.5 Years</th>
+        <th class="num">2 Years</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>People Costs</td>
+        <td class="num">€162,000 <span class="usd">$178,200</span></td>
+        <td class="num">€345,000 <span class="usd">$379,500</span></td>
+        <td class="num">€528,000 <span class="usd">$580,800</span></td>
+        <td class="num">€711,000 <span class="usd">$782,100</span></td>
+      </tr>
+      <tr>
+        <td>Operating Costs</td>
+        <td class="num">€72,150 <span class="usd">$79,365</span></td>
+        <td class="num">€144,300 <span class="usd">$158,730</span></td>
+        <td class="num">€216,450 <span class="usd">$238,095</span></td>
+        <td class="num">€288,600 <span class="usd">$317,460</span></td>
+      </tr>
+      <tr>
+        <td>One-time Launch Costs (paid Year 1)</td>
+        <td class="num">€52,000 <span class="usd">$57,200</span></td>
+        <td class="num">€52,000 <span class="usd">$57,200</span></td>
+        <td class="num">€52,000 <span class="usd">$57,200</span></td>
+        <td class="num">€52,000 <span class="usd">$57,200</span></td>
+      </tr>
+      <tr>
+        <td>Contingency 10%</td>
+        <td class="num">€28,615 <span class="usd">$31,477</span></td>
+        <td class="num">€54,130 <span class="usd">$59,543</span></td>
+        <td class="num">€79,645 <span class="usd">$87,610</span></td>
+        <td class="num">€105,160 <span class="usd">$115,676</span></td>
+      </tr>
+      <tr class="total">
+        <td>TOTAL BUDGET REQUIREMENT</td>
+        <td class="num">€314,765 <span class="usd">$346,242</span></td>
+        <td class="num">€595,430 <span class="usd">$654,973</span></td>
+        <td class="num">€876,095 <span class="usd">$963,705</span></td>
+        <td class="num">€1,156,760 <span class="usd">$1,272,436</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ============================================ -->
   <h2><span class="sec-num">1.</span>People Costs</h2>
   <p class="lead">All compensation gross, paid against freelance invoice. Founders, technical lead, QA tester, and operations manager. Each contractor settles their own local tax obligation.</p>
 
@@ -101,6 +154,7 @@ ul li strong{color:var(--ink);font-weight:700}
       <tr>
         <th>Role</th>
         <th class="num">Monthly</th>
+        <th class="num">6 Months</th>
         <th class="num">1 Year</th>
         <th class="num">1.5 Years</th>
         <th class="num">2 Years</th>
@@ -111,6 +165,7 @@ ul li strong{color:var(--ink);font-weight:700}
       <tr>
         <td>Founder</td>
         <td class="num">€8,000 <span class="usd">$8,800</span></td>
+        <td class="num">€48,000 <span class="usd">$52,800</span></td>
         <td class="num">€96,000 <span class="usd">$105,600</span></td>
         <td class="num">€144,000 <span class="usd">$158,400</span></td>
         <td class="num">€192,000 <span class="usd">$211,200</span></td>
@@ -119,6 +174,7 @@ ul li strong{color:var(--ink);font-weight:700}
       <tr>
         <td>CEO</td>
         <td class="num">€8,000 <span class="usd">$8,800</span></td>
+        <td class="num">€48,000 <span class="usd">$52,800</span></td>
         <td class="num">€96,000 <span class="usd">$105,600</span></td>
         <td class="num">€144,000 <span class="usd">$158,400</span></td>
         <td class="num">€192,000 <span class="usd">$211,200</span></td>
@@ -127,6 +183,7 @@ ul li strong{color:var(--ink);font-weight:700}
       <tr>
         <td>CTO</td>
         <td class="num">€7,000 <span class="usd">$7,700</span></td>
+        <td class="num">€42,000 <span class="usd">$46,200</span></td>
         <td class="num">€84,000 <span class="usd">$92,400</span></td>
         <td class="num">€126,000 <span class="usd">$138,600</span></td>
         <td class="num">€168,000 <span class="usd">$184,800</span></td>
@@ -135,6 +192,7 @@ ul li strong{color:var(--ink);font-weight:700}
       <tr>
         <td>Developer / Tester</td>
         <td class="num">€4,000 <span class="usd">$4,400</span></td>
+        <td class="num">€24,000 <span class="usd">$26,400</span></td>
         <td class="num">€48,000 <span class="usd">$52,800</span></td>
         <td class="num">€72,000 <span class="usd">$79,200</span></td>
         <td class="num">€96,000 <span class="usd">$105,600</span></td>
@@ -143,6 +201,7 @@ ul li strong{color:var(--ink);font-weight:700}
       <tr>
         <td>Operations Assistant (from Month 7)</td>
         <td class="num">€3,500 <span class="usd">$3,850</span><br/><span class="usd" style="display:block;margin-top:2px">from M7</span></td>
+        <td class="num">€0 <span class="usd">$0</span><br/><span class="usd" style="display:block;margin-top:2px">not yet active</span></td>
         <td class="num">€21,000 <span class="usd">$23,100</span><br/><span class="usd" style="display:block;margin-top:2px">6 mo in Y1</span></td>
         <td class="num">€42,000 <span class="usd">$46,200</span><br/><span class="usd" style="display:block;margin-top:2px">12 mo</span></td>
         <td class="num">€63,000 <span class="usd">$69,300</span><br/><span class="usd" style="display:block;margin-top:2px">18 mo</span></td>
@@ -151,6 +210,7 @@ ul li strong{color:var(--ink);font-weight:700}
       <tr class="subtotal">
         <td>Subtotal — People Costs</td>
         <td class="num">€27,000–€30,500 <span class="usd">$29,700–$33,550</span></td>
+        <td class="num">€162,000 <span class="usd">$178,200</span></td>
         <td class="num">€345,000 <span class="usd">$379,500</span></td>
         <td class="num">€528,000 <span class="usd">$580,800</span></td>
         <td class="num">€711,000 <span class="usd">$782,100</span></td>
@@ -168,6 +228,7 @@ ul li strong{color:var(--ink);font-weight:700}
       <tr>
         <th>Item</th>
         <th class="num">Monthly</th>
+        <th class="num">6 Months</th>
         <th class="num">1 Year</th>
         <th class="num">1.5 Years</th>
         <th class="num">2 Years</th>
@@ -178,6 +239,7 @@ ul li strong{color:var(--ink);font-weight:700}
       <tr>
         <td>Office expenses (software, communications, finance admin for local tax, etc.)</td>
         <td class="num">€750 <span class="usd">$825</span></td>
+        <td class="num">€4,500 <span class="usd">$4,950</span></td>
         <td class="num">€9,000 <span class="usd">$9,900</span></td>
         <td class="num">€13,500 <span class="usd">$14,850</span></td>
         <td class="num">€18,000 <span class="usd">$19,800</span></td>
@@ -186,6 +248,7 @@ ul li strong{color:var(--ink);font-weight:700}
       <tr>
         <td>T&amp;E — travel + representation</td>
         <td class="num">€3,567 <span class="usd">$3,924</span></td>
+        <td class="num">€21,400 <span class="usd">$23,540</span></td>
         <td class="num">€42,800 <span class="usd">$47,080</span></td>
         <td class="num">€64,200 <span class="usd">$70,620</span></td>
         <td class="num">€85,600 <span class="usd">$94,160</span></td>
@@ -194,6 +257,7 @@ ul li strong{color:var(--ink);font-weight:700}
       <tr>
         <td>Legal — US startup counsel</td>
         <td class="num">€1,500 <span class="usd">$1,650</span></td>
+        <td class="num">€9,000 <span class="usd">$9,900</span></td>
         <td class="num">€18,000 <span class="usd">$19,800</span></td>
         <td class="num">€27,000 <span class="usd">$29,700</span></td>
         <td class="num">€36,000 <span class="usd">$39,600</span></td>
@@ -202,6 +266,7 @@ ul li strong{color:var(--ink);font-weight:700}
       <tr>
         <td>Tax &amp; accounting — US Delaware C-corp</td>
         <td class="num">€292 <span class="usd">$321</span></td>
+        <td class="num">€1,750 <span class="usd">$1,925</span></td>
         <td class="num">€3,500 <span class="usd">$3,850</span></td>
         <td class="num">€5,250 <span class="usd">$5,775</span></td>
         <td class="num">€7,000 <span class="usd">$7,700</span></td>
@@ -210,6 +275,7 @@ ul li strong{color:var(--ink);font-weight:700}
       <tr>
         <td>D&amp;O insurance</td>
         <td class="num">€417 <span class="usd">$459</span></td>
+        <td class="num">€2,500 <span class="usd">$2,750</span></td>
         <td class="num">€5,000 <span class="usd">$5,500</span></td>
         <td class="num">€7,500 <span class="usd">$8,250</span></td>
         <td class="num">€10,000 <span class="usd">$11,000</span></td>
@@ -218,6 +284,7 @@ ul li strong{color:var(--ink);font-weight:700}
       <tr>
         <td>Software, SaaS &amp; Product Infrastructure</td>
         <td class="num">€3,700 <span class="usd">$4,070</span></td>
+        <td class="num">€22,200 <span class="usd">$24,420</span></td>
         <td class="num">€44,400 <span class="usd">$48,840</span></td>
         <td class="num">€66,600 <span class="usd">$73,260</span></td>
         <td class="num">€88,800 <span class="usd">$97,680</span></td>
@@ -226,6 +293,7 @@ ul li strong{color:var(--ink);font-weight:700}
       <tr>
         <td>Marketing &amp; Freelance Support</td>
         <td class="num">€1,500 <span class="usd">$1,650</span></td>
+        <td class="num">€9,000 <span class="usd">$9,900</span></td>
         <td class="num">€18,000 <span class="usd">$19,800</span></td>
         <td class="num">€27,000 <span class="usd">$29,700</span></td>
         <td class="num">€36,000 <span class="usd">$39,600</span></td>
@@ -234,6 +302,7 @@ ul li strong{color:var(--ink);font-weight:700}
       <tr>
         <td>Banking &amp; FX fees — cross-border transfers</td>
         <td class="num">€300 <span class="usd">$330</span></td>
+        <td class="num">€1,800 <span class="usd">$1,980</span></td>
         <td class="num">€3,600 <span class="usd">$3,960</span></td>
         <td class="num">€5,400 <span class="usd">$5,940</span></td>
         <td class="num">€7,200 <span class="usd">$7,920</span></td>
@@ -242,6 +311,7 @@ ul li strong{color:var(--ink);font-weight:700}
       <tr class="subtotal">
         <td>Subtotal — Operating Costs</td>
         <td class="num">€12,026 <span class="usd">$13,229</span></td>
+        <td class="num">€72,150 <span class="usd">$79,365</span></td>
         <td class="num">€144,300 <span class="usd">$158,730</span></td>
         <td class="num">€216,450 <span class="usd">$238,095</span></td>
         <td class="num">€288,600 <span class="usd">$317,460</span></td>
@@ -310,6 +380,7 @@ ul li strong{color:var(--ink);font-weight:700}
       <tr>
         <th>Item</th>
         <th class="num">Monthly</th>
+        <th class="num">6 Months</th>
         <th class="num">1 Year</th>
         <th class="num">1.5 Years</th>
         <th class="num">2 Years</th>
@@ -320,6 +391,7 @@ ul li strong{color:var(--ink);font-weight:700}
       <tr>
         <td>Contingency — 10% buffer on total budget</td>
         <td class="num">€4,253 <span class="usd">$4,678</span></td>
+        <td class="num">€28,615 <span class="usd">$31,477</span></td>
         <td class="num">€54,130 <span class="usd">$59,543</span></td>
         <td class="num">€79,645 <span class="usd">$87,610</span></td>
         <td class="num">€105,160 <span class="usd">$115,676</span></td>
@@ -336,6 +408,7 @@ ul li strong{color:var(--ink);font-weight:700}
       <tr>
         <th>Block</th>
         <th class="num">Monthly</th>
+        <th class="num">6 Months</th>
         <th class="num">1 Year</th>
         <th class="num">1.5 Years</th>
         <th class="num">2 Years</th>
@@ -345,6 +418,7 @@ ul li strong{color:var(--ink);font-weight:700}
       <tr>
         <td>People Costs</td>
         <td class="num">€27,000–€30,500 <span class="usd">$29,700–$33,550</span></td>
+        <td class="num">€162,000 <span class="usd">$178,200</span></td>
         <td class="num">€345,000 <span class="usd">$379,500</span></td>
         <td class="num">€528,000 <span class="usd">$580,800</span></td>
         <td class="num">€711,000 <span class="usd">$782,100</span></td>
@@ -352,6 +426,7 @@ ul li strong{color:var(--ink);font-weight:700}
       <tr>
         <td>Operating Costs</td>
         <td class="num">€12,026 <span class="usd">$13,229</span></td>
+        <td class="num">€72,150 <span class="usd">$79,365</span></td>
         <td class="num">€144,300 <span class="usd">$158,730</span></td>
         <td class="num">€216,450 <span class="usd">$238,095</span></td>
         <td class="num">€288,600 <span class="usd">$317,460</span></td>
@@ -362,10 +437,12 @@ ul li strong{color:var(--ink);font-weight:700}
         <td class="num">€52,000 <span class="usd">$57,200</span></td>
         <td class="num">€52,000 <span class="usd">$57,200</span></td>
         <td class="num">€52,000 <span class="usd">$57,200</span></td>
+        <td class="num">€52,000 <span class="usd">$57,200</span></td>
       </tr>
       <tr>
         <td>Contingency 10%</td>
         <td class="num">€4,253 <span class="usd">$4,678</span></td>
+        <td class="num">€28,615 <span class="usd">$31,477</span></td>
         <td class="num">€54,130 <span class="usd">$59,543</span></td>
         <td class="num">€79,645 <span class="usd">$87,610</span></td>
         <td class="num">€105,160 <span class="usd">$115,676</span></td>
@@ -373,6 +450,7 @@ ul li strong{color:var(--ink);font-weight:700}
       <tr class="total">
         <td>TOTAL BUDGET REQUIREMENT</td>
         <td class="num">€42,929–€46,779 <span class="usd">$47,222–$51,457</span></td>
+        <td class="num">€314,765 <span class="usd">$346,242</span></td>
         <td class="num">€595,430 <span class="usd">$654,973</span></td>
         <td class="num">€876,095 <span class="usd">$963,705</span></td>
         <td class="num">€1,156,760 <span class="usd">$1,272,436</span></td>
