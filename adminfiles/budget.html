@@ -41,22 +41,23 @@ h2 .sec-num{font-size:18px;font-weight:800;color:var(--orange);margin-right:10px
 h3{font-size:14px;font-weight:800;color:var(--ink);margin:24px 0 10px;letter-spacing:.2px}
 
 /* ── CHAPTERS ─────────────────────────── */
-.chapter{margin-bottom:48px}
-.chapter-header{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;margin-bottom:24px;border-radius:0}
-.chapter-budget .chapter-header{background:var(--tf);color:white}
-.chapter-sales .chapter-header{background:#E86820;color:white}
-.chapter-eyebrow{font-size:10px;font-weight:800;letter-spacing:3px;text-transform:uppercase;opacity:.65;margin-bottom:4px}
-.chapter-title-large{font-size:24px;font-weight:800;letter-spacing:-.5px;margin:0;border:none;padding:0}
-.chapter-toggle{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.35);padding:8px 16px;font-size:10.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:white;cursor:pointer;border-radius:0;font-family:'Inter',sans-serif}
-.chapter-toggle:hover{background:rgba(255,255,255,.25)}
+.chapter{margin-bottom:24px}
 .chapter-body{transition:max-height .25s ease}
 .chapter-body.collapsed{display:none}
-.chapter-sales{background:#FEF7F1;padding:32px 28px;margin-left:-28px;margin-right:-28px}
-.chapter-sales .chapter-header{margin-left:-6px;margin-right:-6px}
+.chapter-sales{background:#FEF7F1;padding:28px 28px 24px;margin-left:-28px;margin-right:-28px;margin-top:32px}
 
-/* TOC card colors */
-.toc-card.toc-sales{border-top-color:var(--orange)}
-.toc-card.toc-sales .toc-num{color:var(--tf)}
+/* TOC card colors — strongly differentiated */
+.toc-card.toc-budget{background:var(--tf-light);border-color:var(--tf);border-top-color:var(--tf)}
+.toc-card.toc-budget .toc-num{color:var(--tf)}
+.toc-card.toc-budget .toc-title{color:var(--tf-dark)}
+.toc-card.toc-sales{background:#FDEEDF;border-color:var(--orange);border-top-color:var(--orange)}
+.toc-card.toc-sales .toc-num{color:var(--orange)}
+.toc-card.toc-sales .toc-title{color:#A6481A}
+
+/* Collapse toggle */
+.collapse-bar{display:flex;justify-content:flex-end;margin:0 0 18px}
+.collapse-btn{background:white;border:1px solid var(--rule);padding:7px 14px;font-size:10.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--ink);cursor:pointer;border-radius:0;font-family:'Inter',sans-serif}
+.collapse-btn:hover{border-color:var(--tf);color:var(--tf)}
 
 /* MRR target highlights */
 .mrr-hit{color:#1F7A4E;font-weight:800}
@@ -155,15 +156,12 @@ ul li strong{color:var(--ink);font-weight:700}
     </a>
   </nav>
 
+  <div class="collapse-bar">
+    <button class="collapse-btn" onclick="toggleChapter('chapter-budget')">Collapse Budget ▾</button>
+  </div>
+
   <!-- ══════════ CHAPTER I ══════════ -->
   <div class="chapter chapter-budget" id="chapter-budget">
-    <div class="chapter-header">
-      <div>
-        <div class="chapter-eyebrow">Part I</div>
-        <h2 class="chapter-title-large">Budget</h2>
-      </div>
-      <button class="chapter-toggle" onclick="toggleChapter('chapter-budget')">Collapse</button>
-    </div>
     <div class="chapter-body">
 
   <!-- ============================================ -->
@@ -608,12 +606,6 @@ ul li strong{color:var(--ink);font-weight:700}
 
   <!-- ══════════ CHAPTER II ══════════ -->
   <div class="chapter chapter-sales" id="chapter-sales">
-    <div class="chapter-header">
-      <div>
-        <div class="chapter-eyebrow">Part II</div>
-        <h2 class="chapter-title-large">Sales Scenarios</h2>
-      </div>
-    </div>
     <div class="chapter-body">
   
   <div class="target-banner">
@@ -672,6 +664,13 @@ ul li strong{color:var(--ink);font-weight:700}
       </tr>
     </thead>
     <tbody>
+      <tr class="subtotal">
+        <td>MRR — Monthly Revenue (Total ARR ÷ 12)</td>
+        <td class="num mrr-miss">€708 <span class="usd">$779</span></td>
+        <td class="num mrr-miss">€3,045 <span class="usd">$3,350</span></td>
+        <td class="num mrr-miss">€6,303 <span class="usd">$6,933</span></td>
+        <td class="num mrr-hit">€12,216 <span class="usd">$13,438</span></td>
+      </tr>
       <tr>
         <td>Active designers (end of period)</td>
         <td class="num">10</td>
@@ -714,13 +713,6 @@ ul li strong{color:var(--ink);font-weight:700}
         <td class="num">€75,636 <span class="usd">$83,200</span></td>
         <td class="num">€146,591 <span class="usd">$161,250</span></td>
       </tr>
-      <tr class="subtotal">
-        <td>MRR (Total ARR ÷ 12)</td>
-        <td class="num">€708 <span class="usd">$779</span></td>
-        <td class="num">€3,045 <span class="usd">$3,350</span></td>
-        <td class="num">€6,303 <span class="usd">$6,933</span></td>
-        <td class="num">€12,216 <span class="usd">$13,438</span></td>
-      </tr>
     </tbody>
   </table>
 
@@ -736,6 +728,13 @@ ul li strong{color:var(--ink);font-weight:700}
       </tr>
     </thead>
     <tbody>
+      <tr class="subtotal">
+        <td>MRR — Monthly Revenue (Total ARR ÷ 12)</td>
+        <td class="num mrr-miss">€2,205 <span class="usd">$2,425</span></td>
+        <td class="num mrr-hit">€9,773 <span class="usd">$10,750</span></td>
+        <td class="num mrr-hit">€20,818 <span class="usd">$22,900</span></td>
+        <td class="num mrr-hit">€37,879 <span class="usd">$41,667</span></td>
+      </tr>
       <tr>
         <td>Active designers (end of period)</td>
         <td class="num">30</td>
@@ -778,13 +777,6 @@ ul li strong{color:var(--ink);font-weight:700}
         <td class="num">€249,818 <span class="usd">$274,800</span></td>
         <td class="num">€454,545 <span class="usd">$500,000</span></td>
       </tr>
-      <tr class="subtotal">
-        <td>MRR (Total ARR ÷ 12)</td>
-        <td class="num">€2,205 <span class="usd">$2,425</span></td>
-        <td class="num">€9,773 <span class="usd">$10,750</span></td>
-        <td class="num">€20,818 <span class="usd">$22,900</span></td>
-        <td class="num">€37,879 <span class="usd">$41,667</span></td>
-      </tr>
     </tbody>
   </table>
 
@@ -800,6 +792,13 @@ ul li strong{color:var(--ink);font-weight:700}
       </tr>
     </thead>
     <tbody>
+      <tr class="subtotal">
+        <td>MRR — Monthly Revenue (Total ARR ÷ 12)</td>
+        <td class="num mrr-miss">€4,568 <span class="usd">$5,025</span></td>
+        <td class="num mrr-hit">€22,348 <span class="usd">$24,583</span></td>
+        <td class="num mrr-hit">€50,000 <span class="usd">$55,000</span></td>
+        <td class="num mrr-hit">€104,318 <span class="usd">$114,750</span></td>
+      </tr>
       <tr>
         <td>Active designers (end of period)</td>
         <td class="num">60</td>
@@ -842,13 +841,6 @@ ul li strong{color:var(--ink);font-weight:700}
         <td class="num">€600,000 <span class="usd">$660,000</span></td>
         <td class="num">€1,251,818 <span class="usd">$1,377,000</span></td>
       </tr>
-      <tr class="subtotal">
-        <td>MRR (Total ARR ÷ 12)</td>
-        <td class="num">€4,568 <span class="usd">$5,025</span></td>
-        <td class="num">€22,348 <span class="usd">$24,583</span></td>
-        <td class="num">€50,000 <span class="usd">$55,000</span></td>
-        <td class="num">€104,318 <span class="usd">$114,750</span></td>
-      </tr>
     </tbody>
   </table>
     </div>
@@ -861,13 +853,13 @@ function toggleChapter(id) {
   var el = document.getElementById(id);
   if (!el) return;
   var body = el.querySelector('.chapter-body');
-  var btn = el.querySelector('.chapter-toggle');
+  var btn = document.querySelector('.collapse-btn');
   if (body.classList.contains('collapsed')) {
     body.classList.remove('collapsed');
-    if (btn) btn.textContent = 'Collapse';
+    if (btn) btn.innerHTML = 'Collapse Budget &#9662;';
   } else {
     body.classList.add('collapsed');
-    if (btn) btn.textContent = 'Expand';
+    if (btn) btn.innerHTML = 'Expand Budget &#9656;';
   }
 }
 </script>
