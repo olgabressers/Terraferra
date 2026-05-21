@@ -40,6 +40,14 @@ h2{font-size:18px;font-weight:800;color:var(--orange);margin:40px 0 14px;padding
 h2 .sec-num{font-size:18px;font-weight:800;color:var(--orange);margin-right:10px}
 h3{font-size:14px;font-weight:800;color:var(--ink);margin:24px 0 10px;letter-spacing:.2px}
 
+/* ── TOC ────────────────────────────────── */
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 44px}
+.toc-card{display:block;background:white;border:1px solid var(--rule);border-top:3px solid var(--tf);padding:22px 24px;text-decoration:none;color:var(--ink);transition:border-top-color .15s ease,transform .15s ease}
+.toc-card:hover{border-top-color:var(--orange);transform:translateY(-2px)}
+.toc-card .toc-num{font-size:11px;font-weight:800;letter-spacing:2px;color:var(--orange);margin-bottom:10px}
+.toc-card .toc-title{font-size:18px;font-weight:800;color:var(--ink);line-height:1.25;margin-bottom:8px;letter-spacing:-.3px}
+.toc-card .toc-sub{font-size:12px;color:var(--sub);line-height:1.5}
+
 p{font-size:13px;color:var(--sub);margin-bottom:14px}
 p.lead{color:var(--ink);font-weight:500;font-size:13.5px}
 
@@ -83,6 +91,9 @@ ul li strong{color:var(--ink);font-weight:700}
   td.note{white-space:normal;min-width:200px}
   .fx-banner{font-size:11.5px}
   .gap-row{font-size:12px;flex-wrap:wrap;gap:6px}
+  .toc{grid-template-columns:1fr;gap:10px;margin-bottom:32px}
+  .toc-card{padding:18px 20px}
+  .toc-card .toc-title{font-size:16px}
 }
 @media(max-width:500px){
   .wrap{padding:16px 10px 40px}
@@ -104,8 +115,22 @@ ul li strong{color:var(--ink);font-weight:700}
     <div class="note">3-month average (Feb–May 2026) · ECB reference rate to be confirmed at signing</div>
   </div>
 
+  <!-- ── TABLE OF CONTENTS ── -->
+  <nav class="toc">
+    <a class="toc-card" href="#sec-budget">
+      <div class="toc-num">PART I</div>
+      <div class="toc-title">Budget</div>
+      <div class="toc-sub">Cost breakdown · People, Operating, One-time, Contingency, Total</div>
+    </a>
+    <a class="toc-card" href="#sec-sales">
+      <div class="toc-num">PART II</div>
+      <div class="toc-title">Sales Scenarios</div>
+      <div class="toc-sub">Revenue projections — Pessimistic / Base / Optimistic at 6 mo, 1 yr, 1.5 yr, 2 yr</div>
+    </a>
+  </nav>
+
   <!-- ============================================ -->
-  <h2><span class="sec-num">0.</span>Budget Summary</h2>
+  <h2 id="sec-budget"><span class="sec-num">0.</span>Budget Summary</h2>
   <p class="lead">Total operating cost at each horizon. Detail by category in sections 1–5.</p>
 
   <table>
@@ -471,7 +496,7 @@ ul li strong{color:var(--ink);font-weight:700}
   </table>
 
   <!-- ============================================ -->
-  <h2><span class="sec-num">6.</span>Sales Scenarios</h2>
+  <h2 id="sec-sales"><span class="sec-num">6.</span>Sales Scenarios</h2>
   <p class="lead">Revenue projections across three execution scenarios using the stated 7% take rate and $75/month designer subscription. Base case is calibrated to the $10K MRR milestone at Year 1. Horizons match the budget timeframes.</p>
 
   <h3>Headline — MRR run-rate at each horizon</h3>
