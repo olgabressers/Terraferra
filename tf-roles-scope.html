@@ -33,5 +33,8 @@ h1{font-size:36px;font-weight:800;letter-spacing:-1px;color:var(--ink);margin-bo
   <h1>TF Roles &amp; Scope</h1>
   <div class="placeholder">Content to be added — co-founder responsibilities, decision rights, role boundaries.</div>
 </div>
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" title="Back to top">&#8593;</button>
+<style>#back-to-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:#4B40C2;color:white;border:1px solid rgba(113,105,212,.5);border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900;transition:background .2s;}#back-to-top:hover{background:#2D2595;}</style>
+<script>window.addEventListener('scroll',function(){var b=document.getElementById('back-to-top');b.style.display=window.scrollY>400?'flex':'none';});</script>
 </body>
 </html>
