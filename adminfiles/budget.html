@@ -866,14 +866,72 @@ ul li strong{color:var(--ink);font-weight:700}
   <h3>Revenue Assumptions</h3>
   <div class="assumptions">
     <ul>
-      <li><strong>Active designers</strong> — scenario-specific; the primary growth driver, shown in each scenario table.</li>
-      <li><strong>GMV per designer</strong> — scenario-specific monthly sales volume per designer.</li>
+      <li><strong>Fixed parameters:</strong> designer subscription $75/month per active designer; GMV commission 7% of platform GMV.</li>
       <li><strong>Platform GMV</strong> = active designers × GMV per designer.</li>
-      <li><strong>Designer subscription</strong> — $75/month per active designer.</li>
-      <li><strong>GMV commission</strong> — 7% of platform GMV.</li>
-      <li><strong>Scenario revenue</strong> = designer subscription + 7% GMV commission. Crowdfunding, ambassador, and co-creator commissions are incremental revenue on top of these figures, scaling with platform activity once those features are live.</li>
+      <li><strong>Scenario revenue</strong> = designer subscription + 7% GMV commission. Crowdfunding, ambassador, and co-creator commissions are incremental on top, scaling with platform activity once those features are live.</li>
+      <li>The two assumed inputs below are the only variables; everything else is calculated from them.</li>
     </ul>
   </div>
+
+  <h3>Assumed Inputs — the two numbers driving every scenario</h3>
+  <table class="rev-table">
+    <thead>
+      <tr>
+        <th>Assumed input</th>
+        <th>Scenario</th>
+        <th class="num">6 Months</th>
+        <th class="num">1 Year</th>
+        <th class="num">1.5 Years</th>
+        <th class="num">2 Years</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td rowspan="3"><strong>Active designers</strong><br/><span style="font-size:11px;color:var(--sub)">count on platform</span></td>
+        <td>Pessimistic</td>
+        <td class="num">10</td>
+        <td class="num">40</td>
+        <td class="num">80</td>
+        <td class="num">150</td>
+      </tr>
+      <tr>
+        <td>Base</td>
+        <td class="num">30</td>
+        <td class="num">120</td>
+        <td class="num">240</td>
+        <td class="num">400</td>
+      </tr>
+      <tr>
+        <td>Optimistic</td>
+        <td class="num">60</td>
+        <td class="num">250</td>
+        <td class="num">500</td>
+        <td class="num">900</td>
+      </tr>
+      <tr>
+        <td rowspan="3"><strong>GMV per designer</strong><br/><span style="font-size:11px;color:var(--sub)">monthly sales each</span></td>
+        <td>Pessimistic</td>
+        <td class="num">€38 <span class="usd">$42</span></td>
+        <td class="num">€114 <span class="usd">$125</span></td>
+        <td class="num">€152 <span class="usd">$167</span></td>
+        <td class="num">€189 <span class="usd">$208</span></td>
+      </tr>
+      <tr>
+        <td>Base</td>
+        <td class="num">€76 <span class="usd">$83</span></td>
+        <td class="num">€189 <span class="usd">$208</span></td>
+        <td class="num">€265 <span class="usd">$292</span></td>
+        <td class="num">€379 <span class="usd">$417</span></td>
+      </tr>
+      <tr>
+        <td>Optimistic</td>
+        <td class="num">€114 <span class="usd">$125</span></td>
+        <td class="num">€303 <span class="usd">$333</span></td>
+        <td class="num">€455 <span class="usd">$500</span></td>
+        <td class="num">€682 <span class="usd">$750</span></td>
+      </tr>
+    </tbody>
+  </table>
 
   <h3>Worked Example — Base case at Year 1</h3>
   <table class="rev-table">
