@@ -75,22 +75,27 @@ h3{font-size:14px;font-weight:800;color:var(--ink);margin:24px 0 10px;letter-spa
 /* Executive Summary — 4 horizon cards */
 .exec-title{font-size:14px;font-weight:800;letter-spacing:.3px;color:var(--ink);margin:0 0 12px}
 .exec-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 36px}
-.exec-card{background:white;border:1px solid var(--rule);border-top:4px solid var(--ink);padding:18px 18px 16px}
-.exec-horizon{font-size:10px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--sub);margin-bottom:12px}
-.exec-cost-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);margin-bottom:4px}
-.exec-cost-val{font-size:24px;font-weight:800;letter-spacing:-.5px;color:var(--ink);line-height:1.05}
-.exec-cost-eur{font-size:11px;font-weight:600;color:#1E40AF;margin-top:2px}
-.exec-divider{height:1px;background:var(--rule);margin:14px 0 12px}
-.exec-rev-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);margin-bottom:8px}
-.exec-rev-row{display:flex;justify-content:space-between;align-items:baseline;padding:5px 0;font-size:12.5px;border-bottom:1px dashed var(--rule)}
+.exec-card{background:white;border:1px solid var(--rule);border-top:4px solid var(--ink);padding:18px 16px 14px;font-size:11.5px}
+.exec-horizon{font-size:11px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--ink);margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--ink)}
+.exec-block-label{font-size:9.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);margin:10px 0 5px}
+.exec-cost-line{display:flex;justify-content:space-between;align-items:baseline;font-size:14px;font-weight:800;padding:3px 0}
+.exec-cost-line .eur{color:var(--ink)}
+.exec-cost-line .usd{color:#1E40AF}
+.exec-divider{height:1px;background:var(--rule);margin:10px 0}
+.exec-rev-row{padding:5px 0;font-size:11.5px;border-bottom:1px dashed var(--rule)}
 .exec-rev-row:last-child{border-bottom:none}
-.exec-rev-row .scen{color:var(--ink);font-weight:500}
-.exec-rev-row .val{font-weight:800;font-variant-numeric:tabular-nums}
-.exec-rev-row.hit .val{color:#1F7A4E}
-.exec-rev-row.hit .val::after{content:" ✓";font-size:11px}
-.exec-rev-row.miss .val{color:#B23A2F}
-.exec-target{font-size:10.5px;color:var(--sub);margin-top:10px;font-style:italic;text-align:center;padding-top:8px;border-top:1px dashed var(--rule)}
-@media(max-width:900px){
+.exec-scen{font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--sub);margin-bottom:2px;display:flex;justify-content:space-between;align-items:center}
+.exec-scen .check{font-weight:800}
+.exec-vals{display:flex;justify-content:space-between;font-weight:700;font-variant-numeric:tabular-nums}
+.exec-vals .eur{color:var(--ink)}
+.exec-vals .usd{color:#1E40AF}
+.exec-rev-row.hit .exec-scen .check{color:#1F7A4E}
+.exec-rev-row.hit .eur{color:#1F7A4E}
+.exec-rev-row.hit .usd{color:#1F7A4E}
+.exec-rev-row.miss .eur{color:#B23A2F}
+.exec-rev-row.miss .usd{color:#B23A2F}
+.exec-target{font-size:10px;color:var(--sub);margin-top:8px;font-style:italic;text-align:center;padding-top:7px;border-top:1px dashed var(--rule);line-height:1.4}
+@media(max-width:1100px){
   .exec-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:500px){
@@ -199,59 +204,175 @@ ul li strong{color:var(--ink);font-weight:700}
   </nav>
 
   <!-- ── EXECUTIVE SUMMARY ── -->
-  <h3 class="exec-title">Executive Summary — Costs vs Monthly Revenue</h3>
+  <h3 class="exec-title">Executive Summary — Costs vs Revenue</h3>
   <div class="exec-grid">
 
+    <!-- 6 MONTHS -->
     <div class="exec-card">
       <div class="exec-horizon">6 Months</div>
-      <div class="exec-cost-label">Cumulative cost</div>
-      <div class="exec-cost-val">$346K</div>
-      <div class="exec-cost-eur">€315K</div>
+
+      <div class="exec-block-label">Cumulative cost</div>
+      <div class="exec-cost-line"><span class="eur">€315K</span><span class="usd">$346K</span></div>
+
       <div class="exec-divider"></div>
-      <div class="exec-rev-label">Monthly revenue</div>
-      <div class="exec-rev-row miss"><span class="scen">Pessimistic</span><span class="val">$779</span></div>
-      <div class="exec-rev-row miss"><span class="scen">Base</span><span class="val">$2,425</span></div>
-      <div class="exec-rev-row miss"><span class="scen">Optimistic</span><span class="val">$5,025</span></div>
-      <div class="exec-target">Target: $10,000/mo</div>
+
+      <div class="exec-block-label">Monthly revenue</div>
+      <div class="exec-rev-row miss">
+        <div class="exec-scen">Pessimistic <span class="check">✗</span></div>
+        <div class="exec-vals"><span class="eur">€708</span><span class="usd">$779</span></div>
+      </div>
+      <div class="exec-rev-row miss">
+        <div class="exec-scen">Base <span class="check">✗</span></div>
+        <div class="exec-vals"><span class="eur">€2,205</span><span class="usd">$2,425</span></div>
+      </div>
+      <div class="exec-rev-row miss">
+        <div class="exec-scen">Optimistic <span class="check">✗</span></div>
+        <div class="exec-vals"><span class="eur">€4,568</span><span class="usd">$5,025</span></div>
+      </div>
+
+      <div class="exec-divider"></div>
+
+      <div class="exec-block-label">Annual revenue</div>
+      <div class="exec-rev-row miss">
+        <div class="exec-scen">Pessimistic <span class="check">✗</span></div>
+        <div class="exec-vals"><span class="eur">€8K</span><span class="usd">$9K</span></div>
+      </div>
+      <div class="exec-rev-row miss">
+        <div class="exec-scen">Base <span class="check">✗</span></div>
+        <div class="exec-vals"><span class="eur">€26K</span><span class="usd">$29K</span></div>
+      </div>
+      <div class="exec-rev-row miss">
+        <div class="exec-scen">Optimistic <span class="check">✗</span></div>
+        <div class="exec-vals"><span class="eur">€55K</span><span class="usd">$60K</span></div>
+      </div>
+
+      <div class="exec-target">Target<br/>$10K/mo · $120K/yr</div>
     </div>
 
+    <!-- 1 YEAR -->
     <div class="exec-card">
       <div class="exec-horizon">1 Year</div>
-      <div class="exec-cost-label">Cumulative cost</div>
-      <div class="exec-cost-val">$655K</div>
-      <div class="exec-cost-eur">€595K</div>
+
+      <div class="exec-block-label">Cumulative cost</div>
+      <div class="exec-cost-line"><span class="eur">€595K</span><span class="usd">$655K</span></div>
+
       <div class="exec-divider"></div>
-      <div class="exec-rev-label">Monthly revenue</div>
-      <div class="exec-rev-row miss"><span class="scen">Pessimistic</span><span class="val">$3,350</span></div>
-      <div class="exec-rev-row hit"><span class="scen">Base</span><span class="val">$10,750</span></div>
-      <div class="exec-rev-row hit"><span class="scen">Optimistic</span><span class="val">$24,583</span></div>
-      <div class="exec-target">Target: $10,000/mo</div>
+
+      <div class="exec-block-label">Monthly revenue</div>
+      <div class="exec-rev-row miss">
+        <div class="exec-scen">Pessimistic <span class="check">✗</span></div>
+        <div class="exec-vals"><span class="eur">€3,045</span><span class="usd">$3,350</span></div>
+      </div>
+      <div class="exec-rev-row hit">
+        <div class="exec-scen">Base <span class="check">✓</span></div>
+        <div class="exec-vals"><span class="eur">€9,773</span><span class="usd">$10,750</span></div>
+      </div>
+      <div class="exec-rev-row hit">
+        <div class="exec-scen">Optimistic <span class="check">✓</span></div>
+        <div class="exec-vals"><span class="eur">€22,348</span><span class="usd">$24,583</span></div>
+      </div>
+
+      <div class="exec-divider"></div>
+
+      <div class="exec-block-label">Annual revenue</div>
+      <div class="exec-rev-row miss">
+        <div class="exec-scen">Pessimistic <span class="check">✗</span></div>
+        <div class="exec-vals"><span class="eur">€37K</span><span class="usd">$40K</span></div>
+      </div>
+      <div class="exec-rev-row hit">
+        <div class="exec-scen">Base <span class="check">✓</span></div>
+        <div class="exec-vals"><span class="eur">€117K</span><span class="usd">$129K</span></div>
+      </div>
+      <div class="exec-rev-row hit">
+        <div class="exec-scen">Optimistic <span class="check">✓</span></div>
+        <div class="exec-vals"><span class="eur">€268K</span><span class="usd">$295K</span></div>
+      </div>
+
+      <div class="exec-target">Target<br/>$10K/mo · $120K/yr</div>
     </div>
 
+    <!-- 1.5 YEARS -->
     <div class="exec-card">
       <div class="exec-horizon">1.5 Years</div>
-      <div class="exec-cost-label">Cumulative cost</div>
-      <div class="exec-cost-val">$964K</div>
-      <div class="exec-cost-eur">€876K</div>
+
+      <div class="exec-block-label">Cumulative cost</div>
+      <div class="exec-cost-line"><span class="eur">€876K</span><span class="usd">$964K</span></div>
+
       <div class="exec-divider"></div>
-      <div class="exec-rev-label">Monthly revenue</div>
-      <div class="exec-rev-row miss"><span class="scen">Pessimistic</span><span class="val">$6,933</span></div>
-      <div class="exec-rev-row hit"><span class="scen">Base</span><span class="val">$22,900</span></div>
-      <div class="exec-rev-row hit"><span class="scen">Optimistic</span><span class="val">$55,000</span></div>
-      <div class="exec-target">Target: $10,000/mo</div>
+
+      <div class="exec-block-label">Monthly revenue</div>
+      <div class="exec-rev-row miss">
+        <div class="exec-scen">Pessimistic <span class="check">✗</span></div>
+        <div class="exec-vals"><span class="eur">€6,303</span><span class="usd">$6,933</span></div>
+      </div>
+      <div class="exec-rev-row hit">
+        <div class="exec-scen">Base <span class="check">✓</span></div>
+        <div class="exec-vals"><span class="eur">€20,818</span><span class="usd">$22,900</span></div>
+      </div>
+      <div class="exec-rev-row hit">
+        <div class="exec-scen">Optimistic <span class="check">✓</span></div>
+        <div class="exec-vals"><span class="eur">€50,000</span><span class="usd">$55,000</span></div>
+      </div>
+
+      <div class="exec-divider"></div>
+
+      <div class="exec-block-label">Annual revenue</div>
+      <div class="exec-rev-row miss">
+        <div class="exec-scen">Pessimistic <span class="check">✗</span></div>
+        <div class="exec-vals"><span class="eur">€76K</span><span class="usd">$83K</span></div>
+      </div>
+      <div class="exec-rev-row hit">
+        <div class="exec-scen">Base <span class="check">✓</span></div>
+        <div class="exec-vals"><span class="eur">€250K</span><span class="usd">$275K</span></div>
+      </div>
+      <div class="exec-rev-row hit">
+        <div class="exec-scen">Optimistic <span class="check">✓</span></div>
+        <div class="exec-vals"><span class="eur">€600K</span><span class="usd">$660K</span></div>
+      </div>
+
+      <div class="exec-target">Target<br/>$10K/mo · $120K/yr</div>
     </div>
 
+    <!-- 2 YEARS -->
     <div class="exec-card">
       <div class="exec-horizon">2 Years</div>
-      <div class="exec-cost-label">Cumulative cost</div>
-      <div class="exec-cost-val">$1.27M</div>
-      <div class="exec-cost-eur">€1.16M</div>
+
+      <div class="exec-block-label">Cumulative cost</div>
+      <div class="exec-cost-line"><span class="eur">€1.16M</span><span class="usd">$1.27M</span></div>
+
       <div class="exec-divider"></div>
-      <div class="exec-rev-label">Monthly revenue</div>
-      <div class="exec-rev-row hit"><span class="scen">Pessimistic</span><span class="val">$13,438</span></div>
-      <div class="exec-rev-row hit"><span class="scen">Base</span><span class="val">$41,667</span></div>
-      <div class="exec-rev-row hit"><span class="scen">Optimistic</span><span class="val">$114,750</span></div>
-      <div class="exec-target">Target: $10,000/mo</div>
+
+      <div class="exec-block-label">Monthly revenue</div>
+      <div class="exec-rev-row hit">
+        <div class="exec-scen">Pessimistic <span class="check">✓</span></div>
+        <div class="exec-vals"><span class="eur">€12,216</span><span class="usd">$13,438</span></div>
+      </div>
+      <div class="exec-rev-row hit">
+        <div class="exec-scen">Base <span class="check">✓</span></div>
+        <div class="exec-vals"><span class="eur">€37,879</span><span class="usd">$41,667</span></div>
+      </div>
+      <div class="exec-rev-row hit">
+        <div class="exec-scen">Optimistic <span class="check">✓</span></div>
+        <div class="exec-vals"><span class="eur">€104,318</span><span class="usd">$114,750</span></div>
+      </div>
+
+      <div class="exec-divider"></div>
+
+      <div class="exec-block-label">Annual revenue</div>
+      <div class="exec-rev-row hit">
+        <div class="exec-scen">Pessimistic <span class="check">✓</span></div>
+        <div class="exec-vals"><span class="eur">€147K</span><span class="usd">$161K</span></div>
+      </div>
+      <div class="exec-rev-row hit">
+        <div class="exec-scen">Base <span class="check">✓</span></div>
+        <div class="exec-vals"><span class="eur">€455K</span><span class="usd">$500K</span></div>
+      </div>
+      <div class="exec-rev-row hit">
+        <div class="exec-scen">Optimistic <span class="check">✓</span></div>
+        <div class="exec-vals"><span class="eur">€1.25M</span><span class="usd">$1.38M</span></div>
+      </div>
+
+      <div class="exec-target">Target<br/>$10K/mo · $120K/yr</div>
     </div>
 
   </div>
