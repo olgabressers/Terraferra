@@ -72,12 +72,30 @@ h3{font-size:14px;font-weight:800;color:var(--ink);margin:24px 0 10px;letter-spa
 .collapse-btn:hover{border-color:var(--tf);color:var(--tf)}
 .collapse-btn[data-chapter="chapter-sales"]:hover{border-color:var(--orange);color:var(--orange)}
 
-/* Executive Summary */
-.exec-summary{background:white;border:1px solid var(--rule);border-top:4px solid var(--ink);padding:24px 26px 20px;margin:0 0 36px}
-.exec-summary .es-title{font-size:14px;font-weight:800;letter-spacing:.3px;color:var(--ink);margin-bottom:14px}
-.exec-summary table{border:none;margin:0}
-.exec-summary th{background:var(--ink);font-size:10.5px}
-.exec-summary .cost-row td{background:var(--tf-ghost);font-weight:800}
+/* Executive Summary — 4 horizon cards */
+.exec-title{font-size:14px;font-weight:800;letter-spacing:.3px;color:var(--ink);margin:0 0 12px}
+.exec-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 36px}
+.exec-card{background:white;border:1px solid var(--rule);border-top:4px solid var(--ink);padding:18px 18px 16px}
+.exec-horizon{font-size:10px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--sub);margin-bottom:12px}
+.exec-cost-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);margin-bottom:4px}
+.exec-cost-val{font-size:24px;font-weight:800;letter-spacing:-.5px;color:var(--ink);line-height:1.05}
+.exec-cost-eur{font-size:11px;font-weight:600;color:#1E40AF;margin-top:2px}
+.exec-divider{height:1px;background:var(--rule);margin:14px 0 12px}
+.exec-rev-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);margin-bottom:8px}
+.exec-rev-row{display:flex;justify-content:space-between;align-items:baseline;padding:5px 0;font-size:12.5px;border-bottom:1px dashed var(--rule)}
+.exec-rev-row:last-child{border-bottom:none}
+.exec-rev-row .scen{color:var(--ink);font-weight:500}
+.exec-rev-row .val{font-weight:800;font-variant-numeric:tabular-nums}
+.exec-rev-row.hit .val{color:#1F7A4E}
+.exec-rev-row.hit .val::after{content:" ✓";font-size:11px}
+.exec-rev-row.miss .val{color:#B23A2F}
+.exec-target{font-size:10.5px;color:var(--sub);margin-top:10px;font-style:italic;text-align:center;padding-top:8px;border-top:1px dashed var(--rule)}
+@media(max-width:900px){
+  .exec-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:500px){
+  .exec-grid{grid-template-columns:1fr}
+}
 
 /* MRR target highlights */
 .mrr-hit{color:#1F7A4E;font-weight:800}
@@ -181,50 +199,61 @@ ul li strong{color:var(--ink);font-weight:700}
   </nav>
 
   <!-- ── EXECUTIVE SUMMARY ── -->
-  <div class="exec-summary">
-    <div class="es-title">Executive Summary — Costs vs Monthly Revenue</div>
-    <table class="rev-table">
-      <thead>
-        <tr>
-          <th>Block</th>
-          <th class="num">6 Months</th>
-          <th class="num">1 Year</th>
-          <th class="num">1.5 Years</th>
-          <th class="num">2 Years</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="cost-row">
-          <td>Cumulative costs (total spent)</td>
-          <td class="num">€314,765 <span class="usd">$346,242</span></td>
-          <td class="num">€595,430 <span class="usd">$654,973</span></td>
-          <td class="num">€876,095 <span class="usd">$963,705</span></td>
-          <td class="num">€1,156,760 <span class="usd">$1,272,436</span></td>
-        </tr>
-        <tr>
-          <td>Monthly revenue — Pessimistic</td>
-          <td class="num mrr-miss">€708 <span class="usd">$779</span></td>
-          <td class="num mrr-miss">€3,045 <span class="usd">$3,350</span></td>
-          <td class="num mrr-miss">€6,303 <span class="usd">$6,933</span></td>
-          <td class="num mrr-hit">€12,216 <span class="usd">$13,438</span></td>
-        </tr>
-        <tr>
-          <td>Monthly revenue — Base ($10K target Y1)</td>
-          <td class="num mrr-miss">€2,205 <span class="usd">$2,425</span></td>
-          <td class="num mrr-hit">€9,773 <span class="usd">$10,750</span></td>
-          <td class="num mrr-hit">€20,818 <span class="usd">$22,900</span></td>
-          <td class="num mrr-hit">€37,879 <span class="usd">$41,667</span></td>
-        </tr>
-        <tr>
-          <td>Monthly revenue — Optimistic</td>
-          <td class="num mrr-miss">€4,568 <span class="usd">$5,025</span></td>
-          <td class="num mrr-hit">€22,348 <span class="usd">$24,583</span></td>
-          <td class="num mrr-hit">€50,000 <span class="usd">$55,000</span></td>
-          <td class="num mrr-hit">€104,318 <span class="usd">$114,750</span></td>
-        </tr>
-      </tbody>
-    </table>
-    <p style="font-size:11.5px;color:var(--sub);margin-top:10px;margin-bottom:0">Costs are cumulative spend at each horizon. Monthly revenue is the run-rate at the end of the period. Green cells meet or exceed the $10,000/month funding target.</p>
+  <h3 class="exec-title">Executive Summary — Costs vs Monthly Revenue</h3>
+  <div class="exec-grid">
+
+    <div class="exec-card">
+      <div class="exec-horizon">6 Months</div>
+      <div class="exec-cost-label">Cumulative cost</div>
+      <div class="exec-cost-val">$346K</div>
+      <div class="exec-cost-eur">€315K</div>
+      <div class="exec-divider"></div>
+      <div class="exec-rev-label">Monthly revenue</div>
+      <div class="exec-rev-row miss"><span class="scen">Pessimistic</span><span class="val">$779</span></div>
+      <div class="exec-rev-row miss"><span class="scen">Base</span><span class="val">$2,425</span></div>
+      <div class="exec-rev-row miss"><span class="scen">Optimistic</span><span class="val">$5,025</span></div>
+      <div class="exec-target">Target: $10,000/mo</div>
+    </div>
+
+    <div class="exec-card">
+      <div class="exec-horizon">1 Year</div>
+      <div class="exec-cost-label">Cumulative cost</div>
+      <div class="exec-cost-val">$655K</div>
+      <div class="exec-cost-eur">€595K</div>
+      <div class="exec-divider"></div>
+      <div class="exec-rev-label">Monthly revenue</div>
+      <div class="exec-rev-row miss"><span class="scen">Pessimistic</span><span class="val">$3,350</span></div>
+      <div class="exec-rev-row hit"><span class="scen">Base</span><span class="val">$10,750</span></div>
+      <div class="exec-rev-row hit"><span class="scen">Optimistic</span><span class="val">$24,583</span></div>
+      <div class="exec-target">Target: $10,000/mo</div>
+    </div>
+
+    <div class="exec-card">
+      <div class="exec-horizon">1.5 Years</div>
+      <div class="exec-cost-label">Cumulative cost</div>
+      <div class="exec-cost-val">$964K</div>
+      <div class="exec-cost-eur">€876K</div>
+      <div class="exec-divider"></div>
+      <div class="exec-rev-label">Monthly revenue</div>
+      <div class="exec-rev-row miss"><span class="scen">Pessimistic</span><span class="val">$6,933</span></div>
+      <div class="exec-rev-row hit"><span class="scen">Base</span><span class="val">$22,900</span></div>
+      <div class="exec-rev-row hit"><span class="scen">Optimistic</span><span class="val">$55,000</span></div>
+      <div class="exec-target">Target: $10,000/mo</div>
+    </div>
+
+    <div class="exec-card">
+      <div class="exec-horizon">2 Years</div>
+      <div class="exec-cost-label">Cumulative cost</div>
+      <div class="exec-cost-val">$1.27M</div>
+      <div class="exec-cost-eur">€1.16M</div>
+      <div class="exec-divider"></div>
+      <div class="exec-rev-label">Monthly revenue</div>
+      <div class="exec-rev-row hit"><span class="scen">Pessimistic</span><span class="val">$13,438</span></div>
+      <div class="exec-rev-row hit"><span class="scen">Base</span><span class="val">$41,667</span></div>
+      <div class="exec-rev-row hit"><span class="scen">Optimistic</span><span class="val">$114,750</span></div>
+      <div class="exec-target">Target: $10,000/mo</div>
+    </div>
+
   </div>
 
   <div class="collapse-bar">
