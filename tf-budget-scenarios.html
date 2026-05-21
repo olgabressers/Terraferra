@@ -10,28 +10,346 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --tf:#4B40C2;
+  --tf-dark:#2D2595;
+  --tf-light:#ECEAF9;
+  --tf-ghost:#F4F2FC;
   --orange:#E86820;
+  --orange-light:#F5C9A8;
   --off-white:#F7F6FB;
   --ink:#12102B;
   --sub:#5B5880;
   --rule:#D8D4EF;
+  --green:#1F7A4E;
+  --red:#B23A2F;
 }
-body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink);min-height:100vh}
-.wrap{max-width:1100px;margin:0 auto;padding:48px 60px 80px}
-.back{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);text-decoration:none;display:inline-block;margin-bottom:32px;opacity:.7}
+body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink);line-height:1.6}
+.wrap{max-width:1200px;margin:0 auto;padding:40px 48px 80px}
+
+.back{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);text-decoration:none;display:inline-block;margin-bottom:24px;opacity:.7}
 .back:hover{color:var(--tf);opacity:1}
+
 .eyebrow{font-size:10px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
-h1{font-size:36px;font-weight:800;letter-spacing:-1px;color:var(--ink);margin-bottom:48px;border-bottom:1.5px solid var(--tf);padding-bottom:18px}
-.placeholder{background:white;border:1px dashed var(--rule);padding:48px;text-align:center;font-size:13px;color:var(--sub);font-style:italic}
-@media(max-width:900px){.wrap{padding:32px 24px 56px}h1{font-size:28px}}
+h1{font-size:36px;font-weight:800;letter-spacing:-1px;color:var(--ink);margin-bottom:8px}
+.subtitle{font-size:13px;color:var(--sub);margin-bottom:32px}
+
+.fx-banner{background:white;border:1px solid var(--rule);border-left:4px solid var(--orange);padding:14px 20px;font-size:12.5px;color:var(--ink);margin-bottom:40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.fx-banner strong{color:var(--orange);font-weight:800;letter-spacing:.3px}
+.fx-banner .note{font-size:11px;color:var(--sub)}
+
+h2{font-size:18px;font-weight:800;color:var(--orange);margin:40px 0 14px;padding-bottom:8px;border-bottom:1.5px solid var(--tf);letter-spacing:-.3px}
+h2 .sec-num{font-size:18px;font-weight:800;color:var(--orange);margin-right:10px}
+
+p{font-size:13px;color:var(--sub);margin-bottom:14px}
+p.lead{color:var(--ink);font-weight:500;font-size:13.5px}
+
+table{width:100%;border-collapse:collapse;background:white;border:1px solid var(--rule);margin-bottom:16px;font-size:12.5px}
+th{background:var(--tf);color:white;text-align:left;padding:10px 12px;font-size:10.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase}
+td{padding:10px 12px;border-bottom:1px solid var(--rule);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.num{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+td.note{color:var(--sub);font-size:12px}
+tr.subtotal td{background:var(--tf-ghost);font-weight:700;border-top:1px solid var(--rule)}
+tr.total td{background:var(--tf);color:white;font-weight:800}
+tr.total td.num{color:white}
+
+ul{margin:0 0 16px 18px}
+ul li{font-size:13px;color:var(--ink);margin-bottom:8px;line-height:1.55}
+ul li strong{color:var(--ink);font-weight:700}
+
+.callout{background:white;border:1px solid var(--rule);border-left:4px solid var(--red);padding:18px 22px;margin:20px 0;font-size:13px;color:var(--ink)}
+.callout-title{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:6px}
+
+.gap-row{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;background:white;border:1px solid var(--rule);margin-bottom:8px;font-size:13px}
+.gap-row strong{font-variant-numeric:tabular-nums}
+.gap-row.target{border-left:4px solid var(--green)}
+.gap-row.actual{border-left:4px solid var(--orange)}
+.gap-row.gap{border-left:4px solid var(--red);background:#FEF5F3}
+.gap-row.gap strong{color:var(--red);font-weight:800}
+
+@media(max-width:900px){
+  .wrap{padding:24px 16px 60px}
+  h1{font-size:26px}
+  table{font-size:11px}
+  th,td{padding:8px}
+}
 </style>
 </head>
 <body>
+
 <div class="wrap">
   <a class="back" href="index.html">← Terra Ferra</a>
-  <div class="eyebrow">01</div>
+  <div class="eyebrow">01 · Draft v1 · 21 May 2026</div>
   <h1>TF Budget &amp; Scenarios</h1>
-  <div class="placeholder">Content to be added — funding, runway, salary scenarios, cap table modelling.</div>
+  <div class="subtitle">24-month operating budget · zero-revenue assumption · 3-person founding team</div>
+
+  <div class="fx-banner">
+    <div>Working rate: <strong>1 EUR = 1.10 USD</strong> &nbsp;·&nbsp; 1 USD = 0.909 EUR</div>
+    <div class="note">Indicative — verify on ECB reference rate (ecb.europa.eu) at signing</div>
+  </div>
+
+  <!-- ============================================ -->
+  <h2><span class="sec-num">1.</span>Maxim's stated team &amp; costs</h2>
+  <p class="lead">Per Maxim, 21 May 2026 conversation: 3 founders on payroll, $500K target raise to fund 24 months at zero revenue.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th class="num">Monthly EUR</th>
+        <th class="num">Monthly USD</th>
+        <th class="num">24-mo EUR</th>
+        <th class="num">24-mo USD</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Salary — Maxim</td>
+        <td class="num">€8,000</td>
+        <td class="num">$8,800</td>
+        <td class="num">€192,000</td>
+        <td class="num">$211,200</td>
+        <td class="note">Active role beyond advisor</td>
+      </tr>
+      <tr>
+        <td>Salary — Olga (CEO)</td>
+        <td class="num">€8,000</td>
+        <td class="num">$8,800</td>
+        <td class="num">€192,000</td>
+        <td class="num">$211,200</td>
+        <td class="note">Co-founder, operating CEO</td>
+      </tr>
+      <tr>
+        <td>Salary — CTO</td>
+        <td class="num">€6,500</td>
+        <td class="num">$7,150</td>
+        <td class="num">€156,000</td>
+        <td class="num">$171,600</td>
+        <td class="note">Midpoint of Maxim's €6–7K range</td>
+      </tr>
+      <tr>
+        <td>Product development</td>
+        <td class="num">€3,000</td>
+        <td class="num">$3,300</td>
+        <td class="num">€72,000</td>
+        <td class="num">$79,200</td>
+        <td class="note">Midpoint of Maxim's €2–4K; tools, APIs, hosting, third-party services, separate from CTO salary</td>
+      </tr>
+      <tr class="subtotal">
+        <td>Subtotal — Maxim's stated</td>
+        <td class="num">€25,500</td>
+        <td class="num">$28,050</td>
+        <td class="num">€612,000</td>
+        <td class="num">$673,200</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <div class="callout-title">Critical observation</div>
+    Maxim's stated salaries plus product development already total <strong>$673K over 24 months</strong> — $173K above his stated $500K target, before any other operating cost is added.
+  </div>
+
+  <!-- ============================================ -->
+  <h2><span class="sec-num">2.</span>Essential operating costs not in baseline</h2>
+  <p class="lead">A Delaware C-corp with EU founders, US conferences, and outside investors carries these required costs. They are not optional.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th class="num">Annual EUR</th>
+        <th class="num">Annual USD</th>
+        <th class="num">24-mo EUR</th>
+        <th class="num">24-mo USD</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Travel — NYC conferences</td>
+        <td class="num">€32,000</td>
+        <td class="num">$35,200</td>
+        <td class="num">€64,000</td>
+        <td class="num">$70,400</td>
+        <td class="note">4 trips/yr × 2 people. Per trip: €700–1,200 flight + €1,400 hotel (4 nights × €350) + €500 meals + €500 conf ticket = ~€4,000 pp</td>
+      </tr>
+      <tr>
+        <td>Legal — US startup counsel</td>
+        <td class="num">€18,000</td>
+        <td class="num">$19,800</td>
+        <td class="num">€36,000</td>
+        <td class="num">$39,600</td>
+        <td class="note">SAFE rounds, founder agreements, CTO hire docs, IP assignments, employment law. Active deal year.</td>
+      </tr>
+      <tr>
+        <td>Tax &amp; accounting — US + NL</td>
+        <td class="num">€8,000</td>
+        <td class="num">$8,800</td>
+        <td class="num">€16,000</td>
+        <td class="num">$17,600</td>
+        <td class="note">Delaware franchise tax, US federal filings, NL contractor/holding accounting</td>
+      </tr>
+      <tr>
+        <td>D&amp;O insurance</td>
+        <td class="num">€5,000</td>
+        <td class="num">$5,500</td>
+        <td class="num">€10,000</td>
+        <td class="num">$11,000</td>
+        <td class="note">Standard for Delaware C-corp once outside investors are on cap table</td>
+      </tr>
+      <tr>
+        <td>Software / SaaS stack</td>
+        <td class="num">€8,400</td>
+        <td class="num">$9,240</td>
+        <td class="num">€16,800</td>
+        <td class="num">$18,480</td>
+        <td class="note">~€700/mo. Slack, GitHub, AWS/hosting, Figma, Notion, Linear, Google Workspace, Zoom, payment processing</td>
+      </tr>
+      <tr>
+        <td>Freelance — design, marketing, occasional dev</td>
+        <td class="num">€24,000</td>
+        <td class="num">$26,400</td>
+        <td class="num">€48,000</td>
+        <td class="num">$52,800</td>
+        <td class="note">€2,000/mo flexible — brand work, growth campaigns, dev surge capacity</td>
+      </tr>
+      <tr>
+        <td>Marketing / PR / demo collateral</td>
+        <td class="num">€10,000</td>
+        <td class="num">$11,000</td>
+        <td class="num">€20,000</td>
+        <td class="num">$22,000</td>
+        <td class="note">Pre-launch; scales separately with traction</td>
+      </tr>
+      <tr class="subtotal">
+        <td>Subtotal — essentials</td>
+        <td class="num">€105,400</td>
+        <td class="num">$115,940</td>
+        <td class="num">€210,800</td>
+        <td class="num">$231,880</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ============================================ -->
+  <h2><span class="sec-num">3.</span>Contingency</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th class="num">24-mo EUR</th>
+        <th class="num">24-mo USD</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Contingency — 10% buffer on operating total</td>
+        <td class="num">€82,280</td>
+        <td class="num">$90,508</td>
+        <td class="note">Currency moves, unanticipated legal/tax, banking fees, wire costs, exec recruiting if needed</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ============================================ -->
+  <h2><span class="sec-num">4.</span>Total 24-month requirement vs $500K target</h2>
+
+  <table>
+    <thead>
+      <tr><th>Block</th><th class="num">24-mo EUR</th><th class="num">24-mo USD</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Maxim's stated baseline (salaries + product)</td>
+        <td class="num">€612,000</td>
+        <td class="num">$673,200</td>
+      </tr>
+      <tr>
+        <td>Essentials (travel, legal, tax, ops)</td>
+        <td class="num">€210,800</td>
+        <td class="num">$231,880</td>
+      </tr>
+      <tr>
+        <td>Contingency 10%</td>
+        <td class="num">€82,280</td>
+        <td class="num">$90,508</td>
+      </tr>
+      <tr class="total">
+        <td>TOTAL 24-month requirement</td>
+        <td class="num">€905,080</td>
+        <td class="num">$995,588</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="gap-row target"><span>Maxim's stated raise target</span><strong>$500,000 · €454,545</strong></div>
+  <div class="gap-row actual"><span>Full 24-month requirement (above)</span><strong>$995,588 · €905,080</strong></div>
+  <div class="gap-row gap"><span>Gap</span><strong>$495,588 · €450,535</strong></div>
+
+  <!-- ============================================ -->
+  <h2><span class="sec-num">5.</span>Scenarios to close the gap</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Scenario</th>
+        <th class="num">USD raise</th>
+        <th class="num">EUR raise</th>
+        <th>What changes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>A — Raise to plan</strong></td>
+        <td class="num">$1,000,000</td>
+        <td class="num">€909,091</td>
+        <td class="note">Fund the stated team and ops for 24 months with contingency. Doubles the bridge target.</td>
+      </tr>
+      <tr>
+        <td><strong>B — Hold $500K, halve runway</strong></td>
+        <td class="num">$500,000</td>
+        <td class="num">€454,545</td>
+        <td class="note">$500K covers stated team for ~12 months, not 24. Forces a follow-on raise inside year 1.</td>
+      </tr>
+      <tr>
+        <td><strong>C — Hold $500K, reduce salaries</strong></td>
+        <td class="num">$500,000</td>
+        <td class="num">€454,545</td>
+        <td class="note">Founders at €5K/mo, CTO at €5K/mo. Saves €180K over 24 months. Runway extends to ~18 months.</td>
+      </tr>
+      <tr>
+        <td><strong>D — Hold $500K, delay CTO</strong></td>
+        <td class="num">$500,000</td>
+        <td class="num">€454,545</td>
+        <td class="note">CTO joins month 6 instead of day 1. Saves ~€39K. Modest extension; CEO can't ship product alone.</td>
+      </tr>
+      <tr>
+        <td><strong>E — Combined (C + D)</strong></td>
+        <td class="num">$500,000</td>
+        <td class="num">€454,545</td>
+        <td class="note">Reduced salaries + delayed CTO. Brings stated team to ~18 months of runway on $500K.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ============================================ -->
+  <h2><span class="sec-num">6.</span>Assumptions to verify with Maxim before finalizing</h2>
+  <ul>
+    <li><strong>Exchange rate at signing.</strong> 1.10 is a working figure. Rate locks at the signing date, not today.</li>
+    <li><strong>Gross vs net salary.</strong> Is €8K gross (founder pays own NL/US tax) or net? Gross-up changes the cost line by 30–50%.</li>
+    <li><strong>Maxim's $270K prior contribution.</strong> Is this counted toward the new $500K, or does the new $500K start clean?</li>
+    <li><strong>CTO start date.</strong> Day 1, month 4, or month 6?</li>
+    <li><strong>Office / co-working.</strong> Remote-first or co-working desks (~€500/mo per founder)?</li>
+    <li><strong>Health insurance / pension.</strong> Founders cover personally from salary, or is this a corporate line item?</li>
+    <li><strong>Board / observer compensation.</strong> Any cash or expense reimbursement for board attendance?</li>
+    <li><strong>Currency of bank account.</strong> Delaware C-corp banks in USD. Salaries paid to NL contractors require FX. Bank/wire fees ~€20–50 per transfer × monthly = ~€2K/yr (rolled into contingency).</li>
+  </ul>
+
 </div>
+
 </body>
 </html>
