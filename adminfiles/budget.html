@@ -109,6 +109,15 @@ h3{font-size:14px;font-weight:800;color:var(--ink);margin:24px 0 10px;letter-spa
 /* Revenue tables — inline USD for compactness */
 .rev-table td.num .usd{display:inline;margin-left:8px;font-size:11px;font-weight:600;color:#1E40AF}
 .rev-table td.num{font-size:13px;line-height:1.4}
+
+/* Revenue formula block */
+.formula-box{background:white;border:2px solid var(--ink);padding:22px 24px;margin:0 0 28px;font-size:13px;color:var(--ink)}
+.formula-title{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
+.formula-equation{background:var(--tf-ghost);padding:14px 18px;font-family:'Courier New',monospace;font-size:13px;font-weight:700;color:var(--ink);margin-bottom:14px;border-left:4px solid var(--orange);line-height:1.6}
+.formula-box ul{margin:0 0 14px 18px}
+.formula-box ul li{font-size:12.5px;color:var(--ink);margin-bottom:6px;line-height:1.5}
+.formula-flag{background:#FEF5F3;border-left:4px solid var(--red);padding:12px 16px;font-size:12.5px;color:var(--ink)}
+.formula-flag strong{color:var(--red);font-weight:800;letter-spacing:.3px}
 .target-banner{background:white;border:1px solid var(--rule);border-left:5px solid var(--green);padding:16px 22px;margin:0 0 24px;font-size:13px;color:var(--ink);display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 .target-banner strong{color:var(--green);font-weight:800;font-size:15px}
 .target-banner .tb-label{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub)}
@@ -840,6 +849,22 @@ ul li strong{color:var(--ink);font-weight:700}
     </div>
     <div class="chapter-body">
   
+  <div class="formula-box">
+    <div class="formula-title">Earning Formula — source: 2022 Pitch Deck, page 7</div>
+    <div class="formula-equation">
+      Total Platform Revenue = 7% × GMV &nbsp;+&nbsp; 7% × Crowdfunding &nbsp;+&nbsp; 10% × Ambassador Rewards &nbsp;+&nbsp; 10% × Co-creator Rewards
+    </div>
+    <ul>
+      <li><strong>7% × GMV</strong> — commission on all platform sales (Gross Merchandise Value).</li>
+      <li><strong>7% × Crowdfunding</strong> — commission on fashion crowdfunding raised through the platform.</li>
+      <li><strong>10% × Ambassador Rewards</strong> — ambassadors typically earn 10–15% of attributed sales; Terra Ferra takes 10% of that, ≈ 1–1.5% of sales (per deck note p.7).</li>
+      <li><strong>10% × Co-creator Rewards</strong> — same structure as ambassador (fixed reward or royalty paid to co-creator; Terra Ferra takes 10%).</li>
+    </ul>
+    <div class="formula-flag">
+      <strong>Validate with Maxim before sending to investors.</strong> Current scenarios below model <strong>7% × GMV + $75/month designer subscription</strong>. The $75 subscription is <strong>not in the 2022 deck</strong>. Crowdfunding and ambassador/co-creator revenue streams are also not yet modelled here. Decisions needed: (a) keep, drop, or revise the subscription line; (b) add scenarios with crowdfunding and reward-stream revenue once volume assumptions are agreed.
+    </div>
+  </div>
+
   <div class="target-banner">
     <span class="tb-label">Funding Target</span>
     <strong>$10,000 / month (≈ €9,091)</strong>
