@@ -88,11 +88,23 @@ ul li{font-size:13px;color:var(--ink);margin-bottom:6px;line-height:1.55}
   .cards-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:700px){
-  .wrap{padding:24px 16px 60px}
-  h1{font-size:26px}
-  .cards-grid{grid-template-columns:1fr}
-  table{font-size:11px}
-  th,td{padding:8px}
+  .wrap{padding:20px 12px 60px}
+  h1{font-size:24px}
+  h2{font-size:15px;gap:8px}
+  h2 .owner-tag{font-size:8.5px;padding:4px 7px}
+  .cards-grid{grid-template-columns:1fr;gap:12px}
+  table{font-size:11px;display:block;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch}
+  th,td{padding:7px 8px}
+  td.outcome{white-space:normal;min-width:180px}
+  .milestone-row{flex-wrap:wrap}
+  .ms-month{min-width:100%;border-right:none;border-bottom:1px solid var(--rule)}
+  .callout{padding:14px 16px;font-size:12.5px}
+}
+@media(max-width:500px){
+  .wrap{padding:16px 10px 40px}
+  h1{font-size:22px}
+  table{font-size:10.5px}
+  th,td{padding:6px 7px}
 }
 </style>
 </head>
