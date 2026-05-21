@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Terra Ferra — Ideas</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --tf:#4B40C2;
+  --tf-dark:#2D2595;
+  --tf-deep:#12102B;
+  --tf-mid:#7169D4;
+  --tf-light:#ECEAF9;
+  --tf-ghost:#F4F2FC;
+  --orange:#E86820;
+  --orange-light:#F5C9A8;
+  --off-white:#F7F6FB;
+  --ink:#12102B;
+  --sub:#5B5880;
+  --rule:#D8D4EF;
+}
+body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink);line-height:1.6}
+
+/* ─── COVER ─────────────────────────── */
+.cover{background:var(--tf);color:white;padding:68px 60px 64px;position:relative;overflow:hidden}
+.cover::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 90% 100%,rgba(18,16,43,.65) 0%,transparent 55%),radial-gradient(ellipse at 10% 0%,rgba(113,105,212,.35) 0%,transparent 50%);pointer-events:none}
+.cover::after{content:'TF';position:absolute;right:-24px;top:-40px;font-size:400px;font-weight:800;color:rgba(232,104,32,.18);letter-spacing:-32px;line-height:1;pointer-events:none;user-select:none}
+.cover-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1;display:flex;justify-content:space-between;align-items:flex-end;gap:48px;flex-wrap:wrap}
+.cover-left{flex:1;min-width:320px}
+.cover-eyebrow{font-size:10px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:30px}
+.tf-logo{font-size:clamp(42px,6vw,80px);font-weight:800;letter-spacing:-2px;line-height:1;text-transform:uppercase;color:white;white-space:nowrap;margin-bottom:16px}
+.tf-tagline{font-size:10.5px;font-weight:600;letter-spacing:5px;text-transform:uppercase;color:rgba(255,255,255,.42)}
+.cover-divider{width:48px;height:2px;background:rgba(255,255,255,.25);margin:24px 0}
+.cover-desc{font-size:14.5px;color:rgba(255,255,255,.72);max-width:480px;line-height:1.65}
+.cover-right{text-align:right;flex-shrink:0;padding-bottom:4px}
+.cover-date{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.38)}
+
+/* ─── LEGEND ────────────────────────── */
+.legend{background:white;border-bottom:1px solid var(--rule);padding:14px 60px}
+.legend-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.legend-label{font-size:9px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--sub);margin-right:14px;opacity:.6}
+
+/* ─── PAGE ──────────────────────────── */
+.page{max-width:1200px;margin:0 auto;padding:56px 40px 88px}
+
+/* ─── TOC ───────────────────────────── */
+.toc{background:white;border:1px solid var(--rule);border-left:3px solid var(--tf);padding:20px 28px;margin-bottom:48px}
+.toc-head{font-size:9px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--sub);opacity:.6;margin-bottom:12px}
+.toc-list{display:flex;flex-direction:column;gap:0}
+.toc-item{display:flex;align-items:baseline;gap:14px;text-decoration:none;color:var(--ink);font-size:13px;font-weight:500;padding:8px 0;border-bottom:1px solid var(--rule)}
+.toc-item:last-child{border-bottom:none}
+.toc-item:hover{color:var(--tf)}
+.toc-num{font-size:10px;font-weight:800;color:var(--orange);min-width:22px;flex-shrink:0}
+
+/* ─── SECTION ───────────────────────── */
+.sec{margin-bottom:56px}
+.sec-head{margin-bottom:18px;padding-bottom:12px;border-bottom:1.5px solid var(--tf)}
+.sec-num{font-size:32px;font-weight:800;color:var(--orange);letter-spacing:-1px;margin-right:14px}
+.sec-title{font-size:32px;font-weight:800;letter-spacing:-1px;color:var(--orange)}
+.sec-legend{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:10px}
+.sec-legend-sep{width:1px;height:14px;background:var(--rule);display:inline-block;margin:0 8px;flex-shrink:0}
+
+/* ─── IDEA CARDS ────────────────────── */
+.idea-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.idea-card{background:white;border:1px solid var(--rule);border-top:3px solid var(--tf);padding:24px 24px 20px;display:flex;flex-direction:column}
+.idea-card h4{font-size:13px;font-weight:800;color:var(--ink);margin-bottom:10px;line-height:1.35;text-transform:uppercase;letter-spacing:.2px}
+.idea-card p{font-size:13px;line-height:1.72;color:var(--ink);flex:1}
+.tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
+/* category tags — purple */
+.tag{font-size:9px;font-weight:800;letter-spacing:.7px;padding:3px 7px;border-radius:2px;text-transform:uppercase;white-space:nowrap;background:var(--tf-ghost);color:var(--rule)}
+.tag.on{background:var(--tf);color:white}
+.tag.tfd{background:var(--tf-ghost);color:var(--rule)}
+.tag.tfd.on{background:var(--tf);color:white}
+.tag.ext{background:transparent;border:1px solid var(--orange-light);color:var(--orange);font-style:italic;text-transform:none;font-weight:500;font-size:9px;letter-spacing:0}
+/* audience tags — orange */
+.aud{font-size:9px;font-weight:800;letter-spacing:.7px;padding:3px 7px;border-radius:2px;text-transform:uppercase;white-space:nowrap;background:var(--tf-ghost);color:var(--rule)}
+.aud.on{background:var(--orange);color:white}
+
+/* ─── DIVIDER ───────────────────────── */
+.section-divider{border:none;border-top:1px solid var(--rule);margin:0 0 56px}
+
+/* ─── TOOL GRID ─────────────────────── */
+.tool-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:48px}
+.tool-card{background:white;border:1px solid var(--rule);border-top:3px solid var(--tf);display:flex;flex-direction:column;overflow:hidden}
+
+/* screenshot */
+.app-preview{height:210px;overflow:hidden;flex-shrink:0;position:relative}
+.app-preview img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+
+/* tool body */
+.tool-body{padding:18px 20px 20px;flex:1;display:flex;flex-direction:column;gap:14px}
+
+.tool-name-row{display:flex;flex-direction:column;gap:3px}
+.tool-name{font-size:16px;font-weight:800;color:var(--ink);letter-spacing:-.3px}
+.tool-name a{color:var(--tf);text-decoration:none}
+.tool-name a:hover{text-decoration:underline}
+.tool-url{font-size:11px;color:var(--tf-mid);font-weight:500}
+.tool-url a{color:var(--tf-mid);text-decoration:none}
+.tool-url a:hover{text-decoration:underline}
+
+/* stats table — identical structure for all 3 */
+.stats{width:100%;border-collapse:collapse}
+.stats tr{border-bottom:1px solid var(--rule)}
+.stats tr:last-child{border-bottom:none}
+.stats td{padding:5px 0;font-size:12px;line-height:1.45;vertical-align:top}
+.stats td:first-child{color:var(--ink);width:38%;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.4px;padding-right:10px;white-space:nowrap}
+.stats td:last-child{color:var(--ink);font-weight:400}
+.stats td .na{color:#AAA;font-style:italic}
+
+/* strength / weakness */
+.sw-row{display:flex;flex-direction:column;gap:6px}
+.sw-item{font-size:12px;line-height:1.5;padding:6px 10px;border-radius:2px;color:var(--ink)}
+.sw-item.strength{background:#ECEAF9}
+.sw-item.weakness{background:#FEF3EE}
+.sw-label{font-size:9px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;margin-bottom:3px;display:block}
+.sw-item.strength .sw-label{color:var(--tf-dark)}
+.sw-item.weakness .sw-label{color:#8B3010}
+.sw-item.tf-apply{background:#FFF3E8}
+.sw-item.tf-apply .sw-label{color:var(--orange)}
+.sw-item.risk{background:#FEE2E2}
+.sw-item.risk .sw-label{color:#991B1B}
+
+/* ─── TF IDEAS ──────────────────────── */
+.tf-ideas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tf-idea-card{background:white;border:1px solid var(--rule);border-left:3px solid var(--orange);padding:20px 22px}
+.tf-idea-num{font-size:24px;font-weight:800;color:var(--orange);opacity:.3;line-height:1;margin-bottom:8px}
+.tf-idea-title{font-size:12.5px;font-weight:800;color:var(--ink);text-transform:uppercase;letter-spacing:.3px;margin-bottom:8px}
+.tf-idea-body{font-size:12.5px;line-height:1.7;color:var(--ink)}
+
+/* ─── EU 2-COL GRID ─────────────────── */
+.eu-grid{grid-template-columns:repeat(2,1fr)}
+
+/* ─── RESPONSIVE ────────────────────── */
+@media(max-width:960px){
+  .cover{padding:40px 24px 44px}.tf-logo{font-size:52px}
+  .legend{padding:12px 24px}.page{padding:32px 20px 64px}
+  .idea-grid,.tool-grid,.tf-ideas-grid{grid-template-columns:1fr 1fr}
+  .eu-grid{grid-template-columns:1fr 1fr}
+  .sec-title{font-size:24px}
+}
+@media(max-width:600px){
+  .idea-grid,.tool-grid,.tf-ideas-grid,.eu-grid{grid-template-columns:1fr}
+  .stats td:first-child{white-space:normal}
+  .cover::after{display:none}
+  .eu-callout{display:block;max-width:100%}
+  .sec-title{font-size:20px}
+  .toc-item{font-size:12px}
+}
+@media print{
+  body{background:white}
+  .cover,.legend{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .idea-card,.tool-card,.tag,.tf-idea-card,.sw-item{-webkit-print-color-adjust:exact;print-color-adjust:exact;break-inside:avoid}
+  @page{size:A4;margin:10mm}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ COVER ══ -->
+<div class="cover">
+  <div class="cover-inner">
+    <div class="cover-left">
+      <div class="cover-eyebrow">Platform Strategy · Working Document</div>
+      <a href="terra-ferra-ideas.html" style="text-decoration:none;color:inherit"><div class="tf-logo">Terra Ferra</div></a>
+      <div class="tf-tagline">Community Powered Fashion</div>
+      <div class="cover-divider"></div>
+      <div class="cover-desc">Enhancement ideas from the RUS Digital Fashion deck + AI research on Ablo, LTK &amp; ShopMy + fashion visual AI landscape + European creator commerce platform landscape.</div>
+    </div>
+    <div class="cover-right"><div class="cover-date">May 2026</div></div>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- ══ TOC ══ -->
+  <nav class="toc">
+    <div class="toc-head">Contents</div>
+    <div class="toc-list">
+      <a href="#sec-conclusions" class="toc-item"><span class="toc-num">01</span>Executive Summary — Analysis Findings</a>
+      <a href="#sec-ai" class="toc-item"><span class="toc-num">02</span>AI Research — Perplexity Summary, Risks and Opportunities</a>
+      <a href="#sec-eu" class="toc-item"><span class="toc-num">03</span>The EU Market Gap</a>
+      <a href="#sec-visual" class="toc-item"><span class="toc-num">04</span>Style-Based Influencer Discovery</a>
+      <a href="#sec-rus" class="toc-item"><span class="toc-num">05</span>RUS Digital Fashion Collaboration Platform 3 — Extra Ideas</a>
+      <a href="#sec-name" class="toc-item"><span class="toc-num">06</span>The Name: Terra Ferra</a>
+    </div>
+  </nav>
+
+  <!-- ══ SECTION 5: STRATEGIC CONCLUSIONS ══ -->
+  <div class="sec" id="sec-conclusions">
+    <div class="sec-head">
+      <div class="sec-title"><span class="sec-num">01</span>Executive Summary — Analysis Findings</div>
+    </div>
+    <div class="tf-ideas-grid">
+
+      <div class="tf-idea-card">
+        <div class="tf-idea-num">01</div>
+        <div class="tf-idea-title">ShopMy is the threat — not LTK</div>
+        <div class="tf-idea-body">ShopMy grew 200% in 2025, is profitable at $147.5M raised, and launched a community product (Circles) in July 2025. LTK is mature and flat. If Circles scales, TF's community differentiation weakens. Launching TF is time-sensitive.</div>
+      </div>
+
+      <div class="tf-idea-card">
+        <div class="tf-idea-num">02</div>
+        <div class="tf-idea-title">Pre-production entry + pre-order together are TF's core differentiation</div>
+        <div class="tf-idea-body">Every affiliate and marketplace platform in this research — LTK, ShopMy, W&amp;B, NOTHS, Ablo — requires existing inventory to participate. TF can sign a designer with a sketch. Because TF runs on pre-order, the designer produces only what is already sold.</div>
+      </div>
+
+      <div class="tf-idea-card">
+        <div class="tf-idea-num">03</div>
+        <div class="tf-idea-title">Co-creation is TF's feature with no competitor equivalent</div>
+        <div class="tf-idea-body">TF's co-creation layer lets consumers vote on designs before production. No platform in this research has built that. It generates demand data — which designs, colors, sizes get the most votes — before a unit is produced.</div>
+      </div>
+
+      <div class="tf-idea-card">
+        <div class="tf-idea-num">04</div>
+        <div class="tf-idea-title">EU market opportunities</div>
+        <div class="tf-idea-body">LTK operates in UK and Germany but focuses on established influencers and mass-market brands — not emerging independent designers. ShopMy is US-first with UK expansion just beginning in 2025. No platform in this research has an active recruitment programme targeting EU independent emerging designers for pre-order or co-creation.</div>
+      </div>
+
+      <div class="tf-idea-card">
+        <div class="tf-idea-num">05</div>
+        <div class="tf-idea-title">The fee comparison is not straightforward</div>
+        <div class="tf-idea-body">TF charges 7% on GMV, but the designer also funds consumer discounts (~30%) and associated costs (~13%) — total designer cost is closer to 50%. The comparison with W&amp;B (~52%) and NOTHS (25%) is not a clear win on price. The argument for designers is the risk model: costs are paid only on confirmed sales, with no inventory produced upfront.</div>
+      </div>
+
+      <div class="tf-idea-card">
+        <div class="tf-idea-num">06</div>
+        <div class="tf-idea-title">Demand data as a B2B revenue opportunity</div>
+        <div class="tf-idea-body">TF generates pre-production demand data — co-creation votes, pre-order volumes, geographic demand by style — with potential to monetize as B2B trend intelligence for fashion brands and investors, independent of GMV.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <hr class="section-divider"/>
+
+
+  <hr class="section-divider"/>
+
+  <!-- ══ SECTION 2: AI RESEARCH ══ -->
+  <div class="sec" id="sec-ai">
+    <div class="sec-head">
+      <div class="sec-title"><span class="sec-num">02</span>AI Research — Perplexity Summary, Risks and Opportunities</div>
+    </div>
+
+    <div class="tool-grid">
+
+      <!-- ── ABLO ── -->
+      <div class="tool-card">
+        <div class="app-preview">
+          <img src="ss-ablo.png" alt="Ablo.ai website screenshot"/>
+        </div>
+        <div class="tool-body">
+          <div class="tool-name-row">
+            <div class="tool-name"><a href="https://www.ablo.ai/" target="_blank">Ablo.ai</a></div>
+            <div class="tool-url">
+              <a href="https://www.ablo.ai/" target="_blank">ablo.ai</a> ·
+              <a href="https://studio.ablo.ai/" target="_blank">studio.ablo.ai</a>
+            </div>
+          </div>
+          <table class="stats">
+            <tr><td>What it does</td><td>Lets creators design and sell fashion items using licensed brand IP; auto-distributes royalties when designs are sold or remixed</td></tr>
+            <tr><td>Founded</td><td>2021 — New York, NY</td></tr>
+            <tr><td>Funding</td><td>$10M seed · Accel, Polychain, Pantera, Jump Crypto</td></tr>
+            <tr><td>Creators</td><td>3,000+ beta users</td></tr>
+            <tr><td>GMV</td><td><span class="na">Unknown</span></td></tr>
+            <tr><td>Revenue</td><td><span class="na">Undisclosed — growth stage</span></td></tr>
+            <tr><td>Revenue growth</td><td><span class="na">Unknown</span></td></tr>
+            <tr><td>Brands</td><td>Adidas, Balmain, Crocs, Champion, Ralph Lauren, Smiley, Pangaia</td></tr>
+            <tr><td>Model</td><td>Monthly subscription + commission on creator sales</td></tr>
+            <tr><td>Commissions</td><td>Basic plan 10% · Premium plan 8% — charged on creator sales in addition to subscription fee (source: Perplexity PDF §7)</td></tr>
+            <tr><td>Geography</td><td>US (NY/SF) — global brand partners</td></tr>
+          </table>
+          <div class="sw-row">
+            <div class="sw-item strength"><span class="sw-label">Strength</span>Only platform combining AI design generation + brand IP licensing + automatic creator royalties. Partners include Adidas, Balmain, Crocs, Champion, Ralph Lauren, Vans, Smiley, and Pangaia.</div>
+            <div class="sw-item weakness"><span class="sw-label">Weakness</span>Very early stage, blockchain dependency adds complexity, narrow user base, no disclosed revenue.</div>
+            <div class="sw-item risk"><span class="sw-label">Risk for TF</span>AI design tools are commoditizing the design step. If any creator can generate a fashion look in seconds, "emerging designer with original vision" has to be anchored in community and authenticity, not design skill alone. Ablo is too early to be an immediate threat, but the direction is clear and better-funded tools will follow.</div>
+            <div class="sw-item tf-apply"><span class="sw-label">Market Gap</span>Ablo's 3,000 designers have no owned community, no pre-order, no demand validation before production. They generate a design and list it.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── LTK ── -->
+      <div class="tool-card">
+        <div class="app-preview">
+          <img src="ss-ltk.png" alt="LTK website screenshot"/>
+        </div>
+        <div class="tool-body">
+          <div class="tool-name-row">
+            <div class="tool-name"><a href="https://www.shopltk.com/" target="_blank">LTK (RewardStyle)</a></div>
+            <div class="tool-url">
+              <a href="https://www.shopltk.com/" target="_blank">shopltk.com</a>
+            </div>
+          </div>
+          <table class="stats">
+            <tr><td>What it does</td><td>Affiliate commerce platform connecting fashion influencers to brands and shoppers via shoppable links; takes commission on each sale</td></tr>
+            <tr><td>Founded</td><td>2011 — Dallas, TX</td></tr>
+            <tr><td>Funding</td><td>~$315M total raised · $2B valuation (SoftBank led $300M round, 2021)</td></tr>
+            <tr><td>Influencers</td><td>150,000+</td></tr>
+            <tr><td>GMV</td><td>$3B+ annually</td></tr>
+            <tr><td>Revenue</td><td><span class="na">Undisclosed</span></td></tr>
+            <tr><td>Revenue growth</td><td>Mature — stable</td></tr>
+            <tr><td>Brands</td><td>5,000+ (mass market + premium)</td></tr>
+            <tr><td>Model</td><td>Affiliate commissions + brand SaaS fees + managed campaign fees</td></tr>
+            <tr><td>Commissions</td><td>Fashion 5–15% · Beauty 5–15% (brand-set rates within range — source: Perplexity PDF §9)</td></tr>
+            <tr><td>Geography</td><td>100+ countries · EU hubs: UK, Germany</td></tr>
+          </table>
+          <div class="sw-row">
+            <div class="sw-item strength"><span class="sw-label">Strength</span>15-year head start. $3B+ GMV. ~$315M raised. Global infrastructure in 100+ countries. Millions of monthly consumers in its own shopping app.</div>
+            <div class="sw-item weakness"><span class="sw-label">Weakness</span>Withholds influencer attribution data from brands — biggest trust issue. Growth slowing. Traditional affiliate model being disrupted by ShopMy.</div>
+            <div class="sw-item risk"><span class="sw-label">Risk for TF</span>150,000 influencers already have payout history on LTK. 5,000 brands have tracking and reporting set up there. Neither has an immediate reason to add a platform with no transaction history.</div>
+            <div class="sw-item tf-apply"><span class="sw-label">Market Gap</span>LTK's 5,000+ brand base is mass-market at scale — emerging designers with no production history get no meaningful influencer attention there. LTK has no pre-order, no co-creation, no community layer.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── SHOPMY ── -->
+      <div class="tool-card">
+        <div class="app-preview">
+          <img src="ss-shopmy.png" alt="ShopMy website screenshot"/>
+        </div>
+        <div class="tool-body">
+          <div class="tool-name-row">
+            <div class="tool-name"><a href="https://shopmy.us/home" target="_blank">ShopMy</a></div>
+            <div class="tool-url">
+              <a href="https://shopmy.us/home" target="_blank">shopmy.us</a>
+            </div>
+          </div>
+          <table class="stats">
+            <tr><td>What it does</td><td>Influencer commerce platform — shoppable storefronts, brand campaign tools, and full attribution showing exactly which influencer drove each sale</td></tr>
+            <tr><td>Founded</td><td>2020 — New York, NY</td></tr>
+            <tr><td>Funding</td><td>~$147.5M total raised · $1.5B valuation (Bessemer, Bain Capital Ventures, Avenir, Menlo)</td></tr>
+            <tr><td>Influencers</td><td>185,000+ curated tastemakers</td></tr>
+            <tr><td>GMV</td><td>$1B+ annually</td></tr>
+            <tr><td>Revenue</td><td>~$80M (2025 est. Sacra) · profitable since 2024</td></tr>
+            <tr><td>Revenue growth</td><td>~200% YoY (2025, Sacra)</td></tr>
+            <tr><td>Brands</td><td>1,200+ premium (Rhode, Net-a-Porter, Gucci)</td></tr>
+            <tr><td>Model</td><td>Affiliate commissions + brand SaaS (Lookbooks, Opportunities tools)</td></tr>
+            <tr><td>Commissions</td><td>Fashion 8–20% · Beauty 15–25% — higher than LTK across every category (source: Perplexity PDF §9)</td></tr>
+            <tr><td>Geography</td><td>US-first · UK expansion 2025</td></tr>
+          </table>
+          <div class="sw-row">
+            <div class="sw-item strength"><span class="sw-label">Strength</span>Full attribution transparency. 200% revenue growth. Profitable. Premium brand curation. Consumer app "Circles" launched Jul 2025 — three-sided ecosystem emerging.</div>
+            <div class="sw-item weakness"><span class="sw-label">Weakness</span>Still US-first (UK very early). Consumer app brand new. Narrower brand portfolio than LTK (1,200 vs 5,000).</div>
+            <div class="sw-item risk"><span class="sw-label">Risk for TF</span>ShopMy already delivers full attribution — TF's transparency argument does not differentiate against ShopMy. Growing at 200% YoY, profitable, ~$147.5M raised — has capital to outspend TF on influencer acquisition at every stage. Circles community launched July 2025: if it gains traction, TF's community pitch gets harder.</div>
+            <div class="sw-item tf-apply"><span class="sw-label">Market Gap</span>ShopMy requires existing inventory and an established audience. No pre-order, co-creation, or crowdfunding. Circles community product launched July 2025 — weeks old and unproven. EU untouched.</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /tool-grid -->
+
+    <!-- ══ IDEAS FOR TF ══ -->
+    <div class="sec-head">
+      <div class="sec-title">Ideas This Raises for Terra Ferra</div>
+    </div>
+    <div class="tf-ideas-grid">
+
+      <div class="tf-idea-card">
+        <div class="tf-idea-num">01</div>
+        <div class="tf-idea-title">Recruit designers from LTK</div>
+        <div class="tf-idea-body">LTK brand directory and Instagram are the source list. LTK withholds influencer attribution data from brands — TF gives full transparency.</div>
+      </div>
+
+      <div class="tf-idea-card">
+        <div class="tf-idea-num">02</div>
+        <div class="tf-idea-title">10–50K niche fashion influencers: LTK excludes them, TF does not</div>
+        <div class="tf-idea-body">LTK is invite-only with an established follower count requirement — most 10–50K fashion influencers don't qualify. TF pays commission with no follower minimum. Designers' existing influencer contacts are the first ambassador pipeline.</div>
+      </div>
+
+      <div class="tf-idea-card">
+        <div class="tf-idea-num">03</div>
+        <div class="tf-idea-title">Consumer discovery layer: TF needs its own traffic, not Instagram's</div>
+        <div class="tf-idea-body">Every consumer on TF today was sent there by a designer. Without a discovery layer, designers have no reason to stay on TF over selling direct. Phase 1 scope.</div>
+      </div>
+
+      <div class="tf-idea-card">
+        <div class="tf-idea-num">04</div>
+        <div class="tf-idea-title">EU entry: recruit designers and influencers, not consumers</div>
+        <div class="tf-idea-body">EU designers and influencers are the gap — not consumers. Neither LTK nor ShopMy actively recruits them. Year 1 priority.</div>
+      </div>
+
+      <div class="tf-idea-card">
+        <div class="tf-idea-num">05</div>
+        <div class="tf-idea-title">Recruit designers from Ablo</div>
+        <div class="tf-idea-body">3,000 active designers in Ablo's closed marketplace with no owned community and no pre-order.</div>
+      </div>
+
+      <div class="tf-idea-card">
+        <div class="tf-idea-num">06</div>
+        <div class="tf-idea-title">TF works before a designer has inventory — ShopMy does not</div>
+        <div class="tf-idea-body">TF can sign a designer with a sketch and zero stock. ShopMy requires inventory to list.</div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <hr class="section-divider"/>
+
+
+  <!-- ══ SECTION 5: EU MARKET GAP ══ -->
+  <div class="sec" id="sec-eu">
+    <div class="sec-head">
+      <div class="sec-title"><span class="sec-num">03</span>The EU Market Gap</div>
+    </div>
+    <div style="background:var(--orange);color:white;padding:18px 24px;margin-bottom:20px;display:block;max-width:780px">
+      <div style="font-size:10px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;opacity:.7;margin-bottom:8px">The Gap</div>
+      <div style="font-size:17px;font-weight:800;line-height:1.45;letter-spacing:-.2px">Neither W&amp;B nor NOTHS offers co-creation, pre-order, or community revenue sharing.</div>
+    </div>
+    <p style="font-size:13px;line-height:1.7;color:var(--sub);max-width:780px;margin-bottom:28px;">W&amp;B ($95M GMV, profitable) and NOTHS (~$110M revenue) prove the independent designer market is real in Europe — but both are pure marketplaces. Designer produces, consumer buys. EU consumers buying from US-based platforms (LTK, ShopMy) pay import VAT and customs duties on delivery — EU designer to EU consumer avoids this entirely.</p>
+
+    <div class="tool-grid eu-grid">
+
+      <!-- ── WOLF & BADGER ── -->
+      <div class="tool-card">
+        <div class="tool-body">
+          <div class="tool-name-row">
+            <div class="tool-name"><a href="https://www.wolfandbadger.com/" target="_blank">Wolf &amp; Badger</a></div>
+            <div class="tool-url"><a href="https://www.wolfandbadger.com/" target="_blank">wolfandbadger.com</a></div>
+          </div>
+          <table class="stats">
+            <tr><td>What it does</td><td>Curated marketplace for 2,000+ independent designers — fashion (83%), jewellery, beauty, homeware — no inventory held; brands self-manage listings</td></tr>
+            <tr><td>Founded</td><td>2010 — London, UK (founders: George &amp; Henry Graham)</td></tr>
+            <tr><td>Funding</td><td>~£4.5M Series A (2019, Guinness Asset Management); ~$20M total per media; B Corp certified</td></tr>
+            <tr><td>Creators</td><td>2,000+ independent designer brands; ~300 applications per month</td></tr>
+            <tr><td>GMV</td><td>~$95M (2024)</td></tr>
+            <tr><td>Revenue</td><td>~$50M (2024) — second consecutive profitable year</td></tr>
+            <tr><td>Revenue growth</td><td>US grew from $3M (2019) to $45M+ (2024); US now ~50% of total sales</td></tr>
+            <tr><td>Brands</td><td>N/A — designers are the product (no separate brand client tier)</td></tr>
+            <tr><td>Model</td><td>Monthly designer subscription + undisclosed % commission per sale; stores in London, NYC, LA</td></tr>
+            <tr><td>Commissions</td><td>Not publicly disclosed — set individually per brand in seller dashboard. Subscription: $375/month per brand (source: Modern Retail, W&amp;B seller terms)</td></tr>
+            <tr><td>Geography</td><td>London HQ · NYC (SoHo, since 2017) · LA (West Hollywood, since 2022) — US ~50% of sales</td></tr>
+          </table>
+          <div class="sw-row">
+            <div class="sw-item strength"><span class="sw-label">Strength</span>Profitable independent designer marketplace: $95M GMV, $50M revenue, 2,000+ curated brands with no inventory risk. Proves US market is reachable for a European-founded independent designer platform — US grew from $3M to $45M+ in five years.</div>
+            <div class="sw-item weakness"><span class="sw-label">Weakness</span>No co-creation, no community mechanics, no pre-order or crowdfunding — pure marketplace. $375/month subscription fee raises the barrier for early-stage designers. Mixed categories dilute fashion community focus.</div>
+            <div class="sw-item tf-apply"><span class="sw-label">Overlap with TF</span>Curated independent designers only (not mass market). Asset-light — no platform inventory. Premium positioning. US + UK market presence. Designer-as-brand model.</div>
+            <div class="sw-item weakness"><span class="sw-label">Gap TF fills</span>W&amp;B has no co-creation — consumers buy what designers already made. No pre-order — designers produce first, then list. No community revenue sharing. No superfan or ambassador layer. W&amp;B's $375/month subscription + implied ~52% take rate vs. TF's 7% GMV, no joining fee.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── NOT ON THE HIGH STREET ── -->
+      <div class="tool-card">
+        <div class="tool-body">
+          <div class="tool-name-row">
+            <div class="tool-name"><a href="https://www.notonthehighstreet.com/" target="_blank">Not On The High Street</a></div>
+            <div class="tool-url"><a href="https://www.notonthehighstreet.com/" target="_blank">notonthehighstreet.com</a></div>
+          </div>
+          <table class="stats">
+            <tr><td>What it does</td><td>Curated UK marketplace for independent small businesses — every product must be designed or hand-finished by the seller; covers fashion, gifts, home, food. Zero inventory held by the platform.</td></tr>
+            <tr><td>Founded</td><td>2006 — London, UK; founders Holly Tucker and Sophie Cornish</td></tr>
+            <tr><td>Funding</td><td>~$77.7M total raised (source: Crunchbase)</td></tr>
+            <tr><td>Creators</td><td>5,000+ independent seller businesses; 350,000+ products; 4M+ customers</td></tr>
+            <tr><td>GMV</td><td><span class="na">Not separately disclosed</span></td></tr>
+            <tr><td>Revenue</td><td>~$110M (2024, secondary source — Mintsoft; not confirmed from primary filing)</td></tr>
+            <tr><td>Revenue growth</td><td><span class="na">Not publicly disclosed</span></td></tr>
+            <tr><td>Brands</td><td>N/A — sellers are the independent makers; no separate brand client tier</td></tr>
+            <tr><td>Model</td><td>Annual joining fee + commission per sale; asset-light, no platform inventory</td></tr>
+            <tr><td>Commissions</td><td>25% per sale + £199/year joining fee (source: NOTHS seller terms via Mintsoft)</td></tr>
+            <tr><td>Geography</td><td>UK-primarily · Growing online presence; no significant US expansion confirmed</td></tr>
+          </table>
+          <div class="sw-row">
+            <div class="sw-item strength"><span class="sw-label">Strength</span>Established UK independent maker marketplace with strong consumer brand recognition — "Not On The High Street" itself communicates independent and unique. 5,000+ vetted sellers, 4M+ customers, ~$110M revenue at zero inventory risk. The "must be designed or hand-finished by the seller" curation rule maintains quality.</div>
+            <div class="sw-item weakness"><span class="sw-label">Weakness</span>UK-only consumer base — no meaningful US or EU expansion. No co-creation, no pre-order, no community revenue sharing. Fashion is a subset of a broad gifts/home/food marketplace — not fashion-native. 25% commission + £199/year is high for early-stage designers.</div>
+            <div class="sw-item tf-apply"><span class="sw-label">Overlap with TF</span>Curated independent makers who must design or hand-finish their products — same curation principle as TF's designer vetting. Asset-light, no platform inventory. Proven that consumers pay a premium for independent creator commerce.</div>
+            <div class="sw-item weakness"><span class="sw-label">Gap TF fills</span>NOTHS is UK-only with no US ambition. Fashion is a minority category inside a gifts/home/food marketplace — not fashion-native. Zero co-creation, pre-order, or community layer. 25% commission + £199/year joining fee vs. TF's 7% GMV with no joining fee makes every NOTHS fashion seller a candidate for TF outreach.</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /tool-grid -->
+
+    <!-- ── Ideas for TF from EU Platforms ── -->
+    <div class="sec-head" style="margin-top:40px">
+      <div class="sec-title">Ideas This Raises for Terra Ferra</div>
+    </div>
+    <div class="tf-ideas-grid">
+
+      <div class="tf-idea-card">
+        <div class="tf-idea-num">01</div>
+        <div class="tf-idea-title">Recruit designers from W&amp;B and NOTHS</div>
+        <div class="tf-idea-body">7,000+ designers paying 25–52% commission across both platforms. TF's pitch: 7% GMV, no joining fee, plus co-creation and pre-order tools they don't have.</div>
+      </div>
+
+      <div class="tf-idea-card">
+        <div class="tf-idea-num">02</div>
+        <div class="tf-idea-title">Recruit EU influencers — LTK and ShopMy don't</div>
+        <div class="tf-idea-body">EU-based niche fashion influencers are barely present on LTK or ShopMy. Supply-side gap, same as EU designers.</div>
+      </div>
+
+      <div class="tf-idea-card">
+        <div class="tf-idea-num">03</div>
+        <div class="tf-idea-title">Italy, France, UK — priority EU designer markets</div>
+        <div class="tf-idea-body">Largest concentration of independent designers with craft identity and no meaningful US market access today.</div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <hr class="section-divider"/>
+
+  <!-- ══ SECTION 4: STYLE-BASED INFLUENCER DISCOVERY ══ -->
+  <div class="sec" id="sec-visual">
+    <div class="sec-head">
+      <div class="sec-title"><span class="sec-num">04</span>Style-Based Influencer Discovery <span style="font-size:14px;font-weight:600;color:var(--orange);letter-spacing:0">— to be checked carefully later</span></div>
+    </div>
+
+    <div class="tool-grid">
+
+      <!-- ── MODASH ── -->
+      <div class="tool-card">
+        <div class="tool-body">
+          <div class="tool-name-row">
+            <div class="tool-name"><a href="https://www.modash.io/" target="_blank">Modash</a></div>
+            <div class="tool-url"><a href="https://www.modash.io/" target="_blank">modash.io</a></div>
+          </div>
+          <table class="stats">
+            <tr><td>What it does</td><td>Influencer discovery and analytics platform — find influencers by audience demographics, engagement rate, or visual aesthetic; manage outreach and track campaign performance</td></tr>
+            <tr><td>Visual aesthetic search</td><td>Yes — upload any reference image to find influencers whose content matches that visual style; also accepts natural-language descriptions (e.g. "minimalist beige outfits outdoors"). Available on all plans. (source: modash.io/features/influencer-discovery)</td></tr>
+            <tr><td>Pricing</td><td>$199/mo (Essentials) · $499/mo (Performance) · Enterprise ~$14,700/yr (source: modash.io/pricing)</td></tr>
+            <tr><td>Influencers indexed</td><td><span class="na">Not publicly disclosed</span></td></tr>
+            <tr><td>Key fashion clients</td><td><span class="na">Not specifically named — general platform with documented fashion brand usage</span></td></tr>
+            <tr><td>Model</td><td>SaaS subscription — discovery, audience analytics, outreach, campaign tracking</td></tr>
+            <tr><td>Cost to TF</td><td>$199/mo Essentials · 14-day free trial, no credit card required (source: modash.io/pricing)</td></tr>
+            <tr><td>Geography</td><td>Estonia HQ · Global influencer database</td></tr>
+          </table>
+          <div class="sw-row">
+            <div class="sw-item strength"><span class="sw-label">Strength</span>Confirmed image-upload aesthetic search. Lowest paid entry point ($199/mo) in this comparison — Archive has a free tier but is primarily a capture tool, not a discovery-first platform. 14-day free trial, no credit card.</div>
+            <div class="sw-item weakness"><span class="sw-label">Weakness</span>General platform, not fashion-specific. Influencer database size not disclosed. Aesthetic matching quality for ultra-niche indie fashion styles (e.g. coastal minimalist, quiet luxury) is untested in TF's exact use case.</div>
+            <div class="sw-item tf-apply"><span class="sw-label">TF Applicability</span>Upload a designer's lookbook → surface aesthetically matched influencer candidates → reach out. </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── ARCHIVE ── -->
+      <div class="tool-card">
+        <div class="tool-body">
+          <div class="tool-name-row">
+            <div class="tool-name"><a href="https://archive.com/" target="_blank">Archive</a></div>
+            <div class="tool-url"><a href="https://archive.com/" target="_blank">archive.com</a></div>
+          </div>
+          <table class="stats">
+            <tr><td>What it does</td><td>Influencer content capture and discovery — automatically captures 100% of Instagram and 98% of TikTok posts from tracked influencers; AI Super Search finds new influencers by uploaded image or natural language</td></tr>
+            <tr><td>Visual aesthetic search</td><td>Yes — "AI-powered Super Search": upload a lookbook image or describe a look in plain language to surface influencers posting visually matching content. Searches across all captured post content. (source: archive.com)</td></tr>
+            <tr><td>Pricing</td><td>Free tier available · Startup (20,000 credits/mo) · Growth (70,000 credits/mo) · Enterprise (150,000 credits/mo) — paid tier pricing on request (source: archive.com/pricing)</td></tr>
+            <tr><td>Influencers indexed</td><td><span class="na">Not publicly disclosed</span></td></tr>
+            <tr><td>Key fashion clients</td><td>Allbirds, Uniqlo, POPFLEX, Kitsch, Parade (source: archive.com)</td></tr>
+            <tr><td>Model</td><td>SaaS subscription with credit-based tiers; passive UGC capture runs continuously across tracked influencer accounts</td></tr>
+            <tr><td>Cost to TF</td><td>Free tier to start — zero cost while TF's ambassador roster is small; upgrade as it scales (source: archive.com/pricing)</td></tr>
+            <tr><td>Geography</td><td>US · Global influencer database</td></tr>
+          </table>
+          <div class="sw-row">
+            <div class="sw-item strength"><span class="sw-label">Strength</span>Free tier — zero cost to start. Primary value is UGC content capture: every post, story, and reel from TF's ambassador roster captured automatically. Visual discovery (Super Search) is a secondary feature. Builds TF's content library from day one.</div>
+            <div class="sw-item weakness"><span class="sw-label">Weakness</span>Paid tier pricing not publicly listed — harder to budget at growth stage. Credit-based model means high-volume discovery has a cost ceiling. General DTC platform; aesthetic matching depth for very niche indie fashion styles untested.</div>
+            <div class="sw-item tf-apply"><span class="sw-label">TF Applicability</span>Set up Archive on day one for passive UGC capture across TF's first ambassador cohort — builds TF's content library automatically. Use AI Super Search in parallel to find aesthetically matched new influencers for incoming designers. Free tier while the ambassador roster is small.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── STORYCLASH ── -->
+      <div class="tool-card">
+        <div class="tool-body">
+          <div class="tool-name-row">
+            <div class="tool-name"><a href="https://www.storyclash.com/" target="_blank">Storyclash</a></div>
+            <div class="tool-url"><a href="https://www.storyclash.com/" target="_blank">storyclash.com</a></div>
+          </div>
+          <table class="stats">
+            <tr><td>What it does</td><td>Influencer marketing platform with documented visual AI brand-fit matching — analyzes actual image and video content, not just hashtags or bios, to surface influencers whose posts already match a brand's visual aesthetic and values</td></tr>
+            <tr><td>Visual aesthetic search</td><td>Yes — "True AI brand-fit matching: Goes beyond keywords to understand visual aesthetics and brand values." Analyzes post content directly. Positioned as the leading alternative to GRIN specifically for visual-first discovery. (source: storyclash.com, influencermarketinghub.com)</td></tr>
+            <tr><td>Pricing</td><td>€499/mo (Starter) · €999/mo (Growth) · €1,899/mo (Scale) · Enterprise custom · Demo required (source: storyclash.com/pricing)</td></tr>
+            <tr><td>Influencers indexed</td><td><span class="na">Not publicly disclosed</span></td></tr>
+            <tr><td>Key fashion clients</td><td><span class="na">Not specifically named — general fashion/lifestyle platform</span></td></tr>
+            <tr><td>Model</td><td>SaaS subscription — influencer discovery, campaign management, visual content analysis</td></tr>
+            <tr><td>Cost to TF</td><td>€499/mo Starter — 2.5× the Modash entry price; demo required before access (source: storyclash.com/pricing)</td></tr>
+            <tr><td>Geography</td><td>European HQ · Global influencer database</td></tr>
+          </table>
+          <div class="sw-row">
+            <div class="sw-item strength"><span class="sw-label">Strength</span>Strongest documented visual AI matching in this group — analyzes actual post content rather than metadata, described as "true" aesthetic AI vs. keyword filtering. European HQ and €-denominated pricing aligns with TF's EU expansion plans.</div>
+            <div class="sw-item weakness"><span class="sw-label">Weakness</span>No free trial confirmed — demo required. €499/mo entry point is 2.5× Modash's $199. Visual AI superiority over Modash and Archive is documented in marketing materials; no independent benchmark comparison available.</div>
+            <div class="sw-item tf-apply"><span class="sw-label">TF Applicability</span>Evaluate after testing Modash and Archive. Most relevant when TF scales EU operations — Storyclash's EU infrastructure and visual AI depth justify the €499/mo premium at that stage, not at launch.</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /tool-grid -->
+
+    <!-- ── Ideas for TF from Creator Discovery ── -->
+    <div class="sec-head" style="margin-top:40px">
+      <div class="sec-title">Ideas This Raises for Terra Ferra</div>
+    </div>
+    <div class="tf-ideas-grid">
+
+      <div class="tf-idea-card">
+        <div class="tf-idea-num">01</div>
+        <div class="tf-idea-title">Modash: free 14-day trial, no card needed</div>
+        <div class="tf-idea-body">Upload a designer's lookbook, get aesthetically matched influencers. Free 14-day trial — validate before spending.</div>
+      </div>
+
+      <div class="tf-idea-card">
+        <div class="tf-idea-num">02</div>
+        <div class="tf-idea-title">Set up Archive when the first ambassador is signed</div>
+        <div class="tf-idea-body">Auto-captures every ambassador's Instagram and TikTok post. Free tier. Runs without manual work.</div>
+      </div>
+
+      <div class="tf-idea-card">
+        <div class="tf-idea-num">03</div>
+        <div class="tf-idea-title">In-house matching: build it when TF has conversion data</div>
+        <div class="tf-idea-body">Once TF has co-creation votes and pre-order sales by style, that conversion signal is more valuable than image matching. FashionCLIP (open-source) is the build starting point.</div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <hr class="section-divider"/>
+
+  <hr class="section-divider"/>
+
+  <hr class="section-divider"/>
+
+  <!-- ══ SECTION 1 ══ -->
+  <div class="sec" id="sec-rus">
+    <div class="sec-head">
+      <div class="sec-title"><span class="sec-num">05</span>RUS Digital Fashion Collaboration Platform 3 — Extra Ideas</div>
+      <div class="sec-legend">
+        <span class="legend-label">Audience</span>
+        <span class="aud on">Designers</span>
+        <span class="aud on">Influencers</span>
+        <span class="aud on">Superfans</span>
+        <span class="aud on">Consumers</span>
+        <span class="aud on">Platform</span>
+        <span class="sec-legend-sep"></span>
+        <span class="legend-label">Category</span>
+        <span class="tag on">Experience</span>
+        <span class="tag on">Community</span>
+        <span class="tag on">Sales</span>
+        <span class="tag on">Analytics</span>
+        <span class="tag tfd on">TF $</span>
+      </div>
+    </div>
+    <div class="idea-grid">
+
+      <div class="idea-card">
+        <h4>Consumer as an Active Player — Not Just a Buyer</h4>
+        <p>Every consumer currently on TF was sent there by a designer — TF has no independent consumer traffic. A designer with that model has no reason to stay on TF over selling direct from their own site. A consumer discovery layer (designer feed, follow, drop alerts) gives designers reach they cannot get from their own channels.</p>
+        <div class="tags">
+          <span class="aud on">Designers</span><span class="aud">Influencers</span><span class="aud on">Superfans</span><span class="aud on">Consumers</span><span class="aud on">Platform</span>
+        </div>
+        <div class="tags">
+          <span class="tag on">Experience</span><span class="tag on">Community</span>
+          <span class="tag on">Sales</span><span class="tag">Analytics</span>
+          <span class="tag tfd on">TF $</span>
+        </div>
+      </div>
+
+      <div class="idea-card">
+        <h4>Demand Intelligence Dashboard</h4>
+        <p>Real-time analytics on which designs, colours and sizes are most tried on and saved. Enables data-driven decisions on what to produce, at what volume, and in which markets.</p>
+        <div class="tags">
+          <span class="aud on">Designers</span><span class="aud">Influencers</span><span class="aud">Superfans</span><span class="aud">Consumers</span><span class="aud">Platform</span>
+        </div>
+        <div class="tags">
+          <span class="tag">Experience</span><span class="tag">Community</span>
+          <span class="tag on">Sales</span><span class="tag on">Analytics</span>
+          <span class="tag tfd on">TF $</span>
+        </div>
+      </div>
+
+      <div class="idea-card">
+        <h4>Virtual Try-On (VTO)</h4>
+        <p>Third-party API — no proprietary build. <strong>True Fit</strong> maps body measurements to a brand's specific sizing. <strong>3DLOOK</strong> generates a body model from two photos. <strong>MySize/Naiz Fit</strong> recommends size from a short questionnaire. For TF's pre-order model, fit confidence removes the main reason consumers hesitate to commit. <a href="https://trendsonfire.com/retail/fashion-sizing-tech.html" target="_blank" style="color:var(--tf);font-weight:700;text-decoration:none;">Sizing technology deep dive →</a></p>
+        <div class="tags">
+          <span class="aud on">Designers</span><span class="aud on">Influencers</span><span class="aud">Superfans</span><span class="aud on">Consumers</span><span class="aud">Platform</span>
+        </div>
+        <div class="tags">
+          <span class="tag on">Experience</span><span class="tag">Community</span>
+          <span class="tag on">Sales</span><span class="tag">Analytics</span>
+          <span class="tag tfd">TF $</span>
+          <span class="tag ext">External API</span>
+        </div>
+      </div>
+
+      <div class="idea-card">
+        <h4>Style &amp; Size Profile</h4>
+        <p>A one-time setup capturing measurements, colour palette, fabric preferences, and style archetype. Powers personalised recommendations across every designer on the platform — recommendation quality compounds with usage.</p>
+        <div class="tags">
+          <span class="aud">Designers</span><span class="aud">Influencers</span><span class="aud">Superfans</span><span class="aud on">Consumers</span><span class="aud">Platform</span>
+        </div>
+        <div class="tags">
+          <span class="tag on">Experience</span><span class="tag">Community</span>
+          <span class="tag">Sales</span><span class="tag on">Analytics</span>
+          <span class="tag tfd">TF $</span>
+          <span class="tag ext">External API</span>
+        </div>
+      </div>
+
+      <div class="idea-card">
+        <h4>Early Access Premium Tier</h4>
+        <p>Paid consumer subscription unlocks virtual try-on of unreleased prototypes, co-creation voting rights, and first-access pre-orders at a discount. Converts casual browsers into committed community members.</p>
+        <div class="tags">
+          <span class="aud">Designers</span><span class="aud on">Influencers</span><span class="aud on">Superfans</span><span class="aud on">Consumers</span><span class="aud">Platform</span>
+        </div>
+        <div class="tags">
+          <span class="tag on">Experience</span><span class="tag on">Community</span>
+          <span class="tag on">Sales</span><span class="tag">Analytics</span>
+          <span class="tag tfd on">TF $</span>
+        </div>
+      </div>
+
+      <div class="idea-card">
+        <h4>Data as an Additional Revenue Layer</h4>
+        <p>Anonymised demand signals — top styles by region, real size distributions, colour trend velocity — packaged as premium analytics reports for fashion brands, investors, and industry analysts. Recurring B2B revenue independent of transaction volume.</p>
+        <div class="tags">
+          <span class="aud">Designers</span><span class="aud">Influencers</span><span class="aud">Superfans</span><span class="aud">Consumers</span><span class="aud on">Platform</span>
+        </div>
+        <div class="tags">
+          <span class="tag">Experience</span><span class="tag">Community</span>
+          <span class="tag on">Sales</span><span class="tag on">Analytics</span>
+          <span class="tag tfd on">TF $</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ SECTION 6: THE NAME ══ -->
+  <div class="sec" id="sec-name" style="margin-bottom:0">
+    <div class="sec-head">
+      <div class="sec-title"><span class="sec-num">06</span>The Name: Terra Ferra</div>
+    </div>
+    <div class="idea-grid" style="grid-template-columns:repeat(2,1fr)">
+
+      <div class="idea-card">
+        <h4>Why the name works</h4>
+        <p>Distinctive and memorable — two clean words, easy to say in English, Italian, and French. "Terra" signals earthy, artisanal, grounded — the right connotation for independent designers who make things by hand, not mass-market factories. "Ferra" adds sharpness and sounds like a fashion house. The combination is European in feel without being geographically specific.</p>
+      </div>
+
+      <div class="idea-card" style="border-top-color:var(--orange)">
+        <h4>Trademark</h4>
+        <p>Is "Terra Ferra" registered as a trademark in IC 025 (clothing) in the US and EU?</p>
+        <div class="tags" style="margin-top:16px">
+          <span class="tag on" style="background:var(--orange)">Action Required</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" title="Back to top">&#8593;</button>
+<style>#back-to-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--tf);color:white;border:1px solid rgba(113,105,212,.5);border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900;transition:background .2s;}#back-to-top:hover{background:var(--tf-dark);}</style>
+<script>window.addEventListener('scroll',function(){var b=document.getElementById('back-to-top');b.style.display=window.scrollY>400?'flex':'none';});</script>
+</body>
+</html>
