@@ -149,7 +149,7 @@ ul li strong{color:var(--ink);font-weight:700}
       <div class="toc-title">Budget</div>
       <div class="toc-sub">Cost breakdown · People, Operating, One-time, Contingency, Total</div>
     </a>
-    <a class="toc-card" href="#sec-sales">
+    <a class="toc-card toc-sales" href="#chapter-sales">
       <div class="toc-num">PART II</div>
       <div class="toc-title">Sales Scenarios</div>
       <div class="toc-sub">Revenue projections — Pessimistic / Base / Optimistic at 6 mo, 1 yr, 1.5 yr, 2 yr</div>
@@ -653,10 +653,11 @@ ul li strong{color:var(--ink);font-weight:700}
   </table>
 
   <h3>Scenario A — Pessimistic · slow designer adoption</h3>
+  <p style="font-size:12px;color:var(--sub);margin-bottom:8px">All figures are monthly run-rate at the end of each horizon.</p>
   <table>
     <thead>
       <tr>
-        <th>Metric</th>
+        <th>Metric (monthly)</th>
         <th class="num">6 Months</th>
         <th class="num">1 Year</th>
         <th class="num">1.5 Years</th>
@@ -665,7 +666,7 @@ ul li strong{color:var(--ink);font-weight:700}
     </thead>
     <tbody>
       <tr class="subtotal">
-        <td>MRR — Monthly Revenue (Total ARR ÷ 12)</td>
+        <td>Total monthly revenue (MRR)</td>
         <td class="num mrr-miss">€708 <span class="usd">$779</span></td>
         <td class="num mrr-miss">€3,045 <span class="usd">$3,350</span></td>
         <td class="num mrr-miss">€6,303 <span class="usd">$6,933</span></td>
@@ -679,48 +680,42 @@ ul li strong{color:var(--ink);font-weight:700}
         <td class="num">150</td>
       </tr>
       <tr>
-        <td>Annual GMV per designer</td>
-        <td class="num">€455 <span class="usd">$500</span></td>
-        <td class="num">€1,364 <span class="usd">$1,500</span></td>
-        <td class="num">€1,818 <span class="usd">$2,000</span></td>
-        <td class="num">€2,273 <span class="usd">$2,500</span></td>
+        <td>Monthly GMV per designer</td>
+        <td class="num">€38 <span class="usd">$42</span></td>
+        <td class="num">€114 <span class="usd">$125</span></td>
+        <td class="num">€152 <span class="usd">$167</span></td>
+        <td class="num">€189 <span class="usd">$208</span></td>
       </tr>
       <tr>
-        <td>Annual platform GMV</td>
+        <td>Monthly platform GMV (designers × GMV/designer)</td>
+        <td class="num">€379 <span class="usd">$417</span></td>
         <td class="num">€4,545 <span class="usd">$5,000</span></td>
-        <td class="num">€54,545 <span class="usd">$60,000</span></td>
-        <td class="num">€145,455 <span class="usd">$160,000</span></td>
-        <td class="num">€340,909 <span class="usd">$375,000</span></td>
+        <td class="num">€12,121 <span class="usd">$13,333</span></td>
+        <td class="num">€28,409 <span class="usd">$31,250</span></td>
       </tr>
       <tr>
-        <td>Subscription ARR ($75/month × designers)</td>
-        <td class="num">€8,182 <span class="usd">$9,000</span></td>
-        <td class="num">€32,727 <span class="usd">$36,000</span></td>
-        <td class="num">€65,454 <span class="usd">$72,000</span></td>
-        <td class="num">€122,727 <span class="usd">$135,000</span></td>
+        <td>Subscription revenue ($75 × designers)</td>
+        <td class="num">€682 <span class="usd">$750</span></td>
+        <td class="num">€2,727 <span class="usd">$3,000</span></td>
+        <td class="num">€5,455 <span class="usd">$6,000</span></td>
+        <td class="num">€10,227 <span class="usd">$11,250</span></td>
       </tr>
       <tr>
-        <td>Take rate ARR (7% of GMV)</td>
+        <td>Take rate revenue (7% of monthly GMV)</td>
+        <td class="num">€27 <span class="usd">$29</span></td>
         <td class="num">€318 <span class="usd">$350</span></td>
-        <td class="num">€3,818 <span class="usd">$4,200</span></td>
-        <td class="num">€10,182 <span class="usd">$11,200</span></td>
-        <td class="num">€23,864 <span class="usd">$26,250</span></td>
-      </tr>
-      <tr class="subtotal">
-        <td>Total ARR</td>
-        <td class="num">€8,500 <span class="usd">$9,350</span></td>
-        <td class="num">€36,545 <span class="usd">$40,200</span></td>
-        <td class="num">€75,636 <span class="usd">$83,200</span></td>
-        <td class="num">€146,591 <span class="usd">$161,250</span></td>
+        <td class="num">€848 <span class="usd">$933</span></td>
+        <td class="num">€1,989 <span class="usd">$2,188</span></td>
       </tr>
     </tbody>
   </table>
 
   <h3>Scenario B — Base · on-target execution ($10K MRR at Year 1)</h3>
+  <p style="font-size:12px;color:var(--sub);margin-bottom:8px">All figures are monthly run-rate at the end of each horizon.</p>
   <table>
     <thead>
       <tr>
-        <th>Metric</th>
+        <th>Metric (monthly)</th>
         <th class="num">6 Months</th>
         <th class="num">1 Year</th>
         <th class="num">1.5 Years</th>
@@ -729,7 +724,7 @@ ul li strong{color:var(--ink);font-weight:700}
     </thead>
     <tbody>
       <tr class="subtotal">
-        <td>MRR — Monthly Revenue (Total ARR ÷ 12)</td>
+        <td>Total monthly revenue (MRR)</td>
         <td class="num mrr-miss">€2,205 <span class="usd">$2,425</span></td>
         <td class="num mrr-hit">€9,773 <span class="usd">$10,750</span></td>
         <td class="num mrr-hit">€20,818 <span class="usd">$22,900</span></td>
@@ -743,48 +738,42 @@ ul li strong{color:var(--ink);font-weight:700}
         <td class="num">400</td>
       </tr>
       <tr>
-        <td>Annual GMV per designer</td>
-        <td class="num">€909 <span class="usd">$1,000</span></td>
+        <td>Monthly GMV per designer</td>
+        <td class="num">€76 <span class="usd">$83</span></td>
+        <td class="num">€189 <span class="usd">$208</span></td>
+        <td class="num">€265 <span class="usd">$292</span></td>
+        <td class="num">€379 <span class="usd">$417</span></td>
+      </tr>
+      <tr>
+        <td>Monthly platform GMV (designers × GMV/designer)</td>
         <td class="num">€2,273 <span class="usd">$2,500</span></td>
-        <td class="num">€3,182 <span class="usd">$3,500</span></td>
-        <td class="num">€4,545 <span class="usd">$5,000</span></td>
+        <td class="num">€22,727 <span class="usd">$25,000</span></td>
+        <td class="num">€63,636 <span class="usd">$70,000</span></td>
+        <td class="num">€151,515 <span class="usd">$166,667</span></td>
       </tr>
       <tr>
-        <td>Annual platform GMV</td>
+        <td>Subscription revenue ($75 × designers)</td>
+        <td class="num">€2,045 <span class="usd">$2,250</span></td>
+        <td class="num">€8,182 <span class="usd">$9,000</span></td>
+        <td class="num">€16,364 <span class="usd">$18,000</span></td>
         <td class="num">€27,273 <span class="usd">$30,000</span></td>
-        <td class="num">€272,727 <span class="usd">$300,000</span></td>
-        <td class="num">€763,636 <span class="usd">$840,000</span></td>
-        <td class="num">€1,818,182 <span class="usd">$2,000,000</span></td>
       </tr>
       <tr>
-        <td>Subscription ARR ($75/month × designers)</td>
-        <td class="num">€24,545 <span class="usd">$27,000</span></td>
-        <td class="num">€98,182 <span class="usd">$108,000</span></td>
-        <td class="num">€196,364 <span class="usd">$216,000</span></td>
-        <td class="num">€327,273 <span class="usd">$360,000</span></td>
-      </tr>
-      <tr>
-        <td>Take rate ARR (7% of GMV)</td>
-        <td class="num">€1,909 <span class="usd">$2,100</span></td>
-        <td class="num">€19,091 <span class="usd">$21,000</span></td>
-        <td class="num">€53,455 <span class="usd">$58,800</span></td>
-        <td class="num">€127,273 <span class="usd">$140,000</span></td>
-      </tr>
-      <tr class="subtotal">
-        <td>Total ARR</td>
-        <td class="num">€26,455 <span class="usd">$29,100</span></td>
-        <td class="num">€117,273 <span class="usd">$129,000</span></td>
-        <td class="num">€249,818 <span class="usd">$274,800</span></td>
-        <td class="num">€454,545 <span class="usd">$500,000</span></td>
+        <td>Take rate revenue (7% of monthly GMV)</td>
+        <td class="num">€159 <span class="usd">$175</span></td>
+        <td class="num">€1,591 <span class="usd">$1,750</span></td>
+        <td class="num">€4,455 <span class="usd">$4,900</span></td>
+        <td class="num">€10,606 <span class="usd">$11,667</span></td>
       </tr>
     </tbody>
   </table>
 
   <h3>Scenario C — Optimistic · strong demand and fast adoption</h3>
+  <p style="font-size:12px;color:var(--sub);margin-bottom:8px">All figures are monthly run-rate at the end of each horizon.</p>
   <table>
     <thead>
       <tr>
-        <th>Metric</th>
+        <th>Metric (monthly)</th>
         <th class="num">6 Months</th>
         <th class="num">1 Year</th>
         <th class="num">1.5 Years</th>
@@ -793,7 +782,7 @@ ul li strong{color:var(--ink);font-weight:700}
     </thead>
     <tbody>
       <tr class="subtotal">
-        <td>MRR — Monthly Revenue (Total ARR ÷ 12)</td>
+        <td>Total monthly revenue (MRR)</td>
         <td class="num mrr-miss">€4,568 <span class="usd">$5,025</span></td>
         <td class="num mrr-hit">€22,348 <span class="usd">$24,583</span></td>
         <td class="num mrr-hit">€50,000 <span class="usd">$55,000</span></td>
@@ -807,39 +796,32 @@ ul li strong{color:var(--ink);font-weight:700}
         <td class="num">900</td>
       </tr>
       <tr>
-        <td>Annual GMV per designer</td>
-        <td class="num">€1,364 <span class="usd">$1,500</span></td>
-        <td class="num">€3,636 <span class="usd">$4,000</span></td>
-        <td class="num">€5,455 <span class="usd">$6,000</span></td>
-        <td class="num">€8,182 <span class="usd">$9,000</span></td>
+        <td>Monthly GMV per designer</td>
+        <td class="num">€114 <span class="usd">$125</span></td>
+        <td class="num">€303 <span class="usd">$333</span></td>
+        <td class="num">€455 <span class="usd">$500</span></td>
+        <td class="num">€682 <span class="usd">$750</span></td>
       </tr>
       <tr>
-        <td>Annual platform GMV</td>
-        <td class="num">€81,818 <span class="usd">$90,000</span></td>
-        <td class="num">€909,091 <span class="usd">$1,000,000</span></td>
-        <td class="num">€2,727,273 <span class="usd">$3,000,000</span></td>
-        <td class="num">€7,363,636 <span class="usd">$8,100,000</span></td>
+        <td>Monthly platform GMV (designers × GMV/designer)</td>
+        <td class="num">€6,818 <span class="usd">$7,500</span></td>
+        <td class="num">€75,758 <span class="usd">$83,333</span></td>
+        <td class="num">€227,273 <span class="usd">$250,000</span></td>
+        <td class="num">€613,636 <span class="usd">$675,000</span></td>
       </tr>
       <tr>
-        <td>Subscription ARR ($75/month × designers)</td>
-        <td class="num">€49,091 <span class="usd">$54,000</span></td>
-        <td class="num">€204,545 <span class="usd">$225,000</span></td>
-        <td class="num">€409,091 <span class="usd">$450,000</span></td>
-        <td class="num">€736,364 <span class="usd">$810,000</span></td>
+        <td>Subscription revenue ($75 × designers)</td>
+        <td class="num">€4,091 <span class="usd">$4,500</span></td>
+        <td class="num">€17,045 <span class="usd">$18,750</span></td>
+        <td class="num">€34,091 <span class="usd">$37,500</span></td>
+        <td class="num">€61,364 <span class="usd">$67,500</span></td>
       </tr>
       <tr>
-        <td>Take rate ARR (7% of GMV)</td>
-        <td class="num">€5,727 <span class="usd">$6,300</span></td>
-        <td class="num">€63,636 <span class="usd">$70,000</span></td>
-        <td class="num">€190,909 <span class="usd">$210,000</span></td>
-        <td class="num">€515,455 <span class="usd">$567,000</span></td>
-      </tr>
-      <tr class="subtotal">
-        <td>Total ARR</td>
-        <td class="num">€54,818 <span class="usd">$60,300</span></td>
-        <td class="num">€268,182 <span class="usd">$295,000</span></td>
-        <td class="num">€600,000 <span class="usd">$660,000</span></td>
-        <td class="num">€1,251,818 <span class="usd">$1,377,000</span></td>
+        <td>Take rate revenue (7% of monthly GMV)</td>
+        <td class="num">€477 <span class="usd">$525</span></td>
+        <td class="num">€5,303 <span class="usd">$5,833</span></td>
+        <td class="num">€15,909 <span class="usd">$17,500</span></td>
+        <td class="num">€42,955 <span class="usd">$47,250</span></td>
       </tr>
     </tbody>
   </table>
