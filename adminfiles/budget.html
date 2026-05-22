@@ -74,6 +74,9 @@ h3{font-size:14px;font-weight:800;color:var(--ink);margin:24px 0 10px;letter-spa
 
 /* Executive Summary — 4 horizon cards */
 .exec-summary-box{border:3px solid var(--orange);background:#FEF7F1;padding:26px 26px 10px;margin:0 0 44px}
+.exec-summary-box.updated{border-color:#1E40AF;background:#EDF1FA}
+.exec-summary-box.updated .exec-eyebrow{color:#1E40AF}
+
 .exec-eyebrow{font-size:10px;font-weight:800;letter-spacing:3.5px;text-transform:uppercase;color:var(--orange);margin-bottom:6px}
 .exec-title{font-size:32px;font-weight:800;letter-spacing:-1.2px;color:var(--ink);margin:0 0 12px;line-height:1.1}
 .exec-conclusion{font-size:13.5px;color:var(--ink);font-weight:500;margin:0 0 20px;line-height:1.6;padding:12px 16px;background:white;border-left:4px solid var(--ink)}
@@ -443,12 +446,183 @@ ul li strong{color:var(--ink);font-weight:700}
   </div>
   </div>
 
-  <div class="collapse-bar">
-    <button class="collapse-btn" data-chapter="chapter-budget" onclick="toggleChapter('chapter-budget','Budget')">Collapse Budget ▾</button>
-    <button class="collapse-btn" data-chapter="chapter-sales" onclick="toggleChapter('chapter-sales','Sales')">Collapse Sales ▾</button>
-    <button class="collapse-btn" data-chapter="chapter-sales-updated" onclick="toggleChapter('chapter-sales-updated','Sales Updated')">Collapse Sales Updated ▾</button>
+  <!-- ── EXECUTIVE SUMMARY · UPDATED ── -->
+  <div class="exec-summary-box updated">
+  <div class="exec-eyebrow">Key Metrics · Updated Services-Led Model</div>
+  <h2 class="exec-title">Executive Summary — Costs vs Revenue (Updated)</h2>
+  <p class="exec-conclusion">Revenue on the 2026 services-led model ($1,000/month + pre-order fees). Monthly cost ~$47–51K. Break-even comes faster: <strong>by the 1-year mark</strong> in the Optimistic case ($87,500), at roughly <strong>1.5 years</strong> in the Base case ($74,250), and <strong>at the 2-year mark</strong> in the Pessimistic case ($49,000).</p>
+  <div class="exec-grid">
+
+    <div class="exec-card">
+      <div class="exec-horizon">6 Months</div>
+
+      <div class="exec-block-label">Cumulative cost</div>
+      <div class="exec-cost-line"><span class="eur">€315K</span><span class="usd">$346K</span></div>
+      <div class="exec-block-label" style="margin-top:10px">Monthly cost</div>
+      <div class="exec-cost-line"><span class="eur">€43K</span><span class="usd">$47K</span></div>
+
+      <div class="exec-divider"></div>
+
+      <div class="exec-block-label">Monthly revenue</div>
+      <div class="exec-rev-row miss">
+        <div class="exec-scen">Pessimistic</div>
+        <div class="exec-vals"><span class="eur">€5,000</span><span class="usd">$5,500</span></div>
+      </div>
+      <div class="exec-rev-row hit">
+        <div class="exec-scen">Base</div>
+        <div class="exec-vals"><span class="eur">€10,909</span><span class="usd">$12,000</span></div>
+      </div>
+      <div class="exec-rev-row hit">
+        <div class="exec-scen">Optimistic</div>
+        <div class="exec-vals"><span class="eur">€25,455</span><span class="usd">$28,000</span></div>
+      </div>
+
+      <div class="exec-divider"></div>
+
+      <div class="exec-block-label">Annual revenue</div>
+      <div class="exec-rev-row miss">
+        <div class="exec-scen">Pessimistic</div>
+        <div class="exec-vals"><span class="eur">€60K</span><span class="usd">$66K</span></div>
+      </div>
+      <div class="exec-rev-row hit">
+        <div class="exec-scen">Base</div>
+        <div class="exec-vals"><span class="eur">€131K</span><span class="usd">$144K</span></div>
+      </div>
+      <div class="exec-rev-row hit">
+        <div class="exec-scen">Optimistic</div>
+        <div class="exec-vals"><span class="eur">€305K</span><span class="usd">$336K</span></div>
+      </div>
+    </div>
+
+    <div class="exec-card">
+      <div class="exec-horizon">1 Year</div>
+
+      <div class="exec-block-label">Cumulative cost</div>
+      <div class="exec-cost-line"><span class="eur">€595K</span><span class="usd">$655K</span></div>
+      <div class="exec-block-label" style="margin-top:10px">Monthly cost</div>
+      <div class="exec-cost-line"><span class="eur">€47K</span><span class="usd">$51K</span></div>
+
+      <div class="exec-divider"></div>
+
+      <div class="exec-block-label">Monthly revenue</div>
+      <div class="exec-rev-row hit">
+        <div class="exec-scen">Pessimistic</div>
+        <div class="exec-vals"><span class="eur">€13,091</span><span class="usd">$14,400</span></div>
+      </div>
+      <div class="exec-rev-row hit">
+        <div class="exec-scen">Base</div>
+        <div class="exec-vals"><span class="eur">€31,818</span><span class="usd">$35,000</span></div>
+      </div>
+      <div class="exec-rev-row hit">
+        <div class="exec-scen">Optimistic</div>
+        <div class="exec-vals"><span class="eur">€79,545</span><span class="usd">$87,500</span></div>
+      </div>
+
+      <div class="exec-divider"></div>
+
+      <div class="exec-block-label">Annual revenue</div>
+      <div class="exec-rev-row hit">
+        <div class="exec-scen">Pessimistic</div>
+        <div class="exec-vals"><span class="eur">€157K</span><span class="usd">$173K</span></div>
+      </div>
+      <div class="exec-rev-row hit">
+        <div class="exec-scen">Base</div>
+        <div class="exec-vals"><span class="eur">€382K</span><span class="usd">$420K</span></div>
+      </div>
+      <div class="exec-rev-row hit">
+        <div class="exec-scen">Optimistic</div>
+        <div class="exec-vals"><span class="eur">€955K</span><span class="usd">$1.05M</span></div>
+      </div>
+    </div>
+
+    <div class="exec-card">
+      <div class="exec-horizon">1.5 Years</div>
+
+      <div class="exec-block-label">Cumulative cost</div>
+      <div class="exec-cost-line"><span class="eur">€876K</span><span class="usd">$964K</span></div>
+      <div class="exec-block-label" style="margin-top:10px">Monthly cost</div>
+      <div class="exec-cost-line"><span class="eur">€47K</span><span class="usd">$51K</span></div>
+
+      <div class="exec-divider"></div>
+
+      <div class="exec-block-label">Monthly revenue</div>
+      <div class="exec-rev-row hit">
+        <div class="exec-scen">Pessimistic</div>
+        <div class="exec-vals"><span class="eur">€26,000</span><span class="usd">$28,600</span></div>
+      </div>
+      <div class="exec-rev-row hit">
+        <div class="exec-scen">Base</div>
+        <div class="exec-vals"><span class="eur">€67,500</span><span class="usd">$74,250</span></div>
+      </div>
+      <div class="exec-rev-row hit">
+        <div class="exec-scen">Optimistic</div>
+        <div class="exec-vals"><span class="eur">€184,091</span><span class="usd">$202,500</span></div>
+      </div>
+
+      <div class="exec-divider"></div>
+
+      <div class="exec-block-label">Annual revenue</div>
+      <div class="exec-rev-row hit">
+        <div class="exec-scen">Pessimistic</div>
+        <div class="exec-vals"><span class="eur">€312K</span><span class="usd">$343K</span></div>
+      </div>
+      <div class="exec-rev-row hit">
+        <div class="exec-scen">Base</div>
+        <div class="exec-vals"><span class="eur">€810K</span><span class="usd">$891K</span></div>
+      </div>
+      <div class="exec-rev-row hit">
+        <div class="exec-scen">Optimistic</div>
+        <div class="exec-vals"><span class="eur">€2.21M</span><span class="usd">$2.43M</span></div>
+      </div>
+    </div>
+
+    <div class="exec-card">
+      <div class="exec-horizon">2 Years</div>
+
+      <div class="exec-block-label">Cumulative cost</div>
+      <div class="exec-cost-line"><span class="eur">€1.16M</span><span class="usd">$1.27M</span></div>
+      <div class="exec-block-label" style="margin-top:10px">Monthly cost</div>
+      <div class="exec-cost-line"><span class="eur">€47K</span><span class="usd">$51K</span></div>
+
+      <div class="exec-divider"></div>
+
+      <div class="exec-block-label">Monthly revenue</div>
+      <div class="exec-rev-row hit">
+        <div class="exec-scen">Pessimistic</div>
+        <div class="exec-vals"><span class="eur">€44,545</span><span class="usd">$49,000</span></div>
+      </div>
+      <div class="exec-rev-row hit">
+        <div class="exec-scen">Base</div>
+        <div class="exec-vals"><span class="eur">€129,545</span><span class="usd">$142,500</span></div>
+      </div>
+      <div class="exec-rev-row hit">
+        <div class="exec-scen">Optimistic</div>
+        <div class="exec-vals"><span class="eur">€395,455</span><span class="usd">$435,000</span></div>
+      </div>
+
+      <div class="exec-divider"></div>
+
+      <div class="exec-block-label">Annual revenue</div>
+      <div class="exec-rev-row hit">
+        <div class="exec-scen">Pessimistic</div>
+        <div class="exec-vals"><span class="eur">€535K</span><span class="usd">$588K</span></div>
+      </div>
+      <div class="exec-rev-row hit">
+        <div class="exec-scen">Base</div>
+        <div class="exec-vals"><span class="eur">€1.55M</span><span class="usd">$1.71M</span></div>
+      </div>
+      <div class="exec-rev-row hit">
+        <div class="exec-scen">Optimistic</div>
+        <div class="exec-vals"><span class="eur">€4.75M</span><span class="usd">$5.22M</span></div>
+      </div>
+    </div>
+
+  </div>
   </div>
 
+  <div class="collapse-bar">
+    <button class="collapse-btn" data-chapter="chapter-budget" onclick="toggleChapter('chapter-budget','Budget')">Collapse Budget &#9662;</button>
+  </div>
   <!-- ══════════ CHAPTER I ══════════ -->
   <div class="chapter chapter-budget" id="chapter-budget">
     <div class="chapter-divider chapter-divider-budget">
@@ -898,6 +1072,9 @@ ul li strong{color:var(--ink);font-weight:700}
     </div>
   </div>
 
+  <div class="collapse-bar">
+    <button class="collapse-btn" data-chapter="chapter-sales" onclick="toggleChapter('chapter-sales','Sales')">Collapse Sales &#9662;</button>
+  </div>
   <!-- ══════════ CHAPTER II ══════════ -->
   <div class="chapter chapter-sales" id="chapter-sales">
     <div class="chapter-divider chapter-divider-sales">
@@ -1156,6 +1333,9 @@ ul li strong{color:var(--ink);font-weight:700}
   </div>
 
     </div>
+  </div>
+  <div class="collapse-bar">
+    <button class="collapse-btn" data-chapter="chapter-sales-updated" onclick="toggleChapter('chapter-sales-updated','Sales Updated')">Collapse Sales Updated &#9662;</button>
   </div>
   <!-- ══════════ CHAPTER III ══════════ -->
   <div class="chapter chapter-sales2" id="chapter-sales-updated">
