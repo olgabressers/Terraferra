@@ -73,8 +73,10 @@ h3{font-size:14px;font-weight:800;color:var(--ink);margin:24px 0 10px;letter-spa
 .collapse-btn[data-chapter="chapter-sales"]:hover{border-color:var(--orange);color:var(--orange)}
 
 /* Executive Summary — 4 horizon cards */
-.exec-title{font-size:14px;font-weight:800;letter-spacing:.3px;color:var(--ink);margin:0 0 12px}
-.exec-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 36px}
+.exec-summary-box{border:3px solid var(--orange);background:#FEF7F1;padding:26px 26px 10px;margin:0 0 44px}
+.exec-eyebrow{font-size:10px;font-weight:800;letter-spacing:3.5px;text-transform:uppercase;color:var(--orange);margin-bottom:6px}
+.exec-title{font-size:32px;font-weight:800;letter-spacing:-1.2px;color:var(--ink);margin:0 0 20px;line-height:1.1}
+.exec-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0}
 .exec-card{background:white;border:1px solid var(--rule);border-top:4px solid var(--ink);padding:18px 16px 14px;font-size:11.5px}
 .exec-horizon{font-size:11px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--ink);margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--ink)}
 .exec-block-label{font-size:9.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);margin:10px 0 5px}
@@ -207,6 +209,8 @@ ul li strong{color:var(--ink);font-weight:700}
   h1{font-size:22px}
   table{font-size:10.5px}
   th,td{padding:6px 7px}
+  .exec-title{font-size:22px}
+  .exec-summary-box{padding:18px 14px 6px}
 }
 </style>
 </head>
@@ -237,7 +241,9 @@ ul li strong{color:var(--ink);font-weight:700}
   </nav>
 
   <!-- ── EXECUTIVE SUMMARY ── -->
-  <h3 class="exec-title">Executive Summary — Costs vs Revenue</h3>
+  <div class="exec-summary-box">
+  <div class="exec-eyebrow">Key Metrics · At a Glance</div>
+  <h2 class="exec-title">Executive Summary — Costs vs Revenue</h2>
   <div class="exec-grid">
 
     <div class="exec-card">
@@ -396,6 +402,7 @@ ul li strong{color:var(--ink);font-weight:700}
       </div>
     </div>
 
+  </div>
   </div>
 
   <div class="collapse-bar">
