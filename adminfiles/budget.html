@@ -1008,6 +1008,24 @@ ul li strong{color:var(--ink);font-weight:700}
     </tbody>
   </table>
 
+  <h3>Scenario C — Optimistic · Full Calculation, Step by Step</h3>
+  <p style="font-size:12px;color:var(--sub);margin-bottom:8px">Steps 1–2 are assumptions. Steps 3–8 are calculated. USD shown; EUR = USD ÷ 1.10.</p>
+  <table class="rev-table">
+    <thead>
+      <tr><th>Step</th><th>Formula</th><th class="num">6 Months</th><th class="num">1 Year</th><th class="num">1.5 Years</th><th class="num">2 Years</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1 · Active designers</td><td class="note">Assumption</td><td class="num">60</td><td class="num">250</td><td class="num">500</td><td class="num">900</td></tr>
+      <tr><td>2 · GMV per designer / year</td><td class="note">Assumption (Wolf &amp; Badger anchored)</td><td class="num">$9,600</td><td class="num">$24,000</td><td class="num">$40,000</td><td class="num">$60,000</td></tr>
+      <tr><td>3 · GMV per designer / month</td><td class="note">Step 2 ÷ 12</td><td class="num">$800</td><td class="num">$2,000</td><td class="num">$3,333</td><td class="num">$5,000</td></tr>
+      <tr><td>4 · Platform GMV / month</td><td class="note">Step 1 × Step 3</td><td class="num">$48,000</td><td class="num">$500,000</td><td class="num">$1,666,667</td><td class="num">$4,500,000</td></tr>
+      <tr><td>5 · GMV commission</td><td class="note">7% × Step 4</td><td class="num">$3,360</td><td class="num">$35,000</td><td class="num">$116,667</td><td class="num">$315,000</td></tr>
+      <tr><td>6 · Subscription revenue</td><td class="note">Step 1 × $75</td><td class="num">$4,500</td><td class="num">$18,750</td><td class="num">$37,500</td><td class="num">$67,500</td></tr>
+      <tr class="subtotal"><td>7 · Total monthly revenue</td><td class="note">Step 5 + Step 6</td><td class="num mrr-miss">$7,860</td><td class="num mrr-hit">$53,750</td><td class="num mrr-hit">$154,167</td><td class="num mrr-hit">$382,500</td></tr>
+      <tr class="subtotal"><td>8 · Annual revenue</td><td class="note">Step 7 × 12</td><td class="num">$94,320</td><td class="num">$645,000</td><td class="num">$1,850,000</td><td class="num">$4,590,000</td></tr>
+    </tbody>
+  </table>
+
     </div>
   </div>
 </div>
