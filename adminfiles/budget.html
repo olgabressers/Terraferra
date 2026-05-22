@@ -138,6 +138,17 @@ h3{font-size:14px;font-weight:800;color:var(--ink);margin:24px 0 10px;letter-spa
 .calc-row.calc-total .calc-val{font-weight:800;font-size:14px}
 .calc-row.calc-total.hit .calc-val{color:#1F7A4E}
 
+
+/* Part III — Sales Updated chapter (blue) */
+.chapter-sales2{background:#EDF1FA;padding:28px 28px 24px;margin-left:-28px;margin-right:-28px;margin-top:48px}
+.chapter-divider-sales2{border-top-color:#1E40AF}
+.chapter-divider-sales2 .cd-num{color:#1E40AF}
+.chapter-divider-sales2 .cd-title{color:#1E3A8A}
+.toc-card.toc-sales2{background:#EAF0FB;border-color:#1E40AF;border-top-color:#1E40AF}
+.toc-card.toc-sales2 .toc-num{color:#1E40AF}
+.toc-card.toc-sales2 .toc-title{color:#1E3A8A}
+.collapse-btn[data-chapter="chapter-sales-updated"]:hover{border-color:#1E40AF;color:#1E40AF}
+
 /* Revenue formula block */
 .formula-box{background:white;border:2px solid var(--ink);padding:22px 24px;margin:0 0 28px;font-size:13px;color:var(--ink)}
 .formula-title{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
@@ -151,7 +162,7 @@ h3{font-size:14px;font-weight:800;color:var(--ink);margin:24px 0 10px;letter-spa
 .target-banner .tb-label{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub)}
 
 /* ── TOC ────────────────────────────────── */
-.toc{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 44px}
+.toc{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0 0 44px}
 .toc-card{display:block;background:white;border:1px solid var(--rule);border-top:3px solid var(--tf);padding:22px 24px;text-decoration:none;color:var(--ink);transition:border-top-color .15s ease,transform .15s ease}
 .toc-card:hover{border-top-color:var(--orange);transform:translateY(-2px)}
 .toc-card .toc-num{font-size:11px;font-weight:800;letter-spacing:2px;color:var(--orange);margin-bottom:10px}
@@ -211,7 +222,7 @@ ul li strong{color:var(--ink);font-weight:700}
   .calc-block{padding:14px 16px}
   .calc-row{flex-wrap:wrap;gap:2px}
   .calc-row .calc-label{flex:1 1 100%}
-  .chapter-sales{margin-left:-12px;margin-right:-12px;padding:20px 14px}
+  .chapter-sales,.chapter-sales2{margin-left:-12px;margin-right:-12px;padding:20px 14px}
 }
 @media(max-width:500px){
   .wrap{padding:16px 10px 40px}
@@ -250,6 +261,11 @@ ul li strong{color:var(--ink);font-weight:700}
       <div class="toc-num">PART II</div>
       <div class="toc-title">Sales Scenarios</div>
       <div class="toc-sub">Revenue projections — Pessimistic / Base / Optimistic at 6 mo, 1 yr, 1.5 yr, 2 yr</div>
+    </a>
+    <a class="toc-card toc-sales2" href="#chapter-sales-updated">
+      <div class="toc-num">PART III</div>
+      <div class="toc-title">Sales Scenarios — Updated</div>
+      <div class="toc-sub">Revenue on the services-led model from the 2026 strategic deck — $1,000/month + pre-order fees</div>
     </a>
   </nav>
 
@@ -430,6 +446,7 @@ ul li strong{color:var(--ink);font-weight:700}
   <div class="collapse-bar">
     <button class="collapse-btn" data-chapter="chapter-budget" onclick="toggleChapter('chapter-budget','Budget')">Collapse Budget ▾</button>
     <button class="collapse-btn" data-chapter="chapter-sales" onclick="toggleChapter('chapter-sales','Sales')">Collapse Sales ▾</button>
+    <button class="collapse-btn" data-chapter="chapter-sales-updated" onclick="toggleChapter('chapter-sales-updated','Sales Updated')">Collapse Sales Updated ▾</button>
   </div>
 
   <!-- ══════════ CHAPTER I ══════════ -->
@@ -1135,6 +1152,177 @@ ul li strong{color:var(--ink);font-weight:700}
     <div class="calc-section-head">Annualised</div>
     <div class="calc-row calc-total"><span class="calc-label">Annual revenue — $405,000 × 12</span><span class="calc-val">$4,860,000</span></div>
   </div>
+    </div>
+  </div>
+
+    </div>
+  </div>
+  <!-- ══════════ CHAPTER III ══════════ -->
+  <div class="chapter chapter-sales2" id="chapter-sales-updated">
+    <div class="chapter-divider chapter-divider-sales2">
+      <div class="cd-num">Part III</div>
+      <h2 class="cd-title">Sales Scenarios — Updated</h2>
+      <div class="cd-sub">Revenue on the services-led model from the 2026 strategic deck — managed launch sprints at $1,000/month plus pre-order processing fees. All figures USD.</div>
+    </div>
+    <div class="chapter-body">
+
+  <div class="formula-box">
+    <div class="formula-title">Earning Formula — Services-Led Model</div>
+    <div class="formula-equation">
+      Total Revenue = $1,000/month service subscription &nbsp;+&nbsp; 5% × pre-orders processed &nbsp;+&nbsp; 7% × co-creator rewards above $10,000/month
+    </div>
+    <ul>
+      <li><strong>$1,000/month service subscription</strong> — managed drop-launch sprint package, per paying designer (billed three months upfront).</li>
+      <li><strong>5% × pre-orders processed</strong> — fee on pre-order and gift-card volume run through the platform.</li>
+      <li><strong>7% × co-creator rewards above $10,000/month</strong> — applies only to designers whose co-creator/collaborator reward payouts exceed $10,000/month; incremental, not modelled in the core scenarios below.</li>
+    </ul>
+    <div style="font-size:11px;color:var(--sub);margin-top:4px">Source: Terra Ferra pricing page and 2026 positioning &amp; GTM strategic deck.</div>
+  </div>
+
+  <div class="section-frame">
+    <div class="section-frame-head">Assumptions</div>
+    <div class="section-frame-body">
+
+      <h3>Core Inputs — the two variables that drive every scenario</h3>
+      <table>
+        <thead>
+          <tr><th>Input</th><th>Scenario</th><th class="num">6 Months</th><th class="num">1 Year</th><th class="num">1.5 Years</th><th class="num">2 Years</th></tr>
+        </thead>
+        <tbody>
+      <tr><td rowspan="3"><strong>Paying designers</strong><br/><span style="font-size:11px;color:var(--sub)">count on platform</span></td><td>Pessimistic</td><td class="num">5</td><td class="num">12</td><td class="num">22</td><td class="num">35</td></tr>
+      <tr><td>Base</td><td class="num">10</td><td class="num">25</td><td class="num">45</td><td class="num">75</td></tr>
+      <tr><td>Optimistic</td><td class="num">20</td><td class="num">50</td><td class="num">90</td><td class="num">150</td></tr>
+      <tr><td rowspan="3"><strong>Pre-order volume per designer</strong><br/><span style="font-size:11px;color:var(--sub)">monthly, processed via platform</span></td><td>Pessimistic</td><td class="num">$2,000</td><td class="num">$4,000</td><td class="num">$6,000</td><td class="num">$8,000</td></tr>
+      <tr><td>Base</td><td class="num">$4,000</td><td class="num">$8,000</td><td class="num">$13,000</td><td class="num">$18,000</td></tr>
+      <tr><td>Optimistic</td><td class="num">$8,000</td><td class="num">$15,000</td><td class="num">$25,000</td><td class="num">$38,000</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:12px;color:var(--ink);margin-bottom:18px">
+        Designer counts are lower than a marketplace model because each engagement is a high-touch managed sprint. The beachhead customer profile in the strategic deck is a designer with $300,000–$3 million in annual online sales and 10,000–150,000 followers — established enough to generate measurable pre-orders.
+      </p>
+
+      <h3>Fixed Parameters</h3>
+      <table>
+        <thead><tr><th>Parameter</th><th class="num">Rate</th><th>Basis</th></tr></thead>
+        <tbody>
+          <tr><td>Service subscription</td><td class="num">$1,000 / month</td><td class="note">Per paying designer, billed three months upfront. Source: Terra Ferra pricing page.</td></tr>
+          <tr><td>Pre-order processing fee</td><td class="num">5%</td><td class="note">Of pre-order and gift-card volume processed through the platform. Source: Terra Ferra pricing page.</td></tr>
+          <tr><td>Co-creator reward fee</td><td class="num">7%</td><td class="note">Of co-creator/collaborator rewards above $10,000/month. Incremental upside, not in core scenario figures.</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Worked Example — Base case at Year 1</h3>
+      <table class="rev-table">
+        <thead><tr><th>Step</th><th>Calculation</th><th class="num">Result (monthly)</th></tr></thead>
+        <tbody>
+          <tr><td>Paying designers</td><td class="note">Scenario assumption</td><td class="num">25</td></tr>
+          <tr><td>Pre-order volume per designer</td><td class="note">Scenario assumption</td><td class="num">$8,000</td></tr>
+          <tr><td>Total pre-order volume</td><td class="note">25 designers × $8,000</td><td class="num">$200,000</td></tr>
+          <tr><td>Service subscription</td><td class="note">25 designers × $1,000</td><td class="num">$25,000</td></tr>
+          <tr><td>Pre-order fee</td><td class="note">5% × $200,000</td><td class="num">$10,000</td></tr>
+          <tr class="subtotal"><td>Total monthly revenue</td><td class="note">$25,000 + $10,000</td><td class="num mrr-hit">$35,000</td></tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+
+  <div class="section-frame conclusion-frame">
+    <div class="section-frame-head">Conclusion — Revenue by Scenario</div>
+    <div class="section-frame-body">
+
+      <h3>Monthly Revenue · target $10,000</h3>
+      <table class="rev-table">
+        <thead><tr><th>Scenario</th><th class="num">6 Months</th><th class="num">1 Year</th><th class="num">1.5 Years</th><th class="num">2 Years</th></tr></thead>
+        <tbody>
+      <tr><td><strong>Pessimistic</strong></td><td class="num mrr-miss">$5,500 <span class="eur-ref">€5,000</span><span class="dz">5 designers</span></td><td class="num mrr-hit">$14,400 <span class="eur-ref">€13,091</span><span class="dz">12 designers</span></td><td class="num mrr-hit">$28,600 <span class="eur-ref">€26,000</span><span class="dz">22 designers</span></td><td class="num mrr-hit">$49,000 <span class="eur-ref">€44,545</span><span class="dz">35 designers</span></td></tr>
+      <tr><td><strong>Base</strong></td><td class="num mrr-hit">$12,000 <span class="eur-ref">€10,909</span><span class="dz">10 designers</span></td><td class="num mrr-hit">$35,000 <span class="eur-ref">€31,818</span><span class="dz">25 designers</span></td><td class="num mrr-hit">$74,250 <span class="eur-ref">€67,500</span><span class="dz">45 designers</span></td><td class="num mrr-hit">$142,500 <span class="eur-ref">€129,545</span><span class="dz">75 designers</span></td></tr>
+      <tr><td><strong>Optimistic</strong></td><td class="num mrr-hit">$28,000 <span class="eur-ref">€25,455</span><span class="dz">20 designers</span></td><td class="num mrr-hit">$87,500 <span class="eur-ref">€79,545</span><span class="dz">50 designers</span></td><td class="num mrr-hit">$202,500 <span class="eur-ref">€184,091</span><span class="dz">90 designers</span></td><td class="num mrr-hit">$435,000 <span class="eur-ref">€395,455</span><span class="dz">150 designers</span></td></tr>
+        </tbody>
+      </table>
+
+      <h3>Annual Revenue · target $120,000</h3>
+      <table class="rev-table">
+        <thead><tr><th>Scenario</th><th class="num">6 Months</th><th class="num">1 Year</th><th class="num">1.5 Years</th><th class="num">2 Years</th></tr></thead>
+        <tbody>
+      <tr><td><strong>Pessimistic</strong></td><td class="num mrr-miss">$66,000 <span class="eur-ref">€60,000</span><span class="dz">5 designers</span></td><td class="num mrr-hit">$172,800 <span class="eur-ref">€157,091</span><span class="dz">12 designers</span></td><td class="num mrr-hit">$343,200 <span class="eur-ref">€312,000</span><span class="dz">22 designers</span></td><td class="num mrr-hit">$588,000 <span class="eur-ref">€534,545</span><span class="dz">35 designers</span></td></tr>
+      <tr><td><strong>Base</strong></td><td class="num mrr-hit">$144,000 <span class="eur-ref">€130,909</span><span class="dz">10 designers</span></td><td class="num mrr-hit">$420,000 <span class="eur-ref">€381,818</span><span class="dz">25 designers</span></td><td class="num mrr-hit">$891,000 <span class="eur-ref">€810,000</span><span class="dz">45 designers</span></td><td class="num mrr-hit">$1,710,000 <span class="eur-ref">€1,554,545</span><span class="dz">75 designers</span></td></tr>
+      <tr><td><strong>Optimistic</strong></td><td class="num mrr-hit">$336,000 <span class="eur-ref">€305,455</span><span class="dz">20 designers</span></td><td class="num mrr-hit">$1,050,000 <span class="eur-ref">€954,545</span><span class="dz">50 designers</span></td><td class="num mrr-hit">$2,430,000 <span class="eur-ref">€2,209,091</span><span class="dz">90 designers</span></td><td class="num mrr-hit">$5,220,000 <span class="eur-ref">€4,745,455</span><span class="dz">150 designers</span></td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:11px;color:var(--sub);margin-top:4px">USD leading; EUR shown for reference at 1 EUR = 1.10 USD.</p>
+
+    </div>
+  </div>
+
+  <div class="section-frame">
+    <div class="section-frame-head">Scenario Detail</div>
+    <div class="section-frame-body">
+  <h3>Scenario A — Pessimistic</h3>
+  <p style="font-size:12px;color:var(--sub);margin-bottom:8px">All figures USD, monthly run-rate at the end of each horizon.</p>
+  <table class="rev-table">
+    <thead>
+      <tr><th>Metric (monthly)</th><th class="num">6 Months</th><th class="num">1 Year</th><th class="num">1.5 Years</th><th class="num">2 Years</th></tr>
+    </thead>
+    <tbody>
+      <tr class="subtotal">
+        <td>Total monthly revenue</td>
+        <td class="num mrr-miss">$5,500</td>
+        <td class="num mrr-hit">$14,400</td>
+        <td class="num mrr-hit">$28,600</td>
+        <td class="num mrr-hit">$49,000</td>
+      </tr>
+      <tr><td>Paying designers (end of period)</td><td class="num">5</td><td class="num">12</td><td class="num">22</td><td class="num">35</td></tr>
+      <tr><td>Pre-order volume per designer (monthly)</td><td class="num">$2,000</td><td class="num">$4,000</td><td class="num">$6,000</td><td class="num">$8,000</td></tr>
+      <tr><td>Total pre-order volume processed</td><td class="num">$10,000</td><td class="num">$48,000</td><td class="num">$132,000</td><td class="num">$280,000</td></tr>
+      <tr><td>Service subscription ($1,000 × designers)</td><td class="num">$5,000</td><td class="num">$12,000</td><td class="num">$22,000</td><td class="num">$35,000</td></tr>
+      <tr><td>Pre-order fee (5% of volume processed)</td><td class="num">$500</td><td class="num">$2,400</td><td class="num">$6,600</td><td class="num">$14,000</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Scenario B — Base</h3>
+  <p style="font-size:12px;color:var(--sub);margin-bottom:8px">All figures USD, monthly run-rate at the end of each horizon.</p>
+  <table class="rev-table">
+    <thead>
+      <tr><th>Metric (monthly)</th><th class="num">6 Months</th><th class="num">1 Year</th><th class="num">1.5 Years</th><th class="num">2 Years</th></tr>
+    </thead>
+    <tbody>
+      <tr class="subtotal">
+        <td>Total monthly revenue</td>
+        <td class="num mrr-hit">$12,000</td>
+        <td class="num mrr-hit">$35,000</td>
+        <td class="num mrr-hit">$74,250</td>
+        <td class="num mrr-hit">$142,500</td>
+      </tr>
+      <tr><td>Paying designers (end of period)</td><td class="num">10</td><td class="num">25</td><td class="num">45</td><td class="num">75</td></tr>
+      <tr><td>Pre-order volume per designer (monthly)</td><td class="num">$4,000</td><td class="num">$8,000</td><td class="num">$13,000</td><td class="num">$18,000</td></tr>
+      <tr><td>Total pre-order volume processed</td><td class="num">$40,000</td><td class="num">$200,000</td><td class="num">$585,000</td><td class="num">$1,350,000</td></tr>
+      <tr><td>Service subscription ($1,000 × designers)</td><td class="num">$10,000</td><td class="num">$25,000</td><td class="num">$45,000</td><td class="num">$75,000</td></tr>
+      <tr><td>Pre-order fee (5% of volume processed)</td><td class="num">$2,000</td><td class="num">$10,000</td><td class="num">$29,250</td><td class="num">$67,500</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Scenario C — Optimistic</h3>
+  <p style="font-size:12px;color:var(--sub);margin-bottom:8px">All figures USD, monthly run-rate at the end of each horizon.</p>
+  <table class="rev-table">
+    <thead>
+      <tr><th>Metric (monthly)</th><th class="num">6 Months</th><th class="num">1 Year</th><th class="num">1.5 Years</th><th class="num">2 Years</th></tr>
+    </thead>
+    <tbody>
+      <tr class="subtotal">
+        <td>Total monthly revenue</td>
+        <td class="num mrr-hit">$28,000</td>
+        <td class="num mrr-hit">$87,500</td>
+        <td class="num mrr-hit">$202,500</td>
+        <td class="num mrr-hit">$435,000</td>
+      </tr>
+      <tr><td>Paying designers (end of period)</td><td class="num">20</td><td class="num">50</td><td class="num">90</td><td class="num">150</td></tr>
+      <tr><td>Pre-order volume per designer (monthly)</td><td class="num">$8,000</td><td class="num">$15,000</td><td class="num">$25,000</td><td class="num">$38,000</td></tr>
+      <tr><td>Total pre-order volume processed</td><td class="num">$160,000</td><td class="num">$750,000</td><td class="num">$2,250,000</td><td class="num">$5,700,000</td></tr>
+      <tr><td>Service subscription ($1,000 × designers)</td><td class="num">$20,000</td><td class="num">$50,000</td><td class="num">$90,000</td><td class="num">$150,000</td></tr>
+      <tr><td>Pre-order fee (5% of volume processed)</td><td class="num">$8,000</td><td class="num">$37,500</td><td class="num">$112,500</td><td class="num">$285,000</td></tr>
+    </tbody>
+  </table>
     </div>
   </div>
 
