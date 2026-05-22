@@ -29,7 +29,9 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 
 .eyebrow{font-size:10px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
 h1{font-size:36px;font-weight:800;letter-spacing:-1px;color:var(--ink);margin-bottom:8px}
-.subtitle{font-size:13px;color:var(--sub);margin-bottom:32px}
+.subtitle{font-size:13px;color:var(--sub);margin-bottom:18px}
+
+.snote{background:var(--tf-ghost);border:1px solid var(--rule);border-left:4px solid var(--orange);padding:12px 16px;margin-bottom:32px;font-size:12px;color:var(--ink);line-height:1.55}
 
 /* Activity cards grid */
 .cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:52px}
@@ -52,20 +54,17 @@ h1{font-size:36px;font-weight:800;letter-spacing:-1px;color:var(--ink);margin-bo
 .act-card .ac-owner.cto{background:var(--green)}
 .act-card .ac-desc{font-size:12px;color:var(--sub);line-height:1.55;margin-top:auto}
 
-h2{font-size:18px;font-weight:800;color:var(--orange);margin:46px 0 12px;padding-bottom:8px;border-bottom:1.5px solid var(--tf);letter-spacing:-.3px;display:flex;align-items:center;gap:14px}
+h2{font-size:18px;font-weight:800;color:var(--orange);margin:46px 0 14px;padding-bottom:8px;border-bottom:1.5px solid var(--tf);letter-spacing:-.3px;display:flex;align-items:center;gap:14px}
 h2 .sec-num{font-size:18px;font-weight:800;color:var(--orange)}
 h2 .owner-tag{font-size:9.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:5px 10px;background:var(--tf);color:white;border-radius:2px;margin-left:auto}
 h2 .owner-tag.ceo{background:var(--orange)}
 h2 .owner-tag.cto{background:var(--green)}
 
-p{font-size:13px;color:var(--sub);margin-bottom:14px}
-p.lead{color:var(--ink);font-weight:500;font-size:13px;margin-bottom:14px}
-
 table{width:100%;border-collapse:collapse;background:white;border:1px solid var(--rule);margin-bottom:20px;font-size:12.5px}
 th{background:var(--tf);color:white;text-align:left;padding:10px 12px;font-size:10.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase}
 td{padding:10px 14px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.5}
 tr:last-child td{border-bottom:none}
-td.activity{font-weight:600;width:38%;color:var(--ink)}
+td.activity{font-weight:600;width:34%;color:var(--ink)}
 td.owner{width:18%;font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase}
 td.owner.founder{color:var(--tf)}
 td.owner.ceo{color:var(--orange)}
@@ -75,12 +74,12 @@ td.outcome{font-size:12px;color:var(--ink)}
 
 /* Gantt timeline */
 .gantt{border:1px solid var(--rule);background:white;margin-bottom:14px;overflow-x:auto;-webkit-overflow-scrolling:touch}
-.gantt-inner{min-width:720px}
+.gantt-inner{min-width:900px}
 .g-row{display:grid;grid-template-columns:185px 1fr;border-bottom:1px solid var(--rule)}
 .g-row:last-child{border-bottom:none}
 .g-label{padding:10px 14px;font-size:11.5px;font-weight:700;color:var(--ink);border-right:1px solid var(--rule);background:var(--tf-ghost);display:flex;flex-direction:column;justify-content:center}
 .g-own{font-size:8.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--sub);margin-top:3px}
-.g-track{display:grid;grid-template-columns:repeat(9,1fr);background:repeating-linear-gradient(90deg,transparent,transparent calc(100%/9 - 1px),var(--rule) calc(100%/9 - 1px),var(--rule) calc(100%/9));padding:9px 0;align-items:center}
+.g-track{display:grid;grid-template-columns:repeat(12,1fr);background:repeating-linear-gradient(90deg,transparent,transparent calc(100%/12 - 1px),var(--rule) calc(100%/12 - 1px),var(--rule) calc(100%/12));padding:9px 0;align-items:center}
 .g-bar{grid-row:1;height:25px;border-radius:3px;display:flex;align-items:center;padding:0 9px;font-size:9.5px;font-weight:700;color:white;white-space:nowrap;overflow:hidden;margin:0 4px}
 .g-bar.cto{background:var(--green)}
 .g-bar.ceo{background:var(--orange)}
@@ -130,7 +129,9 @@ td.outcome{font-size:12px;color:var(--ink)}
   <a class="back" href="index.html">← Terra Ferra</a>
   <div class="eyebrow">Confidential · Roles &amp; Scope · v1 · 22 May 2026</div>
   <h1>Terra Ferra — Roles &amp; Scope</h1>
-  <div class="subtitle">Path to $10K MRR by Month 6 · ownership across Founder, CEO, CTO · services-led model</div>
+  <div class="subtitle">Path to $10K MRR by Month 9 · ownership across Founder, CEO, CTO · services-led model</div>
+
+  <div class="snote"><strong>Scenario basis.</strong> All figures and timing on this page follow the <strong>Base scenario</strong> of the Terra Ferra Operating Budget. The Operating Budget Base scenario shows 10 paying designers within the first 6 months; this operational timeline sequences launch and ramp conservatively, placing $10K MRR at Month 9. The Optimistic scenario reaches each milestone sooner; the Pessimistic scenario later.</div>
 
   <!-- ACTIVITY CARDS -->
   <div class="cards-grid">
@@ -153,7 +154,7 @@ td.outcome{font-size:12px;color:var(--ink)}
       <div class="ac-num">03</div>
       <span class="ac-owner ceo">CEO</span>
       <div class="ac-title">Sales &amp; Designer Acquisition</div>
-      <div class="ac-desc">ICP definition, designer pipeline, demo and onboarding, first paying designers, retention metrics.</div>
+      <div class="ac-desc">Ideal Customer Profile, designer pipeline, demo and onboarding, first paying designers, retention metrics.</div>
     </a>
 
     <a class="act-card" href="#sec-marketing">
@@ -181,125 +182,118 @@ td.outcome{font-size:12px;color:var(--ink)}
 
   <!-- ====================================== -->
   <h2 id="sec-product"><span class="sec-num">01.</span> Product &amp; Engineering <span class="owner-tag cto">CTO</span></h2>
-  <p class="lead">Product is in late stage from the 2022 build. CTO completes remaining features, ships to public launch, owns the platform permanently.</p>
 
   <table>
     <thead>
       <tr><th>Activity</th><th>Owner</th><th>Target</th><th>Outcome</th></tr>
     </thead>
     <tbody>
-      <tr><td class="activity">Complete remaining product build</td><td class="owner cto">CTO</td><td class="cadence">Month 2</td><td class="outcome">Feature-complete platform ready for testing cycle</td></tr>
-      <tr><td class="activity">Testing &amp; QA cycle</td><td class="owner cto">CTO + freelance tester</td><td class="cadence">Month 3</td><td class="outcome">All critical paths pass regression; payment flow tested end-to-end</td></tr>
-      <tr><td class="activity">Security audit &amp; pentest coordination</td><td class="owner cto">CTO + external firm</td><td class="cadence">Month 3</td><td class="outcome">Independent pentest passed; remediation closed before launch</td></tr>
-      <tr><td class="activity">Stripe Connect payment integration</td><td class="owner cto">CTO</td><td class="cadence">Month 2</td><td class="outcome">Pre-order payment collection, designer payouts, refunds all live</td></tr>
-      <tr><td class="activity">KYC/AML technical implementation</td><td class="owner cto">CTO + counsel</td><td class="cadence">Month 2</td><td class="outcome">Designer onboarding includes identity verification; AML monitoring active</td></tr>
-      <tr><td class="activity">Cloud infrastructure (AWS / Vercel)</td><td class="owner cto">CTO</td><td class="cadence">Day 1, ongoing</td><td class="outcome">Production environment up; staging mirror; monitoring + alerts</td></tr>
-      <tr><td class="activity">Mobile readiness (iOS + Android)</td><td class="owner cto">CTO</td><td class="cadence">Month 4</td><td class="outcome">React Native build for both stores; App Store submission complete</td></tr>
-      <tr><td class="activity">Bug fixes, maintenance, performance</td><td class="owner cto">CTO</td><td class="cadence">Ongoing</td><td class="outcome">Uptime &gt;99.5%; weekly release cadence post-launch</td></tr>
-      <tr><td class="activity">API integrations (analytics, support, etc.)</td><td class="owner cto">CTO</td><td class="cadence">Month 4</td><td class="outcome">Mixpanel, Intercom, Stripe, Sentry all wired</td></tr>
+      <tr><td class="activity">Complete remaining product build</td><td class="owner cto">CTO</td><td class="cadence">Month 3</td><td class="outcome">Feature-complete platform ready for testing cycle</td></tr>
+      <tr><td class="activity">Run testing &amp; QA cycle</td><td class="owner cto">CTO + freelance tester</td><td class="cadence">Month 4</td><td class="outcome">All critical paths pass regression; payment flow tested end-to-end</td></tr>
+      <tr><td class="activity">Coordinate security audit &amp; pentest</td><td class="owner cto">CTO + external firm</td><td class="cadence">Month 4</td><td class="outcome">Independent pentest passed; remediation closed before launch</td></tr>
+      <tr><td class="activity">Integrate Stripe Connect payments</td><td class="owner cto">CTO</td><td class="cadence">Month 3</td><td class="outcome">Pre-order payment collection, designer payouts, refunds all live</td></tr>
+      <tr><td class="activity">Implement KYC/AML</td><td class="owner cto">CTO + counsel</td><td class="cadence">Month 3</td><td class="outcome">Designer onboarding includes identity verification; AML monitoring active</td></tr>
+      <tr><td class="activity">Set up cloud infrastructure</td><td class="owner cto">CTO</td><td class="cadence">Day 1, ongoing</td><td class="outcome">Production environment up; staging mirror; monitoring + alerts</td></tr>
+      <tr><td class="activity">Ship mobile apps (iOS + Android)</td><td class="owner cto">CTO</td><td class="cadence">Month 5</td><td class="outcome">React Native build for both stores; App Store submission complete</td></tr>
+      <tr><td class="activity">Maintain platform — fixes &amp; performance</td><td class="owner cto">CTO</td><td class="cadence">Ongoing</td><td class="outcome">Uptime &gt;99.5%; weekly release cadence post-launch</td></tr>
+      <tr><td class="activity">Integrate APIs (analytics, support)</td><td class="owner cto">CTO</td><td class="cadence">Month 5</td><td class="outcome">Mixpanel, Intercom, Stripe, Sentry all wired</td></tr>
     </tbody>
   </table>
 
   <!-- ====================================== -->
   <h2 id="sec-fundraising"><span class="sec-num">02.</span> Fundraising &amp; Strategy <span class="owner-tag">Founder</span></h2>
-  <p class="lead">Founder leads investor relationships and capital strategy. CEO supports with operational evidence and metrics. Target: close $500K bridge in Year 1, position for $1–2M follow-on once $10K MRR is hit.</p>
 
   <table>
     <thead>
       <tr><th>Activity</th><th>Owner</th><th>Target</th><th>Outcome</th></tr>
     </thead>
     <tbody>
-      <tr><td class="activity">Investor pipeline &amp; outreach</td><td class="owner founder">Founder</td><td class="cadence">Continuous</td><td class="outcome">Weekly investor touchpoints; pipeline tracked in CRM</td></tr>
-      <tr><td class="activity">Pitch deck &amp; data room</td><td class="owner founder">Founder + CEO</td><td class="cadence">Month 1, refreshed quarterly</td><td class="outcome">Current deck reflects live traction; data room ready for diligence</td></tr>
-      <tr><td class="activity">$500K bridge — SAFE round</td><td class="owner founder">Founder</td><td class="cadence">Month 3</td><td class="outcome">$500K committed and wired; SAFE docs signed</td></tr>
-      <tr><td class="activity">Term sheet negotiation</td><td class="owner founder">Founder + counsel</td><td class="cadence">As rounds close</td><td class="outcome">Investor protections within market norm; founder dilution capped</td></tr>
-      <tr><td class="activity">Due diligence support</td><td class="owner founder">Founder + CEO</td><td class="cadence">During each round</td><td class="outcome">Full DD pack delivered in &lt;5 business days per investor</td></tr>
-      <tr><td class="activity">Board management</td><td class="owner founder">Founder</td><td class="cadence">Quarterly</td><td class="outcome">Board meetings convened, materials sent 1 week ahead; minutes filed</td></tr>
-      <tr><td class="activity">Strategic partnerships</td><td class="owner founder">Founder</td><td class="cadence">Continuous</td><td class="outcome">Designer-facing partners, payment partners, retail partners introduced</td></tr>
-      <tr><td class="activity">Advisor management (Alex Hofmann, others)</td><td class="owner founder">Founder</td><td class="cadence">Monthly</td><td class="outcome">Advisor introductions converted; advisor share grants tracked</td></tr>
+      <tr><td class="activity">Run investor pipeline &amp; outreach</td><td class="owner founder">Founder</td><td class="cadence">Continuous</td><td class="outcome">Weekly investor touchpoints; pipeline tracked in CRM</td></tr>
+      <tr><td class="activity">Maintain pitch deck &amp; data room</td><td class="owner founder">Founder + CEO</td><td class="cadence">Month 1, refreshed quarterly</td><td class="outcome">Current deck reflects live traction; data room ready for diligence</td></tr>
+      <tr><td class="activity">Close the SAFE bridge round</td><td class="owner founder">Founder</td><td class="cadence">Month 3</td><td class="outcome">$500K committed and wired; SAFE docs signed</td></tr>
+      <tr><td class="activity">Negotiate term sheets</td><td class="owner founder">Founder + counsel</td><td class="cadence">As rounds close</td><td class="outcome">Investor protections within market norm; founder dilution capped</td></tr>
+      <tr><td class="activity">Support due diligence</td><td class="owner founder">Founder + CEO</td><td class="cadence">During each round</td><td class="outcome">Full DD pack delivered in &lt;5 business days per investor</td></tr>
+      <tr><td class="activity">Manage the board</td><td class="owner founder">Founder</td><td class="cadence">Quarterly</td><td class="outcome">Board meetings convened, materials sent 1 week ahead; minutes filed</td></tr>
+      <tr><td class="activity">Build strategic partnerships</td><td class="owner founder">Founder</td><td class="cadence">Continuous</td><td class="outcome">Designer-facing partners, payment partners, retail partners introduced</td></tr>
+      <tr><td class="activity">Manage advisors (Alex Hofmann, others)</td><td class="owner founder">Founder</td><td class="cadence">Monthly</td><td class="outcome">Advisor introductions converted; advisor share grants tracked</td></tr>
     </tbody>
   </table>
 
   <!-- ====================================== -->
   <h2 id="sec-sales"><span class="sec-num">03.</span> Sales &amp; Designer Acquisition <span class="owner-tag ceo">CEO</span></h2>
-  <p class="lead">Direct path to revenue. CEO owns the designer relationship end-to-end — ICP, pipeline, onboarding, retention. Ten paying designers at $1,000/month plus 5% pre-order fees reaches $10K MRR by Month 6 (Base case).</p>
 
   <table>
     <thead>
       <tr><th>Activity</th><th>Owner</th><th>Target</th><th>Outcome</th></tr>
     </thead>
     <tbody>
-      <tr><td class="activity">ICP — designers with $300K–$3M annual sales, 10K–150K followers, US/EU</td><td class="owner ceo">CEO</td><td class="cadence">Month 1</td><td class="outcome">ICP signed off; lead-source channels mapped</td></tr>
-      <tr><td class="activity">Designer pipeline — cold and warm outreach</td><td class="owner ceo">CEO</td><td class="cadence">Continuous</td><td class="outcome">50 prospects qualified per month; weekly demo slots filled</td></tr>
-      <tr><td class="activity">Demo &amp; pitch process</td><td class="owner ceo">CEO</td><td class="cadence">Continuous</td><td class="outcome">Live demo flow; conversion rate tracked</td></tr>
-      <tr><td class="activity">Onboarding ownership</td><td class="owner ceo">CEO + CTO</td><td class="cadence">Month 4 onwards</td><td class="outcome">Designer goes from signed to first pre-order live in &lt;2 weeks</td></tr>
-      <tr><td class="activity">First paying designers onboarded</td><td class="owner ceo">CEO</td><td class="cadence">Month 4</td><td class="outcome">First designers invoiced at $1,000/month; case studies captured</td></tr>
-      <tr><td class="activity">10 paying designers — $10K MRR reached</td><td class="owner ceo">CEO</td><td class="cadence">Month 6</td><td class="outcome">$10K MRR reached; pre-order volume flowing through platform</td></tr>
-      <tr><td class="activity">Designer success &amp; retention</td><td class="owner ceo">CEO</td><td class="cadence">Ongoing</td><td class="outcome">Churn &lt;10%; designer NPS tracked monthly</td></tr>
-      <tr><td class="activity">Pricing — $1,000/mo retainer + 5% pre-order fee</td><td class="owner ceo">CEO</td><td class="cadence">Reviewed quarterly</td><td class="outcome">Pricing held; 7% co-creator reward fee above $10K confirmed</td></tr>
+      <tr><td class="activity">Define the Ideal Customer Profile</td><td class="owner ceo">CEO</td><td class="cadence">Month 1</td><td class="outcome">Designers with $300K–$3M annual sales, 10K–150K followers, US/EU; lead-source channels mapped</td></tr>
+      <tr><td class="activity">Build the designer pipeline</td><td class="owner ceo">CEO</td><td class="cadence">Continuous</td><td class="outcome">50 prospects qualified per month; weekly demo slots filled</td></tr>
+      <tr><td class="activity">Run demo &amp; pitch process</td><td class="owner ceo">CEO</td><td class="cadence">Continuous</td><td class="outcome">Live demo flow; conversion rate tracked</td></tr>
+      <tr><td class="activity">Own designer onboarding</td><td class="owner ceo">CEO + CTO</td><td class="cadence">Month 5 onwards</td><td class="outcome">Designer goes from signed to first pre-order live in &lt;2 weeks</td></tr>
+      <tr><td class="activity">Onboard first paying designers</td><td class="owner ceo">CEO</td><td class="cadence">Month 6</td><td class="outcome">First designers invoiced at $1,000/month; case studies captured</td></tr>
+      <tr><td class="activity">Scale to 10 paying designers</td><td class="owner ceo">CEO</td><td class="cadence">Month 9</td><td class="outcome">$10K MRR reached; pre-order volume flowing through platform</td></tr>
+      <tr><td class="activity">Drive designer success &amp; retention</td><td class="owner ceo">CEO</td><td class="cadence">Ongoing</td><td class="outcome">Churn &lt;10%; designer NPS tracked monthly</td></tr>
+      <tr><td class="activity">Define pricing</td><td class="owner ceo">CEO</td><td class="cadence">Reviewed quarterly</td><td class="outcome">$1,000/mo retainer + 5% pre-order fee held; 7% co-creator reward above $10K confirmed</td></tr>
     </tbody>
   </table>
 
   <!-- ====================================== -->
   <h2 id="sec-marketing"><span class="sec-num">04.</span> Marketing &amp; Community <span class="owner-tag ceo">CEO</span></h2>
-  <p class="lead">Brand and community efforts that make designer acquisition cheaper and stickier. Heavy use of freelance designers and content creators on the margins.</p>
 
   <table>
     <thead>
       <tr><th>Activity</th><th>Owner</th><th>Target</th><th>Outcome</th></tr>
     </thead>
     <tbody>
-      <tr><td class="activity">Brand identity finalisation</td><td class="owner ceo">CEO + freelance designer</td><td class="cadence">Month 2</td><td class="outcome">Visual identity locked; brand guide published internally</td></tr>
-      <tr><td class="activity">Website / landing pages</td><td class="owner ceo">CEO + CTO</td><td class="cadence">Month 2, then ongoing</td><td class="outcome">Marketing site live; conversion-optimised for designer signup</td></tr>
-      <tr><td class="activity">PR launch campaign</td><td class="owner ceo">CEO + freelance PR</td><td class="cadence">Month 4</td><td class="outcome">Coverage in 3+ industry titles within launch month</td></tr>
-      <tr><td class="activity">Content marketing (blog, social)</td><td class="owner ceo">CEO + freelance writer</td><td class="cadence">Weekly</td><td class="outcome">2 posts per week; organic reach growing month-over-month</td></tr>
-      <tr><td class="activity">Designer community building</td><td class="owner ceo">CEO</td><td class="cadence">Continuous</td><td class="outcome">Active Slack/Discord; monthly designer events</td></tr>
-      <tr><td class="activity">Email marketing</td><td class="owner ceo">CEO</td><td class="cadence">Weekly</td><td class="outcome">Designer newsletter, prospect nurture sequences live</td></tr>
-      <tr><td class="activity">Conference presence (NRF, Shoptalk)</td><td class="owner ceo">CEO + Founder</td><td class="cadence">4 trips/year</td><td class="outcome">Booth or speaking slot; investor and designer meetings batched</td></tr>
+      <tr><td class="activity">Finalise brand identity</td><td class="owner ceo">CEO + freelance designer</td><td class="cadence">Month 3</td><td class="outcome">Visual identity locked; brand guide published internally</td></tr>
+      <tr><td class="activity">Build website &amp; landing pages</td><td class="owner ceo">CEO + CTO</td><td class="cadence">Month 3, then ongoing</td><td class="outcome">Marketing site live; conversion-optimised for designer signup</td></tr>
+      <tr><td class="activity">Run PR launch campaign</td><td class="owner ceo">CEO + freelance PR</td><td class="cadence">Month 5</td><td class="outcome">Coverage in 3+ industry titles within launch month</td></tr>
+      <tr><td class="activity">Run content marketing (blog, social)</td><td class="owner ceo">CEO + freelance writer</td><td class="cadence">Weekly</td><td class="outcome">2 posts per week; organic reach growing month-over-month</td></tr>
+      <tr><td class="activity">Build designer community</td><td class="owner ceo">CEO</td><td class="cadence">Continuous</td><td class="outcome">Active Slack/Discord; monthly designer events</td></tr>
+      <tr><td class="activity">Run email marketing</td><td class="owner ceo">CEO</td><td class="cadence">Weekly</td><td class="outcome">Designer newsletter, prospect nurture sequences live</td></tr>
+      <tr><td class="activity">Attend conferences (NRF, Shoptalk)</td><td class="owner ceo">CEO + Founder</td><td class="cadence">4 trips/year</td><td class="outcome">Booth or speaking slot; investor and designer meetings batched</td></tr>
     </tbody>
   </table>
 
   <!-- ====================================== -->
   <h2 id="sec-ops"><span class="sec-num">05.</span> Operations &amp; Finance <span class="owner-tag ceo">CEO</span></h2>
-  <p class="lead">Operations and finance outside product and fundraising. Finance outsourced to Pilot.com; CEO owns the relationship and the numbers.</p>
 
   <table>
     <thead>
       <tr><th>Activity</th><th>Owner</th><th>Target</th><th>Outcome</th></tr>
     </thead>
     <tbody>
-      <tr><td class="activity">Day-to-day operations</td><td class="owner ceo">CEO</td><td class="cadence">Daily</td><td class="outcome">Founders unblocked; vendors paid; meetings convened</td></tr>
-      <tr><td class="activity">Pilot.com — bookkeeping &amp; tax oversight</td><td class="owner ceo">CEO + Pilot</td><td class="cadence">Monthly</td><td class="outcome">Books closed monthly; annual C-corp tax filed</td></tr>
-      <tr><td class="activity">Investor reporting</td><td class="owner ceo">CEO</td><td class="cadence">Monthly + quarterly</td><td class="outcome">Investor update sent by 10th of each month</td></tr>
-      <tr><td class="activity">Banking — Delaware C-corp + Stripe Connect</td><td class="owner ceo">CEO</td><td class="cadence">Month 1</td><td class="outcome">Operating account, Stripe account, designer payout rails functional</td></tr>
-      <tr><td class="activity">Hiring — when needed beyond founders</td><td class="owner ceo">CEO</td><td class="cadence">As budget allows</td><td class="outcome">Operations assistant added once revenue supports it</td></tr>
-      <tr><td class="activity">Vendor and freelancer management</td><td class="owner ceo">CEO</td><td class="cadence">Continuous</td><td class="outcome">Freelance roster maintained; contracts up to date</td></tr>
-      <tr><td class="activity">Per-founder expense oversight</td><td class="owner ceo">CEO</td><td class="cadence">Monthly</td><td class="outcome">€250/founder allowance reconciled; no overruns</td></tr>
+      <tr><td class="activity">Run day-to-day operations</td><td class="owner ceo">CEO</td><td class="cadence">Daily</td><td class="outcome">Founders unblocked; vendors paid; meetings convened</td></tr>
+      <tr><td class="activity">Oversee bookkeeping &amp; tax (Pilot.com)</td><td class="owner ceo">CEO + Pilot</td><td class="cadence">Monthly</td><td class="outcome">Books closed monthly; annual C-corp tax filed</td></tr>
+      <tr><td class="activity">Send investor reporting</td><td class="owner ceo">CEO</td><td class="cadence">Monthly + quarterly</td><td class="outcome">Investor update sent by 10th of each month</td></tr>
+      <tr><td class="activity">Set up banking — C-corp + Stripe Connect</td><td class="owner ceo">CEO</td><td class="cadence">Month 1</td><td class="outcome">Operating account, Stripe account, designer payout rails functional</td></tr>
+      <tr><td class="activity">Hire beyond founders as needed</td><td class="owner ceo">CEO</td><td class="cadence">As budget allows</td><td class="outcome">Operations assistant added once revenue supports it</td></tr>
+      <tr><td class="activity">Manage vendors &amp; freelancers</td><td class="owner ceo">CEO</td><td class="cadence">Continuous</td><td class="outcome">Freelance roster maintained; contracts up to date</td></tr>
+      <tr><td class="activity">Oversee per-founder expenses</td><td class="owner ceo">CEO</td><td class="cadence">Monthly</td><td class="outcome">€250/founder allowance reconciled; no overruns</td></tr>
     </tbody>
   </table>
 
   <!-- ====================================== -->
   <h2 id="sec-legal"><span class="sec-num">06.</span> Legal &amp; Compliance <span class="owner-tag ceo">CEO</span></h2>
-  <p class="lead">CEO manages the external counsel relationship and drives all legal workstreams. Counsel is a US startup law firm engaged on a retainer basis.</p>
 
   <table>
     <thead>
       <tr><th>Activity</th><th>Owner</th><th>Target</th><th>Outcome</th></tr>
     </thead>
     <tbody>
-      <tr><td class="activity">US startup counsel engagement</td><td class="owner ceo">CEO</td><td class="cadence">Month 1</td><td class="outcome">Counsel engaged on retainer; primary partner assigned</td></tr>
-      <tr><td class="activity">Delaware C-corp governance</td><td class="owner ceo">CEO + counsel</td><td class="cadence">Ongoing</td><td class="outcome">Annual franchise tax filed; board records maintained</td></tr>
-      <tr><td class="activity">Founder &amp; CTO equity agreements</td><td class="owner ceo">CEO + counsel</td><td class="cadence">Month 1</td><td class="outcome">RSPAs signed; 83(b) elections filed within 30 days; cap table clean</td></tr>
-      <tr><td class="activity">T&amp;Cs, privacy, marketplace agreements</td><td class="owner ceo">CEO + counsel</td><td class="cadence">Month 2</td><td class="outcome">DSA-compliant T&amp;Cs live; GDPR marketplace obligations met</td></tr>
-      <tr><td class="activity">KYC/AML compliance documentation</td><td class="owner ceo">CEO + counsel</td><td class="cadence">Month 2</td><td class="outcome">Compliance framework signed off; money-transmitter exposure mapped</td></tr>
-      <tr><td class="activity">D&amp;O insurance</td><td class="owner ceo">CEO</td><td class="cadence">Once outside investors close</td><td class="outcome">D&amp;O policy in place; board approval recorded</td></tr>
-      <tr><td class="activity">IP protection ongoing</td><td class="owner ceo">CEO + counsel</td><td class="cadence">Annual review</td><td class="outcome">Trademark filings current (US + EU)</td></tr>
+      <tr><td class="activity">Engage US startup counsel</td><td class="owner ceo">CEO</td><td class="cadence">Month 1</td><td class="outcome">Counsel engaged on retainer; primary partner assigned</td></tr>
+      <tr><td class="activity">Maintain Delaware C-corp governance</td><td class="owner ceo">CEO + counsel</td><td class="cadence">Ongoing</td><td class="outcome">Annual franchise tax filed; board records maintained</td></tr>
+      <tr><td class="activity">Sign founder &amp; CTO equity agreements</td><td class="owner ceo">CEO + counsel</td><td class="cadence">Month 1</td><td class="outcome">RSPAs signed; 83(b) elections filed within 30 days; cap table clean</td></tr>
+      <tr><td class="activity">Draft T&amp;Cs, privacy &amp; marketplace agreements</td><td class="owner ceo">CEO + counsel</td><td class="cadence">Month 3</td><td class="outcome">DSA-compliant T&amp;Cs live; GDPR marketplace obligations met</td></tr>
+      <tr><td class="activity">Document KYC/AML compliance</td><td class="owner ceo">CEO + counsel</td><td class="cadence">Month 3</td><td class="outcome">Compliance framework signed off; money-transmitter exposure mapped</td></tr>
+      <tr><td class="activity">Put D&amp;O insurance in place</td><td class="owner ceo">CEO</td><td class="cadence">Once outside investors close</td><td class="outcome">D&amp;O policy in place; board approval recorded</td></tr>
+      <tr><td class="activity">Maintain IP protection</td><td class="owner ceo">CEO + counsel</td><td class="cadence">Annual review</td><td class="outcome">Trademark filings current (US + EU)</td></tr>
     </tbody>
   </table>
 
   <!-- ====================================== -->
   <h2><span class="sec-num">07.</span> Path to $10K MRR — Timeline</h2>
-  <p class="lead">Day 1 to $10K MRR over six months. Base case: 10 paying designers at $1,000/month plus 5% pre-order fees reaches roughly $12K MRR by Month 6. Follow-on raise prepared from Month 6.</p>
 
   <div class="gantt">
    <div class="gantt-inner">
@@ -310,6 +304,7 @@ td.outcome{font-size:12px;color:var(--ink)}
         <div class="g-mhead">M1</div><div class="g-mhead">M2</div><div class="g-mhead">M3</div>
         <div class="g-mhead">M4</div><div class="g-mhead">M5</div><div class="g-mhead">M6</div>
         <div class="g-mhead">M7</div><div class="g-mhead">M8</div><div class="g-mhead">M9</div>
+        <div class="g-mhead">M10</div><div class="g-mhead">M11</div><div class="g-mhead">M12</div>
       </div>
     </div>
 
@@ -323,9 +318,9 @@ td.outcome{font-size:12px;color:var(--ink)}
     <div class="g-row">
       <div class="g-label">Product &amp; Engineering<span class="g-own">CTO</span></div>
       <div class="g-track">
-        <div class="g-bar cto" style="grid-column:1/3">Complete build</div>
-        <div class="g-bar cto" style="grid-column:3/4">Test + security</div>
-        <div class="g-bar cto" style="grid-column:4/5">Mobile + launch</div>
+        <div class="g-bar cto" style="grid-column:1/4">Complete build</div>
+        <div class="g-bar cto" style="grid-column:4/5">Test + security</div>
+        <div class="g-bar cto" style="grid-column:5/6">Mobile + launch</div>
       </div>
     </div>
 
@@ -333,7 +328,7 @@ td.outcome{font-size:12px;color:var(--ink)}
       <div class="g-label">Legal &amp; Compliance<span class="g-own">CEO</span></div>
       <div class="g-track">
         <div class="g-bar ceo" style="grid-column:1/2">Counsel + equity</div>
-        <div class="g-bar ceo" style="grid-column:2/3">T&amp;Cs · KYC/AML</div>
+        <div class="g-bar ceo" style="grid-column:2/4">T&amp;Cs · KYC/AML</div>
       </div>
     </div>
 
@@ -341,38 +336,38 @@ td.outcome{font-size:12px;color:var(--ink)}
       <div class="g-label">Fundraising<span class="g-own">Founder</span></div>
       <div class="g-track">
         <div class="g-bar founder" style="grid-column:1/4">$500K bridge — SAFE close</div>
-        <div class="g-bar founder" style="grid-column:6/10">Follow-on raise prep</div>
+        <div class="g-bar founder" style="grid-column:9/13">Follow-on raise prep</div>
       </div>
     </div>
 
     <div class="g-row">
       <div class="g-label">Marketing &amp; Community<span class="g-own">CEO</span></div>
       <div class="g-track">
-        <div class="g-bar ceo" style="grid-column:1/3">Brand + marketing site</div>
-        <div class="g-bar ceo" style="grid-column:4/5">PR + launch</div>
+        <div class="g-bar ceo" style="grid-column:1/4">Brand + marketing site</div>
+        <div class="g-bar ceo" style="grid-column:5/6">PR + launch</div>
       </div>
     </div>
 
     <div class="g-row">
       <div class="g-label">Designer pipeline<span class="g-own">CEO</span></div>
       <div class="g-track">
-        <div class="g-bar cont" style="grid-column:1/10">ICP · outreach · demos — continuous</div>
+        <div class="g-bar cont" style="grid-column:1/13">Ideal Customer Profile · outreach · demos — continuous</div>
       </div>
     </div>
 
     <div class="g-row">
       <div class="g-label">Designer ramp to $10K MRR<span class="g-own">CEO</span></div>
       <div class="g-track">
-        <div class="g-bar ceo" style="grid-column:4/7">Onboard to 10 paying designers</div>
+        <div class="g-bar ceo" style="grid-column:5/10">Onboard to 10 paying designers</div>
       </div>
     </div>
 
     <div class="g-row g-mark-row">
       <div class="g-label">Milestones</div>
       <div class="g-track">
-        <div class="g-diamond" style="grid-column:3/4"><span class="dia"></span><span class="dlabel">Soft launch</span></div>
-        <div class="g-diamond" style="grid-column:4/5"><span class="dia"></span><span class="dlabel">Public launch</span></div>
-        <div class="g-diamond" style="grid-column:6/7"><span class="dia win"></span><span class="dlabel">$10K MRR</span></div>
+        <div class="g-diamond" style="grid-column:4/5"><span class="dia"></span><span class="dlabel">Soft launch</span></div>
+        <div class="g-diamond" style="grid-column:5/6"><span class="dia"></span><span class="dlabel">Public launch</span></div>
+        <div class="g-diamond" style="grid-column:9/10"><span class="dia win"></span><span class="dlabel">$10K MRR</span></div>
       </div>
     </div>
 
