@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Terra Ferra — Business Model &amp; GTM</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --tf:#4B40C2;
+  --tf-dark:#2D2595;
+  --tf-light:#ECEAF9;
+  --tf-ghost:#F4F2FC;
+  --orange:#E86820;
+  --orange-light:#F5C9A8;
+  --off-white:#F7F6FB;
+  --ink:#12102B;
+  --sub:#5B5880;
+  --rule:#D8D4EF;
+  --green:#1F7A4E;
+  --green-tint:#E4F1EB;
+  --red:#B23A2F;
+  --red-tint:#F5E2DE;
+  --yellow-tint:#FBF1D5;
+}
+body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink);line-height:1.55}
+.wrap{max-width:1400px;margin:0 auto;padding:40px 36px 80px}
+
+.back{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);text-decoration:none;display:inline-block;margin-bottom:24px;opacity:.7}
+.back:hover{color:var(--tf);opacity:1}
+
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
+h1{font-size:34px;font-weight:800;letter-spacing:-1px;color:var(--ink);margin-bottom:8px}
+
+.snote{background:var(--tf-ghost);border:1px solid var(--rule);border-left:4px solid var(--orange);padding:12px 16px;margin:14px 0 28px;font-size:12px;color:var(--ink);line-height:1.55}
+
+.legend{display:flex;flex-wrap:wrap;gap:18px;margin-bottom:16px;font-size:11px;color:var(--sub)}
+.legend span{display:flex;align-items:center;gap:6px}
+.legend i{display:inline-block;width:14px;text-align:center;font-weight:800}
+.legend i.y{color:var(--green)}
+.legend i.n{color:#B6B3CC}
+.legend i.p{color:var(--orange)}
+
+.matrix-wrap{border:1px solid var(--rule);background:white;overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:32px}
+table.matrix{border-collapse:collapse;min-width:1180px;width:100%;font-size:11.5px}
+table.matrix th, table.matrix td{padding:9px 11px;border-bottom:1px solid var(--rule);border-right:1px solid var(--rule);vertical-align:top;line-height:1.45}
+table.matrix th{background:var(--tf);color:white;font-weight:800;font-size:10px;letter-spacing:.5px;text-transform:uppercase;text-align:left;position:sticky;top:0;z-index:5}
+table.matrix th.row-label, table.matrix th.col-tf, table.matrix th.col-tf-new{background:var(--tf-dark)}
+table.matrix th.col-tf{background:#2D2595}
+table.matrix th.col-tf-new{background:#3A30A8}
+table.matrix tr.cat-row td{background:var(--tf-ghost);color:var(--orange);font-weight:800;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:10px 11px}
+table.matrix td.row-label{font-weight:700;color:var(--ink);background:white;position:sticky;left:0;z-index:3;min-width:230px;max-width:230px;box-shadow:1px 0 0 var(--rule)}
+table.matrix tr:hover td.row-label{background:var(--tf-ghost)}
+table.matrix td{color:var(--ink);font-weight:500;font-size:11.5px;text-align:center;min-width:128px;max-width:170px}
+table.matrix td.left{text-align:left;font-size:11px}
+table.matrix td.tf-col{background:#FBFAFF}
+table.matrix td.yes{color:var(--green);font-weight:800}
+table.matrix td.no{color:#B6B3CC;font-weight:700}
+table.matrix td.partial{color:var(--orange);font-weight:700}
+table.matrix td.note{font-weight:500;color:var(--ink)}
+table.matrix tbody tr:last-child td{border-bottom:none}
+table.matrix tbody tr.cat-row td{border-right:1px solid var(--rule)}
+
+.foot-note{font-size:11px;color:var(--sub);line-height:1.6;margin-top:8px}
+.foot-note a{color:var(--tf);text-decoration:underline}
+
+h2{font-size:16px;font-weight:800;color:var(--orange);margin:36px 0 12px;padding-bottom:6px;border-bottom:1.5px solid var(--tf);letter-spacing:-.2px}
+
+.gap-list{list-style:none;margin:8px 0 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.gap-list li{background:white;border:1px solid var(--rule);border-left:3px solid var(--green);padding:10px 14px;font-size:12px;color:var(--ink);line-height:1.5}
+.gap-list li strong{color:var(--green);font-weight:800}
+
+@media(max-width:1000px){
+  .wrap{padding:28px 16px 60px}
+  h1{font-size:26px}
+  .gap-list{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .wrap{padding:20px 10px 40px}
+  h1{font-size:22px}
+  table.matrix td.row-label{min-width:160px;max-width:160px;font-size:10.5px}
+  table.matrix td{min-width:108px;font-size:10.5px;padding:7px 8px}
+  table.matrix th{font-size:9.5px;padding:7px 8px}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <a class="back" href="index.html">← Terra Ferra</a>
+  <div class="eyebrow">Confidential · Business Model &amp; GTM · v1 · 24 May 2026</div>
+  <h1>Terra Ferra — Business Model &amp; GTM</h1>
+
+  <div class="snote">
+    <strong>Purpose.</strong> Visual matrix mapping Terra Ferra against every platform researched to date, function by function, to show where each platform covers a function and where the gap sits. Two TF columns: <strong>TF Original (2023)</strong> reflects Maxim's interview and the 2022 pitch deck (commission-based); <strong>TF 2026 (Services-Led)</strong> reflects the current Operating Budget Part III ($1,000/mo retainer + 5% pre-order fee). All competitor data is sourced from the existing <a href="ideas.html" style="color:var(--tf)">Ideas &amp; AI Research</a> page; figures are not re-derived here.
+  </div>
+
+  <div class="legend">
+    <span><i class="y">✓</i> Has this function</span>
+    <span><i class="n">✗</i> Does not have</span>
+    <span><i class="p">◐</i> Partial / limited</span>
+    <span style="color:var(--ink)">Numbers shown where publicly disclosed</span>
+  </div>
+
+  <div class="matrix-wrap">
+    <table class="matrix">
+      <thead>
+        <tr>
+          <th class="row-label">Function</th>
+          <th class="col-tf">TF Original<br/>(2023 model)</th>
+          <th class="col-tf-new">TF 2026<br/>(Services-Led)</th>
+          <th>ShopMy</th>
+          <th>LTK<br/>(RewardStyle)</th>
+          <th>Ablo</th>
+          <th>Wolf &amp; Badger</th>
+          <th>Not On The<br/>High Street</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr class="cat-row"><td colspan="8">A · Monetisation — what the designer pays / how the platform earns</td></tr>
+
+        <tr>
+          <td class="row-label">Designer subscription / retainer</td>
+          <td class="tf-col no">✗</td>
+          <td class="tf-col note">$1,000/month</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+          <td class="note">undisclosed</td>
+          <td class="note">$375/month</td>
+          <td class="no">✗</td>
+        </tr>
+        <tr>
+          <td class="row-label">Designer joining fee</td>
+          <td class="tf-col no">✗</td>
+          <td class="tf-col no">✗</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+          <td class="note">undisclosed</td>
+          <td class="no">✗</td>
+          <td class="note">£199/year</td>
+        </tr>
+        <tr>
+          <td class="row-label">Commission on sales (GMV)</td>
+          <td class="tf-col note">7%</td>
+          <td class="tf-col no">✗</td>
+          <td class="note">brand pays influencer 8–20% (fashion)</td>
+          <td class="note">brand pays influencer; lower than ShopMy across categories</td>
+          <td class="note">undisclosed</td>
+          <td class="note">undisclosed (~52% effective cost incl. discounts)</td>
+          <td class="note">25%</td>
+        </tr>
+        <tr>
+          <td class="row-label">Pre-order / pre-sale fee</td>
+          <td class="tf-col note">within crowdfunding fee</td>
+          <td class="tf-col note">5%</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+        </tr>
+        <tr>
+          <td class="row-label">Crowdfunding fee</td>
+          <td class="tf-col note">7%</td>
+          <td class="tf-col no">✗</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+        </tr>
+        <tr>
+          <td class="row-label">Ambassador / affiliate commission</td>
+          <td class="tf-col note">10%</td>
+          <td class="tf-col partial">covered via 5% pre-order fee</td>
+          <td class="yes">✓ affiliate network</td>
+          <td class="yes">✓ affiliate network</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+        </tr>
+        <tr>
+          <td class="row-label">Co-creator revenue-share fee</td>
+          <td class="tf-col note">10%</td>
+          <td class="tf-col note">7% above $10K</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+        </tr>
+
+        <tr class="cat-row"><td colspan="8">B · Designer-side tools</td></tr>
+
+        <tr>
+          <td class="row-label">Sign designer pre-inventory (sketches OK)</td>
+          <td class="tf-col yes">✓</td>
+          <td class="tf-col yes">✓</td>
+          <td class="no">✗ requires inventory</td>
+          <td class="no">✗ requires inventory</td>
+          <td class="no">✗</td>
+          <td class="no">✗ requires inventory</td>
+          <td class="no">✗ requires inventory</td>
+        </tr>
+        <tr>
+          <td class="row-label">Pre-order tooling</td>
+          <td class="tf-col yes">✓</td>
+          <td class="tf-col yes">✓</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+        </tr>
+        <tr>
+          <td class="row-label">Crowdfunding for fashion designers</td>
+          <td class="tf-col yes">✓</td>
+          <td class="tf-col yes">✓</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+        </tr>
+        <tr>
+          <td class="row-label">Co-creation (community input into design)</td>
+          <td class="tf-col yes">✓</td>
+          <td class="tf-col yes">✓</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+        </tr>
+        <tr>
+          <td class="row-label">Demand validation before production</td>
+          <td class="tf-col yes">✓</td>
+          <td class="tf-col yes">✓</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+        </tr>
+        <tr>
+          <td class="row-label">AI design generation tools</td>
+          <td class="tf-col no">✗</td>
+          <td class="tf-col no">✗</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+          <td class="yes">✓ core feature</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+        </tr>
+        <tr>
+          <td class="row-label">Native designer storefront</td>
+          <td class="tf-col yes">✓</td>
+          <td class="tf-col yes">✓</td>
+          <td class="no">✗ (links out)</td>
+          <td class="no">✗ (links out)</td>
+          <td class="yes">✓</td>
+          <td class="yes">✓</td>
+          <td class="yes">✓</td>
+        </tr>
+
+        <tr class="cat-row"><td colspan="8">C · Community &amp; engagement layer</td></tr>
+
+        <tr>
+          <td class="row-label">Owned designer community on platform</td>
+          <td class="tf-col yes">✓</td>
+          <td class="tf-col yes">✓</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+        </tr>
+        <tr>
+          <td class="row-label">Superfan / ambassador earnings layer</td>
+          <td class="tf-col yes">✓</td>
+          <td class="tf-col yes">✓</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+        </tr>
+        <tr>
+          <td class="row-label">Influencer affiliate programme</td>
+          <td class="tf-col yes">✓ no follower minimum</td>
+          <td class="tf-col yes">✓ no follower minimum</td>
+          <td class="yes">✓ established only</td>
+          <td class="yes">✓ invite-only, follower minimum</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+        </tr>
+        <tr>
+          <td class="row-label">Consumer-side community product</td>
+          <td class="tf-col yes">✓ designer-led</td>
+          <td class="tf-col yes">✓ designer-led</td>
+          <td class="partial">Circles (Jul 2025, new)</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+        </tr>
+        <tr>
+          <td class="row-label">Full attribution data to designers/brands</td>
+          <td class="tf-col yes">✓</td>
+          <td class="tf-col yes">✓</td>
+          <td class="yes">✓</td>
+          <td class="no">✗ withholds</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+        </tr>
+
+        <tr class="cat-row"><td colspan="8">D · Platform mechanics</td></tr>
+
+        <tr>
+          <td class="row-label">Holds inventory</td>
+          <td class="tf-col no">✗ asset-light</td>
+          <td class="tf-col no">✗ asset-light</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+        </tr>
+        <tr>
+          <td class="row-label">Curated / vetted designers</td>
+          <td class="tf-col yes">✓</td>
+          <td class="tf-col yes">✓</td>
+          <td class="yes">✓</td>
+          <td class="yes">✓</td>
+          <td class="yes">✓ closed</td>
+          <td class="yes">✓</td>
+          <td class="yes">✓ must hand-make</td>
+        </tr>
+        <tr>
+          <td class="row-label">Open to apply (vs invite-only)</td>
+          <td class="tf-col yes">✓ open</td>
+          <td class="tf-col yes">✓ open</td>
+          <td class="no">invite-only</td>
+          <td class="no">invite-only</td>
+          <td class="no">closed</td>
+          <td class="yes">apply</td>
+          <td class="yes">apply</td>
+        </tr>
+        <tr>
+          <td class="row-label">Native checkout on the platform</td>
+          <td class="tf-col yes">✓</td>
+          <td class="tf-col yes">✓</td>
+          <td class="no">✗ redirects to brand site</td>
+          <td class="no">✗ redirects to brand site</td>
+          <td class="yes">✓</td>
+          <td class="yes">✓</td>
+          <td class="yes">✓</td>
+        </tr>
+        <tr>
+          <td class="row-label">Platform brings its own audience</td>
+          <td class="tf-col no">✗ designers bring 5% of superfans</td>
+          <td class="tf-col no">✗ designers bring superfans</td>
+          <td class="partial">partial (Circles new)</td>
+          <td class="yes">✓ own shopping app</td>
+          <td class="partial">partial (closed)</td>
+          <td class="yes">✓ stores + brand recognition</td>
+          <td class="yes">✓ UK brand</td>
+        </tr>
+
+        <tr class="cat-row"><td colspan="8">E · Designer / market focus</td></tr>
+
+        <tr>
+          <td class="row-label">Emerging-designer focus</td>
+          <td class="tf-col yes">✓ priority</td>
+          <td class="tf-col yes">✓ priority</td>
+          <td class="no">✗ established brands only</td>
+          <td class="no">✗ mass-market</td>
+          <td class="yes">✓ but closed</td>
+          <td class="yes">✓ vetted independents</td>
+          <td class="yes">✓ small businesses</td>
+        </tr>
+        <tr>
+          <td class="row-label">Mass-market brands</td>
+          <td class="tf-col no">✗ excluded</td>
+          <td class="tf-col no">✗ excluded</td>
+          <td class="no">✗</td>
+          <td class="yes">✓ primary</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+          <td class="no">✗ gifts/home focus</td>
+        </tr>
+        <tr>
+          <td class="row-label">Niche fashion influencers (10K–150K)</td>
+          <td class="tf-col yes">✓ no minimum</td>
+          <td class="tf-col yes">✓ no minimum</td>
+          <td class="no">✗ excludes</td>
+          <td class="no">✗ excludes</td>
+          <td class="no">n/a</td>
+          <td class="no">n/a</td>
+          <td class="no">n/a</td>
+        </tr>
+
+        <tr class="cat-row"><td colspan="8">F · Geography</td></tr>
+
+        <tr>
+          <td class="row-label">US active</td>
+          <td class="tf-col partial">planned</td>
+          <td class="tf-col partial">planned</td>
+          <td class="yes">✓ primary</td>
+          <td class="yes">✓ primary</td>
+          <td class="partial">limited</td>
+          <td class="yes">✓ ~50% of sales</td>
+          <td class="no">✗</td>
+        </tr>
+        <tr>
+          <td class="row-label">UK active</td>
+          <td class="tf-col partial">planned</td>
+          <td class="tf-col partial">planned</td>
+          <td class="partial">expansion 2025</td>
+          <td class="yes">✓</td>
+          <td class="partial">limited</td>
+          <td class="yes">✓ HQ</td>
+          <td class="yes">✓ primary</td>
+        </tr>
+        <tr>
+          <td class="row-label">EU designer/influencer recruitment</td>
+          <td class="tf-col yes">✓ Year-1 priority</td>
+          <td class="tf-col yes">✓ Year-1 priority</td>
+          <td class="no">✗</td>
+          <td class="partial">Germany only</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+          <td class="no">✗</td>
+        </tr>
+
+        <tr class="cat-row"><td colspan="8">G · Snapshot (publicly disclosed where available)</td></tr>
+
+        <tr>
+          <td class="row-label">GMV / revenue (most recent)</td>
+          <td class="tf-col note">target (pre-launch)</td>
+          <td class="tf-col note">target (pre-launch)</td>
+          <td class="note">n/a (affiliate network)</td>
+          <td class="note">$3B+ GMV</td>
+          <td class="note">undisclosed</td>
+          <td class="note">$95M GMV · $50M revenue (2024)</td>
+          <td class="note">~$110M revenue (2024)</td>
+        </tr>
+        <tr>
+          <td class="row-label">Funding raised to date</td>
+          <td class="tf-col note">$315K pre-seed</td>
+          <td class="tf-col note">raising $500K bridge</td>
+          <td class="note">~$147.5M</td>
+          <td class="note">~$315M</td>
+          <td class="note">early-stage</td>
+          <td class="note">~$20M total</td>
+          <td class="note">~$77.7M</td>
+        </tr>
+        <tr>
+          <td class="row-label">Designer / brand base</td>
+          <td class="tf-col note">target</td>
+          <td class="tf-col note">target</td>
+          <td class="note">~1,200 brands</td>
+          <td class="note">5,000+ brands · 150K influencers</td>
+          <td class="note">~3,000 designers</td>
+          <td class="note">2,000+ designers</td>
+          <td class="note">5,000+ sellers</td>
+        </tr>
+        <tr>
+          <td class="row-label">Status</td>
+          <td class="tf-col note">2022, paused 2023</td>
+          <td class="tf-col note">2026 restart</td>
+          <td class="note">200% YoY · profitable</td>
+          <td class="note">mature · growth slowing</td>
+          <td class="note">early stage</td>
+          <td class="note">profitable · 2 yrs in a row</td>
+          <td class="note">established UK marketplace</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <p class="foot-note">Source for all competitor figures: Terra Ferra <a href="ideas.html">Ideas &amp; AI Research</a> (Ablo, LTK, ShopMy, Wolf &amp; Badger, Not On The High Street cards). TF Original column reflects the 2022 pitch deck and Maxim's 2023 Startup Kotiki interview. TF 2026 column reflects the Operating Budget Part III services-led model.</p>
+
+  <h2>Where the gap sits</h2>
+  <ul class="gap-list">
+    <li><strong>Pre-production entry.</strong> TF is the only platform that signs designers with sketches and zero inventory. Every other platform — ShopMy, LTK, Ablo, W&amp;B, NOTHS — requires existing inventory to participate.</li>
+    <li><strong>Pre-order + crowdfunding for fashion.</strong> No competitor in this matrix offers either function for fashion designers.</li>
+    <li><strong>Co-creation.</strong> Community input into design is unique to TF across this matrix.</li>
+    <li><strong>Superfan / ambassador earnings layer.</strong> Unique to TF; LTK and ShopMy run only traditional influencer affiliate networks.</li>
+    <li><strong>10K–150K niche fashion influencers.</strong> LTK and ShopMy exclude this segment by follower-minimum policy; TF has no minimum.</li>
+    <li><strong>EU designer / influencer recruitment.</strong> No platform in this matrix actively recruits EU emerging designers or EU niche influencers; LTK is Germany-only and mass-market.</li>
+    <li><strong>What TF does not have.</strong> AI design generation (Ablo's territory); platform-owned audience at scale (LTK, W&amp;B, NOTHS); live track record (TF is pre-launch in this restart).</li>
+    <li><strong>Closest competitive threat.</strong> ShopMy — 200% YoY, profitable, $147.5M raised, Circles community launched July 2025. Capital advantage and an early community move shorten TF's window.</li>
+  </ul>
+
+</div>
+
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" title="Back to top">&#8593;</button>
+<style>#back-to-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:#4B40C2;color:white;border:1px solid rgba(113,105,212,.5);border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900;transition:background .2s;}#back-to-top:hover{background:#2D2595;}</style>
+<script>window.addEventListener('scroll',function(){var b=document.getElementById('back-to-top');b.style.display=window.scrollY>400?'flex':'none';});</script>
+</body>
+</html>
