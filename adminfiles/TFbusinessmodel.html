@@ -47,7 +47,8 @@ table.matrix thead th{background:var(--tf);color:white;font-weight:800;font-size
 table.matrix thead th.row-label{background:var(--tf-dark);left:0;z-index:8}
 table.matrix thead th.col-tf{background:#2D2595}
 table.matrix thead th.col-tf-new{background:#3A30A8}
-table.matrix tr.cat-row td{background:var(--tf-ghost);color:var(--orange);font-weight:800;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:9px 11px;position:sticky;left:0}
+table.matrix tr.cat-row td{background:var(--tf-ghost);padding:9px 11px;border-right:1px solid var(--rule)}
+table.matrix tr.cat-row td .cat-text{position:sticky;left:11px;color:var(--orange);font-weight:800;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;display:inline-block}
 table.matrix td.row-label{font-weight:700;color:var(--ink);background:white;position:sticky;left:0;z-index:3;min-width:230px;max-width:230px;box-shadow:1px 0 0 var(--rule)}
 table.matrix tr:hover td.row-label{background:var(--tf-ghost)}
 table.matrix td{color:var(--ink);font-weight:500;font-size:11px;text-align:left;min-width:135px;max-width:170px}
@@ -56,7 +57,7 @@ table.matrix td.partial{background:var(--yellow-tint);font-weight:600}
 table.matrix td.val{background:var(--green-tint);font-weight:600}
 table.matrix td.no{background:white}
 table.matrix td.fact{background:white;font-weight:500;color:var(--ink)}
-table.matrix td.unk{background:white;color:var(--sub);font-style:italic;text-align:center}
+table.matrix td.unk{background:white;color:var(--sub);font-style:italic;font-size:10.5px}
 table.matrix td.tf-col.no{background:#FBFAFF}
 table.matrix td.tf-col.fact{background:#FBFAFF}
 table.matrix td.position{background:white;font-size:10.5px;color:var(--ink);line-height:1.5;font-weight:500;min-width:170px}
@@ -90,16 +91,16 @@ h2{font-size:16px;font-weight:800;color:var(--orange);margin:36px 0 12px;padding
 
 <div class="wrap">
   <a class="back" href="index.html">← Terra Ferra</a>
-  <div class="eyebrow">Confidential · Business Model &amp; GTM · v2 · 24 May 2026</div>
+  <div class="eyebrow">Confidential · Business Model &amp; GTM · v3 · 24 May 2026</div>
   <h1>Terra Ferra — Business Model &amp; GTM</h1>
 
-  <div class="snote">Function-by-function matrix comparing Terra Ferra against every platform researched, with green cells marking functions a platform offers.</div>
+  <div class="snote">Functionality matrix comparing Terra Ferra against every platform researched, with green cells marking functions a platform offers.</div>
 
   <div class="legend">
     <span><i class="y"></i> Has this function</span>
     <span><i class="p"></i> Partial / limited</span>
     <span><i class="n"></i> Does not have</span>
-    <span>"?" = not yet researched</span>
+    <span>"could not verify" = looked, did not find a public answer</span>
   </div>
 
   <div class="matrix-wrap">
@@ -121,7 +122,7 @@ h2{font-size:16px;font-weight:800;color:var(--orange);margin:36px 0 12px;padding
       </thead>
       <tbody>
 
-        <tr class="cat-row"><td colspan="11">A · Brand proposition — how they position themselves</td></tr>
+        <tr class="cat-row"><td colspan="11"><span class="cat-text">A · Brand proposition — how they position themselves</span></td></tr>
 
         <tr>
           <td class="row-label">Positioning statement</td>
@@ -129,15 +130,15 @@ h2{font-size:16px;font-weight:800;color:var(--orange);margin:36px 0 12px;padding
           <td class="position tf-col">Services-led platform helping emerging designers reach $10K MRR via community + pre-orders.</td>
           <td class="position">Premium creator-commerce platform with full attribution, connecting brands and vetted influencers.</td>
           <td class="position">Creator-guided shopping app across fashion, beauty and lifestyle for established creators.</td>
-          <td class="position">AI-powered fashion design platform for emerging creators.</td>
+          <td class="position">AI design + virtual-try-on platform for fashion brands; works with global brands and IPs.</td>
           <td class="position">Curated marketplace for 2,000+ independent designers across fashion, jewellery, beauty, homeware.</td>
           <td class="position">UK marketplace for 5,000+ independent small businesses; every product hand-designed or hand-finished.</td>
           <td class="position">Social discovery + creator affiliate (relaunched March 2026); transaction completes on the merchant site.</td>
           <td class="position">Social commerce inside the TikTok app — creator-driven discovery, livestream selling, native checkout.</td>
-          <td class="position">Chinese lifestyle community + social commerce: UGC reviews, product discovery, in-app shopping.</td>
+          <td class="position">Chinese lifestyle community + social commerce: UGC reviews, product discovery, ad-driven monetisation.</td>
         </tr>
 
-        <tr class="cat-row"><td colspan="11">B · Monetisation — what the designer pays / how the platform earns</td></tr>
+        <tr class="cat-row"><td colspan="11"><span class="cat-text">B · Monetisation — what the designer pays / how the platform earns</span></td></tr>
 
         <tr>
           <td class="row-label">Designer subscription / retainer</td>
@@ -145,12 +146,12 @@ h2{font-size:16px;font-weight:800;color:var(--orange);margin:36px 0 12px;padding
           <td class="tf-col val">$1,000/month</td>
           <td class="no"></td>
           <td class="no"></td>
-          <td class="unk">?</td>
+          <td class="unk">not disclosed</td>
           <td class="val">$375/month</td>
           <td class="no"></td>
           <td class="no"></td>
           <td class="no"></td>
-          <td class="unk">?</td>
+          <td class="no">ads-based, no subscription</td>
         </tr>
         <tr>
           <td class="row-label">Designer joining fee</td>
@@ -158,12 +159,12 @@ h2{font-size:16px;font-weight:800;color:var(--orange);margin:36px 0 12px;padding
           <td class="tf-col no"></td>
           <td class="no"></td>
           <td class="no"></td>
-          <td class="unk">?</td>
+          <td class="unk">not disclosed</td>
           <td class="no"></td>
           <td class="val">£199/year</td>
           <td class="no"></td>
           <td class="no"></td>
-          <td class="unk">?</td>
+          <td class="no"></td>
         </tr>
         <tr>
           <td class="row-label">Commission on sales (GMV)</td>
@@ -171,12 +172,12 @@ h2{font-size:16px;font-weight:800;color:var(--orange);margin:36px 0 12px;padding
           <td class="tf-col no"></td>
           <td class="val">brand pays influencer 8–20% (fashion)</td>
           <td class="val">brand pays influencer; lower than ShopMy across categories</td>
-          <td class="unk">?</td>
+          <td class="unk">not disclosed</td>
           <td class="val">undisclosed (~52% effective cost incl. discounts)</td>
           <td class="val">25%</td>
-          <td class="unk">? (relaunched 2026)</td>
+          <td class="unk">could not verify (2026 relaunch)</td>
           <td class="val">referral + transaction fee on GMV</td>
-          <td class="unk">?</td>
+          <td class="val">ads + marketing services revenue</td>
         </tr>
         <tr>
           <td class="row-label">Pre-order / pre-sale fee</td>
@@ -231,7 +232,7 @@ h2{font-size:16px;font-weight:800;color:var(--orange);margin:36px 0 12px;padding
           <td class="no"></td>
         </tr>
 
-        <tr class="cat-row"><td colspan="11">C · Designer-side tools</td></tr>
+        <tr class="cat-row"><td colspan="11"><span class="cat-text">C · Designer-side tools</span></td></tr>
 
         <tr>
           <td class="row-label">Sign designer pre-inventory (sketches OK)</td>
@@ -257,7 +258,7 @@ h2{font-size:16px;font-weight:800;color:var(--orange);margin:36px 0 12px;padding
           <td class="no"></td>
           <td class="no"></td>
           <td class="partial">livestream-driven preorders informal</td>
-          <td class="unk">?</td>
+          <td class="no"></td>
         </tr>
         <tr>
           <td class="row-label">Crowdfunding for fashion designers</td>
@@ -312,7 +313,7 @@ h2{font-size:16px;font-weight:800;color:var(--orange);margin:36px 0 12px;padding
           <td class="yes">in-app shop</td>
         </tr>
 
-        <tr class="cat-row"><td colspan="11">D · Community &amp; engagement layer</td></tr>
+        <tr class="cat-row"><td colspan="11"><span class="cat-text">D · Community &amp; engagement layer</span></td></tr>
 
         <tr>
           <td class="row-label">Owned designer community on platform</td>
@@ -377,10 +378,10 @@ h2{font-size:16px;font-weight:800;color:var(--orange);margin:36px 0 12px;padding
           <td class="no"></td>
           <td class="partial">aggregated, not per-creator</td>
           <td class="yes">yes (seller dashboard)</td>
-          <td class="unk">?</td>
+          <td class="unk">could not verify</td>
         </tr>
 
-        <tr class="cat-row"><td colspan="11">E · Platform mechanics</td></tr>
+        <tr class="cat-row"><td colspan="11"><span class="cat-text">E · Platform mechanics</span></td></tr>
 
         <tr>
           <td class="row-label">Holds inventory</td>
@@ -445,10 +446,10 @@ h2{font-size:16px;font-weight:800;color:var(--orange);margin:36px 0 12px;padding
           <td class="yes">UK brand</td>
           <td class="yes">global</td>
           <td class="yes">global</td>
-          <td class="yes">300M+ MAU China</td>
+          <td class="yes">300M+ MAU</td>
         </tr>
 
-        <tr class="cat-row"><td colspan="11">F · AI / commerce tooling</td></tr>
+        <tr class="cat-row"><td colspan="11"><span class="cat-text">F · AI / commerce tooling</span></td></tr>
 
         <tr>
           <td class="row-label">AI design / image generation</td>
@@ -461,62 +462,62 @@ h2{font-size:16px;font-weight:800;color:var(--orange);margin:36px 0 12px;padding
           <td class="no"></td>
           <td class="no"></td>
           <td class="no"></td>
-          <td class="unk">?</td>
+          <td class="no"></td>
         </tr>
         <tr>
           <td class="row-label">Virtual try-on (AR)</td>
           <td class="tf-col no"></td>
           <td class="tf-col no"></td>
-          <td class="unk">?</td>
-          <td class="unk">?</td>
-          <td class="unk">?</td>
+          <td class="unk">could not verify</td>
+          <td class="unk">could not verify</td>
+          <td class="yes">Studio.ablo.ai — try-on at scale</td>
           <td class="no"></td>
           <td class="no"></td>
-          <td class="unk">?</td>
-          <td class="unk">?</td>
-          <td class="unk">?</td>
+          <td class="unk">could not verify</td>
+          <td class="unk">could not verify</td>
+          <td class="unk">could not verify</td>
         </tr>
         <tr>
           <td class="row-label">AI sizing / fit recommendation</td>
           <td class="tf-col no"></td>
           <td class="tf-col no"></td>
-          <td class="unk">?</td>
-          <td class="unk">?</td>
-          <td class="unk">?</td>
-          <td class="unk">?</td>
-          <td class="unk">?</td>
-          <td class="unk">?</td>
-          <td class="unk">?</td>
-          <td class="unk">?</td>
+          <td class="unk">could not verify</td>
+          <td class="unk">could not verify</td>
+          <td class="unk">could not verify</td>
+          <td class="unk">could not verify</td>
+          <td class="unk">could not verify</td>
+          <td class="unk">could not verify</td>
+          <td class="unk">could not verify</td>
+          <td class="unk">could not verify</td>
         </tr>
         <tr>
           <td class="row-label">Visual search ("shop the look")</td>
           <td class="tf-col no"></td>
           <td class="tf-col no"></td>
-          <td class="unk">?</td>
-          <td class="unk">?</td>
+          <td class="unk">could not verify</td>
+          <td class="unk">could not verify</td>
           <td class="no"></td>
           <td class="no"></td>
           <td class="no"></td>
           <td class="yes">yes</td>
           <td class="yes">yes</td>
-          <td class="yes">yes</td>
+          <td class="yes">image-driven feed</td>
         </tr>
         <tr>
           <td class="row-label">AI personalised discovery / feed</td>
           <td class="tf-col no"></td>
           <td class="tf-col no"></td>
-          <td class="partial">brand curation</td>
+          <td class="partial">Noir AI concierge + Taste Profile</td>
           <td class="partial">curated app feed</td>
           <td class="no"></td>
           <td class="no"></td>
           <td class="no"></td>
           <td class="yes">algorithmic feed</td>
           <td class="yes">FYP algorithm</td>
-          <td class="yes">algorithmic feed</td>
+          <td class="yes">Diandian AI search (2025)</td>
         </tr>
 
-        <tr class="cat-row"><td colspan="11">G · Designer / market focus</td></tr>
+        <tr class="cat-row"><td colspan="11"><span class="cat-text">G · Designer / market focus</span></td></tr>
 
         <tr>
           <td class="row-label">Emerging-designer focus</td>
@@ -557,87 +558,6 @@ h2{font-size:16px;font-weight:800;color:var(--orange);margin:36px 0 12px;padding
           <td class="yes">no minimum</td>
           <td class="yes">no minimum</td>
         </tr>
-
-        <tr class="cat-row"><td colspan="11">H · Geography — country presence (selling / active operations)</td></tr>
-
-        <tr>
-          <td class="row-label">United States</td>
-          <td class="tf-col partial">planned</td>
-          <td class="tf-col partial">planned</td>
-          <td class="yes">primary</td>
-          <td class="yes">primary</td>
-          <td class="partial">limited</td>
-          <td class="yes">~50% of sales</td>
-          <td class="no"></td>
-          <td class="yes">global</td>
-          <td class="yes">yes</td>
-          <td class="partial">limited US users</td>
-        </tr>
-        <tr>
-          <td class="row-label">United Kingdom</td>
-          <td class="tf-col partial">planned</td>
-          <td class="tf-col partial">planned</td>
-          <td class="partial">expansion 2025</td>
-          <td class="yes">yes</td>
-          <td class="partial">limited</td>
-          <td class="yes">HQ</td>
-          <td class="yes">primary</td>
-          <td class="yes">global</td>
-          <td class="yes">yes</td>
-          <td class="unk">?</td>
-        </tr>
-        <tr>
-          <td class="row-label">Germany</td>
-          <td class="tf-col partial">planned</td>
-          <td class="tf-col partial">planned</td>
-          <td class="no"></td>
-          <td class="yes">yes</td>
-          <td class="unk">?</td>
-          <td class="unk">?</td>
-          <td class="no"></td>
-          <td class="yes">global</td>
-          <td class="unk">?</td>
-          <td class="unk">?</td>
-        </tr>
-        <tr>
-          <td class="row-label">Italy</td>
-          <td class="tf-col partial">planned</td>
-          <td class="tf-col partial">planned</td>
-          <td class="no"></td>
-          <td class="no"></td>
-          <td class="unk">?</td>
-          <td class="unk">?</td>
-          <td class="no"></td>
-          <td class="yes">global</td>
-          <td class="unk">?</td>
-          <td class="unk">?</td>
-        </tr>
-        <tr>
-          <td class="row-label">France</td>
-          <td class="tf-col partial">planned</td>
-          <td class="tf-col partial">planned</td>
-          <td class="no"></td>
-          <td class="no"></td>
-          <td class="unk">?</td>
-          <td class="unk">?</td>
-          <td class="no"></td>
-          <td class="yes">global</td>
-          <td class="unk">?</td>
-          <td class="unk">?</td>
-        </tr>
-        <tr>
-          <td class="row-label">The Netherlands</td>
-          <td class="tf-col partial">planned (CEO base)</td>
-          <td class="tf-col partial">planned (CEO base)</td>
-          <td class="no"></td>
-          <td class="no"></td>
-          <td class="unk">?</td>
-          <td class="unk">?</td>
-          <td class="no"></td>
-          <td class="yes">global</td>
-          <td class="unk">?</td>
-          <td class="unk">?</td>
-        </tr>
         <tr>
           <td class="row-label">EU emerging-designer recruitment programme</td>
           <td class="tf-col yes">Year-1 priority</td>
@@ -652,7 +572,88 @@ h2{font-size:16px;font-weight:800;color:var(--orange);margin:36px 0 12px;padding
           <td class="no"></td>
         </tr>
 
-        <tr class="cat-row"><td colspan="11">I · Snapshot (publicly disclosed where available)</td></tr>
+        <tr class="cat-row"><td colspan="11"><span class="cat-text">H · Geography — country presence (selling / active operations)</span></td></tr>
+
+        <tr>
+          <td class="row-label">United States</td>
+          <td class="tf-col partial">planned</td>
+          <td class="tf-col partial">planned</td>
+          <td class="yes">primary</td>
+          <td class="yes">primary</td>
+          <td class="partial">global SaaS</td>
+          <td class="yes">~50% of sales</td>
+          <td class="no"></td>
+          <td class="yes">global</td>
+          <td class="yes">yes</td>
+          <td class="partial">limited US users</td>
+        </tr>
+        <tr>
+          <td class="row-label">United Kingdom</td>
+          <td class="tf-col partial">planned</td>
+          <td class="tf-col partial">planned</td>
+          <td class="partial">expansion 2025</td>
+          <td class="yes">yes</td>
+          <td class="partial">global SaaS</td>
+          <td class="yes">HQ</td>
+          <td class="yes">primary</td>
+          <td class="yes">global</td>
+          <td class="yes">yes</td>
+          <td class="no"></td>
+        </tr>
+        <tr>
+          <td class="row-label">Germany</td>
+          <td class="tf-col partial">planned</td>
+          <td class="tf-col partial">planned</td>
+          <td class="no"></td>
+          <td class="yes">yes</td>
+          <td class="partial">global SaaS</td>
+          <td class="partial">ships globally</td>
+          <td class="no"></td>
+          <td class="yes">global</td>
+          <td class="no"></td>
+          <td class="no"></td>
+        </tr>
+        <tr>
+          <td class="row-label">Italy</td>
+          <td class="tf-col partial">planned</td>
+          <td class="tf-col partial">planned</td>
+          <td class="no"></td>
+          <td class="no"></td>
+          <td class="partial">global SaaS</td>
+          <td class="partial">ships globally</td>
+          <td class="no"></td>
+          <td class="yes">global</td>
+          <td class="no"></td>
+          <td class="no"></td>
+        </tr>
+        <tr>
+          <td class="row-label">France</td>
+          <td class="tf-col partial">planned</td>
+          <td class="tf-col partial">planned</td>
+          <td class="no"></td>
+          <td class="no"></td>
+          <td class="partial">global SaaS</td>
+          <td class="partial">ships globally</td>
+          <td class="no"></td>
+          <td class="yes">global</td>
+          <td class="no"></td>
+          <td class="no"></td>
+        </tr>
+        <tr>
+          <td class="row-label">The Netherlands</td>
+          <td class="tf-col partial">planned</td>
+          <td class="tf-col partial">planned</td>
+          <td class="no"></td>
+          <td class="no"></td>
+          <td class="partial">global SaaS</td>
+          <td class="partial">ships globally</td>
+          <td class="no"></td>
+          <td class="yes">global</td>
+          <td class="no"></td>
+          <td class="no"></td>
+        </tr>
+
+        <tr class="cat-row"><td colspan="11"><span class="cat-text">I · Snapshot (publicly disclosed where available)</span></td></tr>
 
         <tr>
           <td class="row-label">GMV / revenue (most recent)</td>
@@ -665,7 +666,7 @@ h2{font-size:16px;font-weight:800;color:var(--orange);margin:36px 0 12px;padding
           <td class="fact">~$110M revenue (2024)</td>
           <td class="fact">n/a (platform)</td>
           <td class="fact">$64B GMV global (2024)</td>
-          <td class="unk">?</td>
+          <td class="fact">$3.7B revenue (2023)</td>
         </tr>
         <tr>
           <td class="row-label">Funding raised to date</td>
@@ -673,12 +674,12 @@ h2{font-size:16px;font-weight:800;color:var(--orange);margin:36px 0 12px;padding
           <td class="tf-col fact">raising $500K bridge</td>
           <td class="fact">~$147.5M</td>
           <td class="fact">~$315M</td>
-          <td class="fact">early-stage</td>
+          <td class="fact">$10M (Polychain, Pantera, Accel, Jump, Animoca)</td>
           <td class="fact">~$20M total</td>
           <td class="fact">~$77.7M</td>
           <td class="fact">n/a (Meta)</td>
           <td class="fact">n/a (ByteDance)</td>
-          <td class="unk">?</td>
+          <td class="fact">~$17B valuation (2024 stake sale)</td>
         </tr>
         <tr>
           <td class="row-label">Designer / brand / seller base</td>
@@ -689,9 +690,9 @@ h2{font-size:16px;font-weight:800;color:var(--orange);margin:36px 0 12px;padding
           <td class="fact">~3,000 designers</td>
           <td class="fact">2,000+ designers</td>
           <td class="fact">5,000+ sellers</td>
-          <td class="unk">?</td>
+          <td class="fact">could not verify</td>
           <td class="fact">millions of sellers</td>
-          <td class="unk">?</td>
+          <td class="fact">300M+ MAU</td>
         </tr>
         <tr>
           <td class="row-label">Status</td>
@@ -699,19 +700,19 @@ h2{font-size:16px;font-weight:800;color:var(--orange);margin:36px 0 12px;padding
           <td class="tf-col fact">2026 restart</td>
           <td class="fact">200% YoY · profitable</td>
           <td class="fact">mature · growth slowing</td>
-          <td class="fact">early stage</td>
+          <td class="fact">early stage · $10M raised</td>
           <td class="fact">profitable · 2 yrs in a row</td>
           <td class="fact">established UK marketplace</td>
           <td class="fact">part of Meta</td>
           <td class="fact">part of ByteDance</td>
-          <td class="fact">part of Xiaohongshu</td>
+          <td class="fact">profitable · Chinese giant</td>
         </tr>
 
       </tbody>
     </table>
   </div>
 
-  <p class="foot-note">Source for ShopMy, LTK, Ablo, Wolf &amp; Badger, Not On The High Street: Terra Ferra <a href="ideas.html">Ideas &amp; AI Research</a>. Source for Instagram + TikTok Shop: <a href="influencer.html">Influencer Selling</a>. Rednote (Xiaohongshu) is included as a comparator but has not yet been formally researched — most of its cells are marked "?". AI / commerce-tooling rows for non-Ablo platforms are mostly marked "?" pending verified research; do not quote those cells externally until checked.</p>
+  <p class="foot-note">Sources: ShopMy, LTK, Ablo, Wolf &amp; Badger, Not On The High Street — Terra Ferra <a href="ideas.html">Ideas &amp; AI Research</a>. Instagram + TikTok Shop — <a href="influencer.html">Influencer Selling</a>. Rednote (Xiaohongshu) — Wikipedia article on Xiaohongshu (Diandian, $17B valuation 2024, $3.7B revenue 2023, 300M+ MAU). Ablo virtual try-on and $10M funding — ablo.ai (Polychain, Pantera, Accel, Jump, Animoca). Where a cell says "could not verify", a public source could not be found within this research pass.</p>
 
   <h2>Where the gap sits</h2>
   <ul class="gap-list">
