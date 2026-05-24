@@ -27,6 +27,9 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 
 .back{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);text-decoration:none;display:inline-block;margin-bottom:24px;opacity:.7}
 .back:hover{color:var(--tf);opacity:1}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:10px}
+.cross-link a{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--tf);background:var(--tf-ghost);padding:8px 14px;border:1px solid var(--rule);border-radius:2px}
+.cross-link a:hover{background:var(--tf-light)}
 
 .eyebrow{font-size:10px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
 h1{font-size:34px;font-weight:800;letter-spacing:-1px;color:var(--ink);margin-bottom:8px}
@@ -90,7 +93,10 @@ h2{font-size:16px;font-weight:800;color:var(--orange);margin:36px 0 12px;padding
 <body>
 
 <div class="wrap">
-  <a class="back" href="index.html">← Terra Ferra</a>
+  <div class="nav-row">
+    <a class="back" href="index.html">← Terra Ferra</a>
+    <div class="cross-link"><a href="TFgtm.html">→ Go-to-Market Plan</a></div>
+  </div>
   <div class="eyebrow">Confidential · Business Model &amp; GTM · v3 · 24 May 2026</div>
   <h1>Terra Ferra — Business Model &amp; GTM</h1>
 

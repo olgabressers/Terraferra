@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Terra Ferra — Go-to-Market</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --tf:#4B40C2;
+  --tf-dark:#2D2595;
+  --tf-light:#ECEAF9;
+  --tf-ghost:#F4F2FC;
+  --orange:#E86820;
+  --orange-light:#F5C9A8;
+  --off-white:#F7F6FB;
+  --ink:#12102B;
+  --sub:#5B5880;
+  --rule:#D8D4EF;
+  --green:#1F7A4E;
+  --green-tint:#DDEEE5;
+  --yellow-tint:#FBF1D5;
+  --red:#B23A2F;
+}
+body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink);line-height:1.55}
+.wrap{max-width:1240px;margin:0 auto;padding:40px 48px 80px}
+
+/* Header / nav */
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:10px}
+.back, .cross-link a{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none}
+.back{color:var(--sub);opacity:.7}
+.back:hover{color:var(--tf);opacity:1}
+.cross-link a{color:var(--tf);background:var(--tf-ghost);padding:8px 14px;border:1px solid var(--rule);border-radius:2px}
+.cross-link a:hover{background:var(--tf-light)}
+
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
+h1{font-size:36px;font-weight:800;letter-spacing:-1px;color:var(--ink);margin-bottom:24px}
+
+/* Hero positioning */
+.positioning{background:white;border:1px solid var(--rule);border-left:5px solid var(--orange);padding:26px 30px;margin-bottom:42px}
+.positioning .pl-label{font-size:10px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--orange);margin-bottom:10px}
+.positioning .pl-quote{font-size:17px;font-weight:600;line-height:1.5;color:var(--ink);letter-spacing:-.2px}
+.positioning .pl-source{font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--sub);margin-top:10px}
+
+/* Section headings */
+h2{font-size:20px;font-weight:800;color:var(--ink);margin:48px 0 18px;padding-bottom:10px;border-bottom:2px solid var(--tf);letter-spacing:-.3px;display:flex;align-items:center;gap:14px}
+h2 .sec-num{font-size:20px;font-weight:800;color:var(--orange)}
+
+/* ICP card */
+.icp-card{background:white;border:1px solid var(--rule);padding:24px 28px;margin-bottom:14px}
+.icp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:22px}
+.icp-cell{padding:14px 16px;background:var(--tf-ghost);border-left:3px solid var(--tf)}
+.icp-label{font-size:9.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);margin-bottom:5px}
+.icp-value{font-size:14px;font-weight:700;color:var(--ink);line-height:1.4}
+.icp-pain{background:#FEF7F1;border-left:3px solid var(--orange);padding:14px 16px;font-size:12.5px;color:var(--ink);line-height:1.55}
+.icp-pain strong{color:var(--orange)}
+
+/* Why-we-win cards */
+.win-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:14px}
+.win-card{background:white;border:1px solid var(--rule);border-top:3px solid var(--green);padding:18px 18px 16px;display:flex;flex-direction:column}
+.win-num{font-size:10px;font-weight:800;letter-spacing:1.5px;color:var(--green);margin-bottom:8px}
+.win-title{font-size:13.5px;font-weight:800;line-height:1.3;margin-bottom:8px;color:var(--ink)}
+.win-body{font-size:11.5px;color:var(--sub);line-height:1.5;margin-top:auto}
+
+/* Bullseye / priority rings */
+.bullseye{margin-bottom:14px}
+.ring{padding:18px 22px;margin-bottom:10px;border:1px solid var(--rule)}
+.ring.r1{background:var(--orange);color:white}
+.ring.r1 .ring-label, .ring.r1 .ring-content, .ring.r1 strong{color:white}
+.ring.r2{background:var(--orange-light)}
+.ring.r3{background:var(--tf-ghost)}
+.ring-label{font-size:10.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;color:var(--ink)}
+.ring-content{font-size:13px;line-height:1.6;color:var(--ink)}
+.ring-content ul{margin:6px 0 0 18px;padding:0}
+.ring-content li{margin-bottom:5px;font-size:12.5px}
+
+/* Customer journey */
+.journey{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-bottom:14px;position:relative}
+.j-stage{background:white;border:1px solid var(--rule);padding:18px 16px 16px;text-align:left;position:relative}
+.j-stage:not(:last-child){border-right:none}
+.j-stage::after{content:"";position:absolute;right:-8px;top:50%;transform:translateY(-50%);width:0;height:0;border-top:8px solid transparent;border-bottom:8px solid transparent;border-left:9px solid var(--tf);z-index:2}
+.j-stage:last-child::after{display:none}
+.j-num{display:inline-block;width:24px;height:24px;line-height:24px;text-align:center;background:var(--tf);color:white;font-weight:800;font-size:11px;border-radius:50%;margin-bottom:10px}
+.j-title{font-size:13px;font-weight:800;color:var(--ink);margin-bottom:6px}
+.j-body{font-size:11.5px;color:var(--sub);line-height:1.5}
+
+/* Flywheel */
+.flywheel{background:white;border:1px solid var(--rule);padding:24px;margin-bottom:14px;position:relative}
+.fw-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;align-items:stretch}
+.fw-step{background:var(--tf-ghost);padding:16px 14px;border-left:3px solid var(--tf);position:relative}
+.fw-num{display:inline-block;width:22px;height:22px;line-height:22px;text-align:center;background:var(--tf);color:white;font-weight:800;font-size:10px;border-radius:50%;margin-bottom:8px}
+.fw-title{font-size:12.5px;font-weight:800;color:var(--ink);margin-bottom:5px;line-height:1.3}
+.fw-body{font-size:11px;color:var(--sub);line-height:1.5}
+.fw-loop{margin-top:16px;text-align:center;padding:10px 14px;background:var(--orange);color:white;font-size:11.5px;font-weight:700;letter-spacing:.5px}
+
+/* Timeline */
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
+.tl-phase{background:white;border:1px solid var(--rule);border-top:3px solid var(--tf);padding:16px 16px 14px}
+.tl-months{font-size:10px;font-weight:800;letter-spacing:1.5px;color:var(--orange);margin-bottom:8px}
+.tl-title{font-size:13px;font-weight:800;color:var(--ink);margin-bottom:6px;line-height:1.3}
+.tl-body{font-size:11.5px;color:var(--sub);line-height:1.5}
+.tl-milestone{margin-top:10px;padding:6px 9px;background:var(--green-tint);font-size:10px;font-weight:800;color:var(--green);letter-spacing:.5px;display:inline-block}
+
+/* Risk table */
+table.risks{width:100%;border-collapse:collapse;background:white;border:1px solid var(--rule);font-size:12.5px;margin-bottom:14px}
+table.risks th{background:var(--tf);color:white;padding:10px 14px;font-size:10.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;text-align:left}
+table.risks td{padding:12px 14px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.5}
+table.risks tr:last-child td{border-bottom:none}
+table.risks td.risk{width:42%;font-weight:600;color:var(--red)}
+table.risks td.mit{color:var(--ink)}
+
+/* Source citation */
+.src-note{font-size:11px;color:var(--sub);font-style:italic;margin-top:4px;margin-bottom:16px}
+
+@media(max-width:1000px){
+  .wrap{padding:28px 18px 60px}
+  h1{font-size:28px}
+  .icp-grid{grid-template-columns:repeat(2,1fr)}
+  .win-grid{grid-template-columns:repeat(2,1fr)}
+  .journey{grid-template-columns:1fr;gap:8px}
+  .j-stage:not(:last-child){border-right:1px solid var(--rule)}
+  .j-stage::after{display:none}
+  .fw-grid{grid-template-columns:repeat(2,1fr)}
+  .timeline{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  .wrap{padding:20px 12px 40px}
+  h1{font-size:22px}
+  h2{font-size:16px;gap:8px}
+  h2 .sec-num{font-size:16px}
+  .icp-grid{grid-template-columns:1fr}
+  .win-grid{grid-template-columns:1fr}
+  .fw-grid{grid-template-columns:1fr}
+  .timeline{grid-template-columns:1fr}
+  .positioning .pl-quote{font-size:14.5px}
+  table.risks{display:block;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch}
+  table.risks td.mit{white-space:normal;min-width:200px}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="nav-row">
+    <a class="back" href="index.html">← Terra Ferra</a>
+    <div class="cross-link"><a href="TFbusinessmodel.html">→ Business Model &amp; Comparison Matrix</a></div>
+  </div>
+
+  <div class="eyebrow">Confidential · GTM Plan · v1 · 24 May 2026</div>
+  <h1>Terra Ferra — Go-to-Market</h1>
+
+  <!-- POSITIONING -->
+  <div class="positioning">
+    <div class="pl-label">Positioning</div>
+    <div class="pl-quote">Community-powered launch commerce for emerging fashion designers. Terra Ferra turns superfans, influencers and collaborators into a pre-sale engine — combining AI audience insights, co-creation, ambassador incentives, and drop-level commerce in one workflow.</div>
+    <div class="pl-source">Source: Maxim's 2026 strategic deck · page 3</div>
+  </div>
+
+  <!-- ICP -->
+  <h2><span class="sec-num">01.</span> Ideal Customer Profile</h2>
+  <div class="icp-card">
+    <div class="icp-grid">
+      <div class="icp-cell">
+        <div class="icp-label">Annual sales</div>
+        <div class="icp-value">$300K – $3M</div>
+      </div>
+      <div class="icp-cell">
+        <div class="icp-label">Social following</div>
+        <div class="icp-value">10K – 150K</div>
+      </div>
+      <div class="icp-cell">
+        <div class="icp-label">Geography</div>
+        <div class="icp-value">US + EU<br/><span style="font-size:10.5px;color:var(--sub);font-weight:600">EU = supply wedge</span></div>
+      </div>
+      <div class="icp-cell">
+        <div class="icp-label">Category</div>
+        <div class="icp-value">Emerging affordable-luxury fashion</div>
+      </div>
+    </div>
+    <div class="icp-pain">
+      <strong>Pain point.</strong> Emerging designers are forced to produce inventory and market after the fact, rather than testing demand, mobilizing superfans, and financing production before the drop. (Maxim's 2026 deck, p.2.)
+    </div>
+  </div>
+
+  <!-- WHY WE WIN -->
+  <h2><span class="sec-num">02.</span> Why we win — gaps vs all 8 platforms compared</h2>
+  <div class="win-grid">
+    <div class="win-card">
+      <div class="win-num">01</div>
+      <div class="win-title">Pre-production entry</div>
+      <div class="win-body">Sign designers with sketches and zero inventory. All 8 platforms in the matrix require existing stock.</div>
+    </div>
+    <div class="win-card">
+      <div class="win-num">02</div>
+      <div class="win-title">Pre-order + crowdfunding</div>
+      <div class="win-body">No competitor in the matrix offers either function for fashion designers.</div>
+    </div>
+    <div class="win-card">
+      <div class="win-num">03</div>
+      <div class="win-title">Co-creation</div>
+      <div class="win-body">Community input into design before production. Unique across all 8 platforms.</div>
+    </div>
+    <div class="win-card">
+      <div class="win-num">04</div>
+      <div class="win-title">Superfan / ambassador layer</div>
+      <div class="win-body">Non-influencer community members earn from sales. LTK and ShopMy only have traditional influencer affiliates.</div>
+    </div>
+    <div class="win-card">
+      <div class="win-num">05</div>
+      <div class="win-title">Niche influencer inclusion</div>
+      <div class="win-body">10K–150K fashion influencers welcome. LTK and ShopMy exclude this segment by follower-minimum policy.</div>
+    </div>
+  </div>
+  <div class="src-note">Source: <a href="TFbusinessmodel.html" style="color:var(--tf)">Comparison Matrix</a> — sections C, D, G.</div>
+
+  <!-- CHANNEL BULLSEYE -->
+  <h2><span class="sec-num">03.</span> Zero-budget acquisition channels — priority bullseye</h2>
+  <div class="bullseye">
+
+    <div class="ring r1">
+      <div class="ring-label">P1 · Bullseye — compounding, zero cost</div>
+      <div class="ring-content">
+        <strong>Designers bring their own audience.</strong> Every signed designer arrives with a 10K–150K-follower community. Target: pull 5% of those superfans onto Terra Ferra. Each new designer compounds the platform's audience at no marketing cost. (Maxim 2023 interview.)
+      </div>
+    </div>
+
+    <div class="ring r2">
+      <div class="ring-label">P2 · Active outbound — CEO-driven, zero ad spend</div>
+      <div class="ring-content">
+        <ul>
+          <li><strong>LTK / ShopMy excluded designers.</strong> Niche fashion creators with 10K–50K followers that LTK and ShopMy reject by follower-minimum policy.</li>
+          <li><strong>Wolf &amp; Badger + NOTHS sellers.</strong> ~7,000 designers paying 25–52% commission across both. Pitch: 7% take rate plus pre-order and co-creation tools.</li>
+          <li><strong>Ablo designers.</strong> ~3,000 designers in a closed marketplace with no community, no pre-order, no demand validation before production.</li>
+          <li><strong>Public LTK brand directory + Instagram</strong> as cold-outreach source lists.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ring r3">
+      <div class="ring-label">P3 · Earned media + events — non-paid distribution</div>
+      <div class="ring-content">
+        <ul>
+          <li><strong>PR launch (Month 4)</strong> — coverage in 3+ industry titles within launch month.</li>
+          <li><strong>Conference presence</strong> — NRF (January), Shoptalk (March), 4 trips per year.</li>
+          <li><strong>EU geographic wedge</strong> — no competitor in the matrix actively recruits EU emerging designers. CEO based in NL is an operational advantage.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CUSTOMER JOURNEY -->
+  <h2><span class="sec-num">04.</span> Designer customer journey</h2>
+  <div class="journey">
+    <div class="j-stage">
+      <div class="j-num">1</div>
+      <div class="j-title">Discovery</div>
+      <div class="j-body">Designer learns about TF via cold outreach, peer referral, PR, or conference.</div>
+    </div>
+    <div class="j-stage">
+      <div class="j-num">2</div>
+      <div class="j-title">Demo</div>
+      <div class="j-body">CEO runs live demo of pre-order tooling, co-creation, ambassador layer, attribution dashboard.</div>
+    </div>
+    <div class="j-stage">
+      <div class="j-num">3</div>
+      <div class="j-title">Onboard</div>
+      <div class="j-body">$1,000/month services contract signed (3 months upfront). First drop set up. Designer's superfans invited.</div>
+    </div>
+    <div class="j-stage">
+      <div class="j-num">4</div>
+      <div class="j-title">First drop</div>
+      <div class="j-body">Pre-sale runs. Superfans engaged. Ambassadors activated. TF handles campaign mechanics.</div>
+    </div>
+    <div class="j-stage">
+      <div class="j-num">5</div>
+      <div class="j-title">Refer</div>
+      <div class="j-body">Successful designer recommends TF to designer peers and influencer contacts.</div>
+    </div>
+  </div>
+
+  <!-- FLYWHEEL -->
+  <h2><span class="sec-num">05.</span> Growth flywheel</h2>
+  <div class="flywheel">
+    <div class="fw-grid">
+      <div class="fw-step">
+        <div class="fw-num">1</div>
+        <div class="fw-title">Designer joins</div>
+        <div class="fw-body">$1,000/month services contract.</div>
+      </div>
+      <div class="fw-step">
+        <div class="fw-num">2</div>
+        <div class="fw-title">Brings own audience</div>
+        <div class="fw-body">10K–150K followers exposed to TF.</div>
+      </div>
+      <div class="fw-step">
+        <div class="fw-num">3</div>
+        <div class="fw-title">Superfans become ambassadors</div>
+        <div class="fw-body">Community earns rewards on each sale they drive.</div>
+      </div>
+      <div class="fw-step">
+        <div class="fw-num">4</div>
+        <div class="fw-title">Designer earns</div>
+        <div class="fw-body">Pre-sales generate revenue without inventory risk.</div>
+      </div>
+      <div class="fw-step">
+        <div class="fw-num">5</div>
+        <div class="fw-title">Designer refers peers</div>
+        <div class="fw-body">Success story = supply-side flywheel.</div>
+      </div>
+    </div>
+    <div class="fw-loop">↻ Each new designer compounds audience, supply and credibility — no CAC required</div>
+  </div>
+
+  <!-- TIMELINE -->
+  <h2><span class="sec-num">06.</span> 9-month timeline to $10K MRR — Base scenario</h2>
+  <div class="timeline">
+    <div class="tl-phase">
+      <div class="tl-months">Month 1 – 3</div>
+      <div class="tl-title">Outreach + Build</div>
+      <div class="tl-body">ICP locked. CEO runs cold outreach to 50+ qualified designers/month. Product completion. Legal + counsel + banking.</div>
+      <div class="tl-milestone">$500K SAFE closed</div>
+    </div>
+    <div class="tl-phase">
+      <div class="tl-months">Month 3 – 4</div>
+      <div class="tl-title">Soft launch + first paying designers</div>
+      <div class="tl-body">Security audit passed. Stripe-class integrator live. KYC/AML active. First designers onboarded at $1,000/month.</div>
+      <div class="tl-milestone">First revenue</div>
+    </div>
+    <div class="tl-phase">
+      <div class="tl-months">Month 4 – 6</div>
+      <div class="tl-title">Public launch + designer ramp</div>
+      <div class="tl-body">PR + Shoptalk presence. Onboard to 10 paying designers via referrals + active outbound.</div>
+      <div class="tl-milestone">10 designers · $10K MRR</div>
+    </div>
+    <div class="tl-phase">
+      <div class="tl-months">Month 6 – 9</div>
+      <div class="tl-title">Follow-on raise prep</div>
+      <div class="tl-body">Traction packaged. Investor pipeline activated. Continue designer ramp toward 25 by Month 12.</div>
+      <div class="tl-milestone">Series A / next round</div>
+    </div>
+  </div>
+  <div class="src-note">Source: Operating Budget Part III · <a href="budget.html" style="color:var(--tf)">budget.html</a> — Base scenario.</div>
+
+  <!-- RISKS -->
+  <h2><span class="sec-num">07.</span> Risks &amp; mitigations</h2>
+  <table class="risks">
+    <thead>
+      <tr><th>Risk</th><th>Mitigation</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="risk">ShopMy adds pre-order or co-creation to Circles</td>
+        <td class="mit">ShopMy raised $147.5M and grew 200% YoY. Build EU emerging-designer supply faster than ShopMy can extend Circles eastward. EU recruitment is Year-1 priority.</td>
+      </tr>
+      <tr>
+        <td class="risk">Pre-orders don't convert at scale</td>
+        <td class="mit">Services-led model means each designer is a managed engagement, not a self-serve listing. Designer success is the deliverable; failed drops trigger CEO intervention, not silent churn.</td>
+      </tr>
+      <tr>
+        <td class="risk">Designer churn at $1,000/month after Month 3 prepay</td>
+        <td class="mit">Retention KPI: churn &lt; 10%. Designer NPS tracked monthly. Pricing structured as 3 months prepaid ensures revenue floor and gives 90 days to prove ROI.</td>
+      </tr>
+      <tr>
+        <td class="risk">$500K bridge does not close by Month 3</td>
+        <td class="mit">Founder runs investor pipeline continuously, not as a single round. Rolling SAFE structure permits closes at any point. CEO unpaid initially to extend runway.</td>
+      </tr>
+      <tr>
+        <td class="risk">TikTok Shop adds fashion-specific designer recruitment</td>
+        <td class="mit">TikTok Shop is mass-market and seller-base-heavy; TF's defence is curated emerging-designer focus, niche-influencer inclusion, and pre-launch demand formation that TikTok Shop does not address.</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" title="Back to top">&#8593;</button>
+<style>#back-to-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:#4B40C2;color:white;border:1px solid rgba(113,105,212,.5);border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900;transition:background .2s;}#back-to-top:hover{background:#2D2595;}</style>
+<script>window.addEventListener('scroll',function(){var b=document.getElementById('back-to-top');b.style.display=window.scrollY>400?'flex':'none';});</script>
+</body>
+</html>
