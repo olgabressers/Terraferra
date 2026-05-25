@@ -82,6 +82,7 @@ table.matrix td.position.tf-col{background:#FBFAFF}
 table.matrix tbody tr:last-child td{border-bottom:none}
 
 h2{font-size:16px;font-weight:800;color:var(--orange);margin:36px 0 12px;padding-bottom:6px;border-bottom:1.5px solid var(--tf);letter-spacing:-.2px}
+h2.matrix-title{font-size:30px;font-weight:800;color:var(--ink);margin:36px 0 8px;padding-bottom:0;border-bottom:none;letter-spacing:-.8px}
 
 .gap-list{list-style:none;margin:8px 0 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .gap-list li{background:white;border:1px solid var(--rule);border-left:3px solid var(--green);padding:10px 14px;font-size:12px;color:var(--ink);line-height:1.5}
@@ -112,6 +113,14 @@ h2{font-size:16px;font-weight:800;color:var(--orange);margin:36px 0 12px;padding
 .topnav-links a:hover{color:#4B40C2}
 .topnav-links a.active{color:#E86820}
 @media(max-width:700px){.topnav{padding:10px 14px}.topnav-links{gap:10px}.topnav-links a{font-size:9.5px}}
+
+.topnav-links .has-dropdown{position:relative}
+.topnav-links .has-dropdown > a{display:inline-block}
+.topnav-links .dropdown{display:none;position:absolute;top:calc(100% + 4px);right:0;background:white;border:1px solid #D8D4EF;min-width:220px;box-shadow:0 6px 14px rgba(0,0,0,0.08);padding:6px 0;z-index:60}
+.topnav-links .has-dropdown:hover .dropdown,.topnav-links .has-dropdown:focus-within .dropdown{display:block}
+.topnav-links .dropdown a{display:block;padding:9px 16px;font-size:10px;font-weight:700;color:#5B5880;text-transform:uppercase;letter-spacing:1px;text-decoration:none}
+.topnav-links .dropdown a:hover{background:#F4F2FC;color:#4B40C2}
+@media(max-width:700px){.topnav-links .dropdown{position:static;display:block;box-shadow:none;border:none;padding:0;min-width:0;margin-left:8px}.topnav-links .dropdown a{padding:4px 0;font-size:9px}}
 </style>
 </head>
 <body>
@@ -122,9 +131,14 @@ h2{font-size:16px;font-weight:800;color:var(--orange);margin:36px 0 12px;padding
     <a href="budget.html">Budget</a>
     <a href="roles.html">Roles</a>
     <a href="TFbusinessmodel.html" class="active">Business Model</a>
-    <a href="ideas.html">Ideas</a>
-    <a href="influencer.html">Influencer</a>
-    <a href="strategic-brief.html">Strategic Brief</a>
+    <div class="has-dropdown">
+      <a href="ideas.html">Ideas ▾</a>
+      <div class="dropdown">
+        <a href="ideas.html">Ideas &amp; AI Research</a>
+        <a href="influencer.html">Influencer Selling</a>
+        <a href="strategic-brief.html">Strategic Brief</a>
+      </div>
+    </div>
   </div>
 </nav>
 
@@ -135,39 +149,46 @@ h2{font-size:16px;font-weight:800;color:var(--orange);margin:36px 0 12px;padding
 
   <div class="pillars-head">What Terra Ferra stands for</div>
   <div class="pillars">
+
     <div class="pillar unique">
-      <div class="pillar-tag">Unique</div>
+      <div class="pillar-tag">The product</div>
       <div class="pillar-num">01</div>
-      <div class="pillar-title">Toolbox for designers</div>
-      <div class="pillar-body">Co-creation tools and pre-order / drop management in one workflow. No competitor in the matrix combines both for fashion.</div>
+      <div class="pillar-title">Marketplace + Drops</div>
+      <div class="pillar-body">Two motions in one platform. Designers run pre-order drop campaigns with their community AND sell ongoing collections through a persistent marketplace storefront. Buyers access emerging designers other channels exclude.</div>
     </div>
-    <div class="pillar unique">
-      <div class="pillar-tag">Unique</div>
+
+    <div class="pillar">
+      <div class="pillar-tag">For designers</div>
       <div class="pillar-num">02</div>
-      <div class="pillar-title">Pre-sale engine</div>
-      <div class="pillar-body">Demand validation, pre-orders and crowdfunding for fashion drops. Designer captures revenue before producing inventory.</div>
+      <div class="pillar-title">Launch toolbox + storefront</div>
+      <div class="pillar-body">Sign with a sketch — no inventory required. Co-create with superfans. Run pre-orders and crowdfund drops. List ongoing collections. 7% take rate vs 25–52% on competing marketplaces.</div>
     </div>
-    <div class="pillar unique">
-      <div class="pillar-tag">Unique</div>
+
+    <div class="pillar">
+      <div class="pillar-tag">For influencers</div>
       <div class="pillar-num">03</div>
-      <div class="pillar-title">Community &amp; ambassador layer</div>
-      <div class="pillar-body">Superfans and ambassadors earn from sales they drive. Goes beyond the traditional influencer-only affiliate model.</div>
+      <div class="pillar-title">Niche-creator commerce</div>
+      <div class="pillar-body">10K–150K-follower fashion creators earn commission on the drops they sell out. No follower minimum — the segment LTK and ShopMy exclude by policy is welcome here.</div>
     </div>
+
     <div class="pillar">
-      <div class="pillar-tag">Reach</div>
+      <div class="pillar-tag">For superfans</div>
       <div class="pillar-num">04</div>
-      <div class="pillar-title">Niche-influencer network</div>
-      <div class="pillar-body">10K–150K-follower fashion creators included with no follower minimum — the segment LTK and ShopMy reject.</div>
+      <div class="pillar-title">Co-create + earn</div>
+      <div class="pillar-body">Vote on designs before production, pre-order before launch, earn ambassador rewards on sales you drive. Status, exclusive access and income — not just consumption.</div>
     </div>
-    <div class="pillar">
-      <div class="pillar-tag">Intelligence</div>
+
+    <div class="pillar unique">
+      <div class="pillar-tag">For investors</div>
       <div class="pillar-num">05</div>
-      <div class="pillar-title">AI audience insights</div>
-      <div class="pillar-body">Visual aesthetic discovery, demand signals and drop-performance prediction layered into the launch workflow.</div>
+      <div class="pillar-title">Asset-light · multi-stream · networked</div>
+      <div class="pillar-body">No inventory risk. Three-sided network effects (designers ↔ influencers ↔ superfans). Four revenue streams: $1K designer retainer + 5% pre-order fee + 7% co-creator reward + marketplace commission. Niche position no competitor in this matrix matches.</div>
     </div>
+
   </div>
 
-  <div class="snote">Functionality matrix comparing Terra Ferra against every platform researched, with green cells marking functions a platform offers.</div>
+  <h2 class="matrix-title">Functionality Matrix</h2>
+  <div class="snote">Comparing Terra Ferra against every platform researched, with green cells marking functions a platform offers.</div>
 
   <div class="legend">
     <span><i class="y"></i> Has this function</span>
