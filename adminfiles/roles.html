@@ -22,6 +22,17 @@
   --green:#1F7A4E;
 }
 body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink);line-height:1.6}
+
+/* Top navigation */
+.topnav{background:white;border-bottom:1px solid var(--rule);padding:12px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
+.topnav-home{font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);text-decoration:none;font-size:11px}
+.topnav-home:hover{color:var(--tf-dark)}
+.topnav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:var(--sub);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:10px}
+.topnav-links a:hover{color:var(--tf)}
+.topnav-links a.active{color:var(--orange)}
+@media(max-width:700px){.topnav{padding:10px 14px}.topnav-links{gap:10px}.topnav-links a{font-size:9.5px}}
+
 .wrap{max-width:1240px;margin:0 auto;padding:40px 48px 80px}
 
 .back{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);text-decoration:none;display:inline-block;margin-bottom:24px;opacity:.7}
@@ -125,6 +136,18 @@ td.outcome{font-size:12px;color:var(--ink)}
 </head>
 <body>
 
+<nav class="topnav">
+  <a href="index.html" class="topnav-home">Terra Ferra</a>
+  <div class="topnav-links">
+    <a href="budget.html">Budget</a>
+    <a href="roles.html" class="active">Roles</a>
+    <a href="TFbusinessmodel.html">Business Model</a>
+    <a href="ideas.html">Ideas</a>
+    <a href="influencer.html">Influencer</a>
+    <a href="strategic-brief.html">Strategic Brief</a>
+  </div>
+</nav>
+
 <div class="wrap">
   <a class="back" href="index.html">← Terra Ferra</a>
   <div class="eyebrow">Confidential · Roles &amp; Scope · v1 · 22 May 2026</div>
@@ -190,6 +213,9 @@ td.outcome{font-size:12px;color:var(--ink)}
       <tr><td class="activity">Complete remaining product build</td><td class="owner cto">CTO</td><td class="cadence">Month 2</td><td class="outcome">Feature-complete platform ready for testing cycle</td></tr>
       <tr><td class="activity">Run testing &amp; QA cycle</td><td class="owner cto">CTO + freelance tester</td><td class="cadence">Month 3</td><td class="outcome">All critical paths pass regression; payment flow tested end-to-end</td></tr>
       <tr><td class="activity">Coordinate security audit &amp; pentest</td><td class="owner cto">CTO + external firm</td><td class="cadence">Month 3</td><td class="outcome">Independent pentest passed; remediation closed before launch</td></tr>
+      <tr><td class="activity">Select external tech vendors (payment, anti-fraud, CRM, VTO / AI)</td><td class="owner cto">CTO + CEO</td><td class="cadence">Continuous</td><td class="outcome">Shortlists per category; selections signed off and documented</td></tr>
+      <tr><td class="activity">Negotiate vendor contracts and pricing</td><td class="owner cto">CTO + CEO</td><td class="cadence">As contracts arise</td><td class="outcome">Terms aligned with Operations Stack and AI Tools budget allocations</td></tr>
+      <tr><td class="activity">Integrate and test external vendor APIs (payment, anti-fraud, CRM, VTO)</td><td class="owner cto">CTO</td><td class="cadence">Per vendor (rolling)</td><td class="outcome">Third-party integrations live, end-to-end tested before each launch milestone</td></tr>
       <tr><td class="activity">Integrate Stripe Connect payments</td><td class="owner cto">CTO</td><td class="cadence">Month 2</td><td class="outcome">Pre-order payment collection, designer payouts, refunds all live</td></tr>
       <tr><td class="activity">Implement KYC/AML</td><td class="owner cto">CTO + counsel</td><td class="cadence">Month 2</td><td class="outcome">Designer onboarding includes identity verification; AML monitoring active</td></tr>
       <tr><td class="activity">Set up cloud infrastructure</td><td class="owner cto">CTO</td><td class="cadence">Day 1, ongoing</td><td class="outcome">Production environment up; staging mirror; monitoring + alerts</td></tr>

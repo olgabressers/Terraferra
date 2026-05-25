@@ -184,9 +184,31 @@ strong{font-weight:700;color:var(--ink)}
   .page{padding:40px 24px}
   .priority,.gap-card,.insight,.founder-box{-webkit-print-color-adjust:exact;print-color-adjust:exact;break-inside:avoid}
 }
+
+/* Top navigation */
+.topnav{background:white;border-bottom:1px solid #D8D4EF;padding:12px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50;font-family:'Inter',sans-serif}
+.topnav-home{font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#4B40C2;text-decoration:none;font-size:11px}
+.topnav-home:hover{color:#2D2595}
+.topnav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:#5B5880;font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:10px}
+.topnav-links a:hover{color:#4B40C2}
+.topnav-links a.active{color:#E86820}
+@media(max-width:700px){.topnav{padding:10px 14px}.topnav-links{gap:10px}.topnav-links a{font-size:9.5px}}
 </style>
 </head>
 <body>
+
+<nav class="topnav">
+  <a href="index.html" class="topnav-home">Terra Ferra</a>
+  <div class="topnav-links">
+    <a href="budget.html">Budget</a>
+    <a href="roles.html">Roles</a>
+    <a href="TFbusinessmodel.html">Business Model</a>
+    <a href="ideas.html">Ideas</a>
+    <a href="influencer.html">Influencer</a>
+    <a href="strategic-brief.html" class="active">Strategic Brief</a>
+  </div>
+</nav>
 
 <!-- COVER -->
 <div class="cover">
