@@ -251,13 +251,15 @@ ul li strong{color:var(--ink);font-weight:700}
 .topnav-links a.active{color:#E86820}
 @media(max-width:700px){.topnav{padding:10px 14px}.topnav-links{gap:10px}.topnav-links a{font-size:9.5px}}
 
-.topnav-links .has-dropdown{position:relative}
-.topnav-links .has-dropdown > a{display:inline-block}
-.topnav-links .dropdown{display:none;position:absolute;top:calc(100% + 4px);right:0;background:white;border:1px solid #D8D4EF;min-width:220px;box-shadow:0 6px 14px rgba(0,0,0,0.08);padding:6px 0;z-index:60}
+.topnav-links .has-dropdown{position:relative;padding-bottom:10px;margin-bottom:-10px}
+.topnav-links .dropdown-trigger{cursor:pointer;color:#5B5880;font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:10px;user-select:none}
+.topnav-links .dropdown-trigger:hover,.topnav-links .has-dropdown:focus-within .dropdown-trigger{color:#4B40C2}
+.topnav-links .dropdown-trigger.active{color:#E86820}
+.topnav-links .dropdown{display:none;position:absolute;top:100%;right:0;background:white;border:1px solid #D8D4EF;min-width:220px;box-shadow:0 6px 14px rgba(0,0,0,0.08);padding:6px 0;z-index:60}
 .topnav-links .has-dropdown:hover .dropdown,.topnav-links .has-dropdown:focus-within .dropdown{display:block}
 .topnav-links .dropdown a{display:block;padding:9px 16px;font-size:10px;font-weight:700;color:#5B5880;text-transform:uppercase;letter-spacing:1px;text-decoration:none}
 .topnav-links .dropdown a:hover{background:#F4F2FC;color:#4B40C2}
-@media(max-width:700px){.topnav-links .dropdown{position:static;display:block;box-shadow:none;border:none;padding:0;min-width:0;margin-left:8px}.topnav-links .dropdown a{padding:4px 0;font-size:9px}}
+@media(max-width:700px){.topnav-links .has-dropdown{padding-bottom:0;margin-bottom:0}.topnav-links .dropdown{position:static;display:block;box-shadow:none;border:none;padding:0;min-width:0;margin-left:8px}.topnav-links .dropdown a{padding:4px 0;font-size:9px}}
 </style>
 </head>
 <body>
@@ -269,7 +271,7 @@ ul li strong{color:var(--ink);font-weight:700}
     <a href="roles.html">Roles</a>
     <a href="TFbusinessmodel.html">Business Model</a>
     <div class="has-dropdown">
-      <a href="ideas.html">Ideas ▾</a>
+      <span class="dropdown-trigger" tabindex="0">Ideas ▾</span>
       <div class="dropdown">
         <a href="ideas.html">Ideas &amp; AI Research</a>
         <a href="influencer.html">Influencer Selling</a>
