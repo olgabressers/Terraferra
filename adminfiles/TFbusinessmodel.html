@@ -59,15 +59,18 @@ h1{font-size:34px;font-weight:800;letter-spacing:-1px;color:var(--ink);margin-bo
 .venn-caption strong{color:var(--orange);font-weight:800}
 
 .gtm-head{font-size:11px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--orange);margin:30px 0 14px}
-.gtm-sub{font-size:13px;color:var(--sub);margin:-8px 0 16px;line-height:1.55}
-.gtm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:36px}
+.gtm-sub{font-size:13px;color:var(--sub);margin:-8px 0 22px;line-height:1.55}
+.gtm-subhead{font-size:15px;font-weight:800;color:var(--ink);margin:18px 0 12px;letter-spacing:-.2px;padding-bottom:6px;border-bottom:1.5px solid var(--rule)}
+.gtm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:28px}
 .gtm-card{background:white;border:1px solid var(--rule);border-top:4px solid var(--tf);padding:22px 20px 18px;display:flex;flex-direction:column}
-.gtm-num{font-size:11px;font-weight:800;color:var(--orange);letter-spacing:1.5px;margin-bottom:8px}
-.gtm-wedge{font-size:16px;font-weight:800;color:var(--ink);line-height:1.3;margin-bottom:10px;letter-spacing:-.2px}
-.gtm-rec{font-size:10px;font-weight:800;color:var(--green);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;padding:6px 9px;background:var(--green-tint);align-self:flex-start;border-left:3px solid var(--green)}
+.gtm-card.recommended{background:#FEF7F1;border-color:var(--orange-light);border-top:6px solid var(--orange)}
+.gtm-rec-flag{font-size:9.5px;font-weight:800;color:var(--orange);letter-spacing:2px;margin-bottom:8px;text-transform:uppercase}
+.gtm-wedge{font-size:16px;font-weight:800;color:var(--ink);line-height:1.3;margin-bottom:14px;letter-spacing:-.2px}
+.gtm-card.recommended .gtm-wedge{color:var(--orange)}
 .gtm-card ul{list-style:none;padding:0;margin:0 0 14px}
 .gtm-card li{font-size:11.5px;color:var(--ink);line-height:1.5;padding:4px 0 4px 12px;position:relative}
 .gtm-card li::before{content:"";position:absolute;left:2px;top:12px;width:4px;height:4px;border-radius:50%;background:var(--tf)}
+.gtm-card.recommended li::before{background:var(--orange)}
 .gtm-trade{font-size:11px;color:var(--sub);font-style:italic;margin-top:auto;padding-top:12px;border-top:1px solid var(--rule)}
 .gtm-trade strong{color:var(--ink);font-style:normal;font-weight:700;letter-spacing:.5px}
 @media(max-width:1000px){.gtm-grid{grid-template-columns:1fr}}
@@ -338,52 +341,86 @@ h2.matrix-title{font-size:30px;font-weight:800;color:var(--ink);margin:36px 0 8p
   </div>
 
   <div class="gtm-head">GTM Options</div>
-  <p class="gtm-sub">Three wedge strategies to launch Terra Ferra. Each is a different way to focus Year-1 supply acquisition.</p>
+  <p class="gtm-sub">Two dimensions to decide before launch: which niche to start in, and which geography to start in. The recommended option in each dimension is highlighted in orange.</p>
+
+  <div class="gtm-subhead">Niche / vertical · which fashion category to start in</div>
   <div class="gtm-grid">
 
-    <div class="gtm-card">
-      <div class="gtm-num">Option 01</div>
-      <div class="gtm-wedge">Niche-vertical wedge</div>
-      <div class="gtm-rec">Recommended niche: streetwear</div>
+    <div class="gtm-card recommended">
+      <div class="gtm-rec-flag">Recommended</div>
+      <div class="gtm-wedge">Streetwear</div>
       <ul>
-        <li>Drop culture is native — consumers already expect pre-orders, waitlists and limited runs (Supreme, Yeezy precedent)</li>
+        <li>Drop culture is native — consumers expect pre-orders, waitlists and limited runs (Supreme, Yeezy precedent)</li>
         <li>Social-first community ecosystem (TikTok, Discord, sneaker culture)</li>
         <li>Younger demographic engages with co-creation, voting and ambassador rewards</li>
         <li>Lower SKU complexity (T-shirts, hoodies, accessories) eases pre-order operations</li>
         <li>High repeat-purchase frequency — community returns for every drop</li>
-        <li>Secondary niche to consider: sustainable / slow fashion (pre-order = no overproduction story)</li>
       </ul>
-      <div class="gtm-trade"><strong>Tradeoff:</strong> smaller initial TAM; harder to expand brand beyond the niche later</div>
+      <div class="gtm-trade"><strong>Tradeoff:</strong> smaller initial TAM; brand becomes streetwear-coded which slows expansion to other categories</div>
     </div>
 
     <div class="gtm-card">
-      <div class="gtm-num">Option 02</div>
-      <div class="gtm-wedge">Geographic wedge — EU first</div>
-      <div class="gtm-rec">Recommended markets: NL · UK · Germany</div>
+      <div class="gtm-wedge">Sustainable / slow fashion</div>
+      <ul>
+        <li>Pre-order model aligns naturally with the "no overproduction" narrative</li>
+        <li>Values-driven consumers willing to wait for production</li>
+        <li>Premium pricing supports 7% take rate</li>
+        <li>Strong overlap with EU consumer base and circular-fashion movement</li>
+        <li>Smaller but highly engaged community</li>
+      </ul>
+      <div class="gtm-trade"><strong>Tradeoff:</strong> niche audience; lower drop volume; longer production cycles</div>
+    </div>
+
+    <div class="gtm-card">
+      <div class="gtm-wedge">Modest fashion</div>
+      <ul>
+        <li>Underserved by major platforms (LTK, ShopMy not focused here)</li>
+        <li>Growing global demand from established religious and cultural communities</li>
+        <li>Less direct competition in the social-commerce-meets-emerging-designer space</li>
+        <li>Designer cohorts already organised around defined community channels</li>
+        <li>Higher price-point per item supports the take-rate model</li>
+      </ul>
+      <div class="gtm-trade"><strong>Tradeoff:</strong> geographic concentration; needs cultural fluency in designer and ambassador recruitment</div>
+    </div>
+
+  </div>
+
+  <div class="gtm-subhead">Geography · which market to start in</div>
+  <div class="gtm-grid">
+
+    <div class="gtm-card recommended">
+      <div class="gtm-rec-flag">Recommended</div>
+      <div class="gtm-wedge">EU-first — NL · UK · Germany</div>
       <ul>
         <li>No competitor in the matrix actively recruits EU emerging designers</li>
-        <li>CEO based in NL — founder-market fit and on-the-ground designer recruitment</li>
         <li>LTK has minimal EU presence; ShopMy UK expansion just beginning 2025</li>
-        <li>Wolf &amp; Badger is UK-based but pure marketplace, no co-creation or drops</li>
-        <li>Source pipeline: fashion schools (AMFI Amsterdam, Central Saint Martins London, ESMOD Berlin/Paris)</li>
-        <li>EU pre-order regulation framework (DSA, GDPR) is consistent across target markets</li>
+        <li>Wolf &amp; Badger is UK-based but pure marketplace — no drops or co-creation</li>
+        <li>Strong EU indie-designer ecosystem (Paris, Amsterdam, Berlin, Milan, London)</li>
+        <li>DSA + GDPR regulatory framework consistent across all target markets</li>
       </ul>
       <div class="gtm-trade"><strong>Tradeoff:</strong> smaller initial market than US; multilingual operations needed by Year 2 if expanding to FR / IT / ES</div>
     </div>
 
     <div class="gtm-card">
-      <div class="gtm-num">Option 03</div>
-      <div class="gtm-wedge">Designer-poach wedge</div>
-      <div class="gtm-rec">Target: W&amp;B + NOTHS fashion sellers</div>
+      <div class="gtm-wedge">UK-only first</div>
       <ul>
-        <li>~7,000 designers across W&amp;B and NOTHS today paying 25–52% effective commission</li>
-        <li>Proven paying supply — already chose marketplace model, willing to pay platform fees</li>
-        <li>TF pitch: 7% take rate + co-creation + drops tooling they do not have</li>
-        <li>Public seller directories are scrapable for systematic cold outreach</li>
-        <li>Founder warm-intros into the UK indie-designer network accelerate first conversions</li>
-        <li>Fast revenue: paying designers within 30–60 days of structured outreach</li>
+        <li>W&amp;B and NOTHS designer pool is concentrated in the UK — high recruitment efficiency</li>
+        <li>London is a global fashion capital with a deep indie designer scene</li>
+        <li>English-native market simplifies operations and content</li>
+        <li>Full Stripe and payment integrations in UK; clear consumer-protection framework</li>
       </ul>
-      <div class="gtm-trade"><strong>Tradeoff:</strong> designers may keep both platforms (not exclusive); aggressive poaching may strain partnership channels</div>
+      <div class="gtm-trade"><strong>Tradeoff:</strong> smaller initial market than continental EU; brand becomes UK-coded which slows continental expansion</div>
+    </div>
+
+    <div class="gtm-card">
+      <div class="gtm-wedge">US-first</div>
+      <ul>
+        <li>Largest fashion e-commerce market — $233.7B in 2025 (Maxim's deck)</li>
+        <li>Higher average customer LTV and willingness to pay</li>
+        <li>Mature creator-commerce ecosystem — more potential influencer partners</li>
+        <li>Drop culture is more developed in the US than in continental EU</li>
+      </ul>
+      <div class="gtm-trade"><strong>Tradeoff:</strong> highest competitive density (LTK and ShopMy headquartered); higher CAC; capital-intensive vs zero-marketing-budget plan</div>
     </div>
 
   </div>
