@@ -133,21 +133,64 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 /* ─── EU 2-COL GRID ─────────────────── */
 .eu-grid{grid-template-columns:repeat(2,1fr)}
 
+/* ─── CATEGORY SECTIONS ─────────────── */
+.cat-section{margin-top:48px}
+.cat-section:first-of-type{margin-top:24px}
+.cat-head{display:flex;align-items:flex-start;gap:16px;margin-bottom:6px;padding-bottom:12px;border-bottom:1px solid var(--rule)}
+.cat-letter{font-size:42px;font-weight:800;color:var(--tf);letter-spacing:-2px;line-height:1;flex-shrink:0}
+.cat-name{font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.4px;line-height:1.2}
+.cat-sub{font-size:12.5px;color:var(--sub);line-height:1.55;margin-top:4px;max-width:680px}
+.cat-subhead{font-size:14px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--sub);margin:32px 0 14px;padding-bottom:6px;border-bottom:1px solid var(--rule)}
+
+/* ─── RATINGS & BADGES ──────────────── */
+.rating{display:inline-flex;align-items:center;gap:1px;color:var(--orange);font-size:13px;letter-spacing:1px;line-height:1;font-weight:600}
+.rating .star-off{color:var(--rule)}
+.rec-badge{display:inline-block;font-size:8.5px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;padding:3px 7px;background:var(--orange);color:white;border-radius:2px;margin-left:6px;vertical-align:2px;white-space:nowrap}
+.flag-badge{display:inline-block;font-size:8.5px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;padding:3px 7px;background:#FEE2E2;color:#991B1B;border-radius:2px;margin-left:6px;vertical-align:2px;white-space:nowrap}
+
+/* ─── COMPACT TOOL CARD ─────────────── */
+.tool-grid-compact{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:8px}
+.tool-card-compact{background:white;border:1px solid var(--rule);border-top:3px solid var(--tf);padding:16px 18px 14px;display:flex;flex-direction:column;gap:8px}
+.tool-card-compact.rec{border-top-color:var(--orange)}
+.tool-card-compact.warn{border-top-color:#991B1B}
+.tcc-head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;flex-wrap:wrap}
+.tcc-name{font-size:14.5px;font-weight:800;color:var(--ink);letter-spacing:-.2px;line-height:1.25}
+.tcc-name a{color:var(--tf);text-decoration:none}
+.tcc-name a:hover{text-decoration:underline}
+.tcc-rating{flex-shrink:0;padding-top:2px}
+.tcc-desc{font-size:12px;color:var(--ink);line-height:1.55}
+.dim-chips{display:flex;flex-wrap:wrap;gap:3px}
+.dim-chip{font-size:8.5px;font-weight:700;letter-spacing:.4px;padding:2px 6px;background:var(--tf-ghost);color:var(--tf-dark);border-radius:2px;text-transform:uppercase;white-space:nowrap}
+.stats-compact{width:100%;border-collapse:collapse;margin-top:2px}
+.stats-compact tr{border-bottom:1px solid var(--rule)}
+.stats-compact tr:last-child{border-bottom:none}
+.stats-compact td{padding:4px 0;font-size:11px;line-height:1.42;vertical-align:top}
+.stats-compact td:first-child{font-weight:800;color:var(--ink);width:38%;text-transform:uppercase;letter-spacing:.3px;font-size:9px;padding-right:8px;white-space:nowrap}
+.stats-compact td .na{color:#AAA;font-style:italic}
+.tool-tf-fit{font-size:11.5px;line-height:1.5;color:var(--ink);padding:7px 10px;background:#FFF3E8;border-left:2px solid var(--orange);margin-top:2px}
+.tool-tf-fit .lbl{font-size:8.5px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--orange);display:block;margin-bottom:2px}
+.tool-source{font-size:9.5px;color:var(--sub);line-height:1.5;margin-top:2px;word-break:break-all}
+.tool-source .lbl{font-size:8.5px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--sub);display:block;margin-bottom:2px}
+.tool-source a{color:var(--sub);text-decoration:underline}
+.tool-source a:hover{color:var(--tf)}
+
 /* ─── RESPONSIVE ────────────────────── */
 @media(max-width:960px){
   .cover{padding:40px 24px 44px}.tf-logo{font-size:52px}
   .legend{padding:12px 24px}.page{padding:32px 20px 64px}
-  .idea-grid,.tool-grid,.tf-ideas-grid{grid-template-columns:1fr 1fr}
+  .idea-grid,.tool-grid,.tf-ideas-grid,.tool-grid-compact{grid-template-columns:1fr 1fr}
   .eu-grid{grid-template-columns:1fr 1fr}
   .sec-title{font-size:24px}
+  .cat-letter{font-size:34px}.cat-name{font-size:18px}
 }
 @media(max-width:600px){
-  .idea-grid,.tool-grid,.tf-ideas-grid,.eu-grid{grid-template-columns:1fr}
-  .stats td:first-child{white-space:normal}
+  .idea-grid,.tool-grid,.tf-ideas-grid,.eu-grid,.tool-grid-compact{grid-template-columns:1fr}
+  .stats td:first-child,.stats-compact td:first-child{white-space:normal}
   .cover::after{display:none}
   .eu-callout{display:block;max-width:100%}
   .sec-title{font-size:20px}
   .toc-item{font-size:12px}
+  .cat-letter{font-size:28px}.cat-name{font-size:16px}
 }
 @media print{
   body{background:white}
@@ -219,7 +262,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
       <a href="#sec-conclusions" class="toc-item"><span class="toc-num">01</span>Executive Summary — Analysis Findings</a>
       <a href="#sec-ai" class="toc-item"><span class="toc-num">02</span>AI Research — Perplexity Summary, Risks and Opportunities</a>
       <a href="#sec-eu" class="toc-item"><span class="toc-num">03</span>The EU Market Gap</a>
-      <a href="#sec-visual" class="toc-item"><span class="toc-num">04</span>Style-Based Influencer Discovery</a>
+      <a href="#sec-visual" class="toc-item"><span class="toc-num">04</span>AI Discovery Tools — Influencers · Visual AI · Consumers</a>
       <a href="#sec-rus" class="toc-item"><span class="toc-num">05</span>RUS Digital Fashion Collaboration Platform 3 — Extra Ideas</a>
       <a href="#sec-name" class="toc-item"><span class="toc-num">06</span>The Name: Terra Ferra</a>
       <a href="strategic-brief.html" class="toc-item"><span class="toc-num">07</span>Strategic Brief →</a>
@@ -542,19 +585,39 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 
   <hr class="section-divider"/>
 
-  <!-- ══ SECTION 4: STYLE-BASED INFLUENCER DISCOVERY ══ -->
+  <!-- ══ SECTION 4: AI DISCOVERY TOOLS ══ -->
   <div class="sec" id="sec-visual">
     <div class="sec-head">
-      <div class="sec-title"><span class="sec-num">04</span>Style-Based Influencer Discovery <span style="font-size:14px;font-weight:600;color:var(--orange);letter-spacing:0">— to be checked carefully later</span></div>
+      <div class="sec-title"><span class="sec-num">04</span>AI Discovery Tools — Three Sides of the Discovery Problem</div>
     </div>
 
-    <div class="tool-grid">
+    <p style="font-size:13px;line-height:1.7;color:var(--ink);max-width:880px;margin-bottom:24px">Terra Ferra needs in-platform discovery so designers can find the right influencers, the right fans and the right consumers. This catalog covers real, functioning, verified tools across three categories. <strong>A</strong> — SaaS Terra Ferra would subscribe to in order to find creators. <strong>B</strong> — AI APIs Terra Ferra would integrate into its own product to build a discovery layer (the route to integration). <strong>C</strong> — tools to find and segment paying consumers and fans. Every card cites the source URLs the facts come from.</p>
 
-      <!-- ── MODASH ── -->
+    <!-- Legend -->
+    <div style="background:white;border:1px solid var(--rule);padding:14px 18px;margin-bottom:36px;font-size:11.5px;color:var(--ink);line-height:1.85">
+      <strong style="font-size:10px;letter-spacing:1.4px;color:var(--sub);text-transform:uppercase;display:block;margin-bottom:6px">Legend</strong>
+      <span class="rating">★★★</span> highly relevant for Terra Ferra · <span class="rating">★★<span class="star-off">★</span></span> relevant · <span class="rating">★<span class="star-off">★★</span></span> marginal &nbsp;|&nbsp; <span class="rec-badge">Recommended</span> top pick in category &nbsp;|&nbsp; <span class="flag-badge">Caution</span> acquired / sunsetting / verify before use
+      <br/><span style="color:var(--sub);font-size:10.5px">Ratings are this document's assessment for Terra Ferra's specific use case, not vendor-given.</span>
+    </div>
+
+    <!-- ═══ CATEGORY A ═══ -->
+    <div class="cat-section">
+      <div class="cat-head">
+        <span class="cat-letter">A</span>
+        <div>
+          <div class="cat-name">Influencer Discovery — SaaS Terra Ferra subscribes to</div>
+          <div class="cat-sub">Tools to find creators on Instagram, TikTok, YouTube by visual aesthetic, audience demographics, engagement, geography. Brand side subscribes; creators are surfaced.</div>
+        </div>
+      </div>
+
+      <h3 class="cat-subhead">Visual-first discovery — search by image or aesthetic</h3>
+      <div class="tool-grid">
+
+        <!-- ── MODASH ── -->
       <div class="tool-card">
         <div class="tool-body">
           <div class="tool-name-row">
-            <div class="tool-name"><a href="https://www.modash.io/" target="_blank">Modash</a></div>
+            <div class="tool-name"><a href="https://www.modash.io/" target="_blank">Modash</a> <span class="rating">★★★</span><span class="rec-badge">Recommended</span></div>
             <div class="tool-url"><a href="https://www.modash.io/" target="_blank">modash.io</a></div>
           </div>
           <table class="stats">
@@ -579,7 +642,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
       <div class="tool-card">
         <div class="tool-body">
           <div class="tool-name-row">
-            <div class="tool-name"><a href="https://archive.com/" target="_blank">Archive</a></div>
+            <div class="tool-name"><a href="https://archive.com/" target="_blank">Archive</a> <span class="rating">★★★</span><span class="rec-badge">Recommended</span></div>
             <div class="tool-url"><a href="https://archive.com/" target="_blank">archive.com</a></div>
           </div>
           <table class="stats">
@@ -604,7 +667,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
       <div class="tool-card">
         <div class="tool-body">
           <div class="tool-name-row">
-            <div class="tool-name"><a href="https://www.storyclash.com/" target="_blank">Storyclash</a></div>
+            <div class="tool-name"><a href="https://www.storyclash.com/" target="_blank">Storyclash</a> <span class="rating">★★★</span></div>
             <div class="tool-url"><a href="https://www.storyclash.com/" target="_blank">storyclash.com</a></div>
           </div>
           <table class="stats">
@@ -625,45 +688,299 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
         </div>
       </div>
 
-    </div><!-- /tool-grid -->
+      </div><!-- /tool-grid visual-first -->
 
-    <!-- ── Ideas for TF from Creator Discovery ── -->
-    <div class="sec-head" style="margin-top:40px">
-      <div class="sec-title">Ideas This Raises for Terra Ferra</div>
-    </div>
-    <div class="tf-ideas-grid">
+      <h3 class="cat-subhead">Other discovery SaaS — filter, lookalike, brand-fit AI</h3>
+      <div class="tool-grid-compact">
 
-      <div class="tf-idea-card">
-        <div class="tf-idea-num">01</div>
-        <div class="tf-idea-title">Modash: free 14-day trial, no card needed</div>
-        <div class="tf-idea-body">Upload a designer's lookbook, get aesthetically matched influencers. Free 14-day trial — validate before spending.</div>
-      </div>
+        <!-- ── LEFTY ── -->
+        <div class="tool-card-compact rec">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://lefty.io" target="_blank">Lefty</a> <span class="rec-badge">Recommended</span></div>
+            <div class="tcc-rating"><span class="rating">★★★</span></div>
+          </div>
+          <div class="tcc-desc">Influencer marketing platform purpose-built for fashion, luxury and beauty. CRM, automated content capture, sales tracking, affiliate program management.</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Smart filters</span><span class="dim-chip">CRM</span><span class="dim-chip">Content capture</span><span class="dim-chip">Affiliate</span><span class="dim-chip">Sales tracking</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td><span class="na">Not publicly disclosed</span></td></tr>
+            <tr><td>Integration</td><td>SaaS + e-commerce site integration for product seeding / affiliate</td></tr>
+            <tr><td>Free trial</td><td><span class="na">Not mentioned</span></td></tr>
+            <tr><td>Fashion clients</td><td>Louis Vuitton, Celine, Ralph Lauren, Tommy Hilfiger, Guerlain, Clarins, Vans, Veja, Michael Kors, Isabel Marant, Acne Studios, Lanvin, Byredo, Puig</td></tr>
+            <tr><td>Geography</td><td>Global</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Strongest luxury fashion client roster of any vendor in this scan. Product seeding + affiliate model matches Terra Ferra's pre-order / ambassador model directly.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://lefty.io" target="_blank">lefty.io</a></div>
+        </div>
 
-      <div class="tf-idea-card">
-        <div class="tf-idea-num">02</div>
-        <div class="tf-idea-title">Set up Archive when the first ambassador is signed</div>
-        <div class="tf-idea-body">Auto-captures every ambassador's Instagram and TikTok post. Free tier. Runs without manual work.</div>
-      </div>
+        <!-- ── UPFLUENCE ── -->
+        <div class="tool-card-compact rec">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://www.upfluence.com" target="_blank">Upfluence</a> <span class="rec-badge">Recommended</span></div>
+            <div class="tcc-rating"><span class="rating">★★★</span></div>
+          </div>
+          <div class="tcc-desc">Influencer + affiliate marketing platform with an AI campaign co-pilot called Jaice; surfaces "creators who already love your brand" from existing customer data.</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Demographic</span><span class="dim-chip">Geographic</span><span class="dim-chip">Engagement</span><span class="dim-chip">Lookalike-from-customers</span><span class="dim-chip">AI co-pilot</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td>On request. Third-party reports (G2, PulseSignal, ITQlick): Starter ~$795/mo · Business ~$1,750/mo · Enterprise custom</td></tr>
+            <tr><td>Integration</td><td>Shopify, WooCommerce, Magento, BigCommerce, Stripe, Klaviyo, Hootsuite, Zapier, Amazon Attribution</td></tr>
+            <tr><td>Free trial</td><td>No free trial — demo only</td></tr>
+            <tr><td>Fashion clients</td><td>Lacoste, Scotch &amp; Soda, Benefit Cosmetics, Clarins, Natasha Denona</td></tr>
+            <tr><td>Geography</td><td>Global</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Lookalike-from-customer-data is directly aligned with Terra Ferra's superfan-to-influencer thesis: turn existing buyers into the creator pipeline.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://www.upfluence.com" target="_blank">upfluence.com</a> · <a href="https://www.g2.com/products/upfluence/pricing" target="_blank">g2.com pricing</a></div>
+        </div>
 
-      <div class="tf-idea-card">
-        <div class="tf-idea-num">03</div>
-        <div class="tf-idea-title">In-house matching: build it when TF has conversion data</div>
-        <div class="tf-idea-body">Once TF has co-creation votes and pre-order sales by style, that conversion signal is more valuable than image matching. FashionCLIP (open-source) is the build starting point.</div>
-      </div>
+        <!-- ── HEEPSY ── -->
+        <div class="tool-card-compact rec">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://www.heepsy.com" target="_blank">Heepsy</a> <span class="rec-badge">Recommended</span></div>
+            <div class="tcc-rating"><span class="rating">★★<span class="star-off">★</span></span></div>
+          </div>
+          <div class="tcc-desc">Cloud-based influencer search engine across Instagram, YouTube and TikTok with 11M+ profiles. Native lookalike search and audience-authenticity filter.</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Geographic</span><span class="dim-chip">Category</span><span class="dim-chip">Demographic</span><span class="dim-chip">Engagement</span><span class="dim-chip">Lookalike</span><span class="dim-chip">Authenticity</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td>Starter from €69/mo (500 profiles); Business and Gold tiers higher (2,000 / 5,000 profiles per month) — source: GetApp, G2, Capterra</td></tr>
+            <tr><td>Integration</td><td>SaaS dashboard</td></tr>
+            <tr><td>Free trial</td><td>Yes</td></tr>
+            <tr><td>Fashion clients</td><td><span class="na">Not listed on public sources</span></td></tr>
+            <tr><td>Geography</td><td>Global</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Lowest-cost paid entry in this category — useful for the first 6 months of TF pilot phase before scaling to Lefty.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://www.getapp.com/marketing-software/a/heepsy/" target="_blank">getapp.com/heepsy</a> · <a href="https://www.g2.com/products/heepsy/pricing" target="_blank">g2.com pricing</a></div>
+        </div>
 
-    </div>
+        <!-- ── ASPIRE ── -->
+        <div class="tool-card-compact">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://www.aspire.io" target="_blank">Aspire</a></div>
+            <div class="tcc-rating"><span class="rating">★★<span class="star-off">★</span></span></div>
+          </div>
+          <div class="tcc-desc">All-in-one influencer marketing platform for e-commerce brands. AI Creator Discovery uses plain-language search instead of filters. Creator marketplace, contact CRM, social and impact dashboards.</div>
+          <div class="dim-chips">
+            <span class="dim-chip">AI natural-language</span><span class="dim-chip">Brand fit</span><span class="dim-chip">Audience signals</span><span class="dim-chip">Engagement</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td>On request. Third-party estimates (Capterra, SaaSworthy, archive.com): ~$2,000–$2,499/month with annual commitment</td></tr>
+            <tr><td>Integration</td><td>SaaS dashboard + Shopify App + Meta Ads Manager</td></tr>
+            <tr><td>Free trial</td><td>No</td></tr>
+            <tr><td>Key clients</td><td>Veradek Outdoor, Fable Home, Kettle &amp; Fire, HexClad, Monos (homepage — none fashion-luxury)</td></tr>
+            <tr><td>Geography</td><td>Global</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>DTC creator discovery, but client base skews home / CPG, not fashion-luxury. Formerly AspireIQ.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://www.aspire.io" target="_blank">aspire.io</a> · <a href="https://www.capterra.com/p/187445/AspireIQ/" target="_blank">capterra.com</a></div>
+        </div>
 
-    <!-- ── Influencer Management Tools ── -->
-    <div class="sec-head" style="margin-top:48px">
-      <div class="sec-title" style="font-size:20px">Influencer Management Tools <span style="font-size:14px;font-weight:600;color:var(--orange);letter-spacing:0">— different from discovery: use after creators are found</span></div>
-    </div>
-    <div class="tool-grid">
+        <!-- ── TRAACKR ── -->
+        <div class="tool-card-compact">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://www.traackr.com" target="_blank">Traackr</a></div>
+            <div class="tcc-rating"><span class="rating">★★<span class="star-off">★</span></span></div>
+          </div>
+          <div class="tcc-desc">AI-powered "decision engine for creator marketing" — discovery, performance, predictive insights. 100+ global brands across 70 countries.</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Creator insights</span><span class="dim-chip">Organic/paid performance</span><span class="dim-chip">Predictive</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td><span class="na">Not publicly disclosed</span></td></tr>
+            <tr><td>Integration</td><td>SaaS + social platform partnerships</td></tr>
+            <tr><td>Free trial</td><td><span class="na">Not mentioned</span></td></tr>
+            <tr><td>Fashion / beauty clients</td><td>Laneige, Sephora, L'Oréal, Pandora, Lacoste</td></tr>
+            <tr><td>Geography</td><td>70+ countries</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Strong fashion / beauty client roster — useful comparison benchmark. Enterprise pricing typical.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://www.traackr.com" target="_blank">traackr.com</a></div>
+        </div>
+
+        <!-- ── MELTWATER (KLEAR) ── -->
+        <div class="tool-card-compact">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://www.meltwater.com/en/suite/influencer-marketing" target="_blank">Meltwater (Klear)</a></div>
+            <div class="tcc-rating"><span class="rating">★★<span class="star-off">★</span></span></div>
+          </div>
+          <div class="tcc-desc">AI-powered influencer platform; "learns brand DNA" from briefs to surface creators by fit and audience signals. Database of 30M+ creator profiles across 190+ countries.</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Brand-DNA fit</span><span class="dim-chip">Audience signals</span><span class="dim-chip">True Reach</span><span class="dim-chip">Bot detection</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td><span class="na">Not publicly disclosed — demo only</span></td></tr>
+            <tr><td>Integration</td><td>SaaS + Shopify, WooCommerce, Tipalti, Gigapay, proprietary tracking pixel</td></tr>
+            <tr><td>Free trial</td><td><span class="na">Not mentioned</span></td></tr>
+            <tr><td>Key clients</td><td>Canon, Western Union, Microsoft, Unilever, Mailchimp (no fashion-luxury named)</td></tr>
+            <tr><td>Geography</td><td>190+ countries</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Klear was acquired by Meltwater in 2021; klear.com redirects here. Strong tech, no demonstrated fashion-luxury roster.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://www.meltwater.com/en/suite/influencer-marketing" target="_blank">meltwater.com/influencer-marketing</a></div>
+        </div>
+
+        <!-- ── INFLUENCITY ── -->
+        <div class="tool-card-compact">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://influencity.com" target="_blank">Influencity</a></div>
+            <div class="tcc-rating"><span class="rating">★<span class="star-off">★★</span></span></div>
+          </div>
+          <div class="tcc-desc">All-in-one influencer marketing + social media management platform tracking 200M+ creators across Instagram, TikTok, YouTube, Twitch.</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Demographic</span><span class="dim-chip">Geographic</span><span class="dim-chip">Engagement</span><span class="dim-chip">Multi-channel</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td>Custom plans; free trial offered on homepage</td></tr>
+            <tr><td>Integration</td><td>SaaS hub (campaign, inbox, calendar, payments) — third-party integrations not detailed</td></tr>
+            <tr><td>Free trial</td><td>Yes (duration not stated)</td></tr>
+            <tr><td>Key clients</td><td>Samsung, Kellogg's, Air France, Pernod Ricard, Havas, WPP — no fashion brands named</td></tr>
+            <tr><td>Geography</td><td>Global</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Broad / horizontal positioning, no fashion proof points. Useful only if budget-constrained alternatives like Heepsy fail.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://influencity.com" target="_blank">influencity.com</a></div>
+        </div>
+
+        <!-- ── LATER INFLUENCE ── -->
+        <div class="tool-card-compact">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://later.com/influence/" target="_blank">Later Influence</a></div>
+            <div class="tcc-rating"><span class="rating">★★<span class="star-off">★</span></span></div>
+          </div>
+          <div class="tcc-desc">Influencer marketing platform with AI-powered creator discovery, Incentive Advisor (creator pay benchmarks), consolidated reporting. Hybrid SaaS + full-service agency.</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Brand signal</span><span class="dim-chip">Vetting</span><span class="dim-chip">Risk flagging</span><span class="dim-chip">Pay benchmarks</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td>Via consultation</td></tr>
+            <tr><td>Integration</td><td>SaaS hybrid + full-service campaign agency option</td></tr>
+            <tr><td>Free trial</td><td>Yes (social management; influence platform unclear)</td></tr>
+            <tr><td>Key clients</td><td>Nike, Unilever, Chewy — no pure fashion-luxury named</td></tr>
+            <tr><td>Geography</td><td>Global</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Mavrck acquired by Later in 2024 and rebranded. Hybrid agency model may not match Terra Ferra's self-serve discovery vision.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://later.com/influence/" target="_blank">later.com/influence</a></div>
+        </div>
+
+        <!-- ── IZEA ── -->
+        <div class="tool-card-compact">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://izea.com" target="_blank">IZEA</a></div>
+            <div class="tcc-rating"><span class="rating">★<span class="star-off">★★</span></span></div>
+          </div>
+          <div class="tcc-desc">Creator economy marketing platform + full-service agency. ZED platform = "Creator Economy Marketing Operations Platform Infused with AI."</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Industry-specific</span><span class="dim-chip">Retail vertical</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td>Request proposal only</td></tr>
+            <tr><td>Integration</td><td>SaaS + agency services</td></tr>
+            <tr><td>Free trial</td><td>None (marketplace sign-up only)</td></tr>
+            <tr><td>Key clients</td><td>Disney, Amazon, Kellogg's, Walmart, Nike, Microsoft</td></tr>
+            <tr><td>Geography</td><td>Global</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Heavy agency layer; less of a pure self-serve discovery SaaS. Not a near-term fit.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://izea.com" target="_blank">izea.com</a></div>
+        </div>
+
+        <!-- ── CAPTIV8 ── -->
+        <div class="tool-card-compact warn">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://captiv8.io" target="_blank">Captiv8</a> <span class="flag-badge">Caution</span></div>
+            <div class="tcc-rating"><span class="rating">★<span class="star-off">★★</span></span></div>
+          </div>
+          <div class="tcc-desc">End-to-end influencer marketing suite + Creator Commerce (branded storefronts, TikTok Shop integration, affiliate). Integrated into Influential as of 2025.</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Discovery module</span><span class="dim-chip">TikTok Shop</span><span class="dim-chip">Commerce</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td><span class="na">Not publicly disclosed</span></td></tr>
+            <tr><td>Integration</td><td>TikTok Shop + commerce integrations</td></tr>
+            <tr><td>Free trial</td><td><span class="na">Not mentioned</span></td></tr>
+            <tr><td>Key clients</td><td>None named on page</td></tr>
+            <tr><td>Geography</td><td>Global</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Acquired by Influential in 2025 — corporate transition phase, unclear independent roadmap. Wait and re-evaluate.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://captiv8.io" target="_blank">captiv8.io</a></div>
+        </div>
+
+        <!-- ── SPROUT (TAGGER) ── -->
+        <div class="tool-card-compact">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://sproutsocial.com/influencer-marketing/" target="_blank">Sprout Social Influencer Marketing</a></div>
+            <div class="tcc-rating"><span class="rating">★<span class="star-off">★★</span></span></div>
+          </div>
+          <div class="tcc-desc">AI-powered creator search organized by topic, branded application pages, brand safety reporting, influencer CRM with AI creator suggestions. Sprout acquired Tagger Media in 2023.</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Topic-based AI</span><span class="dim-chip">Inbound applications</span><span class="dim-chip">AI suggestions</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td><span class="na">Not on landing page</span></td></tr>
+            <tr><td>Integration</td><td>Multi-platform social management (IG, FB, X, LinkedIn, TikTok, Pinterest, Threads) + Salesforce</td></tr>
+            <tr><td>Free trial</td><td><span class="na">Not mentioned</span></td></tr>
+            <tr><td>Key clients</td><td>None named on this page</td></tr>
+            <tr><td>Geography</td><td>Global</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Broad social stack with no fashion proof points. Useful only if TF is already on Sprout for social management.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://sproutsocial.com/influencer-marketing/" target="_blank">sproutsocial.com/influencer-marketing</a></div>
+        </div>
+
+      </div><!-- /tool-grid-compact other-discovery -->
+
+      <h3 class="cat-subhead">Native (free) — platform marketplaces</h3>
+      <div class="tool-grid-compact">
+
+        <!-- ── TIKTOK CREATOR MARKETPLACE ── -->
+        <div class="tool-card-compact rec">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://ads.tiktok.com/creative/creatormarketplace" target="_blank">TikTok Creator Marketplace (TikTok One)</a> <span class="rec-badge">Recommended</span></div>
+            <div class="tcc-rating"><span class="rating">★★★</span></div>
+          </div>
+          <div class="tcc-desc">Native TikTok platform to find creators. The Match feature generates creator lists from a brief in under 30 seconds. Now consolidated under TikTok One alongside Ads Manager.</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Location</span><span class="dim-chip">Category</span><span class="dim-chip">Views/followers</span><span class="dim-chip">Reach</span><span class="dim-chip">Niche</span><span class="dim-chip">Demographic</span><span class="dim-chip">Engagement</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td>Free to access</td></tr>
+            <tr><td>Integration</td><td>Native to TikTok</td></tr>
+            <tr><td>Free trial</td><td>Free</td></tr>
+            <tr><td>Access</td><td>Open platform — not curated</td></tr>
+            <tr><td>Geography</td><td>Global</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Zero-cost discovery channel TF and TF's designers should use day one. Match feature handles the heavy lifting on first-pass shortlist.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://ads.tiktok.com/creative/creatormarketplace" target="_blank">ads.tiktok.com/creatormarketplace</a></div>
+        </div>
+
+        <!-- ── INSTAGRAM CREATOR MARKETPLACE ── -->
+        <div class="tool-card-compact rec">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://www.facebook.com/business/ads/creator-marketplace" target="_blank">Instagram Creator Marketplace (Meta)</a> <span class="rec-badge">Recommended</span></div>
+            <div class="tcc-rating"><span class="rating">★★★</span></div>
+          </div>
+          <div class="tcc-desc">Meta's native marketplace for IG/FB creator-brand matching. Redesigned in 2026 with AI creator recommendations and ads-performance indicator badges; expanding globally beyond the original 19 countries.</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Niche</span><span class="dim-chip">Followers</span><span class="dim-chip">Gender</span><span class="dim-chip">Age</span><span class="dim-chip">Location</span><span class="dim-chip">Interests</span><span class="dim-chip">Demographic</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td>Free for brands</td></tr>
+            <tr><td>Integration</td><td>Native to Meta (Instagram + Facebook)</td></tr>
+            <tr><td>Free trial</td><td>Free</td></tr>
+            <tr><td>Access</td><td>Open platform</td></tr>
+            <tr><td>Geography</td><td>Original 19 countries, expanding globally in 2026</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Instagram remains the dominant fashion-discovery surface. Free, demographic-rich, native to where fashion creators already are.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://help.instagram.com/337707278243327/" target="_blank">help.instagram.com</a> · <a href="https://www.socialmediatoday.com/news/meta-announces-discovery-improvements-for-creator-marketplace/811058/" target="_blank">socialmediatoday.com</a></div>
+        </div>
+
+      </div><!-- /tool-grid-compact native-free -->
+
+      <h3 class="cat-subhead">Creator management &amp; measurement — use after creators are found</h3>
+      <div class="tool-grid">
 
       <!-- ── HYPEAUDITOR ── -->
       <div class="tool-card">
         <div class="tool-body">
           <div class="tool-name-row">
-            <div class="tool-name"><a href="https://hypeauditor.com/" target="_blank">HypeAuditor</a></div>
+            <div class="tool-name"><a href="https://hypeauditor.com/" target="_blank">HypeAuditor</a> <span class="rating">★★<span class="star-off">★</span></span></div>
             <div class="tool-url"><a href="https://hypeauditor.com/" target="_blank">hypeauditor.com</a></div>
           </div>
           <table class="stats">
@@ -687,7 +1004,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
       <div class="tool-card">
         <div class="tool-body">
           <div class="tool-name-row">
-            <div class="tool-name"><a href="https://creatoriq.com/" target="_blank">CreatorIQ</a></div>
+            <div class="tool-name"><a href="https://creatoriq.com/" target="_blank">CreatorIQ</a> <span class="rating">★<span class="star-off">★★</span></span></div>
             <div class="tool-url"><a href="https://creatoriq.com/" target="_blank">creatoriq.com</a></div>
           </div>
           <table class="stats">
@@ -711,7 +1028,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
       <div class="tool-card">
         <div class="tool-body">
           <div class="tool-name-row">
-            <div class="tool-name"><a href="https://grin.co/" target="_blank">Grin</a></div>
+            <div class="tool-name"><a href="https://grin.co/" target="_blank">Grin</a> <span class="rating">★★<span class="star-off">★</span></span><span class="rec-badge">Recommended</span></div>
             <div class="tool-url"><a href="https://grin.co/" target="_blank">grin.co</a></div>
           </div>
           <table class="stats">
@@ -731,13 +1048,517 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
         </div>
       </div>
 
-    </div><!-- /tool-grid management -->
+      </div><!-- /tool-grid management -->
+    </div><!-- /cat-section A -->
+
+
+    <!-- ═══ CATEGORY B ═══ -->
+    <div class="cat-section">
+      <div class="cat-head">
+        <span class="cat-letter">B</span>
+        <div>
+          <div class="cat-name">Visual / AI APIs — for Terra Ferra to integrate</div>
+          <div class="cat-sub">Building-block APIs and open-source models Terra Ferra licenses or self-hosts to power its own in-platform discovery layer. This is the route to "AI integrated into Terra Ferra," not "AI Terra Ferra subscribes to."</div>
+        </div>
+      </div>
+      <div class="tool-grid-compact">
+
+        <!-- ── SYTE ── -->
+        <div class="tool-card-compact rec">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://www.syte.ai" target="_blank">Syte</a> <span class="rec-badge">Recommended</span></div>
+            <div class="tcc-rating"><span class="rating">★★★</span></div>
+          </div>
+          <div class="tcc-desc">Visual AI product-discovery platform. Visual and text search, personalisation, automated product tagging, shoppable social curation. Production-grade for large fashion retailers.</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Visual similarity</span><span class="dim-chip">Pattern/colour/silhouette</span><span class="dim-chip">Attribute extraction</span><span class="dim-chip">Personalisation</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td><span class="na">Not publicly disclosed</span></td></tr>
+            <tr><td>Integration</td><td>API + SaaS, e-commerce platform integrations</td></tr>
+            <tr><td>Free trial</td><td><span class="na">Not mentioned</span></td></tr>
+            <tr><td>Fashion clients</td><td>Farfetch, PrettyLittleThing, SHEIN, Signet UK, Falabella</td></tr>
+            <tr><td>Geography</td><td>Global</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Strongest fashion proof points among visual-AI vendors. Production-grade visual search with attribute tagging — directly addresses TF's "upload a lookbook image, find the audience that already wears this" use case.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://www.syte.ai" target="_blank">syte.ai</a> · <a href="https://www.retaildive.com/news/farfetch-taps-syte-for-visual-search-feature/544053/" target="_blank">retaildive.com (Farfetch)</a></div>
+        </div>
+
+        <!-- ── VISENZE ── -->
+        <div class="tool-card-compact">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://www.visenze.com" target="_blank">ViSenze</a></div>
+            <div class="tcc-rating"><span class="rating">★★★</span></div>
+          </div>
+          <div class="tcc-desc">AI-powered visual search, multimodal search, similar-product recommendations, "Shop the Look," GenAI automatic product tagging for e-commerce. Now part of Rezolve AI.</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Visual search</span><span class="dim-chip">Multimodal</span><span class="dim-chip">Similar-item</span><span class="dim-chip">Attribute tagging</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td>Not disclosed — 30-day free trial advertised</td></tr>
+            <tr><td>Integration</td><td>API + SDK + e-commerce connectors</td></tr>
+            <tr><td>Free trial</td><td>Yes — 30 days</td></tr>
+            <tr><td>Fashion clients</td><td>Zalora, Myntra, ShowPo, Urban Outfitters, Mango, Target, Tod's, EyeBuyDirect</td></tr>
+            <tr><td>Geography</td><td>Global (APAC origin)</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Strong fashion clients across multiple price tiers. 30-day free trial gives TF engineering a low-cost pilot path before committing.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://www.visenze.com" target="_blank">visenze.com</a></div>
+        </div>
+
+        <!-- ── FASHIONCLIP ── -->
+        <div class="tool-card-compact rec">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://huggingface.co/patrickjohncyh/fashion-clip" target="_blank">FashionCLIP</a> <span class="rec-badge">Recommended</span></div>
+            <div class="tcc-rating"><span class="rating">★★★</span></div>
+          </div>
+          <div class="tcc-desc">Open-source CLIP model fine-tuned on 800K Farfetch fashion products. Zero-shot image classification, image-text matching, fashion representation learning. Published in Nature Scientific Reports (2022).</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Zero-shot classification</span><span class="dim-chip">Cross-modal retrieval</span><span class="dim-chip">Text-attribute matching</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td><strong>Free (MIT license)</strong></td></tr>
+            <tr><td>Integration</td><td>Self-hosted via Hugging Face; <code>pip install fashion-clip</code></td></tr>
+            <tr><td>Free trial</td><td>Free forever</td></tr>
+            <tr><td>Clients</td><td>N/A — open-source model</td></tr>
+            <tr><td>Geography</td><td>Self-hosted</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Zero-cost foundation model TF engineering can fine-tune on TF's own catalog. Build the visual-discovery layer in-house, own the IP, no vendor lock-in. Strongest case for TF integration of all Category B options.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://huggingface.co/patrickjohncyh/fashion-clip" target="_blank">huggingface.co/fashion-clip</a> · <a href="https://www.nature.com/articles/s41598-022-23052-9" target="_blank">nature.com paper</a> · <a href="https://github.com/patrickjohncyh/fashion-clip" target="_blank">github.com</a></div>
+        </div>
+
+        <!-- ── LILY AI ── -->
+        <div class="tool-card-compact rec">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://lily.ai" target="_blank">Lily AI</a> <span class="rec-badge">Recommended</span></div>
+            <div class="tcc-rating"><span class="rating">★★★</span></div>
+          </div>
+          <div class="tcc-desc">Product attribute AI. Enriches retail catalogs with consumer-language attributes, trends and occasions. Optimises site search, SEO, AEO, GEO, paid ads.</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Attribute extraction</span><span class="dim-chip">Consumer-language tagging</span><span class="dim-chip">Trend/occasion matching</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td><span class="na">Not publicly disclosed</span></td></tr>
+            <tr><td>Integration</td><td>SaaS + API, bi-directional with sales/marketing channels</td></tr>
+            <tr><td>Free trial</td><td><span class="na">Not mentioned</span></td></tr>
+            <tr><td>Fashion clients</td><td>Bloomingdale's, Rue Gilt Groupe</td></tr>
+            <tr><td>Geography</td><td>Global</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Solves TF's specific designer/consumer language gap. Designers describe products in fashion-speak ("midi peplum mauve"); Lily translates to how consumers actually search. Direct integration target.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://lily.ai" target="_blank">lily.ai</a></div>
+        </div>
+
+        <!-- ── ALGOLIA ── -->
+        <div class="tool-card-compact">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://www.algolia.com/products/recommendations/" target="_blank">Algolia Recommend</a></div>
+            <div class="tcc-rating"><span class="rating">★★<span class="star-off">★</span></span></div>
+          </div>
+          <div class="tcc-desc">Recommendations engine with Related Products, Frequently Bought Together, Looking Similar (image-based), Trending Items. Sub-10ms latency.</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Behavioural</span><span class="dim-chip">Collaborative filtering</span><span class="dim-chip">Visual similarity</span><span class="dim-chip">Trending</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td>Free starter tier + enterprise on demo</td></tr>
+            <tr><td>Integration</td><td>API + pre-built widgets + CMS / catalog connectors</td></tr>
+            <tr><td>Free trial</td><td>Free starter</td></tr>
+            <tr><td>Fashion clients</td><td>END. Clothing, Gymshark</td></tr>
+            <tr><td>Geography</td><td>Global</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Free starter tier supports TF MVP discovery layer. Visual similarity ("Looking Similar") is a documented feature, not core AI research — reliable for production.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://www.algolia.com/products/recommendations/" target="_blank">algolia.com/recommendations</a></div>
+        </div>
+
+        <!-- ── STYLUMIA ── -->
+        <div class="tool-card-compact">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://stylumia.ai" target="_blank">Stylumia</a></div>
+            <div class="tcc-rating"><span class="rating">★★<span class="star-off">★</span></span></div>
+          </div>
+          <div class="tcc-desc">AI fashion trend forecasting + demand prediction. Computer vision across runways and e-commerce; demand sensing; localised taste modelling.</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Trend forecasting</span><span class="dim-chip">Demand prediction</span><span class="dim-chip">Regional taste</span><span class="dim-chip">Attribute analysis</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td><span class="na">Not disclosed</span></td></tr>
+            <tr><td>Integration</td><td>SaaS dashboard; API references in product content</td></tr>
+            <tr><td>Free trial</td><td><span class="na">Not mentioned</span></td></tr>
+            <tr><td>Fashion clients</td><td>Amazon, H&amp;M, Tommy Hilfiger, Fossil, Celio, Bestseller Group, Forever 21, Bata, ASOS, Snapdeal</td></tr>
+            <tr><td>Geography</td><td>Global (India origin)</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Trend signal for designer collection planning. Not direct fan / consumer discovery — useful as an input layer for designer-side recommendations.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://stylumia.ai" target="_blank">stylumia.ai</a></div>
+        </div>
+
+        <!-- ── HEURITECH ── -->
+        <div class="tool-card-compact">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://www.heuritech.com" target="_blank">Heuritech</a></div>
+            <div class="tcc-rating"><span class="rating">★★<span class="star-off">★</span></span></div>
+          </div>
+          <div class="tcc-desc">AI fashion trend forecasting; 2,000 fashion attributes detected; trend trajectories up to 24 months out. Self-claimed 91% prediction accuracy (vendor marketing).</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Trend forecasting</span><span class="dim-chip">Attribute analysis</span><span class="dim-chip">Regional segments</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td><span class="na">Not disclosed</span></td></tr>
+            <tr><td>Integration</td><td>SaaS or API</td></tr>
+            <tr><td>Free trial</td><td><span class="na">Not disclosed</span></td></tr>
+            <tr><td>Fashion clients</td><td>"Leading global fashion and luxury brands" — none named on homepage</td></tr>
+            <tr><td>Geography</td><td>EU origin, global</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Sister product to Stylumia; trend foresight for designer side. Not a direct discovery layer for fans / influencers.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://www.heuritech.com" target="_blank">heuritech.com</a></div>
+        </div>
+
+        <!-- ── AWS REKOGNITION ── -->
+        <div class="tool-card-compact">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://aws.amazon.com/rekognition/custom-labels-features/" target="_blank">AWS Rekognition Custom Labels</a></div>
+            <div class="tcc-rating"><span class="rating">★★<span class="star-off">★</span></span></div>
+          </div>
+          <div class="tcc-desc">Train custom image classification / detection models with a few hundred images; AutoML selects algorithms. Generic computer vision; not fashion-specific out of the box.</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Custom classification</span><span class="dim-chip">Object detection</span><span class="dim-chip">Brand-specific labels</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td>Pay-per-hour for training and inference — see <a href="https://aws.amazon.com/rekognition/pricing/" target="_blank">aws.amazon.com/rekognition/pricing</a> for current rates</td></tr>
+            <tr><td>Integration</td><td>AWS API</td></tr>
+            <tr><td>Free trial</td><td>AWS Free Tier applies (terms vary)</td></tr>
+            <tr><td>Clients</td><td>Horizontal cloud service — not fashion-specific</td></tr>
+            <tr><td>Geography</td><td>Global (AWS regions)</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Building block for custom aesthetic classifiers if TF builds its own model. Less efficient than FashionCLIP for fashion-specific tasks.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://aws.amazon.com/rekognition/custom-labels-features/" target="_blank">aws.amazon.com/rekognition</a></div>
+        </div>
+
+        <!-- ── VUE.AI ── -->
+        <div class="tool-card-compact warn">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://www.vue.ai" target="_blank">Vue.ai (Mad Street Den)</a> <span class="flag-badge">Caution</span></div>
+            <div class="tcc-rating"><span class="rating">★<span class="star-off">★★</span></span></div>
+          </div>
+          <div class="tcc-desc">AI experience-management suite for retail using computer vision and image recognition. Includes VueModel (single outfit shown across size 4–20 AI-generated body types).</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Product intelligence</span><span class="dim-chip">Customer intelligence</span><span class="dim-chip">Visual recognition</span><span class="dim-chip">AI model imagery</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td><span class="na">Not publicly disclosed</span></td></tr>
+            <tr><td>Integration</td><td>Platform / SaaS</td></tr>
+            <tr><td>Free trial</td><td><span class="na">Not mentioned</span></td></tr>
+            <tr><td>Fashion clients</td><td>Lane Crawford (per PR Newswire 2023)</td></tr>
+            <tr><td>Geography</td><td>Global</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Parent Mad Street Den acquired by M2P (March 2025); company has pivoted toward Intelligent Document Processing. Strategic uncertainty — re-verify before any integration commitment.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://www.vue.ai" target="_blank">vue.ai</a> · <a href="https://www.crunchbase.com/organization/vue-ai" target="_blank">crunchbase.com</a></div>
+        </div>
+
+        <!-- ── CLARIFAI ── -->
+        <div class="tool-card-compact">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://www.clarifai.com" target="_blank">Clarifai</a></div>
+            <div class="tcc-rating"><span class="rating">★<span class="star-off">★★</span></span></div>
+          </div>
+          <div class="tcc-desc">AI inference and compute orchestration platform. OpenAI-compatible API; supports multimodal vision-language models. Core team / IP merged with Nebius (NASDAQ:NBIS) in 2026.</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Custom VLM</span><span class="dim-chip">Multimodal</span><span class="dim-chip">Cloud inference</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td>Serverless pay-as-you-go + dedicated GPU + enterprise custom</td></tr>
+            <tr><td>Integration</td><td>Cloud API</td></tr>
+            <tr><td>Free trial</td><td>Sign-up referenced; specifics not on homepage</td></tr>
+            <tr><td>Key clients</td><td>OpenTable, Canva, Vimeo, Amazon, Siemens, NVIDIA — general, not fashion</td></tr>
+            <tr><td>Geography</td><td>Global</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Generic AI infrastructure post-Nebius merger. Not fashion-specialised — FashionCLIP self-hosted is more efficient for TF's use case.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://www.clarifai.com" target="_blank">clarifai.com</a></div>
+        </div>
+
+        <!-- ── GLAMI LENS ── -->
+        <div class="tool-card-compact">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://www.glami.eco/visual-search/" target="_blank">GLAMI Lens</a></div>
+            <div class="tcc-rating"><span class="rating">★<span class="star-off">★★</span></span></div>
+          </div>
+          <div class="tcc-desc">European consumer fashion-discovery platform with a visual similarity engine. Users upload a photo, get similar items from a 15M-item catalog across 13 EU markets; ~3M requests per day.</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Visual similarity</span><span class="dim-chip">EU catalog</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td>Consumer-facing free; B2B API availability not confirmed</td></tr>
+            <tr><td>Integration</td><td>Primarily a marketplace + visual search — B2B integration not standard</td></tr>
+            <tr><td>Free trial</td><td>N/A</td></tr>
+            <tr><td>Clients</td><td>N/A — consumer marketplace</td></tr>
+            <tr><td>Geography</td><td>13 EU markets</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Wrong shape for TF integration — it is a marketplace, not a B2B API. Useful as a competitive benchmark for EU fashion visual search.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://www.glami.eco/visual-search/" target="_blank">glami.eco/visual-search</a></div>
+        </div>
+
+        <!-- ── GOOGLE CLOUD VISION PRODUCT SEARCH ── -->
+        <div class="tool-card-compact warn">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://cloud.google.com/vision/product-search/docs" target="_blank">Google Cloud Vision Product Search</a> <span class="flag-badge">Sunsetting</span></div>
+            <div class="tcc-rating"><span class="rating">★<span class="star-off">★★</span></span></div>
+          </div>
+          <div class="tcc-desc">Retail-focused visual product search via reference images. Per Google Cloud documentation, this product is in maintenance mode; Vision Warehouse is the successor.</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Retail visual search</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td>GCP rates — see <a href="https://cloud.google.com/vision/product-search/pricing" target="_blank">pricing page</a></td></tr>
+            <tr><td>Integration</td><td>Google Cloud API</td></tr>
+            <tr><td>Free trial</td><td>GCP free tier</td></tr>
+            <tr><td>Status</td><td><strong>In maintenance mode</strong> — Google recommends Vision Warehouse</td></tr>
+            <tr><td>Geography</td><td>Global (GCP regions)</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Avoid for any new TF integration. Re-evaluate Vision Warehouse as the successor product when needed.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://cloud.google.com/vision/product-search/docs" target="_blank">cloud.google.com/vision/product-search/docs</a></div>
+        </div>
+
+      </div><!-- /tool-grid-compact category-B -->
+    </div><!-- /cat-section B -->
+
+
+    <!-- ═══ CATEGORY C ═══ -->
+    <div class="cat-section">
+      <div class="cat-head">
+        <span class="cat-letter">C</span>
+        <div>
+          <div class="cat-name">Consumer / Fan Discovery — find buyers, not creators</div>
+          <div class="cat-sub">Tools that find and segment paying consumers and fans. Predictive audiences, customer data platforms, on-site personalisation, trend intelligence. Most are integrated by TF or by individual designers using TF.</div>
+        </div>
+      </div>
+      <div class="tool-grid-compact">
+
+        <!-- ── KLAVIYO ── -->
+        <div class="tool-card-compact rec">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://www.klaviyo.com" target="_blank">Klaviyo</a> <span class="rec-badge">Recommended</span></div>
+            <div class="tcc-rating"><span class="rating">★★★</span></div>
+          </div>
+          <div class="tcc-desc">Predictive analytics (CLV, churn risk, next order date), Segments AI (natural-language segment builder), lookalike audience sync to Meta and Google ads.</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Predictive CLV</span><span class="dim-chip">Churn risk</span><span class="dim-chip">Next-purchase</span><span class="dim-chip">Behavioural</span><span class="dim-chip">Lookalike sync</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td><strong>Free plan</strong> — 250 profiles, 500 emails/mo, 150 SMS credits/mo. Paid plans scale by profile count</td></tr>
+            <tr><td>Integration</td><td>SaaS + 350+ integrations; Shopify-native; ad platform sync</td></tr>
+            <tr><td>Free trial</td><td>Free plan indefinitely under limits</td></tr>
+            <tr><td>Fashion clients</td><td>Widely used in DTC fashion (specific brand list not on pricing page)</td></tr>
+            <tr><td>Geography</td><td>Global</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Free tier removes adoption friction for early-stage designers TF onboards. Predictive + lookalike audiences directly support fan / consumer discovery. Day-one stack for every TF designer.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://www.klaviyo.com/pricing" target="_blank">klaviyo.com/pricing</a> · <a href="https://www.klaviyo.com/solutions/ai/what-are-predictive-analytics" target="_blank">klaviyo.com/predictive-analytics</a></div>
+        </div>
+
+        <!-- ── CONSTRUCTOR ── -->
+        <div class="tool-card-compact rec">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://constructor.com" target="_blank">Constructor</a> <span class="rec-badge">Recommended</span></div>
+            <div class="tcc-rating"><span class="rating">★★★</span></div>
+          </div>
+          <div class="tcc-desc">AI commerce reasoning engine: AI Shopping Agent, search, browse/recs, product insights, merchant intelligence. constructor.io now redirects to constructor.com.</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Behavioural</span><span class="dim-chip">Intent inference</span><span class="dim-chip">Natural-language search</span><span class="dim-chip">Personalisation</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td><span class="na">Not publicly disclosed</span></td></tr>
+            <tr><td>Integration</td><td>API-first, headless, platform-agnostic; Shopify, Salesforce Commerce Cloud, BigCommerce, Commercetools, AWS</td></tr>
+            <tr><td>Free trial</td><td><span class="na">Not mentioned</span></td></tr>
+            <tr><td>Fashion clients</td><td>Sephora, Gap, Under Armour, Foot Locker, Journeys, Rothy's</td></tr>
+            <tr><td>Geography</td><td>Global</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Strongest fashion roster for consumer-side discovery. Gap / Under Armour / Rothy's are the exact tier of brands TF's emerging designers aspire to. API-first headless matches TF's likely build architecture.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://constructor.com" target="_blank">constructor.com</a></div>
+        </div>
+
+        <!-- ── SEGMENT ── -->
+        <div class="tool-card-compact rec">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://www.twilio.com/en-us/segment" target="_blank">Segment / Twilio Engage</a> <span class="rec-badge">Recommended</span></div>
+            <div class="tcc-rating"><span class="rating">★★<span class="star-off">★</span></span></div>
+          </div>
+          <div class="tcc-desc">Customer Data Platform: unified profiles, advanced audiences, real-time journey orchestration. 550+ destinations, 750+ integrations. segment.com redirects to Twilio.</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Unified profiles</span><span class="dim-chip">Behavioural audiences</span><span class="dim-chip">Real-time orchestration</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td>Free trial, no credit card; tiers on pricing page</td></tr>
+            <tr><td>Integration</td><td>CDP backbone; 750+ integrations across analytics, ads, email, CRM</td></tr>
+            <tr><td>Free trial</td><td>Yes</td></tr>
+            <tr><td>Fashion clients</td><td>Not named on landing page</td></tr>
+            <tr><td>Geography</td><td>Global</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Plan CDP architecture from day one; Segment is the de-facto standard. Avoiding it now means costly data-silo rework later when TF has volume.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://www.twilio.com/en-us/segment" target="_blank">twilio.com/segment</a></div>
+        </div>
+
+        <!-- ── DYNAMIC YIELD ── -->
+        <div class="tool-card-compact">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://www.dynamicyield.com" target="_blank">Dynamic Yield</a></div>
+            <div class="tcc-rating"><span class="rating">★★<span class="star-off">★</span></span></div>
+          </div>
+          <div class="tcc-desc">Personalisation + experience-optimisation "Experience OS": segmentation, targeting, recommendations, journey orchestration, A/B testing, native AI.</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Segmentation</span><span class="dim-chip">Predictive recs</span><span class="dim-chip">Behavioural</span><span class="dim-chip">A/B testing</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td><span class="na">Not disclosed</span></td></tr>
+            <tr><td>Integration</td><td>Firebase, Contentful, Shopify, mParticle, Tealium, SendGrid, Klaviyo, Contentsquare</td></tr>
+            <tr><td>Free trial</td><td><span class="na">Not mentioned</span></td></tr>
+            <tr><td>Fashion clients</td><td>LUISAVIAROMA (since 2016, +15% ARPU from add-to-cart recs), e.l.f. Cosmetics (since 2019)</td></tr>
+            <tr><td>Geography</td><td>Global</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>LUISAVIAROMA is the affordable-luxury tier TF targets. Useful benchmark — but enterprise pricing, likely out of reach until TF has volume.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://www.dynamicyield.com" target="_blank">dynamicyield.com</a></div>
+        </div>
+
+        <!-- ── BLOOMREACH ── -->
+        <div class="tool-card-compact">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://www.bloomreach.com" target="_blank">Bloomreach Discovery</a></div>
+            <div class="tcc-rating"><span class="rating">★★<span class="star-off">★</span></span></div>
+          </div>
+          <div class="tcc-desc">AI search + personalisation platform (Loomi AI). Conversational shopping, self-learning search, first-party data harvesting.</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Semantic search</span><span class="dim-chip">Behavioural personalisation</span><span class="dim-chip">Conversational</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td><span class="na">Not disclosed</span></td></tr>
+            <tr><td>Integration</td><td>Shopify, Snowflake, Google Cloud, Databricks, AWS, 175+ integrations</td></tr>
+            <tr><td>Free trial</td><td><span class="na">Not disclosed</span></td></tr>
+            <tr><td>Clients</td><td>PUMA (only fashion-adjacent named), Canadian Tire, N Brown, Sur La Table, HD Supply, Hornby Hobbies</td></tr>
+            <tr><td>Geography</td><td>Global</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Enterprise-grade alternative to Constructor with fewer fashion proof points. Constructor wins on roster fit for TF.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://www.bloomreach.com" target="_blank">bloomreach.com</a></div>
+        </div>
+
+        <!-- ── INSIDER ── -->
+        <div class="tool-card-compact">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://insiderone.com" target="_blank">Insider</a></div>
+            <div class="tcc-rating"><span class="rating">★★<span class="star-off">★</span></span></div>
+          </div>
+          <div class="tcc-desc">AI customer-engagement platform with Predictive AI real-time segments; unifies online + offline (CRM, POS, contact-centre) data. 2,000+ customers. useinsider.com redirects to insiderone.com.</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Predictive segmentation</span><span class="dim-chip">Real-time behavioural</span><span class="dim-chip">Cross-channel</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td><span class="na">Not disclosed</span></td></tr>
+            <tr><td>Integration</td><td>100+ integrations (web, email, SMS, WhatsApp, push, mobile)</td></tr>
+            <tr><td>Free trial</td><td><span class="na">Not disclosed</span></td></tr>
+            <tr><td>Fashion / beauty clients</td><td>MAC Cosmetics named on homepage; Beauty &amp; Cosmetics industry called out — specific fashion brands not enumerated</td></tr>
+            <tr><td>Geography</td><td>Global</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Predictive segments useful for TF. Client roster less fashion-deep than Constructor; consider if Constructor pricing prohibitive.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://insiderone.com" target="_blank">insiderone.com</a></div>
+        </div>
+
+        <!-- ── TRENDALYTICS ── -->
+        <div class="tool-card-compact">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://trendalytics.co" target="_blank">Trendalytics</a></div>
+            <div class="tcc-rating"><span class="rating">★★<span class="star-off">★</span></span></div>
+          </div>
+          <div class="tcc-desc">AI consumer trend + market intelligence: trend forecasting, social analytics, TikTok-specific analytics, product development validation.</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Trend forecasting</span><span class="dim-chip">Social tracking</span><span class="dim-chip">TikTok-native</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td><span class="na">Not disclosed</span></td></tr>
+            <tr><td>Integration</td><td><span class="na">Not detailed on landing page</span></td></tr>
+            <tr><td>Free trial</td><td><span class="na">Not mentioned</span></td></tr>
+            <tr><td>Fashion clients</td><td>Logos shown on homepage but not named in extracted text</td></tr>
+            <tr><td>Geography</td><td>Global</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Informs which categories / styles to prioritise. Not direct fan discovery; useful upstream input.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://trendalytics.co" target="_blank">trendalytics.co</a></div>
+        </div>
+
+        <!-- ── SALESFORCE PERSONALIZATION ── -->
+        <div class="tool-card-compact">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://www.salesforce.com/marketing/personalization/" target="_blank">Salesforce Marketing Cloud Personalization</a></div>
+            <div class="tcc-rating"><span class="rating">★<span class="star-off">★★</span></span></div>
+          </div>
+          <div class="tcc-desc">Real-time personalisation + interaction management across web / mobile / email. A/B testing, journey orchestration, AI-powered decisioning. Rebrand path: Evergage → Interaction Studio → Marketing Cloud Personalization (2022).</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Real-time segmentation</span><span class="dim-chip">Journey orchestration</span><span class="dim-chip">AI decisioning</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td>Enterprise; not disclosed</td></tr>
+            <tr><td>Integration</td><td>Salesforce ecosystem</td></tr>
+            <tr><td>Free trial</td><td>None typical</td></tr>
+            <tr><td>Fashion clients</td><td>Not extracted in this scan</td></tr>
+            <tr><td>Geography</td><td>Global</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Over-scaled for TF. Relevant only for enterprise Salesforce shops — not TF's near-term stack.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://www.salesforce.com/marketing/personalization/" target="_blank">salesforce.com/marketing/personalization</a> · <a href="https://www.salesforceben.com/what-is-salesforce-interaction-studio/" target="_blank">salesforceben.com</a></div>
+        </div>
+
+      </div><!-- /tool-grid-compact category-C -->
+    </div><!-- /cat-section C -->
+
+
+    <!-- ── Ideas for TF — combined across A/B/C ── -->
+    <div class="sec-head" style="margin-top:56px">
+      <div class="sec-title">Ideas This Raises for Terra Ferra</div>
+    </div>
+    <div class="tf-ideas-grid">
+
+      <div class="tf-idea-card">
+        <div class="tf-idea-num">01</div>
+        <div class="tf-idea-title">Day-one stack: TikTok + Instagram + Klaviyo + Heepsy</div>
+        <div class="tf-idea-body">All four are free or near-free. TikTok and Instagram creator marketplaces are zero-cost native discovery. Klaviyo's free tier covers TF's first 250 profiles per designer. Heepsy at €69/mo is the cheapest paid discovery layer with native lookalike search. Total month-1 spend: ~€69 per designer.</div>
+      </div>
+
+      <div class="tf-idea-card">
+        <div class="tf-idea-num">02</div>
+        <div class="tf-idea-title">FashionCLIP is the integration play, not a vendor licence</div>
+        <div class="tf-idea-body">FashionCLIP is open-source, MIT-licensed, fine-tuned on 800K fashion products. TF engineering self-hosts and fine-tunes on TF's own catalog — TF owns the visual-discovery IP, no vendor lock-in, zero ongoing licence cost. This is the single highest-leverage Category B option.</div>
+      </div>
+
+      <div class="tf-idea-card">
+        <div class="tf-idea-num">03</div>
+        <div class="tf-idea-title">Lily AI solves the designer / consumer language gap</div>
+        <div class="tf-idea-body">Designers describe products in fashion-speak ("midi peplum mauve"); consumers search in everyday language ("flowy purple dress"). Lily AI translates between the two at the attribute layer. Direct integration target once TF has catalog volume to justify the licence.</div>
+      </div>
+
+      <div class="tf-idea-card">
+        <div class="tf-idea-num">04</div>
+        <div class="tf-idea-title">Lefty is the upgrade path when TF can fund a fashion-luxury discovery SaaS</div>
+        <div class="tf-idea-body">Strongest luxury fashion client roster of any influencer-discovery vendor in this scan (Louis Vuitton, Celine, Ralph Lauren, Acne Studios, Lanvin, Byredo). Product seeding + affiliate matches TF's pre-order / ambassador model exactly. Pricing on request — enterprise.</div>
+      </div>
+
+      <div class="tf-idea-card">
+        <div class="tf-idea-num">05</div>
+        <div class="tf-idea-title">Upfluence's customer-to-creator pipeline is TF's own thesis, productised</div>
+        <div class="tf-idea-body">Upfluence surfaces "creators who already love your brand" from existing customer data. That is the superfan-to-influencer path TF wants to build natively. Integrating Upfluence early gives TF the workflow without building it — and surfaces the requirements TF's own version needs to deliver.</div>
+      </div>
+
+      <div class="tf-idea-card">
+        <div class="tf-idea-num">06</div>
+        <div class="tf-idea-title">Consumer-side: Constructor + Segment from architecture day one</div>
+        <div class="tf-idea-body">Constructor (API-first AI commerce search) and Segment (CDP backbone) need to be designed into the architecture before TF has volume. Retrofitting either after a year of growth is expensive. Klaviyo on top covers email / SMS / lookalike sync for each designer.</div>
+      </div>
+
+      <div class="tf-idea-card">
+        <div class="tf-idea-num">07</div>
+        <div class="tf-idea-title">Skip the enterprise tier — CreatorIQ, Salesforce, IZEA, Bloomreach</div>
+        <div class="tf-idea-body">All four are over-scaled for TF and cost $20K+/year minimum. Re-evaluate only after TF crosses $10M GMV or runs 50+ simultaneous influencer campaigns. Before that, every dollar spent here is a dollar not spent on designer / creator acquisition.</div>
+      </div>
+
+      <div class="tf-idea-card">
+        <div class="tf-idea-num">08</div>
+        <div class="tf-idea-title">Flag and re-verify: Vue.ai, Google Vision Product Search, Captiv8</div>
+        <div class="tf-idea-body">Three Category B/A tools are in transition: Vue.ai's parent acquired by M2P and pivoting away from retail; Google Vision Product Search in maintenance mode; Captiv8 absorbed into Influential. Do not commit integration spend without re-verifying current product status.</div>
+      </div>
+
+    </div>
 
   </div>
-
-  <hr class="section-divider"/>
-
-  <hr class="section-divider"/>
 
   <hr class="section-divider"/>
 
