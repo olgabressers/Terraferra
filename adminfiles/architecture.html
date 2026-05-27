@@ -114,6 +114,7 @@ main{max-width:1200px;margin:0 auto;padding:56px 40px 88px}
 .cost-scale-table tr.current{background:#FFF3E8;font-weight:600}
 .cost-scale-table tr.current td:first-child{color:var(--orange)}
 .cost-scale-note{font-size:11px;color:var(--sub);margin-top:12px;line-height:1.55}
+.cost-scale-table .defer{font-size:10px;color:var(--sub);font-weight:500;margin-top:4px;line-height:1.45;letter-spacing:0;text-transform:none}
 @media(max-width:700px){
   .cost-scale{padding:14px 16px}
   .cost-scale-table{font-size:11px;display:block;overflow-x:auto;white-space:nowrap}
@@ -242,38 +243,49 @@ main{max-width:1200px;margin:0 auto;padding:56px 40px 88px}
       </thead>
       <tbody>
         <tr>
-          <td>Pilot · pre-PMF · ≤ $100K annual GMV</td>
+          <td>Pilot · pre-PMF · ≤ $100K annual GMV
+            <div class="defer"><strong>Includes:</strong> FashionCLIP · HubSpot 3 seats · Stripe (% only) · Intercom · Postmark · Cookiebot · Pilot.com · Vercel Pro 1 seat + free tiers of Klaviyo, Algolia, Neon, Clerk, Cloudinary, Amplitude, Sentry, IG/TikTok marketplaces.</div>
+            <div class="defer"><strong>Excludes:</strong> Lily AI · Constructor · Modash · Segment — deferred until product-market fit.</div>
+          </td>
           <td class="num">≈ $470</td>
           <td class="num">≈ $0–300</td>
           <td class="num">≈ $470–770</td>
         </tr>
         <tr>
-          <td>$500K annual GMV</td>
+          <td>$500K annual GMV
+            <div class="defer">Full recommended stack (all tools active).</div>
+          </td>
           <td class="num">≈ $4,500</td>
           <td class="num">≈ $1,400</td>
           <td class="num">≈ $5,900</td>
         </tr>
         <tr class="current">
-          <td>$1M annual GMV · this page</td>
+          <td>$1M annual GMV · this page
+            <div class="defer">Full recommended stack (all tools active).</div>
+          </td>
           <td class="num">≈ $4,630</td>
           <td class="num">≈ $2,760</td>
           <td class="num">≈ $7,390</td>
         </tr>
         <tr>
-          <td>$5M annual GMV</td>
+          <td>$5M annual GMV
+            <div class="defer">Full recommended stack; Klaviyo / Cloudinary / Neon scale up with usage.</div>
+          </td>
           <td class="num">≈ $5,500</td>
           <td class="num">≈ $13,500</td>
           <td class="num">≈ $19,000</td>
         </tr>
         <tr>
-          <td>$10M annual GMV</td>
+          <td>$10M annual GMV
+            <div class="defer">Full recommended stack; usage-based costs higher.</div>
+          </td>
           <td class="num">≈ $6,500</td>
           <td class="num">≈ $27,000</td>
           <td class="num">≈ $33,500</td>
         </tr>
       </tbody>
     </table>
-    <div class="cost-scale-note"><strong>Pilot stack</strong> includes FashionCLIP ($150) · HubSpot CRM 3 seats ($45) · Intercom ($29) · Postmark ($15) · Cookiebot ($8) · Pilot.com bookkeeping ($200) · Vercel Pro 1 seat ($20) · Stripe (% only) + free tiers of Klaviyo, Algolia, Neon, Clerk, Cloudinary, Amplitude, Sentry, IG/TikTok marketplaces. Defers Lily AI, Constructor, Modash, Segment until product-market fit.<br/><strong>$500K → $10M:</strong> full recommended stack; SaaS climbs slightly as Klaviyo / Cloudinary / Neon scale with usage. Stripe transactions scale linearly at 2.9% + $0.30 per order.</div>
+    <div class="cost-scale-note">Stripe transactions scale linearly at 2.9% + $0.30 per order.</div>
   </div>
 
   <!-- Legend -->
@@ -311,7 +323,7 @@ main{max-width:1200px;margin:0 auto;padding:56px 40px 88px}
     <div class="layer tf">
       <div class="layer-head">
         <div class="layer-name">2 · TF Core Platform</div>
-        <div class="layer-meta">TF builds · proprietary IP</div>
+        <div class="layer-meta">TF builds · core product</div>
         <div class="layer-cost">subtotal $0/mo</div>
       </div>
       <div class="layer-purpose">The 5 modules Terra Ferra owns. Everything else above and below is external.</div>
