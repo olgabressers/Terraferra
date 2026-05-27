@@ -143,6 +143,24 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .cat-sub{font-size:12.5px;color:var(--sub);line-height:1.55;margin-top:4px;max-width:680px}
 .cat-subhead{font-size:14px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--sub);margin:32px 0 14px;padding-bottom:6px;border-bottom:1px solid var(--rule)}
 
+/* ─── RECOMMENDED SUMMARY PANEL ─────── */
+.rec-summary{background:#FFF3E8;border:1px solid var(--rule);border-left:3px solid var(--orange);padding:18px 22px;margin:14px 0 28px}
+.rec-summary-head{font-size:11px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:var(--orange);margin-bottom:14px}
+.rec-summary-subhead{font-size:9.5px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--sub);margin:14px 0 8px;padding-bottom:4px;border-bottom:1px solid var(--rule)}
+.rec-summary-subhead:first-of-type{margin-top:0}
+.rec-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0}
+.rec-list li{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:9px 0;border-bottom:1px dashed var(--rule)}
+.rec-list li:last-child{border-bottom:none}
+.rec-line{display:flex;align-items:center;gap:6px;min-width:230px;flex-shrink:0}
+.rec-name{font-size:13.5px;font-weight:800;color:var(--ink);letter-spacing:-.2px}
+.rec-name a{color:var(--tf);text-decoration:none}
+.rec-name a:hover{text-decoration:underline}
+.rec-list .dim-chips{flex:1;min-width:200px}
+@media(max-width:700px){
+  .rec-list li{flex-direction:column;align-items:flex-start;gap:6px}
+  .rec-line{min-width:0}
+}
+
 /* ─── RATINGS & BADGES ──────────────── */
 .rating{display:inline-flex;align-items:center;gap:1px;color:var(--orange);font-size:13px;letter-spacing:1px;line-height:1;font-weight:600}
 .rating .star-off{color:var(--rule)}
@@ -609,6 +627,136 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
           <div class="cat-name">Influencer Discovery — SaaS Terra Ferra subscribes to</div>
           <div class="cat-sub">Tools to find creators on Instagram, TikTok, YouTube by visual aesthetic, audience demographics, engagement, geography. Brand side subscribes; creators are surfaced.</div>
         </div>
+      </div>
+
+      <!-- Recommended summary for Category A -->
+      <div class="rec-summary">
+        <div class="rec-summary-head">★ Recommended for Terra Ferra — Category A</div>
+
+        <div class="rec-summary-subhead">Influencer discovery</div>
+        <ul class="rec-list">
+          <li>
+            <div class="rec-line">
+              <span class="rec-name"><a href="https://www.modash.io/" target="_blank">Modash</a></span>
+              <span class="rating">★★★</span><span class="rec-badge">Rec</span>
+            </div>
+            <div class="dim-chips">
+              <span class="dim-chip">Smart filters</span><span class="dim-chip">Visual aesthetic</span><span class="dim-chip">Image upload</span><span class="dim-chip">Natural language</span><span class="dim-chip">Demographics</span><span class="dim-chip">Engagement</span><span class="dim-chip">Outreach CRM</span><span class="dim-chip">Campaign tracking</span>
+            </div>
+          </li>
+          <li>
+            <div class="rec-line">
+              <span class="rec-name"><a href="https://archive.com/" target="_blank">Archive</a></span>
+              <span class="rating">★★★</span><span class="rec-badge">Rec</span>
+            </div>
+            <div class="dim-chips">
+              <span class="dim-chip">Smart filters</span><span class="dim-chip">Content capture</span><span class="dim-chip">UGC library</span><span class="dim-chip">Visual search</span><span class="dim-chip">Image upload</span><span class="dim-chip">Natural language</span><span class="dim-chip">Creator CRM</span><span class="dim-chip">Instagram</span><span class="dim-chip">TikTok</span>
+            </div>
+          </li>
+          <li>
+            <div class="rec-line">
+              <span class="rec-name"><a href="https://lefty.io" target="_blank">Lefty</a></span>
+              <span class="rating">★★★</span><span class="rec-badge">Rec</span>
+            </div>
+            <div class="dim-chips">
+              <span class="dim-chip">Smart filters</span><span class="dim-chip">CRM</span><span class="dim-chip">Content capture</span><span class="dim-chip">Affiliate</span><span class="dim-chip">Sales tracking</span>
+            </div>
+          </li>
+          <li>
+            <div class="rec-line">
+              <span class="rec-name"><a href="https://www.upfluence.com" target="_blank">Upfluence</a></span>
+              <span class="rating">★★★</span><span class="rec-badge">Rec</span>
+            </div>
+            <div class="dim-chips">
+              <span class="dim-chip">Demographic</span><span class="dim-chip">Geographic</span><span class="dim-chip">Engagement</span><span class="dim-chip">Lookalike-from-customers</span><span class="dim-chip">AI co-pilot</span>
+            </div>
+          </li>
+          <li>
+            <div class="rec-line">
+              <span class="rec-name"><a href="https://www.heepsy.com" target="_blank">Heepsy</a></span>
+              <span class="rating">★★<span class="star-off">★</span></span><span class="rec-badge">Rec</span>
+            </div>
+            <div class="dim-chips">
+              <span class="dim-chip">Geographic</span><span class="dim-chip">Category</span><span class="dim-chip">Demographic</span><span class="dim-chip">Engagement</span><span class="dim-chip">Lookalike</span><span class="dim-chip">Authenticity</span>
+            </div>
+          </li>
+          <li>
+            <div class="rec-line">
+              <span class="rec-name"><a href="https://ads.tiktok.com/creative/creatormarketplace" target="_blank">TikTok Creator Marketplace</a></span>
+              <span class="rating">★★★</span><span class="rec-badge">Rec</span>
+            </div>
+            <div class="dim-chips">
+              <span class="dim-chip">Location</span><span class="dim-chip">Category</span><span class="dim-chip">Views/followers</span><span class="dim-chip">Reach</span><span class="dim-chip">Niche</span><span class="dim-chip">Demographic</span><span class="dim-chip">Engagement</span><span class="dim-chip">Free</span>
+            </div>
+          </li>
+          <li>
+            <div class="rec-line">
+              <span class="rec-name"><a href="https://www.facebook.com/business/ads/creator-marketplace" target="_blank">Instagram Creator Marketplace</a></span>
+              <span class="rating">★★★</span><span class="rec-badge">Rec</span>
+            </div>
+            <div class="dim-chips">
+              <span class="dim-chip">Niche</span><span class="dim-chip">Followers</span><span class="dim-chip">Gender</span><span class="dim-chip">Age</span><span class="dim-chip">Location</span><span class="dim-chip">Interests</span><span class="dim-chip">Demographic</span><span class="dim-chip">Free</span>
+            </div>
+          </li>
+          <li>
+            <div class="rec-line">
+              <span class="rec-name"><a href="https://grin.co/" target="_blank">Grin</a></span>
+              <span class="rating">★★<span class="star-off">★</span></span><span class="rec-badge">Rec</span>
+            </div>
+            <div class="dim-chips">
+              <span class="dim-chip">AI creator matching</span><span class="dim-chip">Niche</span><span class="dim-chip">Audience</span><span class="dim-chip">Engagement</span><span class="dim-chip">Affiliate</span><span class="dim-chip">Automated payments</span><span class="dim-chip">Content library</span><span class="dim-chip">CRM</span>
+            </div>
+          </li>
+        </ul>
+
+        <div class="rec-summary-subhead">Creator management &amp; measurement</div>
+        <ul class="rec-list">
+          <li>
+            <div class="rec-line">
+              <span class="rec-name"><a href="https://www.brandbassador.com" target="_blank">Brandbassador</a></span>
+              <span class="rating">★★★</span><span class="rec-badge">Rec</span>
+            </div>
+            <div class="dim-chips">
+              <span class="dim-chip">Ambassador mgmt</span><span class="dim-chip">Missions</span><span class="dim-chip">UGC</span><span class="dim-chip">Rewards</span>
+            </div>
+          </li>
+          <li>
+            <div class="rec-line">
+              <span class="rec-name"><a href="https://www.socialladderapp.com" target="_blank">SocialLadder</a></span>
+              <span class="rating">★★★</span><span class="rec-badge">Rec</span>
+            </div>
+            <div class="dim-chips">
+              <span class="dim-chip">Ambassador mgmt</span><span class="dim-chip">Mobile community</span><span class="dim-chip">AI content review</span><span class="dim-chip">Rewards</span>
+            </div>
+          </li>
+          <li>
+            <div class="rec-line">
+              <span class="rec-name"><a href="https://www.getroster.com" target="_blank">Roster</a></span>
+              <span class="rating">★★★</span><span class="rec-badge">Rec</span>
+            </div>
+            <div class="dim-chips">
+              <span class="dim-chip">Ambassador mgmt</span><span class="dim-chip">Affiliate</span><span class="dim-chip">UGC capture</span><span class="dim-chip">Sales attribution</span><span class="dim-chip">Product seeding</span>
+            </div>
+          </li>
+          <li>
+            <div class="rec-line">
+              <span class="rec-name"><a href="https://www.shopify.com/collabs" target="_blank">Shopify Collabs</a></span>
+              <span class="rating">★★★</span><span class="rec-badge">Rec</span>
+            </div>
+            <div class="dim-chips">
+              <span class="dim-chip">Affiliate</span><span class="dim-chip">Creator app page</span><span class="dim-chip">Gifting</span><span class="dim-chip">Auto-tracking</span><span class="dim-chip">Shopify-native</span><span class="dim-chip">Free</span>
+            </div>
+          </li>
+          <li>
+            <div class="rec-line">
+              <span class="rec-name"><a href="https://www.refersion.com" target="_blank">Refersion</a></span>
+              <span class="rating">★★★</span><span class="rec-badge">Rec</span>
+            </div>
+            <div class="dim-chips">
+              <span class="dim-chip">Affiliate</span><span class="dim-chip">Payouts</span><span class="dim-chip">Tracking</span><span class="dim-chip">Marketplace</span>
+            </div>
+          </li>
+        </ul>
       </div>
 
       <h3 class="cat-subhead">Visual-first discovery — search by image or aesthetic</h3>
@@ -1344,6 +1492,41 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
           <div class="cat-sub">Building-block APIs and open-source models Terra Ferra licenses or self-hosts to power its own in-platform discovery layer. This is the route to "AI integrated into Terra Ferra," not "AI Terra Ferra subscribes to."</div>
         </div>
       </div>
+
+      <!-- Recommended summary for Category B -->
+      <div class="rec-summary">
+        <div class="rec-summary-head">★ Recommended for Terra Ferra — Category B</div>
+        <ul class="rec-list">
+          <li>
+            <div class="rec-line">
+              <span class="rec-name"><a href="https://www.syte.ai" target="_blank">Syte</a></span>
+              <span class="rating">★★★</span><span class="rec-badge">Rec</span>
+            </div>
+            <div class="dim-chips">
+              <span class="dim-chip">Visual similarity</span><span class="dim-chip">Pattern/colour/silhouette</span><span class="dim-chip">Attribute extraction</span><span class="dim-chip">Personalisation</span>
+            </div>
+          </li>
+          <li>
+            <div class="rec-line">
+              <span class="rec-name"><a href="https://huggingface.co/patrickjohncyh/fashion-clip" target="_blank">FashionCLIP</a></span>
+              <span class="rating">★★★</span><span class="rec-badge">Rec</span>
+            </div>
+            <div class="dim-chips">
+              <span class="dim-chip">Zero-shot classification</span><span class="dim-chip">Cross-modal retrieval</span><span class="dim-chip">Text-attribute matching</span><span class="dim-chip">Free / MIT</span><span class="dim-chip">Self-hosted</span>
+            </div>
+          </li>
+          <li>
+            <div class="rec-line">
+              <span class="rec-name"><a href="https://lily.ai" target="_blank">Lily AI</a></span>
+              <span class="rating">★★★</span><span class="rec-badge">Rec</span>
+            </div>
+            <div class="dim-chips">
+              <span class="dim-chip">Attribute extraction</span><span class="dim-chip">Consumer-language tagging</span><span class="dim-chip">Trend/occasion matching</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
       <div class="tool-grid-compact">
 
         <!-- ── SYTE ── -->
@@ -1611,6 +1794,41 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
           <div class="cat-sub">Tools that find and segment paying consumers and fans. Predictive audiences, customer data platforms, on-site personalisation, trend intelligence. Most are integrated by TF or by individual designers using TF.</div>
         </div>
       </div>
+
+      <!-- Recommended summary for Category C -->
+      <div class="rec-summary">
+        <div class="rec-summary-head">★ Recommended for Terra Ferra — Category C</div>
+        <ul class="rec-list">
+          <li>
+            <div class="rec-line">
+              <span class="rec-name"><a href="https://www.klaviyo.com" target="_blank">Klaviyo</a></span>
+              <span class="rating">★★★</span><span class="rec-badge">Rec</span>
+            </div>
+            <div class="dim-chips">
+              <span class="dim-chip">Predictive CLV</span><span class="dim-chip">Churn risk</span><span class="dim-chip">Next-purchase</span><span class="dim-chip">Behavioural</span><span class="dim-chip">Lookalike sync</span><span class="dim-chip">Free tier</span>
+            </div>
+          </li>
+          <li>
+            <div class="rec-line">
+              <span class="rec-name"><a href="https://constructor.com" target="_blank">Constructor</a></span>
+              <span class="rating">★★★</span><span class="rec-badge">Rec</span>
+            </div>
+            <div class="dim-chips">
+              <span class="dim-chip">Behavioural</span><span class="dim-chip">Intent inference</span><span class="dim-chip">Natural-language search</span><span class="dim-chip">Personalisation</span><span class="dim-chip">API-first</span>
+            </div>
+          </li>
+          <li>
+            <div class="rec-line">
+              <span class="rec-name"><a href="https://www.twilio.com/en-us/segment" target="_blank">Segment / Twilio Engage</a></span>
+              <span class="rating">★★<span class="star-off">★</span></span><span class="rec-badge">Rec</span>
+            </div>
+            <div class="dim-chips">
+              <span class="dim-chip">Unified profiles</span><span class="dim-chip">Behavioural audiences</span><span class="dim-chip">Real-time orchestration</span><span class="dim-chip">CDP backbone</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
       <div class="tool-grid-compact">
 
         <!-- ── KLAVIYO ── -->
