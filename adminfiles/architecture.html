@@ -114,17 +114,58 @@ main{max-width:1200px;margin:0 auto;padding:56px 40px 88px}
 /* Decisions section */
 .decisions{margin-top:48px}
 .decisions h2{font-size:20px;font-weight:800;color:var(--orange);letter-spacing:-.4px;margin-bottom:18px}
-.dec-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-@media(max-width:800px){.dec-grid{grid-template-columns:1fr}}
-.dec-card{background:white;border:1px solid var(--rule);border-left:3px solid var(--orange);padding:18px 22px}
-.dec-card h3{font-size:13.5px;font-weight:800;color:var(--ink);margin-bottom:8px;letter-spacing:-.1px}
-.dec-card p{font-size:12.5px;color:var(--ink);line-height:1.65}
-.dec-card .sub{font-size:10px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--orange);margin-bottom:6px}
-
 /* Cross-ref note */
 .xref{margin-top:36px;padding:16px 20px;background:var(--tf-ghost);border:1px solid var(--rule);border-left:3px solid var(--tf);font-size:12px;color:var(--ink);line-height:1.6}
 .xref a{color:var(--tf);font-weight:700;text-decoration:underline}
 .xref a:hover{color:var(--orange)}
+
+/* ─── MOBILE / TABLET RESPONSIVE ───────── */
+@media(max-width:960px){
+  .cover{padding:48px 28px 44px}
+  .cover::after{font-size:240px;right:-16px;letter-spacing:-14px}
+  .cost-banner{padding:18px 22px;gap:14px}
+  .cost-banner-amount{font-size:28px}
+  .cost-banner-note{max-width:100%;font-size:11px}
+  .legend{padding:12px 14px;gap:10px}
+  .legend-pill{font-size:11px}
+  .layer{padding:18px}
+  .layer-name{font-size:13.5px}
+  .layer-purpose{font-size:11.5px}
+  .box{font-size:11.5px;min-width:140px;padding:9px 12px}
+  .box .sub{font-size:9.5px}
+  .box .box-cost{font-size:9.5px}
+}
+@media(max-width:700px){
+  .cover{padding:30px 16px 32px}
+  .cover::after{display:none}
+  .cover-eyebrow{font-size:9.5px;margin-bottom:14px;letter-spacing:2.6px}
+  .tf-logo{font-size:30px;letter-spacing:-1px;margin-bottom:8px}
+  .tf-tagline{font-size:9.5px;letter-spacing:3.5px}
+  main{padding:24px 14px 56px}
+  .cost-banner{padding:14px 16px;flex-direction:column;align-items:flex-start;gap:8px;margin-bottom:24px}
+  .cost-banner-label{font-size:9px;letter-spacing:1.6px}
+  .cost-banner-amount{font-size:24px}
+  .cost-banner-note{font-size:10.5px;line-height:1.5}
+  .intro{margin-bottom:28px}
+  .legend{flex-direction:column;align-items:flex-start;gap:6px}
+  .legend-label{margin-right:0;margin-bottom:2px}
+  .legend-pill{font-size:11px}
+  .arch{gap:4px;margin-bottom:32px}
+  .layer{padding:14px 14px}
+  .layer-head{flex-direction:column;align-items:flex-start;gap:6px;margin-bottom:10px}
+  .layer-name{font-size:12.5px;letter-spacing:1px}
+  .layer-meta{font-size:9px;letter-spacing:1.1px}
+  .layer-cost{font-size:9.5px;padding:2px 7px;letter-spacing:1px}
+  .layer-purpose{font-size:11px;line-height:1.55;margin-bottom:10px}
+  .layer-boxes{gap:6px}
+  .box{font-size:11.5px;min-width:0;padding:9px 11px;flex:1 1 100%}
+  .box::before{font-size:7.5px !important;letter-spacing:1px !important}
+  .box .sub{font-size:9.5px;line-height:1.4}
+  .box .box-cost{font-size:9.5px;margin-top:3px}
+  .arrow{font-size:18px;padding:3px 0}
+  .xref{padding:12px 14px;font-size:11.5px;line-height:1.6}
+  #back-to-top{bottom:18px;right:18px;width:38px;height:38px;font-size:17px}
+}
 
 /* Back to top button */
 #back-to-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--tf);color:white;border:1px solid rgba(113,105,212,.5);border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900;transition:background .2s}
