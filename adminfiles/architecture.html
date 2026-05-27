@@ -103,6 +103,23 @@ main{max-width:1200px;margin:0 auto;padding:56px 40px 88px}
 /* Arrow between layers */
 .arrow{text-align:center;color:var(--sub);font-size:22px;line-height:1;padding:6px 0;font-weight:300}
 
+/* Cost scale reference table */
+.cost-scale{background:white;border:1px solid var(--rule);border-left:3px solid var(--tf);padding:18px 22px;margin:0 0 36px}
+.cost-scale-head{font-size:11px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:var(--tf);margin-bottom:14px}
+.cost-scale-table{width:100%;border-collapse:collapse;font-size:12.5px}
+.cost-scale-table th{text-align:left;padding:8px 12px;font-size:9.5px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--sub);border-bottom:2px solid var(--rule)}
+.cost-scale-table th.num,.cost-scale-table td.num{text-align:right}
+.cost-scale-table td{padding:9px 12px;border-bottom:1px solid var(--rule)}
+.cost-scale-table tr:last-child td{border-bottom:none}
+.cost-scale-table tr.current{background:#FFF3E8;font-weight:600}
+.cost-scale-table tr.current td:first-child{color:var(--orange)}
+.cost-scale-note{font-size:11px;color:var(--sub);margin-top:12px;line-height:1.55}
+@media(max-width:700px){
+  .cost-scale{padding:14px 16px}
+  .cost-scale-table{font-size:11px;display:block;overflow-x:auto;white-space:nowrap}
+  .cost-scale-table th,.cost-scale-table td{padding:7px 10px}
+}
+
 /* Cost banner + per-layer + per-box */
 .cost-banner{background:var(--ink);color:white;padding:22px 28px;margin:0 0 36px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .cost-banner-label{font-size:10.5px;font-weight:800;letter-spacing:2.2px;text-transform:uppercase;color:rgba(255,255,255,.55)}
@@ -209,6 +226,54 @@ main{max-width:1200px;margin:0 auto;padding:56px 40px 88px}
       <div class="cost-banner-amount">≈ $7,390 / month</div>
     </div>
     <div class="cost-banner-note">≈ $4,630 / mo SaaS overhead + ≈ $2,760 / mo Stripe transactions (payment + Radar + Identity).<br/>≈ $89K / year total · ≈ 8.9% of annual GMV.<br/><strong style="color:var(--orange)">Assumption:</strong> 3 paid TF team licences. Volume calibrated to <a href="budget.html" style="color:var(--orange);text-decoration:underline">Budget</a> Base scenario unit economics: ≈ 830 orders/mo, ≈ 10 designer onboardings/mo at $1M annual GMV. Lily AI + Constructor in Layer 3 are enterprise tools — pricing on request, contact sales for firm quotes.<br/><strong style="color:var(--orange)">Layer 3 fallback:</strong> FashionCLIP self-hosted + Algolia free starter ≈ $150 / mo. Drops total SaaS to ≈ $1,630 / mo (1.6% of annual GMV).</div>
+  </div>
+
+  <!-- Cost scale reference -->
+  <div class="cost-scale">
+    <div class="cost-scale-head">Cost scale by revenue · Stripe drives the variance</div>
+    <table class="cost-scale-table">
+      <thead>
+        <tr>
+          <th>Scale</th>
+          <th class="num">SaaS overhead</th>
+          <th class="num">Stripe transactions</th>
+          <th class="num">Total / month</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Pilot · v1 fallback · pre-revenue</td>
+          <td class="num">≈ $200</td>
+          <td class="num">≈ $0</td>
+          <td class="num">≈ $200</td>
+        </tr>
+        <tr>
+          <td>$500K annual GMV</td>
+          <td class="num">≈ $4,500</td>
+          <td class="num">≈ $1,500</td>
+          <td class="num">≈ $6,000</td>
+        </tr>
+        <tr class="current">
+          <td>$1M annual GMV · this page</td>
+          <td class="num">≈ $4,630</td>
+          <td class="num">≈ $2,760</td>
+          <td class="num">≈ $7,390</td>
+        </tr>
+        <tr>
+          <td>$5M annual GMV</td>
+          <td class="num">≈ $5,500</td>
+          <td class="num">≈ $13,500</td>
+          <td class="num">≈ $19,000</td>
+        </tr>
+        <tr>
+          <td>$10M annual GMV</td>
+          <td class="num">≈ $6,500</td>
+          <td class="num">≈ $27,000</td>
+          <td class="num">≈ $33,500</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="cost-scale-note">SaaS overhead is mostly fixed at the recommended-stack production tier (Klaviyo, Cloudinary and Neon scale slightly with usage). Stripe transactions scale 2.9% + $0.30 per order linearly with revenue.</div>
   </div>
 
   <!-- Legend -->
