@@ -205,10 +205,10 @@ main{max-width:1200px;margin:0 auto;padding:56px 40px 88px}
   <!-- Total cost banner -->
   <div class="cost-banner">
     <div>
-      <div class="cost-banner-label">Total monthly tech cost · $1M revenue · 3 TF team licences</div>
-      <div class="cost-banner-amount">≈ $7,330 / month</div>
+      <div class="cost-banner-label">Total monthly tech cost · $1M GMV · Base scenario · 3 TF team licences</div>
+      <div class="cost-banner-amount">≈ $7,390 / month</div>
     </div>
-    <div class="cost-banner-note">≈ $4,630 / mo SaaS overhead (5.6% of GMV) + ≈ $2,700 / mo Stripe fees (3.2% of GMV · 2.9% + $0.30/txn).<br/>≈ $88K / year total · ≈ 8.8% of revenue.<br/><strong style="color:var(--orange)">Assumption:</strong> 3 paid TF team licences. Lily AI + Constructor in Layer 3 are enterprise tools — pricing on request, contact sales for firm quotes.<br/><strong style="color:var(--orange)">Layer 3 fallback:</strong> FashionCLIP self-hosted + Algolia free starter ≈ $150 / mo. Drops total SaaS to ≈ $1,630 / mo (1.6% of GMV).</div>
+    <div class="cost-banner-note">≈ $4,630 / mo SaaS overhead + ≈ $2,760 / mo Stripe transactions (payment + Radar + Identity).<br/>≈ $89K / year total · ≈ 8.9% of GMV.<br/><strong style="color:var(--orange)">Assumption:</strong> 3 paid TF team licences. Volume from <a href="budget.html" style="color:var(--orange);text-decoration:underline">Budget</a> Base scenario: ≈ 830 orders/mo, ≈ 10 designer onboardings/mo. Lily AI + Constructor in Layer 3 are enterprise tools — pricing on request, contact sales for firm quotes.<br/><strong style="color:var(--orange)">Layer 3 fallback:</strong> FashionCLIP self-hosted + Algolia free starter ≈ $150 / mo. Drops total SaaS to ≈ $1,630 / mo (1.6% of GMV).</div>
   </div>
 
   <!-- Legend -->
@@ -318,12 +318,14 @@ main{max-width:1200px;margin:0 auto;padding:56px 40px 88px}
       <div class="layer-head">
         <div class="layer-name">6 · Designer Commerce + Payments</div>
         <div class="layer-meta">TF Core connectors + Integrate</div>
-        <div class="layer-cost">subtotal $0/mo SaaS + ≈ $2,700/mo Stripe</div>
+        <div class="layer-cost">subtotal $0/mo SaaS + ≈ $2,760/mo Stripe transactions</div>
       </div>
-      <div class="layer-purpose">Logistics (shipping, physical returns) stay on the designer side — TF only displays stock and processes returns financially via commission clawback. No Shopify/3PL subscription needed.</div>
+      <div class="layer-purpose">Logistics (shipping, physical returns) stay on the designer side — TF displays stock and processes returns financially via commission clawback. Stripe handles payments + anti-fraud + KYC + payouts in one integration.</div>
       <div class="layer-boxes">
         <div class="box tf">Designer commerce connectors<span class="sub">TF Core integrates with each designer's own commerce stack (Shopify, WooCommerce, manual CSV) — pulls stock counts, pushes orders, syncs status</span><span class="box-cost">$0 (in-house build)</span></div>
-        <div class="box api"><a href="https://stripe.com/connect" target="_blank" style="color:inherit;text-decoration:none">Stripe + Stripe Connect</a><span class="sub">payments · Stripe Tax (VAT + US sales tax) · Stripe Identity (designer KYC) · Connect multi-party payouts (designer, ambassador, co-creator, TF) · iDEAL + SEPA for EU</span><span class="box-cost">$0 / mo SaaS · 2.9% + $0.30 per transaction ≈ $2,700/mo on $1M GMV</span></div>
+        <div class="box api"><a href="https://stripe.com/connect" target="_blank" style="color:inherit;text-decoration:none">Stripe + Stripe Connect</a><span class="sub">payments · Stripe Tax (VAT + US sales tax) · Connect multi-party payouts (designer, ambassador, co-creator, TF) · iDEAL + SEPA for EU · 3D Secure included</span><span class="box-cost">≈ $2,700 / mo · 2.9% + $0.30 per transaction · Base scenario ≈ 830 orders/mo at $1M GMV</span></div>
+        <div class="box api"><a href="https://stripe.com/radar" target="_blank" style="color:inherit;text-decoration:none">Stripe Radar</a><span class="sub">anti-fraud — ML-based card-fraud detection, screened on every transaction</span><span class="box-cost">≈ $42 / mo · $0.05 per screened transaction × 830 orders</span></div>
+        <div class="box api"><a href="https://stripe.com/identity" target="_blank" style="color:inherit;text-decoration:none">Stripe Identity</a><span class="sub">designer KYC verification at onboarding (ID + selfie + document check)</span><span class="box-cost">≈ $15 / mo · $1.50 per verification × ≈ 10 designers / mo</span></div>
       </div>
     </div>
 
