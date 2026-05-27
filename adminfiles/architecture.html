@@ -103,6 +103,14 @@ main{max-width:1200px;margin:0 auto;padding:56px 40px 88px}
 /* Arrow between layers */
 .arrow{text-align:center;color:var(--sub);font-size:22px;line-height:1;padding:6px 0;font-weight:300}
 
+/* Cost banner + per-layer + per-box */
+.cost-banner{background:var(--ink);color:white;padding:22px 28px;margin:0 0 36px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.cost-banner-label{font-size:10.5px;font-weight:800;letter-spacing:2.2px;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.cost-banner-amount{font-size:34px;font-weight:800;color:var(--orange);letter-spacing:-1px;line-height:1}
+.cost-banner-note{font-size:11.5px;color:rgba(255,255,255,.7);line-height:1.5;max-width:340px}
+.layer-cost{font-size:11px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--orange);padding:3px 9px;border:1px solid var(--orange);background:white;border-radius:2px;white-space:nowrap}
+.box .box-cost{font-size:10px;font-weight:800;color:var(--orange);letter-spacing:.5px;padding-top:3px;margin-top:2px;border-top:1px dashed var(--rule);display:block}
+
 /* Decisions section */
 .decisions{margin-top:48px}
 .decisions h2{font-size:20px;font-weight:800;color:var(--orange);letter-spacing:-.4px;margin-bottom:18px}
@@ -153,6 +161,15 @@ main{max-width:1200px;margin:0 auto;padding:56px 40px 88px}
 
 <main>
 
+  <!-- Total cost banner -->
+  <div class="cost-banner">
+    <div>
+      <div class="cost-banner-label">Total monthly SaaS cost — until revenue</div>
+      <div class="cost-banner-amount">$0 / month</div>
+    </div>
+    <div class="cost-banner-note">Plus Stripe transaction fee (~2.9% + $0.30 per sale) and Shopify Connect / AWS overage only when free tiers are exceeded. All tools in this architecture are on free or open-source tiers at launch.</div>
+  </div>
+
   <!-- Legend -->
   <section class="intro">
     <div class="legend">
@@ -172,12 +189,13 @@ main{max-width:1200px;margin:0 auto;padding:56px 40px 88px}
       <div class="layer-head">
         <div class="layer-name">1 · Front-end</div>
         <div class="layer-meta">TF builds</div>
+        <div class="layer-cost">subtotal $0/mo</div>
       </div>
       <div class="layer-purpose">User-facing surfaces. App-first.</div>
       <div class="layer-boxes">
-        <div class="box tf">iOS app<span class="sub">fan, shopper, designer</span></div>
-        <div class="box tf">Android app<span class="sub">fan, shopper, designer</span></div>
-        <div class="box tf">Web app<span class="sub">fan, shopper, designer</span></div>
+        <div class="box tf">iOS app<span class="sub">fan, shopper, designer</span><span class="box-cost">$0 (in-house build)</span></div>
+        <div class="box tf">Android app<span class="sub">fan, shopper, designer</span><span class="box-cost">$0 (in-house build)</span></div>
+        <div class="box tf">Web app<span class="sub">fan, shopper, designer</span><span class="box-cost">$0 (in-house build)</span></div>
       </div>
     </div>
 
@@ -188,28 +206,32 @@ main{max-width:1200px;margin:0 auto;padding:56px 40px 88px}
       <div class="layer-head">
         <div class="layer-name">2 · TF Core Platform</div>
         <div class="layer-meta">TF builds · proprietary IP</div>
+        <div class="layer-cost">subtotal $0/mo</div>
       </div>
       <div class="layer-purpose">The 5 modules Terra Ferra owns. Everything else above and below is external.</div>
       <div class="layer-boxes">
-        <div class="box tf">Catalog &amp; drops<span class="sub">products, lookbooks, variants</span></div>
-        <div class="box tf">Pre-order engine<span class="sub">demand collection before production</span></div>
-        <div class="box tf">Co-creation voting<span class="sub">community design selection</span></div>
-        <div class="box tf">Ambassador &amp; commission<span class="sub">tracking, attribution, payout calc</span></div>
-        <div class="box tf">User &amp; identity<span class="sub">designer · creator · fan · consumer</span></div>
+        <div class="box tf">Catalog &amp; drops<span class="sub">products, lookbooks, variants</span><span class="box-cost">$0 (in-house build)</span></div>
+        <div class="box tf">Pre-order engine<span class="sub">demand collection before production</span><span class="box-cost">$0 (in-house build)</span></div>
+        <div class="box tf">Co-creation voting<span class="sub">community design selection</span><span class="box-cost">$0 (in-house build)</span></div>
+        <div class="box tf">Ambassador &amp; commission<span class="sub">tracking, attribution, payout calc</span><span class="box-cost">$0 (in-house build)</span></div>
+        <div class="box tf">User &amp; identity<span class="sub">designer · creator · fan · consumer</span><span class="box-cost">$0 (in-house build)</span></div>
       </div>
     </div>
 
     <div class="arrow">↓</div>
 
-    <!-- Layer 3: AI Discovery -->
+    <!-- Layer 3: Discovery (consumers · designers · fans) -->
     <div class="layer api">
       <div class="layer-head">
-        <div class="layer-name">3 · AI Discovery</div>
-        <div class="layer-meta">Integrate · free</div>
+        <div class="layer-name">3 · Discovery — consumers, designers &amp; fans</div>
+        <div class="layer-meta">Integrate · free tiers</div>
+        <div class="layer-cost">subtotal $0/mo</div>
       </div>
-      <div class="layer-purpose">In-app visual matching. Open-source, self-hosted.</div>
+      <div class="layer-purpose">In-app discovery for every side of TF: consumers find designers, designers find their fans, fans find each other.</div>
       <div class="layer-boxes">
-        <div class="box api"><a href="https://huggingface.co/patrickjohncyh/fashion-clip" target="_blank" style="color:inherit;text-decoration:none">FashionCLIP</a><span class="sub">visual aesthetic match · free MIT licence</span></div>
+        <div class="box api"><a href="https://huggingface.co/patrickjohncyh/fashion-clip" target="_blank" style="color:inherit;text-decoration:none">FashionCLIP</a><span class="sub">visual aesthetic match — fan uploads outfit photo → finds matching designers</span><span class="box-cost">$0 / mo · open source MIT</span></div>
+        <div class="box api"><a href="https://www.algolia.com/pricing/" target="_blank" style="color:inherit;text-decoration:none">Algolia</a><span class="sub">text search + filters + similar-items — find designers by style, price, country</span><span class="box-cost">$0 / mo · free 10K records + 10K searches</span></div>
+        <div class="box api"><a href="https://www.klaviyo.com/solutions/ai/what-are-predictive-analytics" target="_blank" style="color:inherit;text-decoration:none">Klaviyo Predictive AI</a><span class="sub">designers find their fans — predictive segments, CLV, churn risk (included in Klaviyo free tier)</span><span class="box-cost">$0 / mo · included in Klaviyo</span></div>
       </div>
     </div>
 
@@ -220,11 +242,12 @@ main{max-width:1200px;margin:0 auto;padding:56px 40px 88px}
       <div class="layer-head">
         <div class="layer-name">4 · Creator Discovery</div>
         <div class="layer-meta">Free native channels</div>
+        <div class="layer-cost">subtotal $0/mo</div>
       </div>
-      <div class="layer-purpose">Designers find creators on the platforms creators are already on. No paid tool until budget justifies it.</div>
+      <div class="layer-purpose">Designers find creators on the platforms creators are already on.</div>
       <div class="layer-boxes">
-        <div class="box saas"><a href="https://ads.tiktok.com/creative/creatormarketplace" target="_blank" style="color:inherit;text-decoration:none">TikTok Creator Marketplace</a><span class="sub">free</span></div>
-        <div class="box saas"><a href="https://www.facebook.com/business/ads/creator-marketplace" target="_blank" style="color:inherit;text-decoration:none">Instagram Creator Marketplace</a><span class="sub">free</span></div>
+        <div class="box saas"><a href="https://ads.tiktok.com/creative/creatormarketplace" target="_blank" style="color:inherit;text-decoration:none">TikTok Creator Marketplace</a><span class="sub">native, open</span><span class="box-cost">$0 / mo</span></div>
+        <div class="box saas"><a href="https://www.facebook.com/business/ads/creator-marketplace" target="_blank" style="color:inherit;text-decoration:none">Instagram Creator Marketplace</a><span class="sub">native, open</span><span class="box-cost">$0 / mo</span></div>
       </div>
     </div>
 
@@ -235,24 +258,27 @@ main{max-width:1200px;margin:0 auto;padding:56px 40px 88px}
       <div class="layer-head">
         <div class="layer-name">5 · Consumer Engagement</div>
         <div class="layer-meta">Integrate · free tier</div>
+        <div class="layer-cost">subtotal $0/mo</div>
       </div>
-      <div class="layer-purpose">Email, SMS, push, predictive — all from one tool's free tier.</div>
+      <div class="layer-purpose">Email, SMS, push, predictive analytics — all from one tool.</div>
       <div class="layer-boxes">
-        <div class="box api"><a href="https://www.klaviyo.com" target="_blank" style="color:inherit;text-decoration:none">Klaviyo</a><span class="sub">email + SMS + push + predictive · free up to 250 profiles</span></div>
+        <div class="box api"><a href="https://www.klaviyo.com" target="_blank" style="color:inherit;text-decoration:none">Klaviyo</a><span class="sub">email + SMS + push + predictive analytics + lookalike audience sync</span><span class="box-cost">$0 / mo · free up to 250 profiles</span></div>
       </div>
     </div>
 
     <div class="arrow">↓</div>
 
-    <!-- Layer 6: Payments & Compliance -->
+    <!-- Layer 6: Commerce, Orders & Payments -->
     <div class="layer api">
       <div class="layer-head">
-        <div class="layer-name">6 · Payments &amp; Compliance</div>
-        <div class="layer-meta">Integrate · % per transaction only</div>
+        <div class="layer-name">6 · Commerce, Orders, Inventory &amp; Payments</div>
+        <div class="layer-meta">Integrate · open source + % per transaction</div>
+        <div class="layer-cost">subtotal $0/mo</div>
       </div>
-      <div class="layer-purpose">One tool covers payments, tax, KYC and designer payouts. Designers ship their own products in v1.</div>
+      <div class="layer-purpose">Order processing, inventory and payments. Open-source commerce engine + Stripe.</div>
       <div class="layer-boxes">
-        <div class="box api"><a href="https://stripe.com" target="_blank" style="color:inherit;text-decoration:none">Stripe</a><span class="sub">payments · Stripe Tax · Stripe Identity (KYC) · Connect (payouts to designers)</span></div>
+        <div class="box api"><a href="https://medusajs.com" target="_blank" style="color:inherit;text-decoration:none">Medusa</a><span class="sub">order processing + inventory + multi-vendor — open source, self-hosted on TF infrastructure</span><span class="box-cost">$0 / mo · open source MIT</span></div>
+        <div class="box api"><a href="https://stripe.com" target="_blank" style="color:inherit;text-decoration:none">Stripe</a><span class="sub">payments · Stripe Tax · Stripe Identity (KYC) · Connect (designer payouts)</span><span class="box-cost">$0 / mo · ~2.9% + $0.30 per transaction</span></div>
       </div>
     </div>
 
@@ -263,12 +289,13 @@ main{max-width:1200px;margin:0 auto;padding:56px 40px 88px}
       <div class="layer-head">
         <div class="layer-name">7 · Social Media Integrations</div>
         <div class="layer-meta">Integrate · free APIs</div>
+        <div class="layer-cost">subtotal $0/mo</div>
       </div>
-      <div class="layer-purpose">Pull creator content, push drops, track ads. All free.</div>
+      <div class="layer-purpose">Pull creator content, push drops, track ads.</div>
       <div class="layer-boxes">
-        <div class="box api"><a href="https://developers.facebook.com/docs/instagram-api/" target="_blank" style="color:inherit;text-decoration:none">Instagram Graph API</a><span class="sub">creator posts, attribution · free</span></div>
-        <div class="box api"><a href="https://business-api.tiktok.com/portal" target="_blank" style="color:inherit;text-decoration:none">TikTok Business API</a><span class="sub">creator videos, shop, attribution · free</span></div>
-        <div class="box api"><a href="https://www.facebook.com/business/tools/meta-pixel" target="_blank" style="color:inherit;text-decoration:none">Meta + TikTok Pixels</a><span class="sub">ad attribution + lookalikes · free</span></div>
+        <div class="box api"><a href="https://developers.facebook.com/docs/instagram-api/" target="_blank" style="color:inherit;text-decoration:none">Instagram Graph API</a><span class="sub">creator posts + attribution</span><span class="box-cost">$0 / mo</span></div>
+        <div class="box api"><a href="https://business-api.tiktok.com/portal" target="_blank" style="color:inherit;text-decoration:none">TikTok Business API</a><span class="sub">creator videos + shop + attribution</span><span class="box-cost">$0 / mo</span></div>
+        <div class="box api"><a href="https://www.facebook.com/business/tools/meta-pixel" target="_blank" style="color:inherit;text-decoration:none">Meta + TikTok Pixels</a><span class="sub">ad attribution + lookalike audiences</span><span class="box-cost">$0 / mo</span></div>
       </div>
     </div>
 
@@ -277,13 +304,14 @@ main{max-width:1200px;margin:0 auto;padding:56px 40px 88px}
     <!-- Layer 8: TF Team Operations -->
     <div class="layer saas">
       <div class="layer-head">
-        <div class="layer-name">8 · TF Team Operations</div>
+        <div class="layer-name">8 · TF Team Operations · CRM</div>
         <div class="layer-meta">Subscribe · free tiers</div>
+        <div class="layer-cost">subtotal $0/mo</div>
       </div>
-      <div class="layer-purpose">CRM for designer pipeline + EU cookie consent. Both on free tier.</div>
+      <div class="layer-purpose">CRM tracks every designer, creator, partner relationship. Cookiebot covers EU compliance.</div>
       <div class="layer-boxes">
-        <div class="box saas"><a href="https://www.hubspot.com/products/crm" target="_blank" style="color:inherit;text-decoration:none">HubSpot CRM</a><span class="sub">designer pipeline, contracts, onboarding · free forever</span></div>
-        <div class="box saas"><a href="https://www.cookiebot.com" target="_blank" style="color:inherit;text-decoration:none">Cookiebot</a><span class="sub">cookie consent + GDPR · free for small sites</span></div>
+        <div class="box saas"><a href="https://www.hubspot.com/products/crm" target="_blank" style="color:inherit;text-decoration:none">HubSpot CRM</a><span class="sub">designer pipeline, creator outreach, contracts, onboarding stage, deal stage tracking</span><span class="box-cost">$0 / mo · free forever (up to 1M contacts)</span></div>
+        <div class="box saas"><a href="https://www.cookiebot.com" target="_blank" style="color:inherit;text-decoration:none">Cookiebot</a><span class="sub">cookie consent + GDPR (EU mandatory)</span><span class="box-cost">$0 / mo · free under 100 pages</span></div>
       </div>
     </div>
 
@@ -294,11 +322,12 @@ main{max-width:1200px;margin:0 auto;padding:56px 40px 88px}
       <div class="layer-head">
         <div class="layer-name">9 · Analytics &amp; Monitoring</div>
         <div class="layer-meta">Integrate · free tiers</div>
+        <div class="layer-cost">subtotal $0/mo</div>
       </div>
-      <div class="layer-purpose">Know what users do and what breaks. Both on free tier.</div>
+      <div class="layer-purpose">Know what users do and what breaks.</div>
       <div class="layer-boxes">
-        <div class="box api"><a href="https://amplitude.com" target="_blank" style="color:inherit;text-decoration:none">Amplitude</a><span class="sub">product analytics · free up to 50K MTUs</span></div>
-        <div class="box api"><a href="https://sentry.io" target="_blank" style="color:inherit;text-decoration:none">Sentry</a><span class="sub">error monitoring · free up to 5K errors / month</span></div>
+        <div class="box api"><a href="https://amplitude.com" target="_blank" style="color:inherit;text-decoration:none">Amplitude</a><span class="sub">product analytics — funnels, retention, web + app</span><span class="box-cost">$0 / mo · free up to 50K MTUs</span></div>
+        <div class="box api"><a href="https://sentry.io" target="_blank" style="color:inherit;text-decoration:none">Sentry</a><span class="sub">error monitoring (app + backend)</span><span class="box-cost">$0 / mo · free up to 5K errors</span></div>
       </div>
     </div>
 
@@ -309,12 +338,13 @@ main{max-width:1200px;margin:0 auto;padding:56px 40px 88px}
       <div class="layer-head">
         <div class="layer-name">10 · Infrastructure</div>
         <div class="layer-meta">Foundation · free tiers</div>
+        <div class="layer-cost">subtotal $0/mo</div>
       </div>
       <div class="layer-purpose">Hosting, database, auth. All on free tier until revenue justifies upgrading.</div>
       <div class="layer-boxes">
-        <div class="box infra"><a href="https://vercel.com" target="_blank" style="color:inherit;text-decoration:none">Vercel</a><span class="sub">hosting + CDN + serverless · free hobby tier</span></div>
-        <div class="box infra"><a href="https://neon.tech" target="_blank" style="color:inherit;text-decoration:none">Neon Postgres</a><span class="sub">database · free 3GB</span></div>
-        <div class="box infra"><a href="https://clerk.com" target="_blank" style="color:inherit;text-decoration:none">Clerk</a><span class="sub">authentication · free up to 50,000 MAUs</span></div>
+        <div class="box infra"><a href="https://vercel.com" target="_blank" style="color:inherit;text-decoration:none">Vercel</a><span class="sub">hosting + CDN + serverless functions</span><span class="box-cost">$0 / mo · free hobby tier</span></div>
+        <div class="box infra"><a href="https://neon.tech" target="_blank" style="color:inherit;text-decoration:none">Neon Postgres</a><span class="sub">primary database</span><span class="box-cost">$0 / mo · free 3GB</span></div>
+        <div class="box infra"><a href="https://clerk.com" target="_blank" style="color:inherit;text-decoration:none">Clerk</a><span class="sub">authentication (designer, creator, fan, consumer)</span><span class="box-cost">$0 / mo · free up to 50,000 MAUs</span></div>
       </div>
     </div>
 
