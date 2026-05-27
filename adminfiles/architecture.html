@@ -145,21 +145,16 @@ main{max-width:1200px;margin:0 auto;padding:56px 40px 88px}
 
 <div class="cover">
   <div class="cover-inner">
-    <div class="cover-eyebrow">Internal · Private · For Founder + CTO alignment</div>
+    <div class="cover-eyebrow">Internal · Private</div>
     <div class="tf-logo">System Architecture</div>
-    <div class="tf-tagline">04 · How the Product is Composed</div>
-    <div class="cover-divider"></div>
-    <div class="cover-desc">What Terra Ferra builds, what it integrates, what it subscribes to. Reference diagram for engineering scope, fundraising conversations and CTO alignment.</div>
+    <div class="tf-tagline">04</div>
   </div>
 </div>
 
 <main>
 
-  <!-- Intro -->
+  <!-- Legend -->
   <section class="intro">
-    <h2>How to read this</h2>
-    <p>Terra Ferra is composed of three kinds of building blocks. <strong>TF Core</strong> is proprietary — the IP Terra Ferra owns and the work the founding engineering team builds in-house (pre-order engine, co-creation, ambassador/commission logic, catalog, user data). <strong>Integrate</strong> covers third-party APIs and open-source models TF embeds in its own product to deliver features faster than building from scratch (visual search, payments, tax, fulfilment, sizing). <strong>Subscribe</strong> covers SaaS tools the TF team uses operationally (creator discovery, ambassador management, analytics). <strong>Infrastructure</strong> is the foundational layer everything runs on (cloud, database, search, auth).</p>
-    <p>Every block named below is either already verified in <a href="ideas.html#sec-visual" style="color:var(--tf);font-weight:700">Section 05 — AI Discovery Tools</a> or is a category-standard service. Specific vendor choices within categories (Stripe vs Adyen, AWS vs GCP, Algolia vs FashionCLIP) are CTO-level decisions, not founder-level.</p>
     <div class="legend">
       <span class="legend-label">Legend</span>
       <span class="legend-pill"><span class="dot dot-tf"></span>TF builds (proprietary)</span>
@@ -176,15 +171,14 @@ main{max-width:1200px;margin:0 auto;padding:56px 40px 88px}
     <div class="layer tf">
       <div class="layer-head">
         <div class="layer-name">1 · Front-end</div>
-        <div class="layer-meta">TF builds · app-first</div>
+        <div class="layer-meta">TF builds</div>
       </div>
-      <div class="layer-purpose">User-facing layer. App-first roadmap; web exists in parallel.</div>
+      <div class="layer-purpose">User-facing surfaces. App-first.</div>
       <div class="layer-boxes">
-        <div class="box tf">iOS app<span class="sub">native (Swift)</span></div>
-        <div class="box tf">Android app<span class="sub">native (Kotlin)</span></div>
-        <div class="box tf">Web app<span class="sub">responsive</span></div>
-        <div class="box tf">Designer studio<span class="sub">drop upload, lookbook, voting setup</span></div>
-        <div class="box tf">Admin console<span class="sub">internal TF team tools</span></div>
+        <div class="box tf">iOS app<span class="sub">fan, shopper, designer</span></div>
+        <div class="box tf">Android app<span class="sub">fan, shopper, designer</span></div>
+        <div class="box tf">Web app<span class="sub">fan, shopper, designer</span></div>
+        <div class="box tf">Admin console<span class="sub">internal TF team</span></div>
       </div>
     </div>
 
@@ -196,14 +190,14 @@ main{max-width:1200px;margin:0 auto;padding:56px 40px 88px}
         <div class="layer-name">2 · TF Core Platform</div>
         <div class="layer-meta">TF builds · proprietary IP</div>
       </div>
-      <div class="layer-purpose">The IP Terra Ferra owns. Nothing in this layer is bought from anyone — it is the reason TF exists.</div>
+      <div class="layer-purpose">Proprietary backend modules. One module per function.</div>
       <div class="layer-boxes">
         <div class="box tf">Catalog &amp; drops<span class="sub">products, lookbooks, variants</span></div>
         <div class="box tf">Pre-order engine<span class="sub">demand collection before production</span></div>
         <div class="box tf">Co-creation voting<span class="sub">community design selection</span></div>
         <div class="box tf">Crowdfunding logic<span class="sub">campaign thresholds, refunds</span></div>
         <div class="box tf">Ambassador &amp; commission<span class="sub">tracking, attribution, payout calc</span></div>
-        <div class="box tf">Demand intelligence<span class="sub">votes, pre-order data → B2B insights</span></div>
+        <div class="box tf">Demand intelligence<span class="sub">votes + pre-order data → B2B insights</span></div>
         <div class="box tf">User &amp; identity<span class="sub">designer · creator · fan · consumer</span></div>
         <div class="box tf">Notifications<span class="sub">drop alerts, vote outcomes</span></div>
         <div class="box tf">API gateway<span class="sub">app + web + integrations</span></div>
@@ -216,33 +210,28 @@ main{max-width:1200px;margin:0 auto;padding:56px 40px 88px}
     <div class="layer api">
       <div class="layer-head">
         <div class="layer-name">3 · AI Discovery</div>
-        <div class="layer-meta">Integrate · Cat A from Section 05</div>
+        <div class="layer-meta">Integrate</div>
       </div>
-      <div class="layer-purpose">Visual search, attribute matching, recommendations. The AI brain behind in-app discovery — both for designers finding influencers and shoppers finding designers.</div>
+      <div class="layer-purpose">In-app AI. One tool per function.</div>
       <div class="layer-boxes">
-        <div class="box api">Syte<span class="sub">visual search (production-grade)</span></div>
-        <div class="box api">FashionCLIP<span class="sub">self-hosted, open-source alternative</span></div>
-        <div class="box api">Lily AI<span class="sub">attribute extraction (designer↔consumer language)</span></div>
-        <div class="box api">Algolia Recommend<span class="sub">similar items, behavioural</span></div>
+        <div class="box api">FashionCLIP<span class="sub">visual aesthetic match — image → designer / item</span></div>
+        <div class="box api">Lily AI<span class="sub">attribute extraction — designer-speak ↔ consumer-search</span></div>
+        <div class="box api">Algolia Recommend<span class="sub">behavioural similar-items + "you might like"</span></div>
       </div>
     </div>
 
     <div class="arrow">↓</div>
 
-    <!-- Layer 4: Creator Discovery + Management -->
+    <!-- Layer 4: Creator Discovery -->
     <div class="layer saas">
       <div class="layer-head">
-        <div class="layer-name">4 · Creator Discovery &amp; Management</div>
-        <div class="layer-meta">Subscribe + Integrate · Cat B from Section 05</div>
+        <div class="layer-name">4 · Creator Discovery</div>
+        <div class="layer-meta">Subscribe</div>
       </div>
-      <div class="layer-purpose">Finding the right influencers for each designer; managing the ambassador program; paying commissions automatically.</div>
+      <div class="layer-purpose">Find influencers external to TF. One tool. Native social marketplaces are free inputs, not a paid tool.</div>
       <div class="layer-boxes">
-        <div class="box saas">Modash<span class="sub">visual aesthetic creator search</span></div>
-        <div class="box saas">Archive<span class="sub">UGC capture + creator CRM</span></div>
-        <div class="box saas">Lefty<span class="sub">luxury-fashion creator platform</span></div>
-        <div class="box api">Refersion / Shopify Collabs<span class="sub">affiliate payout engine</span></div>
-        <div class="box saas">Brandbassador / Roster<span class="sub">ambassador program ops</span></div>
-        <div class="box saas">Instagram &amp; TikTok Creator Marketplaces<span class="sub">native, free</span></div>
+        <div class="box saas">Modash<span class="sub">find creators by visual aesthetic + demographics + engagement</span></div>
+        <div class="box saas">Instagram + TikTok Creator Marketplaces<span class="sub">free native channels (not a tool — a source)</span></div>
       </div>
     </div>
 
@@ -252,14 +241,13 @@ main{max-width:1200px;margin:0 auto;padding:56px 40px 88px}
     <div class="layer api">
       <div class="layer-head">
         <div class="layer-name">5 · Consumer Engagement</div>
-        <div class="layer-meta">Integrate · Cat C from Section 05</div>
+        <div class="layer-meta">Integrate</div>
       </div>
-      <div class="layer-purpose">Finding paying consumers, segmenting them, predicting behaviour, personalising the experience.</div>
+      <div class="layer-purpose">Find, segment, predict, message consumers. One tool per function.</div>
       <div class="layer-boxes">
-        <div class="box api">Klaviyo<span class="sub">predictive CLV, email/SMS, lookalike sync</span></div>
-        <div class="box api">Segment / Twilio Engage<span class="sub">CDP — unified profiles</span></div>
-        <div class="box api">Constructor<span class="sub">AI commerce search, personalisation</span></div>
-        <div class="box api">Push notifications<span class="sub">Firebase / OneSignal / Apple APNs</span></div>
+        <div class="box api">Klaviyo<span class="sub">email + SMS + predictive CLV + lookalike sync to ads</span></div>
+        <div class="box api">Segment<span class="sub">customer data platform — unified profiles</span></div>
+        <div class="box api">Firebase<span class="sub">push notifications (iOS + Android + web)</span></div>
       </div>
     </div>
 
@@ -268,14 +256,12 @@ main{max-width:1200px;margin:0 auto;padding:56px 40px 88px}
     <!-- Layer 6: Visual Try-On / Sizing -->
     <div class="layer api">
       <div class="layer-head">
-        <div class="layer-name">6 · Visual Try-On &amp; Sizing</div>
-        <div class="layer-meta">Integrate · removes pre-order hesitation</div>
+        <div class="layer-name">6 · Sizing &amp; Virtual Try-On</div>
+        <div class="layer-meta">Integrate</div>
       </div>
-      <div class="layer-purpose">For TF's pre-order model, fit confidence is the main reason consumers hesitate to commit. Third-party APIs only — no proprietary build needed.</div>
+      <div class="layer-purpose">Fit confidence for pre-orders. One tool.</div>
       <div class="layer-boxes">
-        <div class="box api">True Fit<span class="sub">measurements → brand-specific size</span></div>
-        <div class="box api">3DLOOK<span class="sub">body model from two photos</span></div>
-        <div class="box api">MySize / Naiz Fit<span class="sub">questionnaire-based</span></div>
+        <div class="box api">True Fit<span class="sub">brand-specific size recommendation from measurements</span></div>
       </div>
     </div>
 
@@ -284,18 +270,15 @@ main{max-width:1200px;margin:0 auto;padding:56px 40px 88px}
     <!-- Layer 7: Payments & Fulfilment -->
     <div class="layer api">
       <div class="layer-head">
-        <div class="layer-name">7 · Payments &amp; Fulfilment</div>
-        <div class="layer-meta">Integrate · standard ecommerce stack</div>
+        <div class="layer-name">7 · Payments, Fulfilment &amp; Compliance</div>
+        <div class="layer-meta">Integrate</div>
       </div>
-      <div class="layer-purpose">Money in, goods out. Pre-orders need authorise-now-capture-on-production logic; standard providers support this.</div>
+      <div class="layer-purpose">Money, goods, KYC. One tool per function.</div>
       <div class="layer-boxes">
-        <div class="box api">Stripe<span class="sub">cards, Apple Pay, Klarna, FX, payouts</span></div>
-        <div class="box api">PayPal<span class="sub">secondary payment method</span></div>
-        <div class="box api">Stripe Tax / Avalara<span class="sub">VAT, US sales tax</span></div>
-        <div class="box api">ShipBob / ShipStation<span class="sub">3PL fulfilment</span></div>
-        <div class="box api">EasyPost / Aftership<span class="sub">multi-carrier shipping + tracking</span></div>
-        <div class="box api">Loop Returns / Aftership Returns<span class="sub">returns mgmt (for non-pre-order items)</span></div>
-        <div class="box api">Stripe Identity / Persona<span class="sub">KYC for designers (compliance)</span></div>
+        <div class="box api">Stripe<span class="sub">payments + tax + KYC + designer payouts (Connect)</span></div>
+        <div class="box api">Refersion<span class="sub">creator / affiliate commission tracking + payouts</span></div>
+        <div class="box api">ShipBob<span class="sub">3PL fulfilment when GMV justifies it</span></div>
+        <div class="box api">Loop Returns<span class="sub">returns workflow (non-pre-order items)</span></div>
       </div>
     </div>
 
@@ -305,15 +288,13 @@ main{max-width:1200px;margin:0 auto;padding:56px 40px 88px}
     <div class="layer api">
       <div class="layer-head">
         <div class="layer-name">8 · Social Media Integrations</div>
-        <div class="layer-meta">Integrate · creator data + shoppable</div>
+        <div class="layer-meta">Integrate</div>
       </div>
-      <div class="layer-purpose">Pull creator content into TF (UGC, attribution); push TF drops out to creators' feeds; track outbound traffic.</div>
+      <div class="layer-purpose">Pull creator content; push drops outbound. One API per platform.</div>
       <div class="layer-boxes">
         <div class="box api">Instagram Graph API<span class="sub">creator posts, stories, attribution</span></div>
-        <div class="box api">TikTok Business API<span class="sub">creator videos, shop integration</span></div>
-        <div class="box api">Pinterest API<span class="sub">save-pin tracking, shopping</span></div>
-        <div class="box api">YouTube Data API<span class="sub">long-form creator content</span></div>
-        <div class="box api">Meta Pixel / TikTok Pixel<span class="sub">ad attribution &amp; lookalikes</span></div>
+        <div class="box api">TikTok Business API<span class="sub">creator videos, shop, attribution</span></div>
+        <div class="box api">Meta + TikTok Pixels<span class="sub">ad attribution + lookalike audiences</span></div>
       </div>
     </div>
 
@@ -322,16 +303,14 @@ main{max-width:1200px;margin:0 auto;padding:56px 40px 88px}
     <!-- Layer 9: Customer Support & Trust -->
     <div class="layer api">
       <div class="layer-head">
-        <div class="layer-name">9 · Customer Support, Reviews &amp; Trust</div>
-        <div class="layer-meta">Integrate · operational</div>
+        <div class="layer-name">9 · Support, Reviews &amp; Privacy</div>
+        <div class="layer-meta">Integrate</div>
       </div>
-      <div class="layer-purpose">Resolve customer issues, capture social proof, satisfy EU privacy law.</div>
+      <div class="layer-purpose">Operational tools. One per function.</div>
       <div class="layer-boxes">
-        <div class="box api">Intercom / Zendesk<span class="sub">live chat + helpdesk</span></div>
-        <div class="box api">Yotpo / Trustpilot<span class="sub">customer reviews</span></div>
-        <div class="box api">Smile.io / Yotpo Loyalty<span class="sub">loyalty programme (optional, later)</span></div>
-        <div class="box api">OneTrust / Cookiebot<span class="sub">cookie consent + GDPR (EU mandatory)</span></div>
-        <div class="box api">Iubenda<span class="sub">privacy / terms generators</span></div>
+        <div class="box api">Intercom<span class="sub">live chat + helpdesk</span></div>
+        <div class="box api">Yotpo<span class="sub">customer reviews</span></div>
+        <div class="box api">OneTrust<span class="sub">cookie consent + GDPR (EU mandatory)</span></div>
       </div>
     </div>
 
@@ -341,16 +320,14 @@ main{max-width:1200px;margin:0 auto;padding:56px 40px 88px}
     <div class="layer api">
       <div class="layer-head">
         <div class="layer-name">10 · Analytics &amp; Monitoring</div>
-        <div class="layer-meta">Integrate · observability</div>
+        <div class="layer-meta">Integrate</div>
       </div>
-      <div class="layer-purpose">Know what users do, what breaks, and how to test changes. Without this layer the team is flying blind.</div>
+      <div class="layer-purpose">Observability. One per function.</div>
       <div class="layer-boxes">
-        <div class="box api">Amplitude / Mixpanel<span class="sub">product analytics (funnels, retention)</span></div>
-        <div class="box api">GA4 / Plausible<span class="sub">web analytics</span></div>
-        <div class="box api">Sentry<span class="sub">error monitoring</span></div>
-        <div class="box api">Datadog / Grafana<span class="sub">infrastructure metrics</span></div>
-        <div class="box api">Statsig / GrowthBook<span class="sub">feature flags + A/B testing</span></div>
-        <div class="box api">PostHog<span class="sub">session replay (optional)</span></div>
+        <div class="box api">Amplitude<span class="sub">product analytics — funnels, retention, web + app</span></div>
+        <div class="box api">Sentry<span class="sub">error monitoring (app + backend)</span></div>
+        <div class="box api">Datadog<span class="sub">infrastructure metrics + logs</span></div>
+        <div class="box api">Statsig<span class="sub">feature flags + A/B testing</span></div>
       </div>
     </div>
 
@@ -359,64 +336,26 @@ main{max-width:1200px;margin:0 auto;padding:56px 40px 88px}
     <!-- Layer 11: Infrastructure -->
     <div class="layer infra">
       <div class="layer-head">
-        <div class="layer-name">11 · Infrastructure (foundation)</div>
-        <div class="layer-meta">Cloud + data + auth</div>
+        <div class="layer-name">11 · Infrastructure</div>
+        <div class="layer-meta">Foundation</div>
       </div>
-      <div class="layer-purpose">Everything above runs on this. CTO-level vendor choices; cost scales with traffic and data volume.</div>
+      <div class="layer-purpose">Everything above runs on these. One per primitive.</div>
       <div class="layer-boxes">
-        <div class="box infra">AWS / GCP<span class="sub">cloud compute + storage</span></div>
-        <div class="box infra">Vercel / Cloudflare<span class="sub">app deployment + CDN</span></div>
-        <div class="box infra">PostgreSQL (Neon / RDS)<span class="sub">primary database</span></div>
+        <div class="box infra">AWS<span class="sub">cloud compute + storage</span></div>
+        <div class="box infra">PostgreSQL (Neon)<span class="sub">primary database</span></div>
         <div class="box infra">Redis<span class="sub">cache + sessions</span></div>
-        <div class="box infra">Algolia / Elasticsearch<span class="sub">search index</span></div>
-        <div class="box infra">Cloudinary / Cloudflare Images<span class="sub">image + video CDN</span></div>
-        <div class="box infra">Auth0 / Clerk<span class="sub">authentication</span></div>
-        <div class="box infra">SQS / BullMQ<span class="sub">background jobs + queues</span></div>
+        <div class="box infra">Algolia<span class="sub">search index</span></div>
+        <div class="box infra">Cloudinary<span class="sub">image + video CDN</span></div>
+        <div class="box infra">Auth0<span class="sub">authentication</span></div>
+        <div class="box infra">SQS<span class="sub">background job queue</span></div>
       </div>
     </div>
 
-  </section>
-
-  <!-- Decisions for CTO -->
-  <section class="decisions">
-    <h2>Open vendor decisions — CTO calls</h2>
-    <div class="dec-grid">
-      <div class="dec-card">
-        <div class="sub">AI Discovery</div>
-        <h3>Syte (managed) vs FashionCLIP (self-hosted)</h3>
-        <p>Both deliver visual similarity for fashion. Syte is faster to integrate and vendor-supported (Farfetch, SHEIN, PrettyLittleThing use it). FashionCLIP is open-source, MIT-licensed — TF owns the IP, no recurring vendor cost. Trade-off: speed vs ownership.</p>
-      </div>
-      <div class="dec-card">
-        <div class="sub">Payments</div>
-        <h3>Stripe vs Adyen vs Braintree</h3>
-        <p>Stripe is the default for ecommerce in 2026 and supports authorise-now-capture-later (required for pre-orders). Adyen is the alternative for high-volume EU operations. Braintree (PayPal) trails on developer experience.</p>
-      </div>
-      <div class="dec-card">
-        <div class="sub">Cloud + Database</div>
-        <h3>AWS vs GCP vs Vercel + Neon</h3>
-        <p>AWS gives the broadest service catalog and is the default for fashion DTC. Vercel + Neon (Postgres) is the modern serverless stack — faster to ship, scales to mid-sized traffic. CTO call based on team familiarity.</p>
-      </div>
-      <div class="dec-card">
-        <div class="sub">Search &amp; Recommendations</div>
-        <h3>Algolia vs Constructor vs in-house</h3>
-        <p>Algolia is the standard for fashion DTC site search (END., Gymshark). Constructor is the AI-commerce alternative with stronger personalisation (Sephora, Gap, Rothy's). In-house only if TF has compelling differentiation reason.</p>
-      </div>
-      <div class="dec-card">
-        <div class="sub">Fulfilment</div>
-        <h3>ShipBob vs ShipStation vs designer-fulfilled</h3>
-        <p>ShipBob (3PL) takes inventory burden off designers. ShipStation is a multi-carrier label layer for designer-fulfilled orders. Pre-order model + small designers → designer-fulfilled is the default; 3PL becomes relevant when GMV justifies it.</p>
-      </div>
-      <div class="dec-card">
-        <div class="sub">Mobile stack</div>
-        <h3>Native (Swift + Kotlin) vs React Native vs Flutter</h3>
-        <p>Native gives best performance and platform-API access (camera for visual search, push notifications). React Native and Flutter let one team ship both platforms faster. CTO call based on hiring profile.</p>
-      </div>
-    </div>
   </section>
 
   <!-- Cross-ref -->
   <div class="xref">
-    <strong>Cross-reference:</strong> Every named integration in layers 3, 4 and 5 has a full source-cited card in <a href="ideas.html#sec-visual">Section 05 — AI Discovery Tools</a>, including features, pricing where public, free trial, fashion clients and Terra Ferra fit assessment. Use that section as the reference when evaluating specific vendor choices.
+    Each integration above is documented with sources, pricing and fashion clients in the <a href="ideas.html#sec-visual">AI Discovery Tools catalog</a>.
   </div>
 
 </main>
