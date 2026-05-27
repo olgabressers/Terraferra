@@ -206,9 +206,9 @@ main{max-width:1200px;margin:0 auto;padding:56px 40px 88px}
   <div class="cost-banner">
     <div>
       <div class="cost-banner-label">Total monthly tech cost · $1M revenue · 3 TF team licences</div>
-      <div class="cost-banner-amount">≈ $4,300 / month</div>
+      <div class="cost-banner-amount">≈ $7,400 / month</div>
     </div>
-    <div class="cost-banner-note">≈ $1,600 / mo SaaS overhead (1.6% of GMV) + ≈ $2,700 / mo Stripe transaction fees (2.7% of GMV).<br/>≈ $52K / year total · ≈ 5.2% of revenue.<br/><strong style="color:var(--orange)">Assumption:</strong> 3 paid TF team licences on every per-seat tool.</div>
+    <div class="cost-banner-note">≈ $4,700 / mo SaaS overhead (4.7% of GMV) + ≈ $2,700 / mo Stripe transaction fees (2.7% of GMV).<br/>≈ $89K / year total · ≈ 8.9% of revenue.<br/><strong style="color:var(--orange)">Assumption:</strong> 3 paid TF team licences on every per-seat tool. Layer 3 uses ★★★ Recommended discovery tools (Lily AI + Constructor) — enterprise pricing on request, contact sales for firm quotes.</div>
   </div>
 
   <!-- Legend -->
@@ -265,13 +265,14 @@ main{max-width:1200px;margin:0 auto;padding:56px 40px 88px}
     <div class="layer api">
       <div class="layer-head">
         <div class="layer-name">3 · Discovery — consumers, designers &amp; fans</div>
-        <div class="layer-meta">Integrate</div>
-        <div class="layer-cost">subtotal ≈ $175/mo</div>
+        <div class="layer-meta">Integrate · TF's key engine</div>
+        <div class="layer-cost">subtotal ≈ $3,150/mo</div>
       </div>
-      <div class="layer-purpose">In-app discovery for every side of TF: consumers find designers, designers find their (existing) fans via predictive, fans find each other.</div>
+      <div class="layer-purpose">Discovery is Terra Ferra's core differentiator. Three ★★★ Recommended tools from the AI Discovery Tools catalog — one per function — chosen on capability, not budget.</div>
       <div class="layer-boxes">
-        <div class="box api"><a href="https://huggingface.co/patrickjohncyh/fashion-clip" target="_blank" style="color:inherit;text-decoration:none">FashionCLIP</a><span class="sub">visual aesthetic match — fan uploads outfit photo → finds matching designers</span><span class="box-cost">≈ $50–300 / mo · self-hosted on AWS GPU (model is free, MIT licence; range depends on traffic + uptime)</span></div>
-        <div class="box api"><a href="https://www.algolia.com/pricing" target="_blank" style="color:inherit;text-decoration:none">Algolia Grow</a><span class="sub">text search + filters + similar-items — find designers by style, price, country</span><span class="box-cost">≈ $75 / mo · usage-based; floor $50, expected $50–150 at $1M scale</span></div>
+        <div class="box api"><a href="https://huggingface.co/patrickjohncyh/fashion-clip" target="_blank" style="color:inherit;text-decoration:none">FashionCLIP</a><span class="sub">visual aesthetic match — fan uploads outfit photo → finds matching designers · open-source, TF owns the IP</span><span class="box-cost">≈ $150 / mo · self-hosted on AWS GPU (model is free, MIT licence)</span></div>
+        <div class="box api"><a href="https://lily.ai" target="_blank" style="color:inherit;text-decoration:none">Lily AI</a><span class="sub">attribute extraction — translates designer-speak ("midi peplum mauve") to consumer-search-language ("flowy purple dress") · used by Bloomingdale's, Rue Gilt Groupe</span><span class="box-cost">≈ $1,500 / mo (estimate · pricing on request — vendor contact required)</span></div>
+        <div class="box api"><a href="https://constructor.com" target="_blank" style="color:inherit;text-decoration:none">Constructor</a><span class="sub">AI commerce search + personalisation — used by Sephora, Gap, Under Armour, Rothy's · API-first, headless · replaces Algolia at the recommended-tool tier</span><span class="box-cost">≈ $1,500 / mo (estimate · pricing on request — vendor contact required)</span></div>
         <div class="box api"><a href="https://www.klaviyo.com/solutions/ai/what-are-predictive-analytics" target="_blank" style="color:inherit;text-decoration:none">Klaviyo Predictive AI</a><span class="sub">designers find their paying customers — predictive segments, CLV, churn risk (creator/influencer discovery on socials is Layer 4)</span><span class="box-cost">$0 / mo · included in Klaviyo subscription (Layer 5)</span></div>
       </div>
     </div>
@@ -300,12 +301,13 @@ main{max-width:1200px;margin:0 auto;padding:56px 40px 88px}
       <div class="layer-head">
         <div class="layer-name">5 · Consumer Engagement</div>
         <div class="layer-meta">Integrate</div>
-        <div class="layer-cost">subtotal ≈ $215/mo</div>
+        <div class="layer-cost">subtotal ≈ $335/mo</div>
       </div>
-      <div class="layer-purpose">Marketing email + SMS + predictive (Klaviyo) and transactional email (Postmark — order confirmations, shipping notices, KYC). Klaviyo handles marketing; Postmark handles deliverability-critical transactional sends.</div>
+      <div class="layer-purpose">Marketing email + SMS + predictive (Klaviyo), unified customer profiles (Segment CDP), and transactional email (Postmark). Klaviyo handles marketing; Postmark handles deliverability-critical transactional sends; Segment unifies data across the stack.</div>
       <div class="layer-boxes">
         <div class="box api"><a href="https://www.klaviyo.com/pricing" target="_blank" style="color:inherit;text-decoration:none">Klaviyo Email + SMS</a><span class="sub">marketing email + SMS + push + predictive analytics + lookalike audience sync · 10K active profiles</span><span class="box-cost">≈ $200 / mo · email + SMS at 10K profiles</span></div>
-        <div class="box api"><a href="https://postmarkapp.com/pricing" target="_blank" style="color:inherit;text-decoration:none">Postmark</a><span class="sub">transactional email — order confirmations, shipping (from designer), KYC, password resets · separated from marketing for deliverability</span><span class="box-cost">≈ $15 / mo · 10K emails / month</span></div>
+        <div class="box api"><a href="https://www.twilio.com/en-us/segment" target="_blank" style="color:inherit;text-decoration:none">Segment / Twilio Engage</a><span class="sub">customer data platform — unified profiles across app + web + email + payments · 550+ destinations · ★★ Recommended in the catalog</span><span class="box-cost">≈ $120 / mo (Engage Foundations · estimate, contact sales)</span></div>
+        <div class="box api"><a href="https://postmarkapp.com/pricing" target="_blank" style="color:inherit;text-decoration:none">Postmark</a><span class="sub">transactional email — order confirmations, KYC, password resets · separated from marketing for deliverability</span><span class="box-cost">≈ $15 / mo · 10K emails / month</span></div>
       </div>
     </div>
 
