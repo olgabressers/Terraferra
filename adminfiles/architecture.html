@@ -223,10 +223,10 @@ main{max-width:1200px;margin:0 auto;padding:56px 40px 88px}
   <!-- Total cost banner -->
   <div class="cost-banner">
     <div>
-      <div class="cost-banner-label">Total monthly tech cost · $1M annual GMV (≈ $83K / month) · 3 TF team licences</div>
-      <div class="cost-banner-amount">≈ $7,390 / month</div>
+      <div class="cost-banner-label">Total monthly tech cost · Year 2 Base scenario · 75 designers · ≈ $1M annual GMV · 3 TF team licences</div>
+      <div class="cost-banner-amount">≈ $7,520 / month</div>
     </div>
-    <div class="cost-banner-note">≈ $4,630 / mo SaaS overhead + ≈ $2,760 / mo Stripe transactions (payment + Radar + Identity).<br/>≈ $89K / year total · ≈ 8.9% of annual GMV.<br/><strong style="color:var(--orange)">Assumption:</strong> 3 paid TF team licences. Volume calibrated to <a href="budget.html" style="color:var(--orange);text-decoration:underline">Budget</a> Base scenario unit economics: ≈ 830 orders/mo, ≈ 10 designer onboardings/mo at $1M annual GMV. Lily AI + Constructor in Layer 3 are enterprise tools — pricing on request, contact sales for firm quotes.<br/><strong style="color:var(--orange)">Layer 3 fallback:</strong> FashionCLIP self-hosted + Algolia free starter ≈ $150 / mo. Drops total SaaS to ≈ $1,630 / mo (1.6% of annual GMV).</div>
+    <div class="cost-banner-note">≈ $4,760 / mo SaaS overhead + ≈ $2,760 / mo Stripe transactions (payment + Radar + Identity).<br/>≈ $90K / year total · ≈ 9.0% of annual GMV.<br/><strong style="color:var(--orange)">Reconciliation with <a href="budget.html" style="color:var(--orange);text-decoration:underline">Budget</a>:</strong> Budget shows pilot-stage stack (~$1,860/mo). This page shows recommended-stack at Year 2 Base (75 designers · ≈ $1M annual GMV). The v1 fallback below ≈ matches the Budget figures.<br/><strong style="color:var(--orange)">Assumption:</strong> 3 paid TF team licences. ≈ 830 orders/mo, ≈ 10 designer onboardings/mo at Year 2 Base. Lily AI + Constructor + Modash Performance pricing TBC pending vendor quotes.<br/><strong style="color:var(--orange)">Layer 3 fallback:</strong> FashionCLIP self-hosted + Algolia free starter ≈ $150 / mo. Drops total SaaS to ≈ $1,760 / mo (1.8% of annual GMV).</div>
   </div>
 
   <!-- Cost scale reference -->
@@ -244,44 +244,44 @@ main{max-width:1200px;margin:0 auto;padding:56px 40px 88px}
       <tbody>
         <tr>
           <td>Pilot · pre-PMF · ≤ $100K annual GMV
-            <div class="defer"><strong>Includes:</strong> FashionCLIP · HubSpot 3 seats · Stripe (% only) · Intercom · Postmark · Cookiebot · Pilot.com · Vercel Pro 1 seat + free tiers of Klaviyo, Algolia, Neon, Clerk, Cloudinary, Amplitude, Sentry, IG/TikTok marketplaces.</div>
+            <div class="defer"><strong>Includes:</strong> FashionCLIP · HubSpot 3 seats · Stripe (% only) · Intercom · Postmark · Cookiebot · Pilot.com · Vercel Pro 1 seat · Google Workspace 3 seats + Apple Dev · free tiers of Slack, Notion, GitHub, Figma, Klaviyo, Algolia, Neon, Clerk, Cloudinary, Amplitude, Sentry, IG/TikTok marketplaces.</div>
             <div class="defer"><strong>Excludes:</strong> Lily AI · Constructor · Modash · Segment — deferred until product-market fit.</div>
           </td>
-          <td class="num">≈ $470</td>
+          <td class="num">≈ $500</td>
           <td class="num">≈ $0–300</td>
-          <td class="num">≈ $470–770</td>
+          <td class="num">≈ $500–800</td>
         </tr>
         <tr>
           <td>$500K annual GMV
-            <div class="defer">Full recommended stack (all tools active). SaaS ≈ $130 lower than $1M: Klaviyo at ~5K profiles (~$100 vs $200), Cloudinary at base 225 credits (no overage), Neon lower compute.</div>
-          </td>
-          <td class="num">≈ $4,500</td>
-          <td class="num">≈ $1,400</td>
-          <td class="num">≈ $5,900</td>
-        </tr>
-        <tr class="current">
-          <td>$1M annual GMV · this page
-            <div class="defer">Full recommended stack. Klaviyo at 10K profiles ($200), Cloudinary Plus + overage ($135), Neon ≈ $70.</div>
+            <div class="defer">Full recommended stack. SaaS ≈ $130 lower than $1M: Klaviyo at ~5K profiles (~$100 vs $200), Cloudinary at base 225 credits (no overage), Neon lower compute. Lily AI + Constructor + Modash pricing TBC pending vendor quotes.</div>
           </td>
           <td class="num">≈ $4,630</td>
+          <td class="num">≈ $1,400</td>
+          <td class="num">≈ $6,030</td>
+        </tr>
+        <tr class="current">
+          <td>$1M annual GMV (Year 2 Base) · this page
+            <div class="defer">Full recommended stack. Klaviyo at 10K profiles ($200), Cloudinary Plus + overage ($135), Neon ≈ $70. Lily AI + Constructor + Modash pricing TBC pending vendor quotes.</div>
+          </td>
+          <td class="num">≈ $4,760</td>
           <td class="num">≈ $2,760</td>
-          <td class="num">≈ $7,390</td>
+          <td class="num">≈ $7,520</td>
         </tr>
         <tr>
           <td>$5M annual GMV
-            <div class="defer">Full recommended stack. Klaviyo at ~50K profiles (~$700), Cloudinary higher credit usage (~$200), Neon higher compute (~$140).</div>
+            <div class="defer">Full recommended stack. Klaviyo at ~50K profiles (~$700), Cloudinary higher credit usage (~$200), Neon higher compute (~$140). Lily AI + Constructor + Modash likely re-quoted at higher tier.</div>
           </td>
-          <td class="num">≈ $5,500</td>
+          <td class="num">≈ $5,800</td>
           <td class="num">≈ $13,500</td>
-          <td class="num">≈ $19,000</td>
+          <td class="num">≈ $19,300</td>
         </tr>
         <tr>
           <td>$10M annual GMV
-            <div class="defer">Full recommended stack. Klaviyo at ~100K profiles (~$1,400), Cloudinary (~$400), Neon (~$250), Amplitude may exceed 300K MTUs.</div>
+            <div class="defer">Full recommended stack. Klaviyo at ~100K profiles (~$1,400), Cloudinary (~$400), Neon (~$250), Amplitude may exceed 300K MTUs. Lily AI + Constructor + Modash enterprise tier — actual SaaS may run +50–100% above estimate.</div>
           </td>
-          <td class="num">≈ $6,500</td>
+          <td class="num">≈ $7,000</td>
           <td class="num">≈ $27,000</td>
-          <td class="num">≈ $33,500</td>
+          <td class="num">≈ $34,000</td>
         </tr>
       </tbody>
     </table>
@@ -399,7 +399,7 @@ main{max-width:1200px;margin:0 auto;padding:56px 40px 88px}
       </div>
       <div class="layer-purpose">Logistics (shipping, physical returns) stay on the designer side — TF displays stock and processes returns financially via commission clawback. Stripe handles payments + anti-fraud + KYC + payouts in one integration.</div>
       <div class="layer-boxes">
-        <div class="box tf">Designer commerce connectors<span class="sub">TF Core integrates with each designer's own commerce stack (Shopify, WooCommerce, manual CSV) — pulls stock counts, pushes orders, syncs status</span><span class="box-cost">$0 (in-house build)</span></div>
+        <div class="box tf">Designer commerce connectors<span class="sub">TF Core pulls stock counts + pushes orders to designer's own commerce stack. v1: Shopify webhook + manual CSV only. WooCommerce / Squarespace / custom-store deferred to Phase 2 (Month 7–9)</span><span class="box-cost">$0 SaaS · in-house build (~2 weeks per platform)</span></div>
         <div class="box api"><a href="https://stripe.com/connect" target="_blank" style="color:inherit;text-decoration:none">Stripe + Stripe Connect</a><span class="sub">payments · Stripe Tax (VAT + US sales tax) · Connect multi-party payouts (designer, ambassador, co-creator, TF) · iDEAL + SEPA for EU · 3D Secure included</span><span class="box-cost">≈ $2,700 / mo · 2.9% + $0.30 per transaction · Base scenario ≈ 830 orders/mo at $1M GMV</span></div>
         <div class="box api"><a href="https://stripe.com/radar" target="_blank" style="color:inherit;text-decoration:none">Stripe Radar</a><span class="sub">anti-fraud — ML-based card-fraud detection, screened on every transaction</span><span class="box-cost">≈ $42 / mo · $0.05 per screened transaction × 830 orders</span></div>
         <div class="box api"><a href="https://stripe.com/identity" target="_blank" style="color:inherit;text-decoration:none">Stripe Identity</a><span class="sub">designer KYC verification at onboarding (ID + selfie + document check)</span><span class="box-cost">≈ $15 / mo · $1.50 per verification × ≈ 10 designers / mo</span></div>
@@ -472,6 +472,28 @@ main{max-width:1200px;margin:0 auto;padding:56px 40px 88px}
         <div class="box infra"><a href="https://neon.com/pricing" target="_blank" style="color:inherit;text-decoration:none">Neon Scale</a><span class="sub">primary Postgres database · usage-based ($0.222/CU-hour + $0.35/GB-month storage, no monthly minimum) · EU region · unlimited seats</span><span class="box-cost">≈ $70 / mo at $1M scale</span></div>
         <div class="box infra"><a href="https://clerk.com/pricing" target="_blank" style="color:inherit;text-decoration:none">Clerk Pro</a><span class="sub">authentication for designer + creator + fan + consumer · 50K MAU free band, then per-MAU</span><span class="box-cost">≈ $25 / mo</span></div>
         <div class="box infra"><a href="https://cloudinary.com/pricing" target="_blank" style="color:inherit;text-decoration:none">Cloudinary Plus</a><span class="sub">image + video CDN + AI transforms (essential for fashion catalog) · 225 monthly credits, overages apply at $1M scale</span><span class="box-cost">≈ $135 / mo (Plus base $89 + credit overage)</span></div>
+      </div>
+    </div>
+
+    <div class="arrow">↓</div>
+
+    <!-- Layer 11: Team Ops + Engineering Platform -->
+    <div class="layer infra">
+      <div class="layer-head">
+        <div class="layer-name">11 · Team Operations + Engineering Platform</div>
+        <div class="layer-meta">Subscribe · per-seat</div>
+        <div class="layer-cost">subtotal ≈ $130/mo</div>
+      </div>
+      <div class="layer-purpose">How the TF team actually works day-to-day — chat, docs, code, design, email + the engineering platform (CI/CD, secrets, WAF). 3 paid licences each.</div>
+      <div class="layer-boxes">
+        <div class="box saas"><a href="https://slack.com/pricing" target="_blank" style="color:inherit;text-decoration:none">Slack Pro</a><span class="sub">team chat</span><span class="box-cost">≈ $24 / mo · 3 seats × $8</span></div>
+        <div class="box saas"><a href="https://workspace.google.com/pricing" target="_blank" style="color:inherit;text-decoration:none">Google Workspace</a><span class="sub">email · docs · drive · meet</span><span class="box-cost">≈ $21 / mo · 3 seats × $7</span></div>
+        <div class="box saas"><a href="https://www.notion.com/pricing" target="_blank" style="color:inherit;text-decoration:none">Notion Plus</a><span class="sub">docs · roadmap · designer onboarding wiki</span><span class="box-cost">≈ $30 / mo · 3 seats × $10</span></div>
+        <div class="box saas"><a href="https://github.com/pricing" target="_blank" style="color:inherit;text-decoration:none">GitHub Team</a><span class="sub">code hosting + Actions (CI/CD)</span><span class="box-cost">≈ $12 / mo · 3 seats × $4</span></div>
+        <div class="box saas"><a href="https://www.figma.com/pricing/" target="_blank" style="color:inherit;text-decoration:none">Figma</a><span class="sub">UI / brand design</span><span class="box-cost">$0–45 / mo · free tier or 3 seats × $15</span></div>
+        <div class="box infra"><a href="https://www.doppler.com/pricing" target="_blank" style="color:inherit;text-decoration:none">Doppler</a><span class="sub">secrets manager (API keys, .env)</span><span class="box-cost">$0 / mo · free Developer tier</span></div>
+        <div class="box infra">Vercel WAF + DDoS<span class="sub">edge security · rate-limiting</span><span class="box-cost">$0 · included in Vercel Pro (Layer 10)</span></div>
+        <div class="box infra"><a href="https://developer.apple.com/programs/" target="_blank" style="color:inherit;text-decoration:none">Apple Developer + Google Play</a><span class="sub">mobile app store accounts</span><span class="box-cost">≈ $10 / mo · Apple $99/yr + Google $25 one-time</span></div>
       </div>
     </div>
 
