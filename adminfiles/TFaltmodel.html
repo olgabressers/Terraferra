@@ -246,7 +246,7 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
     <div class="idea-block">
       <div class="idea-num">02 · Visual Style Profile</div>
       <div class="idea-title">Each user gets a style profile from 5 photos.</div>
-      <div class="idea-body">Most apps recommend based on what the user clicks or buys. TF would ask each new user to upload 5 outfits they like. From those, the AI builds a style profile. The same profile then ranks what shows up in the feed, what drop alerts the user gets and — for influencers — which briefs they match.</div>
+      <div class="idea-body">Most apps recommend based on what the user clicks or buys. Proposed alt-model: at sign-up, each user uploads 5 outfits they like. The AI builds a style profile. The same profile then ranks what shows up in the feed, what drop alerts the user gets and — for influencers — which briefs they match.</div>
       <div class="idea-mech">
         <strong>How it works</strong>
         <ul>
@@ -262,7 +262,7 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
     <div class="idea-block">
       <div class="idea-num">03 · Social Discovery × AI</div>
       <div class="idea-title">Recommendations use three signals at once, not one.</div>
-      <div class="idea-body">Most apps use one signal: tags (Farfetch), follows (ShopMy), or clicks (Amazon). TF combines all three. The user's feed ranks every drop on style fit, social fit and how fast the drop is selling — at the same time. The combination was not observed in the platforms surveyed (Section 03).</div>
+      <div class="idea-body">Most apps use one signal: tags (Farfetch), follows (ShopMy), or clicks (Amazon). Proposed alt-model: TF combines all three. The user's feed ranks every drop on style fit, social fit and how fast the drop is selling — at the same time. The combination was not observed in the platforms surveyed (see Section 03 discovery-signal comparison).</div>
       <div class="idea-mech">
         <strong>How it works</strong>
         <ul>
@@ -342,7 +342,7 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
         <div class="alt-add year-1">
           <span class="year-label">Year 1 · Own the niche</span>
           <div class="alt-c-label">Emerging designers</div>
-          <div class="alt-c-sub">Deals at $1–5K per influencer drop. Below Pearpop and TRIBE's economic floor — they can't profitably serve $1–5K deals.</div>
+          <div class="alt-c-sub">Deals at $1–5K per influencer drop. Pearpop and TRIBE publicly serve Fortune-500 brands at $50K+ per campaign — this segment is not their target.</div>
         </div>
         <div class="alt-add year-2">
           <span class="year-label">Year 2–3 · Mid-market</span>
@@ -366,8 +366,8 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
 
   <div class="alt-problem" style="margin-bottom:18px">
     <span class="alt-problem-label">Key constraint</span>
-    <strong style="color:white;font-size:15px;display:block;margin-bottom:6px">Instagram blocks the "silent style scan."</strong>
-    Meta's APIs do not let third-party apps read a user's likes, saves or follows. Personal accounts — the majority of users — cannot expose any post content via API. A login that quietly imports a user's style profile from Instagram does not exist inside Meta's rules. Five compliant alternatives below.
+    <strong style="color:white;font-size:15px;display:block;margin-bottom:6px">No fully invisible legal path exists for personal Instagram accounts.</strong>
+    Meta's APIs do not let third-party apps read a user's likes, saves or follows. Personal accounts — the majority of users — cannot expose any post content via API. The closest compliant path is OAuth + 5-photo upload at ≈ 30 seconds onboarding. Five compliant options below; <strong style="color:#FFF3E8">A + B combined is the recommended pattern.</strong>
   </div>
 
   <table class="comp-table">
@@ -434,6 +434,59 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
     Combine A + B in a single flow. OAuth login first. If the connected account is Business or Creator, pull recent media via API and build the style vector in 5 seconds. If the account is Personal (the majority), prompt the user to upload 5 photos — same 30-second onboarding. D is an add-on for the iOS / Android apps. C is excluded on TOS grounds.
   </div>
 
+  <!-- ═══ DISCOVERY SIGNAL COMPARISON ═══ -->
+  <div class="sec-h">
+    <span class="sec-num">03</span><span class="sec-title">Discovery signals — Terra Ferra vs the rest</span>
+    <div class="sec-sub">What signals each platform uses to surface products.</div>
+  </div>
+
+  <table class="comp-table" style="margin-bottom:32px">
+    <thead>
+      <tr>
+        <th>Platform</th>
+        <th>Visual style signal</th>
+        <th>Social signal</th>
+        <th>Drop / momentum signal</th>
+        <th>Net effect</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong><a href="https://www.farfetch.com" target="_blank" style="color:var(--tf);text-decoration:none">Farfetch</a></strong> / <a href="https://www.mytheresa.com" target="_blank" style="color:var(--tf);text-decoration:none">Mytheresa</a></td>
+        <td><span class="badge no">No</span> catalog browse, tags, text search</td>
+        <td><span class="badge no">No</span></td>
+        <td><span class="badge no">No</span></td>
+        <td>Inventory catalog with editorial curation. No personalisation based on social or community signal.</td>
+      </tr>
+      <tr>
+        <td><strong><a href="https://www.shopltk.com" target="_blank" style="color:var(--tf);text-decoration:none">LTK</a></strong> / <a href="https://shopmy.us" target="_blank" style="color:var(--tf);text-decoration:none">ShopMy</a></td>
+        <td><span class="badge no">No</span></td>
+        <td><span class="badge yes">Yes</span> follow graph (who the user follows)</td>
+        <td><span class="badge no">No</span></td>
+        <td>Affiliate links attached to creators the user already follows. Discovery limited to existing creator network.</td>
+      </tr>
+      <tr>
+        <td><strong><a href="https://www.xiaohongshu.com" target="_blank" style="color:var(--tf);text-decoration:none">Rednote</a> · <a href="https://www.tiktok.com" target="_blank" style="color:var(--tf);text-decoration:none">TikTok</a></strong></td>
+        <td><span class="badge yes">Yes</span> visual content algorithmic feed</td>
+        <td><span class="badge yes">Yes</span> implicit (engagement signal)</td>
+        <td><span class="badge no">No</span> generic algorithmic, not drop-aware</td>
+        <td>Best-in-class visual + behavioural feed but generalist. No drop / pre-order / commerce-native ranking.</td>
+      </tr>
+      <tr style="background:#FFF3E8">
+        <td><strong style="color:var(--orange)">Terra Ferra · proposed</strong></td>
+        <td><span class="badge yes">Yes</span> 5-photo style profile vector</td>
+        <td><span class="badge yes">Yes</span> explicit follow graph</td>
+        <td><span class="badge yes">Yes</span> co-creation vote rate + pre-order rate</td>
+        <td>Three signals at once. Each drop in the feed ranks on style fit × social fit × drop momentum simultaneously.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="gap-callout" style="margin-bottom:32px">
+    <strong>The behavioural difference</strong>
+    Farfetch shopper finds product through search and editorial. Rednote user finds product through algorithmic feed but with no buying loop. The proposed TF flow combines all three: drops a user's friends are pre-ordering, ranked by their style profile, with the option to vote on the design before production. Closer to social commerce than to a catalog marketplace.
+  </div>
+
   <!-- ═══ POSITIONING ═══ -->
   <div class="position">
     <div class="position-eyebrow">Positioning vs Existing Categories</div>
@@ -442,7 +495,7 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
 
   <!-- ═══ COMPETITOR LANDSCAPE ═══ -->
   <div class="sec-h">
-    <span class="sec-num">03</span><span class="sec-title">Reverse-Marketplace Competitor Landscape</span>
+    <span class="sec-num">04</span><span class="sec-title">Reverse-Marketplace Competitor Landscape</span>
     <div class="sec-sub">Platforms where influencers / creators actively apply to brand briefs rather than brands hunting them. Sourced from each vendor's official site, May 2026.</div>
   </div>
 
