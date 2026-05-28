@@ -218,6 +218,76 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
 
   </div>
 
+  <!-- ═══ INSTAGRAM SCAN OPTIONS ═══ -->
+  <div class="sec-h">
+    <span class="sec-num">02</span><span class="sec-title">Instagram Style Scan — Options &amp; Constraints</span>
+    <div class="sec-sub">Meta's APIs do not expose a user's discovery signal (likes, saves, follows) to third parties. Personal accounts cannot share post content via API at all. The "log in, scan, done" experience exists only as a hybrid fallback. Five workable patterns:</div>
+  </div>
+
+  <table class="comp-table">
+    <thead>
+      <tr>
+        <th>Option</th>
+        <th>How it works</th>
+        <th>Coverage</th>
+        <th>UX time</th>
+        <th>Risk / status</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr>
+        <td><strong>A · Instagram Login + manual upload</strong>
+          <span class="src">Source: <a href="https://developers.facebook.com/docs/instagram-platform/instagram-api-with-instagram-login" target="_blank">developers.facebook.com</a></span>
+        </td>
+        <td>OAuth captures identity (username, profile photo). User then uploads 5 outfit photos. FashionCLIP builds the style vector from the uploads.</td>
+        <td>100% of users</td>
+        <td>≈ 30 seconds</td>
+        <td><span class="badge yes">Low risk · Meta-sanctioned</span></td>
+      </tr>
+
+      <tr>
+        <td><strong>B · Business / Creator API auto-pull</strong>
+          <span class="src">Source: <a href="https://developers.facebook.com/docs/instagram-platform" target="_blank">developers.facebook.com</a></span>
+        </td>
+        <td>OAuth + Instagram Graph API reads the user's recent media (own posts only). Style vector auto-built. No likes / saves / follows accessible.</td>
+        <td>≈ 5–10% of users (Business + Creator accounts only)</td>
+        <td>≈ 5 seconds</td>
+        <td><span class="badge yes">Low risk · Meta-sanctioned · app-review required</span></td>
+      </tr>
+
+      <tr>
+        <td><strong>C · Public profile URL scrape</strong></td>
+        <td>User pastes their public Instagram profile URL. TF scrapes recent posts via headless browser or 3rd-party data provider.</td>
+        <td>≈ 90% of users (public accounts)</td>
+        <td>≈ 10 seconds</td>
+        <td><span class="badge no">High risk · Meta TOS violation · account &amp; IP bans · prior litigation precedent</span></td>
+      </tr>
+
+      <tr>
+        <td><strong>D · iOS / Android share extension</strong></td>
+        <td>User shares 5 Instagram posts to the TF mobile app via the OS share sheet. TF reads the shared image data directly.</td>
+        <td>Mobile app users only</td>
+        <td>≈ 30 seconds (multiple shares)</td>
+        <td><span class="badge yes">Low risk · user-initiated</span></td>
+      </tr>
+
+      <tr>
+        <td><strong>E · Browser extension</strong></td>
+        <td>Chrome / Safari extension captures images as the user browses Instagram. Style vector built passively.</td>
+        <td>Desktop users with extension installed</td>
+        <td>Passive (over days)</td>
+        <td><span class="badge partial">Medium risk · extension-store review · privacy positioning</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div class="gap-callout">
+    <strong>Recommended pattern</strong>
+    Combine A + B in a single flow. OAuth login first. If the connected account is Business or Creator, pull recent media via API and build the style vector in 5 seconds. If the account is Personal (the majority), prompt the user to upload 5 photos — same 30-second onboarding. D is an add-on for the iOS / Android apps. C is excluded on TOS grounds.
+  </div>
+
   <!-- ═══ POSITIONING ═══ -->
   <div class="position">
     <div class="position-eyebrow">Positioning vs Existing Categories</div>
@@ -226,7 +296,7 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
 
   <!-- ═══ COMPETITOR LANDSCAPE ═══ -->
   <div class="sec-h">
-    <span class="sec-num">02</span><span class="sec-title">Reverse-Marketplace Competitor Landscape</span>
+    <span class="sec-num">03</span><span class="sec-title">Reverse-Marketplace Competitor Landscape</span>
     <div class="sec-sub">Platforms where creators (or ambassadors) actively apply to brand briefs rather than brands hunting creators. Sourced from each vendor's official site, May 2026.</div>
   </div>
 
