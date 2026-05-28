@@ -123,6 +123,18 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
 .alt-additional .alt-section-label{color:var(--orange)}
 .alt-section-h{font-size:18px;font-weight:800;color:var(--ink);margin:8px 0 16px;letter-spacing:-.3px;line-height:1.3}
 .alt-circles,.alt-additional-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.alt-pillars-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.alt-pillar{background:white;border:1px solid var(--rule);border-top:4px solid var(--tf);padding:16px 14px;display:flex;flex-direction:column}
+.alt-pillar.unique{border-top-color:var(--orange)}
+.alt-pillar .pillar-tag{font-size:9px;font-weight:800;color:var(--sub);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px}
+.alt-pillar.unique .pillar-tag{color:var(--orange)}
+.alt-pillar .pillar-num{font-size:20px;font-weight:800;color:var(--tf);line-height:1;margin-bottom:8px}
+.alt-pillar.unique .pillar-num{color:var(--orange)}
+.alt-pillar .pillar-title{font-size:13px;font-weight:800;line-height:1.3;color:var(--ink);margin-bottom:8px}
+.alt-pillar .pillar-body{font-size:11px;color:var(--sub);line-height:1.5;margin-top:auto}
+@media(max-width:1100px){.alt-pillars-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.alt-pillars-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.alt-pillars-grid{grid-template-columns:1fr}}
 .alt-circle,.alt-add{background:white;border:1px solid var(--rule);padding:14px 16px}
 .alt-circle.c-marketplace{border-top:3px solid var(--tf)}
 .alt-circle.c-creator{border-top:3px solid var(--orange)}
@@ -273,26 +285,45 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
     <div class="alt-arrow">↓</div>
 
     <div class="alt-section alt-key">
-      <div class="alt-section-label">Terra Ferra core · 2022 model + 2026 addition</div>
-      <div class="alt-section-h">Marketplace × Creator Commerce × Drops + Pre-orders</div>
-      <div class="alt-circles">
-        <div class="alt-circle c-marketplace">
-          <div class="alt-c-label">Marketplace</div>
-          <div style="font-size:9px;font-weight:800;color:var(--orange);letter-spacing:1.5px;text-transform:uppercase;margin:4px 0 6px">Added 2026</div>
-          <div class="alt-c-sub">Ongoing designer storefronts — a persistent catalog so designers sell between drops. 7% GMV commission.</div>
+      <div class="alt-section-label">What Terra Ferra stands for · mirrored from <a href="TFbusinessmodel.html" style="color:var(--tf)">Business Model page</a></div>
+      <div class="alt-pillars-grid">
+
+        <div class="alt-pillar unique">
+          <div class="pillar-tag">The product</div>
+          <div class="pillar-num">01</div>
+          <div class="pillar-title">Marketplace + Drops</div>
+          <div class="pillar-body">Two motions in one platform. Designers run pre-order drop campaigns with their community AND sell ongoing collections through a persistent marketplace storefront. Buyers access emerging designers other channels exclude.</div>
         </div>
-        <div class="alt-circle c-creator">
-          <div class="alt-c-label">Creator Commerce</div>
-          <div style="font-size:9px;font-weight:800;color:#1F7A4E;letter-spacing:1.5px;text-transform:uppercase;margin:4px 0 6px">2022 model</div>
-          <div class="alt-c-sub">Ambassador and influencer commissions on sales they drive. TF takes 10% of those rewards (per 2022 deck).</div>
+
+        <div class="alt-pillar">
+          <div class="pillar-tag">For designers</div>
+          <div class="pillar-num">02</div>
+          <div class="pillar-title">Launch toolbox + storefront</div>
+          <div class="pillar-body">Sign with a sketch — no inventory required. Co-create with superfans. Run pre-orders and crowdfund drops. List ongoing collections. 7% take rate vs 25–52% on competing marketplaces.</div>
         </div>
-        <div class="alt-circle c-drops">
-          <div class="alt-c-label">Drops + Pre-orders</div>
-          <div style="font-size:9px;font-weight:800;color:#1F7A4E;letter-spacing:1.5px;text-transform:uppercase;margin:4px 0 6px">2022 model</div>
-          <div class="alt-c-sub">Pre-sales, crowdfunding and co-creation. Designers fund and refine drops with their community before production. 7% crowdfunding fee; TF takes 10% of co-creator rewards.</div>
+
+        <div class="alt-pillar">
+          <div class="pillar-tag">For influencers</div>
+          <div class="pillar-num">03</div>
+          <div class="pillar-title">Niche-creator commerce</div>
+          <div class="pillar-body">10K–150K-follower fashion creators earn commission on the drops they sell out. No follower minimum — the segment LTK and ShopMy exclude by policy is welcome here.</div>
         </div>
+
+        <div class="alt-pillar">
+          <div class="pillar-tag">For superfans</div>
+          <div class="pillar-num">04</div>
+          <div class="pillar-title">Co-create + earn</div>
+          <div class="pillar-body">Vote on designs before production, pre-order before launch, earn ambassador rewards on sales you drive. Status, exclusive access and income — not just consumption.</div>
+        </div>
+
+        <div class="alt-pillar unique">
+          <div class="pillar-tag">For investors</div>
+          <div class="pillar-num">05</div>
+          <div class="pillar-title">Asset-light · multi-stream · networked</div>
+          <div class="pillar-body">No inventory risk. Three-sided network effects (designers ↔ influencers ↔ superfans). Four revenue streams: $1K designer retainer + 5% pre-order fee + 7% co-creator reward + marketplace commission. Niche position no competitor in this matrix matches.</div>
+        </div>
+
       </div>
-      <div class="alt-roles"><strong>Four roles served:</strong> Designer · Influencer · Super Fan · Consumer · See the full breakdown on the <a href="TFbusinessmodel.html">Comparison Matrix</a>.</div>
     </div>
 
     <div class="alt-arrow">↓</div>
