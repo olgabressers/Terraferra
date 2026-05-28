@@ -57,6 +57,15 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
 @media(max-width:700px){main{padding:28px 18px 60px}}
 
+/* Conclusion at top */
+.conclusion{background:var(--ink);color:white;padding:24px 28px;margin-bottom:32px;border-left:3px solid var(--orange)}
+.conclusion-label{font-size:10px;font-weight:800;letter-spacing:2.2px;text-transform:uppercase;color:var(--orange);margin-bottom:10px}
+.conclusion p{font-size:14px;line-height:1.65;color:white}
+@media(max-width:700px){
+  .conclusion{padding:16px 18px;margin-bottom:24px}
+  .conclusion p{font-size:13px}
+}
+
 /* Table of contents */
 .toc{background:white;border:1px solid var(--rule);border-left:3px solid var(--tf);padding:20px 24px;margin-bottom:40px}
 .toc-head{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);margin-bottom:12px}
@@ -231,73 +240,22 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
 
 <main>
 
+  <!-- ═══ CONCLUSION (top) ═══ -->
+  <div class="conclusion">
+    <div class="conclusion-label">Conclusion</div>
+    <p>The core Terra Ferra model (Marketplace × Creator Commerce × Drops + Pre-orders) stays in place. The alt-model adds three discovery layers on top: a visual style profile, a reverse marketplace where designers post briefs, and a feed that ranks every drop on style fit, social fit and drop momentum together. The combination was not observed in the platforms surveyed (Farfetch, LTK, ShopMy, Rednote, TikTok, Pearpop, TRIBE, Cohley, JoinBrands, Brandbassador).</p>
+  </div>
+
+
   <!-- Table of contents -->
   <nav class="toc" aria-label="Page contents">
     <div class="toc-head">Contents</div>
     <ul class="toc-list">
-      <li><a href="#sec-anchor-01"><span class="toc-num">01</span>Three Concept Blocks · illustration · phasing of B</a></li>
-      <li><a href="#sec-anchor-02"><span class="toc-num">02</span>Discovery signals — Terra Ferra vs the rest</a></li>
-      <li><a href="#sec-anchor-03"><span class="toc-num">03</span>Reverse-Marketplace Competitor Landscape</a></li>
-      <li><a href="#sec-anchor-04"><span class="toc-num">04</span>Instagram Style Scan — Options &amp; Constraints</a></li>
+      <li><a href="#sec-anchor-01"><span class="toc-num">01</span>Discovery signals — Terra Ferra vs the rest</a></li>
+      <li><a href="#sec-anchor-02"><span class="toc-num">02</span>Reverse-Marketplace Competitor Landscape</a></li>
+      <li><a href="#sec-anchor-03"><span class="toc-num">03</span>Instagram Style Scan — Options &amp; Constraints</a></li>
     </ul>
   </nav>
-
-  <!-- ═══ THREE IDEA BLOCKS ═══ -->
-  <div class="sec-h">
-    <span class="sec-num" id="sec-anchor-01">01</span><span class="sec-title">Three Concept Blocks</span>
-  </div>
-
-  <div class="idea-grid">
-
-    <!-- Block 1: Reverse Marketplace -->
-    <div class="idea-block">
-      <div class="idea-num">01 · Reverse Marketplace</div>
-      <div class="idea-title">Designer posts a brief. Influencers apply. AI ranks the matches.</div>
-      <div class="idea-body">Today a small brand finds influencers one at a time — emails, DMs, weeks of back-and-forth for a handful of replies. Flip the direction. The designer posts the brief once — what kind of drop, what audience, what commission — and influencers apply to it. The system ranks applicants by how well their existing content matches the brief.</div>
-      <div class="idea-mech">
-        <strong>How it works</strong>
-        <ul>
-          <li>Designer posts a brief: drop aesthetic, audience, commission</li>
-          <li>Influencers browse open briefs and apply with one tap</li>
-          <li>AI ranks applicants by how visually similar their content is to the brief</li>
-          <li>Designer accepts the top matches</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Block 2: Visual Style Profile -->
-    <div class="idea-block">
-      <div class="idea-num">02 · Visual Style Profile</div>
-      <div class="idea-title">Each user gets a style profile from 5 photos.</div>
-      <div class="idea-body">Most apps recommend based on what the user clicks or buys. Proposed alt-model: at sign-up, each user uploads 5 outfits they like. The AI builds a style profile. The same profile then ranks what shows up in the feed, what drop alerts the user gets and — for influencers — which briefs they match.</div>
-      <div class="idea-mech">
-        <strong>How it works</strong>
-        <ul>
-          <li>At sign-up the user uploads 5 outfit photos</li>
-          <li>AI turns them into a style profile</li>
-          <li>The same profile is used everywhere: feed, alerts, brief matching</li>
-          <li>Instagram does not let third parties read likes / saves silently — the 5-photo upload is the workaround</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Block 3: Social Discovery + AI -->
-    <div class="idea-block">
-      <div class="idea-num">03 · Social Discovery × AI</div>
-      <div class="idea-title">Recommendations use three signals at once, not one.</div>
-      <div class="idea-body">Most apps use one signal: tags (Farfetch), follows (ShopMy), or clicks (Amazon). Proposed alt-model: TF combines all three. The user's feed ranks every drop on style fit, social fit and how fast the drop is selling — at the same time. The combination was not observed in the platforms surveyed (see Section 03 discovery-signal comparison).</div>
-      <div class="idea-mech">
-        <strong>How it works</strong>
-        <ul>
-          <li>Style fit: how close the drop is to the user's style profile</li>
-          <li>Social fit ("Circles"): how many people the user follows are buying or voting</li>
-          <li>Drop momentum: pre-order rate + co-creation vote count</li>
-          <li>Every drop in the feed ranks on all three at the same time</li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
 
   <!-- ═══ ILLUSTRATION: TF CORE + ALT MODEL ADDITIONS ═══ -->
   <div class="alt-flow">
@@ -389,7 +347,7 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
 
   <!-- ═══ DISCOVERY SIGNAL COMPARISON ═══ -->
   <div class="sec-h">
-    <span class="sec-num" id="sec-anchor-02">02</span><span class="sec-title">Discovery signals — Terra Ferra vs the rest</span>
+    <span class="sec-num" id="sec-anchor-01">01</span><span class="sec-title">Discovery signals — Terra Ferra vs the rest</span>
     <div class="sec-sub">What signals each platform uses to surface products.</div>
   </div>
 
@@ -448,7 +406,7 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
 
   <!-- ═══ COMPETITOR LANDSCAPE ═══ -->
   <div class="sec-h">
-    <span class="sec-num" id="sec-anchor-03">03</span><span class="sec-title">Reverse-Marketplace Competitor Landscape</span>
+    <span class="sec-num" id="sec-anchor-02">02</span><span class="sec-title">Reverse-Marketplace Competitor Landscape</span>
     <div class="sec-sub">Platforms where influencers / creators actively apply to brand briefs rather than brands hunting them. Sourced from each vendor's official site, May 2026.</div>
   </div>
 
@@ -526,7 +484,7 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
 
 <!-- ═══ INSTAGRAM SCAN OPTIONS ═══ -->
   <div class="sec-h">
-    <span class="sec-num" id="sec-anchor-04">04</span><span class="sec-title">Instagram Style Scan — Options &amp; Constraints</span>
+    <span class="sec-num" id="sec-anchor-03">03</span><span class="sec-title">Instagram Style Scan — Options &amp; Constraints</span>
     <div class="sec-sub">No consumer-facing fashion app currently runs visual AI on personal Instagram content for style profiling. The platforms in Sections 02 and 03 all use other signals. The blocker is technical, not competitive — explained below.</div>
   </div>
 
