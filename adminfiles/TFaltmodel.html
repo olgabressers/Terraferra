@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Terra Ferra — Alternative Business Model</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --tf:#4B40C2;
+  --tf-dark:#2D2595;
+  --tf-deep:#12102B;
+  --tf-mid:#7169D4;
+  --tf-light:#ECEAF9;
+  --tf-ghost:#F4F2FC;
+  --orange:#E86820;
+  --orange-tint:#FFF3E8;
+  --off-white:#F7F6FB;
+  --ink:#12102B;
+  --sub:#5B5880;
+  --rule:#D8D4EF;
+  --green:#1F7A4E;
+}
+body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink);line-height:1.6}
+
+/* Top navigation */
+.topnav{background:white;border-bottom:1px solid var(--rule);padding:12px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
+.topnav-home{font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);text-decoration:none;font-size:11px}
+.topnav-home:hover{color:var(--tf-dark)}
+.topnav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:var(--sub);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:10px}
+.topnav-links a:hover{color:var(--tf)}
+.topnav-links a.active{color:var(--orange)}
+@media(max-width:700px){.topnav{position:static;padding:10px 14px}.topnav-links{gap:10px;justify-content:flex-start;width:100%}.topnav-links a{font-size:9.5px}}
+.topnav-links .has-dropdown{position:relative;padding-bottom:10px;margin-bottom:-10px}
+.topnav-links .dropdown-trigger{cursor:pointer;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:10px;user-select:none}
+.topnav-links .dropdown-trigger:hover,.topnav-links .has-dropdown:focus-within .dropdown-trigger{color:var(--tf)}
+.topnav-links .dropdown-trigger.active{color:var(--orange)}
+.topnav-links .dropdown{display:none;position:absolute;top:100%;right:0;background:white;border:1px solid var(--rule);min-width:240px;box-shadow:0 6px 14px rgba(0,0,0,0.08);padding:6px 0;z-index:60}
+.topnav-links .has-dropdown:hover .dropdown,.topnav-links .has-dropdown:focus-within .dropdown{display:block}
+.topnav-links .dropdown a{display:block;padding:9px 16px;font-size:10px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:1px;text-decoration:none}
+.topnav-links .dropdown a:hover{background:var(--tf-ghost);color:var(--tf)}
+@media(max-width:700px){.topnav-links .has-dropdown{padding-bottom:0;margin-bottom:0}.topnav-links .dropdown{position:static;display:block;box-shadow:none;border:none;padding:0;min-width:0;margin-left:8px}.topnav-links .dropdown a{padding:4px 0;font-size:9px}}
+
+/* Cover */
+.cover{background:var(--tf);color:white;padding:56px 60px 52px;position:relative;overflow:hidden}
+.cover::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 90% 100%,rgba(18,16,43,.65) 0%,transparent 55%);pointer-events:none}
+.cover-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1}
+.cover-eyebrow{font-size:10px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:20px}
+.tf-logo{font-size:clamp(32px,4.5vw,56px);font-weight:800;letter-spacing:-1.5px;line-height:1.05;color:white;margin-bottom:12px}
+.tf-sub{font-size:14px;color:rgba(255,255,255,.7);max-width:680px;line-height:1.6;font-weight:400}
+
+/* Main */
+main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
+@media(max-width:700px){main{padding:28px 18px 60px}}
+
+/* Section heading */
+.sec-h{margin-bottom:20px;padding-bottom:12px;border-bottom:1.5px solid var(--tf)}
+.sec-num{font-size:28px;font-weight:800;color:var(--orange);letter-spacing:-1px;margin-right:14px}
+.sec-title{font-size:28px;font-weight:800;color:var(--orange);letter-spacing:-1px}
+.sec-sub{font-size:13px;color:var(--sub);line-height:1.65;margin-top:14px;max-width:820px}
+
+/* Idea blocks */
+.idea-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:56px}
+@media(max-width:960px){.idea-grid{grid-template-columns:1fr}}
+.idea-block{background:white;border:1px solid var(--rule);border-top:3px solid var(--orange);padding:24px 26px;display:flex;flex-direction:column;gap:14px}
+.idea-num{font-size:11px;font-weight:800;letter-spacing:2px;color:var(--orange)}
+.idea-title{font-size:17px;font-weight:800;color:var(--ink);letter-spacing:-.3px;line-height:1.25}
+.idea-body{font-size:12.5px;color:var(--ink);line-height:1.65}
+.idea-mech{font-size:11.5px;color:var(--sub);line-height:1.6;padding-top:10px;border-top:1px dashed var(--rule)}
+.idea-mech strong{color:var(--ink);display:block;font-size:9.5px;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:5px;font-weight:800}
+.idea-mech ul{list-style:none;padding:0;margin:0}
+.idea-mech li{padding:3px 0 3px 14px;position:relative}
+.idea-mech li::before{content:'—';position:absolute;left:0;color:var(--orange);font-weight:700}
+
+/* Positioning callout */
+.position{background:var(--ink);color:white;padding:24px 28px;margin-bottom:56px;border-left:3px solid var(--orange)}
+.position-eyebrow{font-size:10px;font-weight:800;letter-spacing:2.2px;text-transform:uppercase;color:var(--orange);margin-bottom:10px}
+.position-body{font-size:15px;line-height:1.65;color:white;font-weight:500;max-width:880px}
+.position-body em{color:var(--orange);font-style:normal;font-weight:700}
+
+/* Competitor table */
+.comp-table{width:100%;border-collapse:collapse;background:white;border:1px solid var(--rule);font-size:12.5px;margin-bottom:14px}
+.comp-table thead{background:var(--tf-ghost)}
+.comp-table th{text-align:left;padding:11px 14px;font-size:9.5px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--sub);border-bottom:1px solid var(--rule)}
+.comp-table td{padding:12px 14px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.5}
+.comp-table tr:last-child td{border-bottom:none}
+.comp-table tr.tf-row{background:#FFF3E8}
+.comp-table tr.tf-row td{font-weight:600}
+.comp-table tr.tf-row td:first-child{color:var(--orange)}
+.comp-table td .src{font-size:10px;color:var(--sub);margin-top:4px;display:block}
+.comp-table td .src a{color:var(--sub);text-decoration:underline}
+.comp-table td .src a:hover{color:var(--tf)}
+.comp-table .badge{font-size:9px;font-weight:800;letter-spacing:.8px;padding:2px 6px;border-radius:2px;text-transform:uppercase;white-space:nowrap;display:inline-block}
+.comp-table .badge.yes{background:#DDEEE5;color:var(--green)}
+.comp-table .badge.no{background:#FEE2E2;color:#991B1B}
+.comp-table .badge.partial{background:#FBF1D5;color:#8B6510}
+
+@media(max-width:800px){
+  .comp-table{display:block;overflow-x:auto;white-space:nowrap}
+  .comp-table td,.comp-table th{white-space:normal;min-width:140px}
+}
+
+/* Gap callout */
+.gap-callout{background:white;border:1px solid var(--rule);border-left:3px solid var(--tf);padding:18px 22px;margin-bottom:56px;font-size:12.5px;color:var(--ink);line-height:1.65;max-width:880px}
+.gap-callout strong{color:var(--tf);display:block;font-size:9.5px;letter-spacing:1.4px;text-transform:uppercase;margin-bottom:6px}
+
+/* Back to top */
+#back-to-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--tf);color:white;border:1px solid rgba(113,105,212,.5);border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900;transition:background .2s}
+#back-to-top:hover{background:var(--tf-dark)}
+
+/* Responsive */
+@media(max-width:700px){
+  .cover{padding:30px 18px 32px}
+  .tf-logo{font-size:28px}
+  .tf-sub{font-size:12.5px}
+  .sec-num,.sec-title{font-size:22px}
+  .position{padding:18px 20px}
+  .position-body{font-size:13.5px}
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="index.html" class="topnav-home">Terra Ferra</a>
+  <div class="topnav-links">
+    <a href="budget.html">Budget</a>
+    <a href="roles.html">Roles</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger active" tabindex="0">Business Model ▾</span>
+      <div class="dropdown">
+        <a href="TFbusinessmodel.html">Comparison Matrix</a>
+        <a href="TFaltmodel.html">Alternative Business Model</a>
+      </div>
+    </div>
+    <a href="architecture.html">Architecture</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Ideas ▾</span>
+      <div class="dropdown">
+        <a href="ideas.html">Ideas &amp; AI Research</a>
+        <a href="influencer.html">Influencer Selling</a>
+        <a href="strategic-brief.html">Strategic Brief</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="cover">
+  <div class="cover-inner">
+    <div class="cover-eyebrow">Internal · Private</div>
+    <div class="tf-logo">Alternative Business Model</div>
+    <div class="tf-sub">Reverse-marketplace direction · visual style profiling · social discovery layered with AI. Three concept blocks plus a structural read of the reverse-marketplace competitor landscape.</div>
+  </div>
+</div>
+
+<main>
+
+  <!-- ═══ THREE IDEA BLOCKS ═══ -->
+  <div class="sec-h">
+    <span class="sec-num">01</span><span class="sec-title">Three Concept Blocks</span>
+  </div>
+
+  <div class="idea-grid">
+
+    <!-- Block 1: Reverse Marketplace -->
+    <div class="idea-block">
+      <div class="idea-num">01 · Reverse Marketplace</div>
+      <div class="idea-title">Designer posts a brief. Ambassadors self-apply. AI ranks the fit.</div>
+      <div class="idea-body">Inverts the standard creator-discovery flow. Today, small fashion brands hire staff to find, negotiate with and brief influencers one-to-one. This bottleneck disappears when designers publish open briefs and ambassadors compete for selection.</div>
+      <div class="idea-mech">
+        <strong>Mechanism</strong>
+        <ul>
+          <li>Designer publishes drop brief: aesthetic, audience, deliverable, commission</li>
+          <li>Ambassadors browse open briefs, one-tap apply with their visual style profile attached</li>
+          <li>FashionCLIP scores style fit between ambassador's content and the brief lookbook</li>
+          <li>Designer reviews ranked applicants, accepts top matches</li>
+          <li>Removes negotiation overhead. Scales without adding headcount.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Block 2: Visual Style Profile -->
+    <div class="idea-block">
+      <div class="idea-num">02 · Visual Style Profile</div>
+      <div class="idea-title">B2C visual AI. Built from 5 photos in 30 seconds.</div>
+      <div class="idea-body">Visual AI ported from B2B catalog enrichment into a B2C personalisation primitive. Every user — consumer, fan, ambassador — has a style vector. All downstream discovery, recommendation and brief-matching runs against it.</div>
+      <div class="idea-mech">
+        <strong>Mechanism</strong>
+        <ul>
+          <li>Onboarding: user uploads 5 outfit photos or pastes Instagram post URLs</li>
+          <li>FashionCLIP embeds each photo into a 512-dim style vector</li>
+          <li>Profile stored once. Used everywhere: feed ranking, drop notifications, brief matching</li>
+          <li>Instagram Graph API constrains "log-in and pull silently" — onboarding capture is the workable substitute</li>
+          <li>Re-trains opportunistically as the user saves / votes / pre-orders</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Block 3: Social Discovery + AI -->
+    <div class="idea-block">
+      <div class="idea-num">03 · Social Discovery × AI</div>
+      <div class="idea-title">Three-axis personalisation in one product.</div>
+      <div class="idea-body">Combines visual style match (vector similarity), social proximity (follow graph) and drop velocity (community-voted pre-orders). Each axis exists separately on competing platforms; the combination was not observed in the platforms surveyed for the Comparison Matrix.</div>
+      <div class="idea-mech">
+        <strong>Axis split</strong>
+        <ul>
+          <li>Style match: FashionCLIP vector cosine similarity</li>
+          <li>Social proximity: who the user follows + who follows the user</li>
+          <li>Drop velocity: co-creation vote count + pre-order conversion rate</li>
+          <li>Each drop in the feed ranked by weighted sum across all three axes</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ═══ POSITIONING ═══ -->
+  <div class="position">
+    <div class="position-eyebrow">Positioning vs Existing Categories</div>
+    <div class="position-body">Catalog marketplaces (Farfetch, Wolf &amp; Badger, Not On The High Street) sell inventory through search and browse. Affiliate networks (LTK, ShopMy) attach creator links to existing products. Creator-marketing platforms (Pearpop, TRIBE, Cohley) run campaigns for Fortune-500 brands at $50K+ budgets. <em>None combine social discovery, visual AI and a reverse-marketplace structure inside one product, positioned for emerging affordable-luxury designers at $1K–$5K per ambassador deal.</em></div>
+  </div>
+
+  <!-- ═══ COMPETITOR LANDSCAPE ═══ -->
+  <div class="sec-h">
+    <span class="sec-num">02</span><span class="sec-title">Reverse-Marketplace Competitor Landscape</span>
+    <div class="sec-sub">Platforms where creators (or ambassadors) actively apply to brand briefs rather than brands hunting creators. Sourced from each vendor's official site, May 2026.</div>
+  </div>
+
+  <table class="comp-table">
+    <thead>
+      <tr>
+        <th>Platform</th>
+        <th>Model</th>
+        <th>Self-apply</th>
+        <th>Target customer</th>
+        <th>Named clients</th>
+        <th>Pricing</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr>
+        <td><strong><a href="https://www.pearpop.com" target="_blank" style="color:var(--tf);text-decoration:none">Pearpop</a></strong>
+          <span class="src">Source: <a href="https://www.pearpop.com" target="_blank">pearpop.com</a></span>
+        </td>
+        <td>Creator marketing platform + managed-service overlay. Brand challenges; AI affiliate vetting; paid-media amplification.</td>
+        <td><span class="badge yes">Yes</span></td>
+        <td>Fortune-500 marketing teams; entertainment, tech, food</td>
+        <td>Microsoft, Netflix, Klarna, Activision, Chipotle</td>
+        <td>Managed-service quotes; not disclosed</td>
+      </tr>
+
+      <tr>
+        <td><strong><a href="https://www.tribegroup.co" target="_blank" style="color:var(--tf);text-decoration:none">TRIBE</a></strong>
+          <span class="src">Source: <a href="https://www.tribegroup.co" target="_blank">tribegroup.co</a></span>
+        </td>
+        <td>Curated creator community submits content to brand briefs. "Tech + team" hybrid: software plus customer success management. Australia origin.</td>
+        <td><span class="badge yes">Yes</span></td>
+        <td>Enterprise &amp; mid-market consumer brands</td>
+        <td>Mars, Unilever, Olay, Lego, Logitech, McDonald's, NBC, Nespresso, Moët &amp; Chandon</td>
+        <td>Not disclosed</td>
+      </tr>
+
+      <tr>
+        <td><strong><a href="https://www.cohley.com" target="_blank" style="color:var(--tf);text-decoration:none">Cohley</a></strong>
+          <span class="src">Source: <a href="https://www.cohley.com" target="_blank">cohley.com</a></span>
+        </td>
+        <td>AI-native UGC + influencer platform. Brands post briefs; vetted creators apply. Automates brief → match → approval → asset delivery.</td>
+        <td><span class="badge yes">Yes</span></td>
+        <td>E-commerce brands with $10M+ revenue and 15+ products</td>
+        <td>TOMS, Harry's, NARS, Bulgari, Burt's Bees, Del Monte, CVS, Henkel, Braun, Samsonite</td>
+        <td>3-month paid pilot or annual contract; rate not disclosed</td>
+      </tr>
+
+      <tr>
+        <td><strong><a href="https://joinbrands.com" target="_blank" style="color:var(--tf);text-decoration:none">JoinBrands</a></strong>
+          <span class="src">Source: <a href="https://joinbrands.com" target="_blank">joinbrands.com</a></span>
+        </td>
+        <td>Two-sided creator marketplace. Brands launch campaigns; creators self-apply OR brands invite. Escrow payments + legal agreements built-in.</td>
+        <td><span class="badge yes">Yes</span></td>
+        <td>DTC e-commerce, Amazon sellers, TikTok Shop sellers, agencies, local retail</td>
+        <td>Physician's Choice, Mary Ruth's, Yona, Luminesse · "100,000+ brands"</td>
+        <td>Not disclosed</td>
+      </tr>
+
+      <tr>
+        <td><strong><a href="https://www.brandbassador.com" target="_blank" style="color:var(--tf);text-decoration:none">Brandbassador</a></strong>
+          <span class="src">Source: <a href="https://www.brandbassador.com" target="_blank">brandbassador.com</a></span>
+        </td>
+        <td>Ambassador program software. Brands publish "missions" (post on TikTok, write review, attend event); ambassadors opt-in for cash / commission / gift rewards.</td>
+        <td><span class="badge yes">Yes</span></td>
+        <td>DTC fashion + lifestyle brands</td>
+        <td>NA-KD, Fabletics, Missguided, I Saw It First, IDEAL OF SWEDEN, PopSockets</td>
+        <td>Quote-based; third-party estimates ≈ $500–$3,000/mo + onboarding</td>
+      </tr>
+
+      <tr class="tf-row">
+        <td><strong>Terra Ferra · proposed</strong></td>
+        <td>Reverse marketplace for emerging fashion designers. Brief publish + style-AI ranking + multi-party commission split (designer · ambassador · co-creator · TF).</td>
+        <td><span class="badge yes">Yes</span></td>
+        <td>Emerging affordable-luxury designers ≈ $1M annual revenue</td>
+        <td>Pilot stage</td>
+        <td>7% GMV commission + 10% ambassador + 10% co-creator</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div class="gap-callout">
+    <strong>Where the competitor map leaves a gap</strong>
+    Every platform above runs the reverse-apply model for enterprise marketing budgets ($50K+ campaigns) or generalist DTC. None is built for emerging fashion designers selling drops at $1K–$5K of ambassador value per drop. None layers visual-AI style scoring on top of the brief-application flow. None ties the ambassador economics to a pre-order + co-creation marketplace. The reverse-apply mechanic is proven; the fashion-native, low-budget, AI-ranked, pre-order-integrated version is open territory.
+  </div>
+
+</main>
+
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" title="Back to top">&#8593;</button>
+<script>window.addEventListener('scroll',function(){var b=document.getElementById('back-to-top');b.style.display=window.scrollY>400?'flex':'none';});</script>
+</body>
+</html>
