@@ -201,12 +201,15 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
     <!-- Block 1: Reverse Marketplace -->
     <div class="idea-block">
       <div class="idea-num">01 · Reverse Marketplace</div>
-      <div class="idea-title">Designer posts brief. Ambassadors self-apply. AI ranks fit.</div>
+      <div class="idea-title">Designer posts a brief. Ambassadors apply to it. AI ranks the matches.</div>
+      <div class="idea-body">Today a small brand finds influencers one at a time — emails, DMs, weeks of back-and-forth for a handful of replies. Flip the direction. The designer posts the brief once — what kind of drop, what audience, what commission — and ambassadors apply to it. The system ranks applicants by how well their existing content matches the brief.</div>
       <div class="idea-mech">
+        <strong>How it works</strong>
         <ul>
-          <li>Brief = aesthetic + deliverable + commission</li>
-          <li>Ambassadors one-tap apply with style profile attached</li>
-          <li>AI ranks fit; designer accepts top matches</li>
+          <li>Designer posts a brief: drop aesthetic, audience, commission</li>
+          <li>Ambassadors browse open briefs and apply with one tap</li>
+          <li>AI ranks applicants by how visually similar their content is to the brief</li>
+          <li>Designer accepts the top matches</li>
         </ul>
       </div>
     </div>
@@ -214,12 +217,15 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
     <!-- Block 2: Visual Style Profile -->
     <div class="idea-block">
       <div class="idea-num">02 · Visual Style Profile</div>
-      <div class="idea-title">B2C visual AI. 5 photos, 30 seconds.</div>
+      <div class="idea-title">Each user gets a style profile from 5 photos.</div>
+      <div class="idea-body">Recommendations on most apps are based on what the user clicks or buys. The proposal here: at sign-up, ask for 5 outfits the user likes. From those, the AI builds a style profile. The same profile is then used to rank what shows up in the feed, what drop alerts the user gets and — for ambassadors — which briefs they match.</div>
       <div class="idea-mech">
+        <strong>How it works</strong>
         <ul>
-          <li>Onboarding: 5 outfit photos or Instagram post URLs</li>
-          <li>FashionCLIP builds a 512-dim style vector per user</li>
-          <li>Used for feed, drop alerts and brief matching</li>
+          <li>At sign-up the user uploads 5 outfit photos</li>
+          <li>AI turns them into a style profile</li>
+          <li>The same profile is used everywhere: feed, alerts, brief matching</li>
+          <li>Instagram does not let third parties read likes / saves silently — the 5-photo upload is the workaround</li>
         </ul>
       </div>
     </div>
@@ -227,14 +233,16 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
     <!-- Block 3: Social Discovery + AI -->
     <div class="idea-block">
       <div class="idea-num">03 · Social Discovery × AI</div>
-      <div class="idea-title">Three-axis personalisation: style × social × velocity.</div>
+      <div class="idea-title">Recommendations use three signals at once, not one.</div>
+      <div class="idea-body">Most apps recommend one way: by tags (Farfetch), by who the user follows (ShopMy) or by what others clicked (Amazon). The proposal here: combine all three. The user's feed ranks every drop on style fit, social fit and how fast the drop is selling — at the same time. The combination was not observed in the platforms surveyed (Section 03).</div>
       <div class="idea-mech">
+        <strong>How it works</strong>
         <ul>
-          <li>Style: FashionCLIP cosine similarity</li>
-          <li>Social: follow-graph proximity</li>
-          <li>Velocity: co-creation votes + pre-order rate</li>
+          <li>Style fit: how close the drop is to the user's style profile</li>
+          <li>Social fit: how many people the user follows are buying or voting</li>
+          <li>Drop momentum: pre-order rate + co-creation vote count</li>
+          <li>Every drop in the feed ranks on all three at the same time</li>
         </ul>
-        <p style="margin-top:8px;font-size:11px;color:var(--sub)">Combination not observed in surveyed competitors (Section 03).</p>
       </div>
     </div>
 
