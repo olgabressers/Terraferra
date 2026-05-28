@@ -265,7 +265,7 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
       <ul style="margin:6px 0 0;padding:0;list-style:none">
         <li style="padding:6px 0 6px 16px;position:relative"><span style="position:absolute;left:0;color:var(--orange);font-weight:700">—</span>Farfetch / SSENSE: need existing inventory + reputation — closed to emerging designers</li>
         <li style="padding:6px 0 6px 16px;position:relative"><span style="position:absolute;left:0;color:var(--orange);font-weight:700">—</span>LTK / ShopMy: need an existing creator audience</li>
-        <li style="padding:6px 0 6px 16px;position:relative"><span style="position:absolute;left:0;color:var(--orange);font-weight:700">—</span>Influencer outreach: 50–100 manual DMs per drop → 1–2 replies. Hiring staff does not scale.</li>
+        <li style="padding:6px 0 6px 16px;position:relative"><span style="position:absolute;left:0;color:var(--orange);font-weight:700">—</span>Influencer outreach: manual one-by-one, does not scale.</li>
         <li style="padding:6px 0 6px 16px;position:relative"><span style="position:absolute;left:0;color:var(--orange);font-weight:700">—</span>Kickstarter: funds projects, no commerce flow</li>
       </ul>
     </div>
@@ -284,12 +284,12 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
         <div class="alt-circle c-creator">
           <div class="alt-c-label">Creator Commerce</div>
           <div style="font-size:9px;font-weight:800;color:#1F7A4E;letter-spacing:1.5px;text-transform:uppercase;margin:4px 0 6px">2022 model</div>
-          <div class="alt-c-sub">Ambassador and influencer commissions on sales they drive. 10% reward to the creator; 10% take to TF. Direct from the 2022 deck.</div>
+          <div class="alt-c-sub">Ambassador and influencer commissions on sales they drive. TF takes 10% of those rewards (per 2022 deck).</div>
         </div>
         <div class="alt-circle c-drops">
           <div class="alt-c-label">Drops + Pre-orders</div>
           <div style="font-size:9px;font-weight:800;color:#1F7A4E;letter-spacing:1.5px;text-transform:uppercase;margin:4px 0 6px">2022 model</div>
-          <div class="alt-c-sub">Pre-sales, crowdfunding and co-creation. Designers fund and refine drops with their community before production. 7% crowdfunding fee; 10% co-creator reward.</div>
+          <div class="alt-c-sub">Pre-sales, crowdfunding and co-creation. Designers fund and refine drops with their community before production. 7% crowdfunding fee; TF takes 10% of co-creator rewards.</div>
         </div>
       </div>
       <div class="alt-roles"><strong>Four roles served:</strong> Designer · Influencer · Super Fan · Consumer · See the full breakdown on the <a href="TFbusinessmodel.html">Comparison Matrix</a>.</div>
@@ -334,7 +334,7 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
         <div class="alt-add year-1">
           <span class="year-label">Year 1 · Own the niche</span>
           <div class="alt-c-label">Emerging designers</div>
-          <div class="alt-c-sub">Proposed TF deal-size band: $1–5K per influencer drop. Pearpop and TRIBE publicly serve Fortune-500 brands (Microsoft, Netflix, Mars, Unilever) — emerging fashion is not their stated target.</div>
+          <div class="alt-c-sub">Pearpop and TRIBE publicly serve Fortune-500 brands (Microsoft, Netflix, Mars, Unilever) — emerging fashion is not their stated target.</div>
         </div>
         <div class="alt-add year-2">
           <span class="year-label">Year 2–3 · Mid-market</span>
@@ -476,7 +476,7 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
         <td><span class="badge yes">Yes</span></td>
         <td>DTC fashion + lifestyle brands</td>
         <td>NA-KD, Fabletics, Missguided, I Saw It First, IDEAL OF SWEDEN, PopSockets</td>
-        <td>Quote-based; third-party estimates ≈ $500–$3,000/mo + onboarding</td>
+        <td>Not disclosed</td>
       </tr>
 
       <tr>
@@ -525,7 +525,7 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
   <div class="alt-problem" style="margin-bottom:18px">
     <span class="alt-problem-label">Key constraint</span>
     <strong style="color:white;font-size:15px;display:block;margin-bottom:6px">No fully invisible legal path exists for personal Instagram accounts.</strong>
-    Meta's APIs do not let third-party apps read a user's likes, saves or follows. Personal accounts — the majority of users — cannot expose any post content via API. The closest compliant path is OAuth + 5-photo upload at ≈ 30 seconds onboarding. Five compliant options below; <strong style="color:#FFF3E8">A + B combined is the recommended pattern.</strong>
+    Meta's APIs do not let third-party apps read a user's likes, saves or follows. Personal accounts — the majority of users — cannot expose any post content via API. The closest compliant path is OAuth + a manual photo upload at signup. Five compliant options below; <strong style="color:#FFF3E8">A + B combined is the recommended pattern.</strong>
   </div>
 
   <table class="comp-table">
@@ -545,8 +545,8 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
           <span class="src">Source: <a href="https://developers.facebook.com/docs/instagram-platform/instagram-api-with-instagram-login" target="_blank">developers.facebook.com</a></span>
         </td>
         <td>OAuth captures identity (username, profile photo). User then uploads 5 outfit photos. FashionCLIP builds the style vector from the uploads.</td>
-        <td>100% of users</td>
-        <td>≈ 30 seconds</td>
+        <td>All Instagram users</td>
+        <td>—</td>
         <td><span class="badge yes">Low risk · Meta-sanctioned</span></td>
       </tr>
 
@@ -555,16 +555,16 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
           <span class="src">Source: <a href="https://developers.facebook.com/docs/instagram-platform" target="_blank">developers.facebook.com</a></span>
         </td>
         <td>OAuth + Instagram Graph API reads the user's recent media (own posts only). Style vector auto-built. No likes / saves / follows accessible.</td>
-        <td>≈ 5–10% of users (Business + Creator accounts only)</td>
-        <td>≈ 5 seconds</td>
+        <td>Business + Creator accounts only</td>
+        <td>—</td>
         <td><span class="badge yes">Low risk · Meta-sanctioned · app-review required</span></td>
       </tr>
 
       <tr>
         <td><strong>C · Public profile URL scrape</strong></td>
         <td>User pastes their public Instagram profile URL. TF scrapes recent posts via headless browser or 3rd-party data provider.</td>
-        <td>≈ 90% of users (public accounts)</td>
-        <td>≈ 10 seconds</td>
+        <td>Public accounts only</td>
+        <td>—</td>
         <td><span class="badge no">High risk · Meta TOS violation · account &amp; IP bans · prior litigation precedent</span></td>
       </tr>
 
@@ -572,7 +572,7 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
         <td><strong>D · iOS / Android share extension</strong></td>
         <td>User shares 5 Instagram posts to the TF mobile app via the OS share sheet. TF reads the shared image data directly.</td>
         <td>Mobile app users only</td>
-        <td>≈ 30 seconds (multiple shares)</td>
+        <td>—</td>
         <td><span class="badge yes">Low risk · user-initiated</span></td>
       </tr>
 
