@@ -114,8 +114,19 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
 .alt-c-sub{font-size:11.5px;color:var(--sub);line-height:1.5}
 .alt-roles{font-size:11.5px;color:var(--sub);margin-top:14px;line-height:1.55}
 .alt-roles a{color:var(--tf);text-decoration:underline}
+.alt-b-arrow-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}
+.alt-b-arrow{text-align:center;font-size:30px;color:var(--orange);font-weight:300;line-height:1}
+.alt-phase{background:#FFF8F3}
+.alt-add.year-1{border-top-color:var(--green)}
+.alt-add.year-2{border-top-color:var(--orange)}
+.alt-add.year-3{border-top-color:var(--sub)}
+.year-label{font-size:9.5px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;display:block;margin-bottom:5px;color:var(--sub)}
+.alt-add.year-1 .year-label{color:var(--green)}
+.alt-add.year-2 .year-label{color:var(--orange)}
 @media(max-width:800px){
   .alt-circles,.alt-additional-grid{grid-template-columns:1fr}
+  .alt-b-arrow-row{grid-template-columns:1fr}
+  .alt-b-arrow-row span:first-child,.alt-b-arrow-row span:last-child{display:none}
 }
 @media(max-width:700px){
   .alt-flow{padding:18px 16px}
@@ -316,6 +327,36 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
       </div>
     </div>
 
+    <!-- Arrow from B → phasing -->
+    <div class="alt-b-arrow-row">
+      <span></span>
+      <span class="alt-b-arrow">↓</span>
+      <span></span>
+    </div>
+
+    <!-- Phasing of B · Reverse Marketplace -->
+    <div class="alt-section alt-additional alt-phase">
+      <div class="alt-section-label">B · Reverse Marketplace · phasing</div>
+      <div class="alt-section-h">From emerging designers to large fashion houses — fashion-vertical only</div>
+      <div class="alt-additional-grid">
+        <div class="alt-add year-1">
+          <span class="year-label">Year 1 · Own the niche</span>
+          <div class="alt-c-label">Emerging designers</div>
+          <div class="alt-c-sub">Deals at $1–5K per influencer drop. Below Pearpop and TRIBE's economic floor — they can't profitably serve $1–5K deals.</div>
+        </div>
+        <div class="alt-add year-2">
+          <span class="year-label">Year 2–3 · Mid-market</span>
+          <div class="alt-c-label">Fashion-vertical brands</div>
+          <div class="alt-c-sub">H&amp;M, Mango, Uniqlo, COS, &amp; Other Stories, Arket, Ganni. Higher per-deal value. Requires the influencer network from Year 1.</div>
+        </div>
+        <div class="alt-add year-3">
+          <span class="year-label">Year 4+ · Optional</span>
+          <div class="alt-c-label">Enterprise fashion</div>
+          <div class="alt-c-sub">LVMH groups, Kering, Inditex — only if team and capital support a separate enterprise sales motion.</div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <!-- ═══ INSTAGRAM SCAN OPTIONS ═══ -->
@@ -476,79 +517,6 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
     </tbody>
   </table>
 
-  <!-- ═══ OPPORTUNITY FOR TF ═══ -->
-  <div class="sec-h" style="margin-top:48px">
-    <span class="sec-num">04</span><span class="sec-title">Opportunity for Terra Ferra · Under Research</span>
-    <div class="sec-sub">The reverse-apply pattern is proven for enterprise marketing budgets (Section 03). No competitor runs it for emerging fashion at low budget with AI style-ranking and pre-orders attached. That gap is where TF could sit. Nothing on this page is a decision — these are research notes for review.</div>
-  </div>
-
-  <div class="idea-grid">
-
-    <div class="idea-block">
-      <div class="idea-num">The gap</div>
-      <div class="idea-title">No platform serves emerging fashion at low-budget influencer deals.</div>
-      <div class="idea-body">Pearpop, TRIBE and Cohley target Fortune-500 budgets ($50K+ per campaign). JoinBrands targets DTC at scale. Brandbassador targets fashion but is not AI-ranked. None ties the brief flow to a pre-order + co-creation marketplace. That intersection is where TF could play.</div>
-    </div>
-
-    <div class="idea-block">
-      <div class="idea-num">Risks</div>
-      <div class="idea-title">Five things TF would need to answer before building.</div>
-      <div class="idea-mech">
-        <ul>
-          <li><strong>Build cost</strong> — brief workflow, AI style scoring, payout flow</li>
-          <li><strong>Influencer adoption</strong> — would they apply to small-budget briefs when higher-paying ones exist elsewhere?</li>
-          <li><strong>Designer adoption</strong> — small brands often prefer manual outreach they control</li>
-          <li><strong>Commission split</strong> — designer / influencer / super-fan / TF shares are not set</li>
-          <li><strong>Positioning</strong> — feature inside TF, standalone product, or partnership layer?</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="idea-block">
-      <div class="idea-num">Options for TF</div>
-      <div class="idea-title">Four ways in, ordered cheapest to most expensive.</div>
-      <div class="idea-mech">
-        <ul>
-          <li><strong>1 · Defer</strong> — wait until pilot designers ask for it</li>
-          <li><strong>2 · Partner</strong> — route briefs through Pearpop or Cohley, earn a referral cut</li>
-          <li><strong>3 · Brief board inside TF</strong> — minimal new build; style-AI ranking optional</li>
-          <li><strong>4 · Standalone sub-product</strong> — full reverse-marketplace, separate brand surface, larger build</li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Proposed phasing -->
-  <div class="phase-wrap">
-    <div class="phase-label">Possible phasing</div>
-    <div class="phase-intro">TF can expand from emerging designers to large fashion houses over time. The path stays fashion-vertical — not generalist enterprise.</div>
-
-    <div class="phase-grid">
-
-      <div class="phase-card phase-1">
-        <div class="phase-year">Year 1</div>
-        <h4>Own the emerging-designer niche</h4>
-        <p>Build TF for emerging affordable-luxury designers. Deals at $1–5K per influencer drop. The influencer network builds as a side effect.</p>
-        <div class="phase-note">Below Pearpop and TRIBE's economic floor — they can't profitably serve $1–5K deals.</div>
-      </div>
-
-      <div class="phase-card phase-2">
-        <div class="phase-year">Year 2–3</div>
-        <h4>Open brand discovery to mid-market fashion</h4>
-        <p>H&amp;M, Mango, Uniqlo, COS, &amp; Other Stories, Arket, Ganni — fashion-vertical, EU + US. Higher per-deal value. Requires critical mass of fashion influencers from Year 1.</p>
-        <div class="phase-note">Not generalist Fortune 500. Fashion vertical only.</div>
-      </div>
-
-      <div class="phase-card phase-3">
-        <div class="phase-year">Year 4+</div>
-        <h4>Optional · enterprise fashion</h4>
-        <p>LVMH groups, Kering, Inditex — only if team and capital allow a separate enterprise sales motion.</p>
-        <div class="phase-note">Not required for the core model to work.</div>
-      </div>
-
-    </div>
-  </div>
 
 </main>
 
