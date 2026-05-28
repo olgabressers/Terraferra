@@ -57,6 +57,15 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
 @media(max-width:700px){main{padding:28px 18px 60px}}
 
+/* Table of contents */
+.toc{background:white;border:1px solid var(--rule);border-left:3px solid var(--tf);padding:20px 24px;margin-bottom:40px}
+.toc-head{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);margin-bottom:12px}
+.toc-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column}
+.toc-list a{display:flex;align-items:baseline;gap:14px;text-decoration:none;color:var(--ink);font-weight:600;font-size:13.5px;padding:9px 0;border-bottom:1px solid var(--rule)}
+.toc-list li:last-child a{border-bottom:none}
+.toc-list a:hover{color:var(--tf)}
+.toc-num{font-size:11px;font-weight:800;letter-spacing:1.2px;color:var(--orange);min-width:24px}
+
 /* Section heading */
 .sec-h{margin-bottom:20px;padding-bottom:12px;border-bottom:1.5px solid var(--tf)}
 .sec-num{font-size:28px;font-weight:800;color:var(--orange);letter-spacing:-1px;margin-right:14px}
@@ -219,9 +228,20 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
 
 <main>
 
+  <!-- Table of contents -->
+  <nav class="toc" aria-label="Page contents">
+    <div class="toc-head">Contents</div>
+    <ul class="toc-list">
+      <li><a href="#sec-anchor-01"><span class="toc-num">01</span>Three Concept Blocks · illustration · phasing of B</a></li>
+      <li><a href="#sec-anchor-02"><span class="toc-num">02</span>Discovery signals — Terra Ferra vs the rest</a></li>
+      <li><a href="#sec-anchor-03"><span class="toc-num">03</span>Reverse-Marketplace Competitor Landscape</a></li>
+      <li><a href="#sec-anchor-04"><span class="toc-num">04</span>Instagram Style Scan — Options &amp; Constraints</a></li>
+    </ul>
+  </nav>
+
   <!-- ═══ THREE IDEA BLOCKS ═══ -->
   <div class="sec-h">
-    <span class="sec-num">01</span><span class="sec-title">Three Concept Blocks</span>
+    <span class="sec-num" id="sec-anchor-01">01</span><span class="sec-title">Three Concept Blocks</span>
   </div>
 
   <div class="idea-grid">
@@ -281,7 +301,7 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
 
     <div class="alt-problem">
       <span class="alt-problem-label">Problem</span>
-      Emerging fashion designers need to find their audience, the right influencers and paying consumers — every drop. Existing platforms each solve one piece. Farfetch and SSENSE sell catalogs (need inventory + reputation). LTK and ShopMy attach creator links (need an existing audience). Kickstarter funds projects (no commerce flow). No single platform closes the loop for emerging fashion.
+      Emerging fashion designers need to find their audience, the right influencers and paying consumers. Existing platforms each solve one piece. Farfetch and SSENSE sell catalogs (need inventory + reputation). LTK and ShopMy attach creator links (need an existing audience). Kickstarter funds projects (no commerce flow). No single platform closes the loop for emerging fashion.
     </div>
 
     <div class="alt-arrow">↓</div>
@@ -342,7 +362,7 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
         <div class="alt-add year-1">
           <span class="year-label">Year 1 · Own the niche</span>
           <div class="alt-c-label">Emerging designers</div>
-          <div class="alt-c-sub">Deals at $1–5K per influencer drop. Pearpop and TRIBE publicly serve Fortune-500 brands at $50K+ per campaign — this segment is not their target.</div>
+          <div class="alt-c-sub">Deals at $1–5K per influencer drop. Pearpop and TRIBE publicly serve Fortune-500 brands (Microsoft, Netflix, Mars, Unilever) — this segment is not their stated target.</div>
         </div>
         <div class="alt-add year-2">
           <span class="year-label">Year 2–3 · Mid-market</span>
@@ -359,84 +379,9 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
 
   </div>
 
-  <!-- ═══ INSTAGRAM SCAN OPTIONS ═══ -->
-  <div class="sec-h">
-    <span class="sec-num">02</span><span class="sec-title">Instagram Style Scan — Options &amp; Constraints</span>
-  </div>
-
-  <div class="alt-problem" style="margin-bottom:18px">
-    <span class="alt-problem-label">Key constraint</span>
-    <strong style="color:white;font-size:15px;display:block;margin-bottom:6px">No fully invisible legal path exists for personal Instagram accounts.</strong>
-    Meta's APIs do not let third-party apps read a user's likes, saves or follows. Personal accounts — the majority of users — cannot expose any post content via API. The closest compliant path is OAuth + 5-photo upload at ≈ 30 seconds onboarding. Five compliant options below; <strong style="color:#FFF3E8">A + B combined is the recommended pattern.</strong>
-  </div>
-
-  <table class="comp-table">
-    <thead>
-      <tr>
-        <th>Option</th>
-        <th>How it works</th>
-        <th>Coverage</th>
-        <th>UX time</th>
-        <th>Risk / status</th>
-      </tr>
-    </thead>
-    <tbody>
-
-      <tr>
-        <td><strong>A · Instagram Login + manual upload</strong>
-          <span class="src">Source: <a href="https://developers.facebook.com/docs/instagram-platform/instagram-api-with-instagram-login" target="_blank">developers.facebook.com</a></span>
-        </td>
-        <td>OAuth captures identity (username, profile photo). User then uploads 5 outfit photos. FashionCLIP builds the style vector from the uploads.</td>
-        <td>100% of users</td>
-        <td>≈ 30 seconds</td>
-        <td><span class="badge yes">Low risk · Meta-sanctioned</span></td>
-      </tr>
-
-      <tr>
-        <td><strong>B · Business / Creator API auto-pull</strong>
-          <span class="src">Source: <a href="https://developers.facebook.com/docs/instagram-platform" target="_blank">developers.facebook.com</a></span>
-        </td>
-        <td>OAuth + Instagram Graph API reads the user's recent media (own posts only). Style vector auto-built. No likes / saves / follows accessible.</td>
-        <td>≈ 5–10% of users (Business + Creator accounts only)</td>
-        <td>≈ 5 seconds</td>
-        <td><span class="badge yes">Low risk · Meta-sanctioned · app-review required</span></td>
-      </tr>
-
-      <tr>
-        <td><strong>C · Public profile URL scrape</strong></td>
-        <td>User pastes their public Instagram profile URL. TF scrapes recent posts via headless browser or 3rd-party data provider.</td>
-        <td>≈ 90% of users (public accounts)</td>
-        <td>≈ 10 seconds</td>
-        <td><span class="badge no">High risk · Meta TOS violation · account &amp; IP bans · prior litigation precedent</span></td>
-      </tr>
-
-      <tr>
-        <td><strong>D · iOS / Android share extension</strong></td>
-        <td>User shares 5 Instagram posts to the TF mobile app via the OS share sheet. TF reads the shared image data directly.</td>
-        <td>Mobile app users only</td>
-        <td>≈ 30 seconds (multiple shares)</td>
-        <td><span class="badge yes">Low risk · user-initiated</span></td>
-      </tr>
-
-      <tr>
-        <td><strong>E · Browser extension</strong></td>
-        <td>Chrome / Safari extension captures images as the user browses Instagram. Style vector built passively.</td>
-        <td>Desktop users with extension installed</td>
-        <td>Passive (over days)</td>
-        <td><span class="badge partial">Medium risk · extension-store review · privacy positioning</span></td>
-      </tr>
-
-    </tbody>
-  </table>
-
-  <div class="gap-callout">
-    <strong>Recommended pattern</strong>
-    Combine A + B in a single flow. OAuth login first. If the connected account is Business or Creator, pull recent media via API and build the style vector in 5 seconds. If the account is Personal (the majority), prompt the user to upload 5 photos — same 30-second onboarding. D is an add-on for the iOS / Android apps. C is excluded on TOS grounds.
-  </div>
-
   <!-- ═══ DISCOVERY SIGNAL COMPARISON ═══ -->
   <div class="sec-h">
-    <span class="sec-num">03</span><span class="sec-title">Discovery signals — Terra Ferra vs the rest</span>
+    <span class="sec-num" id="sec-anchor-02">02</span><span class="sec-title">Discovery signals — Terra Ferra vs the rest</span>
     <div class="sec-sub">What signals each platform uses to surface products.</div>
   </div>
 
@@ -495,7 +440,7 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
 
   <!-- ═══ COMPETITOR LANDSCAPE ═══ -->
   <div class="sec-h">
-    <span class="sec-num">04</span><span class="sec-title">Reverse-Marketplace Competitor Landscape</span>
+    <span class="sec-num" id="sec-anchor-03">03</span><span class="sec-title">Reverse-Marketplace Competitor Landscape</span>
     <div class="sec-sub">Platforms where influencers / creators actively apply to brand briefs rather than brands hunting them. Sourced from each vendor's official site, May 2026.</div>
   </div>
 
@@ -571,7 +516,82 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
   </table>
 
 
-</main>
+<!-- ═══ INSTAGRAM SCAN OPTIONS ═══ -->
+  <div class="sec-h">
+    <span class="sec-num" id="sec-anchor-04">04</span><span class="sec-title">Instagram Style Scan — Options &amp; Constraints</span>
+  </div>
+
+  <div class="alt-problem" style="margin-bottom:18px">
+    <span class="alt-problem-label">Key constraint</span>
+    <strong style="color:white;font-size:15px;display:block;margin-bottom:6px">No fully invisible legal path exists for personal Instagram accounts.</strong>
+    Meta's APIs do not let third-party apps read a user's likes, saves or follows. Personal accounts — the majority of users — cannot expose any post content via API. The closest compliant path is OAuth + 5-photo upload at ≈ 30 seconds onboarding. Five compliant options below; <strong style="color:#FFF3E8">A + B combined is the recommended pattern.</strong>
+  </div>
+
+  <table class="comp-table">
+    <thead>
+      <tr>
+        <th>Option</th>
+        <th>How it works</th>
+        <th>Coverage</th>
+        <th>UX time</th>
+        <th>Risk / status</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr>
+        <td><strong>A · Instagram Login + manual upload</strong>
+          <span class="src">Source: <a href="https://developers.facebook.com/docs/instagram-platform/instagram-api-with-instagram-login" target="_blank">developers.facebook.com</a></span>
+        </td>
+        <td>OAuth captures identity (username, profile photo). User then uploads 5 outfit photos. FashionCLIP builds the style vector from the uploads.</td>
+        <td>100% of users</td>
+        <td>≈ 30 seconds</td>
+        <td><span class="badge yes">Low risk · Meta-sanctioned</span></td>
+      </tr>
+
+      <tr>
+        <td><strong>B · Business / Creator API auto-pull</strong>
+          <span class="src">Source: <a href="https://developers.facebook.com/docs/instagram-platform" target="_blank">developers.facebook.com</a></span>
+        </td>
+        <td>OAuth + Instagram Graph API reads the user's recent media (own posts only). Style vector auto-built. No likes / saves / follows accessible.</td>
+        <td>≈ 5–10% of users (Business + Creator accounts only)</td>
+        <td>≈ 5 seconds</td>
+        <td><span class="badge yes">Low risk · Meta-sanctioned · app-review required</span></td>
+      </tr>
+
+      <tr>
+        <td><strong>C · Public profile URL scrape</strong></td>
+        <td>User pastes their public Instagram profile URL. TF scrapes recent posts via headless browser or 3rd-party data provider.</td>
+        <td>≈ 90% of users (public accounts)</td>
+        <td>≈ 10 seconds</td>
+        <td><span class="badge no">High risk · Meta TOS violation · account &amp; IP bans · prior litigation precedent</span></td>
+      </tr>
+
+      <tr>
+        <td><strong>D · iOS / Android share extension</strong></td>
+        <td>User shares 5 Instagram posts to the TF mobile app via the OS share sheet. TF reads the shared image data directly.</td>
+        <td>Mobile app users only</td>
+        <td>≈ 30 seconds (multiple shares)</td>
+        <td><span class="badge yes">Low risk · user-initiated</span></td>
+      </tr>
+
+      <tr>
+        <td><strong>E · Browser extension</strong></td>
+        <td>Chrome / Safari extension captures images as the user browses Instagram. Style vector built passively.</td>
+        <td>Desktop users with extension installed</td>
+        <td>Passive (over days)</td>
+        <td><span class="badge partial">Medium risk · extension-store review · privacy positioning</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div class="gap-callout">
+    <strong>Recommended pattern</strong>
+    Combine A + B in a single flow. OAuth login first. If the connected account is Business or Creator, pull recent media via API and build the style vector in 5 seconds. If the account is Personal (the majority), prompt the user to upload 5 photos — same 30-second onboarding. D is an add-on for the iOS / Android apps. C is excluded on TOS grounds.
+  </div>
+
+  </main>
 
 <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" title="Back to top">&#8593;</button>
 <script>window.addEventListener('scroll',function(){var b=document.getElementById('back-to-top');b.style.display=window.scrollY>400?'flex':'none';});</script>
