@@ -77,35 +77,35 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
 .idea-mech li::before{content:'—';position:absolute;left:0;color:var(--orange);font-weight:700}
 
 /* Alt-flow illustration */
-.alt-flow{margin:0 0 56px;background:white;border:1px solid var(--rule);border-top:3px solid var(--orange);padding:24px 26px}
-.alt-flow-problem{background:var(--ink);color:white;padding:16px 20px;margin-bottom:24px;font-size:14px;line-height:1.6;border-left:3px solid var(--orange)}
-.alt-flow-problem-label{font-size:10px;font-weight:800;letter-spacing:2.2px;text-transform:uppercase;color:var(--orange);margin-right:10px}
-.alt-flow-stages{display:flex;align-items:stretch;gap:8px;flex-wrap:nowrap;justify-content:center;margin-bottom:18px}
-.alt-stage{flex:1 1 0;min-width:0;max-width:260px;padding:18px 16px;border-radius:8px;display:flex;flex-direction:column;gap:6px}
-.alt-stage.new{background:#FFF3E8;border:2px solid var(--orange)}
-.alt-stage.existing{background:#DDEEE5;border:2px solid var(--green)}
-.alt-stage-num{font-size:9.5px;font-weight:800;letter-spacing:1.4px;color:var(--orange);text-transform:uppercase}
-.alt-stage.existing .alt-stage-num{color:var(--green)}
-.alt-stage-icon{font-size:22px;line-height:1;margin:2px 0}
-.alt-stage-h{font-size:14px;font-weight:800;color:var(--ink);line-height:1.3;margin-bottom:2px}
-.alt-stage-p{font-size:11.5px;color:var(--sub);line-height:1.5}
-.alt-stage-key{font-size:11px;color:var(--orange);font-weight:700;margin-top:auto;padding-top:6px;border-top:1px dashed rgba(232,104,32,.3)}
-.alt-stage-arrow{font-size:24px;color:var(--sub);align-self:center;font-weight:300;flex-shrink:0}
-.alt-flow-legend{display:flex;gap:24px;flex-wrap:wrap;font-size:11.5px;color:var(--sub);align-items:center;padding-top:14px;border-top:1px solid var(--rule)}
-.alt-flow-legend .key{display:inline-flex;align-items:center;gap:7px}
-.alt-flow-legend .dot{width:11px;height:11px;border-radius:2px;flex-shrink:0}
-.alt-flow-legend .dot.new{background:var(--orange)}
-.alt-flow-legend .dot.existing{background:var(--green)}
-.alt-flow-legend a{color:inherit}
-@media(max-width:900px){
+.alt-flow{margin:0 0 56px;background:white;border:1px solid var(--rule);padding:24px 26px}
+.alt-problem{background:var(--ink);color:white;padding:18px 22px;font-size:14px;line-height:1.65;border-left:3px solid var(--orange)}
+.alt-problem-label{font-size:10px;font-weight:800;letter-spacing:2.2px;text-transform:uppercase;color:var(--orange);display:block;margin-bottom:6px}
+.alt-arrow{text-align:center;font-size:24px;color:var(--sub);padding:12px 0;font-weight:300}
+.alt-section{padding:22px 24px;border-radius:6px}
+.alt-key{background:#F4F2FC;border:2px solid var(--tf)}
+.alt-additional{background:#FFF3E8;border:2px solid var(--orange)}
+.alt-section-label{font-size:10px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;color:var(--tf)}
+.alt-additional .alt-section-label{color:var(--orange)}
+.alt-section-h{font-size:18px;font-weight:800;color:var(--ink);margin:8px 0 16px;letter-spacing:-.3px;line-height:1.3}
+.alt-circles,.alt-additional-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.alt-circle,.alt-add{background:white;border:1px solid var(--rule);padding:14px 16px}
+.alt-circle.c-marketplace{border-top:3px solid var(--tf)}
+.alt-circle.c-creator{border-top:3px solid var(--orange)}
+.alt-circle.c-drops{border-top:3px solid var(--green)}
+.alt-add{border-top:3px solid var(--orange)}
+.alt-c-label{font-size:14px;font-weight:800;color:var(--ink);margin-bottom:6px;letter-spacing:-.2px;line-height:1.3}
+.alt-c-sub{font-size:11.5px;color:var(--sub);line-height:1.5}
+.alt-roles{font-size:11.5px;color:var(--sub);margin-top:14px;line-height:1.55}
+.alt-roles a{color:var(--tf);text-decoration:underline}
+@media(max-width:800px){
+  .alt-circles,.alt-additional-grid{grid-template-columns:1fr}
+}
+@media(max-width:700px){
   .alt-flow{padding:18px 16px}
-  .alt-flow-problem{padding:14px 16px;font-size:13px;margin-bottom:18px}
-  .alt-flow-problem-label{display:block;margin-bottom:6px;margin-right:0}
-  .alt-flow-stages{flex-direction:column;align-items:stretch;gap:6px}
-  .alt-stage{max-width:100%;padding:14px 14px}
-  .alt-stage-h{font-size:13.5px}
-  .alt-stage-arrow{transform:rotate(90deg);font-size:20px;align-self:center}
-  .alt-flow-legend{gap:14px;font-size:11px}
+  .alt-problem{padding:14px 16px;font-size:13px}
+  .alt-section{padding:16px 18px}
+  .alt-section-h{font-size:15px}
+  .alt-section-label{font-size:9.5px;letter-spacing:1.4px}
 }
 
 /* Positioning callout */
@@ -201,13 +201,13 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
     <!-- Block 1: Reverse Marketplace -->
     <div class="idea-block">
       <div class="idea-num">01 · Reverse Marketplace</div>
-      <div class="idea-title">Designer posts a brief. Ambassadors apply to it. AI ranks the matches.</div>
-      <div class="idea-body">Today a small brand finds influencers one at a time — emails, DMs, weeks of back-and-forth for a handful of replies. Flip the direction. The designer posts the brief once — what kind of drop, what audience, what commission — and ambassadors apply to it. The system ranks applicants by how well their existing content matches the brief.</div>
+      <div class="idea-title">Designer posts a brief. Influencers apply. AI ranks the matches.</div>
+      <div class="idea-body">Today a small brand finds influencers one at a time — emails, DMs, weeks of back-and-forth for a handful of replies. Flip the direction. The designer posts the brief once — what kind of drop, what audience, what commission — and influencers apply to it. The system ranks applicants by how well their existing content matches the brief.</div>
       <div class="idea-mech">
         <strong>How it works</strong>
         <ul>
           <li>Designer posts a brief: drop aesthetic, audience, commission</li>
-          <li>Ambassadors browse open briefs and apply with one tap</li>
+          <li>Influencers browse open briefs and apply with one tap</li>
           <li>AI ranks applicants by how visually similar their content is to the brief</li>
           <li>Designer accepts the top matches</li>
         </ul>
@@ -218,7 +218,7 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
     <div class="idea-block">
       <div class="idea-num">02 · Visual Style Profile</div>
       <div class="idea-title">Each user gets a style profile from 5 photos.</div>
-      <div class="idea-body">Recommendations on most apps are based on what the user clicks or buys. The proposal here: at sign-up, ask for 5 outfits the user likes. From those, the AI builds a style profile. The same profile is then used to rank what shows up in the feed, what drop alerts the user gets and — for ambassadors — which briefs they match.</div>
+      <div class="idea-body">Recommendations on most apps are based on what the user clicks or buys. The proposal here: at sign-up, ask for 5 outfits the user likes. From those, the AI builds a style profile. The same profile is then used to rank what shows up in the feed, what drop alerts the user gets and — for influencers — which briefs they match.</div>
       <div class="idea-mech">
         <strong>How it works</strong>
         <ul>
@@ -248,62 +248,68 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
 
   </div>
 
-  <!-- ═══ ILLUSTRATION: WHAT TF DOES + PROBLEM SOLVED ═══ -->
+  <!-- ═══ ILLUSTRATION: TF CORE + ALT MODEL ADDITIONS ═══ -->
   <div class="alt-flow">
-    <div class="alt-flow-problem">
-      <span class="alt-flow-problem-label">Problem</span>
-      A small fashion brand spends weeks DM-ing 50–100 influencers per drop and gets 1–2 replies. Discovery doesn't scale. Hiring an in-house team to do it doesn't either.
+
+    <div class="alt-problem">
+      <span class="alt-problem-label">Problem</span>
+      Emerging fashion designers need to find their audience, the right influencers and paying consumers — every drop. Existing platforms each solve one piece. Farfetch and SSENSE sell catalogs (need inventory + reputation). LTK and ShopMy attach creator links (need an existing audience). Kickstarter funds projects (no commerce flow). No single platform closes the loop for emerging fashion.
     </div>
 
-    <div class="alt-flow-stages">
+    <div class="alt-arrow">↓</div>
 
-      <div class="alt-stage new">
-        <div class="alt-stage-num">Stage 1 · New</div>
-        <div class="alt-stage-icon">📝</div>
-        <div class="alt-stage-h">Designer publishes brief</div>
-        <div class="alt-stage-p">aesthetic · audience · deliverable · commission</div>
-        <div class="alt-stage-key">+ style vector attached</div>
+    <div class="alt-section alt-key">
+      <div class="alt-section-label">Key answer · Terra Ferra core (unchanged)</div>
+      <div class="alt-section-h">Marketplace × Creator Commerce × Drops + Pre-orders</div>
+      <div class="alt-circles">
+        <div class="alt-circle c-marketplace">
+          <div class="alt-c-label">Marketplace</div>
+          <div class="alt-c-sub">ongoing designer storefronts</div>
+        </div>
+        <div class="alt-circle c-creator">
+          <div class="alt-c-label">Creator Commerce</div>
+          <div class="alt-c-sub">affiliate · social · influencer-driven sales</div>
+        </div>
+        <div class="alt-circle c-drops">
+          <div class="alt-c-label">Drops + Pre-orders</div>
+          <div class="alt-c-sub">crowdfunding · co-creation · community-voted</div>
+        </div>
       </div>
-
-      <div class="alt-stage-arrow">→</div>
-
-      <div class="alt-stage new">
-        <div class="alt-stage-num">Stage 2 · New</div>
-        <div class="alt-stage-icon">⚡</div>
-        <div class="alt-stage-h">Style AI + social graph rank</div>
-        <div class="alt-stage-p">FashionCLIP × follow-graph ranks the entire ambassador pool by fit</div>
-      </div>
-
-      <div class="alt-stage-arrow">→</div>
-
-      <div class="alt-stage new">
-        <div class="alt-stage-num">Stage 3 · New</div>
-        <div class="alt-stage-icon">✓</div>
-        <div class="alt-stage-h">Top matches self-apply</div>
-        <div class="alt-stage-p">one-tap apply with style profile attached · designer accepts ranked top</div>
-      </div>
-
-      <div class="alt-stage-arrow">→</div>
-
-      <div class="alt-stage existing">
-        <div class="alt-stage-num">Stage 4 · Existing TF</div>
-        <div class="alt-stage-icon">🛍</div>
-        <div class="alt-stage-h">Drop launches</div>
-        <div class="alt-stage-p">pre-order · co-creation vote · multi-party commission</div>
-      </div>
-
+      <div class="alt-roles"><strong>Four roles served:</strong> Designer · Influencer · Super Fan · Consumer · See the full breakdown on the <a href="TFbusinessmodel.html">Comparison Matrix</a>.</div>
     </div>
 
-    <div class="alt-flow-legend">
-      <span class="key"><span class="dot new"></span><strong>New</strong> in alternative model</span>
-      <span class="key"><span class="dot existing"></span><strong>Existing TF</strong> circles (Marketplace × Creator Commerce × Drops + Pre-orders · see <a href="TFbusinessmodel.html" style="color:inherit;text-decoration:underline">Comparison Matrix</a>)</span>
+    <div class="alt-arrow">↓</div>
+
+    <div class="alt-section alt-additional">
+      <div class="alt-section-label">Additional functionality · alt-model refocus</div>
+      <div class="alt-section-h">Discovery becomes the connective tissue across the core</div>
+      <div class="alt-additional-grid">
+        <div class="alt-add">
+          <div class="alt-c-label">A · Visual Style Profile</div>
+          <div class="alt-c-sub">style profile per user — used in feed, drop alerts, brief matching</div>
+        </div>
+        <div class="alt-add">
+          <div class="alt-c-label">B · Reverse Marketplace</div>
+          <div class="alt-c-sub">designer posts a brief, influencers apply, AI ranks fit</div>
+        </div>
+        <div class="alt-add">
+          <div class="alt-c-label">C · Social Discovery × AI</div>
+          <div class="alt-c-sub">feed ranks every drop on style × follow × drop momentum</div>
+        </div>
+      </div>
     </div>
+
   </div>
 
   <!-- ═══ INSTAGRAM SCAN OPTIONS ═══ -->
   <div class="sec-h">
     <span class="sec-num">02</span><span class="sec-title">Instagram Style Scan — Options &amp; Constraints</span>
-    <div class="sec-sub">Meta's APIs do not expose a user's discovery signal (likes, saves, follows) to third parties. Personal accounts cannot share post content via API at all. The "log in, scan, done" experience exists only as a hybrid fallback. Five workable patterns:</div>
+  </div>
+
+  <div class="alt-problem" style="margin-bottom:18px">
+    <span class="alt-problem-label">Key constraint</span>
+    <strong style="color:white;font-size:15px;display:block;margin-bottom:6px">Instagram blocks the "silent style scan."</strong>
+    Meta's APIs do not let third-party apps read a user's likes, saves or follows. Personal accounts — the majority of users — cannot expose any post content via API. A login that quietly imports a user's style profile from Instagram does not exist inside Meta's rules. Five compliant alternatives below.
   </div>
 
   <table class="comp-table">
@@ -373,13 +379,13 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
   <!-- ═══ POSITIONING ═══ -->
   <div class="position">
     <div class="position-eyebrow">Positioning vs Existing Categories</div>
-    <div class="position-body">Catalog marketplaces (Farfetch, Wolf &amp; Badger, Not On The High Street) sell inventory through search and browse. Affiliate networks (LTK, ShopMy) attach creator links to existing products. Creator-marketing platforms (Pearpop, TRIBE, Cohley) run campaigns for Fortune-500 brands at $50K+ budgets. <em>None combine social discovery, visual AI and a reverse-marketplace structure inside one product, positioned for emerging affordable-luxury designers at $1K–$5K per ambassador deal.</em></div>
+    <div class="position-body">Catalog marketplaces (Farfetch, Wolf &amp; Badger, Not On The High Street) sell inventory through search and browse. Affiliate networks (LTK, ShopMy) attach creator links to existing products. Creator-marketing platforms (Pearpop, TRIBE, Cohley) run campaigns for Fortune-500 brands at $50K+ budgets. <em>None combine social discovery, visual AI and a reverse-marketplace structure inside one product, positioned for emerging affordable-luxury designers at $1K–$5K per influencer deal.</em></div>
   </div>
 
   <!-- ═══ COMPETITOR LANDSCAPE ═══ -->
   <div class="sec-h">
     <span class="sec-num">03</span><span class="sec-title">Reverse-Marketplace Competitor Landscape</span>
-    <div class="sec-sub">Platforms where creators (or ambassadors) actively apply to brand briefs rather than brands hunting creators. Sourced from each vendor's official site, May 2026.</div>
+    <div class="sec-sub">Platforms where influencers / creators actively apply to brand briefs rather than brands hunting them. Sourced from each vendor's official site, May 2026.</div>
   </div>
 
   <table class="comp-table">
@@ -453,46 +459,43 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
     </tbody>
   </table>
 
-  <!-- ═══ OPPORTUNITY (UNDER RESEARCH) ═══ -->
+  <!-- ═══ OPPORTUNITY FOR TF ═══ -->
   <div class="sec-h" style="margin-top:48px">
-    <span class="sec-num">04</span><span class="sec-title">Opportunity · Under Research</span>
-    <div class="sec-sub">The reverse-apply mechanic is proven at enterprise scale. The fashion-native, low-budget, AI-ranked, pre-order-integrated version is open territory. This is not a decided direction — it is research material for review. No commission rates, target customer count or build commitments have been set.</div>
+    <span class="sec-num">04</span><span class="sec-title">Opportunity for Terra Ferra · Under Research</span>
+    <div class="sec-sub">The reverse-apply pattern is proven for enterprise marketing budgets (Section 03). No competitor runs it for emerging fashion at low budget with AI style-ranking and pre-orders attached. That gap is where TF could sit. Nothing on this page is a decision — these are research notes for review.</div>
   </div>
 
   <div class="idea-grid">
 
     <div class="idea-block">
-      <div class="idea-num">Where the gap sits</div>
-      <div class="idea-title">No competitor targets emerging fashion at low ambassador budget with visual-AI ranking + pre-order integration.</div>
-      <div class="idea-body">Every platform surveyed runs reverse-apply for Fortune-500 marketing budgets ($50K+ campaigns) or generalist DTC. None is built for emerging fashion designers selling drops at $1K–$5K of ambassador value per drop. None layers visual-AI style scoring on top of the brief-application flow. None ties ambassador economics to a pre-order + co-creation marketplace.</div>
+      <div class="idea-num">The gap</div>
+      <div class="idea-title">No platform serves emerging fashion at low-budget influencer deals.</div>
+      <div class="idea-body">Pearpop, TRIBE and Cohley target Fortune-500 budgets ($50K+ per campaign). JoinBrands targets DTC at scale. Brandbassador targets fashion but is not AI-ranked. None ties the brief flow to a pre-order + co-creation marketplace. That intersection is where TF could play.</div>
     </div>
 
     <div class="idea-block">
       <div class="idea-num">Risks · open questions</div>
-      <div class="idea-title">Build cost, adoption, rate validation, TOS, positioning.</div>
+      <div class="idea-title">Five things TF would need to answer before building.</div>
       <div class="idea-mech">
-        <strong>Risks</strong>
         <ul>
-          <li>Build cost — brief workflow, style-AI scoring, commerce connectors, payout flow</li>
-          <li>Adoption — ambassadors may prefer higher-paying enterprise briefs on Pearpop / Cohley</li>
-          <li>Designer adoption — small brands often prefer manual outreach they control</li>
-          <li>Commission split unknown — designer / ambassador / co-creator / platform shares not validated</li>
-          <li>Instagram TOS risk on scrape options (see Section 02 · Option C)</li>
-          <li>Positioning ambiguity — in-product feature, standalone marketplace, or partnership layer</li>
+          <li><strong>Build cost</strong> — brief workflow, AI style scoring, payout flow</li>
+          <li><strong>Influencer adoption</strong> — would they apply to small-budget briefs when higher-paying ones exist elsewhere?</li>
+          <li><strong>Designer adoption</strong> — small brands often prefer manual outreach they control</li>
+          <li><strong>Commission split</strong> — designer / influencer / super-fan / TF shares are not set</li>
+          <li><strong>Positioning</strong> — feature inside TF, standalone product, or partnership layer?</li>
         </ul>
       </div>
     </div>
 
     <div class="idea-block">
-      <div class="idea-num">Options · to evaluate</div>
-      <div class="idea-title">Four entry paths, ordered by build cost.</div>
+      <div class="idea-num">Options for TF</div>
+      <div class="idea-title">Four ways in, ordered cheapest to most expensive.</div>
       <div class="idea-mech">
-        <strong>Options</strong>
         <ul>
-          <li>1 · Defer — wait until pilot designers explicitly request this workflow</li>
-          <li>2 · Partner — route briefs through an existing reverse-marketplace (e.g. Pearpop, Cohley) and earn a referral / commission cut</li>
-          <li>3 · Add a brief board inside core product — minimal new build; style-AI ranking optional</li>
-          <li>4 · Build a standalone sub-product — full reverse-marketplace, separate brand surface, larger build</li>
+          <li><strong>1 · Defer</strong> — wait until pilot designers ask for it</li>
+          <li><strong>2 · Partner</strong> — route briefs through Pearpop or Cohley, earn a referral cut</li>
+          <li><strong>3 · Brief board inside TF</strong> — minimal new build; style-AI ranking optional</li>
+          <li><strong>4 · Standalone sub-product</strong> — full reverse-marketplace, separate brand surface, larger build</li>
         </ul>
       </div>
     </div>
