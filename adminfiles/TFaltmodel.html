@@ -126,6 +126,11 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
 .alt-pillars-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
 .alt-pillar{background:white;border:1px solid var(--rule);border-top:4px solid var(--tf);padding:16px 14px;display:flex;flex-direction:column}
 .alt-pillar.unique{border-top-color:var(--orange)}
+.alt-pillar.origin-2022{border-top-color:#1F7A4E}
+.alt-pillar.origin-2026{border-top-color:var(--orange)}
+.origin-badge{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;padding:3px 8px;border-radius:3px;margin:0 0 8px}
+.origin-badge.b-2022{background:#E4F3EA;color:#1F7A4E}
+.origin-badge.b-2026{background:#FFF3E8;color:var(--orange)}
 .alt-pillar .pillar-tag{font-size:9px;font-weight:800;color:var(--sub);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px}
 .alt-pillar.unique .pillar-tag{color:var(--orange)}
 .alt-pillar .pillar-num{font-size:20px;font-weight:800;color:var(--tf);line-height:1;margin-bottom:8px}
@@ -263,6 +268,8 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
   <nav class="toc" aria-label="Page contents">
     <div class="toc-head">Contents</div>
     <ul class="toc-list">
+      <li><a href="#sec-anchor-problem"><span class="toc-num">·</span>Problem · what emerging designers cannot do today</a></li>
+      <li><a href="#sec-anchor-altmodel"><span class="toc-num">·</span>What Terra Ferra stands for · 5 pillars (2022 + 2026)</a></li>
       <li><a href="#sec-anchor-01"><span class="toc-num">01</span>Discovery signals — Terra Ferra vs the rest</a></li>
       <li><a href="#sec-anchor-02"><span class="toc-num">02</span>Reverse-Marketplace Competitor Landscape</a></li>
       <li><a href="#sec-anchor-03"><span class="toc-num">03</span>Instagram Style Scan — Options &amp; Constraints</a></li>
@@ -272,7 +279,7 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
   <!-- ═══ ILLUSTRATION: TF CORE + ALT MODEL ADDITIONS ═══ -->
   <div class="alt-flow">
 
-    <div class="alt-problem">
+    <div class="alt-problem" id="sec-anchor-problem">
       <span class="alt-problem-label">Problem · what emerging fashion designers cannot do today</span>
       <ul style="margin:6px 0 0;padding:0;list-style:none">
         <li style="padding:6px 0 6px 16px;position:relative"><span style="position:absolute;left:0;color:var(--orange);font-weight:700">—</span>Farfetch / SSENSE: need existing inventory + reputation — closed to emerging designers</li>
@@ -284,43 +291,47 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
 
     <div class="alt-arrow">↓</div>
 
-    <div class="alt-section alt-key">
-      <div class="alt-section-label">What Terra Ferra stands for · mirrored from <a href="TFbusinessmodel.html" style="color:var(--tf)">Business Model page</a></div>
+    <div class="alt-section alt-key" id="sec-anchor-altmodel">
+      <div class="alt-section-label">Terra Ferra core · <span style="color:#1F7A4E">2022 model</span> + <span style="color:var(--orange)">Added 2026</span></div>
+      <div class="alt-section-h">Marketplace × Creator Commerce × Drops + Pre-orders</div>
       <div class="alt-pillars-grid">
 
-        <div class="alt-pillar unique">
-          <div class="pillar-tag">The product</div>
+        <div class="alt-pillar origin-2026">
+          <div class="pillar-tag">Motion</div>
           <div class="pillar-num">01</div>
-          <div class="pillar-title">Marketplace + Drops</div>
-          <div class="pillar-body">Two motions in one platform. Designers run pre-order drop campaigns with their community AND sell ongoing collections through a persistent marketplace storefront. Buyers access emerging designers other channels exclude.</div>
+          <div class="pillar-title">Marketplace</div>
+          <div class="origin-badge b-2026">Added 2026</div>
+          <div class="pillar-body">Ongoing designer storefronts — a persistent catalog so designers sell between drops. 7% GMV commission.</div>
         </div>
 
-        <div class="alt-pillar">
-          <div class="pillar-tag">For designers</div>
+        <div class="alt-pillar origin-2022">
+          <div class="pillar-tag">Motion</div>
           <div class="pillar-num">02</div>
-          <div class="pillar-title">Launch toolbox + storefront</div>
-          <div class="pillar-body">Sign with a sketch — no inventory required. Co-create with superfans. Run pre-orders and crowdfund drops. List ongoing collections. 7% take rate vs 25–52% on competing marketplaces.</div>
+          <div class="pillar-title">Creator Commerce</div>
+          <div class="origin-badge b-2022">2022 model</div>
+          <div class="pillar-body">Ambassador and influencer commissions on sales they drive. TF takes 10% of those rewards (per 2022 deck).</div>
         </div>
 
-        <div class="alt-pillar">
-          <div class="pillar-tag">For influencers</div>
+        <div class="alt-pillar origin-2022">
+          <div class="pillar-tag">Motion</div>
           <div class="pillar-num">03</div>
-          <div class="pillar-title">Niche-creator commerce</div>
-          <div class="pillar-body">10K–150K-follower fashion creators earn commission on the drops they sell out. No follower minimum — the segment LTK and ShopMy exclude by policy is welcome here.</div>
-        </div>
-
-        <div class="alt-pillar">
-          <div class="pillar-tag">For superfans</div>
-          <div class="pillar-num">04</div>
-          <div class="pillar-title">Co-create + earn</div>
-          <div class="pillar-body">Vote on designs before production, pre-order before launch, earn ambassador rewards on sales you drive. Status, exclusive access and income — not just consumption.</div>
+          <div class="pillar-title">Drops + Pre-orders</div>
+          <div class="origin-badge b-2022">2022 model</div>
+          <div class="pillar-body">Pre-sales, crowdfunding and co-creation. Designers fund and refine drops with their community before production. 7% crowdfunding fee; TF takes 10% of co-creator rewards.</div>
         </div>
 
         <div class="alt-pillar unique">
-          <div class="pillar-tag">For investors</div>
+          <div class="pillar-tag">Why combined</div>
+          <div class="pillar-num">04</div>
+          <div class="pillar-title">All three together</div>
+          <div class="pillar-body">No platform in the surveyed set combines marketplace, creator commerce and drops + pre-orders in a single product for emerging fashion designers. The combination is what makes TF distinct.</div>
+        </div>
+
+        <div class="alt-pillar">
+          <div class="pillar-tag">Who it serves</div>
           <div class="pillar-num">05</div>
-          <div class="pillar-title">Asset-light · multi-stream · networked</div>
-          <div class="pillar-body">No inventory risk. Three-sided network effects (designers ↔ influencers ↔ superfans). Four revenue streams: $1K designer retainer + 5% pre-order fee + 7% co-creator reward + marketplace commission. Niche position no competitor in this matrix matches.</div>
+          <div class="pillar-title">Four roles</div>
+          <div class="pillar-body">Designer · Influencer · Super Fan · Consumer. Full stakeholder breakdown on the <a href="TFbusinessmodel.html" style="color:var(--tf)">Comparison Matrix</a> page.</div>
         </div>
 
       </div>
