@@ -76,6 +76,38 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
 .idea-mech li{padding:3px 0 3px 14px;position:relative}
 .idea-mech li::before{content:'—';position:absolute;left:0;color:var(--orange);font-weight:700}
 
+/* Alt-flow illustration */
+.alt-flow{margin:0 0 56px;background:white;border:1px solid var(--rule);border-top:3px solid var(--orange);padding:24px 26px}
+.alt-flow-problem{background:var(--ink);color:white;padding:16px 20px;margin-bottom:24px;font-size:14px;line-height:1.6;border-left:3px solid var(--orange)}
+.alt-flow-problem-label{font-size:10px;font-weight:800;letter-spacing:2.2px;text-transform:uppercase;color:var(--orange);margin-right:10px}
+.alt-flow-stages{display:flex;align-items:stretch;gap:8px;flex-wrap:nowrap;justify-content:center;margin-bottom:18px}
+.alt-stage{flex:1 1 0;min-width:0;max-width:260px;padding:18px 16px;border-radius:8px;display:flex;flex-direction:column;gap:6px}
+.alt-stage.new{background:#FFF3E8;border:2px solid var(--orange)}
+.alt-stage.existing{background:#DDEEE5;border:2px solid var(--green)}
+.alt-stage-num{font-size:9.5px;font-weight:800;letter-spacing:1.4px;color:var(--orange);text-transform:uppercase}
+.alt-stage.existing .alt-stage-num{color:var(--green)}
+.alt-stage-icon{font-size:22px;line-height:1;margin:2px 0}
+.alt-stage-h{font-size:14px;font-weight:800;color:var(--ink);line-height:1.3;margin-bottom:2px}
+.alt-stage-p{font-size:11.5px;color:var(--sub);line-height:1.5}
+.alt-stage-key{font-size:11px;color:var(--orange);font-weight:700;margin-top:auto;padding-top:6px;border-top:1px dashed rgba(232,104,32,.3)}
+.alt-stage-arrow{font-size:24px;color:var(--sub);align-self:center;font-weight:300;flex-shrink:0}
+.alt-flow-legend{display:flex;gap:24px;flex-wrap:wrap;font-size:11.5px;color:var(--sub);align-items:center;padding-top:14px;border-top:1px solid var(--rule)}
+.alt-flow-legend .key{display:inline-flex;align-items:center;gap:7px}
+.alt-flow-legend .dot{width:11px;height:11px;border-radius:2px;flex-shrink:0}
+.alt-flow-legend .dot.new{background:var(--orange)}
+.alt-flow-legend .dot.existing{background:var(--green)}
+.alt-flow-legend a{color:inherit}
+@media(max-width:900px){
+  .alt-flow{padding:18px 16px}
+  .alt-flow-problem{padding:14px 16px;font-size:13px;margin-bottom:18px}
+  .alt-flow-problem-label{display:block;margin-bottom:6px;margin-right:0}
+  .alt-flow-stages{flex-direction:column;align-items:stretch;gap:6px}
+  .alt-stage{max-width:100%;padding:14px 14px}
+  .alt-stage-h{font-size:13.5px}
+  .alt-stage-arrow{transform:rotate(90deg);font-size:20px;align-self:center}
+  .alt-flow-legend{gap:14px;font-size:11px}
+}
+
 /* Positioning callout */
 .position{background:var(--ink);color:white;padding:24px 28px;margin-bottom:56px;border-left:3px solid var(--orange)}
 .position-eyebrow{font-size:10px;font-weight:800;letter-spacing:2.2px;text-transform:uppercase;color:var(--orange);margin-bottom:10px}
@@ -169,16 +201,12 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
     <!-- Block 1: Reverse Marketplace -->
     <div class="idea-block">
       <div class="idea-num">01 · Reverse Marketplace</div>
-      <div class="idea-title">Designer posts a brief. Ambassadors self-apply. AI ranks the fit.</div>
-      <div class="idea-body">Inverts the standard creator-discovery flow. Today, small fashion brands hire staff to find, negotiate with and brief influencers one-to-one. This bottleneck disappears when designers publish open briefs and ambassadors compete for selection.</div>
+      <div class="idea-title">Designer posts brief. Ambassadors self-apply. AI ranks fit.</div>
       <div class="idea-mech">
-        <strong>Mechanism</strong>
         <ul>
-          <li>Designer publishes drop brief: aesthetic, audience, deliverable, commission</li>
-          <li>Ambassadors browse open briefs, one-tap apply with their visual style profile attached</li>
-          <li>FashionCLIP scores style fit between ambassador's content and the brief lookbook</li>
-          <li>Designer reviews ranked applicants, accepts top matches</li>
-          <li>Removes negotiation overhead. Scales without adding headcount.</li>
+          <li>Brief = aesthetic + deliverable + commission</li>
+          <li>Ambassadors one-tap apply with style profile attached</li>
+          <li>AI ranks fit; designer accepts top matches</li>
         </ul>
       </div>
     </div>
@@ -186,16 +214,12 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
     <!-- Block 2: Visual Style Profile -->
     <div class="idea-block">
       <div class="idea-num">02 · Visual Style Profile</div>
-      <div class="idea-title">B2C visual AI. Built from 5 photos in 30 seconds.</div>
-      <div class="idea-body">Visual AI ported from B2B catalog enrichment into a B2C personalisation primitive. Every user — consumer, fan, ambassador — has a style vector. All downstream discovery, recommendation and brief-matching runs against it.</div>
+      <div class="idea-title">B2C visual AI. 5 photos, 30 seconds.</div>
       <div class="idea-mech">
-        <strong>Mechanism</strong>
         <ul>
-          <li>Onboarding: user uploads 5 outfit photos or pastes Instagram post URLs</li>
-          <li>FashionCLIP embeds each photo into a 512-dim style vector</li>
-          <li>Profile stored once. Used everywhere: feed ranking, drop notifications, brief matching</li>
-          <li>Instagram Graph API constrains "log-in and pull silently" — onboarding capture is the workable substitute</li>
-          <li>Re-trains opportunistically as the user saves / votes / pre-orders</li>
+          <li>Onboarding: 5 outfit photos or Instagram post URLs</li>
+          <li>FashionCLIP builds a 512-dim style vector per user</li>
+          <li>Used for feed, drop alerts and brief matching</li>
         </ul>
       </div>
     </div>
@@ -203,19 +227,69 @@ main{max-width:1200px;margin:0 auto;padding:48px 40px 80px}
     <!-- Block 3: Social Discovery + AI -->
     <div class="idea-block">
       <div class="idea-num">03 · Social Discovery × AI</div>
-      <div class="idea-title">Three-axis personalisation in one product.</div>
-      <div class="idea-body">Combines visual style match (vector similarity), social proximity (follow graph) and drop velocity (community-voted pre-orders). Each axis exists separately on competing platforms; the combination was not observed in the platforms surveyed for the Comparison Matrix.</div>
+      <div class="idea-title">Three-axis personalisation: style × social × velocity.</div>
       <div class="idea-mech">
-        <strong>Axis split</strong>
         <ul>
-          <li>Style match: FashionCLIP vector cosine similarity</li>
-          <li>Social proximity: who the user follows + who follows the user</li>
-          <li>Drop velocity: co-creation vote count + pre-order conversion rate</li>
-          <li>Each drop in the feed ranked by weighted sum across all three axes</li>
+          <li>Style: FashionCLIP cosine similarity</li>
+          <li>Social: follow-graph proximity</li>
+          <li>Velocity: co-creation votes + pre-order rate</li>
         </ul>
+        <p style="margin-top:8px;font-size:11px;color:var(--sub)">Combination not observed in surveyed competitors (Section 03).</p>
       </div>
     </div>
 
+  </div>
+
+  <!-- ═══ ILLUSTRATION: WHAT TF DOES + PROBLEM SOLVED ═══ -->
+  <div class="alt-flow">
+    <div class="alt-flow-problem">
+      <span class="alt-flow-problem-label">Problem</span>
+      A small fashion brand spends weeks DM-ing 50–100 influencers per drop and gets 1–2 replies. Discovery doesn't scale. Hiring an in-house team to do it doesn't either.
+    </div>
+
+    <div class="alt-flow-stages">
+
+      <div class="alt-stage new">
+        <div class="alt-stage-num">Stage 1 · New</div>
+        <div class="alt-stage-icon">📝</div>
+        <div class="alt-stage-h">Designer publishes brief</div>
+        <div class="alt-stage-p">aesthetic · audience · deliverable · commission</div>
+        <div class="alt-stage-key">+ style vector attached</div>
+      </div>
+
+      <div class="alt-stage-arrow">→</div>
+
+      <div class="alt-stage new">
+        <div class="alt-stage-num">Stage 2 · New</div>
+        <div class="alt-stage-icon">⚡</div>
+        <div class="alt-stage-h">Style AI + social graph rank</div>
+        <div class="alt-stage-p">FashionCLIP × follow-graph ranks the entire ambassador pool by fit</div>
+      </div>
+
+      <div class="alt-stage-arrow">→</div>
+
+      <div class="alt-stage new">
+        <div class="alt-stage-num">Stage 3 · New</div>
+        <div class="alt-stage-icon">✓</div>
+        <div class="alt-stage-h">Top matches self-apply</div>
+        <div class="alt-stage-p">one-tap apply with style profile attached · designer accepts ranked top</div>
+      </div>
+
+      <div class="alt-stage-arrow">→</div>
+
+      <div class="alt-stage existing">
+        <div class="alt-stage-num">Stage 4 · Existing TF</div>
+        <div class="alt-stage-icon">🛍</div>
+        <div class="alt-stage-h">Drop launches</div>
+        <div class="alt-stage-p">pre-order · co-creation vote · multi-party commission</div>
+      </div>
+
+    </div>
+
+    <div class="alt-flow-legend">
+      <span class="key"><span class="dot new"></span><strong>New</strong> in alternative model</span>
+      <span class="key"><span class="dot existing"></span><strong>Existing TF</strong> circles (Marketplace × Creator Commerce × Drops + Pre-orders · see <a href="TFbusinessmodel.html" style="color:inherit;text-decoration:underline">Comparison Matrix</a>)</span>
+    </div>
   </div>
 
   <!-- ═══ INSTAGRAM SCAN OPTIONS ═══ -->
