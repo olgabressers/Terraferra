@@ -145,6 +145,7 @@ section.block{margin-bottom:56px}
 .flow-step{background:white;border:1px solid var(--rule);border-top:3px solid var(--orange);padding:16px 14px 14px;display:flex;flex-direction:column;gap:10px;position:relative;min-height:200px}
 .flow-step:not(:last-child)::after{content:'→';position:absolute;right:-13px;top:42px;font-size:22px;color:var(--orange);font-weight:700;z-index:2;background:var(--off-white);width:18px;text-align:center;line-height:1}
 .flow-num{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--orange);color:white;font-size:14px;font-weight:800;line-height:1;flex-shrink:0}
+.flow-actor{font-size:8.5px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:var(--tf);background:var(--tf-ghost);padding:3px 7px;border-radius:2px;display:inline-block;align-self:flex-start}
 .flow-step-title{font-size:13.5px;font-weight:800;color:var(--ink);letter-spacing:-.2px;line-height:1.25}
 .flow-step-desc{font-size:11.5px;color:var(--sub);line-height:1.5}
 .flow-tools{margin-top:auto;padding-top:10px;border-top:1px dashed var(--rule)}
@@ -305,8 +306,9 @@ footer .inner{max-width:1100px;margin:0 auto}
 
       <div class="flow-step">
         <div class="flow-num">1</div>
+        <div class="flow-actor">Designer acts</div>
         <div class="flow-step-title">Drop launched</div>
-        <div class="flow-step-desc">Designer posts a drop on TF (already part of TF today).</div>
+        <div class="flow-step-desc">Designer uploads the drop to TF (already part of TF today).</div>
         <div class="flow-tools">
           <div class="flow-tools-label">Tool</div>
           <div class="flow-tools-list">
@@ -317,8 +319,9 @@ footer .inner{max-width:1100px;margin:0 auto}
 
       <div class="flow-step">
         <div class="flow-num">2</div>
-        <div class="flow-step-title">Themed challenge</div>
-        <div class="flow-step-desc">TF wraps the drop in a theme. Super fans submit outfits.</div>
+        <div class="flow-actor">TF acts</div>
+        <div class="flow-step-title">Theme set</div>
+        <div class="flow-step-desc">TF wraps the drop in a theme (e.g. "Tokyo winter") and opens it for super-fan posts. No submission yet.</div>
         <div class="flow-tools">
           <div class="flow-tools-label">Pattern from</div>
           <div class="flow-tools-list">
@@ -330,8 +333,9 @@ footer .inner{max-width:1100px;margin:0 auto}
 
       <div class="flow-step">
         <div class="flow-num">3</div>
-        <div class="flow-step-title">AI video made</div>
-        <div class="flow-step-desc">Super fan uploads one photo. AI generates a video of them in the drop.</div>
+        <div class="flow-actor">Super fan acts</div>
+        <div class="flow-step-title">Video made</div>
+        <div class="flow-step-desc">Super fan picks a piece from the drop, uploads one selfie. AI generates a video of them in the piece. No purchase required.</div>
         <div class="flow-tools">
           <div class="flow-tools-label">Tool · API</div>
           <div class="flow-tools-list">
@@ -344,8 +348,9 @@ footer .inner{max-width:1100px;margin:0 auto}
 
       <div class="flow-step">
         <div class="flow-num">4</div>
+        <div class="flow-actor">Auto</div>
         <div class="flow-step-title">Cross-posted</div>
-        <div class="flow-step-desc">Video published to TF, Instagram and TikTok with designer tag.</div>
+        <div class="flow-step-desc">The video publishes to TF, Instagram and TikTok with the designer tag and a link back to the pre-order page.</div>
         <div class="flow-tools">
           <div class="flow-tools-label">Channels</div>
           <div class="flow-tools-list">
@@ -358,8 +363,9 @@ footer .inner{max-width:1100px;margin:0 auto}
 
       <div class="flow-step">
         <div class="flow-num">5</div>
+        <div class="flow-actor">TF pays</div>
         <div class="flow-step-title">Bonus paid</div>
-        <div class="flow-step-desc">Super fan earns: fixed post bonus + capped view bonus + pre-order commission.</div>
+        <div class="flow-step-desc">Super fan earns: fixed post bonus + capped view bonus + commission on pre-orders driven by their video.</div>
         <div class="flow-tools">
           <div class="flow-tools-label">Pattern from</div>
           <div class="flow-tools-list">
