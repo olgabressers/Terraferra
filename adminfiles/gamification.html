@@ -91,24 +91,52 @@ section.block{margin-bottom:56px}
 .card-src a{color:var(--tf);text-decoration:none}
 .card-src a:hover{text-decoration:underline}
 
-/* Comparison table */
-.comp-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:18px;border:1px solid var(--rule);background:white}
-.comp-table{width:100%;border-collapse:collapse;font-size:12px;min-width:1080px}
-.comp-table th{background:var(--tf-ghost);color:var(--tf);font-size:9.5px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;text-align:left;padding:12px 12px;border-bottom:1.5px solid var(--tf);vertical-align:bottom}
-.comp-table td{padding:14px 12px;border-bottom:1px solid var(--rule);vertical-align:top;color:var(--sub);line-height:1.5}
-.comp-table tbody tr:last-child td{border-bottom:none}
-.comp-table tbody tr:hover{background:#FAFAFE}
-.comp-table .cat-row td{background:var(--tf-deep);color:white;font-size:10px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;padding:10px 12px}
-.comp-table .plat-name{font-size:13px;font-weight:800;color:var(--ink);margin-bottom:3px}
-.comp-table .plat-name a{color:var(--ink);text-decoration:none;border-bottom:1px dotted var(--rule)}
-.comp-table .plat-name a:hover{color:var(--tf);border-bottom-color:var(--tf)}
-.comp-table .plat-src{font-size:10px;color:var(--sub)}
-.comp-table .plat-src a{color:var(--tf);text-decoration:none}
-.comp-table .badge{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.6px;padding:2px 7px;border-radius:3px;text-transform:uppercase;margin-right:3px}
-.comp-table .badge.yes{background:#E4F3EA;color:#1F7A4E}
-.comp-table .badge.no{background:#FEE2E2;color:#991B1B}
-.comp-table .badge.partial{background:#FBF1D5;color:#8B6510}
-.comp-mobile-hint{display:none;font-size:11px;color:var(--sub);font-style:italic;margin-bottom:8px}
+/* Category sections — mirrors ideas.html tool-card pattern */
+.cat-section{margin-top:36px}
+.cat-section:first-of-type{margin-top:24px}
+.cat-head{display:flex;align-items:flex-start;gap:16px;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--rule)}
+.cat-letter{font-size:42px;font-weight:800;color:var(--tf);letter-spacing:-2px;line-height:1;flex-shrink:0}
+.cat-name{font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.4px;line-height:1.2}
+.cat-sub{font-size:12.5px;color:var(--sub);line-height:1.55;margin-top:4px;max-width:680px}
+
+.rec-summary{background:#FFF3E8;border:1px solid var(--rule);border-left:3px solid var(--orange);padding:18px 22px;margin:18px 0 28px}
+.rec-summary-head{font-size:11px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:var(--orange);margin-bottom:14px}
+.rec-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0}
+.rec-list li{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:9px 0;border-bottom:1px dashed var(--rule)}
+.rec-list li:last-child{border-bottom:none}
+.rec-line{display:flex;align-items:center;gap:6px;min-width:230px;flex-shrink:0}
+.rec-name{font-size:13.5px;font-weight:800;color:var(--ink);letter-spacing:-.2px}
+.rec-name a{color:var(--tf);text-decoration:none}
+.rec-name a:hover{text-decoration:underline}
+.rec-list .dim-chips{flex:1;min-width:200px}
+
+.rating{display:inline-flex;align-items:center;gap:1px;color:var(--orange);font-size:13px;letter-spacing:1px;line-height:1;font-weight:600}
+.rating .star-off{color:var(--rule)}
+.rec-badge{display:inline-block;font-size:8.5px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;padding:3px 7px;background:var(--orange);color:white;border-radius:2px;margin-left:6px;vertical-align:2px;white-space:nowrap}
+
+.tool-grid-compact{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:8px}
+.tool-card-compact{background:white;border:1px solid var(--rule);border-top:3px solid var(--tf);padding:16px 18px 14px;display:flex;flex-direction:column;gap:8px}
+.tool-card-compact.rec{border-top-color:var(--orange)}
+.tcc-head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;flex-wrap:wrap}
+.tcc-name{font-size:14.5px;font-weight:800;color:var(--ink);letter-spacing:-.2px;line-height:1.25}
+.tcc-name a{color:var(--tf);text-decoration:none}
+.tcc-name a:hover{text-decoration:underline}
+.tcc-rating{flex-shrink:0;padding-top:2px}
+.tcc-desc{font-size:12px;color:var(--ink);line-height:1.55}
+.dim-chips{display:flex;flex-wrap:wrap;gap:3px}
+.dim-chip{font-size:8.5px;font-weight:700;letter-spacing:.4px;padding:2px 6px;background:var(--tf-ghost);color:var(--tf-dark);border-radius:2px;text-transform:uppercase;white-space:nowrap}
+.stats-compact{width:100%;border-collapse:collapse;margin-top:2px}
+.stats-compact tr{border-bottom:1px solid var(--rule)}
+.stats-compact tr:last-child{border-bottom:none}
+.stats-compact td{padding:4px 0;font-size:11px;line-height:1.42;vertical-align:top}
+.stats-compact td:first-child{font-weight:800;color:var(--ink);width:38%;text-transform:uppercase;letter-spacing:.3px;font-size:9px;padding-right:8px;white-space:nowrap}
+.stats-compact td .na{color:#AAA;font-style:italic}
+.tool-tf-fit{font-size:11.5px;line-height:1.5;color:var(--ink);padding:7px 10px;background:#FFF3E8;border-left:2px solid var(--orange);margin-top:2px}
+.tool-tf-fit .lbl{font-size:8.5px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--orange);display:block;margin-bottom:2px}
+.tool-source{font-size:9.5px;color:var(--sub);line-height:1.5;margin-top:2px;word-break:break-all}
+.tool-source .lbl{font-size:8.5px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--sub);display:block;margin-bottom:2px}
+.tool-source a{color:var(--sub);text-decoration:underline}
+.tool-source a:hover{color:var(--tf)}
 
 /* Implications block */
 .implications{background:var(--orange-tint);border:2px solid var(--orange);padding:24px 26px}
@@ -143,7 +171,14 @@ footer .inner{max-width:1100px;margin:0 auto}
   footer{padding:20px 28px}
   .cards-grid{grid-template-columns:1fr}
   .imp-row{grid-template-columns:1fr;gap:6px}
-  .comp-mobile-hint{display:block}
+  .tool-grid-compact{grid-template-columns:1fr 1fr}
+  .cat-letter{font-size:34px}
+  .cat-name{font-size:18px}
+}
+@media(max-width:700px){
+  .tool-grid-compact{grid-template-columns:1fr}
+  .cat-letter{font-size:28px}
+  .cat-name{font-size:16px}
 }
 @media(max-width:700px){
   .topnav{position:static;padding:10px 14px}
@@ -218,151 +253,369 @@ footer .inner{max-width:1100px;margin:0 auto}
     </ul>
   </div>
 
-  <!-- 01 COMPARISON MATRIX -->
+  <!-- 01 PLATFORMS BY CATEGORY -->
   <section class="block">
     <div class="sec-h">
-      <span class="sec-num" id="sec-01">01</span><span class="sec-title">Comparison matrix</span>
-      <div class="sec-sub">Twelve existing platforms across five categories, scored on the criteria from the Founder's question: gameplay, AI video output, real-brand catalogue, user reward structure, and pricing.</div>
+      <span class="sec-num" id="sec-01">01</span><span class="sec-title">Existing platforms — by category</span>
+      <div class="sec-sub">Twelve platforms across five categories. Each card lists pricing, integration path, clients and TF fit on the same template, allowing scanning across rows.</div>
     </div>
 
-    <div class="comp-mobile-hint">Scroll the table horizontally →</div>
-    <div class="comp-wrap">
-      <table class="comp-table">
-        <thead>
-          <tr>
-            <th style="width:180px">Platform</th>
-            <th style="width:260px">What users do (core mechanic)</th>
-            <th style="width:90px">AI video out</th>
-            <th style="width:220px">Real brand / designer catalogue</th>
-            <th style="width:240px">User reward · KPI bonus</th>
-            <th style="width:130px">Pricing</th>
-          </tr>
-        </thead>
-        <tbody>
-
-          <tr class="cat-row"><td colspan="6">A · Fashion styling games · style avatars, vote, compete</td></tr>
-
-          <tr>
-            <td><div class="plat-name"><a href="https://drest.com" target="_blank" rel="noopener">Drest</a></div><div class="plat-src">drest.com</div></td>
-            <td>Style avatars from a daily editorial catalogue; daily styling challenges.</td>
-            <td><span class="badge no">No</span></td>
-            <td><span class="badge yes">Yes</span> 260 luxury brands incl. Prada, Gucci, Valentino, Cartier, Fendi, Versace.</td>
-            <td>In-game styling progression; community recognition. No cash bonus.</td>
-            <td>Not disclosed</td>
-          </tr>
-
-          <tr>
-            <td><div class="plat-name"><a href="https://www.ea.com/games/covet-fashion" target="_blank" rel="noopener">Covet Fashion</a></div><div class="plat-src">ea.com · Electronic Arts</div></td>
-            <td>Style virtual models, enter daily challenges, community votes, level up via 5-star looks.</td>
-            <td><span class="badge no">No</span></td>
-            <td><span class="badge yes">Yes</span> 150+ brands; each item links to the brand's shop "to shop IRL". May 2025 collab with DRESSX.</td>
-            <td>Star-rating progression; "Trendsetter" tier at $300K closet value. No cash bonus.</td>
-            <td>Free-to-play + in-app purchases</td>
-          </tr>
-
-          <tr>
-            <td><div class="plat-name"><a href="https://horizon.meta.com/world/10233733406655138/" target="_blank" rel="noopener">DressX Fashion Rivals</a></div><div class="plat-src">dressx.com · Meta Horizon Worlds</div></td>
-            <td>Receive a themed prompt, build an outfit from a digital wardrobe, walk the runway, rate each other.</td>
-            <td><span class="badge no">No</span></td>
-            <td><span class="badge yes">Yes</span> Digital fashion from DRESSX library; launched Dec 2025.</td>
-            <td>Cross-platform play (VR + mobile); peer ratings. No cash bonus.</td>
-            <td>Free-to-play</td>
-          </tr>
-
-          <tr class="cat-row"><td colspan="6">B · Wardrobe apps with community features · digitise closet, share, vote</td></tr>
-
-          <tr>
-            <td><div class="plat-name"><a href="https://www.combyne.com" target="_blank" rel="noopener">Combyne</a></div><div class="plat-src">combyne.com</div></td>
-            <td>"Your Style Playground." Build outfits, enter themed competitions, community voting, create your own contests.</td>
-            <td><span class="badge no">No</span></td>
-            <td><span class="badge yes">Yes</span> 25M+ registered users, 500K+ MAU; items from 800+ brand catalogues + user uploads.</td>
-            <td>"Win Challenges" mechanic; community votes. No cash bonus.</td>
-            <td>Not disclosed</td>
-          </tr>
-
-          <tr>
-            <td><div class="plat-name"><a href="https://whering.co.uk" target="_blank" rel="noopener">Whering</a></div><div class="plat-src">whering.co.uk</div></td>
-            <td>Digitise closet (photo or retailer import), view friends' wardrobes, daily outfit suggestions, cost-per-wear tracking.</td>
-            <td><span class="badge no">No</span></td>
-            <td><span class="badge yes">Yes</span> 7M users; 100M+ item retailer database.</td>
-            <td>No contests, no rewards.</td>
-            <td>Free</td>
-          </tr>
-
-          <tr>
-            <td><div class="plat-name"><a href="https://www.myindyx.com" target="_blank" rel="noopener">Indyx</a></div><div class="plat-src">myindyx.com</div></td>
-            <td>Digitise closet, plan outfits, share with friends, get styled by friends or by a stylist.</td>
-            <td><span class="badge no">No</span></td>
-            <td><span class="badge partial">User-supplied</span> User photographs own items.</td>
-            <td>Friend sharing; paid stylist services start $60 / $150.</td>
-            <td>Free + paid tier + $60–$150 stylist sessions</td>
-          </tr>
-
-          <tr>
-            <td><div class="plat-name"><a href="https://www.acloset.app" target="_blank" rel="noopener">Acloset</a></div><div class="plat-src">acloset.app</div></td>
-            <td>Digitise closet via photo / store import / AI detection. AI outfit recs by weather, schedule, mood.</td>
-            <td><span class="badge no">No</span></td>
-            <td><span class="badge partial">User-supplied</span> 7M users across 150+ countries.</td>
-            <td>Personal optimisation, style analytics. No community feed or rewards on vendor site.</td>
-            <td>Not specified on vendor site</td>
-          </tr>
-
-          <tr class="cat-row"><td colspan="6">C · AI video generators · photo + clothes → short-form video</td></tr>
-
-          <tr>
-            <td><div class="plat-name"><a href="https://www.heygen.com" target="_blank" rel="noopener">HeyGen</a></div><div class="plat-src">heygen.com</div></td>
-            <td>Photo-to-Video; Digital Twin (clone from short video). Marketed for Product Placement, UGC ads for TikTok / Reels / Shorts.</td>
-            <td><span class="badge yes">Yes</span></td>
-            <td><span class="badge no">No</span> Generic tool; user supplies product images and script.</td>
-            <td>None — paid tool, not a community platform.</td>
-            <td>Free plan + paid tiers + API</td>
-          </tr>
-
-          <tr>
-            <td><div class="plat-name"><a href="https://pixverse.ai/en/blog/best-ai-fashion-video-generator" target="_blank" rel="noopener">PixVerse · Fashion Beat</a></div><div class="plat-src">pixverse.ai</div></td>
-            <td>Upload one front-facing model image + up to two apparel images + choose a dance effect (or reference clip up to 30 sec) → AI outfit image + short video.</td>
-            <td><span class="badge yes">Yes</span></td>
-            <td><span class="badge no">No</span> Tool aimed at TikTok Shop sellers; user supplies all assets.</td>
-            <td>None — paid tool.</td>
-            <td>Not specified on cited source</td>
-          </tr>
-
-          <tr class="cat-row"><td colspan="6">D · Creator bonus structures · UGC commerce</td></tr>
-
-          <tr>
-            <td><div class="plat-name">TikTok Shop Affiliate</div><div class="plat-src">tiktok.com (program)</div></td>
-            <td>Creators post product videos; commission per sale tracked through affiliate links. Tier-based bonus structure.</td>
-            <td><span class="badge partial">Creator-supplied</span></td>
-            <td><span class="badge yes">Yes</span> Real shopping products; brand-set commissions per category.</td>
-            <td><strong>Sales-tied commission</strong> + tier bonus by monthly sales volume + promo rate periods set by brands. Exact rates not published by TikTok.</td>
-            <td>Brand-funded commissions</td>
-          </tr>
-
-          <tr>
-            <td><div class="plat-name"><a href="https://www.brandbassador.com" target="_blank" rel="noopener">Brandbassador</a></div><div class="plat-src">brandbassador.com</div></td>
-            <td>Brands post "missions" (post on TikTok, write review, attend event); ambassadors opt in.</td>
-            <td><span class="badge no">No</span></td>
-            <td><span class="badge yes">Yes</span> DTC fashion + lifestyle brands. Named clients: NA-KD, Fabletics, Missguided, IDEAL OF SWEDEN, PopSockets.</td>
-            <td><strong>Cash, commission or gift</strong> per completed mission. Closest match to "bonuses tied to KPIs" pattern raised in conversation.</td>
-            <td>Brand-funded; brand subscription to platform</td>
-          </tr>
-
-          <tr class="cat-row"><td colspan="6">E · Alphabetical / "A-Z" content format · editorial precedent</td></tr>
-
-          <tr>
-            <td><div class="plat-name"><a href="https://i-d.co" target="_blank" rel="noopener">i-D Magazine · The A-Z series</a></div><div class="plat-src">i-d.co · YouTube</div></td>
-            <td>Editorial team produces alphabetical micro-videos on a fashion theme (slang, style, dance, supermodels, beauty); 26 entries per series.</td>
-            <td><span class="badge no">No</span></td>
-            <td><span class="badge yes">Yes</span> Editorial publication founded 1980. Format example: "The A-Z of Gen Z Style".</td>
-            <td>None — editorial content, not user-driven. Format reference only.</td>
-            <td>Free to watch</td>
-          </tr>
-
-        </tbody>
-      </table>
+    <div class="rec-summary">
+      <div class="rec-summary-head">★ Recommended starting points for Terra Ferra</div>
+      <ul class="rec-list">
+        <li>
+          <div class="rec-line">
+            <span class="rec-name"><a href="https://www.combyne.com" target="_blank" rel="noopener">Combyne</a></span>
+            <span class="rating">★★★</span><span class="rec-badge">Rec</span>
+          </div>
+          <div class="dim-chips">
+            <span class="dim-chip">Closet upload</span><span class="dim-chip">Themed challenges</span><span class="dim-chip">Community voting</span><span class="dim-chip">25M+ users</span>
+          </div>
+        </li>
+        <li>
+          <div class="rec-line">
+            <span class="rec-name"><a href="https://www.heygen.com" target="_blank" rel="noopener">HeyGen</a></span>
+            <span class="rating">★★★</span><span class="rec-badge">Rec</span>
+          </div>
+          <div class="dim-chips">
+            <span class="dim-chip">Photo-to-video</span><span class="dim-chip">Digital twin</span><span class="dim-chip">UGC ad creation</span><span class="dim-chip">API</span>
+          </div>
+        </li>
+        <li>
+          <div class="rec-line">
+            <span class="rec-name"><a href="https://pixverse.ai/en/blog/best-ai-fashion-video-generator" target="_blank" rel="noopener">PixVerse · Fashion Beat</a></span>
+            <span class="rating">★★★</span><span class="rec-badge">Rec</span>
+          </div>
+          <div class="dim-chips">
+            <span class="dim-chip">Fashion-specific</span><span class="dim-chip">Model + apparel input</span><span class="dim-chip">Dance reference</span><span class="dim-chip">TikTok Shop focus</span>
+          </div>
+        </li>
+        <li>
+          <div class="rec-line">
+            <span class="rec-name"><a href="https://www.brandbassador.com" target="_blank" rel="noopener">Brandbassador</a></span>
+            <span class="rating">★★★</span><span class="rec-badge">Rec</span>
+          </div>
+          <div class="dim-chips">
+            <span class="dim-chip">Mission-based</span><span class="dim-chip">Cash / commission / gift</span><span class="dim-chip">DTC fashion</span><span class="dim-chip">KPI-tied bonus</span>
+          </div>
+        </li>
+      </ul>
     </div>
 
-    <p style="font-size:11.5px;color:var(--sub);margin-top:14px;line-height:1.55"><strong style="color:var(--ink)">Key observations across the matrix.</strong> No single platform combines AI video output, a curated designer catalogue and KPI-linked cash bonuses in one product. Styling games (A) and wardrobe apps (B) reward with progression and recognition, not cash. AI video tools (C) are standalone tools, not platforms. Cash-bonus structures (D) are commerce affiliate models, not creative platforms. The A-Z format (E) is editorial.</p>
+    <!-- ═══ CATEGORY A — STYLING GAMES ═══ -->
+    <div class="cat-section">
+      <div class="cat-head">
+        <span class="cat-letter">A</span>
+        <div>
+          <div class="cat-name">Fashion styling games</div>
+          <div class="cat-sub">Players dress avatars, enter themed competitions, vote on each other's looks. Real luxury brands participate. Free-to-play. None offer a commerce loop to emerging designers.</div>
+        </div>
+      </div>
+
+      <div class="tool-grid-compact">
+
+        <div class="tool-card-compact">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://drest.com" target="_blank" rel="noopener">Drest</a></div>
+            <div class="tcc-rating"><span class="rating">★★<span class="star-off">★</span></span></div>
+          </div>
+          <div class="tcc-desc">"A fashion entertainment platform; a styling experience that fuses daily fashion news and editorial with gamification."</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Styling game</span><span class="dim-chip">Editorial-led</span><span class="dim-chip">Luxury only</span><span class="dim-chip">No commerce</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td><span class="na">Not disclosed</span></td></tr>
+            <tr><td>Integration</td><td>Standalone app · iOS / Android</td></tr>
+            <tr><td>Brand catalogue</td><td>260 luxury brands incl. Prada, Gucci, Valentino, Cartier, Fendi, Versace</td></tr>
+            <tr><td>User reward</td><td>Progression, recognition. No cash.</td></tr>
+            <tr><td>Geography</td><td>Global</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Inspiration only — luxury catalogue model, no path to emerging designers, no commerce loop. Useful reference for the daily-editorial styling-challenge pattern.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://drest.com" target="_blank" rel="noopener">drest.com</a></div>
+        </div>
+
+        <div class="tool-card-compact">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://www.ea.com/games/covet-fashion" target="_blank" rel="noopener">Covet Fashion</a></div>
+            <div class="tcc-rating"><span class="rating">★★<span class="star-off">★</span></span></div>
+          </div>
+          <div class="tcc-desc">EA's fashion styling game. Players style virtual models, enter daily challenges, community votes, level up via 5-star looks. Items link to "each brand's shop for you to shop IRL."</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Styling game</span><span class="dim-chip">Daily challenges</span><span class="dim-chip">Community voting</span><span class="dim-chip">Brand shop links</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td>Free-to-play + in-app purchases</td></tr>
+            <tr><td>Integration</td><td>Standalone app · iOS / Android</td></tr>
+            <tr><td>Brand catalogue</td><td>150+ real brands. May 2025 collab with DRESSX</td></tr>
+            <tr><td>User reward</td><td>5-star ratings, "Trendsetter" tier at $300K closet. No cash.</td></tr>
+            <tr><td>Geography</td><td>Global</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Pattern reference for "daily challenge + community vote + shop the look" loop. EA-scale, mass market — TF would need an emerging-designer twist to differentiate.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://www.ea.com/games/covet-fashion" target="_blank" rel="noopener">ea.com</a></div>
+        </div>
+
+        <div class="tool-card-compact">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://horizon.meta.com/world/10233733406655138/" target="_blank" rel="noopener">DressX Fashion Rivals</a></div>
+            <div class="tcc-rating"><span class="rating">★<span class="star-off">★</span><span class="star-off">★</span></span></div>
+          </div>
+          <div class="tcc-desc">Multiplayer styling on Meta Horizon Worlds. Receive a themed prompt, build an outfit from a digital wardrobe, walk the runway, rate each other.</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Multiplayer</span><span class="dim-chip">VR + mobile</span><span class="dim-chip">Digital fashion</span><span class="dim-chip">Themed prompt</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td>Free-to-play, cross-platform</td></tr>
+            <tr><td>Integration</td><td>Meta Horizon Worlds (VR) + mobile companion</td></tr>
+            <tr><td>Brand catalogue</td><td>Digital fashion from DRESSX library; launched Dec 2025</td></tr>
+            <tr><td>User reward</td><td>Peer ratings, runway moments. No cash.</td></tr>
+            <tr><td>Geography</td><td>Global (Meta Horizon availability)</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Low — digital fashion only, no physical drop, requires VR headset for full experience. Format inspiration for "themed prompt + runway + peer rating" loop.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://dressx.com/news/dressx-enters-meta-horizon-worlds-with-%E2%80%9Cdressx-fashion-rivals-%E2%80%9D-bringing-the-first-major-digital-fashion-experience-to-the-platform" target="_blank" rel="noopener">dressx.com</a></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══ CATEGORY B — WARDROBE APPS ═══ -->
+    <div class="cat-section">
+      <div class="cat-head">
+        <span class="cat-letter">B</span>
+        <div>
+          <div class="cat-name">Wardrobe apps with community features</div>
+          <div class="cat-sub">Users digitise their own clothes, organise outfits, sometimes share with friends or a community. Combyne is closest to a gamified pattern.</div>
+        </div>
+      </div>
+
+      <div class="tool-grid-compact">
+
+        <div class="tool-card-compact rec">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://www.combyne.com" target="_blank" rel="noopener">Combyne</a> <span class="rec-badge">Recommended</span></div>
+            <div class="tcc-rating"><span class="rating">★★★</span></div>
+          </div>
+          <div class="tcc-desc">"Your Style Playground." Build outfits, enter themed competitions ("first day of school outfits", "dress like a boss"), community voting, "Win Challenges" mechanic. Users can create their own contests.</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Closet upload</span><span class="dim-chip">Themed challenges</span><span class="dim-chip">Community voting</span><span class="dim-chip">User-created contests</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td><span class="na">Not disclosed</span></td></tr>
+            <tr><td>Integration</td><td>Standalone app · iOS / Android</td></tr>
+            <tr><td>Brand catalogue</td><td>Items from 800+ brand catalogues + user uploads. 25M+ registered, 500K+ MAU.</td></tr>
+            <tr><td>User reward</td><td>Community votes; "Win Challenges". No cash.</td></tr>
+            <tr><td>Geography</td><td>Global</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Closest live pattern to the Founder's gameplay direction. TF could mirror the themed-challenge + community-vote loop using real emerging-designer drops instead of generic brand catalogues.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://www.combyne.com" target="_blank" rel="noopener">combyne.com</a></div>
+        </div>
+
+        <div class="tool-card-compact">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://whering.co.uk" target="_blank" rel="noopener">Whering</a></div>
+            <div class="tcc-rating"><span class="rating">★★<span class="star-off">★</span></span></div>
+          </div>
+          <div class="tcc-desc">Wardrobe app — add clothes by photo or retailer import, view friends' wardrobes, daily outfit suggestions, cost-per-wear tracking.</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Closet upload</span><span class="dim-chip">Friend sharing</span><span class="dim-chip">Retailer database</span><span class="dim-chip">No gamification</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td>Free</td></tr>
+            <tr><td>Integration</td><td>Standalone app · iOS / Android</td></tr>
+            <tr><td>Brand catalogue</td><td>7M users; 100M+ item retailer database</td></tr>
+            <tr><td>User reward</td><td>None — utility, not contests</td></tr>
+            <tr><td>Geography</td><td>Global (UK origin)</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Reference for closet-upload UX and friend-graph sharing. Lacks the gamification layer TF is exploring.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://whering.co.uk" target="_blank" rel="noopener">whering.co.uk</a></div>
+        </div>
+
+        <div class="tool-card-compact">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://www.myindyx.com" target="_blank" rel="noopener">Indyx</a></div>
+            <div class="tcc-rating"><span class="rating">★<span class="star-off">★</span><span class="star-off">★</span></span></div>
+          </div>
+          <div class="tcc-desc">Digital wardrobe app — digitise closet, plan outfits, share with friends, get styled by friends or paid stylists.</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Closet upload</span><span class="dim-chip">Paid styling</span><span class="dim-chip">Friend sharing</span><span class="dim-chip">Private community (paid)</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td>Free + paid Insider tier</td></tr>
+            <tr><td>Integration</td><td>Standalone app · iOS / Android / Web</td></tr>
+            <tr><td>Brand catalogue</td><td>User-supplied (own clothes)</td></tr>
+            <tr><td>User reward</td><td>Friend styling; paid stylist sessions $60 / $150</td></tr>
+            <tr><td>Geography</td><td>Global</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Pricing benchmark for paid stylist services. No gamification — not a direct TF pattern.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://www.myindyx.com" target="_blank" rel="noopener">myindyx.com</a></div>
+        </div>
+
+        <div class="tool-card-compact">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://www.acloset.app" target="_blank" rel="noopener">Acloset</a></div>
+            <div class="tcc-rating"><span class="rating">★<span class="star-off">★</span><span class="star-off">★</span></span></div>
+          </div>
+          <div class="tcc-desc">AI-powered wardrobe app. Digitise closet by photo / store import / AI detection. AI outfit suggestions by weather, schedule, mood.</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Closet upload</span><span class="dim-chip">AI outfit recs</span><span class="dim-chip">Style analytics</span><span class="dim-chip">No community</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td><span class="na">Not specified on vendor site</span></td></tr>
+            <tr><td>Integration</td><td>Standalone app · iOS / Android</td></tr>
+            <tr><td>Brand catalogue</td><td>User-supplied. 7M users across 150+ countries.</td></tr>
+            <tr><td>User reward</td><td>Personal optimisation only</td></tr>
+            <tr><td>Geography</td><td>Global · 150+ countries</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Reference for AI auto-tagging of closet items. No gamification or community — not a direct pattern.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://www.acloset.app" target="_blank" rel="noopener">acloset.app</a></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══ CATEGORY C — AI VIDEO ═══ -->
+    <div class="cat-section">
+      <div class="cat-head">
+        <span class="cat-letter">C</span>
+        <div>
+          <div class="cat-name">AI video generators — photo + clothes → video</div>
+          <div class="cat-sub">Tools that produce short-form video from a person's photo + product images. Closest match to the AI-video direction the CEO proposed.</div>
+        </div>
+      </div>
+
+      <div class="tool-grid-compact">
+
+        <div class="tool-card-compact rec">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://www.heygen.com" target="_blank" rel="noopener">HeyGen</a> <span class="rec-badge">Recommended</span></div>
+            <div class="tcc-rating"><span class="rating">★★★</span></div>
+          </div>
+          <div class="tcc-desc">Photo-to-Video and Digital Twin (clone from short video). Explicitly supports Product Placement, UGC advertisements, content for TikTok / Reels / YouTube Shorts.</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Photo-to-video</span><span class="dim-chip">Digital twin</span><span class="dim-chip">Product placement</span><span class="dim-chip">UGC ad creation</span><span class="dim-chip">API</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td>Free plan + paid tiers + consumption-based API</td></tr>
+            <tr><td>Integration</td><td>API + web app + SDK</td></tr>
+            <tr><td>Free trial</td><td>Free plan available</td></tr>
+            <tr><td>Clients</td><td>Generic (not fashion-specific)</td></tr>
+            <tr><td>Geography</td><td>Global</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Strongest general-purpose AI video API. TF could integrate to let a super fan generate a "wearing the drop" video from their photo. Per-video cost vs reward economics is the limiting factor.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://www.heygen.com" target="_blank" rel="noopener">heygen.com</a></div>
+        </div>
+
+        <div class="tool-card-compact rec">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://pixverse.ai/en/blog/best-ai-fashion-video-generator" target="_blank" rel="noopener">PixVerse · Fashion Beat</a> <span class="rec-badge">Recommended</span></div>
+            <div class="tcc-rating"><span class="rating">★★★</span></div>
+          </div>
+          <div class="tcc-desc">Fashion-specific. Upload one front-facing model image + up to two apparel images + choose a dance effect (or reference clip up to 30 sec) → AI outfit image + short video.</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Fashion-specific</span><span class="dim-chip">Model + apparel input</span><span class="dim-chip">Dance reference</span><span class="dim-chip">TikTok Shop focus</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td><span class="na">Not specified on cited source</span></td></tr>
+            <tr><td>Integration</td><td>Web tool · API tier mentioned</td></tr>
+            <tr><td>Free trial</td><td>Not specified</td></tr>
+            <tr><td>Clients</td><td>TikTok Shop sellers, boutiques</td></tr>
+            <tr><td>Geography</td><td>Global</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Most direct match to the fashion-specific AI video step in the conversation. Workflow already targets TikTok Shop sellers — TF could adapt the same flow for super fans + designer drops.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://pixverse.ai/en/blog/best-ai-fashion-video-generator" target="_blank" rel="noopener">pixverse.ai</a></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══ CATEGORY D — CREATOR BONUS ═══ -->
+    <div class="cat-section">
+      <div class="cat-head">
+        <span class="cat-letter">D</span>
+        <div>
+          <div class="cat-name">Creator bonus structures — UGC commerce</div>
+          <div class="cat-sub">Existing reward systems that pay creators for content tied to sales or activity. Closest references for the KPI-bonus layer in the conversation.</div>
+        </div>
+      </div>
+
+      <div class="tool-grid-compact">
+
+        <div class="tool-card-compact">
+          <div class="tcc-head">
+            <div class="tcc-name">TikTok Shop Affiliate</div>
+            <div class="tcc-rating"><span class="rating">★★<span class="star-off">★</span></span></div>
+          </div>
+          <div class="tcc-desc">Creators post product videos; commission per sale tracked through affiliate links. Tier-based bonus structure: higher monthly sales unlock higher commission tiers + promo periods set by brand.</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Sales-tied commission</span><span class="dim-chip">Tier bonus</span><span class="dim-chip">Brand-funded</span><span class="dim-chip">TikTok-locked</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td>Brand-funded commissions; rates set per brand</td></tr>
+            <tr><td>Integration</td><td>TikTok-internal program (cannot be re-used by TF)</td></tr>
+            <tr><td>Bonus type</td><td>% commission per sale + tier bonus on volume</td></tr>
+            <tr><td>Clients</td><td>Any TikTok Shop seller</td></tr>
+            <tr><td>Geography</td><td>Markets where TikTok Shop operates</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Reference only — not integrable. Useful as a benchmark for the tier-based bonus structure TF could adopt for super fans (e.g. higher commission unlocked at higher monthly volume).</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://influenceflow.io/resources/tiktok-shop-affiliate-tools-and-commission-structures-the-complete-2026-guide-1/" target="_blank" rel="noopener">influenceflow.io</a> · <a href="https://bemomentiq.com/blog/tiktok-shop-affiliate-commission-strategy-structure-tiered-rates" target="_blank" rel="noopener">bemomentiq.com</a></div>
+        </div>
+
+        <div class="tool-card-compact rec">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://www.brandbassador.com" target="_blank" rel="noopener">Brandbassador</a> <span class="rec-badge">Recommended</span></div>
+            <div class="tcc-rating"><span class="rating">★★★</span></div>
+          </div>
+          <div class="tcc-desc">Brands publish "missions" (post on TikTok, write review, attend event); ambassadors opt-in for cash, commission or gift rewards per mission.</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Mission-based</span><span class="dim-chip">Cash / commission / gift</span><span class="dim-chip">DTC fashion</span><span class="dim-chip">KPI-tied bonus</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td>Brand subscription — quote-based, not disclosed</td></tr>
+            <tr><td>Integration</td><td>Brand-side SaaS platform; ambassador-side mobile app</td></tr>
+            <tr><td>Bonus type</td><td>Cash, % commission, or gift per completed mission</td></tr>
+            <tr><td>Clients</td><td>NA-KD, Fabletics, Missguided, IDEAL OF SWEDEN, PopSockets</td></tr>
+            <tr><td>Geography</td><td>Global</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Closest live model to Olga's KPI-bonus proposal (bonus for posting + bonus for views + bonus for leads). TF could either integrate, partner, or rebuild the mission/bonus pattern in-product for super fans.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://www.brandbassador.com" target="_blank" rel="noopener">brandbassador.com</a></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══ CATEGORY E — A-Z FORMAT ═══ -->
+    <div class="cat-section">
+      <div class="cat-head">
+        <span class="cat-letter">E</span>
+        <div>
+          <div class="cat-name">Alphabetical / "A-Z" content format</div>
+          <div class="cat-sub">Editorial precedent for the A-Z series referenced in the conversation. Not a platform — a content format.</div>
+        </div>
+      </div>
+
+      <div class="tool-grid-compact">
+
+        <div class="tool-card-compact">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://i-d.co" target="_blank" rel="noopener">i-D Magazine · The A-Z series</a></div>
+            <div class="tcc-rating"><span class="rating">★★<span class="star-off">★</span></span></div>
+          </div>
+          <div class="tcc-desc">Recurring editorial format — alphabetical micro-fashion videos. 26 entries per series covering style, slang, dance, beauty, supermodels.</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Editorial format</span><span class="dim-chip">26 entries / series</span><span class="dim-chip">Short-form video</span><span class="dim-chip">Not user-driven</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td>Free to watch</td></tr>
+            <tr><td>Integration</td><td>N/A — content reference only</td></tr>
+            <tr><td>Example series</td><td>"The A-Z of Gen Z Style" · "The A-Z of Dance" · "The A-Z of New York Style"</td></tr>
+            <tr><td>Publisher</td><td>i-D Magazine · independent fashion publication founded 1980</td></tr>
+            <tr><td>Geography</td><td>Global</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Format inspiration only. TF could adapt the A-Z pattern as a community ritual — designer drops a 26-letter capsule, super fans claim letters, AI-assisted micro-videos go out.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://www.youtube.com/watch?v=HNcBLsSX45U" target="_blank" rel="noopener">The A-Z Of Gen Z Style · YouTube</a> · <a href="https://i-d.co" target="_blank" rel="noopener">i-d.co</a></div>
+        </div>
+
+      </div>
+    </div>
 
   </section>
 
