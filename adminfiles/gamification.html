@@ -138,14 +138,22 @@ section.block{margin-bottom:56px}
 .tool-source a{color:var(--sub);text-decoration:underline}
 .tool-source a:hover{color:var(--tf)}
 
-/* Implications block */
-.implications{background:var(--orange-tint);border:2px solid var(--orange);padding:24px 26px}
-.imp-row{display:grid;grid-template-columns:140px 1fr;gap:18px;padding:12px 0;border-bottom:1px solid rgba(232,104,32,.25)}
-.imp-row:last-child{border-bottom:none}
-.imp-tag{font-size:9.5px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:var(--orange);padding-top:2px}
-.imp-tag.risk{color:#A8351A}
-.imp-body{font-size:13px;color:var(--ink);line-height:1.6}
-.imp-body strong{color:var(--ink)}
+/* Opportunity stack */
+.opp-stack{display:flex;flex-direction:column;gap:18px;margin-bottom:24px}
+.opp-card{background:white;border:1px solid var(--rule);border-left:4px solid var(--orange);display:grid;grid-template-columns:84px 1fr;gap:0}
+.opp-num-cell{background:var(--orange-tint);padding:24px 18px;display:flex;align-items:flex-start;justify-content:center;border-right:1px solid var(--rule)}
+.opp-num{font-size:34px;font-weight:800;color:var(--orange);letter-spacing:-1.5px;line-height:1}
+.opp-body{padding:22px 26px}
+.opp-tag{font-size:9.5px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:var(--orange);margin-bottom:6px}
+.opp-title{font-size:18px;font-weight:800;color:var(--ink);letter-spacing:-.3px;line-height:1.3;margin-bottom:14px}
+.opp-block{margin-bottom:12px;padding-bottom:12px;border-bottom:1px dashed var(--rule)}
+.opp-block:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.opp-block-label{font-size:9px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:var(--sub);margin-bottom:5px;display:block}
+.opp-block-body{font-size:12.5px;line-height:1.6;color:var(--ink)}
+.opp-block-body strong{color:var(--ink)}
+.opp-block.risk{background:#FDF1EE;border:1px solid #F2C5B7;border-radius:3px;padding:11px 14px;margin-top:14px}
+.opp-block.risk .opp-block-label{color:#A8351A}
+.opp-block.risk .opp-block-body{color:#5B2814}
 
 /* Sources list */
 .sources{background:white;border:1px solid var(--rule);padding:24px 26px;margin-top:24px}
@@ -179,6 +187,11 @@ footer .inner{max-width:1100px;margin:0 auto}
   .tool-grid-compact{grid-template-columns:1fr}
   .cat-letter{font-size:28px}
   .cat-name{font-size:16px}
+  .opp-card{grid-template-columns:60px 1fr}
+  .opp-num{font-size:26px}
+  .opp-num-cell{padding:18px 10px}
+  .opp-body{padding:18px 18px}
+  .opp-title{font-size:16px}
 }
 @media(max-width:700px){
   .topnav{position:static;padding:10px 14px}
@@ -255,15 +268,111 @@ footer .inner{max-width:1100px;margin:0 auto}
   <div class="toc">
     <div class="toc-head">Contents</div>
     <ul class="toc-list">
-      <li><a href="#sec-01"><span class="toc-num">01</span>Comparison matrix · 12 platforms across 5 categories</a></li>
-      <li><a href="#sec-02"><span class="toc-num">02</span>Implications for Terra Ferra · opportunities</a></li>
+      <li><a href="#sec-01"><span class="toc-num">01</span>Implications for Terra Ferra · 3 opportunities + paired risks</a></li>
+      <li><a href="#sec-02"><span class="toc-num">02</span>Existing platforms — by category</a></li>
     </ul>
   </div>
 
-  <!-- 01 PLATFORMS BY CATEGORY -->
+  <!-- 01 IMPLICATIONS FOR TERRA FERRA -->
   <section class="block">
     <div class="sec-h">
-      <span class="sec-num" id="sec-01">01</span><span class="sec-title">Existing platforms — by category</span>
+      <span class="sec-num" id="sec-01">01</span><span class="sec-title">Implications for Terra Ferra</span>
+      <div class="sec-sub">Three opportunity tracks for TF to consider, each with a paired risk drawn from the platforms surveyed.</div>
+    </div>
+
+    <div class="opp-stack">
+
+      <div class="opp-card">
+        <div class="opp-num-cell"><span class="opp-num">01</span></div>
+        <div class="opp-body">
+          <div class="opp-tag">Opportunity · engagement loop</div>
+          <div class="opp-title">Themed challenges + A-Z capsule drops as the participation format</div>
+
+          <div class="opp-block">
+            <span class="opp-block-label">What it is</span>
+            <div class="opp-block-body">TF runs themed styling challenges and 26-letter A-Z capsule drops with emerging designers. Super fans participate by submitting an outfit to the challenge or claiming a letter in the capsule; community votes determine outcomes.</div>
+          </div>
+
+          <div class="opp-block">
+            <span class="opp-block-label">Existing references</span>
+            <div class="opp-block-body"><strong>Drest, Covet Fashion, Combyne</strong> — themed challenges + community voting. <strong>i-D Magazine A-Z series</strong> — alphabetical micro-format. <strong>DressX Fashion Rivals</strong> — themed prompt + runway + peer rating.</div>
+          </div>
+
+          <div class="opp-block">
+            <span class="opp-block-label">TF differentiator</span>
+            <div class="opp-block-body">Drops are physical, pre-orderable and shippable. Challenge submissions tie directly to emerging-designer product — not digital avatars (Drest, Covet, DressX) or editorial content (i-D).</div>
+          </div>
+
+          <div class="opp-block risk">
+            <span class="opp-block-label">Paired risk</span>
+            <div class="opp-block-body"><strong>Gamification can drift away from commerce.</strong> Drest and Covet are styling games where buying physical product is not the core loop. TF's challenge mechanic must stay tightly coupled to drops + pre-orders, or it becomes entertainment without revenue.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="opp-card">
+        <div class="opp-num-cell"><span class="opp-num">02</span></div>
+        <div class="opp-body">
+          <div class="opp-tag">Opportunity · content layer</div>
+          <div class="opp-title">AI-assisted UGC video — super fans turn a photo + a drop into a Reel</div>
+
+          <div class="opp-block">
+            <span class="opp-block-label">What it is</span>
+            <div class="opp-block-body">A super fan uploads a photo, picks a drop, and the platform generates a short-form video featuring them in the drop. The output is cross-posted to TF, Instagram and TikTok with designer-tag attribution.</div>
+          </div>
+
+          <div class="opp-block">
+            <span class="opp-block-label">Existing references</span>
+            <div class="opp-block-body"><strong>HeyGen</strong> — general-purpose Photo-to-Video + Digital Twin API. <strong>PixVerse Fashion Beat</strong> — fashion-specific (model photo + apparel + dance reference → TikTok-format video), already targeted at TikTok Shop sellers.</div>
+          </div>
+
+          <div class="opp-block">
+            <span class="opp-block-label">TF differentiator</span>
+            <div class="opp-block-body">One-click generation embedded in the drop page — no separate tool to learn. Every video carries the designer tag and links back to the pre-order page.</div>
+          </div>
+
+          <div class="opp-block risk">
+            <span class="opp-block-label">Paired risk</span>
+            <div class="opp-block-body"><strong>Instagram and TikTok already host UGC at scale.</strong> The discovery pain on those platforms is signal-to-noise from fast-fashion accounts and scams, not absence of content. TF's edge has to be the curated designer pool, not the video tool. The gating economics: per-video AI cost vs reward to the super fan.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="opp-card">
+        <div class="opp-num-cell"><span class="opp-num">03</span></div>
+        <div class="opp-body">
+          <div class="opp-tag">Opportunity · reward layer</div>
+          <div class="opp-title">KPI-linked bonuses to super fans for content tied to TF drops</div>
+
+          <div class="opp-block">
+            <span class="opp-block-label">What it is</span>
+            <div class="opp-block-body">Super fans earn bonuses on three KPI tracks: <strong>fixed bonus</strong> on post creation, <strong>variable bonus</strong> on views / engagement, <strong>commission</strong> on pre-orders generated from their post.</div>
+          </div>
+
+          <div class="opp-block">
+            <span class="opp-block-label">Existing references</span>
+            <div class="opp-block-body"><strong>Brandbassador</strong> — mission-based cash / commission / gift; closest live model for KPI-tied bonuses to non-influencer fans. <strong>TikTok Shop Affiliate</strong> — tier-based commission triggered by monthly sales volume.</div>
+          </div>
+
+          <div class="opp-block">
+            <span class="opp-block-label">TF differentiator</span>
+            <div class="opp-block-body">Pre-order commission ties bonus directly to the drop's commercial outcome. Brandbassador's missions are flat per-task; TF's commission compounds with drop success.</div>
+          </div>
+
+          <div class="opp-block risk">
+            <span class="opp-block-label">Paired risk</span>
+            <div class="opp-block-body"><strong>View-based bonuses invite fraud.</strong> View counts are gameable via bot farms and view bots. Any view-tied payout requires source verification, rate-limit guards, and capped payouts per user / per period.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 02 PLATFORMS BY CATEGORY -->
+  <section class="block">
+    <div class="sec-h">
+      <span class="sec-num" id="sec-02">02</span><span class="sec-title">Existing platforms — by category</span>
       <div class="sec-sub">Twelve platforms across five categories. Each card lists pricing, integration path, clients and TF fit on the same template, allowing scanning across rows.</div>
     </div>
 
@@ -659,51 +768,6 @@ footer .inner{max-width:1100px;margin:0 auto}
 
   </section>
 
-  <!-- 06 IMPLICATIONS -->
-  <section class="block">
-    <div class="sec-h">
-      <span class="sec-num" id="sec-02">02</span><span class="sec-title">Implications for Terra Ferra</span>
-    </div>
-
-    <div class="implications">
-
-      <div class="imp-row">
-        <div class="imp-tag">Opportunity A</div>
-        <div class="imp-body"><strong>Themed styling challenges with emerging-designer drops.</strong> Drest, Covet Fashion and DressX Fashion Rivals run the same pattern (themed prompt → outfit → community vote). TF could run the same loop using emerging-designer drops as the wardrobe. <strong>Differentiator vs Drest/Covet:</strong> drops are physical, pre-orderable and shippable — not digital avatars.</div>
-      </div>
-
-      <div class="imp-row">
-        <div class="imp-tag">Opportunity B</div>
-        <div class="imp-body"><strong>AI-generated short video from a super fan's photo + a designer drop.</strong> Closest existing tools: HeyGen (general) and PixVerse Fashion Beat (fashion-specific TikTok output). TF could integrate one of these so super fans generate a TF + designer-tagged Reel without leaving the platform. The gating economics: per-video AI cost vs the reward to the super fan.</div>
-      </div>
-
-      <div class="imp-row">
-        <div class="imp-tag">Opportunity C</div>
-        <div class="imp-body"><strong>KPI-linked bonuses to super fans for created content.</strong> Closest reference: Brandbassador's mission-based rewards (cash / commission / gift). TikTok Shop runs a tier-based commission model. TF could combine: bonus on post creation (fixed), bonus on views/engagement (variable), bonus on pre-orders generated (commission). View-based payouts require bot and fraud-detection guards — see Risk 3.</div>
-      </div>
-
-      <div class="imp-row">
-        <div class="imp-tag">Opportunity D</div>
-        <div class="imp-body"><strong>Designer + super-fan co-created "A-Z" micro-series.</strong> The i-D format is editorial — 26 short videos under one theme. TF could turn this into a community ritual: a designer drops an A-Z capsule, super fans each claim a letter, AI-assisted videos go out across TF / IG / TikTok.</div>
-      </div>
-
-      <div class="imp-row">
-        <div class="imp-tag risk">Risk 1</div>
-        <div class="imp-body"><strong>Instagram and TikTok already host UGC at scale.</strong> The discovery pain on those platforms is signal-to-noise from fast-fashion accounts and scams, not absence of content. TF's edge has to be the <strong>curated designer pool</strong>, not the video tool itself.</div>
-      </div>
-
-      <div class="imp-row">
-        <div class="imp-tag risk">Risk 2</div>
-        <div class="imp-body"><strong>Gamification can drift away from commerce.</strong> Drest and Covet are styling games — buying physical product is not the core loop. TF's gamification must stay tightly coupled to drops + pre-orders, or it becomes entertainment without revenue.</div>
-      </div>
-
-      <div class="imp-row">
-        <div class="imp-tag risk">Risk 3</div>
-        <div class="imp-body"><strong>View-based bonuses invite fraud.</strong> View counts are gameable (bot farms, view bots). Any KPI-linked payout structure requires view-source verification and rate-limit guards.</div>
-      </div>
-
-    </div>
-  </section>
 
 </main>
 
