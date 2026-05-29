@@ -156,8 +156,27 @@ section.block{margin-bottom:56px}
 .flow-tool a:hover{text-decoration:underline}
 .flow-tool-note{font-size:9px;color:var(--orange);font-weight:800;letter-spacing:.6px;text-transform:uppercase;margin-left:4px}
 .flow-col{display:flex;flex-direction:column;gap:8px}
+.flow-money-box{background:#E8F4ED;border:1px solid #B5D9C3;border-left:3px solid #1F7A4E;border-radius:2px;padding:11px 13px;font-size:11px;color:#143F2C;line-height:1.5}
+.flow-money-box-label{font-size:8.5px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:#1F7A4E;margin-bottom:5px;display:block}
+.flow-money-row{display:flex;gap:6px;margin-bottom:3px;line-height:1.35}
+.flow-money-row:last-child{margin-bottom:0}
+.flow-money-tag{font-size:8.5px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;padding:1px 5px;border-radius:2px;flex-shrink:0;height:14px;line-height:12px;margin-top:1px}
+.flow-money-tag.pays{background:#FEE2E2;color:#991B1B}
+.flow-money-tag.earns{background:#E4F3EA;color:#1F7A4E}
+.flow-money-tag.neutral{background:#FBF1D5;color:#8B6510}
+.flow-money-text{font-size:11px;color:#143F2C;line-height:1.4;flex:1}
 .flow-risk-box{background:#FDF1EE;border:1px solid #F2C5B7;border-left:3px solid #A8351A;border-radius:2px;padding:12px 14px;font-size:11px;color:#5B2814;line-height:1.5}
 .flow-risk-box-label{font-size:8.5px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:#A8351A;margin-bottom:4px;display:block}
+
+/* Investments summary block */
+.flow-summary{background:white;border:1px solid var(--rule);border-top:4px solid var(--tf);padding:24px 26px;margin:8px 0 36px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.flow-summary-cell{display:flex;flex-direction:column;gap:8px}
+.flow-summary-tag{font-size:9px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:var(--tf);padding-bottom:6px;border-bottom:1px solid var(--rule)}
+.flow-summary-title{font-size:13px;font-weight:800;color:var(--ink);letter-spacing:-.2px;line-height:1.3}
+.flow-summary-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:5px}
+.flow-summary-list li{font-size:11.5px;color:var(--sub);line-height:1.5;padding-left:14px;position:relative}
+.flow-summary-list li::before{content:'—';position:absolute;left:0;color:var(--orange);font-weight:700}
+@media(max-width:900px){.flow-summary{grid-template-columns:1fr}}
 @media(max-width:900px){.flow-5{grid-template-columns:repeat(2,1fr)}.flow-step:not(:last-child)::after{display:none}.flow-step{min-height:auto}}
 @media(max-width:500px){.flow-5{grid-template-columns:1fr}}
 
@@ -319,6 +338,10 @@ footer .inner{max-width:1100px;margin:0 auto}
             </div>
           </div>
         </div>
+        <div class="flow-money-box">
+          <span class="flow-money-box-label">Money</span>
+          <div class="flow-money-row"><span class="flow-money-tag neutral">Cost</span><span class="flow-money-text">Designer time only. No new cash cost to TF.</span></div>
+        </div>
       </div>
 
       <div class="flow-col">
@@ -334,6 +357,10 @@ footer .inner{max-width:1100px;margin:0 auto}
               <div class="flow-tool">Drest · Covet</div>
             </div>
           </div>
+        </div>
+        <div class="flow-money-box">
+          <span class="flow-money-box-label">Money</span>
+          <div class="flow-money-row"><span class="flow-money-tag pays">TF pays</span><span class="flow-money-text">Curator time per drop (theme + framing). Marginal.</span></div>
         </div>
       </div>
 
@@ -351,6 +378,11 @@ footer .inner{max-width:1100px;margin:0 auto}
               <div class="flow-tool"><a href="https://pixverse.ai/en/blog/best-ai-fashion-video-generator" target="_blank" rel="noopener">PixVerse</a></div>
             </div>
           </div>
+        </div>
+        <div class="flow-money-box">
+          <span class="flow-money-box-label">Money</span>
+          <div class="flow-money-row"><span class="flow-money-tag pays">TF pays</span><span class="flow-money-text">Per-video API fee → Higgsfield (or HeyGen / PixVerse).</span></div>
+          <div class="flow-money-row"><span class="flow-money-tag neutral">Cost</span><span class="flow-money-text">Super fan: their time + one selfie. No purchase.</span></div>
         </div>
         <div class="flow-risk-box">
           <span class="flow-risk-box-label">Risk</span>
@@ -373,6 +405,10 @@ footer .inner{max-width:1100px;margin:0 auto}
             </div>
           </div>
         </div>
+        <div class="flow-money-box">
+          <span class="flow-money-box-label">Money</span>
+          <div class="flow-money-row"><span class="flow-money-tag pays">TF pays</span><span class="flow-money-text">Cross-post API calls. Negligible.</span></div>
+        </div>
         <div class="flow-risk-box">
           <span class="flow-risk-box-label">Risk</span>
           Instagram / TikTok auto-post APIs work only for Business / Creator accounts. Personal accounts must share manually via OS share sheet.
@@ -382,8 +418,8 @@ footer .inner{max-width:1100px;margin:0 auto}
       <div class="flow-col">
         <div class="flow-step">
           <div class="flow-num">5</div>
-          <div class="flow-actor">TF pays</div>
-          <div class="flow-step-title">Bonus paid</div>
+          <div class="flow-actor">TF settles</div>
+          <div class="flow-step-title">Bonus paid · pre-orders settled</div>
           <div class="flow-step-desc">Super fan earns: fixed post bonus + capped view bonus + commission on pre-orders driven by their video.</div>
           <div class="flow-tools">
             <div class="flow-tools-label">Pattern from</div>
@@ -393,12 +429,55 @@ footer .inner{max-width:1100px;margin:0 auto}
             </div>
           </div>
         </div>
+        <div class="flow-money-box">
+          <span class="flow-money-box-label">Money</span>
+          <div class="flow-money-row"><span class="flow-money-tag earns">Consumer pays</span><span class="flow-money-text">Pre-order amount → TF (full payment).</span></div>
+          <div class="flow-money-row"><span class="flow-money-tag earns">TF earns</span><span class="flow-money-text">7% GMV commission + 10% take on super-fan rewards (existing TF model).</span></div>
+          <div class="flow-money-row"><span class="flow-money-tag pays">Designer pays</span><span class="flow-money-text">Super-fan commission % on pre-orders driven by the video. Settled via TF.</span></div>
+          <div class="flow-money-row"><span class="flow-money-tag pays">TF pays</span><span class="flow-money-text">Fixed post bonus + capped view bonus (out of TF margin) → Super fan.</span></div>
+        </div>
         <div class="flow-risk-box">
           <span class="flow-risk-box-label">Risk</span>
           View counts are gameable via bot farms. View-source verification, per-user caps and per-period limits are required before launch.
         </div>
       </div>
 
+    </div>
+
+    <!-- INVESTMENTS + MONETISATION SUMMARY -->
+    <div class="flow-summary">
+      <div class="flow-summary-cell">
+        <div class="flow-summary-tag">Build investment · one-time</div>
+        <div class="flow-summary-title">What TF builds upfront</div>
+        <ul class="flow-summary-list">
+          <li>Higgsfield (or HeyGen / PixVerse) API integration</li>
+          <li>Theme curation tool for TF curators</li>
+          <li>KPI tracking — posts, views, pre-order attribution</li>
+          <li>View-source verification + fraud guards</li>
+          <li>Cross-post pipeline to TF / Instagram / TikTok</li>
+        </ul>
+      </div>
+
+      <div class="flow-summary-cell">
+        <div class="flow-summary-tag">Operating cost · per drop</div>
+        <div class="flow-summary-title">What TF spends per drop</div>
+        <ul class="flow-summary-list">
+          <li>AI video API fees (per video generated)</li>
+          <li>Fixed post bonus per super fan (out of TF margin)</li>
+          <li>Capped view bonus per super fan (out of TF margin)</li>
+          <li>Curator time (theme + moderation)</li>
+        </ul>
+      </div>
+
+      <div class="flow-summary-cell">
+        <div class="flow-summary-tag">Revenue · per drop</div>
+        <div class="flow-summary-title">What TF earns per drop</div>
+        <ul class="flow-summary-list">
+          <li><strong>7% GMV commission</strong> on pre-orders (existing TF model)</li>
+          <li><strong>10% take on super-fan rewards</strong> — TF takes 10% of designer-paid commissions (existing TF model)</li>
+          <li>Cross-posted videos drive top-of-funnel for the next drop</li>
+        </ul>
+      </div>
     </div>
 
     <div class="opp-stack">
