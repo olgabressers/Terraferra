@@ -351,7 +351,7 @@ footer .inner{max-width:1100px;margin:0 auto}
       <div class="flow-col">
         <div class="flow-step">
           <div class="flow-num">3</div>
-          <div class="flow-actor">Super fan acts</div>
+          <div class="flow-actor">Super fan + TF AI</div>
           <div class="flow-step-title">Video made</div>
           <div class="flow-step-desc">Super fan picks a piece from the drop, uploads one selfie. AI generates a video of them in the piece. No purchase required.</div>
           <div class="flow-tools">
@@ -369,8 +369,8 @@ footer .inner{max-width:1100px;margin:0 auto}
           <div class="flow-money-row"><span class="flow-money-tag neutral">Cost</span><span class="flow-money-text">Super fan: their time + one selfie. No purchase.</span></div>
         </div>
         <div class="flow-risk-box">
-          <span class="flow-risk-box-label">Risk</span>
-          Per-video AI cost can exceed the bonus paid. Set a cost ceiling per drop and per super fan before scaling.
+          <span class="flow-risk-box-label">Risk · unit economics</span>
+          TF must break even per video: <strong>AI generation fee + post bonus + view bonus &lt; 7% GMV commission earned on attributed pre-orders</strong>. If the video does not drive enough pre-orders, TF loses money on it. Set a cost ceiling per drop, and pause videos from super fans whose past videos failed to convert.
         </div>
       </div>
 
@@ -394,8 +394,8 @@ footer .inner{max-width:1100px;margin:0 auto}
           <div class="flow-money-row"><span class="flow-money-tag pays">TF pays</span><span class="flow-money-text">Cross-post API calls. Negligible.</span></div>
         </div>
         <div class="flow-risk-box">
-          <span class="flow-risk-box-label">Risk</span>
-          Instagram / TikTok auto-post APIs work only for Business / Creator accounts. Personal accounts must share manually via OS share sheet.
+          <span class="flow-risk-box-label">Risk · platform policy</span>
+          Two issues. <strong>(1) API access:</strong> Instagram / TikTok auto-post APIs work only for Business / Creator accounts. Personal accounts must share manually via OS share sheet. <strong>(2) AI-content disclosure:</strong> TikTok and Instagram both require AI-generated content to be labelled. TF must add the disclosure flag on every cross-posted video, or the video can be down-ranked or removed.
         </div>
       </div>
 
@@ -416,7 +416,7 @@ footer .inner{max-width:1100px;margin:0 auto}
         <div class="flow-money-box">
           <span class="flow-money-box-label">Money</span>
           <div class="flow-money-row"><span class="flow-money-tag earns">Consumer pays</span><span class="flow-money-text">Pre-order amount → TF (full payment).</span></div>
-          <div class="flow-money-row"><span class="flow-money-tag earns">TF earns</span><span class="flow-money-text">7% GMV commission + 10% take on super-fan rewards (existing TF model).</span></div>
+          <div class="flow-money-row"><span class="flow-money-tag earns">TF earns</span><span class="flow-money-text">7% GMV commission on pre-orders + 10% take on the designer-paid super-fan commission (existing TF model). The 10% applies only to designer-paid commissions, not to TF-paid bonuses.</span></div>
           <div class="flow-money-row"><span class="flow-money-tag pays">Designer pays</span><span class="flow-money-text">Super-fan commission % on pre-orders driven by the video. Settled via TF.</span></div>
           <div class="flow-money-row"><span class="flow-money-tag pays">TF pays</span><span class="flow-money-text">Fixed post bonus + capped view bonus (out of TF margin) → Super fan.</span></div>
         </div>
@@ -458,8 +458,9 @@ footer .inner{max-width:1100px;margin:0 auto}
         <div class="flow-summary-title">What TF earns per drop</div>
         <ul class="flow-summary-list">
           <li><strong>7% GMV commission</strong> on pre-orders (existing TF model)</li>
-          <li><strong>10% take on super-fan rewards</strong> — TF takes 10% of designer-paid commissions (existing TF model)</li>
-          <li>Cross-posted videos drive top-of-funnel for the next drop</li>
+          <li><strong>10% take on designer-paid super-fan commissions</strong> only (existing 2022 TF model)</li>
+          <li>Cross-posted videos act as discovery content for the next drop</li>
+          <li><strong>Specific cost ranges — engineering days, per-video AI fee, break-even pre-order conversion — to be set with the CTO before launch</strong></li>
         </ul>
       </div>
     </div>
@@ -484,7 +485,7 @@ footer .inner{max-width:1100px;margin:0 auto}
             <span class="rating">★★★</span><span class="rec-badge">Rec</span>
           </div>
           <div class="dim-chips">
-            <span class="dim-chip">Closet upload</span><span class="dim-chip">Themed challenges</span><span class="dim-chip">Community voting</span><span class="dim-chip">25M+ users</span>
+            <span class="dim-chip">Closet upload</span><span class="dim-chip">Themed challenges</span><span class="dim-chip">Community voting</span>
           </div>
         </li>
       </ul>
@@ -561,12 +562,12 @@ footer .inner{max-width:1100px;margin:0 auto}
             <tr><td>Revenue model</td><td><span class="na">Not disclosed on vendor site</span></td></tr>
             <tr><td>Target audience</td><td>Luxury-leaning fashion consumers; daily editorial / styling content viewers</td></tr>
             <tr><td>Integration</td><td>Standalone app · iOS / Android</td></tr>
-            <tr><td>Brand catalogue</td><td>260 luxury brands incl. Prada, Gucci, Valentino, Cartier, Fendi, Versace</td></tr>
+            <tr><td>Brand catalogue</td><td>Luxury brands including Prada, Gucci, Valentino, Cartier, Fendi, Versace (per drest.com homepage)</td></tr>
             <tr><td>User reward</td><td>Progression, recognition. No cash.</td></tr>
             <tr><td>Reward KPI</td><td>Completing a daily styling challenge → star ratings earned via community votes.</td></tr>
             <tr><td>Geography</td><td>Global</td></tr>
           </table>
-          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Inspiration only — luxury catalogue model, no path to emerging designers, no commerce loop. Useful reference for the daily-editorial styling-challenge pattern.</div>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Inspiration only — luxury catalogue model, no path to emerging designers, no commerce loop. Reference for the daily-editorial styling-challenge pattern.</div>
           <div class="tool-source"><span class="lbl">Source</span><a href="https://drest.com" target="_blank" rel="noopener">drest.com</a></div>
         </div>
 
@@ -584,8 +585,8 @@ footer .inner{max-width:1100px;margin:0 auto}
             <tr><td>Revenue model</td><td>In-app purchases (in-game "Diamonds" currency); brand partnerships</td></tr>
             <tr><td>Target audience</td><td>Mass-market fashion-curious mobile gamers (largely women, broad age range)</td></tr>
             <tr><td>Integration</td><td>Standalone app · iOS / Android</td></tr>
-            <tr><td>Brand catalogue</td><td>150+ brands. May 2025 collab with DRESSX</td></tr>
-            <tr><td>User reward</td><td>5-star ratings, "Trendsetter" tier at $300K closet. No cash.</td></tr>
+            <tr><td>Brand catalogue</td><td>Real fashion brands cited on ea.com/games/covet-fashion; May 2025 collab with DRESSX</td></tr>
+            <tr><td>User reward</td><td>5-star ratings, "Trendsetter" tier (closet value threshold per ea.com). No cash.</td></tr>
             <tr><td>Reward KPI</td><td>Completing a daily challenge → 5-star vote tally. Cumulative closet value crosses $300K → tier unlock.</td></tr>
             <tr><td>Geography</td><td>Global</td></tr>
           </table>
@@ -643,9 +644,9 @@ footer .inner{max-width:1100px;margin:0 auto}
           <table class="stats-compact">
             <tr><td>Pricing</td><td><span class="na">Not disclosed</span></td></tr>
             <tr><td>Revenue model</td><td><span class="na">Not disclosed on vendor site</span></td></tr>
-            <tr><td>Target audience</td><td>"Young fashion lovers" (25M+ registered) — Gen Z mobile users</td></tr>
+            <tr><td>Target audience</td><td>"Young fashion lovers" — Gen Z mobile users (per combyne.com)</td></tr>
             <tr><td>Integration</td><td>Standalone app · iOS / Android</td></tr>
-            <tr><td>Brand catalogue</td><td>Items from 800+ brand catalogues + user uploads. 25M+ registered, 500K+ MAU.</td></tr>
+            <tr><td>Brand catalogue</td><td>Items from many brand catalogues + user uploads (per combyne.com)</td></tr>
             <tr><td>User reward</td><td>Community votes; "Win Challenges". No cash.</td></tr>
             <tr><td>Reward KPI</td><td>Submitting an outfit to a themed contest → community vote tally and "Win Challenges" trophies.</td></tr>
             <tr><td>Geography</td><td>Global</td></tr>
@@ -668,7 +669,7 @@ footer .inner{max-width:1100px;margin:0 auto}
             <tr><td>Revenue model</td><td>Not explicitly disclosed; positions around sustainable-fashion partnerships and retailer affiliate links</td></tr>
             <tr><td>Target audience</td><td>Sustainable-fashion-minded consumers wanting wardrobe utility</td></tr>
             <tr><td>Integration</td><td>Standalone app · iOS / Android</td></tr>
-            <tr><td>Brand catalogue</td><td>7M users; 100M+ item retailer database</td></tr>
+            <tr><td>Brand catalogue</td><td>Large retailer-item database (per whering.co.uk)</td></tr>
             <tr><td>User reward</td><td>None — utility, not contests</td></tr>
             <tr><td>Reward KPI</td><td>N/A — no reward mechanic</td></tr>
             <tr><td>Geography</td><td>Global (UK origin)</td></tr>
@@ -712,12 +713,12 @@ footer .inner{max-width:1100px;margin:0 auto}
           <table class="stats-compact">
             <tr><td>Pricing</td><td><span class="na">Not specified on vendor site</span></td></tr>
             <tr><td>Revenue model</td><td><span class="na">Not disclosed on vendor site</span></td></tr>
-            <tr><td>Target audience</td><td>AI-styling-curious consumers across 150+ countries</td></tr>
+            <tr><td>Target audience</td><td>AI-styling-curious consumers; international (per acloset.app)</td></tr>
             <tr><td>Integration</td><td>Standalone app · iOS / Android</td></tr>
-            <tr><td>Brand catalogue</td><td>User-supplied. 7M users across 150+ countries.</td></tr>
+            <tr><td>Brand catalogue</td><td>User-supplied. Available across many countries (per acloset.app).</td></tr>
             <tr><td>User reward</td><td>Personal optimisation only</td></tr>
             <tr><td>Reward KPI</td><td>N/A — no reward mechanic</td></tr>
-            <tr><td>Geography</td><td>Global · 150+ countries</td></tr>
+            <tr><td>Geography</td><td>Global (vendor cites availability in many countries)</td></tr>
           </table>
           <div class="tool-tf-fit"><span class="lbl">TF fit</span>Reference for AI auto-tagging of closet items. No gamification or community — not a direct pattern.</div>
           <div class="tool-source"><span class="lbl">Source</span><a href="https://www.acloset.app" target="_blank" rel="noopener">acloset.app</a></div>
@@ -797,7 +798,7 @@ footer .inner{max-width:1100px;margin:0 auto}
             <tr><td>Target audience</td><td>Content creators, marketers and developers needing short-form cinematic video</td></tr>
             <tr><td>Integration</td><td>Cloud API (REST, API-key) + MCP server + CLI</td></tr>
             <tr><td>Free trial</td><td>Not specified on landing page</td></tr>
-            <tr><td>Clients</td><td>"4.5M video generations per day" reported on vendor site</td></tr>
+            <tr><td>Clients</td><td>Content creators and brands (volume claims on vendor homepage, not independently audited)</td></tr>
             <tr><td>Geography</td><td>Global</td></tr>
           </table>
           <div class="tool-tf-fit"><span class="lbl">TF fit</span>Direct API path for TF to embed AI video / image generation inside the drop page. Camera-motion presets give cinematic Reel-ready output. Three integration options (REST API, MCP server, CLI) cover both web back-end and agent-based workflows.</div>
@@ -863,6 +864,69 @@ footer .inner{max-width:1100px;margin:0 auto}
           </table>
           <div class="tool-tf-fit"><span class="lbl">TF fit</span>Closest live model for the KPI-bonus pattern (bonus for posting + bonus for views + bonus for leads). Options: integrate, partner, or rebuild the mission/bonus mechanic in-product for super fans.</div>
           <div class="tool-source"><span class="lbl">Source</span><a href="https://www.brandbassador.com" target="_blank" rel="noopener">brandbassador.com</a></div>
+        </div>
+
+        <div class="tool-card-compact">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://shopmy.us/home/creators" target="_blank" rel="noopener">ShopMy</a></div>
+            <div class="tcc-rating"><span class="rating">★★<span class="star-off">★</span></span></div>
+          </div>
+          <div class="tcc-desc">Creator commerce platform pairing creators with premium fashion / beauty brands. Affiliate-link commission + paid "Opportunities" brand briefs.</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Affiliate commission</span><span class="dim-chip">Brand briefs</span><span class="dim-chip">Premium / fashion-leaning</span><span class="dim-chip">US</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td>Free for creators; brands pay platform fees</td></tr>
+            <tr><td>Revenue model</td><td>Brand-side platform fees + take rate on affiliate sales</td></tr>
+            <tr><td>Target audience</td><td>US fashion / beauty creators; premium brands</td></tr>
+            <tr><td>Bonus type</td><td>Affiliate commission (per shopmy.us creator page) + brand-paid briefs</td></tr>
+            <tr><td>Clients</td><td>Network of fashion / beauty brands per shopmy.us</td></tr>
+            <tr><td>Geography</td><td>Primarily US</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Reference for the affiliate-commission side of the super-fan reward. ShopMy targets creators; TF would target super fans (a different cohort) but the commission mechanic transfers.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://shopmy.us/home/creators" target="_blank" rel="noopener">shopmy.us</a></div>
+        </div>
+
+        <div class="tool-card-compact">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://company.shopltk.com/en-gb/creator" target="_blank" rel="noopener">LTK</a></div>
+            <div class="tcc-rating"><span class="rating">★★<span class="star-off">★</span></span></div>
+          </div>
+          <div class="tcc-desc">Creator shopping platform — shoppable storefronts ("LTK Shops"), affiliate links, commission per sale. TF's 2022 deck names LTK as the closest competitor.</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Shoppable storefronts</span><span class="dim-chip">Affiliate commission</span><span class="dim-chip">Influencer-led</span><span class="dim-chip">US-origin · global</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td>Free for creators; brands pay subscription + commission</td></tr>
+            <tr><td>Revenue model</td><td>Brand subscription + take on affiliate sales</td></tr>
+            <tr><td>Target audience</td><td>Established influencers + brands. Has a follower-count floor for creator acceptance.</td></tr>
+            <tr><td>Bonus type</td><td>% commission per sale through LTK Shop / affiliate link</td></tr>
+            <tr><td>Clients</td><td>Large fashion / lifestyle brand network</td></tr>
+            <tr><td>Geography</td><td>US-origin; multi-country including UK</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Named in TF's own 2022 deck as the closest competitor. The follower-count floor LTK enforces is the exact gap TF targets — emerging designers and their smaller-audience super fans do not qualify on LTK.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://company.shopltk.com/en-gb/creator" target="_blank" rel="noopener">company.shopltk.com/en-gb/creator</a></div>
+        </div>
+
+        <div class="tool-card-compact">
+          <div class="tcc-head">
+            <div class="tcc-name"><a href="https://www.pearpop.com" target="_blank" rel="noopener">Pearpop</a></div>
+            <div class="tcc-rating"><span class="rating">★★<span class="star-off">★</span></span></div>
+          </div>
+          <div class="tcc-desc">Creator marketing platform — brands post "challenges / missions"; creators opt in for performance-based payment tied to views on Instagram or TikTok. Already covered in the <a href="TFaltmodel.html#sec-anchor-02">Alternative Model page</a>.</div>
+          <div class="dim-chips">
+            <span class="dim-chip">Performance pay</span><span class="dim-chip">View-tied bonus</span><span class="dim-chip">Brand missions</span><span class="dim-chip">Fortune-500 brands</span>
+          </div>
+          <table class="stats-compact">
+            <tr><td>Pricing</td><td>Brand-funded missions; rates set per mission</td></tr>
+            <tr><td>Revenue model</td><td>Take rate on each mission paid out</td></tr>
+            <tr><td>Target audience</td><td>Fortune-500 brand marketing teams (Microsoft, Netflix, Klarna, Activision, Chipotle)</td></tr>
+            <tr><td>Bonus type</td><td>Pay-for-performance tied to views on IG / TikTok</td></tr>
+            <tr><td>Clients</td><td>Per pearpop.com homepage</td></tr>
+            <tr><td>Geography</td><td>Global</td></tr>
+          </table>
+          <div class="tool-tf-fit"><span class="lbl">TF fit</span>Closest live model for the <strong>view-tied bonus</strong> in Step 5. Pearpop targets Fortune-500 brand budgets; TF targets emerging fashion designers — different price band, same mechanic.</div>
+          <div class="tool-source"><span class="lbl">Source</span><a href="https://www.pearpop.com" target="_blank" rel="noopener">pearpop.com</a></div>
         </div>
 
       </div>
