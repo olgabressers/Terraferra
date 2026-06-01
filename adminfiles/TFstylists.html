@@ -65,7 +65,7 @@ h1{font-size:34px;font-weight:800;letter-spacing:-1px;color:var(--ink);margin-bo
 .ctx.amber{border-top-color:var(--amber)}
 .ctx.green{border-top-color:var(--green)}
 .ctx-tag{font-size:9.5px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;color:var(--sub);margin-bottom:10px}
-.ctx h3{font-size:14px;font-weight:800;color:var(--ink);margin-bottom:10px;line-height:1.3}
+.ctx h3{font-size:13px;font-weight:800;color:var(--ink);margin-bottom:10px;line-height:1.35;text-transform:uppercase;letter-spacing:.3px}
 .ctx p{font-size:11.5px;color:var(--ink);line-height:1.55;margin-bottom:8px}
 .ctx p.small{font-size:10.5px;color:var(--sub)}
 .ctx a{font-size:10.5px;color:var(--tf);text-decoration:underline;word-break:break-word}
@@ -137,15 +137,48 @@ h1{font-size:34px;font-weight:800;letter-spacing:-1px;color:var(--ink);margin-bo
 <div class="wrap">
 
   <div class="eyebrow">Business Model · Research</div>
-  <h1>Stylist Layer — Existing Platforms &amp; AI Tooling</h1>
+  <h1>Stylist Layer — Existing Platforms &amp; AI Wardrobe Building Tooling</h1>
 
   <div class="snote">
     Research on the two adjacent markets relevant to adding stylists to Terra Ferra: (1) platforms connecting stylists with end consumers, and (2) AI tools that help stylists build and manage wardrobes for clients. Every entry below is sourced; entries that could not be verified are listed separately at the bottom of each section. Accessed 2026-05-31.
   </div>
 
-  <!-- ═══════════════════ INDUSTRY CONTEXT ═══════════════════ -->
+  <div class="snote" style="background:#FBF1D5;border-left:4px solid var(--amber);border-color:#E5D4A2;font-size:13px;line-height:1.65;margin-bottom:32px">
+    <div style="font-size:9.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:8px">Conclusion · Council-Validated</div>
+    Stylists are not required as a 6th participant role in v1. The verified pattern across 10 stylist-to-consumer platforms is consolidation: Trunk Club shut in May 2022 after a USD 197M Nordstrom write-down, The Yes was acquired and closed by Pinterest, Le Tote shut in spring 2024 after a parent loan default, and Lookiero + Outfittery merged in March 2025 into a EUR 130M / 3M-customer / 13-market group. Of the 12 verified AI styling tools, most (Stylyze, Stylitics, Intelistyle, Vue.ai, YesPlz) serve enterprise retailer teams, not the independent stylist working on someone else's platform; Indyx is the only verified hybrid combining a stylist marketplace with a virtual closet. The cleanest path is a stylist credential inside the existing co-creator commission line (10%), with the dedicated-role decision deferred until after USD 10K MRR and the post-bridge raise. The "no platform connects independent stylists to independent premium designers" framing depends on a narrow definition and an absence of audited primary market data — it warrants a small designer-side pilot before any commitment, not a v1 build.
+  </div>
+
+  <!-- ═══════════════════ SECTION 01 — IMPLICATIONS FOR TF ═══════════════════ -->
   <div class="sec">
     <span class="sec-num">01</span>
+    <span class="sec-title">What This Means for the Stylist Layer in Terra Ferra</span>
+    <span class="sec-sub">Research, not decided</span>
+  </div>
+
+  <div class="implications">
+    <div class="imp-grid">
+      <div class="imp">
+        <h4>Gap in the Researched Set</h4>
+        <p>The stylist-to-consumer space is consolidating around either retailer-owned platforms (Stitch Fix, Nordstrom in-house personal styling, Lookiero+Outfittery) or chat-luxury (Threads Styling). Among the verified entries, no live platform connects independent stylists to <em>independent premium designers</em> + their community in one place.</p>
+      </div>
+      <div class="imp">
+        <h4>AI Tooling for Stylists</h4>
+        <p>Most verified AI styling tools are built for enterprise retailers (Stylyze, Stylitics, Intelistyle, Vue.ai, YesPlz). Consumer wardrobe apps (Whering, Acloset, Combyne, Cladwell) have no stylist-pro tier. Indyx is the only verified hybrid with a built-in stylist marketplace + virtual closet — its closet-cataloging + 1:1 Lookbook model is the closest reference for a TF stylist tier.</p>
+      </div>
+      <div class="imp">
+        <h4>Possible Slot in TF Ecosystem</h4>
+        <p>Stylists map most cleanly to the existing co-creator revenue line (10%) — they curate outfits / edits / lookbooks from designer products and earn commission when those convert. Avoids adding a separate service-marketplace workflow.</p>
+      </div>
+      <div class="imp">
+        <h4>Open Questions Before Adding</h4>
+        <p>(1) How does the stylist role differ functionally from the influencer role on TF? (2) Do stylists bring client-book conversion (HNW clients, celebrity dressing rooms) that justifies a 6th participant role? (3) Would TF use a third-party AI styling backend (Stylitics, Intelistyle, YesPlz) or build native — and at what stage?</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ INDUSTRY CONTEXT ═══════════════════ -->
+  <div class="sec">
+    <span class="sec-num">02</span>
     <span class="sec-title">Industry Context</span>
     <span class="sec-sub">Market size · AI adoption · Consolidation</span>
   </div>
@@ -153,13 +186,9 @@ h1{font-size:34px;font-weight:800;letter-spacing:-1px;color:var(--ink);margin-bo
   <div class="ctx-grid">
     <div class="ctx">
       <div class="ctx-tag">Market Size · Online &amp; Virtual Personal Styling</div>
-      <h3>Secondary-research estimates converge around USD 4–5B today, USD 15–18B by 2032.</h3>
-      <ul>
-        <li>Online Personal Styling Services — <strong>USD 5.5B (2024) → USD 15B (2032), 15% CAGR</strong> · <a href="https://www.zionmarketresearch.com/report/online-personal-stylist-services-market" target="_blank" rel="noopener">Zion Market Research</a></li>
-        <li>Virtual Personal Styling Services — <strong>USD 4.5B (2024) → USD 18B (2032), 20% CAGR</strong> · <a href="https://www.futuredatastats.com/virtual-personal-styling-services-market" target="_blank" rel="noopener">Future Data Stats</a></li>
-        <li>AI Personal Stylist sub-segment — <strong>USD 1.68B (2025) → USD 7.92B (2034)</strong> · <a href="https://www.intelmarketresearch.com/ai-personal-stylist-market-43951" target="_blank" rel="noopener">Intel Market Research</a></li>
-      </ul>
-      <p class="small" style="margin-top:10px">Caveat: these are secondary-research-firm estimates; the underlying primary surveys (IBISWorld, Statista) sit behind paywalls and were not directly verified. Use figures with the source label attached.</p>
+      <h3>No audited primary data available in this category.</h3>
+      <p>The category is tracked only by secondary-research firms (Zion Market Research, Future Data Stats, Intel Market Research) whose methodology and sample base are not independently verifiable. Estimates from these firms vary widely — from a few-billion-USD niche to a trillion-USD super-category — depending on how "personal styling" is bundled with adjacent retail. None of these figures should anchor a TAM thesis.</p>
+      <p class="small" style="margin-top:10px">The category does not appear in audited IBISWorld or Statista deliverables that are publicly accessible. Primary investor-grade data is unavailable as of 2026-05-31. Conclusions on this page rely on competitive-landscape observation, not on a sized market.</p>
     </div>
 
     <div class="ctx amber">
@@ -183,209 +212,10 @@ h1{font-size:34px;font-weight:800;letter-spacing:-1px;color:var(--ink);margin-bo
         <li>Threads Styling acquired by Chalhoub Group (Dubai) Sept 2022 · <a href="https://fashionunited.com/news/business/personal-shopper-platform-threads-styling-acquired-by-chalhoub-group/2022092749883" target="_blank" rel="noopener">FashionUnited</a></li>
         <li>Stylyze acquired by Neiman Marcus Group 2021–22 · <a href="https://www.businessoffashion.com/articles/retail/neiman-marcus-to-acquire-retail-platform-stylyze/" target="_blank" rel="noopener">BoF</a></li>
         <li>Le Tote shut down spring 2024 after parent loan default · <a href="https://en.wikipedia.org/wiki/Le_Tote" target="_blank" rel="noopener">Wikipedia</a></li>
-        <li>Lookiero + Outfittery merged March 2025 — largest pan-European stylist-marketplace consolidation event · <a href="https://fashionunited.uk/news/business/spains-lookiero-and-germanys-outfittery-merge-to-lead-the-european-online-personal-shopping-market/2025030680490" target="_blank" rel="noopener">FashionUnited</a></li>
+        <li>Lookiero + Outfittery merged March 2025 — pan-European stylist-marketplace consolidation · <a href="https://fashionunited.uk/news/business/spains-lookiero-and-germanys-outfittery-merge-to-lead-the-european-online-personal-shopping-market/2025030680490" target="_blank" rel="noopener">FashionUnited</a></li>
         <li>Mad Street Den (Vue.ai parent) acquired by M2P, March 2025 · <a href="https://www.vue.ai/" target="_blank" rel="noopener">vue.ai</a></li>
       </ul>
     </div>
-  </div>
-
-  <!-- ═══════════════════ SECTION 02 — STYLIST → CONSUMER PLATFORMS ═══════════════════ -->
-  <div class="sec">
-    <span class="sec-num">02</span>
-    <span class="sec-title">Platforms Connecting Stylists to Consumers</span>
-    <span class="sec-sub">10 verified entries</span>
-  </div>
-
-  <div class="cards">
-
-    <!-- 1. Wishi -->
-    <div class="card">
-      <div class="card-head"><div class="card-name">Wishi</div></div>
-      <div class="card-meta">New York, USA · founded 2015</div>
-      <div class="badges">
-        <span class="badge b-live">Live</span>
-        <span class="badge b-hybrid">B2C + B2B</span>
-      </div>
-      <div class="card-desc">Online personal-styling marketplace pairing consumers with vetted human stylists who deliver shoppable style boards and chat.</div>
-      <div class="card-row"><span class="label">Model</span>Per-session styling fee paid by consumer; stylist earns a % of that fee. Also runs Wishi for Brands and Amazon integration on the B2B side.</div>
-      <div class="card-row pricing"><span class="label">Pricing (consumer)</span>Mini USD 60 · Major USD 130 · Lux USD 550 per session (3-day free trial). Stylist rates by tier: USD 50–100 (Upcoming) / 100–400 (Experienced) / 400+ (Exclusive).</div>
-      <div class="card-srcs">
-        <span class="label">Sources</span>
-        <a href="https://www.wishi.me/pricing" target="_blank" rel="noopener">wishi.me/pricing</a>
-        <a href="https://www.thequalityedit.com/articles/wishi-personal-styling-review" target="_blank" rel="noopener">The Quality Edit — Wishi review</a>
-        <a href="https://finance.yahoo.com/news/wishi-styling-platform-links-amazon-203141381.html" target="_blank" rel="noopener">Yahoo Finance — Wishi × Amazon</a>
-      </div>
-    </div>
-
-    <!-- 2. Stitch Fix -->
-    <div class="card">
-      <div class="card-head"><div class="card-name">Stitch Fix</div></div>
-      <div class="card-meta">San Francisco, USA · founded 2011</div>
-      <div class="badges">
-        <span class="badge b-live">Live</span>
-        <span class="badge b-b2c">B2C</span>
-      </div>
-      <div class="card-desc">Subscription-style "Fix" boxes curated by ~1,600 employed human stylists supported by internal AI/ML tools (notably "Vision" for style visualisation).</div>
-      <div class="card-row"><span class="label">Model</span>USD 20 styling fee per Fix, credited toward kept items. Optional Annual Style Pass at USD 49/yr.</div>
-      <div class="card-row pricing"><span class="label">Pricing</span>USD 20 styling fee per Fix · USD 49 Annual Style Pass · stylist hourly pay ~USD 18.24 (per Indeed data).</div>
-      <div class="card-srcs">
-        <span class="label">Sources</span>
-        <a href="https://www.stitchfix.com/pricing" target="_blank" rel="noopener">stitchfix.com/pricing</a>
-        <a href="https://www.uschamber.com/co/good-company/the-leap/stitch-fix-optimizing-with-ai" target="_blank" rel="noopener">US Chamber — AI at Stitch Fix</a>
-        <a href="https://www.stitchfix.com/women/blog/inside-stitchfix/introducing-vision-stitch-fixs-new-style-visualization-tool/" target="_blank" rel="noopener">Stitch Fix blog — Vision tool</a>
-        <a href="https://en.wikipedia.org/wiki/Stitch_Fix" target="_blank" rel="noopener">Wikipedia</a>
-      </div>
-    </div>
-
-    <!-- 3. Trunk Club -->
-    <div class="card">
-      <div class="card-head"><div class="card-name">Trunk Club</div></div>
-      <div class="card-meta">Chicago, USA · 2009–2022</div>
-      <div class="badges">
-        <span class="badge b-closed">Closed</span>
-        <span class="badge b-b2c">B2C</span>
-      </div>
-      <div class="card-desc">Personal-styling subscription box (originally menswear, later women) powered by employed stylists working from physical "clubhouses."</div>
-      <div class="card-row"><span class="label">Outcome</span>Acquired by Nordstrom for USD 350M in 2014. Shut down May 31, 2022 after USD 197M write-down; customers redirected to Nordstrom's in-house personal-styling service.</div>
-      <div class="card-srcs">
-        <span class="label">Sources</span>
-        <a href="https://www.businessoffashion.com/news/retail/nordstrom-is-shuttering-trunk-club/" target="_blank" rel="noopener">BoF — Nordstrom shutters Trunk Club</a>
-        <a href="https://www.retaildive.com/news/what-trunk-clubs-demise-says-about-apparel-subscriptions/624667/" target="_blank" rel="noopener">Retail Dive analysis</a>
-        <a href="https://en.wikipedia.org/wiki/Trunk_Club" target="_blank" rel="noopener">Wikipedia</a>
-      </div>
-    </div>
-
-    <!-- 4. The Yes -->
-    <div class="card">
-      <div class="card-head"><div class="card-name">The Yes</div></div>
-      <div class="card-meta">Los Altos, USA · 2018–2022</div>
-      <div class="badges">
-        <span class="badge b-acquired">Acquired · Shut</span>
-        <span class="badge b-b2c">B2C</span>
-      </div>
-      <div class="card-desc">AI-powered shopping app that learned individual taste graphs to recommend fashion across brands.</div>
-      <div class="card-row"><span class="label">Outcome</span>Acquired by Pinterest in 2022; app and website shut down post-acquisition. Team rolled into Pinterest shopping.</div>
-      <div class="card-srcs">
-        <span class="label">Sources</span>
-        <a href="https://us.fashionnetwork.com/news/Pinterest-to-acquire-the-yes,1411517.html" target="_blank" rel="noopener">FashionNetwork — Pinterest acquires The Yes</a>
-      </div>
-    </div>
-
-    <!-- 5. Threads Styling -->
-    <div class="card">
-      <div class="card-head"><div class="card-name">Threads Styling</div></div>
-      <div class="card-meta">London, UK · founded 2010</div>
-      <div class="badges">
-        <span class="badge b-live">Live</span>
-        <span class="badge b-hybrid">B2C + B2B</span>
-      </div>
-      <div class="card-desc">Chat-based luxury personal-shopping service via WhatsApp / WeChat / Instagram DM; later added e-commerce site and live shopping. Targets HNW Gen-Z / millennial luxury buyers.</div>
-      <div class="card-row"><span class="label">Model</span>No inventory. Commission paid by 600+ luxury brand/retail partners (Hermès, Chanel, etc.). ~50% of sales via DM.</div>
-      <div class="card-row pricing"><span class="label">Consumer pricing</span>None — commission revenue model.</div>
-      <div class="card-row"><span class="label">B2B layer</span>"Threads Connect" launched 2021 gives independent personal shoppers and stylists worldwide access to the platform and sourcing network. Acquired by Chalhoub Group (Dubai) in Sept 2022.</div>
-      <div class="card-srcs">
-        <span class="label">Sources</span>
-        <a href="https://www.highlandeurope.com/can-a-chat-based-luxury-shopping-service-scale/" target="_blank" rel="noopener">Highland Europe analysis</a>
-        <a href="https://www.theindustry.fashion/chat-based-luxury-shopping-pioneer-threads-launched-e-commerce-and-live-shopping/" target="_blank" rel="noopener">The Industry Fashion</a>
-        <a href="https://fashionunited.com/news/business/personal-shopper-platform-threads-styling-acquired-by-chalhoub-group/2022092749883" target="_blank" rel="noopener">FashionUnited — Chalhoub acquisition</a>
-        <a href="https://www.prnewswire.com/news-releases/threads-styling-announces-the-launch-of-new-b2b-service-threads-connect-empowering-independent-personal-shoppers-and-stylists-worldwide-301361007.html" target="_blank" rel="noopener">PRNewswire — Threads Connect launch</a>
-      </div>
-    </div>
-
-    <!-- 6. Glamhive -->
-    <div class="card">
-      <div class="card-head"><div class="card-name">Glamhive</div></div>
-      <div class="card-meta">Los Angeles area, USA</div>
-      <div class="badges">
-        <span class="badge b-live">Live</span>
-        <span class="badge b-hybrid">Marketplace</span>
-      </div>
-      <div class="card-desc">Marketplace connecting consumers with professional and celebrity stylists for consultations, closet detox and makeovers. Separate "Professional" membership for stylists.</div>
-      <div class="card-row"><span class="label">Model</span>Marketplace — stylists set their own rates; Glamhive takes a cut. Stylist membership for service providers.</div>
-      <div class="card-row pricing"><span class="label">Pricing range</span>Consultations from USD 25 · 1-hour styling sessions USD 225–1,350 · celebrity-stylist rates up to USD 2,600 per makeover · stylist hourly USD 75–450+.</div>
-      <div class="card-srcs">
-        <span class="label">Sources</span>
-        <a href="https://glamhive.com/pages/personal-styling-services" target="_blank" rel="noopener">glamhive.com — styling services</a>
-        <a href="https://www.businessoffashion.com/articles/news-analysis/celebrity-stylists-glamhive-styling-app/" target="_blank" rel="noopener">BoF — Glamhive profile</a>
-        <a href="https://glamhive.com/pages/glamhive-stylist-membership-plans" target="_blank" rel="noopener">Stylist membership plans</a>
-      </div>
-    </div>
-
-    <!-- 7. Wantable -->
-    <div class="card">
-      <div class="card-head"><div class="card-name">Wantable</div></div>
-      <div class="card-meta">Milwaukee, USA</div>
-      <div class="badges">
-        <span class="badge b-live">Live</span>
-        <span class="badge b-b2c">B2C</span>
-      </div>
-      <div class="card-desc">Try-at-home personal-styling "Edit" service with employed expert stylists.</div>
-      <div class="card-row"><span class="label">Model</span>USD 20 styling fee per Edit, credited toward kept items; tiered cash-back when keeping 3 / 6 / 9 items; 20% off when keeping 5+.</div>
-      <div class="card-row pricing"><span class="label">Pricing</span>USD 20 styling fee per Edit · items typically USD 50–100 · 7 items per Edit.</div>
-      <div class="card-srcs">
-        <span class="label">Sources</span>
-        <a href="https://www.wantable.com/how-wantable-works/" target="_blank" rel="noopener">wantable.com — how it works</a>
-        <a href="https://support.wantable.com/hc/en-us/articles/360012440712-How-much-does-a-Wantable-Edit-cost" target="_blank" rel="noopener">Wantable pricing FAQ</a>
-      </div>
-    </div>
-
-    <!-- 8. Le Tote -->
-    <div class="card">
-      <div class="card-head"><div class="card-name">Le Tote</div></div>
-      <div class="card-meta">San Francisco, USA</div>
-      <div class="badges">
-        <span class="badge b-closed">Closed · Spring 2024</span>
-        <span class="badge b-b2c">B2C</span>
-      </div>
-      <div class="card-desc">Subscription clothing rental with a styling-recommendation layer.</div>
-      <div class="card-row"><span class="label">Outcome</span>Shut down spring 2024 after parent (Saadia Group) defaulted on USD 45.3M loan; website taken offline; warehouses seized by lender.</div>
-      <div class="card-srcs">
-        <span class="label">Sources</span>
-        <a href="https://en.wikipedia.org/wiki/Le_Tote" target="_blank" rel="noopener">Wikipedia</a>
-      </div>
-    </div>
-
-    <!-- 9. Rent the Runway -->
-    <div class="card">
-      <div class="card-head"><div class="card-name">Rent the Runway</div></div>
-      <div class="card-meta">Brooklyn, USA · founded 2009</div>
-      <div class="badges">
-        <span class="badge b-live">Live</span>
-        <span class="badge b-pivot">In-store stylists closed 2020</span>
-      </div>
-      <div class="card-desc">Designer-clothing rental subscription. Previously offered in-store human personal stylists at 5 physical locations (all closed Aug 2020). Service is now digital-only with no human-stylist personalisation layer.</div>
-      <div class="card-row"><span class="label">2025 status</span>Completed Oct 2025 recapitalisation reducing debt to ~USD 120M with maturity extended to 2029.</div>
-      <div class="card-srcs">
-        <span class="label">Sources</span>
-        <a href="https://en.wikipedia.org/wiki/Rent_the_Runway" target="_blank" rel="noopener">Wikipedia</a>
-        <a href="https://www.renttherunway.com" target="_blank" rel="noopener">renttherunway.com</a>
-      </div>
-    </div>
-
-    <!-- 10. Lookiero + Outfittery -->
-    <div class="card">
-      <div class="card-head"><div class="card-name">Lookiero + Outfittery</div></div>
-      <div class="card-meta">Bilbao, Spain · Berlin, Germany · merged March 2025</div>
-      <div class="badges">
-        <span class="badge b-live">Live · Merged</span>
-        <span class="badge b-b2c">B2C</span>
-      </div>
-      <div class="card-desc">European online personal-shopping subscription. Customer fills profile, stylist sends curated box, customer keeps what they want. Lookiero founded 2016; merged with Outfittery (Berlin) in March 2025 to form the leading pan-European stylist-marketplace group.</div>
-      <div class="card-row"><span class="label">Combined scale</span>EUR 130M revenue (2024 pro-forma) · 3M+ active customers · 13 markets. Both brands retained post-merger.</div>
-      <div class="card-row pricing"><span class="label">Pricing</span>Lookiero UK: GBP 10 styling fee per box, refunded against kept items.</div>
-      <div class="card-srcs">
-        <span class="label">Sources</span>
-        <a href="https://fashionunited.uk/news/business/spains-lookiero-and-germanys-outfittery-merge-to-lead-the-european-online-personal-shopping-market/2025030680490" target="_blank" rel="noopener">FashionUnited — merger announcement</a>
-        <a href="https://lookiero.co.uk/" target="_blank" rel="noopener">lookiero.co.uk</a>
-        <a href="https://www.outfittery.com" target="_blank" rel="noopener">outfittery.com</a>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="unverified">
-    <strong>Investigated but not in scope or unverifiable:</strong>
-    StyleSeat (hair / beauty appointment booking — out of scope) · Stylinity (multi-brand influencer campaign platform, not stylist-to-consumer) · Style My Soul (lifestyle content site, not a transactional stylist marketplace) · "AIR" (Always In Real-time) — no active platform under this name could be located in the personal-styling space.
   </div>
 
   <!-- ═══════════════════ SECTION 03 — AI TOOLS FOR STYLISTS ═══════════════════ -->
@@ -544,7 +374,7 @@ h1{font-size:34px;font-weight:800;letter-spacing:-1px;color:var(--ink);margin-bo
         <span class="badge b-hybrid">Hybrid · Stylist tier</span>
       </div>
       <div class="card-desc">Digital wardrobe + outfit app with a built-in stylist marketplace (Lookbook service) and professional cataloging service. Includes a 1:1 styling tier — closest verified example of a hybrid stylist-marketplace with virtual closet.</div>
-      <div class="card-row pricing"><span class="label">Pricing</span>1:1 styling from USD 60 · ongoing styling from USD 15/mo · Lookbook from USD 150 (10 outfits using customer's own wardrobe) · professional cataloging USD 295 for 100 items + USD 2/extra item · Insider membership ~USD 9/mo.</div>
+      <div class="card-row pricing"><span class="label">Pricing (per myindyx.com/how-it-works)</span>Basic consultation USD 25 · ongoing styling from USD 15/mo · 1:1 styling session USD 110 · professional cataloging USD 295 for 100 items + USD 2/extra item. Additional service tiers may exist — consult the live site.</div>
       <div class="card-srcs">
         <span class="label">Sources</span>
         <a href="https://www.myindyx.com/" target="_blank" rel="noopener">myindyx.com</a>
@@ -609,35 +439,206 @@ h1{font-size:34px;font-weight:800;letter-spacing:-1px;color:var(--ink);margin-bo
     Mode.ai (likely defunct — no 2024–2025 sources; shutdown date not confirmed) · LookAR · "The Fold" stylist app · Stylesage · StyleScript · Stitch Fix "Stylist Workbench" (the name is industry shorthand; documented internal AI tool is "Vision", not "Workbench"). Entries kept off the deliverable to avoid fabricated detail.
   </div>
 
-  <!-- ═══════════════════ SECTION 04 — IMPLICATIONS FOR TF ═══════════════════ -->
+<!-- ═══════════════════ SECTION 04 — STYLIST → CONSUMER PLATFORMS ═══════════════════ -->
   <div class="sec">
     <span class="sec-num">04</span>
-    <span class="sec-title">What This Means for the Stylist Layer in Terra Ferra</span>
-    <span class="sec-sub">Research, not decided</span>
+    <span class="sec-title">Platforms Connecting Stylists to Consumers</span>
+    <span class="sec-sub">10 verified entries</span>
   </div>
 
-  <div class="implications">
-    <div class="imp-grid">
-      <div class="imp">
-        <h4>Gap in the Researched Set</h4>
-        <p>The stylist-to-consumer space is consolidating around either retailer-owned platforms (Stitch Fix, Nordstrom / Trunk Club's successor, Lookiero+Outfittery) or chat-luxury (Threads Styling). Among the verified entries, no live platform connects independent stylists to <em>independent premium designers</em> + their community in one place — that is the adjacency relevant to TF.</p>
+  <div class="cards">
+
+    <!-- 1. Wishi -->
+    <div class="card">
+      <div class="card-head"><div class="card-name">Wishi</div></div>
+      <div class="card-meta">New York, USA · founded 2015</div>
+      <div class="badges">
+        <span class="badge b-live">Live</span>
+        <span class="badge b-hybrid">B2C + B2B</span>
       </div>
-      <div class="imp">
-        <h4>AI Tooling for Stylists</h4>
-        <p>Most verified AI styling tools are built for enterprise retailers (Stylyze, Stylitics, Intelistyle, Vue.ai, YesPlz). Consumer wardrobe apps (Whering, Acloset, Combyne, Cladwell) have no stylist-pro tier. Indyx is the only verified hybrid with a built-in stylist marketplace + virtual closet — its closet-cataloging + 1:1 Lookbook model is the closest reference for a TF stylist tier.</p>
-      </div>
-      <div class="imp">
-        <h4>Possible Slot in TF Ecosystem</h4>
-        <p>Stylists map most cleanly to the existing co-creator revenue line (10%) — they curate outfits / edits / lookbooks from designer products and earn commission when those convert. Avoids adding a separate service-marketplace workflow.</p>
-      </div>
-      <div class="imp">
-        <h4>Open Questions Before Adding</h4>
-        <p>(1) How does the stylist role differ functionally from the influencer role on TF? (2) Do stylists bring client-book conversion (HNW clients, celebrity dressing rooms) that justifies a 6th participant role? (3) Would TF use a third-party AI styling backend (Stylitics, Intelistyle, YesPlz) or build native — and at what stage?</p>
+      <div class="card-desc">Online personal-styling marketplace pairing consumers with vetted human stylists who deliver shoppable style boards and chat.</div>
+      <div class="card-row"><span class="label">Model</span>Per-session styling fee paid by consumer; stylist earns a % of that fee. Also runs Wishi for Brands and Amazon integration on the B2B side.</div>
+      <div class="card-row pricing"><span class="label">Pricing (consumer)</span>Tiered per-session styling fees. Current published tier prices vary — consult wishi.me/pricing directly. Stylist rates by tier (per secondary review): USD 50–100 (Upcoming) / 100–400 (Experienced) / 400+ (Exclusive).</div>
+      <div class="card-srcs">
+        <span class="label">Sources</span>
+        <a href="https://www.wishi.me/pricing" target="_blank" rel="noopener">wishi.me/pricing</a>
+        <a href="https://www.thequalityedit.com/articles/wishi-personal-styling-review" target="_blank" rel="noopener">The Quality Edit — Wishi review</a>
+        <a href="https://finance.yahoo.com/news/wishi-styling-platform-links-amazon-203141381.html" target="_blank" rel="noopener">Yahoo Finance — Wishi × Amazon</a>
       </div>
     </div>
+
+    <!-- 2. Stitch Fix -->
+    <div class="card">
+      <div class="card-head"><div class="card-name">Stitch Fix</div></div>
+      <div class="card-meta">San Francisco, USA · founded 2011</div>
+      <div class="badges">
+        <span class="badge b-live">Live</span>
+        <span class="badge b-b2c">B2C</span>
+      </div>
+      <div class="card-desc">Subscription-style "Fix" boxes curated by ~1,600 employed human stylists supported by internal AI/ML tools (notably "Vision" for style visualisation).</div>
+      <div class="card-row"><span class="label">Model</span>USD 20 styling fee per Fix, credited toward kept items.</div>
+      <div class="card-row pricing"><span class="label">Pricing</span>USD 20 styling fee per Fix (per current stitchfix.com/pricing). Stylist roster reported at ~1,600 employed stylists.</div>
+      <div class="card-srcs">
+        <span class="label">Sources</span>
+        <a href="https://www.stitchfix.com/pricing" target="_blank" rel="noopener">stitchfix.com/pricing</a>
+        <a href="https://www.uschamber.com/co/good-company/the-leap/stitch-fix-optimizing-with-ai" target="_blank" rel="noopener">US Chamber — AI at Stitch Fix</a>
+        <a href="https://www.stitchfix.com/women/blog/inside-stitchfix/introducing-vision-stitch-fixs-new-style-visualization-tool/" target="_blank" rel="noopener">Stitch Fix blog — Vision tool</a>
+        <a href="https://en.wikipedia.org/wiki/Stitch_Fix" target="_blank" rel="noopener">Wikipedia</a>
+      </div>
+    </div>
+
+    <!-- 3. Trunk Club -->
+    <div class="card">
+      <div class="card-head"><div class="card-name">Trunk Club</div></div>
+      <div class="card-meta">Chicago, USA · 2009–2022</div>
+      <div class="badges">
+        <span class="badge b-closed">Closed</span>
+        <span class="badge b-b2c">B2C</span>
+      </div>
+      <div class="card-desc">Personal-styling subscription box (originally menswear, later women) powered by employed stylists working from physical "clubhouses."</div>
+      <div class="card-row"><span class="label">Outcome</span>Acquired by Nordstrom for USD 350M in 2014. Shut down May 31, 2022 after USD 197M write-down; customers redirected to Nordstrom's in-house personal-styling service.</div>
+      <div class="card-srcs">
+        <span class="label">Sources</span>
+        <a href="https://www.businessoffashion.com/news/retail/nordstrom-is-shuttering-trunk-club/" target="_blank" rel="noopener">BoF — Nordstrom shutters Trunk Club</a>
+        <a href="https://www.retaildive.com/news/what-trunk-clubs-demise-says-about-apparel-subscriptions/624667/" target="_blank" rel="noopener">Retail Dive analysis</a>
+        <a href="https://en.wikipedia.org/wiki/Trunk_Club" target="_blank" rel="noopener">Wikipedia</a>
+      </div>
+    </div>
+
+    <!-- 4. The Yes -->
+    <div class="card">
+      <div class="card-head"><div class="card-name">The Yes</div></div>
+      <div class="card-meta">Los Altos, USA · 2018–2022</div>
+      <div class="badges">
+        <span class="badge b-acquired">Acquired · Shut</span>
+        <span class="badge b-b2c">B2C</span>
+      </div>
+      <div class="card-desc">AI-powered shopping app that learned individual taste graphs to recommend fashion across brands.</div>
+      <div class="card-row"><span class="label">Outcome</span>Acquired by Pinterest in 2022; app and website shut down post-acquisition. Team rolled into Pinterest shopping.</div>
+      <div class="card-srcs">
+        <span class="label">Sources</span>
+        <a href="https://us.fashionnetwork.com/news/Pinterest-to-acquire-the-yes,1411517.html" target="_blank" rel="noopener">FashionNetwork — Pinterest acquires The Yes</a>
+      </div>
+    </div>
+
+    <!-- 5. Threads Styling -->
+    <div class="card">
+      <div class="card-head"><div class="card-name">Threads Styling</div></div>
+      <div class="card-meta">London, UK · founded 2010</div>
+      <div class="badges">
+        <span class="badge b-live">Live</span>
+        <span class="badge b-hybrid">B2C + B2B</span>
+      </div>
+      <div class="card-desc">Chat-based luxury personal-shopping service via WhatsApp / WeChat / Instagram DM; later added e-commerce site and live shopping. Targets HNW Gen-Z / millennial luxury buyers.</div>
+      <div class="card-row"><span class="label">Model</span>No inventory. Commission paid by 600+ luxury brand/retail partners (Hermès, Chanel, etc.). ~50% of sales via DM.</div>
+      <div class="card-row pricing"><span class="label">Consumer pricing</span>None — commission revenue model.</div>
+      <div class="card-row"><span class="label">B2B layer</span>"Threads Connect" launched 2021 gives independent personal shoppers and stylists worldwide access to the platform and sourcing network. Acquired by Chalhoub Group (Dubai) in Sept 2022.</div>
+      <div class="card-srcs">
+        <span class="label">Sources</span>
+        <a href="https://www.highlandeurope.com/can-a-chat-based-luxury-shopping-service-scale/" target="_blank" rel="noopener">Highland Europe analysis</a>
+        <a href="https://www.theindustry.fashion/chat-based-luxury-shopping-pioneer-threads-launched-e-commerce-and-live-shopping/" target="_blank" rel="noopener">The Industry Fashion</a>
+        <a href="https://fashionunited.com/news/business/personal-shopper-platform-threads-styling-acquired-by-chalhoub-group/2022092749883" target="_blank" rel="noopener">FashionUnited — Chalhoub acquisition</a>
+        <a href="https://www.prnewswire.com/news-releases/threads-styling-announces-the-launch-of-new-b2b-service-threads-connect-empowering-independent-personal-shoppers-and-stylists-worldwide-301361007.html" target="_blank" rel="noopener">PRNewswire — Threads Connect launch</a>
+      </div>
+    </div>
+
+    <!-- 6. Glamhive -->
+    <div class="card">
+      <div class="card-head"><div class="card-name">Glamhive</div></div>
+      <div class="card-meta">Los Angeles area, USA</div>
+      <div class="badges">
+        <span class="badge b-live">Live</span>
+        <span class="badge b-hybrid">Marketplace</span>
+      </div>
+      <div class="card-desc">Marketplace connecting consumers with professional and celebrity stylists for consultations, closet detox and makeovers. Separate "Professional" membership for stylists.</div>
+      <div class="card-row"><span class="label">Model</span>Marketplace — stylists set their own rates; Glamhive takes a cut. Stylist membership for service providers.</div>
+      <div class="card-row pricing"><span class="label">Stylist hourly range (per glamhive.com)</span>USD 75–450+. Consumer session pricing varies by stylist tier — consult the live listing for current rates.</div>
+      <div class="card-srcs">
+        <span class="label">Sources</span>
+        <a href="https://glamhive.com/pages/personal-styling-services" target="_blank" rel="noopener">glamhive.com — styling services</a>
+        <a href="https://www.businessoffashion.com/articles/news-analysis/celebrity-stylists-glamhive-styling-app/" target="_blank" rel="noopener">BoF — Glamhive profile</a>
+        <a href="https://glamhive.com/pages/glamhive-stylist-membership-plans" target="_blank" rel="noopener">Stylist membership plans</a>
+      </div>
+    </div>
+
+    <!-- 7. Wantable -->
+    <div class="card">
+      <div class="card-head"><div class="card-name">Wantable</div></div>
+      <div class="card-meta">Milwaukee, USA</div>
+      <div class="badges">
+        <span class="badge b-live">Live</span>
+        <span class="badge b-b2c">B2C</span>
+      </div>
+      <div class="card-desc">Try-at-home personal-styling "Edit" service with employed expert stylists.</div>
+      <div class="card-row"><span class="label">Model</span>USD 20 styling fee per Edit, credited toward kept items; tiered cash-back when keeping 3 / 6 / 9 items.</div>
+      <div class="card-row pricing"><span class="label">Pricing</span>USD 20 styling fee per Edit · items typically USD 50–100 · 7 items per Edit.</div>
+      <div class="card-srcs">
+        <span class="label">Sources</span>
+        <a href="https://www.wantable.com/how-wantable-works/" target="_blank" rel="noopener">wantable.com — how it works</a>
+        <a href="https://support.wantable.com/hc/en-us/articles/360012440712-How-much-does-a-Wantable-Edit-cost" target="_blank" rel="noopener">Wantable pricing FAQ</a>
+      </div>
+    </div>
+
+    <!-- 8. Le Tote -->
+    <div class="card">
+      <div class="card-head"><div class="card-name">Le Tote</div></div>
+      <div class="card-meta">San Francisco, USA</div>
+      <div class="badges">
+        <span class="badge b-closed">Closed · Spring 2024</span>
+        <span class="badge b-b2c">B2C</span>
+      </div>
+      <div class="card-desc">Subscription clothing rental with a styling-recommendation layer.</div>
+      <div class="card-row"><span class="label">Outcome</span>Shut down spring 2024 after parent (Saadia Group) defaulted on USD 45.3M loan; website taken offline; warehouses seized by lender.</div>
+      <div class="card-srcs">
+        <span class="label">Sources</span>
+        <a href="https://en.wikipedia.org/wiki/Le_Tote" target="_blank" rel="noopener">Wikipedia</a>
+      </div>
+    </div>
+
+    <!-- 9. Rent the Runway -->
+    <div class="card">
+      <div class="card-head"><div class="card-name">Rent the Runway</div></div>
+      <div class="card-meta">Brooklyn, USA · founded 2009</div>
+      <div class="badges">
+        <span class="badge b-live">Live</span>
+        <span class="badge b-pivot">In-store stylists closed 2020</span>
+      </div>
+      <div class="card-desc">Designer-clothing rental subscription. Previously offered in-store human personal stylists at 5 physical locations (all closed Aug 2020). Service is now digital-only with no human-stylist personalisation layer.</div>
+      <div class="card-row"><span class="label">2025 status</span>Completed Oct 2025 recapitalisation reducing debt to ~USD 120M with maturity extended to 2029.</div>
+      <div class="card-srcs">
+        <span class="label">Sources</span>
+        <a href="https://en.wikipedia.org/wiki/Rent_the_Runway" target="_blank" rel="noopener">Wikipedia</a>
+        <a href="https://www.renttherunway.com" target="_blank" rel="noopener">renttherunway.com</a>
+      </div>
+    </div>
+
+    <!-- 10. Lookiero + Outfittery -->
+    <div class="card">
+      <div class="card-head"><div class="card-name">Lookiero + Outfittery</div></div>
+      <div class="card-meta">Bilbao, Spain · Berlin, Germany · merged March 2025</div>
+      <div class="badges">
+        <span class="badge b-live">Live · Merged</span>
+        <span class="badge b-b2c">B2C</span>
+      </div>
+      <div class="card-desc">European online personal-shopping subscription. Customer fills profile, stylist sends curated box, customer keeps what they want. Lookiero founded 2016; merged with Outfittery (Berlin) in March 2025 to form a pan-European stylist-marketplace group.</div>
+      <div class="card-row"><span class="label">Combined scale</span>EUR 130M revenue (2024 pro-forma) · 3M+ active customers · 13 markets. Both brands retained post-merger.</div>
+      <div class="card-row pricing"><span class="label">Pricing</span>Lookiero UK: GBP 10 styling fee per box, refunded against kept items.</div>
+      <div class="card-srcs">
+        <span class="label">Sources</span>
+        <a href="https://fashionunited.uk/news/business/spains-lookiero-and-germanys-outfittery-merge-to-lead-the-european-online-personal-shopping-market/2025030680490" target="_blank" rel="noopener">FashionUnited — merger announcement</a>
+        <a href="https://lookiero.co.uk/" target="_blank" rel="noopener">lookiero.co.uk</a>
+        <a href="https://www.outfittery.com" target="_blank" rel="noopener">outfittery.com</a>
+      </div>
+    </div>
+
   </div>
 
-  <div class="srcs-note">
+  <div class="unverified">
+    <strong>Investigated but not in scope or unverifiable:</strong>
+    StyleSeat (hair / beauty appointment booking — out of scope) · Stylinity (multi-brand influencer campaign platform, not stylist-to-consumer) · Style My Soul (lifestyle content site, not a transactional stylist marketplace) · "AIR" (Always In Real-time) — no active platform under this name could be located in the personal-styling space.
+  </div>
+
+    <div class="srcs-note">
     All claims sourced from publicly accessible primary or named secondary URLs (accessed 2026-05-31). Secondary-research market-size figures are labelled with their source firms and should not be treated as audited primary data. Entries that could not be verified are listed at the bottom of each section rather than included with invented detail.
   </div>
 
