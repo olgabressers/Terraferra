@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Terra Ferra — Stylist Layer Research</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --tf:#4B40C2;
+  --tf-dark:#2D2595;
+  --tf-light:#ECEAF9;
+  --tf-ghost:#F4F2FC;
+  --orange:#E86820;
+  --off-white:#F7F6FB;
+  --ink:#12102B;
+  --sub:#5B5880;
+  --rule:#D8D4EF;
+  --green:#1F7A4E;
+  --green-tint:#DDEEE5;
+  --red:#A02020;
+  --red-tint:#F5DCDC;
+  --amber:#B8862B;
+  --amber-tint:#FBF1D5;
+  --blue:#2C90C9;
+  --blue-tint:#D5E9F4;
+}
+body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink);line-height:1.55}
+a{color:var(--tf)}
+a:hover{color:var(--orange)}
+
+/* Top nav (matches /adminfiles/ pattern) */
+.topnav{background:white;border-bottom:1px solid var(--rule);padding:12px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
+.topnav-home{font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);text-decoration:none;font-size:11px}
+.topnav-home:hover{color:var(--tf-dark)}
+.topnav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:var(--sub);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:10px}
+.topnav-links a:hover{color:var(--tf)}
+.topnav-links a.active{color:var(--orange)}
+@media(max-width:700px){.topnav{position:static;padding:10px 14px}.topnav-links{gap:10px;width:100%}.topnav-links a{font-size:9.5px}}
+
+.wrap{max-width:1400px;margin:0 auto;padding:40px 36px 80px}
+@media(max-width:700px){.wrap{padding:24px 16px 60px}}
+
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
+h1{font-size:34px;font-weight:800;letter-spacing:-1px;color:var(--ink);margin-bottom:8px;text-transform:uppercase}
+@media(max-width:700px){h1{font-size:24px}}
+
+.snote{background:var(--tf-ghost);border:1px solid var(--rule);border-left:4px solid var(--orange);padding:14px 18px;margin:18px 0 28px;font-size:12.5px;color:var(--ink);line-height:1.6}
+.snote strong{font-weight:800;color:var(--ink)}
+
+/* Section heading */
+.sec{margin:34px 0 18px;display:flex;align-items:baseline;gap:14px;border-bottom:1.5px solid var(--rule);padding-bottom:8px}
+.sec-num{font-size:32px;font-weight:800;color:var(--orange);line-height:1}
+.sec-title{font-size:18px;font-weight:800;color:var(--ink);text-transform:uppercase;letter-spacing:.5px}
+.sec-sub{font-size:11px;font-weight:600;color:var(--sub);margin-left:auto;text-transform:uppercase;letter-spacing:1.5px}
+@media(max-width:700px){.sec{flex-wrap:wrap}.sec-num{font-size:24px}.sec-title{font-size:14px}.sec-sub{font-size:9.5px;margin-left:0;width:100%}}
+
+/* Industry context — 3 panels */
+.ctx-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:30px}
+.ctx{background:white;border:1px solid var(--rule);border-top:4px solid var(--tf);padding:18px 18px 16px;display:flex;flex-direction:column}
+.ctx.amber{border-top-color:var(--amber)}
+.ctx.green{border-top-color:var(--green)}
+.ctx-tag{font-size:9.5px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;color:var(--sub);margin-bottom:10px}
+.ctx h3{font-size:14px;font-weight:800;color:var(--ink);margin-bottom:10px;line-height:1.3}
+.ctx p{font-size:11.5px;color:var(--ink);line-height:1.55;margin-bottom:8px}
+.ctx p.small{font-size:10.5px;color:var(--sub)}
+.ctx a{font-size:10.5px;color:var(--tf);text-decoration:underline;word-break:break-word}
+.ctx a:hover{color:var(--orange)}
+.ctx ul{list-style:none;padding:0;margin:6px 0 0}
+.ctx li{font-size:11px;color:var(--ink);line-height:1.5;padding:3px 0 3px 12px;position:relative}
+.ctx li::before{content:"";position:absolute;left:2px;top:11px;width:4px;height:4px;border-radius:50%;background:var(--tf)}
+.ctx.amber li::before{background:var(--amber)}
+.ctx.green li::before{background:var(--green)}
+@media(max-width:1000px){.ctx-grid{grid-template-columns:1fr}}
+
+/* Cards (platforms / tools) */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:30px}
+@media(max-width:1100px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.cards{grid-template-columns:1fr}}
+.card{background:white;border:1px solid var(--rule);border-top:4px solid var(--tf);padding:18px 18px 16px;display:flex;flex-direction:column}
+.card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:8px}
+.card-name{font-size:15px;font-weight:800;color:var(--ink);letter-spacing:-.2px;line-height:1.2}
+.card-meta{font-size:10.5px;color:var(--sub);margin-bottom:10px;line-height:1.4}
+.badges{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
+.badge{font-size:8.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:3px 7px;border:1px solid var(--rule);border-radius:2px;line-height:1}
+.b-live{background:var(--green-tint);color:var(--green);border-color:#BCD9C9}
+.b-closed{background:var(--red-tint);color:var(--red);border-color:#E5BFBF}
+.b-acquired{background:var(--amber-tint);color:var(--amber);border-color:#E5D4A2}
+.b-pivot{background:var(--blue-tint);color:var(--blue);border-color:#B6D6E9}
+.b-b2c{background:white;color:var(--tf);border-color:var(--tf)}
+.b-b2b{background:white;color:var(--orange);border-color:var(--orange)}
+.b-hybrid{background:white;color:var(--green);border-color:var(--green)}
+.card-desc{font-size:11.5px;color:var(--ink);line-height:1.55;margin-bottom:8px}
+.card-row{font-size:11px;color:var(--ink);line-height:1.5;padding:4px 0;border-top:1px dashed var(--rule)}
+.card-row .label{font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--sub);display:block;margin-bottom:2px}
+.card-row.pricing{color:var(--ink)}
+.card-row.status-note{color:var(--red);font-weight:600;font-style:italic}
+.card-srcs{margin-top:auto;padding-top:10px;border-top:1px solid var(--rule);font-size:10.5px;line-height:1.5;display:flex;flex-direction:column;gap:3px}
+.card-srcs .label{font-size:8.5px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--sub);margin-bottom:3px}
+.card-srcs a{color:var(--tf);text-decoration:none;word-break:break-word}
+.card-srcs a:hover{color:var(--orange);text-decoration:underline}
+
+/* Implications box */
+.implications{background:white;border:1px solid var(--rule);border-left:4px solid var(--orange);padding:22px 24px;margin:28px 0 24px}
+.implications h3{font-size:14px;font-weight:800;color:var(--ink);text-transform:uppercase;letter-spacing:.5px;margin-bottom:14px}
+.imp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+@media(max-width:800px){.imp-grid{grid-template-columns:1fr}}
+.imp h4{font-size:12px;font-weight:800;color:var(--orange);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px}
+.imp p{font-size:12px;color:var(--ink);line-height:1.55}
+
+/* Unverified list */
+.unverified{background:var(--tf-ghost);border:1px dashed var(--rule);padding:14px 18px;margin:18px 0 28px;font-size:11px;color:var(--sub);line-height:1.6}
+.unverified strong{color:var(--ink);text-transform:uppercase;letter-spacing:1px;font-size:10px}
+
+/* Sources general note */
+.srcs-note{font-size:10.5px;color:var(--sub);line-height:1.55;margin-top:24px;padding-top:14px;border-top:1px solid var(--rule);font-style:italic}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="index.html" class="topnav-home">Terra Ferra</a>
+  <div class="topnav-links">
+    <a href="budget.html">Budget</a>
+    <a href="roles.html">Roles</a>
+    <a href="TFbusinessmodel.html">Business Model</a>
+    <a href="TFaltmodel.html">Alt Model</a>
+    <a href="TFstylists.html" class="active">Stylist Layer</a>
+    <a href="gamification.html">Gamification</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <div class="eyebrow">Business Model · Research</div>
+  <h1>Stylist Layer — Existing Platforms &amp; AI Tooling</h1>
+
+  <div class="snote">
+    Research on the two adjacent markets relevant to adding stylists to Terra Ferra: (1) platforms connecting stylists with end consumers, and (2) AI tools that help stylists build and manage wardrobes for clients. Every entry below is sourced; entries that could not be verified are listed separately at the bottom of each section. Accessed 2026-05-31.
+  </div>
+
+  <!-- ═══════════════════ INDUSTRY CONTEXT ═══════════════════ -->
+  <div class="sec">
+    <span class="sec-num">01</span>
+    <span class="sec-title">Industry Context</span>
+    <span class="sec-sub">Market size · AI adoption · Consolidation</span>
+  </div>
+
+  <div class="ctx-grid">
+    <div class="ctx">
+      <div class="ctx-tag">Market Size · Online &amp; Virtual Personal Styling</div>
+      <h3>Secondary-research estimates converge around USD 4–5B today, USD 15–18B by 2032.</h3>
+      <ul>
+        <li>Online Personal Styling Services — <strong>USD 5.5B (2024) → USD 15B (2032), 15% CAGR</strong> · <a href="https://www.zionmarketresearch.com/report/online-personal-stylist-services-market" target="_blank" rel="noopener">Zion Market Research</a></li>
+        <li>Virtual Personal Styling Services — <strong>USD 4.5B (2024) → USD 18B (2032), 20% CAGR</strong> · <a href="https://www.futuredatastats.com/virtual-personal-styling-services-market" target="_blank" rel="noopener">Future Data Stats</a></li>
+        <li>AI Personal Stylist sub-segment — <strong>USD 1.68B (2025) → USD 7.92B (2034)</strong> · <a href="https://www.intelmarketresearch.com/ai-personal-stylist-market-43951" target="_blank" rel="noopener">Intel Market Research</a></li>
+      </ul>
+      <p class="small" style="margin-top:10px">Caveat: these are secondary-research-firm estimates; the underlying primary surveys (IBISWorld, Statista) sit behind paywalls and were not directly verified. Use figures with the source label attached.</p>
+    </div>
+
+    <div class="ctx amber">
+      <div class="ctx-tag">AI Adoption in Fashion</div>
+      <h3>Industry-wide AI adoption is well-documented at executive level. No primary survey of AI adoption among individual personal stylists could be located.</h3>
+      <p>From the BoF–McKinsey State of Fashion 2025 / 2026 reports:</p>
+      <ul>
+        <li><strong>75%</strong> of fashion executives prioritise AI for demand forecasting, inventory and cost control</li>
+        <li><strong>50%</strong> prioritise AI-driven discovery (search, recommendations, virtual assistants)</li>
+        <li><strong>45%</strong> see AI-driven marketing as a major value driver</li>
+      </ul>
+      <p class="small" style="margin-top:8px">Sources: <a href="https://www.businessoffashion.com/articles/technology/the-state-of-fashion-2026-report-ai-automation-workforce-organisation-talent/" target="_blank" rel="noopener">BoF State of Fashion 2026</a> · <a href="https://www.mckinsey.com/~/media/mckinsey/industries/retail/our%20insights/state%20of%20fashion/2025/the-state-of-fashion-2025-v2.pdf" target="_blank" rel="noopener">McKinsey State of Fashion 2025 (PDF)</a></p>
+    </div>
+
+    <div class="ctx green">
+      <div class="ctx-tag">Direction · 2022–2025</div>
+      <h3>The stylist-marketplace segment is consolidating. Independent startups are being absorbed or shutting down; survivors merge for scale.</h3>
+      <ul>
+        <li>Trunk Club shut down May 2022 after Nordstrom USD 197M write-down · <a href="https://www.businessoffashion.com/news/retail/nordstrom-is-shuttering-trunk-club/" target="_blank" rel="noopener">BoF</a></li>
+        <li>The Yes acquired by Pinterest, app shut down post-acquisition · <a href="https://us.fashionnetwork.com/news/Pinterest-to-acquire-the-yes,1411517.html" target="_blank" rel="noopener">FashionNetwork</a></li>
+        <li>Threads Styling acquired by Chalhoub Group (Dubai) Sept 2022 · <a href="https://fashionunited.com/news/business/personal-shopper-platform-threads-styling-acquired-by-chalhoub-group/2022092749883" target="_blank" rel="noopener">FashionUnited</a></li>
+        <li>Stylyze acquired by Neiman Marcus Group 2021–22 · <a href="https://www.businessoffashion.com/articles/retail/neiman-marcus-to-acquire-retail-platform-stylyze/" target="_blank" rel="noopener">BoF</a></li>
+        <li>Le Tote shut down spring 2024 after parent loan default · <a href="https://en.wikipedia.org/wiki/Le_Tote" target="_blank" rel="noopener">Wikipedia</a></li>
+        <li>Lookiero + Outfittery merged March 2025 — largest pan-European stylist-marketplace consolidation event · <a href="https://fashionunited.uk/news/business/spains-lookiero-and-germanys-outfittery-merge-to-lead-the-european-online-personal-shopping-market/2025030680490" target="_blank" rel="noopener">FashionUnited</a></li>
+        <li>Mad Street Den (Vue.ai parent) acquired by M2P, March 2025 · <a href="https://www.vue.ai/" target="_blank" rel="noopener">vue.ai</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ SECTION 02 — STYLIST → CONSUMER PLATFORMS ═══════════════════ -->
+  <div class="sec">
+    <span class="sec-num">02</span>
+    <span class="sec-title">Platforms Connecting Stylists to Consumers</span>
+    <span class="sec-sub">10 verified entries</span>
+  </div>
+
+  <div class="cards">
+
+    <!-- 1. Wishi -->
+    <div class="card">
+      <div class="card-head"><div class="card-name">Wishi</div></div>
+      <div class="card-meta">New York, USA · founded 2015</div>
+      <div class="badges">
+        <span class="badge b-live">Live</span>
+        <span class="badge b-hybrid">B2C + B2B</span>
+      </div>
+      <div class="card-desc">Online personal-styling marketplace pairing consumers with vetted human stylists who deliver shoppable style boards and chat.</div>
+      <div class="card-row"><span class="label">Model</span>Per-session styling fee paid by consumer; stylist earns a % of that fee. Also runs Wishi for Brands and Amazon integration on the B2B side.</div>
+      <div class="card-row pricing"><span class="label">Pricing (consumer)</span>Mini USD 60 · Major USD 130 · Lux USD 550 per session (3-day free trial). Stylist rates by tier: USD 50–100 (Upcoming) / 100–400 (Experienced) / 400+ (Exclusive).</div>
+      <div class="card-srcs">
+        <span class="label">Sources</span>
+        <a href="https://www.wishi.me/pricing" target="_blank" rel="noopener">wishi.me/pricing</a>
+        <a href="https://www.thequalityedit.com/articles/wishi-personal-styling-review" target="_blank" rel="noopener">The Quality Edit — Wishi review</a>
+        <a href="https://finance.yahoo.com/news/wishi-styling-platform-links-amazon-203141381.html" target="_blank" rel="noopener">Yahoo Finance — Wishi × Amazon</a>
+      </div>
+    </div>
+
+    <!-- 2. Stitch Fix -->
+    <div class="card">
+      <div class="card-head"><div class="card-name">Stitch Fix</div></div>
+      <div class="card-meta">San Francisco, USA · founded 2011</div>
+      <div class="badges">
+        <span class="badge b-live">Live</span>
+        <span class="badge b-b2c">B2C</span>
+      </div>
+      <div class="card-desc">Subscription-style "Fix" boxes curated by ~1,600 employed human stylists supported by internal AI/ML tools (notably "Vision" for style visualisation).</div>
+      <div class="card-row"><span class="label">Model</span>USD 20 styling fee per Fix, credited toward kept items. Optional Annual Style Pass at USD 49/yr.</div>
+      <div class="card-row pricing"><span class="label">Pricing</span>USD 20 styling fee per Fix · USD 49 Annual Style Pass · stylist hourly pay ~USD 18.24 (per Indeed data).</div>
+      <div class="card-srcs">
+        <span class="label">Sources</span>
+        <a href="https://www.stitchfix.com/pricing" target="_blank" rel="noopener">stitchfix.com/pricing</a>
+        <a href="https://www.uschamber.com/co/good-company/the-leap/stitch-fix-optimizing-with-ai" target="_blank" rel="noopener">US Chamber — AI at Stitch Fix</a>
+        <a href="https://www.stitchfix.com/women/blog/inside-stitchfix/introducing-vision-stitch-fixs-new-style-visualization-tool/" target="_blank" rel="noopener">Stitch Fix blog — Vision tool</a>
+        <a href="https://en.wikipedia.org/wiki/Stitch_Fix" target="_blank" rel="noopener">Wikipedia</a>
+      </div>
+    </div>
+
+    <!-- 3. Trunk Club -->
+    <div class="card">
+      <div class="card-head"><div class="card-name">Trunk Club</div></div>
+      <div class="card-meta">Chicago, USA · 2009–2022</div>
+      <div class="badges">
+        <span class="badge b-closed">Closed</span>
+        <span class="badge b-b2c">B2C</span>
+      </div>
+      <div class="card-desc">Personal-styling subscription box (originally menswear, later women) powered by employed stylists working from physical "clubhouses."</div>
+      <div class="card-row"><span class="label">Outcome</span>Acquired by Nordstrom for USD 350M in 2014. Shut down May 31, 2022 after USD 197M write-down; customers redirected to Nordstrom's in-house personal-styling service.</div>
+      <div class="card-srcs">
+        <span class="label">Sources</span>
+        <a href="https://www.businessoffashion.com/news/retail/nordstrom-is-shuttering-trunk-club/" target="_blank" rel="noopener">BoF — Nordstrom shutters Trunk Club</a>
+        <a href="https://www.retaildive.com/news/what-trunk-clubs-demise-says-about-apparel-subscriptions/624667/" target="_blank" rel="noopener">Retail Dive analysis</a>
+        <a href="https://en.wikipedia.org/wiki/Trunk_Club" target="_blank" rel="noopener">Wikipedia</a>
+      </div>
+    </div>
+
+    <!-- 4. The Yes -->
+    <div class="card">
+      <div class="card-head"><div class="card-name">The Yes</div></div>
+      <div class="card-meta">Los Altos, USA · 2018–2022</div>
+      <div class="badges">
+        <span class="badge b-acquired">Acquired · Shut</span>
+        <span class="badge b-b2c">B2C</span>
+      </div>
+      <div class="card-desc">AI-powered shopping app that learned individual taste graphs to recommend fashion across brands.</div>
+      <div class="card-row"><span class="label">Outcome</span>Acquired by Pinterest in 2022; app and website shut down post-acquisition. Team rolled into Pinterest shopping.</div>
+      <div class="card-srcs">
+        <span class="label">Sources</span>
+        <a href="https://us.fashionnetwork.com/news/Pinterest-to-acquire-the-yes,1411517.html" target="_blank" rel="noopener">FashionNetwork — Pinterest acquires The Yes</a>
+      </div>
+    </div>
+
+    <!-- 5. Threads Styling -->
+    <div class="card">
+      <div class="card-head"><div class="card-name">Threads Styling</div></div>
+      <div class="card-meta">London, UK · founded 2010</div>
+      <div class="badges">
+        <span class="badge b-live">Live</span>
+        <span class="badge b-hybrid">B2C + B2B</span>
+      </div>
+      <div class="card-desc">Chat-based luxury personal-shopping service via WhatsApp / WeChat / Instagram DM; later added e-commerce site and live shopping. Targets HNW Gen-Z / millennial luxury buyers.</div>
+      <div class="card-row"><span class="label">Model</span>No inventory. Commission paid by 600+ luxury brand/retail partners (Hermès, Chanel, etc.). ~50% of sales via DM.</div>
+      <div class="card-row pricing"><span class="label">Consumer pricing</span>None — commission revenue model.</div>
+      <div class="card-row"><span class="label">B2B layer</span>"Threads Connect" launched 2021 gives independent personal shoppers and stylists worldwide access to the platform and sourcing network. Acquired by Chalhoub Group (Dubai) in Sept 2022.</div>
+      <div class="card-srcs">
+        <span class="label">Sources</span>
+        <a href="https://www.highlandeurope.com/can-a-chat-based-luxury-shopping-service-scale/" target="_blank" rel="noopener">Highland Europe analysis</a>
+        <a href="https://www.theindustry.fashion/chat-based-luxury-shopping-pioneer-threads-launched-e-commerce-and-live-shopping/" target="_blank" rel="noopener">The Industry Fashion</a>
+        <a href="https://fashionunited.com/news/business/personal-shopper-platform-threads-styling-acquired-by-chalhoub-group/2022092749883" target="_blank" rel="noopener">FashionUnited — Chalhoub acquisition</a>
+        <a href="https://www.prnewswire.com/news-releases/threads-styling-announces-the-launch-of-new-b2b-service-threads-connect-empowering-independent-personal-shoppers-and-stylists-worldwide-301361007.html" target="_blank" rel="noopener">PRNewswire — Threads Connect launch</a>
+      </div>
+    </div>
+
+    <!-- 6. Glamhive -->
+    <div class="card">
+      <div class="card-head"><div class="card-name">Glamhive</div></div>
+      <div class="card-meta">Los Angeles area, USA</div>
+      <div class="badges">
+        <span class="badge b-live">Live</span>
+        <span class="badge b-hybrid">Marketplace</span>
+      </div>
+      <div class="card-desc">Marketplace connecting consumers with professional and celebrity stylists for consultations, closet detox and makeovers. Separate "Professional" membership for stylists.</div>
+      <div class="card-row"><span class="label">Model</span>Marketplace — stylists set their own rates; Glamhive takes a cut. Stylist membership for service providers.</div>
+      <div class="card-row pricing"><span class="label">Pricing range</span>Consultations from USD 25 · 1-hour styling sessions USD 225–1,350 · celebrity-stylist rates up to USD 2,600 per makeover · stylist hourly USD 75–450+.</div>
+      <div class="card-srcs">
+        <span class="label">Sources</span>
+        <a href="https://glamhive.com/pages/personal-styling-services" target="_blank" rel="noopener">glamhive.com — styling services</a>
+        <a href="https://www.businessoffashion.com/articles/news-analysis/celebrity-stylists-glamhive-styling-app/" target="_blank" rel="noopener">BoF — Glamhive profile</a>
+        <a href="https://glamhive.com/pages/glamhive-stylist-membership-plans" target="_blank" rel="noopener">Stylist membership plans</a>
+      </div>
+    </div>
+
+    <!-- 7. Wantable -->
+    <div class="card">
+      <div class="card-head"><div class="card-name">Wantable</div></div>
+      <div class="card-meta">Milwaukee, USA</div>
+      <div class="badges">
+        <span class="badge b-live">Live</span>
+        <span class="badge b-b2c">B2C</span>
+      </div>
+      <div class="card-desc">Try-at-home personal-styling "Edit" service with employed expert stylists.</div>
+      <div class="card-row"><span class="label">Model</span>USD 20 styling fee per Edit, credited toward kept items; tiered cash-back when keeping 3 / 6 / 9 items; 20% off when keeping 5+.</div>
+      <div class="card-row pricing"><span class="label">Pricing</span>USD 20 styling fee per Edit · items typically USD 50–100 · 7 items per Edit.</div>
+      <div class="card-srcs">
+        <span class="label">Sources</span>
+        <a href="https://www.wantable.com/how-wantable-works/" target="_blank" rel="noopener">wantable.com — how it works</a>
+        <a href="https://support.wantable.com/hc/en-us/articles/360012440712-How-much-does-a-Wantable-Edit-cost" target="_blank" rel="noopener">Wantable pricing FAQ</a>
+      </div>
+    </div>
+
+    <!-- 8. Le Tote -->
+    <div class="card">
+      <div class="card-head"><div class="card-name">Le Tote</div></div>
+      <div class="card-meta">San Francisco, USA</div>
+      <div class="badges">
+        <span class="badge b-closed">Closed · Spring 2024</span>
+        <span class="badge b-b2c">B2C</span>
+      </div>
+      <div class="card-desc">Subscription clothing rental with a styling-recommendation layer.</div>
+      <div class="card-row"><span class="label">Outcome</span>Shut down spring 2024 after parent (Saadia Group) defaulted on USD 45.3M loan; website taken offline; warehouses seized by lender.</div>
+      <div class="card-srcs">
+        <span class="label">Sources</span>
+        <a href="https://en.wikipedia.org/wiki/Le_Tote" target="_blank" rel="noopener">Wikipedia</a>
+      </div>
+    </div>
+
+    <!-- 9. Rent the Runway -->
+    <div class="card">
+      <div class="card-head"><div class="card-name">Rent the Runway</div></div>
+      <div class="card-meta">Brooklyn, USA · founded 2009</div>
+      <div class="badges">
+        <span class="badge b-live">Live</span>
+        <span class="badge b-pivot">In-store stylists closed 2020</span>
+      </div>
+      <div class="card-desc">Designer-clothing rental subscription. Previously offered in-store human personal stylists at 5 physical locations (all closed Aug 2020). Service is now digital-only with no human-stylist personalisation layer.</div>
+      <div class="card-row"><span class="label">2025 status</span>Completed Oct 2025 recapitalisation reducing debt to ~USD 120M with maturity extended to 2029.</div>
+      <div class="card-srcs">
+        <span class="label">Sources</span>
+        <a href="https://en.wikipedia.org/wiki/Rent_the_Runway" target="_blank" rel="noopener">Wikipedia</a>
+        <a href="https://www.renttherunway.com" target="_blank" rel="noopener">renttherunway.com</a>
+      </div>
+    </div>
+
+    <!-- 10. Lookiero + Outfittery -->
+    <div class="card">
+      <div class="card-head"><div class="card-name">Lookiero + Outfittery</div></div>
+      <div class="card-meta">Bilbao, Spain · Berlin, Germany · merged March 2025</div>
+      <div class="badges">
+        <span class="badge b-live">Live · Merged</span>
+        <span class="badge b-b2c">B2C</span>
+      </div>
+      <div class="card-desc">European online personal-shopping subscription. Customer fills profile, stylist sends curated box, customer keeps what they want. Lookiero founded 2016; merged with Outfittery (Berlin) in March 2025 to form the leading pan-European stylist-marketplace group.</div>
+      <div class="card-row"><span class="label">Combined scale</span>EUR 130M revenue (2024 pro-forma) · 3M+ active customers · 13 markets. Both brands retained post-merger.</div>
+      <div class="card-row pricing"><span class="label">Pricing</span>Lookiero UK: GBP 10 styling fee per box, refunded against kept items.</div>
+      <div class="card-srcs">
+        <span class="label">Sources</span>
+        <a href="https://fashionunited.uk/news/business/spains-lookiero-and-germanys-outfittery-merge-to-lead-the-european-online-personal-shopping-market/2025030680490" target="_blank" rel="noopener">FashionUnited — merger announcement</a>
+        <a href="https://lookiero.co.uk/" target="_blank" rel="noopener">lookiero.co.uk</a>
+        <a href="https://www.outfittery.com" target="_blank" rel="noopener">outfittery.com</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="unverified">
+    <strong>Investigated but not in scope or unverifiable:</strong>
+    StyleSeat (hair / beauty appointment booking — out of scope) · Stylinity (multi-brand influencer campaign platform, not stylist-to-consumer) · Style My Soul (lifestyle content site, not a transactional stylist marketplace) · "AIR" (Always In Real-time) — no active platform under this name could be located in the personal-styling space.
+  </div>
+
+  <!-- ═══════════════════ SECTION 03 — AI TOOLS FOR STYLISTS ═══════════════════ -->
+  <div class="sec">
+    <span class="sec-num">03</span>
+    <span class="sec-title">AI Tools for Stylists &amp; Wardrobe Building</span>
+    <span class="sec-sub">12 verified entries</span>
+  </div>
+
+  <p style="font-size:11.5px;color:var(--sub);line-height:1.55;margin:-4px 0 18px">Most AI tools in this space are <strong>enterprise B2B retail-styling platforms</strong> — used by retailer styling teams and sales associates as their client-styling backend. Very few are positioned directly at the independent professional stylist; consumer wardrobe apps with explicit stylist-pro tiers are even rarer. Indyx is the closest example of a hybrid stylist-marketplace with a built-in virtual closet.</p>
+
+  <div class="cards">
+
+    <!-- A. Stylyze -->
+    <div class="card">
+      <div class="card-head"><div class="card-name">Stylyze</div></div>
+      <div class="card-meta">Seattle, USA · founded 2015 · acquired by Neiman Marcus 2021–22</div>
+      <div class="badges">
+        <span class="badge b-acquired">Acquired</span>
+        <span class="badge b-b2b">Enterprise</span>
+      </div>
+      <div class="card-desc">ML SaaS that recreates in-store styling, visual merchandising and clienteling experiences for online retailers — used by sales associates and stylists to assemble personalised recommendations.</div>
+      <div class="card-row"><span class="label">Notable clients (pre-acquisition)</span>Target, Home Depot, Neiman Marcus.</div>
+      <div class="card-srcs">
+        <span class="label">Sources</span>
+        <a href="https://www.businessoffashion.com/articles/retail/neiman-marcus-to-acquire-retail-platform-stylyze/" target="_blank" rel="noopener">BoF — Neiman acquires Stylyze</a>
+        <a href="https://www.geekwire.com/2021/neiman-marcus-will-acquire-stylyze-seattle-startup-helps-online-home-fashion-retailers/" target="_blank" rel="noopener">GeekWire</a>
+      </div>
+    </div>
+
+    <!-- B. Stylitics -->
+    <div class="card">
+      <div class="card-head"><div class="card-name">Stylitics</div></div>
+      <div class="card-meta">New York, USA</div>
+      <div class="badges">
+        <span class="badge b-live">Live</span>
+        <span class="badge b-b2b">Enterprise</span>
+      </div>
+      <div class="card-desc">AI styling and outfitting platform for retailers and brands. Provides AI-styling, digital merchandising and product-recommendation tools used by retail merchandisers and styling teams.</div>
+      <div class="card-row pricing"><span class="label">Pricing</span>Not publicly listed (enterprise).</div>
+      <div class="card-srcs">
+        <span class="label">Sources</span>
+        <a href="https://stylitics.com/retail-ai-platform/" target="_blank" rel="noopener">stylitics.com — platform</a>
+        <a href="https://stylitics.com/product/ai-styling/" target="_blank" rel="noopener">AI Styling product page</a>
+      </div>
+    </div>
+
+    <!-- C. Intelistyle -->
+    <div class="card">
+      <div class="card-head"><div class="card-name">Intelistyle</div></div>
+      <div class="card-meta">London, UK · founded 2017</div>
+      <div class="badges">
+        <span class="badge b-live">Live</span>
+        <span class="badge b-b2b">Enterprise · API</span>
+      </div>
+      <div class="card-desc">AI fashion stylist platform for retailers. APIs and white-label apps so brands can add personalised recommendations, digital styling and look-building to their own sites and apps.</div>
+      <div class="card-row"><span class="label">Notable clients</span>Dolce &amp; Gabbana, MaxMara, Tommy Hilfiger, YOOX Net-a-Porter.</div>
+      <div class="card-srcs">
+        <span class="label">Sources</span>
+        <a href="https://intelistyle.com/" target="_blank" rel="noopener">intelistyle.com</a>
+        <a href="https://metavallon.vc/blog/seed-investment-intelistyle-fashion-stylist/" target="_blank" rel="noopener">Metavallon VC — seed</a>
+        <a href="https://econsultancy.com/how-intelistyle-plans-to-become-the-spotify-of-fashion-with-its-ai-stylist-app/" target="_blank" rel="noopener">Econsultancy</a>
+      </div>
+    </div>
+
+    <!-- D. Vue.ai -->
+    <div class="card">
+      <div class="card-head"><div class="card-name">Vue.ai</div></div>
+      <div class="card-meta">Redwood City, USA · Chennai, India · acquired by M2P March 2025</div>
+      <div class="badges">
+        <span class="badge b-acquired">Acquired 2025</span>
+        <span class="badge b-b2b">Enterprise</span>
+      </div>
+      <div class="card-desc">Enterprise AI platform for retail — image / video / text data for personalisation, virtual try-on and outfit recommendations. Powers retailer styling and recommendation flows; not a tool for individual stylists.</div>
+      <div class="card-srcs">
+        <span class="label">Sources</span>
+        <a href="https://www.vue.ai/" target="_blank" rel="noopener">vue.ai</a>
+        <a href="https://www.entrepreneur.com/en-in/news-and-trends/vueai-partners-with-metas-creative-shop-to-create/446752" target="_blank" rel="noopener">Entrepreneur — Vue.ai × Meta Creative Shop</a>
+        <a href="https://www.gartner.com/reviews/market/personalization-engines/vendor/mad-street-den/product/vue-ai" target="_blank" rel="noopener">Gartner profile</a>
+      </div>
+    </div>
+
+    <!-- E. YesPlz AI -->
+    <div class="card">
+      <div class="card-head"><div class="card-name">YesPlz AI</div></div>
+      <div class="card-meta">US-incorporated · Korean founders</div>
+      <div class="badges">
+        <span class="badge b-live">Live</span>
+        <span class="badge b-b2b">Enterprise</span>
+      </div>
+      <div class="card-desc">Fashion product discovery and AI Stylist for retailers. Includes ChatGPT-powered AI stylist that assembles outfits and matches occasions; virtual mannequin filter; deep product tagging.</div>
+      <div class="card-srcs">
+        <span class="label">Sources</span>
+        <a href="https://yesplz.ai/" target="_blank" rel="noopener">yesplz.ai</a>
+        <a href="https://yesplz.ai/product-discovery/gpt_fashion_stylist" target="_blank" rel="noopener">GPT Fashion Stylist feature</a>
+      </div>
+    </div>
+
+    <!-- F. Stylumia -->
+    <div class="card">
+      <div class="card-head"><div class="card-name">Stylumia</div></div>
+      <div class="card-meta">Bengaluru, India</div>
+      <div class="badges">
+        <span class="badge b-live">Live</span>
+        <span class="badge b-b2b">Enterprise</span>
+      </div>
+      <div class="card-desc">Fashion AI SaaS for trend forecasting and demand sensing — used by brands, designers and merchandisers, not individual stylists. Apollo product handles demand-planning ML.</div>
+      <div class="card-srcs">
+        <span class="label">Sources</span>
+        <a href="https://www.stylumia.ai/" target="_blank" rel="noopener">stylumia.ai</a>
+        <a href="https://www.stylumia.ai/our-solutions/apollo/" target="_blank" rel="noopener">Apollo product</a>
+      </div>
+    </div>
+
+    <!-- G. Save Your Wardrobe -->
+    <div class="card">
+      <div class="card-head"><div class="card-name">Save Your Wardrobe</div></div>
+      <div class="card-meta">London, UK · founded 2017</div>
+      <div class="badges">
+        <span class="badge b-pivot">Pivoted to B2B</span>
+        <span class="badge b-b2b">Aftercare</span>
+      </div>
+      <div class="card-desc">Started as a B2C digital wardrobe; pivoted to B2B aftercare platform for fashion brands (repairs, alterations, end-to-end aftersales). No public evidence of a stylist-specific tier.</div>
+      <div class="card-row"><span class="label">Partners</span>Zalando, Hugo Boss.</div>
+      <div class="card-srcs">
+        <span class="label">Sources</span>
+        <a href="https://www.saveyourwardrobe.com/en-gb" target="_blank" rel="noopener">saveyourwardrobe.com</a>
+        <a href="https://b2b.saveyourwardrobe.com/en" target="_blank" rel="noopener">B2B platform</a>
+        <a href="https://www.crunchbase.com/organization/save-your-wardrobe" target="_blank" rel="noopener">Crunchbase</a>
+      </div>
+    </div>
+
+    <!-- H. Whering -->
+    <div class="card">
+      <div class="card-head"><div class="card-name">Whering</div></div>
+      <div class="card-meta">London, UK · founded 2020</div>
+      <div class="badges">
+        <span class="badge b-live">Live</span>
+        <span class="badge b-b2c">B2C only</span>
+      </div>
+      <div class="card-desc">Consumer digital wardrobe with AI outfit suggestions and a "social wardrobe" angle. Claims 9M+ users. No documented professional / stylist-pro tier.</div>
+      <div class="card-row pricing"><span class="label">Pricing</span>Free base · Premium ~EUR 5/mo · human-stylist sessions reported from USD 25 (secondary source — current price TBC).</div>
+      <div class="card-srcs">
+        <span class="label">Sources</span>
+        <a href="https://whering.co.uk/" target="_blank" rel="noopener">whering.co.uk</a>
+        <a href="https://whering.co.uk/about" target="_blank" rel="noopener">About</a>
+      </div>
+    </div>
+
+    <!-- I. Indyx -->
+    <div class="card">
+      <div class="card-head"><div class="card-name">Indyx</div></div>
+      <div class="card-meta">USA · founded 2021–2022</div>
+      <div class="badges">
+        <span class="badge b-live">Live</span>
+        <span class="badge b-hybrid">Hybrid · Stylist tier</span>
+      </div>
+      <div class="card-desc">Digital wardrobe + outfit app with a built-in stylist marketplace (Lookbook service) and professional cataloging service. Includes a 1:1 styling tier — closest verified example of a hybrid stylist-marketplace with virtual closet.</div>
+      <div class="card-row pricing"><span class="label">Pricing</span>1:1 styling from USD 60 · ongoing styling from USD 15/mo · Lookbook from USD 150 (10 outfits using customer's own wardrobe) · professional cataloging USD 295 for 100 items + USD 2/extra item · Insider membership ~USD 9/mo.</div>
+      <div class="card-srcs">
+        <span class="label">Sources</span>
+        <a href="https://www.myindyx.com/" target="_blank" rel="noopener">myindyx.com</a>
+        <a href="https://www.myindyx.com/how-it-works" target="_blank" rel="noopener">How it works</a>
+        <a href="https://theeliseedit.com/blog/my-honest-review-of-the-indyx-app" target="_blank" rel="noopener">The Elise Edit — review</a>
+      </div>
+    </div>
+
+    <!-- J. Acloset -->
+    <div class="card">
+      <div class="card-head"><div class="card-name">Acloset (Looko)</div></div>
+      <div class="card-meta">Seoul, South Korea · founded June 2020</div>
+      <div class="badges">
+        <span class="badge b-live">Live</span>
+        <span class="badge b-b2c">B2C only</span>
+      </div>
+      <div class="card-desc">AI-powered digital closet with weather-integrated outfit suggestions, auto-tagging, virtual try-on, in-app marketplace. 800K+ global users reported in 2022 (current TBC). No documented stylist tier.</div>
+      <div class="card-row pricing"><span class="label">Pricing</span>Free (100 items) · Basic USD 3.99/mo · Premium USD 9.99/mo.</div>
+      <div class="card-srcs">
+        <span class="label">Sources</span>
+        <a href="https://www.acloset.app/" target="_blank" rel="noopener">acloset.app</a>
+        <a href="https://koreatechdesk.com/korean-startup-lookos-ai-digital-wardrobe-app-acloset-gets-over-800000-global-users" target="_blank" rel="noopener">KoreaTechDesk</a>
+      </div>
+    </div>
+
+    <!-- K. Combyne -->
+    <div class="card">
+      <div class="card-head"><div class="card-name">Combyne</div></div>
+      <div class="card-meta">Munich, Germany · founded 2014</div>
+      <div class="badges">
+        <span class="badge b-live">Live</span>
+        <span class="badge b-b2c">B2C only</span>
+      </div>
+      <div class="card-desc">Outfit-creation app with mood-board canvas, item shuffle, social community and brand-partner shopping. Gen-Z focused. USD 2.2M raised. No documented stylist tier.</div>
+      <div class="card-srcs">
+        <span class="label">Sources</span>
+        <a href="https://www.combyne.com/" target="_blank" rel="noopener">combyne.com</a>
+        <a href="https://www.combyne.com/about" target="_blank" rel="noopener">About</a>
+      </div>
+    </div>
+
+    <!-- L. Cladwell -->
+    <div class="card">
+      <div class="card-head"><div class="card-name">Cladwell</div></div>
+      <div class="card-meta">Cincinnati, USA</div>
+      <div class="badges">
+        <span class="badge b-live">Live</span>
+        <span class="badge b-b2c">B2C only</span>
+      </div>
+      <div class="card-desc">Capsule-wardrobe outfit-planner app with AI suggestions. App still live and updated through 2025. Pricing not currently disclosed publicly.</div>
+      <div class="card-srcs">
+        <span class="label">Sources</span>
+        <a href="https://cladwell.com/" target="_blank" rel="noopener">cladwell.com</a>
+        <a href="https://apps.apple.com/us/app/cladwell-outfit-planner/id1140550878" target="_blank" rel="noopener">App Store listing</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="unverified">
+    <strong>Investigated but unverifiable / out of scope:</strong>
+    Mode.ai (likely defunct — no 2024–2025 sources; shutdown date not confirmed) · LookAR · "The Fold" stylist app · Stylesage · StyleScript · Stitch Fix "Stylist Workbench" (the name is industry shorthand; documented internal AI tool is "Vision", not "Workbench"). Entries kept off the deliverable to avoid fabricated detail.
+  </div>
+
+  <!-- ═══════════════════ SECTION 04 — IMPLICATIONS FOR TF ═══════════════════ -->
+  <div class="sec">
+    <span class="sec-num">04</span>
+    <span class="sec-title">What This Means for the Stylist Layer in Terra Ferra</span>
+    <span class="sec-sub">Research, not decided</span>
+  </div>
+
+  <div class="implications">
+    <div class="imp-grid">
+      <div class="imp">
+        <h4>Gap in the Researched Set</h4>
+        <p>The stylist-to-consumer space is consolidating around either retailer-owned platforms (Stitch Fix, Nordstrom / Trunk Club's successor, Lookiero+Outfittery) or chat-luxury (Threads Styling). Among the verified entries, no live platform connects independent stylists to <em>independent premium designers</em> + their community in one place — that is the adjacency relevant to TF.</p>
+      </div>
+      <div class="imp">
+        <h4>AI Tooling for Stylists</h4>
+        <p>Most verified AI styling tools are built for enterprise retailers (Stylyze, Stylitics, Intelistyle, Vue.ai, YesPlz). Consumer wardrobe apps (Whering, Acloset, Combyne, Cladwell) have no stylist-pro tier. Indyx is the only verified hybrid with a built-in stylist marketplace + virtual closet — its closet-cataloging + 1:1 Lookbook model is the closest reference for a TF stylist tier.</p>
+      </div>
+      <div class="imp">
+        <h4>Possible Slot in TF Ecosystem</h4>
+        <p>Stylists map most cleanly to the existing co-creator revenue line (10%) — they curate outfits / edits / lookbooks from designer products and earn commission when those convert. Avoids adding a separate service-marketplace workflow.</p>
+      </div>
+      <div class="imp">
+        <h4>Open Questions Before Adding</h4>
+        <p>(1) How does the stylist role differ functionally from the influencer role on TF? (2) Do stylists bring client-book conversion (HNW clients, celebrity dressing rooms) that justifies a 6th participant role? (3) Would TF use a third-party AI styling backend (Stylitics, Intelistyle, YesPlz) or build native — and at what stage?</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="srcs-note">
+    All claims sourced from publicly accessible primary or named secondary URLs (accessed 2026-05-31). Secondary-research market-size figures are labelled with their source firms and should not be treated as audited primary data. Entries that could not be verified are listed at the bottom of each section rather than included with invented detail.
+  </div>
+
+</div>
+
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" title="Back to top">&#8593;</button>
+<style>#back-to-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:#4B40C2;color:white;border:1px solid rgba(113,105,212,.5);border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900;transition:background .2s}#back-to-top:hover{background:#2D2595}@media(max-width:700px){#back-to-top{position:static;display:none !important}}</style>
+<script>window.addEventListener('scroll',function(){var b=document.getElementById('back-to-top');b.style.display=window.scrollY>400?'flex':'none';});</script>
+</body>
+</html>
