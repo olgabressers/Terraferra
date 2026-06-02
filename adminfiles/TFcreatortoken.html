@@ -167,24 +167,24 @@ footer{background:white;border-top:1px solid var(--rule);padding:20px 60px}
   <div class="con-wrap">
     <div class="con-box orange">
       <div class="con-eyebrow">Conclusion · Web3 creator revenue tokenization</div>
-      <div class="con-box-title">Every major platform shut down 2023–2025</div>
+      <div class="con-box-title">Most generalist platforms shut down 2023–2025. Survivors are vertical-specific.</div>
       <ul>
-        <li><strong>Rally, Roll, Friend.tech, Mirror.xyz</strong> — all closed. BitClout's founder arrested on fraud charges.</li>
-        <li><strong>The two survivors work for unrelated reasons.</strong> Audius = real music streaming with tokenization layered on. Chiliz/Socios = existing football club IP with millions of pre-existing fans.</li>
-        <li><strong>Fans treated tokens as speculation, not loyalty.</strong> When prices fell, communities collapsed. No platform converted token holders into durable engaged communities.</li>
-        <li><strong>US legal risk is active.</strong> SEC pursued creator coins as unregistered securities. Direct risk for a US Delaware C-corp.</li>
-        <li><strong>No model has worked at emerging-creator scale.</strong> Every platform required celebrity-scale audiences or collapsed before mainstream adoption.</li>
+        <li><strong>Rally, Roll, Friend.tech, Mirror.xyz</strong> — all closed. BitClout's founder arrested on fraud charges. Mirror.xyz closed September 2025 — this is not a 2022 crypto-winter story.</li>
+        <li><strong>Two survivors, both vertical-specific.</strong> Audius (music streaming, 5M+ MAU) survives because it is a real streaming service — tokenization is layered on top. Chiliz/Socios (sports fan tokens, 2.5M users) survives because it is attached to existing football club IP.</li>
+        <li><strong>Fans treated tokens as speculation, not loyalty.</strong> When prices fell, communities collapsed. No generalist platform converted token holders into durable communities.</li>
+        <li><strong>US legal risk remains active.</strong> SEC pursued creator coins as unregistered securities. Direct risk for a US Delaware C-corp. Note: SEC enforcement posture shifted post-2024 — but the speculative token model itself is what failed, independent of regulation.</li>
+        <li><strong>No generalist model has worked at emerging-creator scale.</strong> Every platform required celebrity-scale audiences or collapsed before mainstream adoption.</li>
       </ul>
     </div>
     <div class="con-box">
       <div class="con-eyebrow">Conclusion · Instagram tipping — apps &amp; add-ons</div>
-      <div class="con-box-title">No third-party tool is inside Instagram</div>
+      <div class="con-box-title">No third-party tool is inside Instagram — by design</div>
       <ul>
         <li><strong>Ko-fi, Buy Me a Coffee, Patreon, Linktree</strong> — all link-in-bio only. Fans must leave the app to tip.</li>
-        <li><strong>No browser extension for Instagram tipping</strong> exists in mainstream active use.</li>
-        <li><strong>Instagram's own native features are the only frictionless in-app path.</strong> Gifts (Reels, 500-follower minimum, 60+ countries) and Badges (Live, 10K minimum).</li>
-        <li><strong>Gifts is the most accessible entry point</strong> — 500-follower minimum, $0.01/Star to creator, 60+ countries.</li>
-        <li><strong>Third-party tools work for established creators</strong> who can drive consistent bio-link traffic. For emerging creators, conversion is low.</li>
+        <li><strong>No browser extension for Instagram tipping exists</strong> in mainstream active use.</li>
+        <li><strong>This is Instagram's deliberate policy, not a market gap.</strong> Meta's API does not allow third parties to transact inside the app. Meta built the in-app mechanics itself (Gifts, Badges) and controls the infrastructure. No third party will fill this gap.</li>
+        <li><strong>Instagram Gifts (Reels, 500-follower minimum) is the lowest-friction in-app option.</strong> $0.01/Star to creator. Payout threshold: $25.</li>
+        <li><strong>TikTok LIVE gifting is a closer precedent for TF's use case</strong> — fans send virtual gifts during live drops that convert to real income, alongside creator commissions. See Section 05.</li>
       </ul>
     </div>
   </div>
@@ -197,11 +197,12 @@ footer{background:white;border-top:1px solid var(--rule);padding:20px 60px}
       <div class="tf-col">
         <div class="tf-col-head">
           Web3 tokenization as a TF business model
-          <span class="verdict-no">Not recommended</span>
+          <span class="verdict-no">Not recommended for v1</span>
         </div>
-        <p>Every major platform in this category failed within 3–5 years. The failure pattern is consistent: fans buy tokens as speculation, not as community membership. When token prices fall, the community disintegrates — taking the platform with it.</p>
-        <p>For TF specifically: TF is a US Delaware C-corp. The SEC has treated creator coins as unregistered securities. Launching a TF token or creator coin layer would expose the company to direct regulatory risk before reaching product-market fit.</p>
-        <p>The underlying insight from this space — <strong>fans want access and status, not financial exposure to creators</strong> — is valid and is already embedded in TF's design: numbered editions, "Founding Creator" badge, co-creator commission. These deliver access and recognition without token mechanics or securities risk.</p>
+        <p>Most generalist platforms failed within 3–5 years. The pattern is consistent: fans buy tokens as speculation, not community membership. When prices fall, the community collapses. Vertical-specific survivors (Audius, Chiliz) work because they have real underlying utility and existing large fanbases — neither condition applies to TF at pre-revenue stage.</p>
+        <p>TF is a US Delaware C-corp. The SEC has treated creator coins as unregistered securities. Adding a token layer before product-market fit compounds legal risk on top of execution risk.</p>
+        <p>The relevant insight from this space: <strong>fans want access and status, not financial exposure to creators.</strong> This is already the direction for TF's mechanics — limited-edition drops, creator recognition, early-backer access — without requiring tokens or securities risk.</p>
+        <p><em>Post-2024 note:</em> SEC enforcement posture shifted after 2024. Non-speculative on-chain loyalty credentials (not tradeable tokens) are an emerging model worth monitoring at v2+ stage — not for v1.</p>
       </div>
 
       <div class="tf-col">
@@ -209,10 +210,10 @@ footer{background:white;border-top:1px solid var(--rule);padding:20px 60px}
           Fan-to-creator tipping as a TF feature
           <span class="verdict-partial">Possible · Low priority</span>
         </div>
-        <p>A direct tipping layer is technically possible within TF — a "support this creator" button on a creator's profile, tied to a payment processor. It would not require blockchain infrastructure and would carry none of the web3 legal risk.</p>
-        <p>However, TF's current commission model (10% ambassador, 10% co-creator) already routes income to creators through completed transactions — which is structurally stronger than discretionary tips, because it is tied to actual product demand rather than fan generosity in the moment.</p>
-        <p><strong>The pre-order + commission model converts fan intent into a purchase.</strong> A tip converts fan intent into a gift. At emerging-designer scale, the purchase model generates more revenue per fan interaction and creates a direct data signal (what sold, what didn't).</p>
-        <p>If a tipping feature were added, the most natural form would be post-drop: fans who received their order can optionally tip the creator. This is a v2+ consideration, not a v1 priority.</p>
+        <p>A tipping layer is technically simple — a "support this creator" button tied to a standard payment processor. No blockchain needed. No securities risk.</p>
+        <p>TF's commission model (10% ambassador, 10% co-creator) routes income to creators through completed transactions. Commission income is tied to actual product demand; tips depend on fan discretion in the moment. The two are complementary, not competing — TikTok's live commerce model runs both in parallel.</p>
+        <p>The most relevant TF use case for tipping: the period when a creator is onboarding but has not run a drop yet. A tip button gives fans a way to support a creator before there is a product to buy — a creator acquisition signal, not a primary revenue line.</p>
+        <p>If added, the natural form is post-drop: fans who received their order can optionally tip the creator. <strong>v1 action: none. Monitor Instagram Gifts (500-follower threshold) as a creator onboarding signal.</strong></p>
       </div>
 
     </div>
@@ -223,6 +224,7 @@ footer{background:white;border-top:1px solid var(--rule);padding:20px 60px}
     <div class="section-head">
       <span class="sec-num">02</span>
       <span class="sec-title">What This Means for Each Participant</span>
+      <span style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);margin-left:8px">Research · Not Decided</span>
     </div>
     <div class="participant-grid">
 
@@ -249,10 +251,10 @@ footer{background:white;border-top:1px solid var(--rule);padding:20px 60px}
       <div class="pblock">
         <div class="pblock-label">TF Platform</div>
         <ul>
-          <li>A tip feature could generate a 5–10% platform cut on each transaction. At emerging-creator scale, tips are small and irregular — low revenue impact.</li>
-          <li>Commission on completed drops generates more revenue per fan interaction than tips and produces a demand signal (what sold, what didn't).</li>
+          <li>A tip feature generates a platform cut on each transaction — rate not set, v2+ consideration only.</li>
+          <li>Commission on completed drops produces a demand signal (what sold, what didn't) that tips do not. The two are complementary revenue streams, not competing ones.</li>
           <li><strong>No web3 infrastructure needed</strong> — a tip button is a standard payment processor integration, not a token or blockchain layer.</li>
-          <li>Not a v1 priority. Post-drop tipping (fans who received their order can optionally tip the creator) is the most natural entry point if added later.</li>
+          <li>Not a v1 priority. Post-drop tipping is the most natural entry point if added later.</li>
         </ul>
       </div>
 
@@ -300,7 +302,7 @@ footer{background:white;border-top:1px solid var(--rule);padding:20px 60px}
           <span class="badge badge-dead">App closed May 2025</span>
         </div>
         <div class="card-what">Ethereum-based social token infrastructure. Creators minted personal tokens; fans earned or held them as community access passes. Launched 2019–2020.</div>
-        <div class="card-data">March 2021: attacker compromised Roll's hot wallet private keys, stole ~$5.7M in social tokens across 42 creator pools (WHALE, FWB, KARMA, JULIEN, etc.), dumped them on Uniswap. Roll created a $750K creator relief fund.</div>
+        <div class="card-data">March 2021: attacker compromised Roll's hot wallet private keys, stole ~$5.7M in social tokens across 42 creator pools (WHALE, FWB, KARMA, JULIEN, etc.), dumped them on Uniswap. Roll created a $750K creator relief fund. Custodial app closed May 26, 2025; protocol components (staking, minting) remain operational on-chain.</div>
         <div class="card-lesson">Custodial hot wallets holding creator community assets are a single point of failure. One breach destroys trust across the entire ecosystem simultaneously.</div>
         <div class="card-source">
           Source: <a href="https://decrypt.co/61349/a-5-7-million-crypto-heist-leaves-social-tokens-in-freefall" target="_blank" rel="noopener">Decrypt, Mar 2021</a> ·
@@ -314,7 +316,7 @@ footer{background:white;border-top:1px solid var(--rule);padding:20px 60px}
           <span class="badge badge-dead">Founder arrested Jul 2024</span>
         </div>
         <div class="card-what">Own blockchain. Every user — including celebrities whose profiles were scraped from Twitter without consent — had a "creator coin" whose price rose with the number of holders. Fans speculated on people's future reputation.</div>
-        <div class="card-data">Raised ~$257M in token sales (disclosed 2024). Founder Nader Al-Naji (pseudonym "Diamondhands") arrested by FBI July 2024, charged with wire fraud and unregistered securities offerings. Allegations included using funds on a Beverly Hills mansion. DOJ dropped criminal case 2025; SEC dropped civil case March 2026. DeSo blockchain technically still exists.</div>
+        <div class="card-data">Raised ~$257M in token sales (disclosed 2024). Founder Nader Al-Naji (pseudonym "Diamondhands") arrested by FBI July 2024, charged with wire fraud and unregistered securities offerings. Allegations included spending $7M+ on personal expenses including Beverly Hills mansion rent and cash gifts. DOJ dropped criminal case February 2025; SEC dropped civil case March 2026. DeSo blockchain technically still exists.</div>
         <div class="card-lesson">Tokenizing human identity creates speculative markets in people's reputations, attracts securities regulators, and produced the most serious legal outcome of any platform in this category.</div>
         <div class="card-source">
           Source: <a href="https://fortune.com/crypto/2024/07/30/feds-arrest-princeton-grad-diamondhands-who-raised-257-million-for-fake-crypto-social-media-site/" target="_blank" rel="noopener">Fortune, Jul 2024</a> ·
@@ -328,7 +330,7 @@ footer{background:white;border-top:1px solid var(--rule);padding:20px 60px}
           <span class="badge badge-dead">Shut down Sep 2024</span>
         </div>
         <div class="card-what">Blockchain app on Base (Ethereum L2). Users bought "keys" (previously "shares") in specific creators — paying ETH for access to private chat rooms with that creator. Launched August 2023; no disclosed external funding.</div>
-        <div class="card-data">Peak: $52M deposits, $2M/day in fees (Oct 2023). By mid-2024: deposits down 92% to $4M, daily fees under $100. FRIEND token fell 98% from launch price. Anonymous team extracted ~$44M of the ~$90M total protocol fees before abandoning the platform.</div>
+        <div class="card-data">Peak: $52M deposits, $2M/day in fees (Oct 2023). By mid-2024: deposits down 92% to $4M, daily fees under $100. FRIEND token fell 98% from launch price. The team received ~$44M of the ~$90M total protocol fees (the protocol design split fees 50/50 between team and creators from the start), then transferred contract ownership to a null address.</div>
         <div class="card-lesson">Access-key mechanics produce speculative buying spikes with no durable utility. When novelty fades there is nothing to hold users. Creators have no incentive to stay once their key price declines.</div>
         <div class="card-source">
           Source: <a href="https://www.dlnews.com/articles/defi/friend-tech-shuts-down-after-revenue-and-users-plummet/" target="_blank" rel="noopener">DL News, Sep 2024</a>
@@ -340,8 +342,8 @@ footer{background:white;border-top:1px solid var(--rule);padding:20px 60px}
           <div class="card-name">Mirror.xyz</div>
           <span class="badge badge-dead">Shut down Sep 2025</span>
         </div>
-        <div class="card-what">Ethereum-based writing and publishing platform. Writers minted articles as NFTs, crowdfunded writing projects via token sales, split revenue on-chain with collaborators. Founded by Denis Nazarov (ex-a16z); backed by a16z.</div>
-        <div class="card-data">Acquired by Paragraph in May 2024; Mirror cited "excessive technical debt and unclear business model." Shut down September 2025; all content automatically redirected to Paragraph.</div>
+        <div class="card-what">Ethereum-based writing and publishing platform. Writers minted articles as NFTs, crowdfunded writing projects via token sales, split revenue on-chain with collaborators. Founded by Denis Nazarov (former a16z crypto partner); backed by a16z, Union Square Ventures, and Atelier Ventures.</div>
+        <div class="card-data">Acquired by Paragraph in May 2024; team pivoted to building a separate social app ("Kiosk"). Mirror shut down September 2025; all content automatically redirected to Paragraph.</div>
         <div class="card-lesson">NFT minting of articles had no clear value proposition for readers once the crypto bull market cooled. Writing and publishing is not a natural fit for financial speculation.</div>
         <div class="card-source">
           Source: <a href="https://www.coindesk.com/tech/2024/05/02/web3-publishing-platform-mirror-sells-to-paragraph-pivots-to-social-app-kiosk" target="_blank" rel="noopener">CoinDesk, May 2024</a>
@@ -353,8 +355,8 @@ footer{background:white;border-top:1px solid var(--rule);padding:20px 60px}
           <div class="card-name">Audius</div>
           <span class="badge badge-active">Active (rebranded Jan 2026)</span>
         </div>
-        <div class="card-what">Decentralized music streaming platform. Artists upload directly; earn AUDIO tokens; fans stake AUDIO to support artists and earn governance rights. No per-stream royalties to intermediaries. Raised ~$5.5M seed (Multicoin Capital, General Catalyst). Notable artists: deadmau5, Skrillex.</div>
-        <div class="card-data">~500,000+ monthly active users. July 2022: attacker exploited a governance contract initialization bug, transferred 18.5M AUDIO (~$6M) from community treasury, swapped to ~704 ETH on Uniswap. Infrastructure rebranded to "Open Audio Protocol" January 2026. 2025: Artist Coin Launchpad added, letting verified artists mint their own tokens.</div>
+        <div class="card-what">Decentralized music streaming platform. Artists upload directly; earn AUDIO tokens; fans stake AUDIO to support artists and earn governance rights. No per-stream royalties to intermediaries. Funding: $5.5M Series A led by General Catalyst (2018); separate $3.1M strategic round led by Multicoin Capital (2020). Notable artists: deadmau5, Skrillex.</div>
+        <div class="card-data">5M+ monthly active users. July 2022: attacker exploited a governance contract initialization bug, transferred 18.5M AUDIO (~$6M) from community treasury, swapped to ~704 ETH on Uniswap. 2025: Artist Coin Launchpad launched (October 2025), letting verified artists mint their own tokens. Infrastructure relaunched as "Open Audio Protocol" January 2026.</div>
         <div class="card-lesson">The most durable survivor of this cohort — but AUDIO token price remains far below peak, and per-artist pay cannot compete with Spotify/Apple at scale.</div>
         <div class="card-source">
           Source: <a href="https://www.bleepingcomputer.com/news/security/hackers-steal-6-million-from-blockchain-music-platform-audius/" target="_blank" rel="noopener">Bleeping Computer, Jul 2022</a> ·
@@ -451,7 +453,8 @@ footer{background:white;border-top:1px solid var(--rule);padding:20px 60px}
     </div>
 
     <div class="callout">
-      <strong>Key finding:</strong> Instagram's in-app native features (Gifts, Badges, Subscriptions) are the only confirmed frictionless fan payment path inside the Instagram experience. All third-party tools require the fan to leave Instagram — a measurable conversion drop.
+      <strong>Key finding:</strong> Instagram's in-app native features (Gifts, Badges, Subscriptions) are the only frictionless fan payment path inside Instagram. Meta's API deliberately blocks third parties from transacting inside the app — this is policy, not a market gap. All third-party tools require the fan to leave Instagram via bio link.<br/><br/>
+      <strong>TikTok precedent:</strong> TikTok LIVE Gifts let fans send virtual gifts (converted to real income) during live streams — alongside TikTok Shop's creator commission model. This is the closest live precedent for TF's hybrid model (tips + commission on drops). TF's emerging-designer creators are often more active on TikTok than Instagram in the sub-$1M revenue tier.
     </div>
 
     <div class="table-wrap">
@@ -500,6 +503,13 @@ footer{background:white;border-top:1px solid var(--rule);padding:20px 60px}
             <td>—</td>
             <td>—</td>
             <td class="status-disc">Discontinued 2023</td>
+          </tr>
+          <tr style="border-top:2px solid var(--rule)">
+            <td><strong>TikTok LIVE Gifts</strong> <span style="font-size:10px;color:var(--sub)">(TikTok, not Instagram)</span></td>
+            <td>Fans send virtual gifts during TikTok LIVE sessions. Gifts convert to "Diamonds" which creators redeem for real money. TikTok Shop runs a creator commission model on the same platform. This hybrid (live gifting + commission) is the closest live precedent for TF's model. <span class="src">Source: <a href="https://www.tiktok.com/creators/creator-portal/en-us/getting-paid-to-create/live-gifts/" target="_blank" rel="noopener">TikTok Creator Portal</a></span></td>
+            <td>TikTok takes ~50% of gift value. Creator receives the remainder as Diamonds.</td>
+            <td>1,000 (for LIVE)</td>
+            <td class="status-active">Active</td>
           </tr>
         </tbody>
       </table>
