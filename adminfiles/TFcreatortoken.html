@@ -57,6 +57,18 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .tf-col strong{color:var(--ink)}
 @media(max-width:700px){.tf-verdict{grid-template-columns:1fr}.tf-section{padding:22px 18px 26px}}
 
+/* PARTICIPANT BLOCKS */
+.participant-section{margin-bottom:60px}
+.participant-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:1000px){.participant-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.participant-grid{grid-template-columns:1fr}}
+.pblock{background:white;border:1px solid var(--rule);padding:22px 20px 20px}
+.pblock-label{font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--orange);margin-bottom:14px}
+.pblock ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:9px}
+.pblock ul li{font-size:12px;color:var(--sub);line-height:1.55;padding-left:14px;position:relative}
+.pblock ul li::before{content:"·";position:absolute;left:0;color:var(--tf);font-weight:700}
+.pblock ul li strong{color:var(--ink);font-weight:600}
+
 /* MAIN */
 main{max-width:1100px;margin:0 auto;padding:56px 60px 80px}
 @media(max-width:900px){main{padding:32px 20px 48px}}
@@ -207,6 +219,57 @@ footer{background:white;border-top:1px solid var(--rule);padding:20px 60px}
 
     </div>
   </div>
+
+  <!-- PARTICIPANT BLOCKS -->
+  <section class="section participant-section">
+    <div class="section-head">
+      <span class="sec-num">02</span>
+      <span class="sec-title">What This Means for Each Participant</span>
+    </div>
+    <div class="participant-grid">
+
+      <div class="pblock">
+        <div class="pblock-label">Consumers</div>
+        <ul>
+          <li>Tipping gives fans a way to support a creator without making a purchase — a signal of loyalty outside of transactions.</li>
+          <li><strong>Web3 tokens give financial exposure</strong> to a creator's success. All evidence shows fans don't want this — they want access and recognition, not investment risk.</li>
+          <li>Instagram Gifts (Reels) is the lowest-friction option today: one tap, inside the app, available in 60+ countries.</li>
+          <li>TF's pre-order mechanic already channels consumer intent into a purchase — a stronger action than a tip.</li>
+        </ul>
+      </div>
+
+      <div class="pblock">
+        <div class="pblock-label">Influencers &amp; Creators</div>
+        <ul>
+          <li>Tipping = additional income on top of commission, not conditional on a completed drop.</li>
+          <li><strong>Instagram Gifts already available</strong> at 500+ followers; Badges at 10K+. Creators can use these today, independent of TF.</li>
+          <li>Web3 creator coins promised brand-value upside. In practice, every creator who tried this saw their community collapse when token prices fell.</li>
+          <li>TF's 10% commission routes income through completed transactions — more predictable and higher per-interaction than discretionary tips.</li>
+        </ul>
+      </div>
+
+      <div class="pblock">
+        <div class="pblock-label">TF Platform</div>
+        <ul>
+          <li>A tip feature could generate a 5–10% platform cut on each transaction. At emerging-creator scale, tips are small and irregular — low revenue impact.</li>
+          <li>Commission on completed drops generates more revenue per fan interaction than tips and produces a demand signal (what sold, what didn't).</li>
+          <li><strong>No web3 infrastructure needed</strong> — a tip button is a standard payment processor integration, not a token or blockchain layer.</li>
+          <li>Not a v1 priority. Post-drop tipping (fans who received their order can optionally tip the creator) is the most natural entry point if added later.</li>
+        </ul>
+      </div>
+
+      <div class="pblock">
+        <div class="pblock-label">Designers</div>
+        <ul>
+          <li>Tips from fans flow to the creator who promoted the work — not directly to the designer. Designers benefit indirectly through increased drop success.</li>
+          <li>Web3 tokenization of a designer's brand (fans holding "designer coins") has no proven model at this scale. Every attempt collapsed when token prices fell.</li>
+          <li><strong>Pre-order validation is stronger than token speculation</strong> as a signal of real demand: fans commit money to a specific product, not a speculative asset.</li>
+          <li>No action required for designers in v1. Relevant only if TF introduces a direct designer-fan support feature post-launch.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
 
   <!-- ═══════════════════════════════════════════════════════════════════════
        SECTION 03 — WEB3 TOKENIZATION: PLATFORM RECORD
