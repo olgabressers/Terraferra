@@ -33,6 +33,30 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .page-sub{font-size:14px;color:rgba(255,255,255,.55);max-width:680px;line-height:1.6}
 @media(max-width:700px){.page-header{padding:32px 20px 28px}}
 
+/* CONCLUSION BLOCK */
+.conclusion{background:var(--ink);color:white;padding:0}
+.conclusion-inner{max-width:1100px;margin:0 auto;padding:48px 60px 52px}
+.con-label{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:18px}
+.con-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.con-col ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:10px}
+.con-col ul li{font-size:13px;line-height:1.6;color:rgba(255,255,255,.85);padding-left:16px;position:relative}
+.con-col ul li::before{content:"—";position:absolute;left:0;color:var(--orange)}
+.con-col ul li strong{color:white;font-weight:700}
+@media(max-width:700px){.con-grid{grid-template-columns:1fr;gap:28px}.conclusion-inner{padding:32px 20px 36px}}
+
+/* TF RELEVANCE SECTION */
+.tf-section{background:white;border:1px solid var(--rule);padding:32px 36px 36px;margin-bottom:60px}
+.tf-section-title{font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--orange);margin-bottom:20px}
+.tf-verdict{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.tf-col{}
+.tf-col-head{font-size:15px;font-weight:800;color:var(--ink);margin-bottom:6px;display:flex;align-items:center;gap:10px}
+.verdict-no{background:#FDECEA;color:#C0392B;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border-radius:2px}
+.verdict-partial{background:#FEF6EE;color:var(--orange);font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border-radius:2px}
+.tf-col p{font-size:13px;color:var(--sub);line-height:1.65;margin-top:10px}
+.tf-col p + p{margin-top:8px}
+.tf-col strong{color:var(--ink)}
+@media(max-width:700px){.tf-verdict{grid-template-columns:1fr}.tf-section{padding:22px 18px 26px}}
+
 /* MAIN */
 main{max-width:1100px;margin:0 auto;padding:56px 60px 80px}
 @media(max-width:900px){main{padding:32px 20px 48px}}
@@ -124,14 +148,72 @@ footer{background:white;border-top:1px solid var(--rule);padding:20px 60px}
   </div>
 </div>
 
+<!-- CONCLUSION BLOCK -->
+<div class="conclusion">
+  <div class="conclusion-inner">
+    <div class="con-label">Conclusions</div>
+    <div class="con-grid">
+      <div class="con-col">
+        <div style="font-size:14px;font-weight:700;color:white;margin-bottom:14px">Web3 creator revenue tokenization</div>
+        <ul>
+          <li><strong>All major platforms are dead.</strong> Rally, Roll, Friend.tech, and Mirror.xyz all shut down between 2023 and 2025. BitClout's founder was arrested on fraud charges.</li>
+          <li><strong>The two survivors work for different reasons.</strong> Audius survives because it's a real music streaming service — tokenization is a layer on top. Chiliz/Socios survives because it's attached to existing football club IP with millions of pre-existing fans.</li>
+          <li><strong>Fans treated tokens as speculation, not loyalty.</strong> When prices fell, communities collapsed. No platform converted token holders into durable engaged communities.</li>
+          <li><strong>US legal risk is real and active.</strong> The SEC has pursued creator coins as unregistered securities. For a US Delaware C-corp, this is a direct risk.</li>
+          <li><strong>No model has worked at emerging-creator scale.</strong> Every platform either required existing celebrity-scale audiences or collapsed before reaching mainstream adoption.</li>
+        </ul>
+      </div>
+      <div class="con-col">
+        <div style="font-size:14px;font-weight:700;color:white;margin-bottom:14px">Instagram tipping — apps &amp; add-ons</div>
+        <ul>
+          <li><strong>No third-party tool is inside Instagram.</strong> Every external platform (Ko-fi, Buy Me a Coffee, Patreon, Linktree) operates via the link-in-bio. Fans must leave the app to tip — measurable conversion drop.</li>
+          <li><strong>No browser extension for Instagram tipping exists</strong> in mainstream active use.</li>
+          <li><strong>Instagram's own native features are the only frictionless path.</strong> Gifts (Reels, 500-follower minimum, 60+ countries) and Badges (Live, 10K minimum) are the only in-app mechanisms.</li>
+          <li><strong>Gifts is the most accessible entry point.</strong> 500-follower minimum, $0.01/Star to creator, available in 60+ countries including the Netherlands.</li>
+          <li><strong>Third-party tools work for established creators</strong> who can drive consistent bio-link traffic. For emerging creators with small followings, conversion is low.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
 <main>
 
+  <!-- TF RELEVANCE -->
+  <div class="tf-section">
+    <div class="tf-section-title">Relevance for Terra Ferra · Research — Not Decided</div>
+    <div class="tf-verdict">
+
+      <div class="tf-col">
+        <div class="tf-col-head">
+          Web3 tokenization as a TF business model
+          <span class="verdict-no">Not recommended</span>
+        </div>
+        <p>Every major platform in this category failed within 3–5 years. The failure pattern is consistent: fans buy tokens as speculation, not as community membership. When token prices fall, the community disintegrates — taking the platform with it.</p>
+        <p>For TF specifically: TF is a US Delaware C-corp. The SEC has treated creator coins as unregistered securities. Launching a TF token or creator coin layer would expose the company to direct regulatory risk before reaching product-market fit.</p>
+        <p>The underlying insight from this space — <strong>fans want access and status, not financial exposure to creators</strong> — is valid and is already embedded in TF's design: numbered editions, "Founding Creator" badge, co-creator commission. These deliver access and recognition without token mechanics or securities risk.</p>
+      </div>
+
+      <div class="tf-col">
+        <div class="tf-col-head">
+          Fan-to-creator tipping as a TF feature
+          <span class="verdict-partial">Possible · Low priority</span>
+        </div>
+        <p>A direct tipping layer is technically possible within TF — a "support this creator" button on a creator's profile, tied to a payment processor. It would not require blockchain infrastructure and would carry none of the web3 legal risk.</p>
+        <p>However, TF's current commission model (10% ambassador, 10% co-creator) already routes income to creators through completed transactions — which is structurally stronger than discretionary tips, because it is tied to actual product demand rather than fan generosity in the moment.</p>
+        <p><strong>The pre-order + commission model converts fan intent into a purchase.</strong> A tip converts fan intent into a gift. At emerging-designer scale, the purchase model generates more revenue per fan interaction and creates a direct data signal (what sold, what didn't).</p>
+        <p>If a tipping feature were added, the most natural form would be post-drop: fans who received their order can optionally tip the creator. This is a v2+ consideration, not a v1 priority.</p>
+      </div>
+
+    </div>
+  </div>
+
   <!-- ═══════════════════════════════════════════════════════════════════════
-       SECTION 01 — WEB3 TOKENIZATION: PLATFORM RECORD
+       SECTION 03 — WEB3 TOKENIZATION: PLATFORM RECORD
        ═══════════════════════════════════════════════════════════════════════ -->
   <section class="section">
     <div class="section-head">
-      <span class="sec-num">01</span>
+      <span class="sec-num">03</span>
       <span class="sec-title">Web3 Creator Revenue Tokenization — Platform Record</span>
     </div>
 
@@ -237,11 +319,11 @@ footer{background:white;border-top:1px solid var(--rule);padding:20px 60px}
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════════════════
-       SECTION 02 — KEY FAILURE PATTERNS
+       SECTION 04 — KEY FAILURE PATTERNS
        ═══════════════════════════════════════════════════════════════════════ -->
   <section class="section">
     <div class="section-head">
-      <span class="sec-num">02</span>
+      <span class="sec-num">04</span>
       <span class="sec-title">Key Failure Patterns</span>
     </div>
 
@@ -299,11 +381,11 @@ footer{background:white;border-top:1px solid var(--rule);padding:20px 60px}
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════════════════
-       SECTION 03 — INSTAGRAM NATIVE FEATURES
+       SECTION 05 — INSTAGRAM NATIVE FEATURES
        ═══════════════════════════════════════════════════════════════════════ -->
   <section class="section">
     <div class="section-head">
-      <span class="sec-num">03</span>
+      <span class="sec-num">05</span>
       <span class="sec-title">Instagram Native Tipping &amp; Monetization Features</span>
     </div>
 
@@ -364,11 +446,11 @@ footer{background:white;border-top:1px solid var(--rule);padding:20px 60px}
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════════════════
-       SECTION 04 — THIRD-PARTY TOOLS & ADD-ONS
+       SECTION 06 — THIRD-PARTY TOOLS & ADD-ONS
        ═══════════════════════════════════════════════════════════════════════ -->
   <section class="section">
     <div class="section-head">
-      <span class="sec-num">04</span>
+      <span class="sec-num">06</span>
       <span class="sec-title">Third-Party Tipping Tools &amp; Add-ons</span>
     </div>
 
