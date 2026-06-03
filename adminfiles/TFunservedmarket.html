@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Unserved Market Segments · Terra Ferra</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --tf:#4B40C2;--tf-dark:#2D2595;--tf-light:#ECEAF9;--tf-ghost:#F4F2FC;
+  --orange:#E86820;--off-white:#F7F6FB;--ink:#12102B;--sub:#5B5880;--rule:#D8D4EF;
+}
+body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink);line-height:1.6}
+
+/* Nav */
+.topnav{background:white;border-bottom:1px solid var(--rule);padding:12px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
+.topnav-home{font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);text-decoration:none;font-size:11px}
+.topnav-home:hover{color:var(--tf-dark)}
+.topnav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:var(--sub);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:10px}
+.topnav-links a:hover{color:var(--tf)}
+.topnav-links a.active{color:var(--orange)}
+.has-dropdown{position:relative;padding-bottom:10px;margin-bottom:-10px}
+.dropdown-trigger{cursor:pointer;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:10px;user-select:none}
+.dropdown-trigger:hover,.has-dropdown:focus-within .dropdown-trigger{color:var(--tf)}
+.dropdown{display:none;position:absolute;top:100%;right:0;background:white;border:1px solid var(--rule);min-width:220px;box-shadow:0 6px 14px rgba(0,0,0,.08);padding:6px 0;z-index:60}
+.has-dropdown:hover .dropdown,.has-dropdown:focus-within .dropdown{display:block}
+.dropdown a{display:block;padding:9px 16px;font-size:10px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:1px;text-decoration:none}
+.dropdown a:hover{background:var(--tf-ghost);color:var(--tf)}
+@media(max-width:700px){
+  .topnav{position:static;padding:10px 14px}
+  .topnav-links{gap:10px;justify-content:flex-start;width:100%}
+  .topnav-links a{font-size:9.5px}
+  .has-dropdown{padding-bottom:0;margin-bottom:0}
+  .dropdown{position:static;display:block;box-shadow:none;border:none;padding:0;min-width:0;margin-left:8px}
+  .dropdown a{padding:4px 0;font-size:9px}
+}
+
+/* Header */
+header{padding:48px 60px 0}
+.header-inner{max-width:1100px;margin:0 auto}
+.pg-eyebrow{font-size:10px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--sub);opacity:.6}
+.pg-title{font-size:38px;font-weight:800;letter-spacing:-1.5px;color:var(--ink);margin-top:14px;line-height:1.1}
+.pg-sub{font-size:15px;color:var(--sub);margin-top:12px;max-width:680px;line-height:1.5}
+@media(max-width:700px){header{padding:28px 20px 0}.pg-title{font-size:26px}}
+
+main{padding:40px 60px 80px;max-width:1160px;margin:0 auto}
+@media(max-width:700px){main{padding:28px 16px 60px}}
+
+/* Conclusions */
+.con-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:28px}
+@media(max-width:700px){.con-row{grid-template-columns:1fr}}
+.con-box{background:white;border:1px solid var(--rule);border-left:4px solid var(--orange);padding:24px 24px 20px}
+.con-eyebrow{font-size:18px;font-weight:700;color:var(--orange);margin-bottom:8px}
+.con-plain{font-size:16px;font-weight:700;color:var(--ink);margin-bottom:12px;line-height:1.35}
+.con-box ul{padding-left:18px;margin:0}
+.con-box ul li{font-size:15px;color:var(--ink);line-height:1.55;margin-bottom:6px}
+
+/* TF Relevance */
+.tf-rel{background:var(--ink);color:white;padding:24px 28px;border-left:4px solid var(--orange);margin-bottom:40px}
+.tf-rel-eyebrow{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:10px}
+.tf-rel-head{font-size:16px;font-weight:700;color:white;margin-bottom:12px;line-height:1.35}
+.tf-rel ul{padding-left:18px;margin:0}
+.tf-rel ul li{font-size:14px;color:rgba(255,255,255,.88);line-height:1.6;margin-bottom:6px}
+
+/* Section */
+.sec{margin-bottom:44px}
+.sec-label{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--sub);opacity:.55;margin-bottom:6px}
+.sec-heading{font-size:22px;font-weight:800;color:var(--ink);margin-bottom:20px}
+.sec-heading .num{color:var(--orange)}
+
+/* 3-panel grid */
+.panel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px}
+@media(max-width:800px){.panel-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.panel-grid{grid-template-columns:1fr}}
+.panel{background:white;border:1px solid var(--rule);border-top:3px solid var(--tf);padding:20px 20px 18px}
+.panel-title{font-size:13px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--tf);margin-bottom:12px}
+.panel ul{padding-left:16px;margin:0}
+.panel ul li{font-size:13px;color:var(--ink);line-height:1.55;margin-bottom:5px}
+
+/* Comparison table */
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table.ctable{width:100%;border-collapse:collapse;font-size:13px}
+table.ctable th{text-align:left;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);border-bottom:2px solid var(--rule);padding:10px 14px}
+table.ctable td{padding:11px 14px;border-bottom:1px solid var(--rule);vertical-align:top;color:var(--ink);line-height:1.45}
+table.ctable tr:last-child td{border-bottom:none}
+table.ctable td:first-child{font-weight:700;font-size:12px;color:var(--sub);text-transform:uppercase;letter-spacing:.5px}
+table.ctable td.bad{color:var(--orange);font-weight:600}
+table.ctable td.good{color:var(--tf);font-weight:600}
+table.ctable th:first-child{width:22%}
+
+/* Stats */
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:700px){.stats-row{grid-template-columns:1fr 1fr}}
+@media(max-width:420px){.stats-row{grid-template-columns:1fr}}
+.stat-box{background:white;border:1px solid var(--rule);border-top:3px solid var(--tf);padding:18px 18px 14px}
+.stat-num{font-size:26px;font-weight:800;color:var(--tf);line-height:1}
+.stat-label{font-size:12px;color:var(--sub);margin-top:6px;line-height:1.4}
+.stat-src{font-size:10px;color:var(--sub);opacity:.5;margin-top:8px}
+
+footer{padding:24px 60px;border-top:1px solid var(--rule);background:white}
+.footer-inner{max-width:1100px;margin:0 auto;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);opacity:.5}
+@media(max-width:700px){footer{padding:16px 20px}}
+
+#back-to-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--tf);color:white;border:1px solid rgba(113,105,212,.5);border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900;transition:background .2s}
+#back-to-top:hover{background:var(--tf-dark)}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="index.html" class="topnav-home">Terra Ferra</a>
+  <div class="topnav-links">
+    <a href="budget.html">Budget</a>
+    <a href="roles.html">Roles</a>
+    <a href="TFbusinessmodel.html" class="active">Business Model</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Ideas ▾</span>
+      <div class="dropdown">
+        <a href="gamification.html">Gamification</a>
+        <a href="ideas.html">Ideas &amp; AI Research</a>
+        <a href="influencer.html">Influencer Selling</a>
+        <a href="strategic-brief.html">Strategic Brief</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="header-inner">
+    <div class="pg-eyebrow">TF Business Model &amp; GTM · Research</div>
+    <div class="pg-title">Unserved Market Segments</div>
+    <div class="pg-sub">Which designers and creators ShopMy and LTK do not serve, why, and how large the gap is.</div>
+  </div>
+</header>
+
+<main>
+
+  <div class="con-row">
+    <div class="con-box">
+      <div class="con-eyebrow">Conclusion · LTK exclusions</div>
+      <div class="con-plain">LTK's policies structurally exclude TF's target segment.</div>
+      <ul>
+        <li>LTK requires brands to have "a wide range of in-stock products" — pre-order and limited-run designers are excluded by policy (Source: LTK FAQ)</li>
+        <li>Creators can only link brands already inside LTK's network — independent designers without affiliate infrastructure are invisible to creators on the platform</li>
+        <li>Brand entry cost: $5,000–$12,000+/year — prohibitive for designers under ~$1M revenue (Source: archive.com / Capterra)</li>
+      </ul>
+    </div>
+    <div class="con-box">
+      <div class="con-eyebrow">Conclusion · ShopMy limits</div>
+      <div class="con-plain">Lower barrier for creators, but same structural block for emerging designers.</div>
+      <ul>
+        <li>Creator minimum: 1,000 followers on at least one platform (Source: ShopMy Creator Guide) — lower than LTK's 5,000 for non-US creators</li>
+        <li>Brands must pay ~$999/month for direct partner access OR be enrolled in a major affiliate network (ShareASale, Impact, Rakuten, CJ)</li>
+        <li>Independent designers without affiliate network membership cannot become commissionable partners — creators cannot earn from linking their products (Source: ShopMy Brand Guide)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tf-rel">
+    <div class="tf-rel-eyebrow">TF Relevance · Structural Advantage</div>
+    <div class="tf-rel-head">TF's integrated commission bypasses the affiliate network requirement entirely.</div>
+    <ul>
+      <li>A designer onboards once on TF and every creator on the platform can immediately earn from driving their drops — no affiliate network enrollment required</li>
+      <li>Pre-order and limited-run drops are TF's core use case; LTK's "in-stock products" policy excludes this model by design</li>
+      <li>At $5K–$35K/year, LTK pricing is 5–35x beyond the reach of the segment TF targets — the cost gap alone creates a natural opening</li>
+    </ul>
+  </div>
+
+  <div class="sec">
+    <div class="sec-label">Section 01</div>
+    <div class="sec-heading"><span class="num">Who falls through</span></div>
+    <div class="panel-grid">
+      <div class="panel">
+        <div class="panel-title">Designers</div>
+        <ul>
+          <li>Pre-order / limited-inventory brands (excluded by LTK policy)</li>
+          <li>Brands without affiliate network infrastructure on either platform</li>
+          <li>Designers generating under ~$1M revenue (LTK brand fees prohibitive)</li>
+          <li>Non-US designers with no US affiliate presence</li>
+          <li>Capsule and made-to-order brands — model not supported</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <div class="panel-title">Creators / Influencers</div>
+        <ul>
+          <li>Nano-influencers under 5,000 followers (LTK non-US threshold)</li>
+          <li>Micro-influencers in niche subcategories — streetwear, sustainable, cultural fashion — underserved on both platforms</li>
+          <li>Prosumers: creators who also make or design product — neither platform is built for this dual role</li>
+          <li>Creators whose preferred designers are not in LTK's or ShopMy's brand network</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <div class="panel-title">Geography / Niche</div>
+        <ul>
+          <li>LTK's brand ecosystem is US-centric; non-US creator minimum (5,000 followers) is higher than the US implied threshold</li>
+          <li>ShopMy has no stated geographic restriction for creators but brand coverage skews toward US-listed retailers</li>
+          <li>Subculture fashion niches (avant-garde, size-inclusive, cultural heritage) are not documented exclusions but are structurally under-represented</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-label">Section 02</div>
+    <div class="sec-heading"><span class="num">Platform comparison</span></div>
+    <div class="tbl-wrap">
+      <table class="ctable">
+        <thead>
+          <tr>
+            <th>Criteria</th>
+            <th>ShopMy</th>
+            <th>LTK</th>
+            <th>Gap / TF opportunity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Creator minimum</td>
+            <td>1,000 followers</td>
+            <td class="bad">5,000 (non-US)</td>
+            <td class="good">Any creator with TF access</td>
+          </tr>
+          <tr>
+            <td>Brands linkable</td>
+            <td>Any site (with or without commission)</td>
+            <td class="bad">Only LTK-affiliated brands</td>
+            <td class="good">Any brand on TF platform</td>
+          </tr>
+          <tr>
+            <td>Brand entry cost</td>
+            <td class="bad">~$999/month or affiliate network</td>
+            <td class="bad">$5,000–$35,000+/year</td>
+            <td class="good">Per-drop commission only</td>
+          </tr>
+          <tr>
+            <td>Pre-order / limited-run</td>
+            <td>Not designed for it</td>
+            <td class="bad">Excluded by policy</td>
+            <td class="good">Core TF use case</td>
+          </tr>
+          <tr>
+            <td>Drop mechanics</td>
+            <td class="bad">None</td>
+            <td class="bad">None</td>
+            <td class="good">Potential core mechanic</td>
+          </tr>
+          <tr>
+            <td>Prosumer (creator + designer)</td>
+            <td class="bad">Not supported</td>
+            <td class="bad">Not supported</td>
+            <td class="good">Can onboard as both</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:11px;color:var(--sub);opacity:.6;margin-top:10px">Sources: ShopMy Creator Guide · ShopMy Brand Guide · LTK FAQ · LTK Creator Application page · creator-hero.com · archive.com · Capterra</p>
+  </div>
+
+  <div class="sec">
+    <div class="sec-label">Section 03</div>
+    <div class="sec-heading"><span class="num">Market scale</span></div>
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="stat-num">32,253</div>
+        <div class="stat-label">Fashion designer businesses in the US (2026). The large majority are small-scale and underserved by LTK/ShopMy economics.</div>
+        <div class="stat-src">Source: IBISWorld, 2026</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">47.3%</div>
+        <div class="stat-label">Of all influencers globally are classified as micro-influencers — systematically under-monetized on existing platforms.</div>
+        <div class="stat-src">Source: SNS Insider</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">$1.63B → $17.9B</div>
+        <div class="stat-label">US fashion influencer market value 2024 → 2032 at 34.88% CAGR. Nano-influencer spend growing +36.2% in 2025.</div>
+        <div class="stat-src">Source: SNS Insider / GlobeNewsWire; sociallypowerful.com</div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-inner">Private · noindex · TF Business Model &amp; GTM · Research</div>
+</footer>
+
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">&#8593;</button>
+<script>window.addEventListener('scroll',function(){var b=document.getElementById('back-to-top');b.style.display=window.scrollY>400?'flex':'none';});</script>
+</body>
+</html>
