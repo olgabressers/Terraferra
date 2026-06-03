@@ -68,6 +68,7 @@ main{padding:40px 60px 80px;max-width:1160px;margin:0 auto}
 
 /* TF Entry Points box */
 .tf-offer{background:white;border:1px solid var(--rule);border-left:4px solid var(--tf);padding:24px 28px;margin-bottom:40px}
+@media(max-width:700px){.tf-offer{padding:20px 16px}}
 .tf-offer-eyebrow{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--tf);margin-bottom:10px}
 .tf-offer-head{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:20px;line-height:1.35}
 .gap-item{padding:16px 0;border-bottom:1px solid var(--rule)}
@@ -98,13 +99,14 @@ main{padding:40px 60px 80px;max-width:1160px;margin:0 auto}
 /* Comparison table */
 .tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
 table.ctable{width:100%;border-collapse:collapse;font-size:13px}
-table.ctable th{text-align:left;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);border-bottom:2px solid var(--rule);padding:10px 14px}
+table.ctable th{text-align:left;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);border-bottom:2px solid var(--rule);padding:10px 14px;white-space:nowrap}
 table.ctable td{padding:11px 14px;border-bottom:1px solid var(--rule);vertical-align:top;color:var(--ink);line-height:1.45}
 table.ctable tr:last-child td{border-bottom:none}
 table.ctable td:first-child{font-weight:700;font-size:12px;color:var(--sub);text-transform:uppercase;letter-spacing:.5px}
 table.ctable td.bad{color:var(--orange);font-weight:600}
 table.ctable td.good{color:var(--tf);font-weight:600}
 table.ctable th:first-child{width:22%}
+@media(max-width:700px){table.ctable{font-size:12px}table.ctable th,table.ctable td{padding:8px 10px}}
 
 /* Stats */
 .stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
