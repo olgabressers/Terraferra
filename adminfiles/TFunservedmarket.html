@@ -74,7 +74,8 @@ main{padding:40px 60px 80px;max-width:1160px;margin:0 auto}
 .gap-item:first-child{padding-top:0}
 .gap-item:last-child{border-bottom:none;padding-bottom:0}
 .gap-num{font-size:13px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--tf);margin-bottom:8px}
-.gap-tags{display:none}
+.gap-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.gap-tag{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--tf);background:var(--tf-ghost);border:1px solid var(--rule);padding:3px 8px}
 .gap-problem{font-size:13px;color:var(--sub);margin-bottom:6px;line-height:1.5}
 .gap-tf-line{font-size:13px;font-weight:700;color:var(--ink);line-height:1.4}
 .gap-tf-line::before{content:"→ TF: ";color:var(--orange)}
@@ -179,14 +180,14 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white}
 
     <div class="gap-item">
       <div class="gap-num">Gap 04 — Gamification</div>
-      <div class="gap-tags"></div>
+      <div class="gap-tags"><span class="gap-tag">LTK</span><span class="gap-tag">ShopMy</span></div>
       <div class="gap-problem">Both LTK and ShopMy are purely transactional — no points, challenges, leaderboards, or community mechanics. Creator retention depends entirely on commission earning; there is nothing that builds habit or community.</div>
       <div class="gap-tf-line">Community mechanics — challenges, drop leaderboards, badges — create retention and engagement neither platform offers.</div>
     </div>
 
     <div class="gap-item">
       <div class="gap-num">Gap 05 — Virtual try-on</div>
-      <div class="gap-tags"></div>
+      <div class="gap-tags"><span class="gap-tag">LTK</span><span class="gap-tag">ShopMy</span></div>
       <div class="gap-problem">Neither ShopMy nor LTK has virtual try-on for creators or consumers. Both platforms show static product images only.</div>
       <div class="gap-tf-line">Virtual try-on is part of TF's documented user flow — creators preview before promoting, consumers before buying.</div>
     </div>
