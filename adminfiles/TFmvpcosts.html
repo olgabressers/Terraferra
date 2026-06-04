@@ -433,12 +433,16 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         <div class="bar-note">Designer keeps this % of revenue after all costs</div>
       </div>
 
-      <div class="out-sub-block">
-        <div class="out-eyebrow" style="margin-bottom:12px;font-size:9px">Distribution</div>
-        <div class="out-sub-row">
-          <span class="out-sub-lbl">TF revenue this drop</span>
-          <span class="out-sub-val" id="o-tf-net">$2,625</span>
+      <div class="out-divider"></div>
+
+      <div class="profit-row">
+        <div style="display:flex;justify-content:space-between;align-items:baseline">
+          <span class="profit-lbl">TF Revenue this drop</span>
+          <span class="profit-val" id="o-tf-net" style="color:#C4B5FF">$2,625</span>
         </div>
+      </div>
+
+      <div class="out-sub-block">
         <div class="out-sub-row">
           <span class="out-sub-lbl">Influencer earnings</span>
           <span class="out-sub-val" id="o-inf-net">$1,050</span>
@@ -496,7 +500,6 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
   <div class="sec-heading"><span class="sec-num">03</span> What this calculator excludes</div>
   <ul class="excl-list">
     <li>Stripe fixed fee: $0.30 per transaction (% rate is included; flat fee shown in section 02)</li>
-    <li>LoyaltyLion $199/mo — monthly platform fee across all drops</li>
     <li>FASHN.AI monthly subscription plan fees — calculator uses per-try overage rate only</li>
     <li>App hosting and infrastructure</li>
     <li>Shipping and fulfillment — designer responsibility</li>
@@ -538,9 +541,66 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
   </div>
 </section>
 
-<!-- 05 VTO VENDORS -->
+<!-- 05 MVP BUILD COST -->
 <section class="section">
-  <div class="sec-heading"><span class="sec-num">05</span> Virtual Try-On · Vendor Comparison</div>
+  <div class="sec-heading"><span class="sec-num">05</span> MVP Build Cost</div>
+  <p style="font-size:13px;color:var(--sub);margin-bottom:28px;line-height:1.6">Effort estimates by component. Dollar cost depends on team rate — TBD from tech lead. All figures are directional; tech lead confirmation required before committing to a timeline.</p>
+  <table class="ptable" style="max-width:860px">
+    <thead>
+      <tr>
+        <th style="width:32%">Component</th>
+        <th style="width:20%">Effort</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="bold">Pre-order drop flow</td>
+        <td class="bold">4–6 weeks</td>
+        <td class="note">Drop listing, quantity cap, countdown timer, checkout</td>
+      </tr>
+      <tr>
+        <td class="bold">Influencer referral tracking</td>
+        <td class="bold">2–3 weeks</td>
+        <td class="note">Unique links, click attribution, auto payout split at checkout</td>
+      </tr>
+      <tr>
+        <td class="bold">Virtual try-on (FASHN.AI API)</td>
+        <td class="bold">1–2 weeks</td>
+        <td class="note">REST API integration — no 3D models required</td>
+      </tr>
+      <tr>
+        <td class="bold">Gamification — points &amp; badges</td>
+        <td class="bold">3–5 weeks <em style="color:var(--orange);font-weight:400;font-size:11px">OR use LoyaltyLion $199/mo</em></td>
+        <td class="note">LoyaltyLion skips this build entirely — recommended for MVP (see section 06)</td>
+      </tr>
+      <tr>
+        <td class="bold">Designer dashboard</td>
+        <td class="bold">3–4 weeks</td>
+        <td class="note">Orders, revenue, per-influencer performance view</td>
+      </tr>
+      <tr>
+        <td class="bold">App infrastructure &amp; setup</td>
+        <td class="bold">1–2 weeks</td>
+        <td class="note">Hosting, CI/CD, staging environment</td>
+      </tr>
+      <tr style="background:var(--tf-ghost)">
+        <td class="bold">Total — with LoyaltyLion</td>
+        <td class="bold" style="color:var(--tf)">12–17 weeks</td>
+        <td class="note">Dollar cost = weeks × team rate. Rate: TBD from tech lead.</td>
+      </tr>
+      <tr style="background:var(--off-white)">
+        <td class="bold">Total — in-house gamification</td>
+        <td class="bold" style="color:var(--sub)">15–22 weeks</td>
+        <td class="note">+3–5 weeks vs. LoyaltyLion option. Not recommended for MVP.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 06 VTO VENDORS -->
+<section class="section">
+  <div class="sec-heading"><span class="sec-num">06</span> Virtual Try-On · Vendor Comparison</div>
 
   <div class="vendor-grid">
 
@@ -587,9 +647,9 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 
 </section>
 
-<!-- 06 GAMIFICATION -->
+<!-- 07 GAMIFICATION -->
 <section class="section">
-  <div class="sec-heading"><span class="sec-num">06</span> Gamification</div>
+  <div class="sec-heading"><span class="sec-num">07</span> Gamification</div>
 
   <div class="gami-sub-label mvp">What ships with the pre-order launch</div>
   <div class="gami-grid" style="margin-bottom:36px">
