@@ -449,15 +449,68 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         </div>
       </div>
 
-      <div class="out-gami-note">Monthly fixed costs not included: LoyaltyLion $199/mo, Stripe $0.30/order. See exclusions below.</div>
+      <div class="out-gami-note">Monthly fixed costs not included — see section 02 below.</div>
     </div><!-- out-box -->
 
   </div><!-- calc-wrap -->
 </section>
 
-<!-- 02 MVP SCOPE -->
+<!-- 02 MONTHLY FIXED COSTS -->
 <section class="section">
-  <div class="sec-heading"><span class="sec-num">02</span> MVP Scope</div>
+  <div class="sec-heading"><span class="sec-num">02</span> Monthly Fixed Costs · MVP</div>
+  <p style="font-size:13px;color:var(--sub);margin-bottom:28px;line-height:1.6">Costs that apply across all drops, on top of the per-drop economics above. Stripe per-order fee updates automatically with the drop calculator.</p>
+  <div class="cost-block" style="max-width:640px">
+    <div class="cost-row">
+      <div>
+        <div class="cost-lbl">Stripe — $0.30 per order (fixed fee)</div>
+        <span class="cost-note">Per-transaction flat fee, excluded from calculator % above. At <span id="fc-orders">100</span> orders this drop.</span>
+      </div>
+      <div class="cost-val" id="fc-stripe">$30</div>
+    </div>
+    <div class="cost-row">
+      <div>
+        <div class="cost-lbl">LoyaltyLion · Classic (gamification platform)</div>
+        <span class="cost-note">Points, badges, tiers, referrals. Up to 500 orders/month.</span>
+      </div>
+      <div class="cost-val">$199 / mo</div>
+    </div>
+    <div class="cost-row">
+      <div>
+        <div class="cost-lbl">App infrastructure &amp; hosting</div>
+        <span class="cost-note">Needs tech lead input.</span>
+      </div>
+      <div class="cost-val" style="color:var(--sub);font-size:14px">TBD</div>
+    </div>
+    <div class="cost-row">
+      <div>
+        <div class="cost-lbl" style="font-size:15px;font-weight:800">Total known · excl. labor, tax, infrastructure</div>
+        <span class="cost-note">Stripe this drop + LoyaltyLion monthly. Infrastructure not included.</span>
+      </div>
+      <div class="cost-val" id="fc-total" style="color:var(--tf);font-size:20px">$229</div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 EXCLUSIONS -->
+<section class="section">
+  <div class="sec-heading"><span class="sec-num">03</span> What this calculator excludes</div>
+  <ul class="excl-list">
+    <li>Stripe fixed fee: $0.30 per transaction (% rate is included; flat fee shown in section 02)</li>
+    <li>LoyaltyLion $199/mo — monthly platform fee across all drops</li>
+    <li>FASHN.AI monthly subscription plan fees — calculator uses per-try overage rate only</li>
+    <li>App hosting and infrastructure</li>
+    <li>Shipping and fulfillment — designer responsibility</li>
+    <li>Returns, refunds, chargebacks</li>
+    <li>VAT, sales tax, currency conversion</li>
+    <li>Customer support labor</li>
+    <li>App development and in-house build costs</li>
+    <li>Multi-influencer drops — one influencer per drop only</li>
+  </ul>
+</section>
+
+<!-- 04 MVP SCOPE -->
+<section class="section">
+  <div class="sec-heading"><span class="sec-num">04</span> MVP Scope</div>
   <div class="scope-grid">
     <div class="scope-card in">
       <div class="scope-eyebrow">What's included at launch</div>
@@ -485,9 +538,9 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
   </div>
 </section>
 
-<!-- 03 VTO VENDORS -->
+<!-- 05 VTO VENDORS -->
 <section class="section">
-  <div class="sec-heading"><span class="sec-num">03</span> Virtual Try-On · Vendor Comparison</div>
+  <div class="sec-heading"><span class="sec-num">05</span> Virtual Try-On · Vendor Comparison</div>
 
   <div class="vendor-grid">
 
@@ -501,12 +554,12 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         <tbody>
           <tr><td>Pay-per-try</td><td class="bold">$0.075 / try</td><td class="note">No subscription needed</td></tr>
           <tr><td>Basic</td><td class="bold">$19 / month</td><td>200 / month</td></tr>
-          <tr><td>Pro</td><td class="bold">$49 / month</td><td>750 per month, plus 50 per day (daily reset)</td></tr>
-          <tr><td>Agency</td><td class="bold">$99 / month</td><td>1,500 per month, plus 100 per day (daily reset)</td></tr>
+          <tr><td>Pro</td><td class="bold">$49 / month</td><td>750 fixed/month · +50 daily burst</td></tr>
+          <tr><td>Agency</td><td class="bold">$99 / month</td><td>1,500 fixed/month · +100 daily burst</td></tr>
           <tr><td>Overage</td><td class="bold">$0.075 / try</td><td class="note">Above plan limit</td></tr>
         </tbody>
       </table>
-      <div class="ptable-note">Monthly credits reset on the billing date. Daily credits refresh every 24 hours — unused daily credits expire and do not carry over to the next day. Example: Pro plan = 750 fixed/month + up to 50 on any given day if you need a burst.</div>
+      <div class="ptable-note"><strong>How credits work:</strong> Every plan has two pools. (1) <strong>Monthly pool</strong> — fixed number of tries available any time during the billing month (resets on billing date). (2) <strong>Daily burst</strong> — extra tries added each day for high-volume moments; unused daily tries expire at midnight and do not carry over. Example: Pro plan = 750 tries available across the whole month, <em>plus</em> up to 50 extra tries today — tomorrow's 50 replace them, not add to them.</div>
       <div class="src">Source: <a href="https://fashn.ai/pricing" target="_blank" rel="noopener">fashn.ai/pricing</a></div>
     </div>
 
@@ -534,9 +587,9 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 
 </section>
 
-<!-- 04 GAMIFICATION -->
+<!-- 06 GAMIFICATION -->
 <section class="section">
-  <div class="sec-heading"><span class="sec-num">04</span> Gamification</div>
+  <div class="sec-heading"><span class="sec-num">06</span> Gamification</div>
 
   <div class="gami-sub-label mvp">What ships with the pre-order launch</div>
   <div class="gami-grid" style="margin-bottom:36px">
@@ -604,73 +657,42 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 
   </div>
 
-  <div class="gami-grid">
-
-    <div>
-      <div class="cost-block">
-        <div class="gami-title">External platform cost</div>
-        <div class="cost-row">
-          <div>
-            <div class="cost-lbl">Loyalty Lion · Classic</div>
-            <span class="cost-note">Points, badges, tiers, referrals. Up to ~500 orders / month.</span>
-          </div>
-          <div class="cost-val">$199 / mo</div>
+  <div style="max-width:640px">
+    <div class="cost-block">
+      <div class="gami-title">External platform cost</div>
+      <div class="cost-row">
+        <div>
+          <div class="cost-lbl">Loyalty Lion · Classic</div>
+          <span class="cost-note">Points, badges, tiers, referrals. Up to ~500 orders / month.</span>
         </div>
-        <div class="cost-row">
-          <div>
-            <div class="cost-lbl">Above 500 orders / month</div>
-            <span class="cost-note">Price scales with order volume. Contact loyaltylion.com for quote.</span>
-          </div>
-          <div class="cost-val">Contact</div>
-        </div>
-        <div class="src" style="margin-top:14px">Source: <a href="https://loyaltylion.com/pricing" target="_blank" rel="noopener">loyaltylion.com/pricing</a></div>
+        <div class="cost-val">$199 / mo</div>
       </div>
-      <div class="alt-inhouse">
-        <div class="alt-inhouse-headline">In-house alternative</div>
-        <p class="alt-inhouse-body">Points, badges, and referral tracking can be built as part of the MVP backend without a third-party platform. Avoids the $199/month recurring fee.</p>
-        <div class="alt-inhouse-item">
-          <span class="alt-inhouse-label">Estimated build scope</span>
-          <span class="alt-inhouse-value">3–5 weeks backend</span>
-          <span class="alt-inhouse-note">Points ledger, badge logic, referral tracking, anti-gaming rules. Directional estimate — tech lead confirmation required.</span>
+      <div class="cost-row">
+        <div>
+          <div class="cost-lbl">Above 500 orders / month</div>
+          <span class="cost-note">Price scales with order volume. Contact loyaltylion.com for quote.</span>
         </div>
-        <div class="alt-inhouse-item">
-          <span class="alt-inhouse-label">MVP recommendation</span>
-          <span class="alt-inhouse-value no">Not recommended for MVP</span>
-          <span class="alt-inhouse-note">Adds 3–5 weeks to launch timeline on top of an already full MVP scope. Use LoyaltyLion at $199/month to ship on time. Re-evaluate in-house build at Phase 2 when monthly orders exceed 500.</span>
-        </div>
+        <div class="cost-val">Contact</div>
+      </div>
+      <div class="src" style="margin-top:14px">Source: <a href="https://loyaltylion.com/pricing" target="_blank" rel="noopener">loyaltylion.com/pricing</a></div>
+    </div>
+    <div class="alt-inhouse">
+      <div class="alt-inhouse-headline">In-house alternative</div>
+      <p class="alt-inhouse-body">Points, badges, and referral tracking can be built as part of the MVP backend without a third-party platform. Avoids the $199/month recurring fee.</p>
+      <div class="alt-inhouse-item">
+        <span class="alt-inhouse-label">Estimated build scope</span>
+        <span class="alt-inhouse-value">3–5 weeks backend</span>
+        <span class="alt-inhouse-note">Points ledger, badge logic, referral tracking, anti-gaming rules. Directional estimate — tech lead confirmation required.</span>
+      </div>
+      <div class="alt-inhouse-item">
+        <span class="alt-inhouse-label">MVP recommendation</span>
+        <span class="alt-inhouse-value no">Not recommended for MVP</span>
+        <span class="alt-inhouse-note">Adds 3–5 weeks to launch timeline on top of an already full MVP scope. Use LoyaltyLion at $199/month to ship on time. Re-evaluate in-house build at Phase 2 when monthly orders exceed 500.</span>
       </div>
     </div>
-
-    <div class="gami-box">
-      <div class="gami-title">Why gamification works — benchmarks</div>
-      <ul class="gami-rows">
-        <li>~80% of Sephora's annual sales from tiered loyalty members <span class="tag">Retention</span></li>
-        <li>20–30% conversion lift — gamified rewards vs. static discounts <span class="tag">Conversion</span></li>
-        <li>+35% repeat purchases for fashion brand using streak mechanics <span class="tag">Retention</span></li>
-        <li>+67% more spend from loyal vs. new customers <span class="tag">LTV</span></li>
-      </ul>
-      <div class="src" style="margin-top:14px">Source: TerraFerra_Gamification.pdf, p.12 (Adjust, Odicci, BeyondCart, Aliapopups, Pimberly 2024–2026). Directional benchmarks.</div>
-    </div>
-
   </div>
 </section>
 
-<!-- 05 EXCLUSIONS -->
-<section class="section" style="padding-bottom:52px">
-  <div class="sec-heading"><span class="sec-num">05</span> What this calculator excludes</div>
-  <ul class="excl-list">
-    <li>Stripe fixed fee: $0.30 per transaction (% rate is included; flat fee is not)</li>
-    <li>LoyaltyLion $199/mo — monthly platform fee across all drops</li>
-    <li>FASHN.AI monthly subscription plan fees — calculator uses per-try overage rate only</li>
-    <li>App hosting and infrastructure</li>
-    <li>Shipping and fulfillment — designer responsibility</li>
-    <li>Returns, refunds, chargebacks</li>
-    <li>VAT, sales tax, currency conversion</li>
-    <li>Customer support labor</li>
-    <li>App development and in-house build costs</li>
-    <li>Multi-influencer drops — one influencer per drop only</li>
-  </ul>
-</section>
 
 </div><!-- pg-wrap -->
 
@@ -817,6 +839,12 @@ function calc() {
       ln.textContent = 'No cap — each VTO user runs up to '+tries+'× tries. Total tries: '+totalTries.toLocaleString()+'.';
     }
   }
+
+  // Section 02 — fixed costs, correlated with calculator
+  var stripeFixed = orders * 0.30;
+  document.getElementById('fc-orders').textContent = orders.toLocaleString();
+  document.getElementById('fc-stripe').textContent = '$'+Math.round(stripeFixed).toLocaleString();
+  document.getElementById('fc-total').textContent  = '$'+Math.round(stripeFixed + 199).toLocaleString();
 }
 
 calc();
