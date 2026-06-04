@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>MVP &amp; Costs · Terra Ferra</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --tf:#4B40C2;--tf-dark:#2D2595;--tf-ghost:#F4F2FC;
+  --orange:#E86820;--off-white:#F7F6FB;--ink:#12102B;
+  --sub:#5B5880;--rule:#D8D4EF;
+  --green:#1A7A4A;--green-bg:#EDFAF3;
+  --red-text:#C0392B;--red-bg:#FEF0EE;
+}
+body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)}
+
+/* NAV */
+.topnav{background:white;border-bottom:1px solid var(--rule);padding:12px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
+.topnav-home{font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);text-decoration:none;font-size:11px}
+.topnav-home:hover{color:var(--tf-dark)}
+.topnav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:var(--sub);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:10px}
+.topnav-links a:hover,.topnav-links a.active{color:var(--tf)}
+.topnav-links a.active{color:var(--orange)}
+.has-dropdown{position:relative;padding-bottom:10px;margin-bottom:-10px}
+.dropdown-trigger{cursor:pointer;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:10px;user-select:none}
+.dropdown-trigger:hover,.has-dropdown:focus-within .dropdown-trigger{color:var(--tf)}
+.dropdown{display:none;position:absolute;top:100%;right:0;background:white;border:1px solid var(--rule);min-width:200px;box-shadow:0 6px 14px rgba(0,0,0,.08);padding:6px 0;z-index:60}
+.has-dropdown:hover .dropdown,.has-dropdown:focus-within .dropdown{display:block}
+.dropdown a{display:block;padding:9px 16px;font-size:10px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:1px;text-decoration:none}
+.dropdown a:hover{background:var(--tf-ghost);color:var(--tf)}
+@media(max-width:700px){
+  .topnav{position:static;padding:10px 14px}
+  .topnav-links{gap:10px;justify-content:flex-start;width:100%}
+  .topnav-links a{font-size:9.5px}
+  .has-dropdown{padding-bottom:0;margin-bottom:0}
+  .dropdown{position:static;display:block;box-shadow:none;border:none;padding:0;min-width:0;margin-left:8px}
+  .dropdown a{padding:4px 0;font-size:9px}
+}
+
+/* PAGE LAYOUT */
+.pg-wrap{max-width:1140px;margin:0 auto;padding:0 60px}
+.pg-header{padding:52px 0 0}
+.pg-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--sub);opacity:.6}
+.pg-title{font-size:44px;font-weight:800;letter-spacing:-1.5px;color:var(--ink);margin-top:14px;line-height:1.1}
+.pg-sub{font-size:13.5px;color:var(--sub);margin-top:10px;line-height:1.6}
+
+/* SECTIONS */
+.section{padding:52px 0}
+.section+.section{border-top:1px solid var(--rule)}
+.sec-heading{font-size:28px;font-weight:800;color:var(--orange);margin-bottom:28px;line-height:1.15}
+.sec-num{font-size:28px;font-weight:800;color:var(--orange);margin-right:10px}
+
+/* SCOPE */
+.scope-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.scope-card{background:white;border:1px solid var(--rule);padding:24px 28px}
+.scope-card.in{border-top:3px solid var(--green)}
+.scope-card.out{border-top:3px solid var(--rule)}
+.scope-eyebrow{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
+.scope-card.in .scope-eyebrow{color:var(--green)}
+.scope-card.out .scope-eyebrow{color:var(--sub);opacity:.6}
+.scope-list{list-style:none}
+.scope-list li{font-size:13px;color:var(--ink);padding:7px 0;border-bottom:1px solid var(--rule);line-height:1.5;display:flex;gap:8px}
+.scope-list li:last-child{border-bottom:none}
+.scope-list li::before{flex-shrink:0;font-weight:800;font-size:11px}
+.scope-card.in .scope-list li::before{content:'✓';color:var(--green)}
+.scope-card.out .scope-list li::before{content:'—';color:var(--sub);opacity:.5}
+
+/* VTO VENDORS */
+.vendor-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:20px}
+.vendor-card{background:white;border:1px solid var(--rule);padding:28px 28px 22px}
+.vendor-card.rec{border-top:3px solid var(--orange)}
+.vendor-card.alt{border-top:3px solid var(--tf)}
+.v-badge{display:inline-block;font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;margin-bottom:14px}
+.v-badge.rec{background:var(--orange);color:white}
+.v-badge.alt{background:var(--tf-ghost);color:var(--tf)}
+.v-name{font-size:22px;font-weight:800;color:var(--ink);margin-bottom:3px}
+.v-url{font-size:11px;margin-bottom:14px}
+.v-url a{color:var(--tf);text-decoration:none}
+.v-url a:hover{text-decoration:underline}
+.v-desc{font-size:13px;color:var(--sub);line-height:1.6;margin-bottom:20px}
+.ptable{width:100%;border-collapse:collapse;font-size:12.5px;margin-bottom:16px}
+.ptable th{text-align:left;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--sub);padding:5px 8px;border-bottom:2px solid var(--rule)}
+.ptable td{padding:8px 8px;border-bottom:1px solid var(--rule);vertical-align:top;color:var(--ink)}
+.ptable tr:last-child td{border-bottom:none}
+.ptable .bold{font-weight:800}
+.ptable .note{font-size:11px;color:var(--sub)}
+.src{font-size:10.5px;color:var(--sub);opacity:.7}
+.src a{color:var(--tf);text-decoration:none}
+.src a:hover{text-decoration:underline}
+
+.crossover-box{background:var(--tf-ghost);border:1px solid var(--rule);border-left:4px solid var(--tf);padding:16px 20px;font-size:13px;color:var(--ink);line-height:1.6}
+.crossover-box strong{color:var(--tf)}
+#xover{font-weight:800;color:var(--orange)}
+
+/* GAMIFICATION */
+.gami-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.gami-box{background:white;border:1px solid var(--rule);padding:24px 28px}
+.gami-title{font-size:14px;font-weight:800;color:var(--ink);margin-bottom:16px}
+.gami-rows li{font-size:13px;color:var(--ink);padding:7px 0;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;list-style:none}
+.gami-rows li:last-child{border-bottom:none}
+.tag{font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:2px 7px;background:var(--tf-ghost);color:var(--tf)}
+.cost-block{background:white;border:1px solid var(--rule);border-top:3px solid var(--tf);padding:24px 28px}
+.cost-row{display:flex;justify-content:space-between;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--rule);gap:12px}
+.cost-row:last-child{border-bottom:none}
+.cost-lbl{font-size:13.5px;font-weight:500;color:var(--ink)}
+.cost-note{font-size:11px;color:var(--sub);margin-top:2px;display:block}
+.cost-val{font-size:16px;font-weight:800;color:var(--ink);white-space:nowrap}
+.alt-note{margin-top:14px;padding:16px;background:white;border:1px solid var(--rule);font-size:12.5px;color:var(--sub);line-height:1.6}
+.alt-note strong{color:var(--ink)}
+
+/* CALCULATOR */
+.calc-wrap{display:grid;grid-template-columns:1fr 380px;gap:36px;align-items:start}
+.sliders-box{background:white;border:1px solid var(--rule);padding:28px 32px}
+.sliders-section-label{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);opacity:.6;margin-bottom:20px}
+.vto-switch{display:flex;gap:0;margin-bottom:24px;border:1px solid var(--rule)}
+.vto-btn{flex:1;padding:12px 8px;text-align:center;cursor:pointer;font-size:12px;font-weight:700;color:var(--sub);background:white;border:none;border-right:1px solid var(--rule);transition:all .15s;line-height:1.4}
+.vto-btn:last-child{border-right:none}
+.vto-btn.on{background:var(--tf);color:white}
+.vto-btn span{display:block;font-size:10px;font-weight:400;margin-top:2px;opacity:.8}
+.sl-group{margin-bottom:20px}
+.sl-group:last-child{margin-bottom:0}
+.sl-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px}
+.sl-label{font-size:12.5px;font-weight:700;color:var(--ink)}
+.sl-val{font-size:14px;font-weight:800;color:var(--orange)}
+input[type=range]{width:100%;height:4px;accent-color:var(--tf);cursor:pointer;display:block}
+.sl-hints{display:flex;justify-content:space-between;font-size:10px;color:var(--sub);opacity:.55;margin-top:4px}
+.sl-note{font-size:11px;color:var(--sub);margin-top:3px}
+
+.out-box{background:var(--ink);padding:28px 28px 24px;position:sticky;top:72px}
+.out-eyebrow{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:22px}
+.out-row{display:flex;justify-content:space-between;align-items:baseline;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.out-row:last-child{border-bottom:none}
+.out-row-lbl{font-size:12px;color:rgba(255,255,255,.55);font-weight:500}
+.out-row-val{font-size:15px;font-weight:800;color:white}
+.out-row-val.neg{color:#FF8A80}
+.out-divider{height:1px;background:rgba(255,255,255,.12);margin:16px 0}
+.profit-row{padding:12px 0 4px}
+.profit-lbl{font-size:12px;color:rgba(255,255,255,.75);font-weight:700}
+.profit-val{font-size:22px;font-weight:800}
+.profit-val.pos{color:#7AE3B2}
+.profit-val.neg{color:#FF8A80}
+.margin-row{display:flex;justify-content:space-between;align-items:center;margin-top:4px;margin-bottom:8px}
+.margin-pct{font-size:13px;font-weight:800;color:rgba(255,255,255,.6)}
+.bar-bg{height:5px;background:rgba(255,255,255,.1);border-radius:3px;overflow:hidden}
+.bar-fill{height:100%;border-radius:3px;transition:width .25s,background .25s}
+.bar-note{font-size:10px;color:rgba(255,255,255,.3);margin-top:5px}
+.out-sub-block{margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.08)}
+.out-sub-row{display:flex;justify-content:space-between;padding:3px 0}
+.out-sub-lbl{font-size:11px;color:rgba(255,255,255,.35)}
+.out-sub-val{font-size:12px;font-weight:700;color:rgba(255,255,255,.5)}
+.out-gami-note{margin-top:14px;padding:12px;background:rgba(255,255,255,.05);font-size:11px;color:rgba(255,255,255,.35);line-height:1.5}
+
+/* FOOTER */
+footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margin-top:0}
+.footer-inner{max-width:1140px;margin:0 auto;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);opacity:.5}
+
+/* BACK TO TOP */
+#btt{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--tf);color:white;border:1px solid rgba(113,105,212,.5);border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900;transition:background .2s}
+#btt:hover{background:var(--tf-dark)}
+
+/* RESPONSIVE */
+@media(max-width:1000px){
+  .vendor-grid,.gami-grid,.scope-grid{grid-template-columns:1fr}
+  .calc-wrap{grid-template-columns:1fr}
+}
+@media(max-width:700px){
+  .pg-wrap{padding:0 20px}
+  .pg-title{font-size:32px}
+  .sec-heading,.sec-num{font-size:22px}
+  .out-box{position:static}
+}
+@media(max-width:500px){
+  .pg-wrap{padding:0 14px}
+  .pg-title{font-size:26px}
+  .sliders-box{padding:20px 18px}
+  .out-box{padding:20px 18px}
+  footer{padding:16px 20px}
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="index.html" class="topnav-home">Terra Ferra</a>
+  <div class="topnav-links">
+    <a href="budget.html">Budget</a>
+    <a href="roles.html">Roles</a>
+    <a href="TFbusinessmodel.html">Business Model</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Research ▾</span>
+      <div class="dropdown">
+        <a href="TFdropsmarket.html">Drops Market</a>
+        <a href="TFunservedmarket.html">Unserved Market</a>
+        <a href="TFmvpcosts.html" class="active">MVP &amp; Costs</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="pg-wrap">
+
+<div class="pg-header">
+  <div class="pg-eyebrow">Internal · Private · June 2026</div>
+  <h1 class="pg-title">MVP · Scope &amp; Costs</h1>
+  <p class="pg-sub">Pre-order drops only. No co-creation. VTO integration options, gamification costs, and per-drop unit economics.</p>
+</div>
+
+<!-- 01 MVP SCOPE -->
+<section class="section">
+  <div class="sec-heading"><span class="sec-num">01</span> MVP Scope</div>
+  <div class="scope-grid">
+    <div class="scope-card in">
+      <div class="scope-eyebrow">Ships in MVP</div>
+      <ul class="scope-list">
+        <li>Pre-order drops — designer lists item, sets quantity and drop window</li>
+        <li>Influencer referral links — unique tracked link per influencer per drop</li>
+        <li>Virtual try-on (VTO) — AI image-to-image rendering, no 3D models needed</li>
+        <li>Early-buyer badge — awarded to first N orders per drop</li>
+        <li>Points per order — redeemable for future discount (basic loyalty)</li>
+        <li>Designer dashboard — orders, revenue, per-influencer performance</li>
+        <li>Payout split — auto at checkout: designer / TF fee / influencer share</li>
+      </ul>
+    </div>
+    <div class="scope-card out">
+      <div class="scope-eyebrow">Phase 2 — Not in MVP</div>
+      <ul class="scope-list">
+        <li>Co-creation (community votes on designs)</li>
+        <li>AI influencer matching</li>
+        <li>Social feed and prosumer upload layer</li>
+        <li>Full gamification suite — tiers, quests, tokenization</li>
+        <li>Consumer-to-consumer marketplace</li>
+        <li>B2B / brand direct integration</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 02 VTO VENDORS -->
+<section class="section">
+  <div class="sec-heading"><span class="sec-num">02</span> Virtual Try-On · Vendor Comparison</div>
+
+  <div class="vendor-grid">
+
+    <div class="vendor-card rec">
+      <span class="v-badge rec">Recommended · MVP</span>
+      <div class="v-name">FASHN.AI</div>
+      <div class="v-url"><a href="https://fashn.ai" target="_blank" rel="noopener">fashn.ai</a></div>
+      <p class="v-desc">AI image-to-image virtual try-on. Accepts flat-lay, ghost mannequin, or on-model product photos — no 3D models required. Generates realistic garment rendering in 5–17 seconds. Full REST API, usage-based billing, no lock-in.</p>
+      <table class="ptable">
+        <thead><tr><th>Plan</th><th>Price</th><th>Credits</th></tr></thead>
+        <tbody>
+          <tr><td>Pay-per-try</td><td class="bold">$0.075 / try</td><td class="note">No subscription needed</td></tr>
+          <tr><td>Basic</td><td class="bold">$19 / month</td><td>200 / month</td></tr>
+          <tr><td>Pro</td><td class="bold">$49 / month</td><td>750 / month + 50 daily</td></tr>
+          <tr><td>Agency</td><td class="bold">$99 / month</td><td>1,500 / month + 100 daily</td></tr>
+          <tr><td>Overage</td><td class="bold">$0.075 / try</td><td class="note">Above plan limit</td></tr>
+        </tbody>
+      </table>
+      <div class="src">Source: <a href="https://fashn.ai/pricing" target="_blank" rel="noopener">fashn.ai/pricing</a></div>
+    </div>
+
+    <div class="vendor-card alt">
+      <span class="v-badge alt">Scale Option</span>
+      <div class="v-name">Kivisense</div>
+      <div class="v-url"><a href="https://tryon.kivisense.com" target="_blank" rel="noopener">tryon.kivisense.com</a></div>
+      <p class="v-desc">AR + AI overlay try-on for clothing. Web and app SDK. Fixed monthly fee — no per-try cost. Cost-effective at high volume once monthly try-on count exceeds the crossover threshold vs FASHN.AI.</p>
+      <table class="ptable">
+        <thead><tr><th>Plan</th><th>Price</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Commercial (monthly)</td><td class="bold">$888 / month</td><td>Clothing VTO included</td></tr>
+          <tr><td>Commercial (annual)</td><td class="bold">$10,000 / year</td><td>$833/month billed yearly</td></tr>
+          <tr><td>Per-try cost</td><td>—</td><td class="note">Flat fee, unlimited tries</td></tr>
+        </tbody>
+      </table>
+      <div class="src">Source: <a href="https://tryon.kivisense.com/blog/subscription-plans/" target="_blank" rel="noopener">tryon.kivisense.com/blog/subscription-plans/</a></div>
+    </div>
+
+  </div>
+
+  <div class="crossover-box">
+    <strong>Volume crossover:</strong> Kivisense ($888/month flat) becomes cheaper than FASHN.AI at <strong id="xover">2,368 orders/month (at 5× tries per order)</strong>. Below that threshold, FASHN.AI is cheaper. Adjust the tries-per-order slider in the calculator to update.
+  </div>
+
+</section>
+
+<!-- 03 GAMIFICATION -->
+<section class="section">
+  <div class="sec-heading"><span class="sec-num">03</span> Gamification · MVP</div>
+  <div class="gami-grid">
+
+    <div class="gami-box">
+      <div class="gami-title">Mechanics in MVP scope</div>
+      <ul class="gami-rows">
+        <li>Early Buyer Badge — awarded to first N orders per drop <span class="tag">Drop</span></li>
+        <li>Points per order — redeemable for future discounts <span class="tag">Buyer</span></li>
+        <li>Drop leaderboard — top supporters per designer this drop <span class="tag">Drop</span></li>
+        <li>Referral bonus — share link earns commission if sale follows <span class="tag">Creator</span></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="cost-block">
+        <div class="gami-title">External platform cost</div>
+        <div class="cost-row">
+          <div>
+            <div class="cost-lbl">Loyalty Lion · Classic</div>
+            <span class="cost-note">Points, badges, tiers, referrals. Up to ~500 orders / month.</span>
+          </div>
+          <div class="cost-val">$199 / mo</div>
+        </div>
+        <div class="cost-row">
+          <div>
+            <div class="cost-lbl">Above 500 orders / month</div>
+            <span class="cost-note">Price scales with order volume. Contact loyaltylion.com for quote.</span>
+          </div>
+          <div class="cost-val">Contact</div>
+        </div>
+        <div class="src" style="margin-top:14px">Source: <a href="https://loyaltylion.com/pricing" target="_blank" rel="noopener">loyaltylion.com/pricing</a></div>
+      </div>
+      <div class="alt-note">
+        <strong>In-house alternative:</strong> Points, badges, and referral tracking can be built as part of the MVP backend without a third-party platform. Avoids the $199/month recurring fee. Scope and timeline: requires input from tech lead.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 04 CALCULATOR -->
+<section class="section">
+  <div class="sec-heading"><span class="sec-num">04</span> Unit Economics · Drop Calculator</div>
+  <p style="font-size:13px;color:var(--sub);margin-bottom:28px;line-height:1.6">Per-drop economics for one influencer promoting one drop. Gamification platform cost ($199/mo) is a fixed monthly cost and not included in the per-drop calculation below.</p>
+
+  <div class="calc-wrap">
+
+    <div class="sliders-box">
+      <div class="sliders-section-label">VTO Pricing Model</div>
+      <div class="vto-switch">
+        <button class="vto-btn on" id="btn-fashn" onclick="setVTO('fashn')">
+          FASHN.AI<span>$0.075 per try</span>
+        </button>
+        <button class="vto-btn" id="btn-kivisense" onclick="setVTO('kivisense')">
+          Kivisense<span>$888 / month flat</span>
+        </button>
+        <button class="vto-btn" id="btn-none" onclick="setVTO('none')">
+          No VTO<span>exclude cost</span>
+        </button>
+      </div>
+
+      <div class="sliders-section-label" style="margin-top:4px">Influencer &amp; Drop</div>
+
+      <div class="sl-group">
+        <div class="sl-top">
+          <span class="sl-label">Influencer followers</span>
+          <span class="sl-val" id="v-followers">50K</span>
+        </div>
+        <input type="range" id="sl-followers" min="5000" max="500000" step="5000" value="50000" oninput="calc()"/>
+        <div class="sl-hints"><span>5K</span><span>500K</span></div>
+      </div>
+
+      <div class="sl-group">
+        <div class="sl-top">
+          <span class="sl-label">Conversion — followers → order</span>
+          <span class="sl-val" id="v-conv">0.5%</span>
+        </div>
+        <input type="range" id="sl-conv" min="0.1" max="5.0" step="0.1" value="0.5" oninput="calc()"/>
+        <div class="sl-hints"><span>0.1%</span><span>5.0%</span></div>
+      </div>
+
+      <div class="sl-group">
+        <div class="sl-top">
+          <span class="sl-label">Drop sale price (per item)</span>
+          <span class="sl-val" id="v-price">$150</span>
+        </div>
+        <input type="range" id="sl-price" min="50" max="1000" step="10" value="150" oninput="calc()"/>
+        <div class="sl-hints"><span>$50</span><span>$1,000</span></div>
+      </div>
+
+      <div class="sl-group">
+        <div class="sl-top">
+          <span class="sl-label">Production cost per piece</span>
+          <span class="sl-val" id="v-cogs">$40</span>
+        </div>
+        <input type="range" id="sl-cogs" min="5" max="500" step="5" value="40" oninput="calc()"/>
+        <div class="sl-hints"><span>$5</span><span>$500</span></div>
+      </div>
+
+      <div class="sliders-section-label" style="margin-top:20px">Fees &amp; Commissions</div>
+
+      <div class="sl-group">
+        <div class="sl-top">
+          <span class="sl-label">TF platform fee</span>
+          <span class="sl-val" id="v-platform">7%</span>
+        </div>
+        <input type="range" id="sl-platform" min="5" max="15" step="0.5" value="7" oninput="calc()"/>
+        <div class="sl-hints"><span>5%</span><span>15%</span></div>
+        <div class="sl-note">TF model: 7% on GMV</div>
+      </div>
+
+      <div class="sl-group">
+        <div class="sl-top">
+          <span class="sl-label">Influencer commission</span>
+          <span class="sl-val" id="v-inf">10%</span>
+        </div>
+        <input type="range" id="sl-inf" min="5" max="25" step="1" value="10" oninput="calc()"/>
+        <div class="sl-hints"><span>5%</span><span>25%</span></div>
+        <div class="sl-note">Standard 10%. Founding Creators: 15%.</div>
+      </div>
+
+      <div class="sliders-section-label" style="margin-top:20px">VTO Volume</div>
+
+      <div class="sl-group" id="row-tries">
+        <div class="sl-top">
+          <span class="sl-label">VTO tries per order</span>
+          <span class="sl-val" id="v-tries">5×</span>
+        </div>
+        <input type="range" id="sl-tries" min="0" max="30" step="1" value="5" oninput="calc()"/>
+        <div class="sl-hints"><span>0 (no VTO)</span><span>30×</span></div>
+        <div class="sl-note">How many try-on renders happen per eventual order. Also drives the Kivisense crossover calculation.</div>
+      </div>
+
+    </div><!-- sliders-box -->
+
+    <div class="out-box">
+      <div class="out-eyebrow">Per-Drop Result</div>
+
+      <div class="out-row">
+        <span class="out-row-lbl">Orders</span>
+        <span class="out-row-val" id="o-orders">250</span>
+      </div>
+      <div class="out-row">
+        <span class="out-row-lbl">Gross Revenue</span>
+        <span class="out-row-val" id="o-rev">$37,500</span>
+      </div>
+
+      <div class="out-divider"></div>
+
+      <div class="out-row">
+        <span class="out-row-lbl">Production Cost</span>
+        <span class="out-row-val neg" id="o-cogs">−$10,000</span>
+      </div>
+      <div class="out-row">
+        <span class="out-row-lbl" id="o-tf-lbl">TF Fee (7%)</span>
+        <span class="out-row-val neg" id="o-tf">−$2,625</span>
+      </div>
+      <div class="out-row">
+        <span class="out-row-lbl" id="o-inf-lbl">Influencer (10%)</span>
+        <span class="out-row-val neg" id="o-inf">−$3,750</span>
+      </div>
+      <div class="out-row" id="o-vto-row">
+        <span class="out-row-lbl" id="o-vto-lbl">VTO Cost (FASHN.AI)</span>
+        <span class="out-row-val neg" id="o-vto">−$94</span>
+      </div>
+
+      <div class="out-divider"></div>
+
+      <div class="profit-row">
+        <div style="display:flex;justify-content:space-between;align-items:baseline">
+          <span class="profit-lbl">Designer Net Profit</span>
+          <span class="profit-val pos" id="o-profit">$21,031</span>
+        </div>
+        <div class="margin-row">
+          <span style="font-size:11px;color:rgba(255,255,255,.35)">Margin</span>
+          <span class="margin-pct" id="o-margin">56.1%</span>
+        </div>
+        <div class="bar-bg"><div class="bar-fill" id="o-bar" style="width:56%;background:#7AE3B2"></div></div>
+        <div class="bar-note">Designer keeps this % of revenue after all costs</div>
+      </div>
+
+      <div class="out-sub-block">
+        <div class="out-sub-row">
+          <span class="out-sub-lbl">TF revenue this drop</span>
+          <span class="out-sub-val" id="o-tf-net">$2,625</span>
+        </div>
+        <div class="out-sub-row">
+          <span class="out-sub-lbl">Influencer earnings</span>
+          <span class="out-sub-val" id="o-inf-net">$3,750</span>
+        </div>
+      </div>
+
+      <div class="out-gami-note">Gamification: $199/mo (Loyalty Lion) is a fixed platform cost, not included above. Applies across all drops in the month.</div>
+    </div><!-- out-box -->
+
+  </div><!-- calc-wrap -->
+</section>
+
+</div><!-- pg-wrap -->
+
+<footer>
+  <div class="footer-inner">Private · noindex · Not for distribution</div>
+</footer>
+
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">&#8593;</button>
+<script>
+window.addEventListener('scroll',function(){document.getElementById('btt').style.display=window.scrollY>400?'flex':'none'});
+
+var vtoMode = 'fashn';
+
+function setVTO(m) {
+  vtoMode = m;
+  document.getElementById('btn-fashn').classList.toggle('on', m==='fashn');
+  document.getElementById('btn-kivisense').classList.toggle('on', m==='kivisense');
+  document.getElementById('btn-none').classList.toggle('on', m==='none');
+  document.getElementById('row-tries').style.display = m==='none' ? 'none' : 'block';
+  if (m === 'fashn') {
+    document.getElementById('o-vto-lbl').textContent = 'VTO Cost (FASHN.AI)';
+    document.getElementById('o-vto-row').style.display = '';
+  } else if (m === 'kivisense') {
+    document.getElementById('o-vto-lbl').textContent = 'VTO Cost (Kivisense · mo)';
+    document.getElementById('o-vto-row').style.display = '';
+  } else {
+    document.getElementById('o-vto-row').style.display = 'none';
+  }
+  calc();
+}
+
+function fK(n){
+  if(n>=1000000) return (n/1000000).toFixed(1)+'M';
+  if(n>=1000) return (n/1000).toFixed(0)+'K';
+  return n;
+}
+function fmtNeg(n){ return '−$'+Math.round(Math.abs(n)).toLocaleString(); }
+function fmtPos(n){ return (n<0?'−$':'$')+Math.abs(Math.round(n)).toLocaleString(); }
+
+function calc() {
+  var followers = +document.getElementById('sl-followers').value;
+  var conv      = +document.getElementById('sl-conv').value / 100;
+  var price     = +document.getElementById('sl-price').value;
+  var cogs      = +document.getElementById('sl-cogs').value;
+  var platPct   = +document.getElementById('sl-platform').value / 100;
+  var infPct    = +document.getElementById('sl-inf').value / 100;
+  var tries     = +document.getElementById('sl-tries').value;
+
+  // Update labels
+  document.getElementById('v-followers').textContent = fK(followers);
+  document.getElementById('v-conv').textContent = parseFloat(document.getElementById('sl-conv').value).toFixed(1)+'%';
+  document.getElementById('v-price').textContent = '$'+price;
+  document.getElementById('v-cogs').textContent = '$'+cogs;
+  document.getElementById('v-platform').textContent = parseFloat(document.getElementById('sl-platform').value).toFixed(1)+'%';
+  document.getElementById('v-inf').textContent = parseInt(document.getElementById('sl-inf').value)+'%';
+  document.getElementById('v-tries').textContent = tries+'×';
+
+  var orders     = Math.round(followers * conv);
+  var revenue    = orders * price;
+  var tfFee      = revenue * platPct;
+  var infShare   = revenue * infPct;
+  var production = orders * cogs;
+
+  var vtoCost = 0;
+  if (vtoMode === 'fashn') {
+    vtoCost = orders * tries * 0.075;
+  } else if (vtoMode === 'kivisense') {
+    vtoCost = 888;
+  }
+
+  var profit = revenue - production - tfFee - infShare - vtoCost;
+  var margin = revenue > 0 ? (profit / revenue * 100) : 0;
+
+  document.getElementById('o-orders').textContent = orders.toLocaleString();
+  document.getElementById('o-rev').textContent    = '$'+Math.round(revenue).toLocaleString();
+  document.getElementById('o-cogs').textContent   = fmtNeg(production);
+  document.getElementById('o-tf').textContent     = fmtNeg(tfFee);
+  document.getElementById('o-tf-lbl').textContent = 'TF Fee ('+parseFloat(document.getElementById('sl-platform').value).toFixed(1)+'%)';
+  document.getElementById('o-inf').textContent    = fmtNeg(infShare);
+  document.getElementById('o-inf-lbl').textContent= 'Influencer ('+parseInt(document.getElementById('sl-inf').value)+'%)';
+  document.getElementById('o-vto').textContent    = fmtNeg(vtoCost);
+  document.getElementById('o-profit').textContent = fmtPos(profit);
+  document.getElementById('o-margin').textContent = margin.toFixed(1)+'%';
+  document.getElementById('o-tf-net').textContent = '$'+Math.round(tfFee).toLocaleString();
+  document.getElementById('o-inf-net').textContent= '$'+Math.round(infShare).toLocaleString();
+
+  var profitEl = document.getElementById('o-profit');
+  profitEl.className = 'profit-val ' + (profit >= 0 ? 'pos' : 'neg');
+
+  var barW = Math.max(0, Math.min(100, margin));
+  var bar  = document.getElementById('o-bar');
+  bar.style.width = barW + '%';
+  bar.style.background = margin < 0 ? '#FF8A80' : margin < 15 ? '#E86820' : '#7AE3B2';
+
+  // Crossover: Kivisense = $888/mo flat; FASHN.AI = orders * tries * $0.075
+  // Break-even orders = 888 / (tries * 0.075)
+  var xoverEl = document.getElementById('xover');
+  if (tries === 0) {
+    xoverEl.textContent = 'N/A (tries set to 0)';
+  } else {
+    var xoverOrders = Math.round(888 / (tries * 0.075));
+    xoverEl.textContent = xoverOrders.toLocaleString() + ' orders/month (at ' + tries + '× tries per order)';
+  }
+}
+
+calc();
+</script>
+</body>
+</html>
