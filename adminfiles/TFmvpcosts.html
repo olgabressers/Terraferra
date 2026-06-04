@@ -112,6 +112,25 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .cost-val{font-size:16px;font-weight:800;color:var(--ink);white-space:nowrap}
 .alt-note{margin-top:14px;padding:16px;background:white;border:1px solid var(--rule);font-size:12.5px;color:var(--sub);line-height:1.6}
 .alt-note strong{color:var(--ink)}
+.gami-sub-label{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding-bottom:10px;margin-bottom:20px;border-bottom:2px solid}
+.gami-sub-label.mvp{color:var(--green);border-color:var(--green)}
+.gami-sub-label.p2{color:var(--tf);border-color:var(--tf);margin-top:36px}
+.gami-badge{display:inline-block;font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;margin-bottom:12px}
+.gami-badge.mvp{background:var(--green-bg);color:var(--green)}
+.gami-badge.p2{background:var(--tf-ghost);color:var(--tf)}
+.gami-badge.rec{background:var(--orange);color:white}
+.gami-mech-name{font-size:18px;font-weight:800;color:var(--ink);margin-bottom:8px}
+.gami-mech-desc{font-size:13px;color:var(--sub);line-height:1.6;margin-bottom:8px}
+.gami-steps{list-style:none;margin:0 0 14px;counter-reset:gstep}
+.gami-steps li{font-size:12.5px;color:var(--ink);padding:5px 0;border-bottom:1px solid var(--rule);line-height:1.5;display:flex;gap:8px;counter-increment:gstep}
+.gami-steps li::before{content:counter(gstep);font-size:11px;font-weight:800;color:var(--orange);min-width:18px;flex-shrink:0}
+.gami-steps li:last-child{border-bottom:none}
+.reward-table{width:100%;border-collapse:collapse;font-size:12.5px;margin:10px 0 14px}
+.reward-table th{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--sub);padding:5px 8px;border-bottom:2px solid var(--rule);text-align:left}
+.reward-table td{padding:7px 8px;border-bottom:1px solid var(--rule);color:var(--ink)}
+.reward-table tr:last-child td{border-bottom:none}
+.gami-caveat{font-size:11.5px;color:var(--sub);line-height:1.6;padding:10px 12px;background:var(--tf-ghost);margin-bottom:12px}
+.ptable-note{font-size:11px;color:var(--sub);line-height:1.5;padding:8px 10px;background:var(--tf-ghost);margin-top:8px}
 
 /* CALCULATOR */
 .calc-wrap{display:grid;grid-template-columns:1fr 380px;gap:36px;align-items:start}
@@ -207,7 +226,6 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 <div class="pg-header">
   <div class="pg-eyebrow">Internal · Private · June 2026</div>
   <h1 class="pg-title">MVP · Scope &amp; Costs</h1>
-  <p class="pg-sub">Pre-order drops only. No co-creation. VTO integration options, gamification costs, and per-drop unit economics.</p>
 </div>
 
 <!-- 01 MVP SCOPE -->
@@ -215,7 +233,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
   <div class="sec-heading"><span class="sec-num">01</span> MVP Scope</div>
   <div class="scope-grid">
     <div class="scope-card in">
-      <div class="scope-eyebrow">Ships in MVP</div>
+      <div class="scope-eyebrow">What's included at launch</div>
       <ul class="scope-list">
         <li>Pre-order drops — designer lists item, sets quantity and drop window</li>
         <li>Influencer referral links — unique tracked link per influencer per drop</li>
@@ -227,14 +245,14 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
       </ul>
     </div>
     <div class="scope-card out">
-      <div class="scope-eyebrow">Phase 2 — Not in MVP</div>
+      <div class="scope-eyebrow">Added in a later version</div>
       <ul class="scope-list">
         <li>Co-creation (community votes on designs)</li>
         <li>AI influencer matching</li>
         <li>Social feed and prosumer upload layer</li>
         <li>Full gamification suite — tiers, quests, tokenization</li>
         <li>Consumer-to-consumer marketplace</li>
-        <li>B2B / brand direct integration</li>
+        <li>B2B / brand direct integration — TF acting as white-label infrastructure for established fashion brands to run their own drops and campaigns directly (different use case from serving emerging designers)</li>
       </ul>
     </div>
   </div>
@@ -256,11 +274,12 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         <tbody>
           <tr><td>Pay-per-try</td><td class="bold">$0.075 / try</td><td class="note">No subscription needed</td></tr>
           <tr><td>Basic</td><td class="bold">$19 / month</td><td>200 / month</td></tr>
-          <tr><td>Pro</td><td class="bold">$49 / month</td><td>750 / month + 50 daily</td></tr>
-          <tr><td>Agency</td><td class="bold">$99 / month</td><td>1,500 / month + 100 daily</td></tr>
+          <tr><td>Pro</td><td class="bold">$49 / month</td><td>750 per month, plus 50 per day (daily reset)</td></tr>
+          <tr><td>Agency</td><td class="bold">$99 / month</td><td>1,500 per month, plus 100 per day (daily reset)</td></tr>
           <tr><td>Overage</td><td class="bold">$0.075 / try</td><td class="note">Above plan limit</td></tr>
         </tbody>
       </table>
+      <div class="ptable-note">Monthly credits reset on the billing date. Daily credits refresh every 24 hours — unused daily credits expire and do not carry over to the next day. Example: Pro plan = 750 fixed/month + up to 50 on any given day if you need a burst.</div>
       <div class="src">Source: <a href="https://fashn.ai/pricing" target="_blank" rel="noopener">fashn.ai/pricing</a></div>
     </div>
 
@@ -290,18 +309,75 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 
 <!-- 03 GAMIFICATION -->
 <section class="section">
-  <div class="sec-heading"><span class="sec-num">03</span> Gamification · MVP</div>
-  <div class="gami-grid">
+  <div class="sec-heading"><span class="sec-num">03</span> Gamification</div>
+
+  <div class="gami-sub-label mvp">What ships with the pre-order launch</div>
+  <div class="gami-grid" style="margin-bottom:36px">
+
+    <div class="gami-box" style="border-top:3px solid var(--green)">
+      <span class="gami-badge mvp">MVP · Fastest to ship</span>
+      <div class="gami-mech-name">Invite-to-Win</div>
+      <p class="gami-mech-desc">Turn each pre-order into a referral loop. After ordering, the buyer creates their own VTO of the product and invites friends via Instagram, Facebook, or TF. Every friend who joins TF and places the pre-order earns the inviter a reward. Both sides receive an incentive — the friend gets a welcome reward too.</p>
+      <div class="gami-title" style="margin-top:14px;margin-bottom:10px">How it works</div>
+      <ol class="gami-steps">
+        <li>Pre-order goes live; influencer publishes it with VTO.</li>
+        <li>Buyer creates their own VTO of the product inside TF.</li>
+        <li>They share it to Instagram, Facebook, or a TF referral link.</li>
+        <li>Friend clicks, joins TF, and places the pre-order.</li>
+        <li>Inviter earns a reward from the ladder below.</li>
+      </ol>
+      <div class="gami-title" style="margin-bottom:4px">Example reward ladder</div>
+      <table class="reward-table">
+        <thead><tr><th>Completed invites</th><th>Inviter earns</th></tr></thead>
+        <tbody>
+          <tr><td>1 friend</td><td>Free shipping + 150 pts</td></tr>
+          <tr><td>3 friends</td><td>Store credit (~$15 equivalent)</td></tr>
+          <tr><td>5 friends</td><td>Mystery gift / sample</td></tr>
+          <tr><td>10 friends</td><td>VIP early access to next drop</td></tr>
+        </tbody>
+      </table>
+      <div class="gami-caveat">A "successful invite" counts only when the friend creates an account and places the pre-order. Self-referrals are blocked by payment method and device fingerprint. Reward is reversed if the friend's order is cancelled. Rewardable invites are capped per campaign to protect margin. Points are held until the pre-order clears its cancellation window.</div>
+      <div class="src">Source: TerraFerra_Gamification.pdf, p.7–9</div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div class="gami-box">
+        <span class="gami-badge mvp">MVP</span>
+        <div class="gami-mech-name">Early Buyer Badge</div>
+        <p class="gami-mech-desc">Awarded to the first N orders on each drop. Permanent visible badge on the buyer's TF profile. Creates urgency and scarcity around each drop window — buyers who move fast get a status marker no one else can earn after the drop closes.</p>
+      </div>
+      <div class="gami-box">
+        <span class="gami-badge mvp">MVP · Meta-layer</span>
+        <div class="gami-mech-name">Points &amp; Tiers</div>
+        <p class="gami-mech-desc">Points earned on every order, redeemable for future discounts. The unified meta-layer that connects all three gamification mechanics — Invite-to-Win, Co-Design and Style Battle all feed the same point balance. Build it once in MVP; Phase 2 mechanics plug into the same system without a rebuild.</p>
+        <div class="src" style="margin-top:10px">Source: TerraFerra_Gamification.pdf, p.12</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="gami-sub-label p2">Phase 2 — requires co-creation flow or full product catalog</div>
+  <div class="gami-grid" style="margin-bottom:36px">
 
     <div class="gami-box">
-      <div class="gami-title">Mechanics in MVP scope</div>
-      <ul class="gami-rows">
-        <li>Early Buyer Badge — awarded to first N orders per drop <span class="tag">Drop</span></li>
-        <li>Points per order — redeemable for future discounts <span class="tag">Buyer</span></li>
-        <li>Drop leaderboard — top supporters per designer this drop <span class="tag">Drop</span></li>
-        <li>Referral bonus — share link earns commission if sale follows <span class="tag">Creator</span></li>
-      </ul>
+      <span class="gami-badge p2">Phase 2</span>
+      <div class="gami-mech-name">Co-Design</div>
+      <p class="gami-mech-desc">Designer publishes 3 versions of a product. The community votes and predicts which one wins — time-boxed campaign. Each version has its own VTO, shareable only inside TF (protects unreleased designs from leaking). When the countdown ends, the designer picks the winning version; it moves into the pre-order flow.</p>
+      <p class="gami-mech-desc">Everyone who predicted correctly wins a prize. TF covers a base reward (store credit or points) for every correct guesser. The designer optionally adds a premium "money-can't-buy" prize — a signed piece, exclusive colorway, or 1-of-1 item — for the top winners.</p>
+      <div class="src" style="margin-top:10px">Source: TerraFerra_Gamification.pdf, p.4–6</div>
     </div>
+
+    <div class="gami-box">
+      <span class="gami-badge rec">Phase 2 · TF Recommendation</span>
+      <div class="gami-mech-name">Style Battle</div>
+      <p class="gami-mech-desc">Weekly UGC styling contest. A featured pre-order item gets a theme (e.g. "Golden Hour"). Users style a look around it using real items from the TF catalog and submit to a public gallery — every item in every look is shoppable.</p>
+      <p class="gami-mech-desc">Community votes on a time-boxed leaderboard. Top looks are featured on TF; entrants earn points and voters get a discount. Reuses the voting engine from Co-Design — low additional build cost. UGC creates organic reach and SEO traffic. Shoppable looks convert directly.</p>
+      <div class="src" style="margin-top:10px">Source: TerraFerra_Gamification.pdf, p.10–11</div>
+    </div>
+
+  </div>
+
+  <div class="gami-grid">
 
     <div>
       <div class="cost-block">
@@ -325,6 +401,17 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
       <div class="alt-note">
         <strong>In-house alternative:</strong> Points, badges, and referral tracking can be built as part of the MVP backend without a third-party platform. Avoids the $199/month recurring fee. Scope and timeline: requires input from tech lead.
       </div>
+    </div>
+
+    <div class="gami-box">
+      <div class="gami-title">Why gamification works — benchmarks</div>
+      <ul class="gami-rows">
+        <li>~80% of Sephora's annual sales from tiered loyalty members <span class="tag">Retention</span></li>
+        <li>20–30% conversion lift — gamified rewards vs. static discounts <span class="tag">Conversion</span></li>
+        <li>+35% repeat purchases for fashion brand using streak mechanics <span class="tag">Retention</span></li>
+        <li>+67% more spend from loyal vs. new customers <span class="tag">LTV</span></li>
+      </ul>
+      <div class="src" style="margin-top:14px">Source: TerraFerra_Gamification.pdf, p.12 (Adjust, Odicci, BeyondCart, Aliapopups, Pimberly 2024–2026). Directional benchmarks.</div>
     </div>
 
   </div>
@@ -358,8 +445,8 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
           <span class="sl-label">Influencer followers</span>
           <span class="sl-val" id="v-followers">50K</span>
         </div>
-        <input type="range" id="sl-followers" min="5000" max="500000" step="5000" value="50000" oninput="calc()"/>
-        <div class="sl-hints"><span>5K</span><span>500K</span></div>
+        <input type="range" id="sl-followers" min="1000" max="500000" step="1000" value="50000" oninput="calc()"/>
+        <div class="sl-hints"><span>1K</span><span>500K</span></div>
       </div>
 
       <div class="sl-group">
