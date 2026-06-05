@@ -183,7 +183,7 @@ input[type=range]{width:100%;height:4px;accent-color:var(--tf);cursor:pointer;di
 .out-sub-row:last-child{border-bottom:none}
 .out-sub-lbl{font-size:13px;font-weight:600;color:white}
 .out-sub-val{font-size:15px;font-weight:800;color:white}
-.out-gami-note{margin-top:14px;padding:12px;background:rgba(255,255,255,.07);font-size:11px;color:rgba(255,255,255,.7);line-height:1.5}
+.out-gami-note{margin-top:14px;padding:12px;background:rgba(255,255,255,.07);font-size:13px;font-weight:600;color:white;line-height:1.5}
 .calc-model-title{font-size:20px;font-weight:800;color:var(--tf);margin-bottom:22px;letter-spacing:-0.3px}
 .sold-out-tag{display:inline-block;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;background:var(--orange);color:white;padding:2px 7px;margin-left:8px;vertical-align:middle}
 .excl-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:6px 32px;margin-top:14px}
@@ -499,6 +499,54 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
     <strong>Total monthly cost to run MVP</strong> — excl. development costs, tax, shipping, returns:<br>
     Stripe $0.30/order = <strong id="calc-stripe-sum">$30</strong> this drop &nbsp;+&nbsp; LoyaltyLion $199/mo &nbsp;+&nbsp; infrastructure TBD
     &nbsp;=&nbsp; <strong style="color:var(--tf);font-size:16px" id="calc-total-sum">$229</strong> known + TBD
+  </div>
+
+  <!-- CONCLUSION -->
+  <div style="background:white;border:1px solid var(--rule);border-top:3px solid var(--orange);padding:28px 32px;margin-top:32px">
+    <div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:20px">What it takes to reach $10K / month</div>
+
+    <div style="display:flex;gap:24px;flex-wrap:wrap;margin-bottom:24px">
+      <div style="flex:1;min-width:160px;background:var(--tf-ghost);padding:16px 20px">
+        <div style="font-size:11px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px">TF net per drop</div>
+        <div style="font-size:28px;font-weight:800;color:var(--tf)" id="concl-tf-net">—</div>
+      </div>
+      <div style="flex:1;min-width:160px;background:var(--tf-ghost);padding:16px 20px">
+        <div style="font-size:11px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px">Designers needed (1 drop/mo each)</div>
+        <div style="font-size:28px;font-weight:800;color:var(--orange)" id="concl-designers">—</div>
+      </div>
+      <div style="flex:1;min-width:160px;background:var(--tf-ghost);padding:16px 20px">
+        <div style="font-size:11px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px">VTO cost as % of TF fee</div>
+        <div style="font-size:28px;font-weight:800;color:var(--ink)" id="concl-vto-pct">—</div>
+      </div>
+    </div>
+
+    <div style="font-size:13.5px;color:var(--ink);line-height:1.7;margin-bottom:24px;padding:14px 18px;background:var(--tf-ghost);border-left:3px solid var(--tf)" id="concl-summary">—</div>
+
+    <table class="ptable" style="max-width:860px">
+      <thead><tr><th style="width:22%">Parameter</th><th style="width:18%">Current</th><th>Effect on $10K/mo target</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="bold">Active designers</td>
+          <td id="concl-p-designers" class="bold" style="color:var(--orange)">5</td>
+          <td class="note">Primary lever. Every additional designer running one drop/month adds one drop's worth of TF revenue.</td>
+        </tr>
+        <tr>
+          <td class="bold">Drop price</td>
+          <td id="concl-p-price" class="bold" style="color:var(--tf)">$150</td>
+          <td class="note">TF earns 7% of GMV. Doubling price doubles TF fee — and halves the number of designers needed.</td>
+        </tr>
+        <tr>
+          <td class="bold">VTO cost</td>
+          <td id="concl-p-vto" class="bold">$375</td>
+          <td class="note">TF pays FASHN.AI directly. Reducing tries per session or capping to 3 (free tier) cuts this cost immediately.</td>
+        </tr>
+        <tr>
+          <td class="bold">Drops / designer / mo</td>
+          <td id="concl-p-cadence" class="bold" style="color:var(--sub)">1</td>
+          <td class="note">Doubling cadence from 1→2 drops/month halves designers needed. Depends on designer capacity.</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
@@ -962,6 +1010,29 @@ function calc() {
     } else {
       ln.textContent = 'No cap — each VTO user runs up to '+tries+'× tries. Total tries: '+totalTries.toLocaleString()+'.';
     }
+  }
+
+  // Conclusion block
+  var desNeeded1 = tfNet > 0 ? Math.ceil(10000 / tfNet) : null;
+  var vtoPct = tfFee > 0 ? Math.round(vtoCost / tfFee * 100) : 0;
+  document.getElementById('concl-tf-net').textContent = fmtPos(tfNet);
+  document.getElementById('concl-tf-net').style.color = tfNet < 0 ? 'var(--red-text)' : 'var(--tf)';
+  document.getElementById('concl-designers').textContent = desNeeded1 !== null ? desNeeded1+' designers' : 'N/A';
+  document.getElementById('concl-vto-pct').textContent = vtoMode === 'none' ? '0% (VTO off)' : vtoPct+'%';
+  document.getElementById('concl-vto-pct').style.color = vtoPct > 50 ? 'var(--red-text)' : vtoPct > 25 ? 'var(--orange)' : 'var(--ink)';
+  document.getElementById('concl-p-designers').textContent = designers;
+  document.getElementById('concl-p-price').textContent = '$'+price;
+  document.getElementById('concl-p-vto').textContent = '$'+Math.round(vtoCost)+' ('+vtoPct+'% of TF fee)';
+  document.getElementById('concl-p-cadence').textContent = dropsPerDesigner+' drop'+(dropsPerDesigner>1?'s':'')+'/mo';
+  if (tfNet > 0) {
+    var desAt2 = Math.ceil(10000 / (tfNet * 2));
+    document.getElementById('concl-summary').textContent =
+      'TF nets $'+Math.round(tfNet).toLocaleString()+' per drop at current settings. '
+      +'At 1 drop/designer/month: '+desNeeded1+' designers reach $10K/mo. '
+      +'At 2 drops/designer: '+desAt2+' designers. '
+      +(vtoPct > 30 ? 'VTO is eating '+vtoPct+'% of TF fee — reducing tries per session is the fastest way to improve TF net per drop.' : 'VTO cost is '+vtoPct+'% of TF fee — manageable at this setting.');
+  } else {
+    document.getElementById('concl-summary').textContent = 'TF net is negative at current settings — increase price, reduce VTO tries, or lower influencer commission to make the model work.';
   }
 
   // Section 02 + section 01 summary — fixed costs correlated with calculator
