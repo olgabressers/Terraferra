@@ -280,7 +280,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         </div>
         <input type="range" id="sl-items" min="10" max="2000" step="10" value="100" oninput="calc()"/>
         <div class="sl-hints"><span>10</span><span>2,000</span></div>
-        <div class="sl-note">Caps orders — pre-order is limited to this quantity.</div>
+        <div class="sl-note">Caps orders — pre-order is limited to this quantity. Emerging designers typically run 50–150 items per drop.</div>
       </div>
 
       <div class="sl-group">
@@ -317,6 +317,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         </div>
         <input type="range" id="sl-cogs" min="5" max="500" step="5" value="40" oninput="calc()"/>
         <div class="sl-hints"><span>$5</span><span>$500</span></div>
+        <div class="sl-note">Emerging affordable-luxury: 35–45% of retail price. At $150 retail → ~$55–68 typical.</div>
       </div>
 
       <div class="sliders-section-label" style="margin-top:20px">Fees &amp; Commissions</div>
@@ -409,9 +410,9 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
           <span class="sl-label">Designer monthly platform fee</span>
           <span class="sl-val" id="v-designer-fee">$500</span>
         </div>
-        <input type="range" id="sl-designer-fee" min="100" max="1000" step="50" value="500" oninput="calc()"/>
-        <div class="sl-hints"><span>$100</span><span>$1,000</span></div>
-        <div class="sl-note">Fixed monthly subscription per designer — TF revenue on top of GMV commission.</div>
+        <input type="range" id="sl-designer-fee" min="0" max="1000" step="50" value="500" oninput="calc()"/>
+        <div class="sl-hints"><span>$0</span><span>$1,000</span></div>
+        <div class="sl-note">Fixed monthly subscription per designer — TF revenue on top of GMV commission. $0 = commission-only model.</div>
       </div>
 
     </div><!-- sliders-box -->
