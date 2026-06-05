@@ -388,12 +388,21 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
       <div class="sliders-section-label" style="margin-top:28px">Monthly Scale</div>
       <div class="sl-group">
         <div class="sl-top">
-          <span class="sl-label">Drops per month</span>
-          <span class="sl-val" id="v-drops">5</span>
+          <span class="sl-label">Active designers on platform</span>
+          <span class="sl-val" id="v-designers">5</span>
         </div>
-        <input type="range" id="sl-drops" min="1" max="50" step="1" value="5" oninput="calc()"/>
+        <input type="range" id="sl-designers" min="1" max="50" step="1" value="5" oninput="calc()"/>
         <div class="sl-hints"><span>1</span><span>50</span></div>
-        <div class="sl-note">One drop = one designer × one influencer launch.</div>
+        <div class="sl-note">Designers actively running drops on TF.</div>
+      </div>
+      <div class="sl-group">
+        <div class="sl-top">
+          <span class="sl-label">Drops per designer per month</span>
+          <span class="sl-val" id="v-drops-per">1</span>
+        </div>
+        <input type="range" id="sl-drops-per" min="1" max="4" step="1" value="1" oninput="calc()"/>
+        <div class="sl-hints"><span>1</span><span>4</span></div>
+        <div class="sl-note">How many drops each designer runs monthly.</div>
       </div>
 
     </div><!-- sliders-box -->
@@ -460,11 +469,11 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         </div>
         <div style="margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,.1)">
           <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px">
-            <span style="font-size:12px;font-weight:700;color:white">Monthly TF Net (<span id="o-drops-lbl">5</span> drops)</span>
+            <span style="font-size:12px;font-weight:700;color:white">Monthly TF Net (<span id="o-drops-lbl">5 drops</span>)</span>
             <span style="font-size:22px;font-weight:800;color:#7AE3B2" id="o-monthly-tf">$XX</span>
           </div>
           <div style="display:flex;justify-content:space-between;align-items:baseline" id="o-target-row">
-            <span style="font-size:12px;color:white">Drops needed for $10K/mo</span>
+            <span style="font-size:12px;color:white">Designers needed for $10K/mo</span>
             <span style="font-size:13px;font-weight:800;color:#C4B5FF" id="o-target-drops">—</span>
           </div>
         </div>
@@ -907,14 +916,18 @@ function calc() {
   document.getElementById('o-tf-net').textContent = fmtPos(tfNet);
   document.getElementById('o-tf-net').className = 'profit-val ' + (tfNet >= 0 ? 'pos' : 'neg');
 
-  var drops = +document.getElementById('sl-drops').value;
-  document.getElementById('v-drops').textContent = drops;
-  document.getElementById('o-drops-lbl').textContent = drops;
-  var monthlyTFNet = tfNet * drops;
+  var designers = +document.getElementById('sl-designers').value;
+  var dropsPerDesigner = +document.getElementById('sl-drops-per').value;
+  var totalDrops = designers * dropsPerDesigner;
+  document.getElementById('v-designers').textContent = designers;
+  document.getElementById('v-drops-per').textContent = dropsPerDesigner;
+  document.getElementById('o-drops-lbl').textContent = designers+' designers × '+dropsPerDesigner+' = '+totalDrops+' drops';
+  var monthlyTFNet = tfNet * totalDrops;
   document.getElementById('o-monthly-tf').textContent = fmtPos(monthlyTFNet);
   document.getElementById('o-monthly-tf').style.color = monthlyTFNet < 0 ? '#FF8A80' : '#7AE3B2';
   if (tfNet > 0) {
-    document.getElementById('o-target-drops').textContent = Math.ceil(10000 / tfNet);
+    var designersNeeded = Math.ceil(10000 / (tfNet * dropsPerDesigner));
+    document.getElementById('o-target-drops').textContent = designersNeeded+' designers';
     document.getElementById('o-target-row').style.opacity = '1';
   } else {
     document.getElementById('o-target-drops').textContent = 'N/A — TF net is negative';
