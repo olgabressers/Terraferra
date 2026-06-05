@@ -251,7 +251,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 <!-- 01 CALCULATOR -->
 <section class="section">
   <div class="sec-heading"><span class="sec-num">01</span> Unit Economics · Drop Calculator</div>
-  <p style="font-size:13px;color:var(--sub);margin-bottom:28px;line-height:1.6">Per-drop economics for one influencer promoting one drop. VTO cost reflects all visitors who try VTO — not just buyers. Orders are capped by items in the drop (defaults open not sold-out: 25K followers × 0.5% = 125 orders, below the 150-item cap — increase followers to see sell-out — increase items to model an unsold-out scenario). Monthly fixed costs excluded; see section 03.</p>
+  <p style="font-size:13px;color:var(--sub);margin-bottom:28px;line-height:1.6">Per-drop economics for one influencer promoting one drop. VTO cost reflects all visitors who try VTO — not just buyers. Orders are capped by items in the drop (defaults open not sold-out: 50K followers × 0.5% = 250 orders, below the 300-item cap — increase followers to see sell-out — increase items to model an unsold-out scenario). Monthly fixed costs excluded; see section 03.</p>
 
   <div class="calc-wrap">
 
@@ -276,9 +276,9 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
       <div class="sl-group">
         <div class="sl-top">
           <span class="sl-label">Items in this drop</span>
-          <span class="sl-val" id="v-items">150</span>
+          <span class="sl-val" id="v-items">300</span>
         </div>
-        <input type="range" id="sl-items" min="10" max="2000" step="10" value="150" oninput="calc()"/>
+        <input type="range" id="sl-items" min="10" max="2000" step="10" value="300" oninput="calc()"/>
         <div class="sl-hints"><span>10</span><span>2,000</span></div>
         <div class="sl-note">Caps orders — pre-order is limited to this quantity. Emerging designers typically run 50–150 items per drop.</div>
       </div>
@@ -286,9 +286,9 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
       <div class="sl-group">
         <div class="sl-top">
           <span class="sl-label">Influencer followers</span>
-          <span class="sl-val" id="v-followers">25K</span>
+          <span class="sl-val" id="v-followers">50K</span>
         </div>
-        <input type="range" id="sl-followers" min="1000" max="500000" step="1000" value="25000" oninput="calc()"/>
+        <input type="range" id="sl-followers" min="1000" max="500000" step="1000" value="50000" oninput="calc()"/>
         <div class="sl-hints"><span>1K</span><span>500K</span></div>
       </div>
 
