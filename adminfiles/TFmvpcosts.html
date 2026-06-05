@@ -385,6 +385,17 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         <div class="sl-note" style="margin-top:8px" id="limit-note">No cap — each VTO user runs up to 5 tries.</div>
       </div>
 
+      <div class="sliders-section-label" style="margin-top:28px">Monthly Scale</div>
+      <div class="sl-group">
+        <div class="sl-top">
+          <span class="sl-label">Drops per month</span>
+          <span class="sl-val" id="v-drops">5</span>
+        </div>
+        <input type="range" id="sl-drops" min="1" max="50" step="1" value="5" oninput="calc()"/>
+        <div class="sl-hints"><span>1</span><span>50</span></div>
+        <div class="sl-note">One drop = one designer × one influencer launch.</div>
+      </div>
+
     </div><!-- sliders-box -->
 
     <div class="out-box">
@@ -446,6 +457,16 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         <div style="display:flex;justify-content:space-between;align-items:baseline">
           <span class="profit-lbl">TF Net this drop</span>
           <span class="profit-val" id="o-tf-net" style="color:#C4B5FF">$2,531</span>
+        </div>
+        <div style="margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,.1)">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px">
+            <span style="font-size:11px;font-weight:700;color:rgba(255,255,255,.65)">Monthly TF Net (<span id="o-drops-lbl">5</span> drops)</span>
+            <span style="font-size:18px;font-weight:800;color:#7AE3B2" id="o-monthly-tf">$XX</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline" id="o-target-row">
+            <span style="font-size:11px;color:rgba(255,255,255,.5)">Drops needed for $10K/mo</span>
+            <span style="font-size:13px;font-weight:800;color:#C4B5FF" id="o-target-drops">—</span>
+          </div>
         </div>
       </div>
 
@@ -885,6 +906,20 @@ function calc() {
   document.getElementById('o-tf-gross').textContent = '$'+Math.round(tfFee).toLocaleString();
   document.getElementById('o-tf-net').textContent = fmtPos(tfNet);
   document.getElementById('o-tf-net').style.color = tfNet < 0 ? '#FF8A80' : '#C4B5FF';
+
+  var drops = +document.getElementById('sl-drops').value;
+  document.getElementById('v-drops').textContent = drops;
+  document.getElementById('o-drops-lbl').textContent = drops;
+  var monthlyTFNet = tfNet * drops;
+  document.getElementById('o-monthly-tf').textContent = fmtPos(monthlyTFNet);
+  document.getElementById('o-monthly-tf').style.color = monthlyTFNet < 0 ? '#FF8A80' : '#7AE3B2';
+  if (tfNet > 0) {
+    document.getElementById('o-target-drops').textContent = Math.ceil(10000 / tfNet);
+    document.getElementById('o-target-row').style.opacity = '1';
+  } else {
+    document.getElementById('o-target-drops').textContent = 'N/A — TF net is negative';
+    document.getElementById('o-target-row').style.opacity = '0.5';
+  }
   document.getElementById('o-vto-users').textContent = fK(vtoUsers)+' people ('+parseInt(document.getElementById('sl-browse').value)+'% of followers)';
 
   var profitEl = document.getElementById('o-profit');
