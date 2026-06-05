@@ -251,7 +251,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 <!-- 01 CALCULATOR -->
 <section class="section">
   <div class="sec-heading"><span class="sec-num">01</span> Unit Economics · Drop Calculator</div>
-  <p style="font-size:13px;color:var(--sub);margin-bottom:28px;line-height:1.6">Per-drop economics for one influencer promoting one drop. VTO cost now reflects all visitors who try VTO — not just buyers. Orders are capped by items in the drop. Monthly fixed costs are excluded; see the exclusions list below.</p>
+  <p style="font-size:13px;color:var(--sub);margin-bottom:28px;line-height:1.6">Per-drop economics for one influencer promoting one drop. VTO cost reflects all visitors who try VTO — not just buyers. Orders are capped by items in the drop (defaults open sold-out: 50K followers × 0.5% = 250 potential orders, capped to 100 items — increase items to model an unsold-out scenario). Monthly fixed costs excluded; see section 03.</p>
 
   <div class="calc-wrap">
 
@@ -360,7 +360,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         </div>
         <input type="range" id="sl-browse" min="1" max="30" step="1" value="10" oninput="calc()"/>
         <div class="sl-hints"><span>1×</span><span>30×</span></div>
-        <div class="sl-note">People who try VTO per actual order. VTO cost scales with sales, not follower count.</div>
+        <div class="sl-note">Proxy — actual VTO usage scales with traffic; this ratio keeps VTO cost proportional to revenue for planning purposes.</div>
       </div>
 
       <div class="sl-group" id="row-tries">
@@ -403,6 +403,15 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         <input type="range" id="sl-drops-per" min="1" max="4" step="1" value="1" oninput="calc()"/>
         <div class="sl-hints"><span>1</span><span>4</span></div>
         <div class="sl-note">How many drops each designer runs monthly.</div>
+      </div>
+      <div class="sl-group">
+        <div class="sl-top">
+          <span class="sl-label">Designer monthly platform fee</span>
+          <span class="sl-val" id="v-designer-fee">$500</span>
+        </div>
+        <input type="range" id="sl-designer-fee" min="100" max="1000" step="50" value="500" oninput="calc()"/>
+        <div class="sl-hints"><span>$100</span><span>$1,000</span></div>
+        <div class="sl-note">Fixed monthly subscription per designer — TF revenue on top of GMV commission.</div>
       </div>
 
     </div><!-- sliders-box -->
@@ -469,8 +478,16 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         </div>
         <div style="margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,.1)">
           <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px">
-            <span style="font-size:12px;font-weight:700;color:white">Monthly TF Net (<span id="o-drops-lbl">5 drops</span>)</span>
-            <span style="font-size:22px;font-weight:800;color:#7AE3B2" id="o-monthly-tf">$XX</span>
+            <span style="font-size:12px;font-weight:700;color:white">From drops (<span id="o-drops-lbl">5 drops</span>)</span>
+            <span style="font-size:15px;font-weight:800;color:white" id="o-monthly-tf">$XX</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px">
+            <span style="font-size:12px;font-weight:700;color:white">Subscriptions (<span id="o-sub-lbl">5 × $500</span>)</span>
+            <span style="font-size:15px;font-weight:800;color:white" id="o-monthly-sub">+$2,500</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px">
+            <span class="profit-lbl">Total monthly TF</span>
+            <span class="profit-val pos" id="o-monthly-total">$XX</span>
           </div>
           <div style="display:flex;justify-content:space-between;align-items:baseline" id="o-target-row">
             <span style="font-size:12px;color:white">Designers needed for $10K/mo</span>
@@ -496,9 +513,9 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
   </div><!-- calc-wrap -->
 
   <div style="background:var(--tf-ghost);border:1px solid var(--rule);border-left:4px solid var(--tf);padding:16px 22px;margin-top:24px;font-size:13.5px;color:var(--ink);line-height:1.8">
-    <strong>Total monthly cost to run MVP</strong> — excl. development costs, tax, shipping, returns:<br>
-    Stripe $0.30/order = <strong id="calc-stripe-sum">$30</strong> this drop &nbsp;+&nbsp; LoyaltyLion $199/mo &nbsp;+&nbsp; infrastructure TBD
-    &nbsp;=&nbsp; <strong style="color:var(--tf);font-size:16px" id="calc-total-sum">$229</strong> known + TBD
+    <strong>Monthly platform costs</strong> — excl. development, tax, shipping, returns:<br>
+    Stripe $0.30/order × <span id="calc-stripe-drops-lbl">5 drops</span> = <strong id="calc-stripe-sum">$150</strong> &nbsp;+&nbsp; LoyaltyLion $199/mo &nbsp;+&nbsp; infrastructure TBD
+    &nbsp;=&nbsp; <strong style="color:var(--tf);font-size:16px" id="calc-total-sum">$349</strong> known + TBD
   </div>
 
   <!-- CONCLUSION -->
@@ -513,6 +530,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
       <div style="flex:1;min-width:160px;background:var(--tf-ghost);padding:16px 20px">
         <div style="font-size:11px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px">Designers needed (1 drop/mo each)</div>
         <div style="font-size:28px;font-weight:800;color:var(--orange)" id="concl-designers">—</div>
+        <div style="font-size:10px;color:var(--sub);margin-top:4px">Fixed at 1 drop/mo — use slider for other cadences</div>
       </div>
       <div style="flex:1;min-width:160px;background:var(--tf-ghost);padding:16px 20px">
         <div style="font-size:11px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px">VTO cost as % of TF fee</div>
@@ -539,6 +557,16 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
           <td class="bold">VTO cost</td>
           <td id="concl-p-vto" class="bold">$375</td>
           <td class="note">TF pays FASHN.AI directly. Reducing tries per session or capping to 3 (free tier) cuts this cost immediately.</td>
+        </tr>
+        <tr>
+          <td class="bold">Conversion rate</td>
+          <td id="concl-p-conv" class="bold" style="color:var(--sub)">0.5%</td>
+          <td class="note">Active only when drop is not sold out — higher conversion reaches the items cap faster. Once sold out, conversion has no effect on revenue.</td>
+        </tr>
+        <tr>
+          <td class="bold">Designer monthly fee</td>
+          <td id="concl-p-dsfee" class="bold" style="color:var(--tf)">$500</td>
+          <td class="note">Fixed subscription per designer per month — TF revenue independent of drop performance. Each additional designer adds this directly to monthly TF revenue.</td>
         </tr>
         <tr>
           <td class="bold">Drops / designer / mo</td>
@@ -920,7 +948,13 @@ function calc() {
   var payFee     = revenue * payPct;
   var production = orders * cogs;
 
-  // VTO cost scales with orders (not followers) — more followers = more orders = more revenue = more VTO, proportionally
+  // Compute drop scale early — needed for Kivisense monthly fee split
+  var designers = +document.getElementById('sl-designers').value;
+  var dropsPerDesigner = +document.getElementById('sl-drops-per').value;
+  var totalDrops = designers * dropsPerDesigner;
+  var designerFee = +document.getElementById('sl-designer-fee').value;
+
+  // VTO cost scales with orders (not followers)
   var vtoUsers = Math.round(orders * browseMultiplier);
   var effectiveTries = limitEnabled ? Math.min(tries, 3) : tries;
   var totalTries = vtoUsers * effectiveTries;
@@ -929,7 +963,7 @@ function calc() {
   if (vtoMode === 'fashn') {
     vtoCost = totalTries * 0.075;
   } else if (vtoMode === 'kivisense') {
-    vtoCost = 888;
+    vtoCost = 888 / totalDrops; // $888/mo flat split across all drops
   }
 
   var profit = revenue - production - tfFee - infShare - payFee;
@@ -951,7 +985,7 @@ function calc() {
   if (vtoMode === 'fashn') {
     document.getElementById('o-vto-lbl').textContent = 'VTO · FASHN.AI ('+totalTries.toLocaleString()+' tries)';
   } else if (vtoMode === 'kivisense') {
-    document.getElementById('o-vto-lbl').textContent = 'VTO · Kivisense (flat)';
+    document.getElementById('o-vto-lbl').textContent = 'VTO · Kivisense ($888/mo ÷ '+totalDrops+' drops)';
   }
   document.getElementById('o-vto').textContent    = fmtNeg(vtoCost);
 
@@ -964,21 +998,25 @@ function calc() {
   document.getElementById('o-tf-net').textContent = fmtPos(tfNet);
   document.getElementById('o-tf-net').className = 'profit-val ' + (tfNet >= 0 ? 'pos' : 'neg');
 
-  var designers = +document.getElementById('sl-designers').value;
-  var dropsPerDesigner = +document.getElementById('sl-drops-per').value;
-  var totalDrops = designers * dropsPerDesigner;
   document.getElementById('v-designers').textContent = designers;
   document.getElementById('v-drops-per').textContent = dropsPerDesigner;
+  document.getElementById('v-designer-fee').textContent = '$'+designerFee;
   document.getElementById('o-drops-lbl').textContent = designers+' designers × '+dropsPerDesigner+' = '+totalDrops+' drops';
-  var monthlyTFNet = tfNet * totalDrops;
-  document.getElementById('o-monthly-tf').textContent = fmtPos(monthlyTFNet);
-  document.getElementById('o-monthly-tf').style.color = monthlyTFNet < 0 ? '#FF8A80' : '#7AE3B2';
-  if (tfNet > 0) {
-    var designersNeeded = Math.ceil(10000 / (tfNet * dropsPerDesigner));
+  var monthlyTFDrops = tfNet * totalDrops;
+  var monthlyTFSubs = designerFee * designers;
+  var monthlyTFTotal = monthlyTFDrops + monthlyTFSubs;
+  document.getElementById('o-monthly-tf').textContent = fmtPos(monthlyTFDrops);
+  document.getElementById('o-sub-lbl').textContent = designers+' × $'+designerFee;
+  document.getElementById('o-monthly-sub').textContent = '+$'+Math.round(monthlyTFSubs).toLocaleString();
+  document.getElementById('o-monthly-total').textContent = fmtPos(monthlyTFTotal);
+  document.getElementById('o-monthly-total').className = 'profit-val ' + (monthlyTFTotal >= 0 ? 'pos' : 'neg');
+  var revenuePerDesigner = (tfNet * dropsPerDesigner) + designerFee;
+  if (revenuePerDesigner > 0) {
+    var designersNeeded = Math.ceil(10000 / revenuePerDesigner);
     document.getElementById('o-target-drops').textContent = designersNeeded+' designers';
     document.getElementById('o-target-row').style.opacity = '1';
   } else {
-    document.getElementById('o-target-drops').textContent = 'N/A — TF net is negative';
+    document.getElementById('o-target-drops').textContent = 'N/A — revenue per designer negative';
     document.getElementById('o-target-row').style.opacity = '0.5';
   }
   document.getElementById('o-vto-users').textContent = fK(vtoUsers)+' browsers ('+browseMultiplier+'× orders)';
@@ -993,13 +1031,14 @@ function calc() {
 
   // Crossover: 11,840 total tries/month = breakeven
   var crossoverTries = Math.round(888 / 0.075);
-  var pct = Math.round(totalTries / crossoverTries * 100);
+  var monthlyTries = totalTries * totalDrops;
+  var pct = Math.round(monthlyTries / crossoverTries * 100);
   var xoverEl = document.getElementById('xover');
   if (vtoMode === 'none') {
     xoverEl.textContent = 'N/A — VTO off';
   } else {
-    var direction = totalTries >= crossoverTries ? '→ Kivisense cheaper' : '→ FASHN.AI cheaper';
-    xoverEl.textContent = totalTries.toLocaleString()+' tries — '+pct+'% of crossover '+direction;
+    var direction = monthlyTries >= crossoverTries ? '→ Kivisense cheaper' : '→ FASHN.AI cheaper';
+    xoverEl.textContent = monthlyTries.toLocaleString()+' tries/month — '+pct+'% of crossover '+direction;
   }
 
   // Try-limit note
@@ -1013,7 +1052,8 @@ function calc() {
   }
 
   // Conclusion block
-  var desNeeded1 = tfNet > 0 ? Math.ceil(10000 / tfNet) : null;
+  var revenuePerDes1 = tfNet + designerFee; // at 1 drop/mo
+  var desNeeded1 = revenuePerDes1 > 0 ? Math.ceil(10000 / revenuePerDes1) : null;
   var vtoPct = tfFee > 0 ? Math.round(vtoCost / tfFee * 100) : 0;
   document.getElementById('concl-tf-net').textContent = fmtPos(tfNet);
   document.getElementById('concl-tf-net').style.color = tfNet < 0 ? 'var(--red-text)' : 'var(--tf)';
@@ -1022,26 +1062,34 @@ function calc() {
   document.getElementById('concl-vto-pct').style.color = vtoPct > 50 ? 'var(--red-text)' : vtoPct > 25 ? 'var(--orange)' : 'var(--ink)';
   document.getElementById('concl-p-designers').textContent = designers;
   document.getElementById('concl-p-price').textContent = '$'+price;
-  document.getElementById('concl-p-vto').textContent = '$'+Math.round(vtoCost)+' ('+vtoPct+'% of TF fee)';
+  document.getElementById('concl-p-conv').textContent = parseFloat(document.getElementById('sl-conv').value).toFixed(1)+'%';
+  document.getElementById('concl-p-vto').textContent = vtoMode === 'none' ? 'Off' : '$'+Math.round(vtoCost)+' ('+vtoPct+'% of TF fee)';
+  document.getElementById('concl-p-dsfee').textContent = '$'+designerFee+'/mo per designer';
   document.getElementById('concl-p-cadence').textContent = dropsPerDesigner+' drop'+(dropsPerDesigner>1?'s':'')+'/mo';
-  if (tfNet > 0) {
-    var desAt2 = Math.ceil(10000 / (tfNet * 2));
+  if (revenuePerDes1 > 0) {
+    var desAt2 = Math.ceil(10000 / ((tfNet * 2) + designerFee));
+    var vtoTip = vtoMode === 'none' ? 'VTO is off — no try-on costs.' :
+                 vtoMode === 'kivisense' ? 'Kivisense $888/mo is split across '+totalDrops+' drops ($'+Math.round(vtoCost)+'/drop).' :
+                 vtoPct > 30 ? 'VTO is eating '+vtoPct+'% of TF fee — reducing tries per session lowers this directly.' :
+                 'VTO cost is '+vtoPct+'% of TF fee — manageable at this setting.';
     document.getElementById('concl-summary').textContent =
-      'TF nets $'+Math.round(tfNet).toLocaleString()+' per drop at current settings. '
-      +'At 1 drop/designer/month: '+desNeeded1+' designers reach $10K/mo. '
+      'TF nets $'+Math.round(tfNet).toLocaleString()+'/drop + $'+designerFee+'/designer/month subscription. '
+      +'At 1 drop/designer: '+desNeeded1+' designers reach $10K/mo. '
       +'At 2 drops/designer: '+desAt2+' designers. '
-      +(vtoPct > 30 ? 'VTO is eating '+vtoPct+'% of TF fee — reducing tries per session is the fastest way to improve TF net per drop.' : 'VTO cost is '+vtoPct+'% of TF fee — manageable at this setting.');
+      +vtoTip;
   } else {
-    document.getElementById('concl-summary').textContent = 'TF net is negative at current settings — increase price, reduce VTO tries, or lower influencer commission to make the model work.';
+    document.getElementById('concl-summary').textContent = 'Revenue per designer is negative at current settings — increase price, reduce VTO tries, or lower influencer commission.';
   }
 
-  // Section 02 + section 01 summary — fixed costs correlated with calculator
+  // Section 02 (per-drop Stripe) + section 01 summary (monthly Stripe across all drops)
   var stripeFixed = orders * 0.30;
+  var monthlyStripe = stripeFixed * totalDrops;
   document.getElementById('fc-orders').textContent      = orders.toLocaleString();
   document.getElementById('fc-stripe').textContent      = '$'+Math.round(stripeFixed).toLocaleString();
   document.getElementById('fc-total').textContent       = '$'+Math.round(stripeFixed + 199).toLocaleString();
-  document.getElementById('calc-stripe-sum').textContent= '$'+Math.round(stripeFixed).toLocaleString();
-  document.getElementById('calc-total-sum').textContent = '$'+Math.round(stripeFixed + 199).toLocaleString();
+  document.getElementById('calc-stripe-drops-lbl').textContent = totalDrops+' drop'+(totalDrops>1?'s':'');
+  document.getElementById('calc-stripe-sum').textContent= '$'+Math.round(monthlyStripe).toLocaleString();
+  document.getElementById('calc-total-sum').textContent = '$'+Math.round(monthlyStripe + 199).toLocaleString();
 }
 
 calc();
