@@ -251,7 +251,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 <!-- 01 CALCULATOR -->
 <section class="section">
   <div class="sec-heading"><span class="sec-num">01</span> Unit Economics · Drop Calculator</div>
-  <p style="font-size:13px;color:var(--sub);margin-bottom:28px;line-height:1.6">Per-drop economics for one influencer promoting one drop. VTO cost reflects all visitors who try VTO — not just buyers. Orders are capped by items in the drop (defaults open sold-out: 50K followers × 0.5% = 250 potential orders, capped to 100 items — increase items to model an unsold-out scenario). Monthly fixed costs excluded; see section 03.</p>
+  <p style="font-size:13px;color:var(--sub);margin-bottom:28px;line-height:1.6">Per-drop economics for one influencer promoting one drop. VTO cost reflects all visitors who try VTO — not just buyers. Orders are capped by items in the drop (defaults open sold-out: 25K followers × 0.5% = 125 potential orders, capped to 100 items — increase items to model an unsold-out scenario). Monthly fixed costs excluded; see section 03.</p>
 
   <div class="calc-wrap">
 
@@ -286,9 +286,9 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
       <div class="sl-group">
         <div class="sl-top">
           <span class="sl-label">Influencer followers</span>
-          <span class="sl-val" id="v-followers">50K</span>
+          <span class="sl-val" id="v-followers">25K</span>
         </div>
-        <input type="range" id="sl-followers" min="1000" max="500000" step="1000" value="50000" oninput="calc()"/>
+        <input type="range" id="sl-followers" min="1000" max="500000" step="1000" value="25000" oninput="calc()"/>
         <div class="sl-hints"><span>1K</span><span>500K</span></div>
       </div>
 
@@ -313,9 +313,9 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
       <div class="sl-group">
         <div class="sl-top">
           <span class="sl-label">Production cost per piece</span>
-          <span class="sl-val" id="v-cogs">$40</span>
+          <span class="sl-val" id="v-cogs">$50</span>
         </div>
-        <input type="range" id="sl-cogs" min="5" max="500" step="5" value="40" oninput="calc()"/>
+        <input type="range" id="sl-cogs" min="5" max="500" step="5" value="50" oninput="calc()"/>
         <div class="sl-hints"><span>$5</span><span>$500</span></div>
         <div class="sl-note">Apparel: 30–40% of retail · Footwear: 35–45%. At $150 retail → ~$45–68 typical for emerging designers.</div>
       </div>
@@ -325,11 +325,11 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
       <div class="sl-group">
         <div class="sl-top">
           <span class="sl-label">TF platform fee</span>
-          <span class="sl-val" id="v-platform">7%</span>
+          <span class="sl-val" id="v-platform">10%</span>
         </div>
-        <input type="range" id="sl-platform" min="5" max="15" step="0.5" value="7" oninput="calc()"/>
+        <input type="range" id="sl-platform" min="5" max="15" step="0.5" value="10" oninput="calc()"/>
         <div class="sl-hints"><span>5%</span><span>15%</span></div>
-        <div class="sl-note">TF model: 7% on GMV</div>
+        <div class="sl-note">TF model: 10% on GMV</div>
       </div>
 
       <div class="sl-group">
@@ -408,9 +408,9 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
       <div class="sl-group">
         <div class="sl-top">
           <span class="sl-label">Designer monthly platform fee</span>
-          <span class="sl-val" id="v-designer-fee">$500</span>
+          <span class="sl-val" id="v-designer-fee">$250</span>
         </div>
-        <input type="range" id="sl-designer-fee" min="0" max="1000" step="50" value="500" oninput="calc()"/>
+        <input type="range" id="sl-designer-fee" min="0" max="1000" step="50" value="250" oninput="calc()"/>
         <div class="sl-hints"><span>$0</span><span>$1,000</span></div>
         <div class="sl-note">Fixed monthly subscription per designer — TF revenue on top of GMV commission. $0 = commission-only model.</div>
       </div>
@@ -552,7 +552,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         <tr>
           <td class="bold">Drop price</td>
           <td id="concl-p-price" class="bold" style="color:var(--tf)">$150</td>
-          <td class="note">TF earns 7% of GMV. Doubling price doubles TF fee — and halves the number of designers needed.</td>
+          <td class="note">TF earns 10% of GMV. Doubling price doubles TF fee — and halves the number of designers needed.</td>
         </tr>
         <tr>
           <td class="bold">VTO cost</td>
@@ -566,13 +566,18 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         </tr>
         <tr>
           <td class="bold">Designer monthly fee</td>
-          <td id="concl-p-dsfee" class="bold" style="color:var(--tf)">$500</td>
+          <td id="concl-p-dsfee" class="bold" style="color:var(--tf)">$250</td>
           <td class="note">Fixed subscription per designer per month — TF revenue independent of drop performance. Each additional designer adds this directly to monthly TF revenue.</td>
         </tr>
         <tr>
           <td class="bold">Drops / designer / mo</td>
           <td id="concl-p-cadence" class="bold" style="color:var(--sub)">1</td>
           <td class="note">Doubling cadence from 1→2 drops/month halves designers needed. Depends on designer capacity.</td>
+        </tr>
+        <tr>
+          <td class="bold">Influencer followers</td>
+          <td id="concl-p-followers" class="bold" style="color:var(--sub)">25K</td>
+          <td class="note">Minimum 50K for a drop to reliably sell out at 0.5% conversion with 100 items. Below 50K, the drop likely won't clear — TF earns less per drop and VTO cost as % of revenue rises.</td>
         </tr>
       </tbody>
     </table>
@@ -1067,6 +1072,7 @@ function calc() {
   document.getElementById('concl-p-vto').textContent = vtoMode === 'none' ? 'Off' : '$'+Math.round(vtoCost)+' ('+vtoPct+'% of TF fee)';
   document.getElementById('concl-p-dsfee').textContent = '$'+designerFee+'/mo per designer';
   document.getElementById('concl-p-cadence').textContent = dropsPerDesigner+' drop'+(dropsPerDesigner>1?'s':'')+'/mo';
+  document.getElementById('concl-p-followers').textContent = fK(followers)+(followers >= 50000 ? '' : ' ⚠ below 50K min');
   if (revenuePerDes1 > 0) {
     var desAt2 = Math.ceil(10000 / ((tfNet * 2) + designerFee));
     var vtoTip = vtoMode === 'none' ? 'VTO is off — no try-on costs.' :
