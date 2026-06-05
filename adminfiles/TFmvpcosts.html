@@ -251,7 +251,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 <!-- 01 CALCULATOR -->
 <section class="section">
   <div class="sec-heading"><span class="sec-num">01</span> Unit Economics · Drop Calculator</div>
-  <p style="font-size:13px;color:var(--sub);margin-bottom:28px;line-height:1.6">Per-drop economics for one influencer promoting one drop. VTO cost reflects all visitors who try VTO — not just buyers. Orders are capped by items in the drop (defaults open sold-out: 25K followers × 0.5% = 125 potential orders, capped to 100 items — increase items to model an unsold-out scenario). Monthly fixed costs excluded; see section 03.</p>
+  <p style="font-size:13px;color:var(--sub);margin-bottom:28px;line-height:1.6">Per-drop economics for one influencer promoting one drop. VTO cost reflects all visitors who try VTO — not just buyers. Orders are capped by items in the drop (defaults open not sold-out: 25K followers × 0.5% = 125 orders, below the 150-item cap — increase followers to see sell-out — increase items to model an unsold-out scenario). Monthly fixed costs excluded; see section 03.</p>
 
   <div class="calc-wrap">
 
@@ -276,9 +276,9 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
       <div class="sl-group">
         <div class="sl-top">
           <span class="sl-label">Items in this drop</span>
-          <span class="sl-val" id="v-items">100</span>
+          <span class="sl-val" id="v-items">150</span>
         </div>
-        <input type="range" id="sl-items" min="10" max="2000" step="10" value="100" oninput="calc()"/>
+        <input type="range" id="sl-items" min="10" max="2000" step="10" value="150" oninput="calc()"/>
         <div class="sl-hints"><span>10</span><span>2,000</span></div>
         <div class="sl-note">Caps orders — pre-order is limited to this quantity. Emerging designers typically run 50–150 items per drop.</div>
       </div>
@@ -436,7 +436,12 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         <span class="out-row-val neg" id="o-cogs">−$10,000</span>
       </div>
       <div class="out-row">
-        <span class="out-row-lbl" id="o-tf-lbl">TF Fee (7%)</span>
+        <span class="out-row-lbl">Influencer samples (5 items)</span>
+        <span class="out-row-val neg" id="o-samples">−$250</span>
+      </div>
+      <div style="font-size:11px;color:var(--sub);margin:-4px 0 6px;line-height:1.4">5 items sent to influencer before each drop — designer absorbs production cost.</div>
+      <div class="out-row">
+        <span class="out-row-lbl" id="o-tf-lbl">TF Fee (10%)</span>
         <span class="out-row-val neg" id="o-tf">−$2,625</span>
       </div>
       <div class="out-row">
@@ -473,6 +478,11 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
           <span style="font-size:12px;font-weight:700;color:white" id="o-vto-lbl">VTO cost (FASHN.AI)</span>
           <span style="font-size:15px;font-weight:800;color:#FF8A80" id="o-vto">−$94</span>
         </div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px">
+          <span style="font-size:12px;font-weight:700;color:white">Gamification reserve (<input type="number" id="inp-gami" value="0" min="0" max="500" step="5" oninput="calc()" style="width:46px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);border-radius:3px;color:white;padding:2px 4px;font-size:11px;font-family:inherit;text-align:right"/>$/drop)</span>
+          <span style="font-size:15px;font-weight:800;color:#FF8A80" id="o-gami">−$0</span>
+        </div>
+        <div style="font-size:11px;color:rgba(255,255,255,.55);margin:-4px 0 10px;line-height:1.4">Points, future discounts and reward credits TF absorbs per drop.</div>
         <div style="display:flex;justify-content:space-between;align-items:baseline">
           <span class="profit-lbl">TF Net this drop</span>
           <span class="profit-val pos" id="o-tf-net">$2,531</span>
@@ -972,7 +982,9 @@ function calc() {
     vtoCost = 888 / totalDrops; // $888/mo flat split across all drops
   }
 
-  var profit = revenue - production - tfFee - infShare - payFee;
+  var sampleCost = 5 * cogs;
+  var gamiCost = +document.getElementById('inp-gami').value;
+  var profit = revenue - production - sampleCost - tfFee - infShare - payFee;
   var margin = revenue > 0 ? (profit / revenue * 100) : 0;
 
   // Sold-out indicator
@@ -981,6 +993,7 @@ function calc() {
 
   document.getElementById('o-rev').textContent    = '$'+Math.round(revenue).toLocaleString();
   document.getElementById('o-cogs').textContent   = fmtNeg(production);
+  document.getElementById('o-samples').textContent = fmtNeg(sampleCost);
   document.getElementById('o-tf').textContent     = fmtNeg(tfFee);
   document.getElementById('o-tf-lbl').textContent = 'TF Fee ('+parseFloat(document.getElementById('sl-platform').value).toFixed(1)+'%)';
   document.getElementById('o-inf').textContent    = fmtNeg(infShare);
@@ -999,7 +1012,8 @@ function calc() {
   document.getElementById('o-margin').textContent = margin.toFixed(1)+'%';
   document.getElementById('o-inf-net').textContent= '$'+Math.round(infShare).toLocaleString();
 
-  var tfNet = tfFee - vtoCost;
+  var tfNet = tfFee - vtoCost - gamiCost;
+  document.getElementById('o-gami').textContent = fmtNeg(gamiCost);
   document.getElementById('o-tf-gross').textContent = '$'+Math.round(tfFee).toLocaleString();
   document.getElementById('o-tf-net').textContent = fmtPos(tfNet);
   document.getElementById('o-tf-net').className = 'profit-val ' + (tfNet >= 0 ? 'pos' : 'neg');
