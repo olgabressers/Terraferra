@@ -355,12 +355,12 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 
       <div class="sl-group" id="row-browse">
         <div class="sl-top">
-          <span class="sl-label">VTO browse rate — % of followers who try VTO</span>
-          <span class="sl-val" id="v-browse">5%</span>
+          <span class="sl-label">VTO browsers per order</span>
+          <span class="sl-val" id="v-browse">10×</span>
         </div>
-        <input type="range" id="sl-browse" min="1" max="50" step="1" value="5" oninput="calc()"/>
-        <div class="sl-hints"><span>1%</span><span>50%</span></div>
-        <div class="sl-note">Most VTO users never order — they drive the majority of VTO cost.</div>
+        <input type="range" id="sl-browse" min="1" max="30" step="1" value="10" oninput="calc()"/>
+        <div class="sl-hints"><span>1×</span><span>30×</span></div>
+        <div class="sl-note">People who try VTO per actual order. VTO cost scales with sales, not follower count.</div>
       </div>
 
       <div class="sl-group" id="row-tries">
@@ -447,24 +447,24 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 
       <div class="profit-row">
         <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px">
-          <span style="font-size:11px;font-weight:700;color:rgba(255,255,255,.65)">TF platform fee</span>
-          <span style="font-size:14px;font-weight:800;color:#C4B5FF" id="o-tf-gross">$2,625</span>
+          <span style="font-size:12px;font-weight:700;color:white">TF platform fee</span>
+          <span style="font-size:15px;font-weight:800;color:white" id="o-tf-gross">$2,625</span>
         </div>
         <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px" id="o-vto-tf-row">
-          <span style="font-size:11px;font-weight:700;color:rgba(255,255,255,.65)" id="o-vto-lbl">VTO cost (FASHN.AI)</span>
-          <span style="font-size:14px;font-weight:800;color:#FF8A80" id="o-vto">−$94</span>
+          <span style="font-size:12px;font-weight:700;color:white" id="o-vto-lbl">VTO cost (FASHN.AI)</span>
+          <span style="font-size:15px;font-weight:800;color:#FF8A80" id="o-vto">−$94</span>
         </div>
         <div style="display:flex;justify-content:space-between;align-items:baseline">
           <span class="profit-lbl">TF Net this drop</span>
-          <span class="profit-val" id="o-tf-net" style="color:#C4B5FF">$2,531</span>
+          <span class="profit-val pos" id="o-tf-net">$2,531</span>
         </div>
         <div style="margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,.1)">
           <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px">
-            <span style="font-size:11px;font-weight:700;color:rgba(255,255,255,.65)">Monthly TF Net (<span id="o-drops-lbl">5</span> drops)</span>
-            <span style="font-size:18px;font-weight:800;color:#7AE3B2" id="o-monthly-tf">$XX</span>
+            <span style="font-size:12px;font-weight:700;color:white">Monthly TF Net (<span id="o-drops-lbl">5</span> drops)</span>
+            <span style="font-size:22px;font-weight:800;color:#7AE3B2" id="o-monthly-tf">$XX</span>
           </div>
           <div style="display:flex;justify-content:space-between;align-items:baseline" id="o-target-row">
-            <span style="font-size:11px;color:rgba(255,255,255,.5)">Drops needed for $10K/mo</span>
+            <span style="font-size:12px;color:white">Drops needed for $10K/mo</span>
             <span style="font-size:13px;font-weight:800;color:#C4B5FF" id="o-target-drops">—</span>
           </div>
         </div>
@@ -837,7 +837,7 @@ function calc() {
   var platPct    = +document.getElementById('sl-platform').value / 100;
   var infPct     = +document.getElementById('sl-inf').value / 100;
   var payPct     = +document.getElementById('sl-payment').value / 100;
-  var browseRate = +document.getElementById('sl-browse').value / 100;
+  var browseMultiplier = +document.getElementById('sl-browse').value;
   var tries      = +document.getElementById('sl-tries').value;
 
   // Update slider labels
@@ -849,7 +849,7 @@ function calc() {
   document.getElementById('v-platform').textContent = parseFloat(document.getElementById('sl-platform').value).toFixed(1)+'%';
   document.getElementById('v-inf').textContent      = parseInt(document.getElementById('sl-inf').value)+'%';
   document.getElementById('v-payment').textContent  = parseFloat(document.getElementById('sl-payment').value).toFixed(1)+'%';
-  document.getElementById('v-browse').textContent   = parseInt(document.getElementById('sl-browse').value)+'%';
+  document.getElementById('v-browse').textContent   = browseMultiplier+'×';
   document.getElementById('v-tries').textContent    = tries+'×';
 
   // Orders capped by items in drop
@@ -863,8 +863,8 @@ function calc() {
   var payFee     = revenue * payPct;
   var production = orders * cogs;
 
-  // VTO cost: ALL visitors who try VTO, not just buyers
-  var vtoUsers = Math.round(followers * browseRate);
+  // VTO cost scales with orders (not followers) — more followers = more orders = more revenue = more VTO, proportionally
+  var vtoUsers = Math.round(orders * browseMultiplier);
   var effectiveTries = limitEnabled ? Math.min(tries, 3) : tries;
   var totalTries = vtoUsers * effectiveTries;
 
@@ -905,7 +905,7 @@ function calc() {
   var tfNet = tfFee - vtoCost;
   document.getElementById('o-tf-gross').textContent = '$'+Math.round(tfFee).toLocaleString();
   document.getElementById('o-tf-net').textContent = fmtPos(tfNet);
-  document.getElementById('o-tf-net').style.color = tfNet < 0 ? '#FF8A80' : '#C4B5FF';
+  document.getElementById('o-tf-net').className = 'profit-val ' + (tfNet >= 0 ? 'pos' : 'neg');
 
   var drops = +document.getElementById('sl-drops').value;
   document.getElementById('v-drops').textContent = drops;
@@ -920,7 +920,7 @@ function calc() {
     document.getElementById('o-target-drops').textContent = 'N/A — TF net is negative';
     document.getElementById('o-target-row').style.opacity = '0.5';
   }
-  document.getElementById('o-vto-users').textContent = fK(vtoUsers)+' people ('+parseInt(document.getElementById('sl-browse').value)+'% of followers)';
+  document.getElementById('o-vto-users').textContent = fK(vtoUsers)+' browsers ('+browseMultiplier+'× orders)';
 
   var profitEl = document.getElementById('o-profit');
   profitEl.className = 'profit-val ' + (profit >= 0 ? 'pos' : 'neg');
