@@ -12,7 +12,7 @@
 :root{
   --tf:#4B40C2;--tf-dark:#2D2595;--tf-ghost:#F4F2FC;
   --orange:#E86820;--off-white:#F7F6FB;--ink:#12102B;
-  --sub:#5B5880;--rule:#D8D4EF;--green:#1A7A4A;--green-bg:#EDFAF3;
+  --sub:#5B5880;--rule:#D8D4EF;--green:#1A7A4A;--green-bg:#EDFAF3;--red:#C0392B;
 }
 body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)}
 
@@ -41,24 +41,24 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 }
 
 /* LAYOUT */
-.pg-wrap{max-width:1100px;margin:0 auto;padding:0 60px}
-.pg-header{padding:52px 0 0}
+.pg-wrap{max-width:1240px;margin:0 auto;padding:40px 48px 80px}
+.pg-header{padding:12px 0 0}
 .pg-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--sub);opacity:.6}
 .pg-title{font-size:44px;font-weight:800;letter-spacing:-1.5px;color:var(--ink);margin-top:14px;line-height:1.1}
-.pg-sub{font-size:13.5px;color:var(--sub);margin-top:10px;line-height:1.6;max-width:700px}
+.pg-sub{font-size:13.5px;color:var(--sub);margin-top:10px;line-height:1.6;max-width:780px}
 
 .section{padding:52px 0}
 .section+.section{border-top:1px solid var(--rule)}
-.sec-heading{font-size:24px;font-weight:800;color:var(--ink);margin-bottom:8px;line-height:1.2}
-.sec-num{font-size:24px;font-weight:800;color:var(--orange);margin-right:10px}
+.sec-heading{font-size:20px;font-weight:800;color:var(--ink);margin-bottom:20px;line-height:1.2}
+.sec-num{font-size:20px;font-weight:800;color:var(--orange);margin-right:8px}
 .sec-sub{font-size:13px;color:var(--sub);margin-bottom:28px;line-height:1.6;max-width:760px}
 
 /* CONCLUSION HERO */
-.concl-hero{background:white;border:1px solid var(--rule);border-top:4px solid var(--orange);padding:36px 40px;margin-top:36px}
-.concl-eyebrow{font-size:10px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--orange);margin-bottom:24px}
-.concl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
-.concl-col-head{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
-.concl-list{font-size:13.5px;line-height:1.75;color:var(--ink);font-weight:500;padding-left:20px;margin:0}
+.concl-hero{background:white;border:1px solid var(--rule);border-top:4px solid var(--orange);padding:32px 36px;margin-top:32px}
+.concl-eyebrow{font-size:26px;font-weight:800;letter-spacing:-0.5px;color:var(--orange);margin-bottom:24px}
+.concl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.concl-col-head{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.concl-list{font-size:13.5px;line-height:1.75;color:var(--ink);font-weight:500;padding-left:18px;margin:0}
 .concl-list li{margin-bottom:10px}
 .concl-list strong{font-weight:800;color:var(--ink)}
 
@@ -111,14 +111,6 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .tl-content strong{font-weight:800}
 .tl-src{font-size:11px;color:var(--sub);margin-top:4px;display:block}
 
-/* SOURCES */
-.sources-box{background:white;border:1px solid var(--rule);padding:28px 32px;margin-top:28px}
-.sources-eyebrow{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);margin-bottom:16px}
-.sources-list{font-size:12px;color:var(--sub);line-height:2}
-.sources-list a{color:var(--tf);text-decoration:none}
-.sources-list a:hover{text-decoration:underline}
-.sources-note{font-size:12px;color:var(--sub);margin-top:12px;line-height:1.6;font-style:italic}
-
 footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margin-top:60px}
 .footer-inner{max-width:1100px;margin:0 auto;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);opacity:.5}
 
@@ -130,8 +122,7 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
   .card-grid.two{grid-template-columns:1fr 1fr}
 }
 @media(max-width:700px){
-  .pg-wrap{padding:0 20px}
-  .pg-header{padding:28px 0 0}
+  .pg-wrap{padding:20px 16px 60px}
   .pg-title{font-size:30px}
   .section{padding:36px 0}
   .concl-hero{padding:22px 20px}
@@ -567,50 +558,6 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
     </table>
   </div>
 
-  <!-- SOURCES -->
-  <div class="section">
-    <div class="sec-heading"><span class="sec-num">05</span>Sources</div>
-    <div class="sources-box">
-      <div class="sources-eyebrow">Primary Sources — Accessed June 2026</div>
-      <div class="sources-list">
-        <div><strong>LTK / ShopMy eligibility &amp; features</strong></div>
-        <div>LTK Creator Application Expectations — <a href="https://company.shopltk.com/creatorapplication_expectations" target="_blank" rel="noopener">company.shopltk.com/creatorapplication_expectations</a></div>
-        <div>LTK Brand Features — <a href="https://company.shopltk.com/en/brands" target="_blank" rel="noopener">company.shopltk.com/en/brands</a></div>
-        <div>LTK Creator Blog: "Didn't Get Approved" — <a href="https://onbrand.shopltk.com/en/creator-blog/didnt-get-approved-now-what" target="_blank" rel="noopener">onbrand.shopltk.com</a></div>
-        <div>ShopMy Creator Guide — <a href="https://guide.shopmy.us/" target="_blank" rel="noopener">guide.shopmy.us</a></div>
-        <div>ShopMy Creator Guide: How to Join — <a href="https://guide.shopmy.us/joining-shopmy/3ViMaZXyQ35LmFfKegLSNS/how-to-join/43V9gf7Co7FvbVeH6dp6or" target="_blank" rel="noopener">guide.shopmy.us/how-to-join</a></div>
-        <div>ShopMy Summer 2025 Updates — <a href="https://guide.shopmy.us/summer-2025-updates/5jLY2jskGAENwEWJEf147B" target="_blank" rel="noopener">guide.shopmy.us/summer-2025-updates</a></div>
-        <div>Sacra: ShopMy Revenue &amp; Business Model Profile, 2025 — <a href="https://sacra.com/c/shopmy/" target="_blank" rel="noopener">sacra.com/c/shopmy</a></div>
-        <div>Adweek — LTK and ShopMy expansion toward social platforms — <a href="https://www.adweek.com/commerce/why-affiliate-marketing-firms-ltk-and-shopmy-want-to-be-the-next-social-media-platforms/" target="_blank" rel="noopener">adweek.com</a></div>
-        <div>ShopMy Series B ($77.5M, $410M valuation, January 2025) — PR Newswire — <a href="https://www.prnewswire.com/news-releases/creator-marketing-platform-shopmy-raises-77-5m-to-pioneer-performance-first-approach-302359607.html" target="_blank" rel="noopener">prnewswire.com</a></div>
-        <div>ShopMy October 2025 round ($70M, $1.5B valuation) — PR Newswire — <a href="https://www.prnewswire.com/news-releases/shopmy-raises-70m-at-1-5-billion-valuation-to-scale-the-curated-commerce-infrastructure-for-premium-brands-tastemakers-and-shoppers-302590802.html" target="_blank" rel="noopener">prnewswire.com</a></div>
-        <div><strong>VTO infrastructure</strong></div>
-        <div>FASHN.ai: Pricing Update for Developer API (Jan 2025) — <a href="https://fashn.ai/blog/pricing-update-for-developer-api" target="_blank" rel="noopener">fashn.ai/blog/pricing-update-for-developer-api</a></div>
-        <div>FASHN.ai: Comparing the Top 4 Open-Source VITON Models — <a href="https://fashn.ai/blog/comparing-the-top-4-open-source-virtual-try-on-viton-models" target="_blank" rel="noopener">fashn.ai/blog/comparing-the-top-4-open-source-virtual-try-on-viton-models</a></div>
-        <div><strong>Drops / pre-order demand proof</strong></div>
-        <div>Sacra: Whatnot Revenue &amp; GMV Profile, 2025 — <a href="https://sacra.com/c/whatnot/" target="_blank" rel="noopener">sacra.com/c/whatnot</a></div>
-        <div>Whatnot 2026 Trends Report — <a href="https://blog.teamwhatnot.com/unitedstates/2026trends" target="_blank" rel="noopener">blog.teamwhatnot.com/unitedstates/2026trends</a></div>
-        <div>Business of Fashion — Whatnot $11.5B valuation — <a href="https://www.businessoffashion.com/news/retail/whatnot-secures-115-billion-valuation/" target="_blank" rel="noopener">businessoffashion.com</a></div>
-        <div>Optimonk — Rhode Beauty marketing breakdown (440K waitlist, $212M revenue) — <a href="https://www.optimonk.com/rhode-marketing-breakdown" target="_blank" rel="noopener">optimonk.com/rhode-marketing-breakdown</a></div>
-        <div><strong>Gen Z / creator economy</strong></div>
-        <div>BCG + Women's Wear Daily — Gen Z &amp; Gen Alpha fashion spending report, October 2025 — <a href="https://www.prnewswire.com/news-releases/gen-z-and-gen-alpha-set-to-drive-40-of-fashion-spending-by-2035-302597629.html" target="_blank" rel="noopener">prnewswire.com (BCG press release)</a></div>
-        <div>Influencer Marketing Benchmark Report 2026 — Influencer Marketing Hub — <a href="https://influencermarketinghub.com/influencer-marketing-benchmark-report/" target="_blank" rel="noopener">influencermarketinghub.com/influencer-marketing-benchmark-report</a></div>
-        <div>Nano-influencer share of Instagram — Creators Jet / Stack Influence, citing Influencer Marketing Hub — <a href="https://www.creatorsjet.com/blog/75-percent-of-instagram-influencers-are-nano-influencers" target="_blank" rel="noopener">creatorsjet.com</a></div>
-        <div>Creator economy global size — market.us, March 2026 — <a href="https://market.us/report/creator-economy-market/" target="_blank" rel="noopener">market.us/report/creator-economy-market</a></div>
-        <div><strong>Competing platforms</strong></div>
-        <div>Hingeto (YC W16) — Y Combinator — <a href="https://www.ycombinator.com/companies/hingeto" target="_blank" rel="noopener">ycombinator.com/companies/hingeto</a></div>
-        <div>Doji raises $14M (Thrive Capital, May 2025) — TechCrunch — <a href="https://techcrunch.com/2025/05/15/doji-raises-14m-to-make-virtual-try-ons-fun-through-ai-avatars/" target="_blank" rel="noopener">techcrunch.com</a></div>
-        <div>NTWRK folds into Complex — Axios, March 2024 — <a href="https://www.axios.com/2024/03/05/ntwrk-folds-into-complex-original-execs-return" target="_blank" rel="noopener">axios.com</a></div>
-        <div>Complex Shop launch — PR Newswire, November 2024 — <a href="https://www.prnewswire.com/news-releases/introducing-complex-shop-a-curation-of-convergence-culture-302311986.html" target="_blank" rel="noopener">prnewswire.com</a></div>
-        <div>Vette — Conde Nast creator commerce platform launch, 2026 — <a href="https://theimpression.com/vette-conde-nasts-new-marketplace-connecting-brands-creators-and-consumers/" target="_blank" rel="noopener">theimpression.com</a></div>
-        <div>TikTok Shop pre-order feature — Seller University — <a href="https://seller-us.tiktok.com/university/essay?knowledge_id=2062255939421998&lang=en" target="_blank" rel="noopener">seller-us.tiktok.com</a></div>
-        <div>Whatnot seller application — <a href="https://help.whatnot.com/hc/en-us/articles/8442834600333-Apply-to-sell-on-Whatnot" target="_blank" rel="noopener">help.whatnot.com</a></div>
-        <div>Depop Drops — <a href="https://www.depop.com/theme/drops/" target="_blank" rel="noopener">depop.com/theme/drops</a></div>
-        <div>Depop dropshipping policy (pre-order prohibited) — <a href="https://depophelp.zendesk.com/hc/en-gb/articles/22499808769553-Dropshipping-Policy" target="_blank" rel="noopener">depophelp.zendesk.com</a></div>
-      </div>
-      <div class="sources-note">Confidence notes: LTK and ShopMy eligibility criteria — HIGH (direct quotes from official pages). LTK/ShopMy absence of drops/pre-order features — HIGH (confirmed from brand feature pages, creator guide, and Sacra revenue model breakdown). ShopMy revenue growth ($4M → $27M → $80M) and $1.5B valuation — MEDIUM (Sacra independent research firm; not audited financials). ShopMy live-shopping roadmap — MEDIUM (stated in product direction; no announced launch date). Vette launch — HIGH (multiple independent sources, 2026). Whatnot fashion GMV growth (+223% YoY) — HIGH (platform-reported, consistent across Sacra and Whatnot trends report; not independently audited). Rhode Beauty revenue and waitlist — HIGH (widely reported across multiple independent sources). BCG Gen Z micro-influencer data — HIGH (primary source, October 2025, n=9,000+). VTO developer API availability — HIGH for FASHN.ai specific claims; narrowed away from "enterprise-only before 2023" which is too broad given Snap/Google history. Influencer Marketing Hub creator-tier percentages — MEDIUM (annual survey, methodology not independently audited; cited via secondary source).</div>
-    </div>
-  </div>
 </div>
 
 <footer>
