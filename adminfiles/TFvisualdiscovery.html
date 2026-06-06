@@ -13,7 +13,7 @@
   --tf:#4B40C2;--tf-dark:#2D2595;--tf-ghost:#F4F2FC;
   --orange:#E86820;--off-white:#F7F6FB;--ink:#12102B;
   --sub:#5B5880;--rule:#D8D4EF;--green:#1A7A4A;--green-bg:#EDFAF3;
-  --red:#C0392B;--amber:#B45309;--amber-bg:#FEF3C7;
+  --red:#C0392B;--red-bg:#FEE2E2;--amber:#B45309;--amber-bg:#FEF3C7;
 }
 body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)}
 
@@ -42,69 +42,72 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .pg-title{font-size:40px;font-weight:800;letter-spacing:-1.5px;color:var(--ink);margin-top:14px;line-height:1.1}
 .pg-sub{font-size:13.5px;color:var(--sub);margin-top:10px;line-height:1.6;max-width:780px}
 
-/* VERDICT */
-.verdict{background:white;border:1px solid var(--rule);border-top:4px solid var(--orange);padding:32px 36px;margin-top:32px}
-.verdict-eyebrow{font-size:22px;font-weight:800;letter-spacing:-0.5px;color:var(--orange);margin-bottom:20px}
-.verdict-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
-.verdict-col-head{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;color:var(--sub)}
-.verdict-list{font-size:13px;line-height:1.75;padding-left:18px;margin:0}
-.verdict-list li{margin-bottom:8px}
-.verdict-list strong{font-weight:800;color:var(--ink)}
+/* ALERT */
+.alert{background:var(--red-bg);border:1px solid #FECACA;border-left:4px solid var(--red);padding:20px 24px;margin-top:28px}
+.alert-head{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+.alert-body{font-size:13px;line-height:1.65;color:var(--ink)}
+.alert-body a{color:var(--red);text-decoration:underline}
+
+/* HONEST BOX */
+.honest{background:white;border:1px solid var(--rule);border-top:4px solid var(--orange);padding:28px 32px;margin-top:28px}
+.honest-head{font-size:17px;font-weight:800;color:var(--orange);margin-bottom:16px}
+.honest-body{font-size:13px;line-height:1.7;color:var(--ink)}
+.honest-body strong{font-weight:800}
 
 /* SECTION */
 .section{padding:44px 0}
 .section+.section{border-top:1px solid var(--rule)}
-.sec-heading{font-size:20px;font-weight:800;color:var(--ink);margin-bottom:20px;line-height:1.2}
+.sec-heading{font-size:20px;font-weight:800;color:var(--ink);margin-bottom:8px;line-height:1.2}
 .sec-num{font-size:20px;font-weight:800;color:var(--orange);margin-right:8px}
+.sec-sub{font-size:13px;color:var(--sub);margin-bottom:20px;line-height:1.55}
 
 /* MAIN TABLE */
 .wrap-scroll{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
-.mtable{width:100%;border-collapse:collapse;font-size:12.5px;min-width:860px}
+.mtable{width:100%;border-collapse:collapse;font-size:12.5px;min-width:900px}
 .mtable th{text-align:left;font-size:9.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);padding:10px 14px;border-bottom:2px solid var(--rule);background:var(--tf-ghost);white-space:nowrap}
-.mtable td{padding:12px 14px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.5}
+.mtable td{padding:12px 14px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.55;font-size:12.5px}
 .mtable tr:last-child td{border-bottom:none}
-.mtable tr:hover td{background:#FAFAFE}
-.tool-name{font-weight:800;color:var(--ink);display:block;margin-bottom:3px}
+.mtable tr.dead td{opacity:.55;background:#FAFAFA}
+.tool-name{font-weight:800;color:var(--ink);display:block;margin-bottom:2px}
 .tool-name a{color:var(--tf);text-decoration:none}
 .tool-name a:hover{text-decoration:underline}
 .tool-sub{font-size:11px;color:var(--sub)}
 .price-free{color:var(--green);font-weight:800}
+.price-real{font-weight:700;color:var(--ink)}
 .price-custom{color:var(--sub);font-style:italic}
-.price-pay{color:var(--amber);font-weight:700}
 
-/* COMPLEXITY BADGES */
+/* BADGES */
 .cx{display:inline-block;padding:3px 9px;border-radius:2px;font-size:10px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;white-space:nowrap}
-.cx-low{background:#EDFAF3;color:var(--green)}
-.cx-med{background:#FEF3C7;color:var(--amber)}
-.cx-high{background:#FEE2E2;color:#B91C1C}
-
-/* VERDICT BADGES */
+.cx-low{background:var(--green-bg);color:var(--green)}
+.cx-med{background:var(--amber-bg);color:var(--amber)}
+.cx-high{background:var(--red-bg);color:#B91C1C}
 .vb{display:inline-block;padding:3px 9px;border-radius:2px;font-size:10px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;white-space:nowrap}
-.vb-rec{background:var(--tf-ghost);color:var(--tf)}
-.vb-pilot{background:#FEF3C7;color:var(--amber)}
+.vb-go{background:var(--tf-ghost);color:var(--tf)}
+.vb-pilot{background:var(--amber-bg);color:var(--amber)}
+.vb-dead{background:var(--red-bg);color:var(--red)}
 .vb-skip{background:#F1F5F9;color:#64748B}
 
-/* PATH CARDS */
-.path-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
-.pcard{background:white;border:1px solid var(--rule);padding:20px 22px}
-.pcard-label{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:8px}
-.pcard-title{font-size:14px;font-weight:800;color:var(--ink);margin-bottom:8px}
-.pcard-body{font-size:12.5px;color:var(--sub);line-height:1.6}
-.pcard-body a{color:var(--tf);text-decoration:none}
-.pcard-body a:hover{text-decoration:underline}
+/* MVP BLOCK */
+.mvp-box{background:white;border:1px solid var(--rule);border-top:4px solid var(--tf);padding:28px 32px;margin-top:24px}
+.mvp-head{font-size:15px;font-weight:800;color:var(--tf);margin-bottom:16px}
+.mvp-steps{list-style:none;padding:0;margin:0;counter-reset:step}
+.mvp-steps li{counter-increment:step;display:flex;gap:16px;margin-bottom:16px;font-size:13px;line-height:1.6}
+.mvp-steps li:last-child{margin-bottom:0}
+.mvp-step-num{flex-shrink:0;width:26px;height:26px;background:var(--tf);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;margin-top:1px}
+.mvp-step-body strong{font-weight:800;color:var(--ink)}
+.mvp-cost{display:inline-block;background:var(--green-bg);color:var(--green);font-size:10px;font-weight:800;padding:2px 8px;border-radius:2px;margin-left:8px;text-transform:uppercase;letter-spacing:.5px}
+.mvp-effort{display:inline-block;background:var(--amber-bg);color:var(--amber);font-size:10px;font-weight:800;padding:2px 8px;border-radius:2px;margin-left:6px;text-transform:uppercase;letter-spacing:.5px}
 
 footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margin-top:60px}
 .footer-inner{max-width:1200px;margin:0 auto;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);opacity:.5}
-
 #back-to-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--tf);color:white;border:none;border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900}
 #back-to-top:hover{background:var(--tf-dark)}
 
-@media(max-width:1000px){.verdict-grid{grid-template-columns:1fr}.path-grid{grid-template-columns:1fr}}
 @media(max-width:700px){
   .pg-wrap{padding:20px 16px 60px}
   .pg-title{font-size:28px}
   .section{padding:32px 0}
-  .verdict{padding:22px 20px}
+  .honest{padding:20px 18px}
   footer{padding:18px 20px}
 }
 </style>
@@ -132,50 +135,46 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
 </nav>
 
 <div class="pg-wrap">
-  <div class="pg-header">
-    <div class="pg-eyebrow">Business Model Research · Internal</div>
-    <div class="pg-title">Visual Discovery Engines</div>
-    <div class="pg-sub">APIs and models TF can integrate to let consumers find products by image or aesthetic — pricing, capabilities, and integration complexity for each option.</div>
+
+  <div class="pg-eyebrow">Business Model Research · Internal</div>
+  <div class="pg-title">Visual Discovery Engines</div>
+  <div class="pg-sub">APIs TF can integrate to let consumers find products by image or aesthetic — real pricing, real integration cost, honest assessment of what works at TF's stage.</div>
+
+  <!-- VENDOR ALERTS -->
+  <div class="alert">
+    <div class="alert-head">Vendor Status Alerts — Verify Before Any Commitment</div>
+    <div class="alert-body">
+      <strong>Syte.ai filed for court-supervised rehabilitation (insolvency) on 28 May 2025</strong> in the Tel Aviv District Court. ~$11M in debt, ~$7M/year revenue at filing. Website is still live but the company is in insolvency proceedings. Do not evaluate as a viable integration target without direct confirmation of current status. Source: <a href="https://www.calcalistech.com/ctechnews/article/hjnmxf4zeg" target="_blank" rel="noopener">Calcalist Tech</a>.<br/><br/>
+      <strong>ViSenze was acquired by Rezolve AI on 27 August 2025.</strong> 100% of engineering staff joined Rezolve. Product is still available but post-acquisition roadmap and pricing are unconfirmed. Treat the 30-day trial as a valid way to test functionality; confirm commercial terms before committing.
+    </div>
   </div>
 
-  <div class="verdict">
-    <div class="verdict-eyebrow">What TF needs and what it costs</div>
-    <div class="verdict-grid">
-      <div>
-        <div class="verdict-col-head">What TF needs</div>
-        <ul class="verdict-list">
-          <li><strong>Visual search</strong> — consumer uploads a photo or screenshot, TF surfaces products that match the look</li>
-          <li><strong>Aesthetic matching</strong> — match a designer's collection style to consumers/fans who already wear that aesthetic</li>
-          <li><strong>Language bridging</strong> — designer writes "midi peplum mauve", consumer searches "flowy purple dress" — the engine connects them</li>
-        </ul>
-      </div>
-      <div>
-        <div class="verdict-col-head">Recommended path</div>
-        <ul class="verdict-list">
-          <li><strong>Day 1 / MVP:</strong> Algolia Recommend free tier for "similar items" recs — 1–2 days to integrate, zero cost</li>
-          <li><strong>Pilot (weeks 1–4):</strong> ViSenze 30-day free trial for full visual search — validates whether upload-a-photo flow converts before any spend</li>
-          <li><strong>Scale:</strong> FashionCLIP self-hosted for zero-cost, own-IP visual layer if engineering has ML capacity; or Syte for enterprise-grade with no ML overhead</li>
-        </ul>
-      </div>
+  <!-- HONEST FRAMING -->
+  <div class="honest">
+    <div class="honest-head">Two different problems — make sure you're solving the right one</div>
+    <div class="honest-body">
+      <strong>Problem A — "Show me similar products" on a product page.</strong> Consumer clicks a jacket, sees 6 similar jackets. This is behavioural recommendation (Algolia Recommend). It needs click and purchase history to train on — cold-start problem: zero data on day 1, gets better over time. Not true visual search.<br/><br/>
+      <strong>Problem B — "Upload a photo, find matching products."</strong> Consumer uploads an Instagram screenshot, TF returns the closest items in its catalog. This is visual search (ViSenze, FashionCLIP). It does not need purchase history — it works from day 1 based on image similarity. This is what Maxim's comment is about: a new way to discover unusual items.<br/><br/>
+      Algolia is cheap and easy but solves Problem A. ViSenze and FashionCLIP solve Problem B. They are not interchangeable.
     </div>
   </div>
 
   <!-- TABLE -->
   <div class="section">
-    <div class="sec-heading"><span class="sec-num">01</span>Comparison — APIs TF integrates into its product</div>
-    <p style="font-size:12.5px;color:var(--sub);line-height:1.6;margin-bottom:20px;max-width:820px">These are engines TF embeds on its servers. The end user (consumer, fan) never sees the vendor — they see TF's interface. All data sourced from <a href="ideas.html#sec-visual" style="color:var(--tf)">the full AI Research page</a>.</p>
+    <div class="sec-heading"><span class="sec-num">01</span>Comparison table — real pricing</div>
+    <div class="sec-sub">Sources: vendor pricing pages fetched June 2026. Custom-only vendors have no public pricing — confirmed by direct page check, not assumed.</div>
 
     <div class="wrap-scroll">
     <table class="mtable">
       <thead>
         <tr>
-          <th style="min-width:140px">Tool</th>
-          <th style="min-width:200px">What it does</th>
-          <th style="min-width:150px">Pricing</th>
-          <th style="min-width:100px">Free to start</th>
-          <th style="min-width:130px">Integration</th>
+          <th style="min-width:150px">Tool</th>
+          <th style="min-width:100px">Solves</th>
+          <th style="min-width:200px">Real pricing</th>
+          <th style="min-width:110px">Free to start</th>
+          <th style="min-width:120px">Integration</th>
           <th style="min-width:90px">Complexity</th>
-          <th style="min-width:90px">Verdict</th>
+          <th style="min-width:90px">Status</th>
         </tr>
       </thead>
       <tbody>
@@ -183,79 +182,94 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
         <tr>
           <td>
             <span class="tool-name"><a href="https://www.algolia.com/products/recommendations/" target="_blank" rel="noopener">Algolia Recommend</a></span>
-            <span class="tool-sub">Algolia · US</span>
+            <span class="tool-sub">algolia.com/pricing</span>
           </td>
-          <td>"Looking Similar" visual recs on product pages; also behavioural (Related Products, Trending). Sub-10ms. Fashion clients: END. Clothing, Gymshark.</td>
-          <td><span class="price-free">Free starter tier</span><br/><span class="tool-sub">Enterprise on demo request</span></td>
-          <td><span class="price-free">Yes — free tier</span></td>
-          <td>REST API + pre-built JS/React/Vue widgets + catalog connectors</td>
+          <td>Problem A<br/><span class="tool-sub">Behavioural recs + Looking Similar</span></td>
+          <td>
+            <span class="price-free">Build: $0 — 10K recommend requests/mo included</span><br/>
+            <span class="price-real">Grow: $0.60 per 1K requests over free allowance</span><br/>
+            <span class="tool-sub">Recommend metered alongside search. Grow Plus (AI Ranking + Personalisation) on custom quote. Annual enterprise contract for Elevate tier.</span>
+          </td>
+          <td><span class="price-free">Yes — real permanent free tier</span><br/><span class="tool-sub">10K recommend requests/mo + 1M records</span></td>
+          <td>REST API + pre-built JS/React widgets + catalog connectors. Well-documented.</td>
           <td><span class="cx cx-low">Low</span></td>
-          <td><span class="vb vb-rec">Start here</span></td>
+          <td><span class="vb vb-go">Active</span></td>
         </tr>
 
         <tr>
           <td>
             <span class="tool-name"><a href="https://www.visenze.com" target="_blank" rel="noopener">ViSenze</a></span>
-            <span class="tool-sub">Rezolve AI · Global</span>
+            <span class="tool-sub">Now part of Rezolve AI</span>
           </td>
-          <td>Visual search by uploaded photo, multimodal search (image + text), "Shop the Look", automated product tagging, similar-item recs. Fashion clients: Zalora, Myntra, Urban Outfitters, Mango, Target, Tod's.</td>
-          <td><span class="price-custom">Custom — demo required</span></td>
-          <td><span style="color:var(--green);font-weight:700">30-day free trial</span></td>
-          <td>API + SDK + e-commerce connectors</td>
+          <td>Problem B<br/><span class="tool-sub">Photo-upload visual search, "Shop the Look", multimodal</span></td>
+          <td>
+            <span class="price-custom">No public pricing — custom quote after trial</span><br/>
+            <span class="tool-sub">Trial caps: 100K API requests + 50K products (whichever first). After trial: contact vendor. No published tiers anywhere.</span>
+          </td>
+          <td><span style="color:var(--amber);font-weight:700">30-day trial only</span><br/><span class="tool-sub">No credit card. Hard cap on requests + products.</span></td>
+          <td>API + SDK + e-commerce connectors. Fashion clients pre-acquisition: Zalora, Myntra, Urban Outfitters, Mango.</td>
           <td><span class="cx cx-med">Medium</span></td>
-          <td><span class="vb vb-pilot">Pilot first</span></td>
+          <td><span class="vb vb-pilot">Acquired Aug 2025 — verify status</span></td>
         </tr>
 
         <tr>
           <td>
             <span class="tool-name"><a href="https://huggingface.co/patrickjohncyh/fashion-clip" target="_blank" rel="noopener">FashionCLIP</a></span>
-            <span class="tool-sub">Open source · MIT license</span>
+            <span class="tool-sub">Open source · MIT · HuggingFace</span>
           </td>
-          <td>CLIP model fine-tuned on 800K Farfetch products. Zero-shot image classification, image↔text matching, cross-modal retrieval. TF fine-tunes it on its own catalog — owns the IP, no vendor lock-in. (Source: <a href="https://www.nature.com/articles/s41598-022-23052-9" target="_blank" rel="noopener">Nature Scientific Reports 2022</a>)</td>
-          <td><span class="price-free">Free (MIT)</span></td>
-          <td><span class="price-free">Yes — forever free</span></td>
-          <td>Self-hosted: <code>pip install fashion-clip</code> + vector DB (Pinecone / Weaviate) + search API on top</td>
-          <td><span class="cx cx-high">High</span><br/><span class="tool-sub">Needs ML engineer + GPU</span></td>
-          <td><span class="vb vb-rec">Recommended at scale</span></td>
+          <td>Problem B<br/><span class="tool-sub">Photo-upload, aesthetic matching, text↔image retrieval</span></td>
+          <td>
+            <span class="price-free">Model: free forever (MIT)</span><br/>
+            <span class="price-real">Vector DB: Pinecone free tier (2GB, 2M write units/mo) or Weaviate free tier (100K objects). Paid starts at $20/mo (Pinecone Builder) or $45/mo (Weaviate Flex).</span><br/>
+            <span class="price-real">GPU for batch embedding: AWS g4dn.xlarge ~$0.53/hr on-demand, ~$0.10–0.20/hr spot. A 50K-product catalog re-embed takes a few hours — one-time cost under $10. Not an always-on cost.</span><br/>
+            <span class="tool-sub">Realistic ongoing cost at startup scale: $0–$20/mo.</span>
+          </td>
+          <td><span class="price-free">Yes — zero cost to start</span><br/><span class="tool-sub">Free tier vector DBs cover startup scale</span></td>
+          <td>Self-hosted: <code>pip install fashion-clip</code> + vector DB + search API. Engineering builds the query endpoint and app integration. Trained on 800K Farfetch products. Source: <a href="https://www.nature.com/articles/s41598-022-23052-9" target="_blank" rel="noopener">Nature 2022</a>.</td>
+          <td><span class="cx cx-high">High</span><br/><span class="tool-sub">Needs backend/ML engineer. 2–3 weeks to working state.</span></td>
+          <td><span class="vb vb-go">Active</span></td>
         </tr>
 
-        <tr>
+        <tr class="dead">
           <td>
             <span class="tool-name"><a href="https://www.syte.ai" target="_blank" rel="noopener">Syte</a></span>
-            <span class="tool-sub">Enterprise · Global</span>
+            <span class="tool-sub" style="color:var(--red);font-weight:700">Filed insolvency May 2025</span>
           </td>
-          <td>Visual + text search, personalisation, automated product tagging, shoppable social curation. Production-grade. Fashion clients: Farfetch, PrettyLittleThing, SHEIN, Falabella.</td>
-          <td><span class="price-custom">Custom — not disclosed</span></td>
+          <td>Problem B<br/><span class="tool-sub">Visual search, tagging, personalisation</span></td>
+          <td><span class="price-custom">Custom / GMV-based. No public pricing.</span><br/><span class="tool-sub">Website still live. Commercial future unclear.</span></td>
           <td>No</td>
-          <td>API + SaaS dashboard + e-commerce platform connectors</td>
+          <td>API + SaaS. Was used by Farfetch, SHEIN, PrettyLittleThing, Prada.</td>
           <td><span class="cx cx-med">Medium</span></td>
-          <td><span class="vb vb-rec">Recommended (no ML team)</span></td>
+          <td><span class="vb vb-dead">Do not use</span></td>
         </tr>
 
         <tr>
           <td>
             <span class="tool-name"><a href="https://lily.ai" target="_blank" rel="noopener">Lily AI</a></span>
-            <span class="tool-sub">SaaS · Global</span>
+            <span class="tool-sub">Enterprise only</span>
           </td>
-          <td>Enriches product catalog with consumer-language attributes. Bridges "midi peplum mauve" (designer) → "flowy purple dress" (consumer search). Improves site search, SEO. Clients: Bloomingdale's, Rue Gilt Groupe.</td>
-          <td><span class="price-custom">Custom — not disclosed</span></td>
+          <td>Language bridging<br/><span class="tool-sub">Designer vocab → consumer search terms</span></td>
+          <td><span class="price-custom">No public pricing. Demo required. Pricing page exists but contains zero numbers.</span><br/><span class="tool-sub">Implementation typically 4–8 weeks. Targets mid-to-large retailers. No startup tier. Not realistic for TF at current stage.</span></td>
           <td>No</td>
-          <td>SaaS + API — export TF catalog, Lily enriches it, sync back</td>
-          <td><span class="cx cx-med">Medium</span><br/><span class="tool-sub">No ML needed, catalog integration</span></td>
-          <td><span class="vb vb-pilot">Additive layer</span></td>
+          <td>SaaS + API: export TF catalog → Lily enriches → sync back. Clients: Bloomingdale's, Rue Gilt Groupe.</td>
+          <td><span class="cx cx-med">Medium</span></td>
+          <td><span class="vb vb-skip">Too early for TF</span></td>
         </tr>
 
         <tr>
           <td>
-            <span class="tool-name"><a href="https://aws.amazon.com/rekognition/custom-labels-features/" target="_blank" rel="noopener">AWS Rekognition</a></span>
-            <span class="tool-sub">Amazon · Global</span>
+            <span class="tool-name"><a href="https://aws.amazon.com/rekognition/custom-labels-features/" target="_blank" rel="noopener">AWS Rekognition Custom Labels</a></span>
+            <span class="tool-sub">Generic — not fashion-trained</span>
           </td>
-          <td>Custom image classification via AutoML. Generic — not fashion-trained out of the box. Requires TF to supply labeled training data. Less efficient than FashionCLIP for fashion use cases.</td>
-          <td><span class="price-pay">Pay-per-inference + training hours</span><br/><span class="tool-sub">See <a href="https://aws.amazon.com/rekognition/pricing/" target="_blank" rel="noopener">AWS pricing page</a></span></td>
+          <td>Problem B (custom build)<br/><span class="tool-sub">Only if TF builds its own labeled training set</span></td>
+          <td>
+            <span class="price-real">Pay-per-inference + training hours. See <a href="https://aws.amazon.com/rekognition/pricing/" target="_blank" rel="noopener">AWS pricing page</a> for current rates.</span><br/>
+            <span class="tool-sub">Generic computer vision — requires TF to supply labeled fashion training data from scratch. More work than FashionCLIP for worse results on fashion tasks.</span>
+          </td>
           <td>AWS free tier (limited)</td>
-          <td>AWS API</td>
-          <td><span class="cx cx-high">High</span><br/><span class="tool-sub">Build training data from scratch</span></td>
-          <td><span class="vb vb-skip">Low priority</span></td>
+          <td>AWS API. Build training data, train model, build inference endpoint.</td>
+          <td><span class="cx cx-high">High</span></td>
+          <td><span class="vb vb-skip">No advantage over FashionCLIP</span></td>
         </tr>
 
       </tbody>
@@ -263,77 +277,131 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
     </div>
   </div>
 
-  <!-- BUILD PATH -->
+  <!-- REALISTIC MVP -->
   <div class="section">
-    <div class="sec-heading"><span class="sec-num">02</span>Integration path by phase</div>
-    <div class="path-grid">
+    <div class="sec-heading"><span class="sec-num">02</span>What a working integrated MVP actually requires</div>
+    <div class="sec-sub">A working MVP means: consumer opens TF, uploads or takes a photo, sees matching products from TF's catalog. Not a widget on a product page — actual photo-to-catalog visual search.</div>
 
-      <div class="pcard">
-        <div class="pcard-label">Day 1 — MVP</div>
-        <div class="pcard-title">Algolia Recommend</div>
-        <div class="pcard-body">
-          Free starter tier. Ingest TF product catalog → enable "Looking Similar" widget on product/drop pages. 1–2 days engineering. No pricing negotiation needed.<br/><br/>
-          <a href="https://www.algolia.com/products/recommendations/" target="_blank" rel="noopener">algolia.com →</a>
-        </div>
+    <div class="mvp-box">
+      <div class="mvp-head">Option A — FashionCLIP self-hosted (recommended if TF has engineering capacity)</div>
+      <ul class="mvp-steps">
+        <li>
+          <div class="mvp-step-num">1</div>
+          <div class="mvp-step-body">
+            <strong>Embed the TF product catalog.</strong> For each product image, run FashionCLIP to generate a 512-dimension vector. One-time batch job on a GPU instance. For 1,000–10,000 products: a few hours on AWS g4dn.xlarge spot instance.
+            <span class="mvp-cost">~$1–5 one-time</span>
+          </div>
+        </li>
+        <li>
+          <div class="mvp-step-num">2</div>
+          <div class="mvp-step-body">
+            <strong>Store vectors in Pinecone or Weaviate.</strong> Free tiers cover early-stage TF (Pinecone Starter: 2GB storage, 2M write units/mo; Weaviate: 100K objects). No cost until TF scales past these limits.
+            <span class="mvp-cost">$0/mo</span>
+          </div>
+        </li>
+        <li>
+          <div class="mvp-step-num">3</div>
+          <div class="mvp-step-body">
+            <strong>Build a search API endpoint.</strong> Backend receives a consumer's uploaded image → runs FashionCLIP → queries vector DB → returns top-N product matches. Standard REST endpoint.
+            <span class="mvp-effort">1–2 weeks engineering</span>
+          </div>
+        </li>
+        <li>
+          <div class="mvp-step-num">4</div>
+          <div class="mvp-step-body">
+            <strong>Wire into the TF app UI.</strong> Add a camera/upload button. POST the image to the search API. Render the result grid. Works on both mobile app and web.
+            <span class="mvp-effort">3–5 days frontend</span>
+          </div>
+        </li>
+      </ul>
+      <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--rule);font-size:12.5px;color:var(--sub)">
+        <strong style="color:var(--ink)">Total cost:</strong> ~$5 one-time GPU + $0/mo ongoing at MVP scale. <strong style="color:var(--ink)">Time to working:</strong> 2–3 weeks with one backend/ML-capable engineer. <strong style="color:var(--ink)">Risk:</strong> Requires an engineer who can set up the ML pipeline — not a pure frontend task.
       </div>
+    </div>
 
-      <div class="pcard">
-        <div class="pcard-label">Weeks 1–4 — Pilot</div>
-        <div class="pcard-title">ViSenze (30-day trial)</div>
-        <div class="pcard-body">
-          Upload product image index → enable camera/upload search flow in the TF app. Measures whether consumers actually use photo search before any contract spend. If it converts, negotiate pricing. If not, no cost.<br/><br/>
-          <a href="https://www.visenze.com" target="_blank" rel="noopener">visenze.com →</a>
-        </div>
+    <div class="mvp-box" style="margin-top:16px;border-top-color:var(--orange)">
+      <div class="mvp-head" style="color:var(--orange)">Option B — ViSenze 30-day trial (recommended if TF has no ML engineer)</div>
+      <ul class="mvp-steps">
+        <li>
+          <div class="mvp-step-num" style="background:var(--orange)">1</div>
+          <div class="mvp-step-body">
+            <strong>Sign up for the ViSenze trial.</strong> No credit card. 30-day window, capped at 100K API requests and 50K products. Gives full production-grade visual search functionality during the trial.
+            <span class="mvp-cost">$0 during trial</span>
+          </div>
+        </li>
+        <li>
+          <div class="mvp-step-num" style="background:var(--orange)">2</div>
+          <div class="mvp-step-body">
+            <strong>Index TF's product catalog via ViSenze API.</strong> Upload product images and metadata. ViSenze handles embedding and indexing — TF engineering does not touch the ML layer.
+            <span class="mvp-effort">2–3 days engineering</span>
+          </div>
+        </li>
+        <li>
+          <div class="mvp-step-num" style="background:var(--orange)">3</div>
+          <div class="mvp-step-body">
+            <strong>Integrate the visual search API into TF app.</strong> Camera/upload → POST to ViSenze API → render results. Same frontend work as Option A.
+            <span class="mvp-effort">3–5 days frontend</span>
+          </div>
+        </li>
+        <li>
+          <div class="mvp-step-num" style="background:var(--orange)">4</div>
+          <div class="mvp-step-body">
+            <strong>Measure conversion during the 30-day window.</strong> If photo search converts, negotiate commercial pricing. If not, trial ends with no cost and data to show investors. But note: ViSenze is post-acquisition (Rezolve AI, Aug 2025) — confirm the trial is still active and what post-trial pricing looks like before starting.
+          </div>
+        </li>
+      </ul>
+      <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--rule);font-size:12.5px;color:var(--sub)">
+        <strong style="color:var(--ink)">Total cost:</strong> $0 during trial. Post-trial: custom quote only — no public pricing, could be expensive. <strong style="color:var(--ink)">Time to working:</strong> ~1 week. <strong style="color:var(--ink)">Risk:</strong> Unknown post-trial cost; vendor is mid-acquisition transition.
       </div>
-
-      <div class="pcard">
-        <div class="pcard-label">Scale — two options</div>
-        <div class="pcard-title">FashionCLIP or Syte</div>
-        <div class="pcard-body">
-          <strong>If TF has ML capacity:</strong> FashionCLIP self-hosted — zero cost, own IP, fine-tune on TF catalog. Vector DB + search API required.<br/><br/>
-          <strong>If no ML team:</strong> Syte — enterprise-grade, handles model and infra, TF pays a vendor fee. Pricing by demo only.<br/><br/>
-          <a href="https://huggingface.co/patrickjohncyh/fashion-clip" target="_blank" rel="noopener">FashionCLIP →</a> &nbsp;·&nbsp; <a href="https://www.syte.ai" target="_blank" rel="noopener">Syte →</a>
-        </div>
-      </div>
-
     </div>
   </div>
 
-  <!-- WHAT IS NOT INCLUDED -->
+  <!-- WHAT ALGOLIA ACTUALLY IS -->
   <div class="section">
-    <div class="sec-heading"><span class="sec-num">03</span>Tools excluded from this list</div>
+    <div class="sec-heading"><span class="sec-num">03</span>Where Algolia fits — and what it does not do</div>
+    <div class="sec-sub">Algolia Recommend is not a visual search engine. It belongs in TF's stack as a different layer.</div>
+
     <table class="mtable" style="min-width:0">
       <thead>
         <tr>
-          <th>Tool</th>
-          <th>Reason excluded</th>
+          <th>Use case</th>
+          <th>Algolia does this?</th>
+          <th>Notes</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><strong>Google Cloud Vision Product Search</strong></td>
-          <td>In maintenance mode — Google recommends Vision Warehouse as successor. Avoid for new integration.</td>
+          <td>"Show similar products" on product/drop page</td>
+          <td><strong style="color:var(--green)">Yes</strong></td>
+          <td>"Looking Similar" feature. Starts working after TF accumulates click and purchase events. Weak on day 1 (cold start), stronger after weeks of data. Free up to 10K requests/mo.</td>
         </tr>
         <tr>
-          <td><strong>GLAMI Lens</strong></td>
-          <td>Consumer marketplace (EU), not a B2B API. No integration path for TF.</td>
+          <td>"Upload a photo, find matching products"</td>
+          <td><strong style="color:var(--red)">No</strong></td>
+          <td>Algolia does not accept image uploads as search queries. This requires ViSenze or FashionCLIP.</td>
         </tr>
         <tr>
-          <td><strong>Vue.ai</strong></td>
-          <td>Parent company (Mad Street Den) acquired by M2P in March 2025, pivoted to document processing. Strategic uncertainty — verify before any use.</td>
+          <td>Text search ("flowy purple dress")</td>
+          <td><strong style="color:var(--green)">Yes</strong></td>
+          <td>Core Algolia capability. Fast, well-documented.</td>
         </tr>
         <tr>
-          <td><strong>Stylumia / Heuritech</strong></td>
-          <td>Trend forecasting tools (for designer planning), not consumer-facing discovery engines. Different use case.</td>
+          <td>Trending items / "What's popular now"</td>
+          <td><strong style="color:var(--green)">Yes</strong></td>
+          <td>Trending Items model, included in Recommend tier.</td>
         </tr>
       </tbody>
     </table>
+
+    <div style="margin-top:16px;font-size:12.5px;color:var(--sub);line-height:1.65;max-width:820px">
+      Algolia's $0.60/1K recommend requests pricing is real — but at 10K free requests/month, a small TF MVP (few hundred DAU) will not hit the paid threshold for months. The free tier is genuinely usable. Add it to the product as a "you might also like" layer — it is not a substitute for photo-upload discovery.
+    </div>
   </div>
 
-</div><!-- /pg-wrap -->
+</div>
 
 <footer>
-  <div class="footer-inner">Private · noindex · Research sourced from <a href="ideas.html#sec-visual" style="color:var(--sub)">TF Ideas &amp; AI Research</a> page</div>
+  <div class="footer-inner">Private · noindex · Pricing sourced June 2026 from algolia.com/pricing, visenze.com, pinecone.io/pricing, weaviate.io/pricing, huggingface.co · Verify before any commitment</div>
 </footer>
 
 <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">&#8593;</button>
