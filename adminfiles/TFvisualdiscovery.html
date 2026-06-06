@@ -145,8 +145,9 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
     <div class="honest-head">Two different problems — make sure you're solving the right one</div>
     <div class="honest-body">
       <strong>Problem A — "Show me similar products" on a product page.</strong> Consumer clicks a jacket, sees 6 similar jackets. This is behavioural recommendation (Algolia Recommend). It needs click and purchase history to train on — cold-start problem: zero data on day 1, gets better over time. Not true visual search.<br/><br/>
-      <strong>Problem B — "Upload a photo, find matching products."</strong> Consumer uploads an Instagram screenshot, TF returns the closest items in its catalog. This is visual search (ViSenze, FashionCLIP). It does not need purchase history — it works from day 1 based on image similarity. This is what Maxim's comment is about: a new way to discover unusual items.<br/><br/>
-      <strong style="font-size:16px;color:var(--ink);line-height:1.5;display:block;margin-top:4px">Algolia is cheap and easy but solves Problem A. ViSenze and FashionCLIP solve Problem B. They are not interchangeable.</strong>
+      <strong>Problem B — "Upload a photo, find matching products."</strong> Consumer is on TF, uploads a photo of something they like, TF returns matching products from its catalog. No purchase history needed — works from day 1 based on image similarity.<br/><br/>
+      <strong style="font-size:16px;color:var(--ink);line-height:1.5;display:block;margin-top:4px">Algolia is cheap and easy but solves Problem A. ViSenze and FashionCLIP solve Problem B. They are not interchangeable.</strong><br/><br/>
+      <strong style="font-size:15px;color:var(--orange);line-height:1.5;display:block;margin-top:4px">TF's use case is almost entirely Problem B. Most enterprise vendors have no public pricing and require contracts — the realistic options are Ximilar (public pricing, free tier) or a self-hosted model (FashionCLIP / Marqo). There is no plug-and-play cheap solution from a proven fashion vendor.</strong>
     </div>
   </div>
 
@@ -169,6 +170,24 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
         </tr>
       </thead>
       <tbody>
+
+        <tr>
+          <td>
+            <span class="tool-name"><a href="https://www.ximilar.com/services/visual-search-solutions/" target="_blank" rel="noopener">Ximilar</a></span>
+            <span class="tool-sub">ximilar.com · Fashion primary</span>
+          </td>
+          <td>Problem B<br/><span class="tool-sub">Photo-upload → catalog match, fashion attribute tagging, reverse image search</span></td>
+          <td>
+            <span class="price-free">Free tier: €0/mo — 1,000 API credits/mo, no credit card</span><br/>
+            <span class="price-real">Business: €59–€285/mo (100K–500K credits/mo)</span><br/>
+            <span class="price-real">Professional: €499–€9,559/mo (1M–40M credits/mo)</span><br/>
+            <span class="tool-sub">Pay-per-use credit packs also available. Public pricing page: <a href="https://www.ximilar.com/pricing" target="_blank" rel="noopener">ximilar.com/pricing</a></span>
+          </td>
+          <td><span class="price-free">Yes — free tier, no card</span><br/><span class="tool-sub">Live demo at demo.ximilar.com</span></td>
+          <td>REST API. "Fashion Search All-in-one": visual similarity search, object detection, fashion attribute tagging. "Fast and easy integration with any system."</td>
+          <td><span class="cx cx-low">Low–Medium</span></td>
+          <td><span class="vb vb-go">Active</span></td>
+        </tr>
 
         <tr>
           <td>
@@ -220,6 +239,42 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
           <td>Self-hosted: <code>pip install fashion-clip</code> + vector DB + search API. Engineering builds the query endpoint and app integration. Trained on 800K Farfetch products. Source: <a href="https://www.nature.com/articles/s41598-022-23052-9" target="_blank" rel="noopener">Nature 2022</a>.</td>
           <td><span class="cx cx-high">High</span><br/><span class="tool-sub">Needs backend/ML engineer. 2–3 weeks to working state.</span></td>
           <td><span class="vb vb-go">Active</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <span class="tool-name"><a href="https://www.marqo.ai/ecommerce" target="_blank" rel="noopener">Marqo</a></span>
+            <span class="tool-sub">Open source + managed cloud · Fashion models</span>
+          </td>
+          <td>Problem B<br/><span class="tool-sub">Image + text multimodal search. Fashion-specific embedding models (Marqo-FashionCLIP, Marqo-FashionSigLIP) trained on 1M+ fashion products.</span></td>
+          <td>
+            <span class="price-free">Self-hosted: free (open source on GitHub)</span><br/>
+            <span class="price-real">Managed cloud: ~$0.38/hr referenced; full pricing requires sales contact</span><br/>
+            <span class="tool-sub">Fashion models: <a href="https://huggingface.co/Marqo" target="_blank" rel="noopener">4.8M+ monthly HuggingFace downloads</a></span>
+          </td>
+          <td><span class="price-free">Yes — self-hosted version free</span><br/><span class="tool-sub">Same model as FashionCLIP but with managed infrastructure option</span></td>
+          <td>Self-hosted via GitHub or managed cloud API. One-click integrations for Shopify, Adobe Commerce, Salesforce CC. Accepts image upload + text in same query ("like this photo but in darker blue").</td>
+          <td><span class="cx cx-high">High (self-hosted)</span><br/><span class="cx cx-med" style="margin-top:4px;display:inline-block">Medium (cloud)</span></td>
+          <td><span class="vb vb-go">Active</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <span class="tool-name"><a href="https://cloud.google.com/vision/product-search/docs" target="_blank" rel="noopener">Google Vision Product Search</a></span>
+            <span class="tool-sub">Apparel supported · Maintenance mode</span>
+          </td>
+          <td>Problem B<br/><span class="tool-sub">Image upload → catalog match. Apparel is a documented supported category.</span></td>
+          <td>
+            <span class="price-free">Free: 1,000 queries/mo</span><br/>
+            <span class="price-real">$4.50 per 1,000 queries (1K–5M/mo)</span><br/>
+            <span class="price-real">$1.80 per 1,000 queries above 5M/mo</span><br/>
+            <span class="price-real">Storage: free up to 1,000 images; $0.10 per 1,000 images above</span><br/>
+            <span class="tool-sub" style="color:var(--amber);font-weight:700">⚠ In maintenance mode. Google directs new builds to Vision Warehouse (successor). No shutdown date announced but evaluate Vision Warehouse for new integrations. Source: <a href="https://cloud.google.com/vision/docs/deprecations" target="_blank" rel="noopener" style="color:var(--amber)">Google Cloud deprecations</a></span>
+          </td>
+          <td><span class="price-free">Yes — 1,000 free queries/mo</span></td>
+          <td>Google Cloud API. Developer-managed product catalog. Matches query image against indexed SKUs.</td>
+          <td><span class="cx cx-med">Medium</span></td>
+          <td><span class="vb vb-pilot">Maintenance mode</span></td>
         </tr>
 
         <tr class="dead">
@@ -373,7 +428,7 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
         <tr>
           <td>"Upload a photo, find matching products"</td>
           <td><strong style="color:var(--red)">No</strong></td>
-          <td>Algolia does not accept image uploads as search queries. This requires ViSenze or FashionCLIP.</td>
+          <td>Algolia does not accept image uploads as search queries. This requires Ximilar, ViSenze, FashionCLIP, or Marqo.</td>
         </tr>
         <tr>
           <td>Text search ("flowy purple dress")</td>
@@ -393,10 +448,54 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
     </div>
   </div>
 
+  <!-- EXCLUDED -->
+  <div class="section">
+    <div class="sec-heading"><span class="sec-num">04</span>Tools excluded — reasons</div>
+    <div class="sec-sub">Researched but not recommended for TF at this stage.</div>
+    <table class="mtable" style="min-width:0">
+      <thead>
+        <tr>
+          <th style="min-width:180px">Tool</th>
+          <th>Reason excluded</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Bloomreach Discovery</strong></td>
+          <td>Visual image search confirmed and fashion-specific. Premium tier only — platform contracts start ~$35K–$250K+/year. Not accessible for TF at current stage.</td>
+        </tr>
+        <tr>
+          <td><strong>Constructor.io</strong></td>
+          <td>Visual image search confirmed. Requires CSM activation inside a ~$150K average annual contract. Enterprise-only, no self-serve path.</td>
+        </tr>
+        <tr>
+          <td><strong>Nyris</strong></td>
+          <td>B2B visual product search API, custom pricing, free trial available. Primary verticals are industrial/manufacturing (IKEA, Volkswagen). Fashion use case not documented — not confirmed to work for apparel.</td>
+        </tr>
+        <tr>
+          <td><strong>GLAMI Lens</strong></td>
+          <td>Consumer marketplace (EU), not a B2B API. No integration path for TF.</td>
+        </tr>
+        <tr>
+          <td><strong>Searchspring / Athos Commerce</strong></td>
+          <td>No visual image search confirmed. Text search and merchandising only.</td>
+        </tr>
+        <tr>
+          <td><strong>Vue.ai</strong></td>
+          <td>Parent company (Mad Street Den) acquired by M2P, March 2025. Pivoted to document processing. Strategic uncertainty.</td>
+        </tr>
+        <tr>
+          <td><strong>Stylumia / Heuritech</strong></td>
+          <td>Trend forecasting for designer planning — not consumer-facing visual search. Different use case entirely.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
 </div>
 
 <footer>
-  <div class="footer-inner">Private · noindex · Pricing sourced June 2026 from algolia.com/pricing, visenze.com, pinecone.io/pricing, weaviate.io/pricing, huggingface.co · Verify before any commitment</div>
+  <div class="footer-inner">Private · noindex · Pricing sourced June 2026 from algolia.com/pricing, ximilar.com/pricing, visenze.com, pinecone.io/pricing, weaviate.io/pricing, cloud.google.com/vision, huggingface.co, marqo.ai · Verify before any commitment</div>
 </footer>
 
 <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">&#8593;</button>
