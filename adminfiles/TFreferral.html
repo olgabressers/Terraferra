@@ -62,8 +62,10 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .dtable th{text-align:left;font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);padding:9px 14px;border-bottom:2px solid var(--rule);background:var(--tf-ghost)}
 .dtable td{padding:11px 14px;border-bottom:1px solid var(--rule);vertical-align:top;color:var(--ink);line-height:1.55}
 .dtable tr:last-child td{border-bottom:none}
+.dtable tr.group-head td{background:var(--tf-ghost);font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);padding:9px 14px;border-top:2px solid var(--rule);border-bottom:1px solid var(--rule)}
 .dtable .bold{font-weight:800}
 .dtable .pos{color:var(--green);font-weight:700}
+.dtable .neg{color:var(--red);font-weight:700}
 .dtable .src{font-size:11px;color:var(--sub);display:block;margin-top:3px}
 
 /* MECHANIC CARDS */
@@ -205,53 +207,99 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
 
   <!-- SECTION 02: EXAMPLES -->
   <div class="section">
-    <div class="sec-heading"><span class="sec-num">02</span>Consumer Sharing Without Cash — What Worked</div>
+    <div class="sec-heading"><span class="sec-num">02</span>What Worked and What Failed — Examples by Industry</div>
 
     <table class="dtable">
       <thead>
         <tr>
           <th style="width:18%">Brand</th>
-          <th style="width:30%">Consumer sharing mechanic</th>
-          <th style="width:22%">Result</th>
-          <th>Key takeaway for TF</th>
+          <th style="width:24%">Consumer referral / sharing mechanic</th>
+          <th style="width:18%">Outcome</th>
+          <th>Why</th>
         </tr>
       </thead>
       <tbody>
+
+        <tr class="group-head"><td colspan="4">Fashion — Premium &amp; Emerging (Most Relevant to TF)</td></tr>
+
         <tr>
           <td class="bold">Supreme</td>
-          <td>Drop model + scarcity. Zero referral program. Sharing = identity act ("I'm in-the-know").</td>
+          <td><span class="pos">No referral program.</span> Drop model + scarcity. Sharing = identity act — "I knew about this before you."</td>
           <td class="pos">30+ years organic viral growth. Acquired for $2.1B.</td>
-          <td>Being first to know about a drop is the social currency. The platform must make "first" visible — who backed it, who got in early.
+          <td>Being first is the social currency. A cash referral fee would have converted an identity signal into a transaction and destroyed it.
           <span class="src"><a href="https://www.vfc.com/investors/news-events-presentations/press-releases/detail/1741/vf-corporation-completes-acquisition-of-supreme" target="_blank" rel="noopener" style="color:var(--tf)">VF Corporation press release, Dec 2020</a></span></td>
         </tr>
+
         <tr>
           <td class="bold">Rhode Beauty</td>
-          <td>Waitlist + drop window. Scarcity created urgency. Zero cash referral fees paid.</td>
-          <td class="pos">440,000+ person waitlist for Peptide Lip Treatment. Viral sharing before a single unit shipped.</td>
-          <td>Waitlist position creates stake — buyers share because their position moves up or closes. Urgency converts passive viewers into active promoters.
+          <td><span class="pos">Waitlist + drop window, zero cash referral.</span> Scarcity + "you might miss it" created urgency.</td>
+          <td class="pos">440,000+ person waitlist. Viral sharing before a single unit shipped.</td>
+          <td>Waitlist position creates stake — consumers share because their slot moves up or the window closes. Urgency forces the share now, not later.
           <span class="src"><a href="https://www.voguebusiness.com/story/beauty/hailey-biebers-rhode-in-2023" target="_blank" rel="noopener" style="color:var(--tf)">Vogue Business 2023</a></span></td>
         </tr>
+
         <tr>
           <td class="bold">Glossier</td>
-          <td>Community rep program — application-only, product credit, no salary. Being a rep was the status signal.</td>
-          <td class="pos">500+ reps; cult brand built with minimal paid advertising; massive UGC.</td>
-          <td>Belonging to a select group drives more sharing than a cash bounty. Invite-only or application-based entry creates the status that makes sharing worthwhile.
+          <td><span class="pos">Application-only community rep program.</span> Product credit, no salary. Being accepted was the status signal.</td>
+          <td class="pos">500+ reps; cult brand built with minimal paid advertising.</td>
+          <td>Belonging to a select group drove more sharing than cash would have. The exclusivity of being a rep made members promote it publicly to signal taste.
           <span class="src"><a href="https://www.vox.com/the-goods/2019/3/14/18265620/glossier-influencers-brand-reps-creator-marketing" target="_blank" rel="noopener" style="color:var(--tf)">Vox 2019</a></span></td>
         </tr>
+
+        <tr>
+          <td class="bold">Farfetch / premium fashion platforms</td>
+          <td><span class="neg">Cash discount codes</span> — $20–$50 off for referred friend. Standard referral program applied to premium price points.</td>
+          <td class="neg">Low share rates. Brand perception damage. Core buyers saw discount-seeking as a lower-status signal.</td>
+          <td>At premium price points, a discount code signals the product is discountable — damaging the brand. Consumers don't want to appear to be recommending for a coupon.
+          <span class="src"><a href="https://www.businessoffashion.com/articles/luxury/duelling-visions-for-the-future-of-luxury-discounting/" target="_blank" rel="noopener" style="color:var(--tf)">Business of Fashion — Luxury Discounting</a></span></td>
+        </tr>
+
+        <tr class="group-head"><td colspan="4">Fashion — Luxury (No Referral as Deliberate Strategy)</td></tr>
+
+        <tr>
+          <td class="bold">Hermès, Chanel</td>
+          <td><span class="pos">No referral program.</span> Aspiration, invitation-only events, managed waitlists. Demand is controlled, not stimulated.</td>
+          <td class="pos">Sustained brand equity for decades. Birkin waitlist functions as a marketing tool.</td>
+          <td>In luxury, exclusivity IS the product. A referral scheme would destroy the aspiration model. The absence of cash incentives is the strategy, not an oversight.
+          <span class="src"><a href="https://www.bain.com/insights/long-live-luxury-converge-to-expand-through-turbulence/" target="_blank" rel="noopener" style="color:var(--tf)">Bain &amp; Company Global Luxury Study 2023</a></span></td>
+        </tr>
+
+        <tr class="group-head"><td colspan="4">Fashion — Mass Market (Contrast: Why Cash Works Here and Not Above)</td></tr>
+
+        <tr>
+          <td class="bold">SHEIN</td>
+          <td><span class="pos">Cash / credit referral</span> — $5–$10 per referred friend + discount codes for both parties.</td>
+          <td class="pos">Works — referral is a meaningful growth driver at this price tier.</td>
+          <td>At mass-market prices, being seen as a bargain-hunter carries no social cost — it's a positive. This does NOT transfer above ~$80 average order value: the same mechanic degrades brand perception at TF's price points.
+          <span class="src"><a href="https://api-shein.shein.com/h5/shareandearn" target="_blank" rel="noopener" style="color:var(--tf)">SHEIN Share &amp; Earn — referral program (official)</a></span></td>
+        </tr>
+
+        <tr class="group-head"><td colspan="4">Other Sectors — Instructive Patterns That Do Transfer</td></tr>
+
         <tr>
           <td class="bold">Robinhood</td>
-          <td>Queue position reward — sharing moves you up the waitlist. No cash. Pure positional incentive.</td>
-          <td class="pos">1M+ person waitlist before launch. Organic sharing without a single dollar paid.</td>
-          <td>Utility sharing (I share so I benefit, not so you reward me) converts at higher rates. Apply to TF: sharing a drop moves the buyer up the queue or unlocks early access for a friend.
+          <td><span class="pos">Queue position reward</span> — sharing moves you up the waitlist. No cash. Pure positional incentive.</td>
+          <td class="pos">1M+ person waitlist before launch.</td>
+          <td>Utility sharing: consumers share so they benefit, not because they're paid. Apply to TF: sharing a drop moves the buyer up the queue or unlocks early access for a friend.
           <span class="src"><a href="https://techcrunch.com/2014/09/23/robinhood-stock-app/" target="_blank" rel="noopener" style="color:var(--tf)">TechCrunch Sep 2014</a></span></td>
         </tr>
+
         <tr>
           <td class="bold">Fortnite (Epic Games)</td>
-          <td>Exclusive cosmetics only available during a limited window. Ownership is the shareable signal.</td>
-          <td class="pos">350M registered players. Limited items drive highest organic sharing and secondary market activity.</td>
-          <td>"I have what you can't get" is the most powerful post-purchase sharing trigger. Apply to TF: the sold-out card, the ownership card, the debut drop badge.
+          <td><span class="pos">Exclusive cosmetics</span> — limited-edition items available only during a set window. Ownership is the shareable signal.</td>
+          <td class="pos">350M registered players. Limited items drive highest organic sharing.</td>
+          <td>"I have what you can't get" is the most powerful post-purchase sharing trigger. Apply to TF: sold-out card, ownership card, first-drop supporter badge.
           <span class="src"><a href="https://www.gamespot.com/articles/fortnite-sets-another-record-with-more-than-350-mi/1100-6476928/" target="_blank" rel="noopener" style="color:var(--tf)">GameSpot May 2020</a></span></td>
         </tr>
+
+        <tr>
+          <td class="bold">Dropbox</td>
+          <td><span class="pos">In-kind reward</span> — free storage for both referrer and receiver. Not cash. The reward was the product itself.</td>
+          <td class="pos">3,900% user growth in 15 months.</td>
+          <td>When the reward IS the product, the share feels like a gift to the friend, not a transaction for the sender. Apply to TF: early access as a reward for sharing, not cash.
+          <span class="src"><a href="https://viral-loops.com/blog/dropbox-grew-3900-simple-referral-program/" target="_blank" rel="noopener" style="color:var(--tf)">Viral Loops — Dropbox case study</a></span></td>
+        </tr>
+
       </tbody>
     </table>
   </div>
