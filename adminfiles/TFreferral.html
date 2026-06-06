@@ -128,7 +128,7 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
   <div class="pg-header">
     <div class="pg-eyebrow">Business Model Research · Internal</div>
     <div class="pg-title">Referral &amp; Viral Mechanics</div>
-    <div class="pg-sub">Do cash referral incentives work in semi-luxury creator commerce? What drives sharing when taste and identity are the product?</div>
+    <div class="pg-sub">What drives consumers and creators to share fashion drops virally? When does cash undermine sharing — and what works instead?</div>
   </div>
 
   <!-- CONCLUSION -->
@@ -148,7 +148,7 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
       <div>
         <div class="verdict-col-head" style="color:var(--green)">What works for TF</div>
         <ul class="verdict-list">
-          <li><strong>Co-creator identity</strong> — "I helped launch this collection" signals taste, not self-interest; makes the recommendation well-justified and the 10% share credible</li>
+          <li><strong>Co-creator identity</strong> — "I helped launch this collection" signals taste, not self-interest. The share is participation, not promotion — the recommendation is visibly justified</li>
           <li><strong>Early exclusive access</strong> — followers of the creator get drop access before the public; share is a utility act, not promotion</li>
           <li><strong>Points and tier progression</strong> — earn for completing drops, hitting sales milestones, recruiting creators; redeem for platform rewards; builds retention between drops (gaming mechanic)</li>
           <li><strong>Discovery mechanics</strong> — editorial drop feed, aesthetic browse, save-to-board; cold buyers find designers without already following a creator</li>
@@ -160,9 +160,9 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
     <div style="margin-top:24px;padding-top:20px;border-top:1px solid var(--rule)">
       <div style="font-size:18px;font-weight:800;color:var(--tf);margin-bottom:16px">TF Model Implication</div>
       <ul style="font-size:13.5px;line-height:1.75;color:var(--ink);padding-left:20px;margin:0">
-        <li style="margin-bottom:10px"><strong>Structure the 10% as revenue share on a project the creator co-launched</strong> — not as a referral bonus. The difference is not semantic: a co-creator has a visible role in the drop (studio visit, curation, behind-the-drop content); a referral agent has a link.</li>
-        <li style="margin-bottom:10px"><strong>Make the recommendation justified</strong> — creator must have genuine documented involvement before the drop opens. This directly satisfies the Jin &amp; Huang condition and makes the 10% economically and socially defensible.</li>
-        <li style="margin-bottom:10px"><strong>Lead with access and identity</strong> — early drop access, founding-creator designation, and visible tier progression are the primary creator rewards. The 10% is the economic layer on top, not the pitch.</li>
+        <li style="margin-bottom:10px"><strong>Frame creator involvement visibly</strong> — a co-creator has a documented role in the drop (studio visit, curation, behind-the-drop content); a referral agent has a link. Platform must make the difference visible to consumers so the share reads as participation, not promotion.</li>
+        <li style="margin-bottom:10px"><strong>Make the recommendation justified</strong> — creator must have genuine documented involvement before the drop opens. This directly satisfies the Jin &amp; Huang condition: the share becomes identity-consistent, not transactional.</li>
+        <li style="margin-bottom:10px"><strong>Lead with access and identity</strong> — early drop access, founding-creator designation, and visible tier progression are the primary consumer-facing signals. Commission is the economic layer; access and identity are what consumers see and share.</li>
         <li style="margin-bottom:10px"><strong>Add a points layer for micro-influencer retention</strong> — earn points for actions (completing drops, recruiting creators, hitting milestones), redeem for platform perks. Answers the Founder's request for gaming mechanics. Low build cost: one database table and a dashboard widget.</li>
         <li style="margin-bottom:10px"><strong>Build cold discovery so buyers can find drops without already following anyone</strong> — a manually curated "Drops Open Now" feed satisfies this at MVP with no ML required.</li>
         <li><strong>Never run "earn $X per friend referred" as a standalone mechanic</strong> — it signals discount platform, not creator community, and will underperform at TF's price points.</li>
@@ -172,7 +172,9 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
 
   <!-- SECTION 1: WHAT THE RESEARCH SHOWS -->
   <div class="section">
-    <div class="sec-heading"><span class="sec-num">01</span>What the Research Shows — Cash vs. Non-Cash in Premium Contexts</div>
+    <div class="sec-heading"><span class="sec-num">01</span>What the Research Shows — Why Cash Kills Sharing in Premium Fashion (and When It Doesn't)</div>
+
+    <div style="font-size:13px;color:var(--sub);line-height:1.65;margin-bottom:18px">The research below covers consumer word-of-mouth behavior: what happens to sharing propensity and trust when the sharer receives a cash reward. Findings apply whether the sharer is a buyer recommending to a friend or a micro-influencer promoting a drop.</div>
 
     <div class="callout" style="margin-bottom:16px">
       <div class="callout-head" style="color:var(--tf)">When Cash Does Work</div>
@@ -454,11 +456,11 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
 
       <div style="background:white;border:1px solid var(--rule);border-left:4px solid var(--orange);padding:20px 22px;grid-column:1 / -1;border-top:3px solid var(--orange)">
         <div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:8px">Points &amp; Gamification — Earn, Progress, Unlock</div>
-        <div style="font-size:12.5px;color:var(--sub);margin-bottom:12px;line-height:1.6">Internal points currency for creators. One database table + dashboard widget — low build cost. Directly addresses the Founder's request for "gaming mechanics similar to micro-influencer platforms where they earn points."</div>
+        <div style="font-size:12.5px;color:var(--sub);margin-bottom:12px;line-height:1.6">Internal points currency for creators. One database table + dashboard widget — low build cost. Gaming mechanics similar to micro-influencer platforms where creators earn points for platform actions and redeem for perks.</div>
         <ul style="font-size:13px;line-height:1.75;color:var(--ink);padding-left:18px;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:0 32px">
           <li style="margin-bottom:8px"><strong>Points balance dashboard</strong> — creator sees a running points balance on their TF profile. Points are internal platform currency, not cash.</li>
           <li style="margin-bottom:8px"><strong>Points awarded for actions</strong> — completing a drop (+50pts), hitting $500 in sales (+100pts), recruiting another creator to TF (+200pts), publishing a behind-the-drop story (+25pts), first-time buyer through creator link (+10pts each).</li>
-          <li style="margin-bottom:8px"><strong>Points redeemable for platform rewards</strong> — featured placement on the discovery feed, early access to a new designer partnership, one-drop bonus commission tier (11% instead of 10%). No cash out — platform value only.</li>
+          <li style="margin-bottom:8px"><strong>Points redeemable for platform rewards</strong> — featured placement on the discovery feed, early access to a new designer partnership, a bonus commission tier for one drop. No cash out — platform value only.</li>
           <li><strong>Tier progression</strong> — Creator, Rising Creator, Founding Creator. Each tier unlocks new perks (higher commission ceiling, first-pick drops, co-design input). Visible on profile. Drives retention between drops.</li>
         </ul>
       </div>
