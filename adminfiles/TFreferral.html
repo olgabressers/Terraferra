@@ -85,6 +85,19 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .tcard-ex a{color:var(--tf);text-decoration:none}
 .tcard-ex a:hover{text-decoration:underline}
 
+/* PROCESS FLOW */
+.pflow-outer{margin-top:20px}
+.pflow-row{display:grid;grid-template-columns:1fr 36px 1fr 36px 1fr;align-items:start}
+.pbox{background:white;border:1px solid var(--rule);padding:18px 20px}
+.pbox-stage{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px}
+.pbox-title{font-size:14px;font-weight:800;color:var(--ink);margin-bottom:10px;line-height:1.3}
+.pbox ul{font-size:12px;color:var(--ink);padding-left:16px;line-height:1.75;margin:0}
+.pbox ul li{margin-bottom:4px}
+.pflow-arr{display:flex;align-items:flex-start;justify-content:center;padding-top:38px;font-size:22px;color:var(--orange);font-weight:700}
+.arr-v{display:none}
+.pflow-loop{background:var(--tf-ghost);border:1px solid var(--rule);border-top:none;padding:10px 20px;display:flex;align-items:center;gap:10px;font-size:12px;color:var(--sub);line-height:1.5}
+.pflow-gaming{background:white;border:1px solid var(--rule);border-top:3px solid var(--tf);padding:14px 20px;margin-top:10px;font-size:12.5px;line-height:1.6;color:var(--ink)}
+
 footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margin-top:60px}
 .footer-inner{max-width:1000px;margin:0 auto;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);opacity:.5}
 
@@ -101,6 +114,10 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
   .verdict{padding:22px 20px}
   .dtable{display:block;overflow-x:auto;white-space:nowrap}
   footer{padding:18px 20px}
+  .pflow-row{grid-template-columns:1fr}
+  .pflow-arr{padding-top:4px;font-size:18px}
+  .arr-h{display:none}
+  .arr-v{display:inline}
 }
 </style>
 </head>
@@ -168,6 +185,50 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
     </table>
     <div style="margin-top:14px;padding:10px 14px;background:var(--tf-ghost);border-left:3px solid var(--red);font-size:12px;color:var(--sub);line-height:1.6">
       <strong style="color:var(--ink)">What breaks the loop:</strong> share link lands on a page with no stock counter · no Early Access Gate = no first-wave urgency · no sold-out card at close = no discovery for the next drop
+    </div>
+  </div>
+
+  <!-- PROCESS FLOW VISUAL -->
+  <div class="pflow-outer">
+    <div class="pflow-row">
+      <div class="pbox" style="border-top:3px solid var(--tf)">
+        <div class="pbox-stage" style="color:var(--tf)">Stage 1</div>
+        <div class="pbox-title">Influencer launches the drop</div>
+        <ul>
+          <li>Early Access Gate — creator shares link to followers 24h before public open</li>
+          <li>Drop page live: countdown timer + "83 of 150 remaining"</li>
+          <li>Debut framing — "first ever public drop by [Designer]"</li>
+        </ul>
+      </div>
+      <div class="pflow-arr"><span class="arr-h">→</span><span class="arr-v">↓</span></div>
+      <div class="pbox" style="border-top:3px solid var(--orange)">
+        <div class="pbox-stage" style="color:var(--orange)">Stage 2</div>
+        <div class="pbox-title">Followers buy &amp; pull in networks</div>
+        <ul>
+          <li>Share link carries live stock counter to every new viewer</li>
+          <li>"Join 47 others" community pull counter at checkout</li>
+          <li>"One of 150 owners" card issued at purchase — shareable</li>
+          <li>Drop closes → sold-out card auto-fires to creator + buyers</li>
+        </ul>
+      </div>
+      <div class="pflow-arr"><span class="arr-h">→</span><span class="arr-v">↓</span></div>
+      <div class="pbox" style="border-top:3px solid var(--green)">
+        <div class="pbox-stage" style="color:var(--green)">Stage 3</div>
+        <div class="pbox-title">Cold consumers discover</div>
+        <ul>
+          <li>Drops Open Now feed — no follow required</li>
+          <li>Style browse by tag (minimalist, streetwear, tailored…)</li>
+          <li>Trending sort by saves + share count in last 24h</li>
+          <li>Buy → "One of 150 owners" card → share → more cold discovery</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pflow-loop">
+      <span style="font-size:18px;color:var(--orange);flex-shrink:0">↩</span>
+      Sold-out card + ownership shares drive follows and saves — loop restarts at Stage 1 for the next drop
+    </div>
+    <div class="pflow-gaming">
+      <span style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf)">All Stages · </span><strong>Gaming &amp; Points</strong> — creator earns points at every stage: per first-time buyer through their link, per drop completed, per $500 in sales. Tier progression (Creator → Rising Creator → Founding Creator) and public leaderboard keep creators promoting hard between drops.
     </div>
   </div>
 
