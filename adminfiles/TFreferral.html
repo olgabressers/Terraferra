@@ -54,7 +54,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .verdict-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
 .verdict-col-head{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
 .verdict-list{font-size:13.5px;line-height:1.75;padding-left:18px;margin:0}
-.verdict-list li{margin-bottom:8px;font-weight:500}
+.verdict-list li{margin-bottom:10px;font-weight:500}
 .verdict-list strong{font-weight:800;color:var(--ink)}
 
 /* TABLE */
@@ -62,27 +62,25 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .dtable th{text-align:left;font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);padding:9px 14px;border-bottom:2px solid var(--rule);background:var(--tf-ghost)}
 .dtable td{padding:11px 14px;border-bottom:1px solid var(--rule);vertical-align:top;color:var(--ink);line-height:1.55}
 .dtable tr:last-child td{border-bottom:none}
-.dtable tr.group-head td{background:var(--tf-ghost);font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);padding:9px 14px;border-top:2px solid var(--rule);border-bottom:1px solid var(--rule)}
 .dtable .bold{font-weight:800}
-.dtable .muted{color:var(--sub)}
-.dtable .neg{color:var(--red);font-weight:700}
 .dtable .pos{color:var(--green);font-weight:700}
-.dtable .src{font-size:11px;color:var(--sub);display:block;margin-top:3px;font-weight:400}
+.dtable .src{font-size:11px;color:var(--sub);display:block;margin-top:3px}
 
-/* CALLOUT */
-.callout{padding:22px 26px;margin:20px 0;border-left:4px solid var(--tf);background:var(--tf-ghost);border:1px solid var(--rule);border-left:4px solid var(--tf)}
-.callout.orange{border-left-color:var(--orange);background:#FEF3EB}
-.callout.red{border-left-color:var(--red);background:#FEF0EE}
-.callout-head{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
-.callout-body{font-size:13.5px;line-height:1.75;color:var(--ink)}
-.callout-body strong{font-weight:800}
+/* MECHANIC CARDS */
+.mcard{background:white;border:1px solid var(--rule);padding:20px 22px}
+.mcard-label{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+.mcard ul{font-size:13px;line-height:1.75;color:var(--ink);padding-left:18px;margin:0}
+.mcard ul li{margin-bottom:8px}
+.mcard ul li:last-child{margin-bottom:0}
 
-/* SOURCES */
-.sources-box{background:white;border:1px solid var(--rule);padding:24px 28px;margin-top:20px}
-.sources-eyebrow{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);margin-bottom:12px}
-.sources-list{font-size:12px;color:var(--sub);line-height:2}
-.sources-list a{color:var(--tf);text-decoration:none}
-.sources-list a:hover{text-decoration:underline}
+/* TRIGGER CARDS */
+.tcard{background:white;border:1px solid var(--rule);border-top:3px solid var(--tf);padding:20px}
+.tcard-label{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);margin-bottom:8px}
+.tcard-title{font-size:15px;font-weight:800;color:var(--ink);margin-bottom:8px}
+.tcard-body{font-size:13px;line-height:1.65;color:var(--sub)}
+.tcard-ex{font-size:11.5px;color:var(--sub);margin-top:10px;padding-top:10px;border-top:1px solid var(--rule)}
+.tcard-ex a{color:var(--tf);text-decoration:none}
+.tcard-ex a:hover{text-decoration:underline}
 
 footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margin-top:60px}
 .footer-inner{max-width:1000px;margin:0 auto;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);opacity:.5}
@@ -90,13 +88,14 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
 #back-to-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--tf);color:white;border:none;border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900}
 #back-to-top:hover{background:var(--tf-dark)}
 
+@media(max-width:1000px){
+  .verdict-grid{grid-template-columns:1fr}
+}
 @media(max-width:700px){
   .pg-wrap{padding:20px 16px 60px}
-  .pg-header{padding:0}
   .pg-title{font-size:28px}
   .section{padding:32px 0}
   .verdict{padding:22px 20px}
-  .verdict-grid{grid-template-columns:1fr}
   .dtable{display:block;overflow-x:auto;white-space:nowrap}
   footer{padding:18px 20px}
 }
@@ -128,365 +127,286 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
   <div class="pg-header">
     <div class="pg-eyebrow">Business Model Research · Internal</div>
     <div class="pg-title">Referral &amp; Viral Mechanics</div>
-    <div class="pg-sub">Do cash referral incentives work in semi-luxury creator commerce? What drives sharing when taste and identity are the product?</div>
+    <div class="pg-sub">How a drop spreads beyond the influencer's audience — what makes consumers share and the viral circle grow</div>
   </div>
 
-  <!-- CONCLUSION -->
+  <!-- VIRAL LOOP -->
   <div class="verdict">
-    <div class="verdict-eyebrow">Conclusion &amp; Recommendation</div>
+    <div class="verdict-eyebrow">The Viral Loop</div>
     <div class="verdict-grid">
       <div>
-        <div class="verdict-col-head" style="color:var(--red)">When cash referral underperforms — and why</div>
-        <ul class="verdict-list" style="color:var(--sub)">
-          <li>Cash creates <strong>social cost</strong>: recommending for money signals self-interest, not taste (Jin &amp; Huang 2014)</li>
-          <li>The finding is conditional: cash underperforms <em>when the recommendation is not well justified</em> — an unknown micro-influencer promoting an unknown designer with no prior relationship is exactly this case</li>
-          <li>At <strong>$80–$150</strong> (TF's lower range): mixed — cash may be partially viable but brand dilution risk rises with price</li>
-          <li>At <strong>$150–$400</strong> (TF's upper range): underperforms — social cost dominates; designer is unknown, share is a taste signal</li>
-          <li>Cash commission <em>can</em> work (REVOLVE) when: genuine co-creator relationship + invitation-only status + transparent brand alignment are all present</li>
-        </ul>
+        <div class="verdict-col-head">3 layers — how a drop spreads</div>
+        <ol class="verdict-list" style="color:var(--sub)">
+          <li><strong>Influencer promotes the drop</strong> to 10–50K followers. This is the trigger — not the loop.</li>
+          <li><strong>Followers buy and share further.</strong> Their shares reach networks that don't follow the influencer. Organic growth starts here.</li>
+          <li><strong>Cold consumers discover</strong> through platform feed, trending, saves. They buy. They share. The circle completes.</li>
+        </ol>
+        <div style="margin-top:16px;padding:12px 14px;background:var(--tf-ghost);border-left:3px solid var(--red);font-size:12.5px;color:var(--sub);line-height:1.65">
+          <strong style="color:var(--ink)">What breaks the circle:</strong> the share looks like a paid ad · no urgency to act now · being the one who shares signals nothing · cold consumers have no path in
+        </div>
       </div>
       <div>
-        <div class="verdict-col-head" style="color:var(--green)">What works for TF</div>
+        <div class="verdict-col-head" style="color:var(--green)">3 levers to make it grow faster</div>
         <ul class="verdict-list">
-          <li><strong>Co-creator identity</strong> — "I helped launch this collection" signals taste, not self-interest; makes the recommendation well-justified and the 10% share credible</li>
-          <li><strong>Early exclusive access</strong> — followers of the creator get drop access before the public; share is a utility act, not promotion</li>
-          <li><strong>Points and tier progression</strong> — earn for completing drops, hitting sales milestones, recruiting creators; redeem for platform rewards; builds retention between drops (gaming mechanic)</li>
-          <li><strong>Discovery mechanics</strong> — editorial drop feed, aesthetic browse, save-to-board; cold buyers find designers without already following a creator</li>
-          <li><strong>Scarcity and FOMO</strong> — live stock counter, time-limited window, sold-out social card; urgency without discount</li>
+          <li><strong>Scarcity &amp; urgency</strong> — a closing window forces shares now, not "maybe later." Without urgency, sharing is always deferred — which means never.</li>
+          <li><strong>Identity signal</strong> — "I found this before you" is the reward for sharing. Status is a stronger trigger than cash in fashion. The sharer gets social currency, not a referral fee.</li>
+          <li><strong>Cold discovery</strong> — consumers who don't follow the influencer need a path in: editorial feed, trending sort, save counts visible to anyone. Discovery is the platform's job; the influencer cannot do this alone.</li>
         </ul>
       </div>
     </div>
-
-    <div style="margin-top:24px;padding-top:20px;border-top:1px solid var(--rule)">
-      <div style="font-size:18px;font-weight:800;color:var(--tf);margin-bottom:16px">TF Model Implication</div>
-      <ul style="font-size:13.5px;line-height:1.75;color:var(--ink);padding-left:20px;margin:0">
-        <li style="margin-bottom:10px"><strong>Structure the 10% as revenue share on a project the creator co-launched</strong> — not as a referral bonus. The difference is not semantic: a co-creator has a visible role in the drop (studio visit, curation, behind-the-drop content); a referral agent has a link.</li>
-        <li style="margin-bottom:10px"><strong>Make the recommendation justified</strong> — creator must have genuine documented involvement before the drop opens. This directly satisfies the Jin &amp; Huang condition and makes the 10% economically and socially defensible.</li>
-        <li style="margin-bottom:10px"><strong>Lead with access and identity</strong> — early drop access, founding-creator designation, and visible tier progression are the primary creator rewards. The 10% is the economic layer on top, not the pitch.</li>
-        <li style="margin-bottom:10px"><strong>Add a points layer for micro-influencer retention</strong> — earn points for actions (completing drops, recruiting creators, hitting milestones), redeem for platform perks. Answers the Founder's request for gaming mechanics. Low build cost: one database table and a dashboard widget.</li>
-        <li style="margin-bottom:10px"><strong>Build cold discovery so buyers can find drops without already following anyone</strong> — a manually curated "Drops Open Now" feed satisfies this at MVP with no ML required.</li>
-        <li><strong>Never run "earn $X per friend referred" as a standalone mechanic</strong> — it signals discount platform, not creator community, and will underperform at TF's price points.</li>
-      </ul>
-    </div>
   </div>
 
-  <!-- SECTION 1: WHAT THE RESEARCH SHOWS -->
+  <!-- SECTION 01: WHY CONSUMERS SHARE -->
   <div class="section">
-    <div class="sec-heading"><span class="sec-num">01</span>What the Research Shows — Cash vs. Non-Cash in Premium Contexts</div>
+    <div class="sec-heading"><span class="sec-num">01</span>Why Consumers Share Fashion Content</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px">
 
-    <div class="callout" style="margin-bottom:16px">
-      <div class="callout-head" style="color:var(--tf)">When Cash Does Work</div>
-      <ul style="font-size:13.5px;line-height:1.75;color:var(--ink);padding-left:20px;margin:0">
-        <li style="margin-bottom:7px">The reward is <strong>large enough</strong> to overcome social cost (high-value cash, not $5 coupons)</li>
-        <li style="margin-bottom:7px"><strong>Both referrer and receiver</strong> are rewarded simultaneously — eliminates the self-interest signal</li>
-        <li style="margin-bottom:7px">The product is <strong>utility-based</strong>, not identity/aesthetic — transportation (Uber), storage (Dropbox), fintech (Revolut)</li>
-        <li>The recommender's <strong>reputation is not on the line</strong> — no one's taste is judged by what cloud storage they use</li>
-      </ul>
-      <div style="font-size:12.5px;color:var(--sub);margin-top:12px;line-height:1.6">Uber, Airbnb, and Dropbox built cash-equivalent referral programs successfully — in utility segments where reputation and taste are not the social currency. This does not transfer to fashion creator commerce.</div>
-    </div>
-
-    <div class="callout red">
-      <div class="callout-head" style="color:var(--red)">Core Academic Finding</div>
-      <div class="callout-body">Jin &amp; Huang (2014), <em>International Journal of Research in Marketing</em> (peer-reviewed, 4 controlled experiments, 200+ citations): <strong>"Although consumers prefer monetary rewards due to their greater economic value, the higher social costs associated with money offset this benefit and render money an inferior incentive when the recommendation is not well justified."</strong> The conditional is load-bearing: cash underperforms <em>specifically when the recommendation lacks an obvious justification</em>. For an unknown micro-influencer promoting an unknown emerging designer with no prior relationship, the recommendation is not justified — and cash makes it worse. Where the creator has a genuine co-creation role, the recommendation IS justified, which is why the 10% revenue share can work — but only if the framing makes that relationship visible. Wang &amp; Ding (2022, <em>Journal of Business Research</em>): for high-aesthetic products (fashion), monetary rewards are "attenuated or even reversed" absent justification.
-      <span style="font-size:11px;color:var(--sub);display:block;margin-top:8px">Sources: <a href="https://www.sciencedirect.com/science/article/pii/S0167811613000906" target="_blank" rel="noopener" style="color:var(--tf)">Jin &amp; Huang, IJRM Vol.31(1), 2014</a> · <a href="https://www.sciencedirect.com/science/article/abs/pii/S0148296322002892" target="_blank" rel="noopener" style="color:var(--tf)">Wang &amp; Ding, Journal of Business Research, 2022</a></span></div>
-    </div>
-  </div>
-
-  <!-- SECTION 2: COMPARABLE INDUSTRY EXAMPLES -->
-  <div class="section">
-    <div class="sec-heading"><span class="sec-num">02</span>Comparable Industries — What Worked and What Failed</div>
-
-    <table class="dtable">
-      <thead>
-        <tr>
-          <th style="width:18%">Brand / Platform</th>
-          <th style="width:18%">Segment</th>
-          <th style="width:22%">Reward structure</th>
-          <th style="width:18%">Outcome</th>
-          <th>Why it worked / failed</th>
-        </tr>
-      </thead>
-      <tbody>
-
-        <!-- GROUP 1: LUXURY FASHION -->
-        <tr class="group-head"><td colspan="5">Fashion — Luxury (Most Relevant: Same Brand-Signal Problem)</td></tr>
-
-        <tr>
-          <td class="bold">Hermès, Chanel — luxury maisons</td>
-          <td>Luxury fashion ($800+)</td>
-          <td><span class="pos">No referral program</span> — zero cash incentives. Aspiration, invitation-only events, managed waitlists.</td>
-          <td class="pos">Sustained brand equity for decades; Birkin and Classic Flap waitlists function as marketing tools, not scarcity problems</td>
-          <td>The absence of a referral program is deliberate strategy. In luxury, exclusivity IS the product — a cash referral scheme would destroy the aspiration model. Demand is managed, not stimulated.
-          <span class="src">Source: <a href="https://www.businessoffashion.com/articles/retail/how-brands-leverage-word-of-mouth-marketing/" target="_blank" rel="noopener" style="color:var(--tf)">Business of Fashion — How Brands Leverage Word-of-Mouth</a> · <a href="https://www.bain.com/insights/long-live-luxury-converge-to-expand-through-turbulence/" target="_blank" rel="noopener" style="color:var(--tf)">Bain &amp; Company Global Luxury Study 2023</a></span></td>
-        </tr>
-
-        <tr>
-          <td class="bold">Farfetch / luxury platforms</td>
-          <td>Luxury fashion ($500+)</td>
-          <td><span class="neg">Cash discount codes</span> — $20–$50 off next purchase per referred friend</td>
-          <td class="neg">Low share rates; brand perception damage; core luxury buyers saw discount-seeking as a signal of lower status</td>
-          <td>At luxury price points, a discount code signals the product is discountable — diluting exclusivity. Customers do not want to appear to recommend for a coupon.
-          <span class="src">Source: <a href="https://www.businessoffashion.com/articles/luxury/duelling-visions-for-the-future-of-luxury-discounting/" target="_blank" rel="noopener" style="color:var(--tf)">Business of Fashion — Luxury Discounting</a></span></td>
-        </tr>
-
-        <!-- GROUP 2: PREMIUM & EMERGING FASHION -->
-        <tr class="group-head"><td colspan="5">Fashion — Premium &amp; Emerging (Direct TF Comparable)</td></tr>
-
-        <tr>
-          <td class="bold">Rhode Beauty (Hailey Bieber)</td>
-          <td>Premium beauty ($16–$90)</td>
-          <td><span class="pos">Drop + waitlist mechanic</span> — zero cash referral. Scarcity and founder identity drove demand.</td>
-          <td class="pos">440,000+ person waitlist for Peptide Lip Treatment; viral sharing without a single referral fee paid</td>
-          <td>People shared to signal they were in-the-know before the drop sold out. <strong>Caveat:</strong> Rhode launched on Hailey Bieber's existing 50M+ Instagram following — the celebrity was the primary viral driver, not the waitlist format. The waitlist mechanic amplified pre-existing demand. For TF's unknown designers, the same psychology applies, but the starting audience must come from the influencer's following — making influencer selection critical, not just the drop mechanic.
-          <span class="src">Source: <a href="https://www.voguebusiness.com/story/beauty/hailey-biebers-rhode-in-2023" target="_blank" rel="noopener" style="color:var(--tf)">Vogue Business — Rhode Beauty 2023</a></span></td>
-        </tr>
-
-        <tr>
-          <td class="bold">Supreme</td>
-          <td>Streetwear / semi-luxury ($80–$500)</td>
-          <td><span class="pos">Drop model + zero referral</span> — scarcity, FOMO, community membership signals. No cash incentives.</td>
-          <td class="pos">Sustained 30+ years; acquired by VF Corporation for $2.1B; Thursday drops sell out in minutes through organic sharing alone</td>
-          <td>Sharing a Supreme drop is an identity act — being in-the-know signals cultural membership. Drop mechanics and scarcity drove virality for three decades without any referral infrastructure. A cash referral would convert an identity signal into a transaction.
-          <span class="src">Source: <a href="https://www.vfc.com/investors/news-events-presentations/press-releases/detail/1741/vf-corporation-completes-acquisition-of-supreme" target="_blank" rel="noopener" style="color:var(--tf)">VF Corporation — Supreme acquisition press release, Dec 2020</a></span></td>
-        </tr>
-
-        <tr>
-          <td class="bold">REVOLVE</td>
-          <td>Premium fashion ($100–$500)</td>
-          <td><span class="pos">Co-creator framing with commission</span> — ~3,500 influencer partners earn % on driven sales. Invitation-only; framed as brand partnership, not affiliate link.</td>
-          <td class="pos">$900M+ revenue (2023); influencer program accounts for majority of marketing ROI; brand built almost entirely through influencer amplification</td>
-          <td>REVOLVE's model IS functionally a cash commission / trackable affiliate structure — not non-cash. It works because: (1) invitation-only acceptance is a status signal, making inclusion itself a reward; (2) influencers are pre-selected for genuine brand alignment, so the recommendation is justified; (3) REVOLVE works primarily with macro-influencers (100K+), not micro-influencers. Lesson for TF: cash commission CAN work when the relationship is genuine and the framing is co-creator. The problem is not cash itself — it is unqualified cash with no relationship behind it.
-          <span class="src">Source: <a href="https://ir.revolve.com" target="_blank" rel="noopener" style="color:var(--tf)">REVOLVE 2023 IR / Annual Report</a></span></td>
-        </tr>
-
-        <tr>
-          <td class="bold">Glossier Rep Program</td>
-          <td>Premium beauty ($20–$90)</td>
-          <td><span class="pos">Non-cash primary</span> — product credit, exclusive community access, 20% commission framed as co-creator share. Entry via application; status to be accepted.</td>
-          <td class="pos">500+ reps; drove majority of early word-of-mouth; cult brand built with minimal paid advertising</td>
-          <td>Reps self-identified as Glossier fans before applying — the share was about identity, not income. The 20% was co-creator economics, not a referral fee. Program paused in 2022 as brand scaled beyond the intimate community model.
-          <span class="src">Source: <a href="https://www.vox.com/the-goods/2019/3/14/18265620/glossier-influencers-brand-reps-creator-marketing" target="_blank" rel="noopener" style="color:var(--tf)">Vox — Glossier influencer strategy</a> · <a href="https://www.businessoffashion.com/articles/beauty/how-glossier-lost-its-grip/" target="_blank" rel="noopener" style="color:var(--tf)">Business of Fashion — How Glossier Lost Its Grip, 2022</a></span></td>
-        </tr>
-
-        <tr>
-          <td class="bold">Lululemon Ambassador Program</td>
-          <td>Premium athleisure ($80–$150)</td>
-          <td><span class="pos">Non-cash</span> — product gifting, community status, first access, event invites. Zero cash referral fees.</td>
-          <td class="pos">1,500+ ambassadors globally; massive organic UGC; brand became a cultural identity signal across fitness communities</td>
-          <td>Ambassadors share because the brand reflects their identity as athletes and community leaders — not because they're paid. Cash would have made them appear as paid promoters, destroying credibility.
-          <span class="src">Source: <a href="https://ambassadors.lululemon.com/" target="_blank" rel="noopener" style="color:var(--tf)">Lululemon Ambassador Program (official)</a></span></td>
-        </tr>
-
-        <!-- GROUP 3: FAST FASHION — CONTRAST CASE -->
-        <tr class="group-head"><td colspan="5">Fashion — Mass Market (Contrast: Why Cash Works Here and Not Above)</td></tr>
-
-        <tr>
-          <td class="bold">SHEIN referral program</td>
-          <td>Fast fashion ($5–$30)</td>
-          <td><span class="neg">Cash / credit</span> — $5–$10 per referred friend + discount codes for both parties</td>
-          <td class="pos">Works — referral is a meaningful growth driver at this price tier; mass adoption with minimal brand perception risk</td>
-          <td>At mass-market price points, being seen as a bargain-hunter carries no social cost — it is a positive. Neither recommender nor receiver loses face. This does NOT transfer to semi-luxury: the same mechanic that works for SHEIN degrades brand perception above ~$80 average order value.
-          <span class="src">Source: <a href="https://api-shein.shein.com/h5/shareandearn" target="_blank" rel="noopener" style="color:var(--tf)">SHEIN Share &amp; Earn — referral program (official)</a></span></td>
-        </tr>
-
-        <!-- GROUP 4: CREATOR ECONOMY -->
-        <tr class="group-head"><td colspan="5">Creator Economy (Moderately Relevant)</td></tr>
-
-        <tr>
-          <td class="bold">Patreon / Substack</td>
-          <td>Premium creator content ($5–$50/month)</td>
-          <td><span class="pos">Reputation reward</span> — creators share to build their own audience. No referral fee structure.</td>
-          <td class="pos">Substack: 3M paid subscribers with minimal referral incentive; both platforms scaled on organic creator sharing</td>
-          <td>Creators share because it builds their identity and audience — the share IS the product. Co-creation framing is the driver. A cash referral scheme would have made creators feel like salespeople.
-          <span class="src">Source: <a href="https://on.substack.com/p/substacks-recommendations-network" target="_blank" rel="noopener" style="color:var(--tf)">Substack — 3M paid subscriptions, Feb 2024</a> · <a href="https://www.patreon.com/about" target="_blank" rel="noopener" style="color:var(--tf)">Patreon — About / Creator Economics</a></span></td>
-        </tr>
-
-        <!-- GROUP 5: UTILITY / GAMING -->
-        <tr class="group-head"><td colspan="5">Utility &amp; Gaming — Instructive Contrasts (Cash Works Here; Does Not Transfer to Fashion)</td></tr>
-
-        <tr>
-          <td class="bold">Dropbox Referral Program</td>
-          <td>Utility SaaS (free → paid)</td>
-          <td><span class="pos">In-kind reward</span> — free storage space for both referrer and receiver. Not cash.</td>
-          <td class="pos">3,900% user growth in 15 months; 4M users from referrals</td>
-          <td>The reward was the product itself — extending usage, not paying cash. Utility segment; no identity or taste cost to recommending cloud storage. Does not transfer to fashion.
-          <span class="src">Source: <a href="https://viral-loops.com/blog/dropbox-grew-3900-simple-referral-program/" target="_blank" rel="noopener" style="color:var(--tf)">Viral Loops — Dropbox 3,900% growth case study</a></span></td>
-        </tr>
-
-        <tr>
-          <td class="bold">Robinhood Waitlist</td>
-          <td>Fintech (free product)</td>
-          <td><span class="pos">Status reward</span> — waitlist position moves up when you refer friends. No cash, no product. Pure queue position.</td>
-          <td class="pos">1M+ waitlist before launch; massive organic sharing</td>
-          <td>The reward was exclusivity and priority access — not money. Closest non-fashion analog to TF's drop access mechanic: people shared to signal early-adopter status, not to earn cash.
-          <span class="src">Source: <a href="https://techcrunch.com/2014/09/23/robinhood-stock-app/" target="_blank" rel="noopener" style="color:var(--tf)">TechCrunch — Robinhood launch, Sep 2014</a></span></td>
-        </tr>
-
-        <tr>
-          <td class="bold">Fortnite (Epic Games)</td>
-          <td>Gaming (cosmetic purchases $5–$20)</td>
-          <td><span class="pos">Status / cosmetic rewards</span> — exclusive skins, limited-edition emotes signalling early-adopter status. No cash referral.</td>
-          <td class="pos">350M registered users; cosmetic economy $5B+/year; limited items drive highest organic sharing</td>
-          <td>"I have the skin you can't get" is a more powerful sharing trigger than any cash bounty. Same psychology applies to limited fashion drops: ownership of what others can't access is the signal.
-          <span class="src">Source: <a href="https://www.gamespot.com/articles/fortnite-sets-another-record-with-more-than-350-mi/1100-6476928/" target="_blank" rel="noopener" style="color:var(--tf)">GameSpot — Fortnite 350M registered players, May 2020</a></span></td>
-        </tr>
-
-      </tbody>
-    </table>
-  </div>
-
-  <!-- SECTION 3: WHY PEOPLE SHARE FASHION CONTENT -->
-  <div class="section">
-    <div class="sec-heading"><span class="sec-num">03</span>Why People Share Fashion Content Organically</div>
-
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px">
-      <div style="background:white;border:1px solid var(--rule);border-top:3px solid var(--orange);padding:22px 20px">
-        <div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:10px">Identity signaling</div>
-        <div style="font-size:13px;line-height:1.65;color:var(--sub)">Sharing a designer's drop communicates taste and cultural awareness. The share says "I know about this before everyone else." Cash incentive converts this from an identity signal into a transaction — destroying the social value of sharing.</div>
+      <div class="tcard">
+        <div class="tcard-label">Trigger 1</div>
+        <div class="tcard-title">"I found this first"</div>
+        <div class="tcard-body">Sharing a drop before it sells out signals taste and cultural awareness. The sharer is the one who knew before everyone else. Being first is the reward — cash would replace this signal with a transaction.</div>
+        <div class="tcard-ex">Real: Supreme drops sell out in minutes through organic sharing alone — 30+ years, zero referral fee. <a href="https://www.vfc.com/investors/news-events-presentations/press-releases/detail/1741/vf-corporation-completes-acquisition-of-supreme" target="_blank" rel="noopener">VFC acquisition 2020</a></div>
       </div>
-      <div style="background:white;border:1px solid var(--rule);border-top:3px solid var(--tf);padding:22px 20px">
-        <div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);margin-bottom:10px">Co-ownership / co-creation</div>
-        <div style="font-size:13px;line-height:1.65;color:var(--sub)">When a creator helps launch a drop — and earns from it — they are invested in the outcome. Sharing is no longer promotion; it is participation. This is the strongest sharing trigger in creator commerce. Platform must make co-creation visible and legible.</div>
+
+      <div class="tcard" style="border-top-color:var(--orange)">
+        <div class="tcard-label" style="color:var(--orange)">Trigger 2</div>
+        <div class="tcard-title">"It's closing in 48 hours"</div>
+        <div class="tcard-body">A time-limited or stock-limited window forces shares to happen now. Without urgency, sharing is always "maybe later." The countdown is the trigger — it converts passive interest into active promotion.</div>
+        <div class="tcard-ex">Real: Rhode Beauty 440,000+ person waitlist built on "you might miss it" — no referral fees. <a href="https://www.voguebusiness.com/story/beauty/hailey-biebers-rhode-in-2023" target="_blank" rel="noopener">Vogue Business 2023</a></div>
       </div>
-      <div style="background:white;border:1px solid var(--rule);border-top:3px solid var(--green);padding:22px 20px">
-        <div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:10px">Scarcity and FOMO</div>
-        <div style="font-size:13px;line-height:1.65;color:var(--sub)">Limited drops create urgency that money cannot replicate. Rhode Beauty's 440,000-person waitlist was built on "you might miss it" — not on referral fees. The share is the access mechanism: if I share and my friend misses it, I'm the one who got in.</div>
+
+      <div class="tcard" style="border-top-color:var(--green)">
+        <div class="tcard-label" style="color:var(--green)">Trigger 3</div>
+        <div class="tcard-title">"I'm a founding supporter"</div>
+        <div class="tcard-body">Being in the first wave of buyers for a designer's debut drop is a permanently shareable credential. "I was there at the beginning" signals foresight and taste. This is why Glossier reps shared — being a rep was the status signal, not the commission.</div>
+        <div class="tcard-ex">Real: Glossier 500+ community reps sharing for identity, not cash. <a href="https://www.vox.com/the-goods/2019/3/14/18265620/glossier-influencers-brand-reps-creator-marketing" target="_blank" rel="noopener">Vox 2019</a></div>
       </div>
+
     </div>
-
-    <div class="callout orange" style="margin-top:24px">
-      <div class="callout-head" style="color:var(--orange)">The Motive Transparency Problem</div>
-      <div class="callout-body">Research consistently shows that when recipients of a recommendation learn the recommender received a cash reward, trust in the recommendation drops sharply. In fashion — where "who to trust" is entirely based on perceived taste — this is fatal. The influencer who shares because they co-created and co-own the drop has a transparent and credible motive. The influencer who shares for a referral fee does not.
-      <span style="font-size:11px;color:var(--sub);display:block;margin-top:8px">Source: <a href="https://journals.sagepub.com/doi/10.1509/jmkg.71.1.084" target="_blank" rel="noopener" style="color:var(--tf)">Ryu &amp; Feick, Journal of Marketing, 2007 — "A Penny for Your Thoughts: Referral Reward Programs and Referral Likelihood"</a></span></div>
-    </div>
-  </div>
-
-  <!-- SECTION 4: PRICE TIER PATTERN -->
-  <div class="section">
-    <div class="sec-heading"><span class="sec-num">04</span>Where Cash Referral Works and Where It Breaks Down</div>
-
-    <table class="dtable">
-      <thead>
-        <tr>
-          <th>Segment</th>
-          <th>Price point</th>
-          <th>Cash referral effectiveness</th>
-          <th>What works instead</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="bold">Fast fashion / mass market</td>
-          <td>$15–$60</td>
-          <td class="pos">Works — low identity risk; discount is a feature, not a signal</td>
-          <td>N/A — cash discount works fine here</td>
-        </tr>
-        <tr>
-          <td class="bold">Mid-market</td>
-          <td>$60–$150</td>
-          <td class="muted">Mixed — depends on brand positioning and product type</td>
-          <td>Product credit, loyalty points</td>
-        </tr>
-        <tr>
-          <td class="bold">Semi-luxury / premium</td>
-          <td>$150–$800</td>
-          <td class="neg">Underperforms — social cost starts to outweigh economic value; brand dilution risk</td>
-          <td>Access, status, community identity, co-creator framing</td>
-        </tr>
-        <tr>
-          <td class="bold">Luxury</td>
-          <td>$800+</td>
-          <td class="neg">Damages brand — discount signals product is discountable; contaminates exclusivity</td>
-          <td>Invitation-only access, private events, VIP recognition</td>
-        </tr>
-        <tr>
-          <td class="bold" style="color:var(--tf)">TF target (emerging designer drops)</td>
-          <td>$80–$400 per item</td>
-          <td><span class="muted">$80–$150: mixed</span> — mid-market tier; cash may be partially viable but brand dilution risk rises as price increases.<br><span class="neg">$150–$400: underperforms</span> — social cost dominates; designer is unknown (weak brand), share is a taste signal</td>
-          <td class="pos"><strong>Co-creator % framing + early access + founding-creator status.</strong> Co-creator framing makes the recommendation justified — addressing the Jin &amp; Huang conditional directly.</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- SECTION 5: VIRAL MECHANICS TO BUILD INTO TF -->
-  <div class="section">
-    <div class="sec-heading"><span class="sec-num">05</span>Concrete Viral Sharing Drivers to Build into TF</div>
-    <div style="font-size:13px;color:var(--sub);margin-bottom:24px;line-height:1.6">Each mechanic below has a specific trigger: what activates the share, and what the sharer signals to their audience. Platform must make these moments visible, easy to share, and identity-reinforcing — not transactional.</div>
 
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
 
-      <div style="background:white;border:1px solid var(--rule);border-left:4px solid var(--orange);padding:20px 22px">
-        <div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:8px">Access Mechanics</div>
-        <ul style="font-size:13px;line-height:1.75;color:var(--ink);padding-left:18px;margin:0">
-          <li style="margin-bottom:8px"><strong>Early access gate</strong> — followers of the creator get drop access 24h before public. Creator shares to grow their follower base; fans share to secure early slot. Share is a utility act, not promotion.</li>
-          <li style="margin-bottom:8px"><strong>Waitlist position mechanic</strong> — user sees their queue number in real time ("You are #47"). Sharing the drop moves them up. No cash — pure positional reward. Identical to Robinhood's 1M+ waitlist.</li>
-          <li><strong>Sold-out social card</strong> — auto-generate a branded card when a drop closes: "Sold out in 6 hours." Creator and buyers receive a shareable card. "I got mine" is the signal. Drives discovery for the next drop.</li>
-        </ul>
+      <div class="tcard" style="border-top-color:var(--sub)">
+        <div class="tcard-label" style="color:var(--sub)">Trigger 4</div>
+        <div class="tcard-title">"Get early access before it closes"</div>
+        <div class="tcard-body">When sharing unlocks early access for a friend, the share has practical value for the recipient — not promotional value for the sender. This reframes sharing as a useful act, not self-promotion. Removes the "ad" feeling entirely.</div>
+        <div class="tcard-ex">Real: Robinhood queue position mechanic — share to move up, not for cash — drove 1M+ person waitlist. <a href="https://techcrunch.com/2014/09/23/robinhood-stock-app/" target="_blank" rel="noopener">TechCrunch Sep 2014</a></div>
       </div>
 
-      <div style="background:white;border:1px solid var(--rule);border-left:4px solid var(--tf);padding:20px 22px">
-        <div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);margin-bottom:8px">Co-Creator Identity</div>
-        <ul style="font-size:13px;line-height:1.75;color:var(--ink);padding-left:18px;margin:0">
-          <li style="margin-bottom:8px"><strong>"Launched by [Creator]" label</strong> — product page shows the creator's name and photo as co-launcher, not just a link. The creator shares to claim public credit for the launch, not to earn a click fee.</li>
-          <li style="margin-bottom:8px"><strong>Creator drop scorecard</strong> — creator profile shows: drops launched, total units sold, total earned. Visible to followers. Competitive — public leaderboard between creators drives them to promote harder to rank.</li>
-          <li><strong>First-to-discover badge</strong> — if you were in the first 10% of buyers for a designer's debut drop, you get a permanent "Early supporter" badge on your profile. Signals taste and foresight — shareable identity signal.</li>
-        </ul>
-      </div>
-
-      <div style="background:white;border:1px solid var(--rule);border-left:4px solid var(--green);padding:20px 22px">
-        <div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:8px">Scarcity &amp; FOMO Triggers</div>
-        <ul style="font-size:13px;line-height:1.75;color:var(--ink);padding-left:18px;margin:0">
-          <li style="margin-bottom:8px"><strong>Live scarcity counter</strong> — "83 of 150 remaining" shown in real time on every product page and in creator share links. Visible scarcity is the share trigger: "get it before it's gone."</li>
-          <li style="margin-bottom:8px"><strong>Community pull counter</strong> — "Join 47 others in this drop" shown on every drop page. Based on TF's own platform data — no external social API required. Creates community momentum signal without needing Instagram follower access, which is not available via public API.</li>
-          <li><strong>Time-limited drop window</strong> — drop closes in 48–72 hours regardless of stock. Countdown timer displayed. Creator is incentivized to promote hard in the window; buyers share to spread urgency before it closes.</li>
-        </ul>
-      </div>
-
-      <div style="background:white;border:1px solid var(--rule);border-left:4px solid var(--sub);padding:20px 22px">
-        <div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);margin-bottom:8px">Post-Purchase Sharing</div>
-        <ul style="font-size:13px;line-height:1.75;color:var(--ink);padding-left:18px;margin:0">
-          <li style="margin-bottom:8px"><strong>Limited edition ownership card</strong> — buyer receives a branded digital card: "One of 150 owners of [Designer] Drop 01." Shareable proof of early taste. The share says "I found this designer before you did."</li>
-          <li style="margin-bottom:8px"><strong>Try-on share mechanic (VTO)</strong> <span style="color:var(--sub);font-weight:400;font-size:11px">[Phase 2 — requires third-party VTO SDK integration]</span> — virtual try-on generates a shareable image. Buyer shares their own try-on, not the product page. Personal image = identity signal, not an ad.</li>
-          <li><strong>Creator earnings milestone</strong> — when a creator's cumulative drop earnings cross a threshold ($500, $1K, $5K), TF sends them a visible milestone card. Creator shares it as proof their taste is commercially valuable.</li>
-        </ul>
-      </div>
-
-      <div style="background:white;border:1px solid var(--rule);border-left:4px solid var(--orange);padding:20px 22px;grid-column:1 / -1;border-top:3px solid var(--orange)">
-        <div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:8px">Points &amp; Gamification — Earn, Progress, Unlock</div>
-        <div style="font-size:12.5px;color:var(--sub);margin-bottom:12px;line-height:1.6">Internal points currency for creators. One database table + dashboard widget — low build cost. Directly addresses the Founder's request for "gaming mechanics similar to micro-influencer platforms where they earn points."</div>
-        <ul style="font-size:13px;line-height:1.75;color:var(--ink);padding-left:18px;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:0 32px">
-          <li style="margin-bottom:8px"><strong>Points balance dashboard</strong> — creator sees a running points balance on their TF profile. Points are internal platform currency, not cash.</li>
-          <li style="margin-bottom:8px"><strong>Points awarded for actions</strong> — completing a drop (+50pts), hitting $500 in sales (+100pts), recruiting another creator to TF (+200pts), publishing a behind-the-drop story (+25pts), first-time buyer through creator link (+10pts each).</li>
-          <li style="margin-bottom:8px"><strong>Points redeemable for platform rewards</strong> — featured placement on the discovery feed, early access to a new designer partnership, one-drop bonus commission tier (11% instead of 10%). No cash out — platform value only.</li>
-          <li><strong>Tier progression</strong> — Creator, Rising Creator, Founding Creator. Each tier unlocks new perks (higher commission ceiling, first-pick drops, co-design input). Visible on profile. Drives retention between drops.</li>
-        </ul>
-      </div>
-
-      <div style="background:white;border:1px solid var(--rule);border-left:4px solid var(--tf);padding:20px 22px;grid-column:1 / -1;border-top:3px solid var(--tf)">
-        <div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);margin-bottom:8px">Discovery Mechanics — How Cold Buyers Find Designers They Don't Know Yet</div>
-        <div style="font-size:12.5px;color:var(--sub);margin-bottom:12px;line-height:1.6">Every mechanic above assumes the buyer already follows an influencer or knows a drop exists. The Founder's core ask — "create discovery mechanism" — requires the opposite: a buyer with no prior connection finding a designer for the first time. These mechanics address cold discovery specifically.</div>
-        <ul style="font-size:13px;line-height:1.75;color:var(--ink);padding-left:18px;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:0 32px">
-          <li style="margin-bottom:8px"><strong>Drops Open Now feed</strong> — editorially curated list of all active drops on TF, browsable without following anyone. At MVP: manually curated by the platform team. No ML needed. Satisfies discovery with zero technical complexity.</li>
-          <li style="margin-bottom:8px"><strong>Aesthetic / category browse</strong> — buyer finds drops by style tag (minimalist, streetwear, tailored, etc.) without following an influencer. Tags set by designer at drop creation.</li>
-          <li style="margin-bottom:8px"><strong>Save-to-board (pre-intent signal)</strong> — buyer saves a drop before purchasing. "Saved by 340 people" shown publicly on the drop page — creates social proof visible to all cold visitors without requiring a follow or a purchase. Proven by Pinterest's core mechanic.</li>
-          <li style="margin-bottom:8px"><strong>Trending drops surface</strong> — drops ranked by save count, waitlist size, and share count over the last 24h. Surfaces momentum to cold visitors. One sort query on existing data — no separate build needed.</li>
-          <li style="margin-bottom:8px"><strong>Cross-creator discovery</strong> — "Other drops promoted by creators like [Creator X]" shown at drop close. Introduces cold buyers to adjacent creators they don't follow yet. Works on TF's own platform data.</li>
-          <li><strong>Resale signal (post-drop)</strong> — when a sold-out drop generates resale interest (buyer lists for resale on external platforms), TF surfaces this as a "this drop sold out and is now reselling" signal on the designer's profile page. Signals demand to new buyers before the next drop launches.</li>
-        </ul>
-      </div>
-
-      <div style="background:white;border:1px solid var(--rule);border-left:4px solid var(--orange);padding:20px 22px;grid-column:1 / -1">
-        <div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:8px">Story Mechanics — Making the Share a Narrative, Not a Promotion</div>
-        <ul style="font-size:13px;line-height:1.75;color:var(--ink);padding-left:18px;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:0 32px">
-          <li style="margin-bottom:8px"><strong>Behind-the-drop story</strong> — creator posts a short text or photo from the designer studio session that preceded the drop. Visible on the drop page. Gives buyers something to share beyond product photos — the story behind the piece.</li>
-          <li style="margin-bottom:8px"><strong>Designer debut framing</strong> — for a designer's first TF drop: "This is [Designer]'s first ever public drop." Early buyers share to say they were there at the beginning. Same psychology as seeing a band in a small venue before they were famous.</li>
-          <li style="margin-bottom:8px"><strong>Community participation count</strong> — "This drop was co-shaped by 3 influencers and 12 community members." Shows the drop was a collective act, not a brand ad. Sharing it is participating in something, not retweeting marketing.</li>
-          <li><strong>VTO social proof overlay</strong> <span style="color:var(--sub);font-weight:400;font-size:11px">[Phase 2 — requires VTO integration]</span> — "47 people have tried this on today." Virtual try-on sessions create social proof without requiring purchase.</li>
-        </ul>
+      <div class="tcard" style="border-top-color:var(--tf-dark)">
+        <div class="tcard-label" style="color:var(--tf-dark)">Trigger 5</div>
+        <div class="tcard-title">"I have what you can't get"</div>
+        <div class="tcard-body">After a drop sells out, buyers share to signal ownership of something exclusive. The sold-out card ("I got mine") has more viral power than the pre-sale post — scarcity is confirmed, value is proven. This drives discovery for the next drop.</div>
+        <div class="tcard-ex">Real: Fortnite exclusive cosmetics — "I have the skin you can't get" — 350M registered players. <a href="https://www.gamespot.com/articles/fortnite-sets-another-record-with-more-than-350-mi/1100-6476928/" target="_blank" rel="noopener">GameSpot May 2020</a></div>
       </div>
 
     </div>
+  </div>
+
+  <!-- SECTION 02: EXAMPLES -->
+  <div class="section">
+    <div class="sec-heading"><span class="sec-num">02</span>Consumer Sharing Without Cash — What Worked</div>
+
+    <table class="dtable">
+      <thead>
+        <tr>
+          <th style="width:18%">Brand</th>
+          <th style="width:30%">Consumer sharing mechanic</th>
+          <th style="width:22%">Result</th>
+          <th>Key takeaway for TF</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="bold">Supreme</td>
+          <td>Drop model + scarcity. Zero referral program. Sharing = identity act ("I'm in-the-know").</td>
+          <td class="pos">30+ years organic viral growth. Acquired for $2.1B.</td>
+          <td>Being first to know about a drop is the social currency. The platform must make "first" visible — who backed it, who got in early.
+          <span class="src"><a href="https://www.vfc.com/investors/news-events-presentations/press-releases/detail/1741/vf-corporation-completes-acquisition-of-supreme" target="_blank" rel="noopener" style="color:var(--tf)">VF Corporation press release, Dec 2020</a></span></td>
+        </tr>
+        <tr>
+          <td class="bold">Rhode Beauty</td>
+          <td>Waitlist + drop window. Scarcity created urgency. Zero cash referral fees paid.</td>
+          <td class="pos">440,000+ person waitlist for Peptide Lip Treatment. Viral sharing before a single unit shipped.</td>
+          <td>Waitlist position creates stake — buyers share because their position moves up or closes. Urgency converts passive viewers into active promoters.
+          <span class="src"><a href="https://www.voguebusiness.com/story/beauty/hailey-biebers-rhode-in-2023" target="_blank" rel="noopener" style="color:var(--tf)">Vogue Business 2023</a></span></td>
+        </tr>
+        <tr>
+          <td class="bold">Glossier</td>
+          <td>Community rep program — application-only, product credit, no salary. Being a rep was the status signal.</td>
+          <td class="pos">500+ reps; cult brand built with minimal paid advertising; massive UGC.</td>
+          <td>Belonging to a select group drives more sharing than a cash bounty. Invite-only or application-based entry creates the status that makes sharing worthwhile.
+          <span class="src"><a href="https://www.vox.com/the-goods/2019/3/14/18265620/glossier-influencers-brand-reps-creator-marketing" target="_blank" rel="noopener" style="color:var(--tf)">Vox 2019</a></span></td>
+        </tr>
+        <tr>
+          <td class="bold">Robinhood</td>
+          <td>Queue position reward — sharing moves you up the waitlist. No cash. Pure positional incentive.</td>
+          <td class="pos">1M+ person waitlist before launch. Organic sharing without a single dollar paid.</td>
+          <td>Utility sharing (I share so I benefit, not so you reward me) converts at higher rates. Apply to TF: sharing a drop moves the buyer up the queue or unlocks early access for a friend.
+          <span class="src"><a href="https://techcrunch.com/2014/09/23/robinhood-stock-app/" target="_blank" rel="noopener" style="color:var(--tf)">TechCrunch Sep 2014</a></span></td>
+        </tr>
+        <tr>
+          <td class="bold">Fortnite (Epic Games)</td>
+          <td>Exclusive cosmetics only available during a limited window. Ownership is the shareable signal.</td>
+          <td class="pos">350M registered players. Limited items drive highest organic sharing and secondary market activity.</td>
+          <td>"I have what you can't get" is the most powerful post-purchase sharing trigger. Apply to TF: the sold-out card, the ownership card, the debut drop badge.
+          <span class="src"><a href="https://www.gamespot.com/articles/fortnite-sets-another-record-with-more-than-350-mi/1100-6476928/" target="_blank" rel="noopener" style="color:var(--tf)">GameSpot May 2020</a></span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SECTION 03: MECHANICS TO BUILD -->
+  <div class="section">
+    <div class="sec-heading"><span class="sec-num">03</span>Mechanics to Build into TF</div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+
+      <!-- SCARCITY -->
+      <div class="mcard" style="border-left:4px solid var(--orange)">
+        <div class="mcard-label" style="color:var(--orange)">Scarcity &amp; FOMO</div>
+        <ul>
+          <li><strong>Live stock counter</strong> — "83 of 150 remaining" shown in real time on every drop page and in all share links. Visible scarcity is the share trigger.</li>
+          <li><strong>Drop countdown timer</strong> — drop closes in 48–72 hours regardless of stock. Creator is incentivised to promote hard in the window. Buyers share urgency before it closes.</li>
+          <li><strong>Community pull counter</strong> — "Join 47 others in this drop" shown on every drop page. Based on TF's own platform data — no external API needed.</li>
+          <li><strong>Sold-out social card</strong> — auto-generated when a drop closes: "Sold out in 6 hours." Creator and buyers receive a shareable card. Drives discovery for the next drop.</li>
+        </ul>
+      </div>
+
+      <!-- IDENTITY -->
+      <div class="mcard" style="border-left:4px solid var(--tf)">
+        <div class="mcard-label" style="color:var(--tf)">Identity &amp; Status</div>
+        <ul>
+          <li><strong>Early access gate</strong> — creator's followers get drop access 24h before public. Creator shares to grow their audience; fans share to secure early slot. Share is a utility act, not promotion.</li>
+          <li><strong>"One of 150 owners" card</strong> — buyer receives a branded digital card at purchase. Shareable proof of early taste: "I found this designer before you did."</li>
+          <li><strong>First-to-discover badge</strong> — first 10% of buyers on a designer's debut drop get a permanent "Early supporter" badge on their profile. Signals foresight and taste.</li>
+          <li><strong>Designer debut framing</strong> — "This is [Designer]'s first ever public drop." Early buyers are founders, not just customers. Sharing it is a founding act.</li>
+        </ul>
+      </div>
+
+      <!-- DISCOVERY — full width -->
+      <div class="mcard" style="border-left:4px solid var(--green);grid-column:1 / -1;border-top:3px solid var(--green)">
+        <div class="mcard-label" style="color:var(--green)">Cold Discovery — Consumers Who Don't Follow Anyone Yet</div>
+        <div style="font-size:12.5px;color:var(--sub);margin-bottom:14px;line-height:1.6">Every mechanic above assumes the consumer already follows an influencer. Cold discovery addresses the opposite: a buyer with no prior connection finding a designer for the first time. This is the platform's core job — the influencer cannot do it alone.</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 32px">
+          <ul>
+            <li style="margin-bottom:8px"><strong>Drops Open Now feed</strong> — editorially curated list of all active drops, browsable without following anyone. At MVP: manually curated. No ML required. Satisfies cold discovery with zero technical complexity.</li>
+            <li style="margin-bottom:8px"><strong>Aesthetic / style browse</strong> — buyer finds drops by style tag (minimalist, streetwear, tailored, etc.) set by designer at drop creation. No follow needed.</li>
+          </ul>
+          <ul>
+            <li style="margin-bottom:8px"><strong>Save-to-board</strong> — buyer saves a drop before purchasing. "Saved by 340 people" shown publicly — social proof visible to all cold visitors without requiring a follow or a purchase.</li>
+            <li style="margin-bottom:8px"><strong>Trending sort</strong> — drops ranked by save count, waitlist size, and share count in the last 24h. Surfaces momentum to cold visitors. One sort query on existing data — no separate build needed.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- GAMING — full width -->
+      <div class="mcard" style="border-left:4px solid var(--tf);grid-column:1 / -1;border-top:3px solid var(--tf)">
+        <div class="mcard-label" style="color:var(--tf)">Gaming &amp; Points — Keeping Micro-Influencers Actively Promoting</div>
+        <div style="font-size:12.5px;color:var(--sub);margin-bottom:14px;line-height:1.6">Points give micro-influencers a reason to stay on the platform between drops, compete for visibility, and promote harder. Internal platform currency — not cash. One database table and a dashboard widget.</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 32px">
+          <ul>
+            <li style="margin-bottom:8px"><strong>Points earned for actions:</strong> completing a drop (+50pts) · $500 in sales (+100pts) · recruiting another creator (+200pts) · publishing a behind-the-drop story (+25pts) · first-time buyer through creator link (+10pts each)</li>
+            <li style="margin-bottom:8px"><strong>Tier progression:</strong> Creator → Rising Creator → Founding Creator. Each tier unlocks new perks (earlier drop access, co-design input, higher visibility). Visible on public profile — creates competition between creators.</li>
+          </ul>
+          <ul>
+            <li style="margin-bottom:8px"><strong>Points redeemed for platform rewards:</strong> featured placement on the discovery feed · early access to a new designer partnership · bonus commission tier for one drop. No cash out — platform value only.</li>
+            <li><strong>Creator leaderboard</strong> — visible to followers: total drops launched, total units sold. Public competition drives harder promotion. Sharing their rank is another shareable moment.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 04: MVP PRIORITY -->
+  <div class="section">
+    <div class="sec-heading"><span class="sec-num">04</span>What to Build First</div>
+
+    <table class="dtable">
+      <thead>
+        <tr>
+          <th style="width:30%">Mechanic</th>
+          <th style="width:15%">Build effort</th>
+          <th style="width:20%">Viral lever</th>
+          <th>MVP?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="bold">Live stock counter</td>
+          <td class="pos">Low</td>
+          <td>Scarcity / FOMO</td>
+          <td class="pos">Yes</td>
+        </tr>
+        <tr>
+          <td class="bold">Drop countdown timer</td>
+          <td class="pos">Low</td>
+          <td>Urgency</td>
+          <td class="pos">Yes</td>
+        </tr>
+        <tr>
+          <td class="bold">Sold-out social card</td>
+          <td class="pos">Low</td>
+          <td>Identity ("I got mine")</td>
+          <td class="pos">Yes</td>
+        </tr>
+        <tr>
+          <td class="bold">Drops Open Now feed</td>
+          <td class="pos">Low — manual curation</td>
+          <td>Cold discovery</td>
+          <td class="pos">Yes</td>
+        </tr>
+        <tr>
+          <td class="bold">"One of 150 owners" card</td>
+          <td class="pos">Low</td>
+          <td>Status / post-purchase share</td>
+          <td class="pos">Yes</td>
+        </tr>
+        <tr>
+          <td class="bold">Save-to-board + public count</td>
+          <td>Medium</td>
+          <td>Cold discovery / social proof</td>
+          <td class="pos">Yes</td>
+        </tr>
+        <tr>
+          <td class="bold">Early access gate</td>
+          <td>Medium</td>
+          <td>FOMO + utility share</td>
+          <td class="pos">Yes</td>
+        </tr>
+        <tr>
+          <td class="bold">Points + tier system</td>
+          <td>Medium</td>
+          <td>Creator retention + active promotion</td>
+          <td class="pos">Yes</td>
+        </tr>
+        <tr>
+          <td class="bold">Style browse by tag</td>
+          <td>Medium</td>
+          <td>Cold discovery</td>
+          <td>Yes — low ML risk</td>
+        </tr>
+        <tr>
+          <td class="bold">Trending sort</td>
+          <td class="pos">Low — sort query only</td>
+          <td>Cold discovery + social proof</td>
+          <td class="pos">Yes</td>
+        </tr>
+        <tr>
+          <td class="bold">VTO social proof overlay</td>
+          <td style="color:var(--red);font-weight:700">High — requires third-party SDK</td>
+          <td>Post-try-on sharing</td>
+          <td style="color:var(--sub)">Phase 2</td>
+        </tr>
+        <tr>
+          <td class="bold">AI style matching</td>
+          <td style="color:var(--red);font-weight:700">High — ML pipeline</td>
+          <td>Cold discovery (personalised)</td>
+          <td style="color:var(--sub)">Phase 2</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
 </div>
