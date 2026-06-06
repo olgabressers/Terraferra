@@ -64,6 +64,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .dtable tr:last-child td{border-bottom:none}
 .dtable tr.group-head td{background:var(--tf-ghost);font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);padding:9px 14px;border-top:2px solid var(--rule);border-bottom:1px solid var(--rule)}
 .dtable .bold{font-weight:800}
+.dtable .muted{color:var(--sub)}
 .dtable .pos{color:var(--green);font-weight:700}
 .dtable .neg{color:var(--red);font-weight:700}
 .dtable .src{font-size:11px;color:var(--sub);display:block;margin-top:3px}
@@ -367,6 +368,54 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
     </div>
   </div>
 
+
+  <!-- SECTION 04: PRICE TIER -->
+  <div class="section">
+    <div class="sec-heading"><span class="sec-num">04</span>Where Cash Referral Works and Where It Breaks Down</div>
+
+    <table class="dtable">
+      <thead>
+        <tr>
+          <th>Segment</th>
+          <th>Price point</th>
+          <th>Cash referral effectiveness</th>
+          <th>What works instead</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="bold">Fast fashion / mass market</td>
+          <td>$15–$60</td>
+          <td class="pos">Works — low identity risk; discount is a feature, not a signal</td>
+          <td>N/A — cash discount works fine here</td>
+        </tr>
+        <tr>
+          <td class="bold">Mid-market</td>
+          <td>$60–$150</td>
+          <td class="muted">Mixed — depends on brand positioning and product type</td>
+          <td>Product credit, loyalty points</td>
+        </tr>
+        <tr>
+          <td class="bold">Semi-luxury / premium</td>
+          <td>$150–$800</td>
+          <td class="neg">Underperforms — social cost starts to outweigh economic value; brand dilution risk</td>
+          <td>Access, status, community identity, co-creator framing</td>
+        </tr>
+        <tr>
+          <td class="bold">Luxury</td>
+          <td>$800+</td>
+          <td class="neg">Damages brand — discount signals product is discountable; contaminates exclusivity</td>
+          <td>Invitation-only access, private events, VIP recognition</td>
+        </tr>
+        <tr>
+          <td class="bold" style="color:var(--tf)">TF target (emerging designer drops)</td>
+          <td>$80–$400 per item</td>
+          <td><span class="muted">$80–$150: mixed</span> — mid-market tier; cash may be partially viable but brand dilution risk rises with price.<br><span class="neg">$150–$400: underperforms</span> — designer is unknown, share is a taste signal, cash destroys it</td>
+          <td class="pos"><strong>Early access + founding-creator status + identity-driven sharing mechanics.</strong> See Section 03 for the full mechanic list.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
 </div>
 
