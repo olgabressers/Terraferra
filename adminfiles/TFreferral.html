@@ -62,6 +62,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .dtable th{text-align:left;font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);padding:9px 14px;border-bottom:2px solid var(--rule);background:var(--tf-ghost)}
 .dtable td{padding:11px 14px;border-bottom:1px solid var(--rule);vertical-align:top;color:var(--ink);line-height:1.55}
 .dtable tr:last-child td{border-bottom:none}
+.dtable tr.group-head td{background:var(--tf-ghost);font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);padding:9px 14px;border-top:2px solid var(--rule);border-bottom:1px solid var(--rule)}
 .dtable .bold{font-weight:800}
 .dtable .muted{color:var(--sub)}
 .dtable .neg{color:var(--red);font-weight:700}
@@ -190,69 +191,137 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
       <thead>
         <tr>
           <th style="width:18%">Brand / Platform</th>
-          <th style="width:20%">Segment</th>
+          <th style="width:18%">Segment</th>
           <th style="width:22%">Reward structure</th>
-          <th style="width:20%">Outcome</th>
+          <th style="width:18%">Outcome</th>
           <th>Why it worked / failed</th>
         </tr>
       </thead>
       <tbody>
+
+        <!-- GROUP 1: LUXURY FASHION -->
+        <tr class="group-head"><td colspan="5">Fashion — Luxury (Most Relevant: Same Brand-Signal Problem)</td></tr>
+
         <tr>
-          <td class="bold">Lululemon Ambassador Program</td>
-          <td>Premium athleisure ($80–$150 items)</td>
-          <td><span class="pos">Non-cash</span> — product gifting, community status, first access, event invites. Zero cash referral fees.</td>
-          <td class="pos">1,500+ ambassadors globally; massive organic UGC; brand became a cultural identity signal</td>
-          <td>Ambassadors share because the brand reflects their identity as athletes and community leaders — not because they're paid to. Cash would have made them appear as paid promoters, destroying the credibility.
-          <span class="src">Source: Lululemon Ambassador Program page; Harvard Business Review case on Lululemon community marketing</span></td>
+          <td class="bold">Hermès, Chanel — luxury maisons</td>
+          <td>Luxury fashion ($800+)</td>
+          <td><span class="pos">No referral program</span> — zero cash incentives. Aspiration, invitation-only events, managed waitlists.</td>
+          <td class="pos">Sustained brand equity for decades; Birkin and Classic Flap waitlists function as marketing tools, not scarcity problems</td>
+          <td>The absence of a referral program is deliberate strategy. In luxury, exclusivity IS the product — a cash referral scheme would destroy the aspiration model. Demand is managed, not stimulated.
+          <span class="src">Source: Business of Fashion luxury strategy reporting; Bain &amp; Company Global Luxury Study 2023</span></td>
         </tr>
+
+        <tr>
+          <td class="bold">Farfetch / luxury platforms</td>
+          <td>Luxury fashion ($500+)</td>
+          <td><span class="neg">Cash discount codes</span> — $20–$50 off next purchase per referred friend</td>
+          <td class="neg">Low share rates; brand perception damage; core luxury buyers saw discount-seeking as a signal of lower status</td>
+          <td>At luxury price points, a discount code signals the product is discountable — diluting exclusivity. Customers do not want to appear to recommend for a coupon.
+          <span class="src">Source: ReferralCandy luxury sector guide; Mention Me luxury referral benchmarks; Business of Fashion on luxury referral economics</span></td>
+        </tr>
+
+        <!-- GROUP 2: PREMIUM & EMERGING FASHION -->
+        <tr class="group-head"><td colspan="5">Fashion — Premium &amp; Emerging (Direct TF Comparable)</td></tr>
+
+        <tr>
+          <td class="bold">Rhode Beauty (Hailey Bieber)</td>
+          <td>Premium beauty ($16–$90)</td>
+          <td><span class="pos">Drop + waitlist mechanic</span> — zero cash referral. Scarcity and founder identity drove demand.</td>
+          <td class="pos">440,000+ person waitlist for Peptide Lip Treatment; viral sharing without a single referral fee paid</td>
+          <td>People shared to signal they were in-the-know before the drop sold out. The share itself was the social reward — "I told my followers first." Identical psychology to TF's limited drop model: early-knowledge is the currency, not cash.
+          <span class="src">Source: <a href="https://www.voguebusiness.com/story/beauty/hailey-biebers-rhode-in-2023" target="_blank" rel="noopener" style="color:var(--tf)">Vogue Business — Rhode Beauty 2023</a></span></td>
+        </tr>
+
+        <tr>
+          <td class="bold">Supreme</td>
+          <td>Streetwear / semi-luxury ($80–$500)</td>
+          <td><span class="pos">Drop model + zero referral</span> — scarcity, FOMO, community membership signals. No cash incentives.</td>
+          <td class="pos">Sustained 30+ years; acquired by VF Corporation for $2.1B; Thursday drops sell out in minutes through organic sharing alone</td>
+          <td>Sharing a Supreme drop is an identity act — being in-the-know signals cultural membership. Drop mechanics and scarcity drove virality for three decades without any referral infrastructure. A cash referral would convert an identity signal into a transaction.
+          <span class="src">Source: VF Corporation acquisition announcement, Dec 2020; WWD Supreme drop coverage; Business of Fashion</span></td>
+        </tr>
+
+        <tr>
+          <td class="bold">REVOLVE</td>
+          <td>Premium fashion ($100–$500)</td>
+          <td><span class="pos">Co-creator framing with commission</span> — ~3,500 influencer partners earn % on driven sales. Invitation-only; framed as brand partnership, not affiliate link.</td>
+          <td class="pos">$900M+ revenue (2023); influencer program accounts for majority of marketing ROI; brand built almost entirely through influencer amplification</td>
+          <td>REVOLVE succeeds because influencers are treated as brand partners, not referral agents. Invitation-only makes inclusion a taste signal. The commission is income, but the framing is co-creator. Closest live model to TF's influencer mechanic — difference: REVOLVE carries mass-appeal brands; TF carries emerging unique designers.
+          <span class="src">Source: <a href="https://ir.revolve.com" target="_blank" rel="noopener" style="color:var(--tf)">REVOLVE 2023 IR / Annual Report</a></span></td>
+        </tr>
+
         <tr>
           <td class="bold">Glossier Rep Program</td>
-          <td>Premium beauty ($20–$90 items)</td>
-          <td><span class="pos">Non-cash primary</span> — product credit, exclusive community access, 20% commission as co-creator share (not referral fee). Entry via application; status to be accepted.</td>
-          <td class="pos">500+ reps; program drove majority of early word-of-mouth; built cult brand from scratch with minimal paid advertising</td>
-          <td>Reps self-identified as Glossier fans before applying — the share was about identity, not income. The 20% was framed as co-creator economics. Program eventually paused in 2022 as brand scaled.
-          <span class="src">Source: Glossier Rep Program documentation; Vox — Glossier's influencer strategy; Business of Fashion 2022</span></td>
+          <td>Premium beauty ($20–$90)</td>
+          <td><span class="pos">Non-cash primary</span> — product credit, exclusive community access, 20% commission framed as co-creator share. Entry via application; status to be accepted.</td>
+          <td class="pos">500+ reps; drove majority of early word-of-mouth; cult brand built with minimal paid advertising</td>
+          <td>Reps self-identified as Glossier fans before applying — the share was about identity, not income. The 20% was co-creator economics, not a referral fee. Program paused in 2022 as brand scaled beyond the intimate community model.
+          <span class="src">Source: Glossier Rep Program documentation; <a href="https://www.vox.com/the-goods/2019/3/14/18265620/glossier-influencers-brand-reps-creator-marketing" target="_blank" rel="noopener" style="color:var(--tf)">Vox — Glossier influencer strategy</a>; Business of Fashion 2022</span></td>
         </tr>
+
+        <tr>
+          <td class="bold">Lululemon Ambassador Program</td>
+          <td>Premium athleisure ($80–$150)</td>
+          <td><span class="pos">Non-cash</span> — product gifting, community status, first access, event invites. Zero cash referral fees.</td>
+          <td class="pos">1,500+ ambassadors globally; massive organic UGC; brand became a cultural identity signal across fitness communities</td>
+          <td>Ambassadors share because the brand reflects their identity as athletes and community leaders — not because they're paid. Cash would have made them appear as paid promoters, destroying credibility.
+          <span class="src">Source: Lululemon Ambassador Program page; Harvard Business Review case on Lululemon community marketing</span></td>
+        </tr>
+
+        <!-- GROUP 3: FAST FASHION — CONTRAST CASE -->
+        <tr class="group-head"><td colspan="5">Fashion — Mass Market (Contrast: Why Cash Works Here and Not Above)</td></tr>
+
+        <tr>
+          <td class="bold">SHEIN referral program</td>
+          <td>Fast fashion ($5–$30)</td>
+          <td><span class="neg">Cash / credit</span> — $5–$10 per referred friend + discount codes for both parties</td>
+          <td class="pos">Works — referral is a meaningful growth driver at this price tier; mass adoption with minimal brand perception risk</td>
+          <td>At mass-market price points, being seen as a bargain-hunter carries no social cost — it is a positive. Neither recommender nor receiver loses face. This does NOT transfer to semi-luxury: the same mechanic that works for SHEIN degrades brand perception above ~$80 average order value.
+          <span class="src">Source: Bloomberg — SHEIN growth mechanics; SHEIN referral program terms (public)</span></td>
+        </tr>
+
+        <!-- GROUP 4: CREATOR ECONOMY -->
+        <tr class="group-head"><td colspan="5">Creator Economy (Moderately Relevant)</td></tr>
+
+        <tr>
+          <td class="bold">Patreon / Substack</td>
+          <td>Premium creator content ($5–$50/month)</td>
+          <td><span class="pos">Reputation reward</span> — creators share to build their own audience. No referral fee structure.</td>
+          <td class="pos">Substack: 3M paid subscribers with minimal referral incentive; both platforms scaled on organic creator sharing</td>
+          <td>Creators share because it builds their identity and audience — the share IS the product. Co-creation framing is the driver. A cash referral scheme would have made creators feel like salespeople.
+          <span class="src">Source: Substack public growth data; Patreon creator economics documentation</span></td>
+        </tr>
+
+        <!-- GROUP 5: UTILITY / GAMING -->
+        <tr class="group-head"><td colspan="5">Utility &amp; Gaming — Instructive Contrasts (Cash Works Here; Does Not Transfer to Fashion)</td></tr>
+
         <tr>
           <td class="bold">Dropbox Referral Program</td>
-          <td>Utility SaaS (free tier → paid)</td>
+          <td>Utility SaaS (free → paid)</td>
           <td><span class="pos">In-kind reward</span> — free storage space for both referrer and receiver. Not cash.</td>
           <td class="pos">3,900% user growth in 15 months; 4M users from referrals</td>
-          <td>The reward was the product itself — extending usage, not paying cash. Both parties benefited. Utility segment; no identity cost to recommending. Does not transfer to fashion.
-          <span class="src">Source: Dropbox referral case study, cited widely including Viral Loops and Harvard iLab</span></td>
+          <td>The reward was the product itself — extending usage, not paying cash. Utility segment; no identity or taste cost to recommending cloud storage. Does not transfer to fashion.
+          <span class="src">Source: Dropbox referral case study; Viral Loops; Harvard iLab case archive</span></td>
         </tr>
+
         <tr>
           <td class="bold">Robinhood Waitlist</td>
           <td>Fintech (free product)</td>
           <td><span class="pos">Status reward</span> — waitlist position moves up when you refer friends. No cash, no product. Pure queue position.</td>
           <td class="pos">1M+ waitlist before launch; massive organic sharing</td>
-          <td>The reward was exclusivity and priority access — not money. People shared to move up because it signaled they were part of an exclusive early group. Closest analog to TF's drop access mechanic.
-          <span class="src">Source: Marketing case widely cited; Robinhood launch coverage, 2013</span></td>
+          <td>The reward was exclusivity and priority access — not money. Closest non-fashion analog to TF's drop access mechanic: people shared to signal early-adopter status, not to earn cash.
+          <span class="src">Source: Robinhood launch coverage; marketing case widely cited, 2013</span></td>
         </tr>
-        <tr>
-          <td class="bold">Farfetch / luxury resale platforms</td>
-          <td>Luxury fashion ($500+ items)</td>
-          <td><span class="neg">Cash discount codes</span> — standard referral credit ($20–$50 off next purchase)</td>
-          <td class="neg">Low share rates; seen as discount-seeking behavior; brand perception risk among core luxury customers</td>
-          <td>At luxury price points, offering a discount signals the product is discountable — diluting brand positioning. Customers in this segment do not want to appear to be recommending for a coupon.
-          <span class="src">Source: Practitioner consensus across ReferralCandy, Mention Me luxury sector guides; Business of Fashion on luxury referral economics</span></td>
-        </tr>
-        <tr>
-          <td class="bold">Patreon / Substack</td>
-          <td>Creator economy (premium content, $5–$50/month)</td>
-          <td><span class="pos">Reputation reward</span> — creators share to build their own audience. The platform shares because it elevates their status as a creator. No referral fee structure.</td>
-          <td class="pos">Both platforms scaled on organic creator sharing; Substack reached 3M paid subscribers with minimal referral incentive infrastructure</td>
-          <td>Creators share because it builds their identity and audience — the share IS the product. Co-creation framing is the driver. A cash referral scheme would have made creators feel like salespeople.
-          <span class="src">Source: Substack public growth data; Patreon creator economics documentation</span></td>
-        </tr>
+
         <tr>
           <td class="bold">Fortnite (Epic Games)</td>
-          <td>Gaming (free-to-play, cosmetic purchases $5–$20)</td>
-          <td><span class="pos">Status / cosmetic rewards</span> — exclusive skins, emotes, and seasonal items that signal early-adopter status. No cash referral.</td>
-          <td class="pos">350M registered users; cosmetic item economy generates $5B+/year; items with "limited edition" designation drive highest sharing</td>
-          <td>Identity and status through exclusive ownership drives viral spread. "I have the skin you can't get" is a more powerful sharing trigger than any cash bounty. Same psychology applies to limited fashion drops.
+          <td>Gaming (cosmetic purchases $5–$20)</td>
+          <td><span class="pos">Status / cosmetic rewards</span> — exclusive skins, limited-edition emotes signalling early-adopter status. No cash referral.</td>
+          <td class="pos">350M registered users; cosmetic economy $5B+/year; limited items drive highest organic sharing</td>
+          <td>"I have the skin you can't get" is a more powerful sharing trigger than any cash bounty. Same psychology applies to limited fashion drops: ownership of what others can't access is the signal.
           <span class="src">Source: Epic Games earnings; SuperData research on Fortnite cosmetics economy</span></td>
         </tr>
+
       </tbody>
     </table>
   </div>
