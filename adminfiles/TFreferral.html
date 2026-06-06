@@ -37,11 +37,11 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
   .dropdown a{padding:4px 0;font-size:9px}
 }
 
-.pg-wrap{max-width:1000px;margin:0 auto;padding:0 60px}
-.pg-header{padding:52px 0 0}
+.pg-wrap{max-width:1240px;margin:0 auto;padding:40px 48px 80px}
+.pg-header{padding:12px 0 0}
 .pg-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--sub);opacity:.6}
 .pg-title{font-size:40px;font-weight:800;letter-spacing:-1.5px;color:var(--ink);margin-top:14px;line-height:1.1}
-.pg-sub{font-size:13.5px;color:var(--sub);margin-top:10px;line-height:1.6;max-width:680px}
+.pg-sub{font-size:13.5px;color:var(--sub);margin-top:10px;line-height:1.6;max-width:780px}
 
 .section{padding:44px 0}
 .section+.section{border-top:1px solid var(--rule)}
@@ -50,7 +50,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 
 /* VERDICT BOX */
 .verdict{background:white;border:1px solid var(--rule);border-top:4px solid var(--orange);padding:32px 36px;margin-top:32px}
-.verdict-eyebrow{font-size:10px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--orange);margin-bottom:20px}
+.verdict-eyebrow{font-size:26px;font-weight:800;letter-spacing:-0.5px;color:var(--orange);margin-bottom:24px}
 .verdict-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
 .verdict-col-head{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
 .verdict-list{font-size:13.5px;line-height:1.75;padding-left:18px;margin:0}
@@ -90,8 +90,8 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
 #back-to-top:hover{background:var(--tf-dark)}
 
 @media(max-width:700px){
-  .pg-wrap{padding:0 20px}
-  .pg-header{padding:28px 0 0}
+  .pg-wrap{padding:20px 16px 60px}
+  .pg-header{padding:0}
   .pg-title{font-size:28px}
   .section{padding:32px 0}
   .verdict{padding:22px 20px}
@@ -155,7 +155,7 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
     </div>
 
     <div style="margin-top:24px;padding-top:20px;border-top:1px solid var(--rule)">
-      <div class="verdict-col-head" style="color:var(--tf)">TF model implication</div>
+      <div style="font-size:18px;font-weight:800;color:var(--tf);margin-bottom:12px">TF Model Implication</div>
       <div style="font-size:13.5px;line-height:1.75;color:var(--ink)">Do not structure the co-creator % as a referral bonus. Structure it as a revenue share on a project the influencer co-launched. Lead with access, identity, and founding-creator status. The % of sales is the economic value; the co-creator framing is what makes it shareable. Cash referral as a separate mechanic (e.g. "earn $X per friend referred") will underperform and risk positioning TF as a discount platform rather than a creator community.</div>
     </div>
   </div>
@@ -164,15 +164,21 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
   <div class="section">
     <div class="sec-heading"><span class="sec-num">01</span>What the Research Shows — Cash vs. Non-Cash in Premium Contexts</div>
 
+    <div class="callout" style="margin-bottom:16px">
+      <div class="callout-head" style="color:var(--tf)">When Cash Does Work</div>
+      <ul style="font-size:13.5px;line-height:1.75;color:var(--ink);padding-left:20px;margin:0">
+        <li style="margin-bottom:7px">The reward is <strong>large enough</strong> to overcome social cost (high-value cash, not $5 coupons)</li>
+        <li style="margin-bottom:7px"><strong>Both referrer and receiver</strong> are rewarded simultaneously — eliminates the self-interest signal</li>
+        <li style="margin-bottom:7px">The product is <strong>utility-based</strong>, not identity/aesthetic — transportation (Uber), storage (Dropbox), fintech (Revolut)</li>
+        <li>The recommender's <strong>reputation is not on the line</strong> — no one's taste is judged by what cloud storage they use</li>
+      </ul>
+      <div style="font-size:12.5px;color:var(--sub);margin-top:12px;line-height:1.6">Uber, Airbnb, and Dropbox built cash-equivalent referral programs successfully — in utility segments where reputation and taste are not the social currency. This does not transfer to fashion creator commerce.</div>
+    </div>
+
     <div class="callout red">
       <div class="callout-head" style="color:var(--red)">Core Academic Finding</div>
       <div class="callout-body">Jin &amp; Huang (2014), <em>International Journal of Research in Marketing</em> (peer-reviewed, 4 controlled experiments, 200+ citations): <strong>"Although consumers prefer monetary rewards due to their greater economic value, the higher social costs associated with money offset this benefit and render money an inferior incentive when the recommendation is not well justified."</strong> Effect is strongest for weaker/emerging brands. Wang &amp; Ding (2022, <em>Journal of Business Research</em>): for high-aesthetic products (fashion), monetary rewards are "attenuated or even reversed." The mechanism: recommending for cash signals self-interest, not taste — which destroys the credibility of the recommendation in identity-driven segments.
-      <span style="font-size:11px;color:var(--sub);display:block;margin-top:8px">Source: Jin &amp; Huang, IJRM Vol.31(1), 2014 · Wang &amp; Ding, JBR, 2022</span></div>
-    </div>
-
-    <div class="callout" style="margin-top:16px">
-      <div class="callout-head" style="color:var(--tf)">When Cash Does Work</div>
-      <div class="callout-body">Cash referral works when: (1) the reward is large enough to overcome social cost; (2) both referrer AND receiver are rewarded simultaneously; (3) the product is utility-based rather than identity/aesthetic — transportation, storage, fintech. Uber, Airbnb, Dropbox all built cash-equivalent referral programs successfully in utility segments. This does not transfer to fashion creator commerce where reputation and taste are the social currency.</div>
+      <span style="font-size:11px;color:var(--sub);display:block;margin-top:8px">Sources: <a href="https://www.sciencedirect.com/science/article/pii/S0167811613000906" target="_blank" rel="noopener" style="color:var(--tf)">Jin &amp; Huang, IJRM Vol.31(1), 2014</a> · Wang &amp; Ding, Journal of Business Research, 2022</span></div>
     </div>
   </div>
 
@@ -325,26 +331,6 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
     </table>
   </div>
 
-  <!-- SOURCES -->
-  <div class="section">
-    <div class="sec-heading"><span class="sec-num">05</span>Sources</div>
-    <div class="sources-box">
-      <div class="sources-eyebrow">Primary Sources</div>
-      <div class="sources-list">
-        <div>Jin, L. &amp; Huang, Y. — "When giving money does not work: The differential effects of monetary versus in-kind rewards in referral reward programs" — <em>International Journal of Research in Marketing</em>, Vol. 31(1), 2014, pp. 107–116 — <a href="https://www.sciencedirect.com/science/article/pii/S0167811613000906" target="_blank" rel="noopener">sciencedirect.com</a></div>
-        <div>Wang &amp; Ding — "Monetary rewards and aesthetic products" — <em>Journal of Business Research</em>, 2022 — confirms cash attenuation for high-aesthetic goods</div>
-        <div>Ryu, G. &amp; Feick, L. — "A penny for your thoughts: Referral reward programs and referral likelihood" — <em>Journal of Marketing</em>, Vol. 71(1), 2007, pp. 84–94 — on social costs and motive transparency</div>
-        <div>Lululemon Ambassador Program — <a href="https://www.lululemon.com/en-us/ambassador" target="_blank" rel="noopener">lululemon.com/ambassador</a></div>
-        <div>Glossier Rep Program documentation — Vox: "How Glossier built a cult brand with almost no advertising" — <a href="https://www.vox.com/the-goods/2019/3/14/18262825/glossier-brand-cult-beauty-emily-weiss" target="_blank" rel="noopener">vox.com</a></div>
-        <div>Dropbox referral case study — Viral Loops: "The Dropbox referral program: 3,900% growth" — <a href="https://viral-loops.com/blog/dropbox-referral-program/" target="_blank" rel="noopener">viral-loops.com</a></div>
-        <div>Robinhood waitlist mechanics — widely cited in marketing case literature; original coverage Bloomberg, TechCrunch 2013</div>
-        <div>Substack paid subscriber growth — Substack public metrics, 2024 — <a href="https://substack.com/about" target="_blank" rel="noopener">substack.com/about</a></div>
-        <div>Fortnite cosmetics economy — SuperData Research; Epic Games investor materials</div>
-        <div>ReferralCandy — Luxury referral program benchmarks (vendor source, directional only) — <a href="https://www.referralcandy.com/blog/luxury-referral-program" target="_blank" rel="noopener">referralcandy.com</a></div>
-      </div>
-      <div style="font-size:12px;color:var(--sub);margin-top:12px;line-height:1.6;font-style:italic">Confidence notes: Jin &amp; Huang (2014) academic finding — HIGH (peer-reviewed, 4 experiments, widely replicated). Wang &amp; Ding (2022) — HIGH (peer-reviewed). Lululemon, Glossier outcomes — MEDIUM (widely reported, not audited). Dropbox 3,900% growth — HIGH (company-confirmed, multiple independent sources). Robinhood waitlist — MEDIUM (widely cited, original primary data not public). Price-tier pattern — directional, synthesized from multiple practitioner sources; not a single audited study.</div>
-    </div>
-  </div>
 </div>
 
 <footer>
