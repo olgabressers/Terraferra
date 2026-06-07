@@ -105,8 +105,15 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
 #back-to-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--tf);color:white;border:none;border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900}
 #back-to-top:hover{background:var(--tf-dark)}
 
+/* RESPONSIVE GRIDS */
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.g2-inner{display:grid;grid-template-columns:1fr 1fr;gap:0 32px}
+.g2-impl{display:grid;grid-template-columns:1fr 1fr;gap:14px 32px;font-size:13px;line-height:1.7;color:var(--ink)}
+
 @media(max-width:1000px){
   .verdict-grid{grid-template-columns:1fr}
+  .g3{grid-template-columns:1fr 1fr}
 }
 @media(max-width:700px){
   .pg-wrap{padding:20px 16px 60px}
@@ -115,7 +122,8 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
   .verdict{padding:22px 20px}
   .dtable{display:block;overflow-x:auto;white-space:nowrap}
   footer{padding:18px 20px}
-  .fdiag-inner{min-width:0}
+  .mcard{padding:16px 14px}
+  .g3,.g2,.g2-inner,.g2-impl{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -268,7 +276,7 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
   <!-- SECTION 01: WHY CONSUMERS SHARE -->
   <div class="section">
     <div class="sec-heading"><span class="sec-num">01</span>Why Consumers Share Fashion Content</div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px">
+    <div class="g3" style="margin-bottom:16px">
 
       <div class="tcard">
         <div class="tcard-label">Trigger 1</div>
@@ -293,7 +301,7 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
 
     </div>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+    <div class="g2">
 
       <div class="tcard" style="border-top-color:var(--sub)">
         <div class="tcard-label" style="color:var(--sub)">Trigger 4</div>
@@ -463,7 +471,7 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
   <div class="section">
     <div class="sec-heading"><span class="sec-num">04</span>Mechanics to Build into TF</div>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+    <div class="g2">
 
       <!-- SCARCITY -->
       <div class="mcard" style="border-left:4px solid var(--orange)">
@@ -491,7 +499,7 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
       <div class="mcard" style="border-left:4px solid var(--green);grid-column:1 / -1;border-top:3px solid var(--green)">
         <div class="mcard-label" style="color:var(--green)">Cold Discovery — Consumers Who Don't Follow Anyone Yet</div>
         <div style="font-size:12.5px;color:var(--sub);margin-bottom:14px;line-height:1.6">Every mechanic above assumes the consumer already follows an influencer. Cold discovery addresses the opposite: a buyer with no prior connection finding a designer for the first time. This is the platform's core job — the influencer cannot do it alone.</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 32px">
+        <div class="g2-inner">
           <ul>
             <li style="margin-bottom:8px"><strong>Drops Open Now feed</strong> — editorially curated list of all active drops, browsable without following anyone. At MVP: manually curated. No ML required. Satisfies cold discovery with zero technical complexity.</li>
             <li style="margin-bottom:8px"><strong>Aesthetic / style browse</strong> — buyer finds drops by style tag (minimalist, streetwear, tailored, etc.) set by designer at drop creation. No follow needed.</li>
@@ -507,7 +515,7 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
       <div class="mcard" style="border-left:4px solid var(--tf);grid-column:1 / -1;border-top:3px solid var(--tf)">
         <div class="mcard-label" style="color:var(--tf)">Gaming &amp; Points — Keeping Micro-Influencers Actively Promoting</div>
         <div style="font-size:12.5px;color:var(--sub);margin-bottom:14px;line-height:1.6">Points give micro-influencers a reason to stay on the platform between drops, compete for visibility, and promote harder. Internal platform currency — not cash. One database table and a dashboard widget.</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 32px">
+        <div class="g2-inner">
           <ul>
             <li style="margin-bottom:8px"><strong>Points earned for actions:</strong> completing a drop (+50pts) · $500 in sales (+100pts) · recruiting another creator (+200pts) · publishing a behind-the-drop story (+25pts) · first-time buyer through creator link (+10pts each)</li>
             <li style="margin-bottom:8px"><strong>Tier progression:</strong> Creator → Rising Creator → Founding Creator. Each tier unlocks new perks (earlier drop access, co-design input, higher visibility). Visible on public profile — creates competition between creators.</li>
@@ -591,7 +599,7 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
 
     <div style="margin-top:20px;background:var(--tf-ghost);border:1px solid var(--rule);border-left:4px solid var(--tf);padding:18px 22px">
       <div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);margin-bottom:14px">What this means for TF creator tiers</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px 32px;font-size:13px;line-height:1.7;color:var(--ink)">
+      <div class="g2-impl">
         <div><strong>Gate by GMV, not followers.</strong> TikTok Shop, Amazon, and ShopMy all gate tiers by sales volume or revenue driven — not audience size. Followers at entry; performance after that.</div>
         <div><strong>Commission % is TF's lever.</strong> On TikTok Shop, LTK, and ShopMy, the seller or brand sets the rate — not the platform. TF is different: TF controls its own commission structure and can tie rate increases directly to creator tier progression.</div>
         <div><strong>Non-cash unlocks at top tiers.</strong> ShopMy Icon and Twitch Partner both add visibility and access — not just cash. TF equivalents: featured placement, early drop access, direct designer relationships.</div>
