@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Task Tracker · Terra Ferra</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --tf:#4B40C2;
+  --tf-dark:#2D2595;
+  --tf-light:#ECEAF9;
+  --tf-ghost:#F4F2FC;
+  --orange:#E86820;
+  --orange-light:#FBE8D8;
+  --off-white:#F7F6FB;
+  --ink:#12102B;
+  --sub:#5B5880;
+  --rule:#D8D4EF;
+  --green:#1F7A4E;
+  --green-tint:#DDEEE5;
+  --red:#B23A2F;
+  --red-tint:#F5E0DE;
+  --teal:#1A7A72;
+  --teal-tint:#D8EFEE;
+  --grey-tint:#EEEDF2;
+}
+body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink);min-height:100vh;display:flex;flex-direction:column}
+
+/* ── NAV ── */
+.topnav{background:white;border-bottom:1px solid var(--rule);padding:12px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
+.topnav-home{font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);text-decoration:none;font-size:11px}
+.topnav-home:hover{color:var(--tf-dark)}
+.topnav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:var(--sub);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:10px}
+.topnav-links a:hover{color:var(--tf)}
+.topnav-links a.active{color:var(--orange)}
+.topnav-links .has-dropdown{position:relative;padding-bottom:10px;margin-bottom:-10px}
+.topnav-links .dropdown-trigger{cursor:pointer;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:10px;user-select:none}
+.topnav-links .dropdown-trigger:hover,.topnav-links .has-dropdown:focus-within .dropdown-trigger{color:var(--tf)}
+.topnav-links .dropdown{display:none;position:absolute;top:100%;right:0;background:white;border:1px solid var(--rule);min-width:220px;box-shadow:0 6px 14px rgba(0,0,0,.08);padding:6px 0;z-index:60}
+.topnav-links .has-dropdown:hover .dropdown,.topnav-links .has-dropdown:focus-within .dropdown{display:block}
+.topnav-links .dropdown a{display:block;padding:9px 16px;font-size:10px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:1px;text-decoration:none}
+.topnav-links .dropdown a:hover{background:var(--tf-ghost);color:var(--tf)}
+@media(max-width:700px){
+  .topnav{position:static;padding:10px 14px}
+  .topnav-links{gap:10px;justify-content:flex-start;width:100%}
+  .topnav-links a{font-size:9.5px}
+  .topnav-links .has-dropdown{padding-bottom:0;margin-bottom:0}
+  .topnav-links .dropdown{position:static;display:block;box-shadow:none;border:none;padding:0;min-width:0;margin-left:8px}
+  .topnav-links .dropdown a{padding:4px 0;font-size:9px}
+}
+
+/* ── PAGE HEADER ── */
+.page-header{padding:48px 60px 0}
+.page-header-inner{max-width:1200px;margin:0 auto}
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--sub);opacity:.6;margin-bottom:14px}
+.page-title{font-size:36px;font-weight:800;letter-spacing:-1px;color:var(--ink);line-height:1.1;margin-bottom:32px}
+
+/* ── FILTER BAR ── */
+.filter-wrap{padding:0 60px;margin-bottom:4px}
+.filter-inner{max-width:1200px;margin:0 auto;padding:0 0 8px}
+.filter-row{display:flex;gap:8px;flex-wrap:wrap;padding:8px 0 4px;align-items:center}
+.filter-label{font-size:9.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);opacity:.6;margin-right:4px;white-space:nowrap}
+.filter-btn{font-family:'Inter',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:6px 14px;border-radius:2px;border:1.5px solid var(--rule);background:white;color:var(--sub);cursor:pointer;transition:all .15s}
+.filter-btn:hover{border-color:var(--tf);color:var(--tf)}
+.filter-btn.active{background:var(--tf);border-color:var(--tf);color:white}
+/* Status active states */
+.filter-btn[data-status="pending"].active{background:var(--orange);border-color:var(--orange)}
+.filter-btn[data-status="done"].active{background:var(--green);border-color:var(--green)}
+.filter-btn[data-status="deferred"].active{background:var(--sub);border-color:var(--sub)}
+/* Owner active states */
+.filter-btn[data-owner="founder"].active{background:var(--tf);border-color:var(--tf)}
+.filter-btn[data-owner="ceo"].active{background:var(--orange);border-color:var(--orange)}
+.filter-btn[data-owner="cto"].active{background:var(--green);border-color:var(--green)}
+.filter-divider{width:100%;height:1px;background:var(--rule);margin:4px 0}
+
+/* ── MAIN ── */
+main{flex:1;padding:16px 60px 80px}
+.main-inner{max-width:1200px;margin:0 auto}
+
+/* ── WORKSTREAM SECTIONS ── */
+.ws-section{margin-bottom:48px}
+.ws-head{display:flex;align-items:baseline;gap:12px;margin-bottom:12px;border-bottom:1.5px solid var(--tf);padding-bottom:10px}
+.ws-head h2{font-size:18px;font-weight:800;letter-spacing:-.3px;color:var(--orange)}
+.ws-count{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub)}
+.ws-count.has-open{color:var(--orange)}
+
+/* ── TABLE ── */
+.table-scroll{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--rule);border-radius:2px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;min-width:900px}
+thead tr{background:var(--tf)}
+thead th{color:white;font-size:10.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:11px 14px;text-align:left;white-space:nowrap}
+thead th.col-date{width:90px}
+thead th.col-type{width:90px}
+thead th.col-owner{width:88px}
+thead th.col-pri{width:76px}
+thead th.col-status{width:108px}
+thead th.col-notes{min-width:180px}
+tbody tr{border-bottom:1px solid var(--rule);transition:background .1s}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:var(--tf-ghost)}
+tbody tr.hidden{display:none}
+tbody td{padding:10px 14px;color:var(--ink);vertical-align:top;line-height:1.5}
+tbody td.col-date{font-size:11px;color:var(--sub);font-weight:500;white-space:nowrap}
+tbody td.col-notes{font-size:12px;color:var(--sub)}
+
+/* ── TYPE BADGES ── */
+.tag{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:4px 8px;border-radius:2px;white-space:nowrap}
+.tag.task{background:var(--tf-light);color:var(--tf)}
+.tag.idea{background:var(--orange-light);color:var(--orange)}
+.tag.decision{background:var(--grey-tint);color:var(--ink)}
+.tag.question{background:var(--teal-tint);color:var(--teal)}
+
+/* ── OWNER BADGES ── */
+.owner{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:4px 8px;border-radius:2px;white-space:nowrap}
+.owner.founder{background:var(--tf-light);color:var(--tf)}
+.owner.ceo{background:var(--orange-light);color:var(--orange)}
+.owner.cto{background:var(--green-tint);color:var(--green)}
+
+/* ── PRIORITY BADGES ── */
+.pri{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:4px 8px;border-radius:2px;white-space:nowrap}
+.pri.high{background:var(--red-tint);color:var(--red)}
+.pri.normal{background:var(--grey-tint);color:var(--sub)}
+.pri.low{background:var(--tf-ghost);color:var(--sub);opacity:.8}
+
+/* ── STATUS BADGES ── */
+.status{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:4px 8px;border-radius:2px;white-space:nowrap}
+.status.pending{background:var(--orange-light);color:var(--orange)}
+.status.in-progress{background:var(--tf-light);color:var(--tf)}
+.status.done{background:var(--green-tint);color:var(--green)}
+.status.deferred{background:var(--grey-tint);color:var(--sub)}
+
+/* ── EMPTY STATE ── */
+.ws-empty{display:none;padding:18px 20px;font-size:12px;color:var(--sub);font-style:italic;background:white;border:1px dashed var(--rule)}
+.ws-empty.show{display:block}
+
+/* ── FOOTER ── */
+footer{padding:24px 60px;border-top:1px solid var(--rule);background:white}
+.footer-inner{max-width:1200px;margin:0 auto;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);opacity:.5}
+
+/* ── BACK TO TOP ── */
+#back-to-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--tf);color:white;border:1px solid rgba(113,105,212,.5);border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900;transition:background .2s}
+#back-to-top:hover{background:var(--tf-dark)}
+
+@media(max-width:900px){
+  .page-header,.filter-wrap,main{padding-left:20px;padding-right:20px}
+  .page-title{font-size:28px}
+}
+@media(max-width:700px){
+  .page-header,.filter-wrap,main{padding-left:14px;padding-right:14px}
+  .page-title{font-size:24px}
+  footer{padding:16px 14px}
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="index.html" class="topnav-home">Terra Ferra</a>
+  <div class="topnav-links">
+    <a href="budget.html">Budget</a>
+    <a href="roles.html">Roles</a>
+    <a href="TFbusinessmodel.html">Business Model</a>
+    <a href="task-tracker.html" class="active">Planning</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Ideas ▾</span>
+      <div class="dropdown">
+        <a href="gamification.html">Gamification</a>
+        <a href="ideas.html">Ideas &amp; AI Research</a>
+        <a href="influencer.html">Influencer Selling</a>
+        <a href="strategic-brief.html">Strategic Brief</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="eyebrow">Internal · Private</div>
+    <h1 class="page-title">Task Tracker</h1>
+  </div>
+</div>
+
+<div class="filter-wrap">
+  <div class="filter-inner">
+
+    <div class="filter-row">
+      <span class="filter-label">Status</span>
+      <button class="filter-btn active" data-status="all">All</button>
+      <button class="filter-btn" data-status="pending">Pending</button>
+      <button class="filter-btn" data-status="in-progress">In Progress</button>
+      <button class="filter-btn" data-status="done">Done</button>
+      <button class="filter-btn" data-status="deferred">Deferred</button>
+    </div>
+
+    <div class="filter-divider"></div>
+
+    <div class="filter-row">
+      <span class="filter-label">Owner</span>
+      <button class="filter-btn active" data-owner="all">All</button>
+      <button class="filter-btn" data-owner="founder">Founder</button>
+      <button class="filter-btn" data-owner="ceo">CEO</button>
+      <button class="filter-btn" data-owner="cto">CTO</button>
+    </div>
+
+  </div>
+</div>
+
+<main>
+<div class="main-inner">
+
+
+<!-- ══════════════════════════════════════════════
+     WORKSTREAM 01 · TERRA FERRA CONCEPT
+     ══════════════════════════════════════════════ -->
+<section class="ws-section">
+  <div class="ws-head">
+    <h2>01 · Terra Ferra Concept</h2>
+    <span class="ws-count" id="count-concept"></span>
+  </div>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th class="col-date">Date</th>
+          <th class="col-type">Type</th>
+          <th class="col-topic">Topic / Task</th>
+          <th class="col-owner">Owner</th>
+          <th class="col-pri">Priority</th>
+          <th class="col-status">Status</th>
+          <th class="col-notes">Action / Notes</th>
+        </tr>
+      </thead>
+      <tbody id="ws-concept">
+        <!--
+        ╔══════════════════════════════════════════════════════════════╗
+        ║  HOW TO ADD A NEW ROW                                       ║
+        ║  1. Copy the <tr> block below                               ║
+        ║  2. Fill in: date, type, topic, owner, priority, status     ║
+        ║  3. Set data-status AND data-owner to match the badge class  ║
+        ╚══════════════════════════════════════════════════════════════╝
+
+        <tr data-status="pending" data-owner="ceo">
+          <td class="col-date">2026-06-07</td>
+          <td><span class="tag task">Task</span></td>
+          <td>Describe the task or topic here</td>
+          <td><span class="owner ceo">CEO</span></td>
+          <td><span class="pri high">High</span></td>
+          <td><span class="status pending">Pending</span></td>
+          <td>Action taken / reply sent / next step</td>
+        </tr>
+
+        TYPE:     task · idea · decision · question
+        OWNER:    founder · ceo · cto
+        PRIORITY: high · normal · low
+        STATUS:   pending · in-progress · done · deferred
+        -->
+      </tbody>
+    </table>
+  </div>
+  <div class="ws-empty show" id="empty-concept">No items yet — add rows using the template in the HTML comment above.</div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     WORKSTREAM 02 · FUNDRAISING & CAPITAL
+     SAFE, investor pipeline, bridge round, cap table
+     ══════════════════════════════════════════════ -->
+<section class="ws-section">
+  <div class="ws-head">
+    <h2>02 · Fundraising &amp; Capital</h2>
+    <span class="ws-count" id="count-fundraising"></span>
+  </div>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th class="col-date">Date</th>
+          <th class="col-type">Type</th>
+          <th class="col-topic">Topic / Task</th>
+          <th class="col-owner">Owner</th>
+          <th class="col-pri">Priority</th>
+          <th class="col-status">Status</th>
+          <th class="col-notes">Action / Notes</th>
+        </tr>
+      </thead>
+      <tbody id="ws-fundraising">
+        <!--
+        COPY TEMPLATE FROM SECTION 01 ABOVE — same row structure, same badge options
+        -->
+        <tr data-status="pending" data-owner="ceo">
+          <td class="col-date">2026-06-07</td>
+          <td><span class="tag task">Task</span></td>
+          <td>Update Investor Deck</td>
+          <td><span class="owner ceo">CEO</span></td>
+          <td><span class="pri high">High</span></td>
+          <td><span class="status pending">Pending</span></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="ws-empty" id="empty-fundraising">No items yet.</div>
+</section>
+
+
+</div><!-- /main-inner -->
+</main>
+
+<footer>
+  <div class="footer-inner">Private · noindex · Not for distribution</div>
+</footer>
+
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" title="Back to top">&#8593;</button>
+
+<script>
+(function(){
+
+  var activeStatus = 'all';
+  var activeOwner  = 'all';
+
+  // ── Status filter buttons ──
+  document.querySelectorAll('.filter-btn[data-status]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      activeStatus = btn.getAttribute('data-status');
+      document.querySelectorAll('.filter-btn[data-status]').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      applyFilter();
+    });
+  });
+
+  // ── Owner filter buttons ──
+  document.querySelectorAll('.filter-btn[data-owner]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      activeOwner = btn.getAttribute('data-owner');
+      document.querySelectorAll('.filter-btn[data-owner]').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      applyFilter();
+    });
+  });
+
+  function applyFilter(){
+    document.querySelectorAll('tbody[id^="ws-"]').forEach(function(tbody){
+      tbody.querySelectorAll('tr').forEach(function(row){
+        var s = row.getAttribute('data-status') || '';
+        var o = row.getAttribute('data-owner') || '';
+        var statusOk = (activeStatus === 'all' || s === activeStatus);
+        var ownerOk  = (activeOwner  === 'all' || o === activeOwner);
+        row.classList.toggle('hidden', !(statusOk && ownerOk));
+      });
+    });
+    updateCounts();
+    updateEmpties();
+  }
+
+  // ── Open item counts ──
+  var sections = ['concept','fundraising'];
+
+  function updateCounts(){
+    sections.forEach(function(ws){
+      var tbody   = document.getElementById('ws-' + ws);
+      var countEl = document.getElementById('count-' + ws);
+      if(!tbody || !countEl) return;
+      var allRows  = tbody.querySelectorAll('tr');
+      var openRows = tbody.querySelectorAll('tr[data-status="pending"], tr[data-status="in-progress"]');
+      if(allRows.length === 0){
+        countEl.textContent = '';
+        countEl.classList.remove('has-open');
+      } else if(openRows.length > 0){
+        countEl.textContent = openRows.length + ' open · ' + allRows.length + ' total';
+        countEl.classList.add('has-open');
+      } else {
+        countEl.textContent = allRows.length + ' item' + (allRows.length > 1 ? 's' : '') + ' · all done';
+        countEl.classList.remove('has-open');
+      }
+    });
+  }
+
+  // ── Empty states ──
+  function updateEmpties(){
+    sections.forEach(function(ws){
+      var tbody   = document.getElementById('ws-' + ws);
+      var emptyEl = document.getElementById('empty-' + ws);
+      if(!tbody || !emptyEl) return;
+      var visible = tbody.querySelectorAll('tr:not(.hidden)');
+      emptyEl.classList.toggle('show', visible.length === 0);
+    });
+  }
+
+  // ── Back to top ──
+  window.addEventListener('scroll', function(){
+    var b = document.getElementById('back-to-top');
+    b.style.display = window.scrollY > 400 ? 'flex' : 'none';
+  });
+
+  // Init
+  updateCounts();
+  updateEmpties();
+
+})();
+</script>
+
+</body>
+</html>
