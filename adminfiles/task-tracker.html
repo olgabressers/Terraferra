@@ -91,8 +91,6 @@ tbody tr[data-status="done"] td:first-child{border-left:3px solid var(--green)}
 tbody tr[data-status="deferred"] td:first-child{border-left:3px solid var(--rule)}
 tbody tr[data-status="todo"] td:first-child{border-left:3px solid transparent}
 td{padding:9px 12px;vertical-align:middle}
-td.col-date{font-size:11px;color:var(--ink);font-weight:600;white-space:nowrap}
-td.col-task{font-weight:500;color:var(--ink);line-height:1.4}
 td.col-ref{font-size:11px;color:var(--ink)}
 td.col-ref a{color:var(--tf);font-weight:600;text-decoration:none;font-size:11px;display:inline-block;margin-right:4px;white-space:nowrap}
 td.col-ref a:hover{color:var(--orange);text-decoration:underline}
@@ -108,10 +106,14 @@ td.col-ref a:hover{color:var(--orange);text-decoration:underline}
 .sel-status.s-done{background-color:var(--green-tint);color:var(--green)}
 .sel-status.s-deferred{background-color:var(--off-white);color:var(--sub);border-color:var(--rule)}
 
-/* EDITABLE CELLS */
+/* EDITABLE CELLS — date, due, notes */
 .edit-cell{outline:none;font-size:11.5px;color:var(--ink);line-height:1.5;cursor:text;min-height:20px}
 .edit-cell:empty::before{content:attr(data-placeholder);color:#C4C1D8;font-style:italic}
 .edit-cell:focus{background:#FAFAFE;box-shadow:inset 0 0 0 1.5px var(--tf);padding:2px 4px;margin:-2px -4px}
+/* date column — same editable treatment, different font style */
+td.col-date{font-size:11px;color:var(--ink);font-weight:600;white-space:nowrap;cursor:text}
+td.col-date:focus{outline:none;background:#FAFAFE;box-shadow:inset 0 0 0 1.5px var(--tf)}
+td.col-date:empty::before{content:"date";color:#C4C1D8;font-style:italic}
 .due-cell{white-space:nowrap;font-size:11px;font-weight:600;color:var(--ink)}
 
 /* EMPTY STATE */
@@ -212,7 +214,7 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
           HOW TO ADD A ROW — data-id values: g-005, g-006 …
 
           <tr data-id="g-005" data-status="todo" data-owner="alena">
-            <td class="col-date">08 Jun</td>
+            <td class="col-date" contenteditable="true" data-field="date">08 Jun</td>
             <td class="col-task">Task description</td>
             <td><select class="sel sel-owner" data-field="owner">
               <option value="alena" selected>Alena</option>
@@ -236,31 +238,8 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
           </tr>
           -->
           <tr data-id="g-001" data-status="todo" data-owner="alena">
-            <td class="col-date">07 Jun</td>
+            <td class="col-date" contenteditable="true" data-field="date">07 Jun</td>
             <td class="col-task">Referral Engine — collect examples, success cases, viral sharing mechanics beyond referral fees</td>
-            <td><select class="sel sel-owner" data-field="owner">
-              <option value="alena" selected>Alena</option>
-              <option value="maxim">Maxim</option>
-              <option value="alex">Alex</option>
-            </select></td>
-            <td><select class="sel sel-pri" data-field="priority">
-              <option value="high" selected>High</option>
-              <option value="normal">Normal</option>
-              <option value="low">Low</option>
-            </select></td>
-            <td><select class="sel sel-status" data-field="status">
-              <option value="todo" selected>To Do</option>
-              <option value="in-progress">In Progress</option>
-              <option value="done">Done</option>
-              <option value="deferred">Deferred</option>
-            </select></td>
-            <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—"></div></td>
-            <td class="col-ref"><a href="TFreferral.html">Referral &amp; Viral Mechanics →</a></td>
-            <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…">Status and social rewards may have more value than cash referral fees in this segment</div></td>
-          </tr>
-          <tr data-id="g-002" data-status="todo" data-owner="alena">
-            <td class="col-date">07 Jun</td>
-            <td class="col-task">Tiered loyalty — research how influencer tiers work on other platforms; what tiers mean for TF influencers</td>
             <td><select class="sel sel-owner" data-field="owner">
               <option value="alena" selected>Alena</option>
               <option value="maxim">Maxim</option>
@@ -278,11 +257,34 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
               <option value="deferred">Deferred</option>
             </select></td>
             <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—"></div></td>
-            <td class="col-ref"></td>
-            <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…">% commission structure per tier? How do LTK / ShopMy tier their creators?</div></td>
+            <td class="col-ref"><a href="TFreferral.html">Referral &amp; Viral Mechanics →</a></td>
+            <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…">Status and social rewards may have more value than cash referral fees in this segment</div></td>
+          </tr>
+          <tr data-id="g-002" data-status="done" data-owner="alena">
+            <td class="col-date" contenteditable="true" data-field="date">07 Jun</td>
+            <td class="col-task">Tiered loyalty — research how influencer tiers work on other platforms; what tiers mean for TF influencers</td>
+            <td><select class="sel sel-owner" data-field="owner">
+              <option value="alena" selected>Alena</option>
+              <option value="maxim">Maxim</option>
+              <option value="alex">Alex</option>
+            </select></td>
+            <td><select class="sel sel-pri" data-field="priority">
+              <option value="high">High</option>
+              <option value="normal" selected>Normal</option>
+              <option value="low">Low</option>
+            </select></td>
+            <td><select class="sel sel-status" data-field="status">
+              <option value="todo">To Do</option>
+              <option value="in-progress">In Progress</option>
+              <option value="done" selected>Done</option>
+              <option value="deferred">Deferred</option>
+            </select></td>
+            <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—">08 Jun</div></td>
+            <td class="col-ref"><a href="TFreferral.html">Referral &amp; Viral Mechanics →</a></td>
+            <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…">Answered in Referral &amp; Viral Mechanics — Section 05</div></td>
           </tr>
           <tr data-id="g-003" data-status="todo" data-owner="alena">
-            <td class="col-date">07 Jun</td>
+            <td class="col-date" contenteditable="true" data-field="date">07 Jun</td>
             <td class="col-task">Styling Contests — research reward types that work at small assortment stage</td>
             <td><select class="sel sel-owner" data-field="owner">
               <option value="alena" selected>Alena</option>
@@ -305,7 +307,7 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
             <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…">Points / voter discounts may not attract this audience at launch assortment size</div></td>
           </tr>
           <tr data-id="g-004" data-status="todo" data-owner="alena">
-            <td class="col-date">07 Jun</td>
+            <td class="col-date" contenteditable="true" data-field="date">07 Jun</td>
             <td class="col-task">Gamification — rethink co-design mechanic; social style discovery is the core loop, not explicit game mechanics</td>
             <td><select class="sel sel-owner" data-field="owner">
               <option value="alena" selected>Alena</option>
@@ -334,104 +336,6 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
   </div>
 
 
-  <!-- ── Technology ── -->
-  <div class="sub-section">
-    <div class="sub-head">Technology</div>
-    <div class="table-scroll">
-      <table>
-        <thead>
-          <tr>
-            <th class="col-date">Date</th>
-            <th class="col-task">Task / Idea</th>
-            <th class="col-owner">Owner</th>
-            <th class="col-pri">Priority</th>
-            <th class="col-status">Status</th>
-            <th class="col-due">Due Date</th>
-            <th class="col-ref">Reference</th>
-            <th class="col-notes">Notes</th>
-          </tr>
-        </thead>
-        <tbody id="ws-technology">
-          <!--
-          HOW TO ADD A ROW — data-id values: t-004, t-005 …
-          Copy template from Product & Gamification section above.
-          -->
-          <tr data-id="t-001" data-status="done" data-owner="alena">
-            <td class="col-date">07 Jun</td>
-            <td class="col-task">Visual Discovery Engine — research pricing and options with AI</td>
-            <td><select class="sel sel-owner" data-field="owner">
-              <option value="alena" selected>Alena</option>
-              <option value="maxim">Maxim</option>
-              <option value="alex">Alex</option>
-            </select></td>
-            <td><select class="sel sel-pri" data-field="priority">
-              <option value="high" selected>High</option>
-              <option value="normal">Normal</option>
-              <option value="low">Low</option>
-            </select></td>
-            <td><select class="sel sel-status" data-field="status">
-              <option value="todo">To Do</option>
-              <option value="in-progress">In Progress</option>
-              <option value="done" selected>Done</option>
-              <option value="deferred">Deferred</option>
-            </select></td>
-            <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—">08 Jun</div></td>
-            <td class="col-ref"><a href="TFvisualdiscovery.html">Visual Discovery Engines →</a></td>
-            <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…"></div></td>
-          </tr>
-          <tr data-id="t-002" data-status="todo" data-owner="alex">
-            <td class="col-date">07 Jun</td>
-            <td class="col-task">Visual Discovery Engine — assess optimal solution for TF</td>
-            <td><select class="sel sel-owner" data-field="owner">
-              <option value="alena">Alena</option>
-              <option value="maxim">Maxim</option>
-              <option value="alex" selected>Alex</option>
-            </select></td>
-            <td><select class="sel sel-pri" data-field="priority">
-              <option value="high" selected>High</option>
-              <option value="normal">Normal</option>
-              <option value="low">Low</option>
-            </select></td>
-            <td><select class="sel sel-status" data-field="status">
-              <option value="todo" selected>To Do</option>
-              <option value="in-progress">In Progress</option>
-              <option value="done">Done</option>
-              <option value="deferred">Deferred</option>
-            </select></td>
-            <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—">14 Jun</div></td>
-            <td class="col-ref"><a href="TFvisualdiscovery.html">Visual Discovery Engines →</a></td>
-            <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…"></div></td>
-          </tr>
-          <tr data-id="t-003" data-status="deferred" data-owner="alena">
-            <td class="col-date">07 Jun</td>
-            <td class="col-task">Virtual Try-On — usage restriction approach</td>
-            <td><select class="sel sel-owner" data-field="owner">
-              <option value="alena" selected>Alena</option>
-              <option value="maxim">Maxim</option>
-              <option value="alex">Alex</option>
-            </select></td>
-            <td><select class="sel sel-pri" data-field="priority">
-              <option value="high">High</option>
-              <option value="normal">Normal</option>
-              <option value="low" selected>Low</option>
-            </select></td>
-            <td><select class="sel sel-status" data-field="status">
-              <option value="todo">To Do</option>
-              <option value="in-progress">In Progress</option>
-              <option value="done">Done</option>
-              <option value="deferred" selected>Deferred</option>
-            </select></td>
-            <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—"></div></td>
-            <td class="col-ref"></td>
-            <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…">No restrictions at this stage — technology cost expected to drop</div></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="ws-empty" id="empty-technology">No tasks visible with current filter.</div>
-  </div>
-
-
   <!-- ── Why Now & Competition ── -->
   <div class="sub-section">
     <div class="sub-head">Why Now &amp; Competition</div>
@@ -452,10 +356,10 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
         <tbody id="ws-narrative">
           <!--
           HOW TO ADD A ROW — data-id values: n-003, n-004 …
-          Copy template from Product & Gamification section above.
+          Copy template from Product & Gamification above.
           -->
           <tr data-id="n-001" data-status="todo" data-owner="alena">
-            <td class="col-date">07 Jun</td>
+            <td class="col-date" contenteditable="true" data-field="date">07 Jun</td>
             <td class="col-task">Write "Why Now" slide — unserved designer/creator segments, market size, timing argument</td>
             <td><select class="sel sel-owner" data-field="owner">
               <option value="alena" selected>Alena</option>
@@ -463,8 +367,8 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
               <option value="alex">Alex</option>
             </select></td>
             <td><select class="sel sel-pri" data-field="priority">
-              <option value="high" selected>High</option>
-              <option value="normal">Normal</option>
+              <option value="high">High</option>
+              <option value="normal" selected>Normal</option>
               <option value="low">Low</option>
             </select></td>
             <td><select class="sel sel-status" data-field="status">
@@ -478,7 +382,7 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
             <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…"></div></td>
           </tr>
           <tr data-id="n-002" data-status="todo" data-owner="alena">
-            <td class="col-date">07 Jun</td>
+            <td class="col-date" contenteditable="true" data-field="date">07 Jun</td>
             <td class="col-task">Write VTO + drops/pre-orders section — how virtual try-on makes drops virally promotable for influencers</td>
             <td><select class="sel sel-owner" data-field="owner">
               <option value="alena" selected>Alena</option>
@@ -486,8 +390,8 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
               <option value="alex">Alex</option>
             </select></td>
             <td><select class="sel sel-pri" data-field="priority">
-              <option value="high" selected>High</option>
-              <option value="normal">Normal</option>
+              <option value="high">High</option>
+              <option value="normal" selected>Normal</option>
               <option value="low">Low</option>
             </select></td>
             <td><select class="sel sel-status" data-field="status">
@@ -504,6 +408,156 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
       </table>
     </div>
     <div class="ws-empty" id="empty-narrative">No tasks visible with current filter.</div>
+  </div>
+
+
+  <!-- ── Technology ── -->
+  <div class="sub-section">
+    <div class="sub-head">Technology</div>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th class="col-date">Date</th>
+            <th class="col-task">Task / Idea</th>
+            <th class="col-owner">Owner</th>
+            <th class="col-pri">Priority</th>
+            <th class="col-status">Status</th>
+            <th class="col-due">Due Date</th>
+            <th class="col-ref">Reference</th>
+            <th class="col-notes">Notes</th>
+          </tr>
+        </thead>
+        <tbody id="ws-technology">
+          <!--
+          HOW TO ADD A ROW — data-id values: t-004, t-005 …
+          Copy template from Product & Gamification above.
+          -->
+          <tr data-id="t-001" data-status="done" data-owner="alena">
+            <td class="col-date" contenteditable="true" data-field="date">07 Jun</td>
+            <td class="col-task">Visual Discovery Engine — research pricing and options with AI</td>
+            <td><select class="sel sel-owner" data-field="owner">
+              <option value="alena" selected>Alena</option>
+              <option value="maxim">Maxim</option>
+              <option value="alex">Alex</option>
+            </select></td>
+            <td><select class="sel sel-pri" data-field="priority">
+              <option value="high">High</option>
+              <option value="normal" selected>Normal</option>
+              <option value="low">Low</option>
+            </select></td>
+            <td><select class="sel sel-status" data-field="status">
+              <option value="todo">To Do</option>
+              <option value="in-progress">In Progress</option>
+              <option value="done" selected>Done</option>
+              <option value="deferred">Deferred</option>
+            </select></td>
+            <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—">08 Jun</div></td>
+            <td class="col-ref"><a href="TFvisualdiscovery.html">Visual Discovery Engines →</a></td>
+            <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…"></div></td>
+          </tr>
+          <tr data-id="t-002" data-status="todo" data-owner="alex">
+            <td class="col-date" contenteditable="true" data-field="date">07 Jun</td>
+            <td class="col-task">Visual Discovery Engine — assess optimal solution for TF</td>
+            <td><select class="sel sel-owner" data-field="owner">
+              <option value="alena">Alena</option>
+              <option value="maxim">Maxim</option>
+              <option value="alex" selected>Alex</option>
+            </select></td>
+            <td><select class="sel sel-pri" data-field="priority">
+              <option value="high">High</option>
+              <option value="normal" selected>Normal</option>
+              <option value="low">Low</option>
+            </select></td>
+            <td><select class="sel sel-status" data-field="status">
+              <option value="todo" selected>To Do</option>
+              <option value="in-progress">In Progress</option>
+              <option value="done">Done</option>
+              <option value="deferred">Deferred</option>
+            </select></td>
+            <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—">14 Jun</div></td>
+            <td class="col-ref"><a href="TFvisualdiscovery.html">Visual Discovery Engines →</a></td>
+            <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…"></div></td>
+          </tr>
+          <tr data-id="t-003" data-status="deferred" data-owner="alena">
+            <td class="col-date" contenteditable="true" data-field="date">07 Jun</td>
+            <td class="col-task">Virtual Try-On — usage restriction approach</td>
+            <td><select class="sel sel-owner" data-field="owner">
+              <option value="alena" selected>Alena</option>
+              <option value="maxim">Maxim</option>
+              <option value="alex">Alex</option>
+            </select></td>
+            <td><select class="sel sel-pri" data-field="priority">
+              <option value="high">High</option>
+              <option value="normal" selected>Normal</option>
+              <option value="low">Low</option>
+            </select></td>
+            <td><select class="sel sel-status" data-field="status">
+              <option value="todo">To Do</option>
+              <option value="in-progress">In Progress</option>
+              <option value="done">Done</option>
+              <option value="deferred" selected>Deferred</option>
+            </select></td>
+            <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—"></div></td>
+            <td class="col-ref"></td>
+            <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…">No restrictions at this stage — technology cost expected to drop</div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="ws-empty" id="empty-technology">No tasks visible with current filter.</div>
+  </div>
+
+
+  <!-- ── MVP ── -->
+  <div class="sub-section">
+    <div class="sub-head">MVP</div>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th class="col-date">Date</th>
+            <th class="col-task">Task / Idea</th>
+            <th class="col-owner">Owner</th>
+            <th class="col-pri">Priority</th>
+            <th class="col-status">Status</th>
+            <th class="col-due">Due Date</th>
+            <th class="col-ref">Reference</th>
+            <th class="col-notes">Notes</th>
+          </tr>
+        </thead>
+        <tbody id="ws-mvp">
+          <!--
+          HOW TO ADD A ROW — data-id values: m-002, m-003 …
+          Copy template from Product & Gamification above.
+          -->
+          <tr data-id="m-001" data-status="todo" data-owner="alena">
+            <td class="col-date" contenteditable="true" data-field="date">08 Jun</td>
+            <td class="col-task">Review MVP Scope &amp; Costs — define priorities and open questions</td>
+            <td><select class="sel sel-owner" data-field="owner">
+              <option value="alena" selected>Alena</option>
+              <option value="maxim">Maxim</option>
+              <option value="alex">Alex</option>
+            </select></td>
+            <td><select class="sel sel-pri" data-field="priority">
+              <option value="high">High</option>
+              <option value="normal" selected>Normal</option>
+              <option value="low">Low</option>
+            </select></td>
+            <td><select class="sel sel-status" data-field="status">
+              <option value="todo" selected>To Do</option>
+              <option value="in-progress">In Progress</option>
+              <option value="done">Done</option>
+              <option value="deferred">Deferred</option>
+            </select></td>
+            <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—"></div></td>
+            <td class="col-ref"><a href="TFmvpcosts.html">MVP Scope &amp; Costs →</a></td>
+            <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…"></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="ws-empty" id="empty-mvp">No tasks visible with current filter.</div>
   </div>
 
 </section>
@@ -534,10 +588,10 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
       <tbody id="ws-fundraising">
         <!--
         HOW TO ADD A ROW — data-id values: f-002, f-003 …
-        Copy template from Product & Gamification section above.
+        Copy template from Product & Gamification above.
         -->
         <tr data-id="f-001" data-status="todo" data-owner="alena">
-          <td class="col-date">07 Jun</td>
+          <td class="col-date" contenteditable="true" data-field="date">07 Jun</td>
           <td class="col-task">Update Investor Deck</td>
           <td><select class="sel sel-owner" data-field="owner">
             <option value="alena" selected>Alena</option>
@@ -545,8 +599,8 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
             <option value="alex">Alex</option>
           </select></td>
           <td><select class="sel sel-pri" data-field="priority">
-            <option value="high" selected>High</option>
-            <option value="normal">Normal</option>
+            <option value="high">High</option>
+            <option value="normal" selected>Normal</option>
             <option value="low">Low</option>
           </select></td>
           <td><select class="sel sel-status" data-field="status">
@@ -555,7 +609,7 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
             <option value="done">Done</option>
             <option value="deferred">Deferred</option>
           </select></td>
-          <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—"></div></td>
+          <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—">21 Jun</div></td>
           <td class="col-ref"></td>
           <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…"></div></td>
         </tr>
@@ -683,7 +737,7 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
   }
 
   function updateAllCounts(){
-    var subs = ['gamification','technology','narrative'];
+    var subs = ['gamification','narrative','technology','mvp'];
     var tot = {all:0,open:0};
     subs.forEach(function(ws){ var c=sectionCount(ws); tot.all+=c.all; tot.open+=c.open; });
     renderCount(document.getElementById('count-concept'), tot.all, tot.open);
@@ -692,7 +746,7 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
   }
 
   function updateEmpties(){
-    ['gamification','technology','narrative','fundraising'].forEach(function(ws){
+    ['gamification','narrative','technology','mvp','fundraising'].forEach(function(ws){
       var tbody = document.getElementById('ws-'+ws);
       var emptyEl = document.getElementById('empty-'+ws);
       if(!tbody||!emptyEl) return;
