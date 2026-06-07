@@ -44,7 +44,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .pg-wrap{max-width:1240px;margin:0 auto;padding:40px 48px 80px}
 .pg-header{padding:12px 0 0}
 .pg-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--sub);opacity:.6}
-.pg-title{font-size:44px;font-weight:800;letter-spacing:-1.5px;color:var(--ink);margin-top:14px;line-height:1.1}
+.pg-title{font-size:clamp(24px,6vw,44px);font-weight:800;letter-spacing:-1px;color:var(--ink);margin-top:14px;line-height:1.15}
 .pg-sub{font-size:13.5px;color:var(--ink);margin-top:10px;line-height:1.6;max-width:none}
 
 .section{padding:52px 0}
@@ -113,6 +113,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .tl-content strong{font-weight:800}
 .tl-src{font-size:11px;color:var(--sub);margin-top:4px;display:block}
 
+.callout-box{padding:24px 28px}
 footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margin-top:60px}
 .footer-inner{max-width:1100px;margin:0 auto;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);opacity:.5}
 
@@ -125,17 +126,20 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
 }
 @media(max-width:700px){
   .pg-wrap{padding:20px 16px 60px}
-  .pg-title{font-size:30px}
-  .section{padding:36px 0}
-  .concl-hero{padding:22px 20px}
+  .section{padding:32px 0}
+  .sec-heading{font-size:17px}
+  .sec-sub{font-size:12.5px}
+  .concl-hero{padding:22px 16px}
   .concl-grid{grid-template-columns:1fr;gap:20px}
   .concl-list{font-size:13px}
+  .callout-box{padding:16px 14px}
   .card-grid,.card-grid.two{grid-template-columns:1fr}
   .stat-row{flex-direction:column}
+  .stat-box{min-width:0;width:100%}
   .tl-item{flex-direction:column;gap:6px}
   .tl-date{min-width:auto;width:fit-content}
   .dtable{display:block;overflow-x:auto;white-space:nowrap}
-  footer{padding:18px 20px}
+  footer{padding:18px 16px}
 }
 </style>
 </head>
@@ -221,7 +225,7 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
       </tbody>
     </table>
 
-    <div style="background:var(--tf-ghost);border:1px solid var(--rule);border-left:4px solid var(--tf);padding:24px 28px;margin-top:28px">
+    <div class="callout-box" style="background:var(--tf-ghost);border:1px solid var(--rule);border-left:4px solid var(--tf);margin-top:28px">
       <div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);margin-bottom:14px">How ShopMy Won from LTK — The Relevant Benchmark</div>
       <div style="font-size:13.5px;line-height:1.75;color:var(--ink)">ShopMy launched in 2020 with a clear wedge against LTK: lower follower threshold (1,000 vs. 5,000+), analytics showing brands exactly which creator drove each sale, automatic commission matching at the highest available rate, and weekly payouts vs. LTK's monthly cycle. Revenue grew from <strong>$4M (2023) → $27M (2024) → $80M (2025)</strong>. They raised $77.5M in a Series B at a <strong>$410M valuation</strong> in January 2025, then raised a further $70M at a <strong>$1.5B valuation</strong> in October 2025, reaching 200,000 creators. The playbook: identify the segment the incumbent excludes, build a better product for that segment, take the market.</div>
       <div style="font-size:13px;line-height:1.7;color:var(--ink);margin-top:12px">ShopMy's model is still affiliate-only. Creators link to retail products that already exist; they earn commission when followers buy. No drops. No pre-order. No co-creator revenue split on shared inventory. No community layer. Sacra notes that aggressive scaling risks eroding ShopMy's brand positioning — they are building toward premium, not toward a fundamentally different model. The segment ShopMy cannot serve: designers without existing retail presence, creators who want to co-own what they sell rather than affiliate-link it, and any commerce model that requires pre-order or inventory-gated drops.</div>
@@ -478,7 +482,7 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
       </div>
     </div>
 
-    <div style="background:white;border:1px solid var(--rule);border-left:4px solid #C0392B;padding:24px 28px;margin-top:32px">
+    <div class="callout-box" style="background:white;border:1px solid var(--rule);border-left:4px solid #C0392B;margin-top:32px">
       <div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#C0392B;margin-bottom:14px">The Window Closes</div>
       <div style="font-size:13.5px;line-height:1.75;color:var(--ink)">ShopMy raised $147.5M across two rounds in 2025 — $77.5M Series B at a $410M valuation in January, and a further $70M at a $1.5B valuation in October. Vette — a Conde Nast creator-operated commerce platform with a revenue-share model — announced for early 2026 launch. TikTok Shop has a pre-order feature, currently gated to select sellers with Account Managers; ByteDance product velocity means further development is probable. None of these are TF's product today. They are signals that the model's commercial viability is now visible to well-funded players.</div>
       <div style="font-size:13px;line-height:1.7;color:var(--ink);margin-top:12px">The window is open because the specific combination — open access + pre-order + co-creator economics at scale — has not been built. That gap is not guaranteed to persist to 2027–2028.</div>
