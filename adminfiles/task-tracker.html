@@ -201,11 +201,91 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
 
 
 <!-- ═══════════════════════════════════════
-     01 · TERRA FERRA CONCEPT
+     01 · FUNDRAISING & CAPITAL
 ═══════════════════════════════════════ -->
 <section class="ws-section">
   <div class="ws-head">
-    <h2>01 · Terra Ferra Concept</h2>
+    <h2>01 · Fundraising &amp; Capital</h2>
+    <span class="ws-count" id="count-fundraising"></span>
+  </div>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th class="col-date">Date</th>
+          <th class="col-task">Task / Idea</th>
+          <th class="col-owner">Owner</th>
+          <th class="col-pri">Priority</th>
+          <th class="col-status">Status</th>
+          <th class="col-due">Due Date</th>
+          <th class="col-ref">Reference</th>
+          <th class="col-notes">Notes</th>
+        </tr>
+      </thead>
+      <tbody id="ws-fundraising">
+        <!--
+        HOW TO ADD A ROW — data-id values: f-003, f-004 …
+        Copy template from Concept section below.
+        -->
+        <tr data-id="f-002" data-status="todo" data-owner="maxim">
+          <td class="col-date" contenteditable="true" data-field="date">08 Jun</td>
+          <td class="col-task">Share investor list — contacts to approach for the round</td>
+          <td><select class="sel sel-owner" data-field="owner">
+            <option value="alena">Alena</option>
+            <option value="maxim" selected>Maxim</option>
+            <option value="alex">Alex</option>
+          </select></td>
+          <td><select class="sel sel-pri" data-field="priority">
+            <option value="high">High</option>
+            <option value="normal" selected>Normal</option>
+            <option value="low">Low</option>
+          </select></td>
+          <td><select class="sel sel-status" data-field="status">
+            <option value="todo" selected>To Do</option>
+            <option value="in-progress">In Progress</option>
+            <option value="done">Done</option>
+            <option value="deferred">Deferred</option>
+          </select></td>
+          <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—">13 Jun</div></td>
+          <td class="col-ref"></td>
+          <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…"></div></td>
+        </tr>
+        <tr data-id="f-001" data-status="todo" data-owner="alena">
+          <td class="col-date" contenteditable="true" data-field="date">07 Jun</td>
+          <td class="col-task">Update Investor Deck</td>
+          <td><select class="sel sel-owner" data-field="owner">
+            <option value="alena" selected>Alena</option>
+            <option value="maxim">Maxim</option>
+            <option value="alex">Alex</option>
+          </select></td>
+          <td><select class="sel sel-pri" data-field="priority">
+            <option value="high">High</option>
+            <option value="normal" selected>Normal</option>
+            <option value="low">Low</option>
+          </select></td>
+          <td><select class="sel sel-status" data-field="status">
+            <option value="todo" selected>To Do</option>
+            <option value="in-progress">In Progress</option>
+            <option value="done">Done</option>
+            <option value="deferred">Deferred</option>
+          </select></td>
+          <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—">21 Jun</div></td>
+          <td class="col-ref"></td>
+          <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…"></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="ws-empty" id="empty-fundraising">No tasks visible with current filter.</div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     02 · TERRA FERRA CONCEPT
+═══════════════════════════════════════ -->
+<section class="ws-section">
+  <div class="ws-head">
+    <h2>02 · Terra Ferra Concept</h2>
     <span class="ws-count" id="count-concept"></span>
   </div>
 
@@ -651,61 +731,6 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
 </section>
 
 
-<!-- ═══════════════════════════════════════
-     02 · FUNDRAISING & CAPITAL
-═══════════════════════════════════════ -->
-<section class="ws-section">
-  <div class="ws-head">
-    <h2>02 · Fundraising &amp; Capital</h2>
-    <span class="ws-count" id="count-fundraising"></span>
-  </div>
-  <div class="table-scroll">
-    <table>
-      <thead>
-        <tr>
-          <th class="col-date">Date</th>
-          <th class="col-task">Task / Idea</th>
-          <th class="col-owner">Owner</th>
-          <th class="col-pri">Priority</th>
-          <th class="col-status">Status</th>
-          <th class="col-due">Due Date</th>
-          <th class="col-ref">Reference</th>
-          <th class="col-notes">Notes</th>
-        </tr>
-      </thead>
-      <tbody id="ws-fundraising">
-        <!--
-        HOW TO ADD A ROW — data-id values: f-002, f-003 …
-        Copy template from Product & Gamification above.
-        -->
-        <tr data-id="f-001" data-status="todo" data-owner="alena">
-          <td class="col-date" contenteditable="true" data-field="date">07 Jun</td>
-          <td class="col-task">Update Investor Deck</td>
-          <td><select class="sel sel-owner" data-field="owner">
-            <option value="alena" selected>Alena</option>
-            <option value="maxim">Maxim</option>
-            <option value="alex">Alex</option>
-          </select></td>
-          <td><select class="sel sel-pri" data-field="priority">
-            <option value="high">High</option>
-            <option value="normal" selected>Normal</option>
-            <option value="low">Low</option>
-          </select></td>
-          <td><select class="sel sel-status" data-field="status">
-            <option value="todo" selected>To Do</option>
-            <option value="in-progress">In Progress</option>
-            <option value="done">Done</option>
-            <option value="deferred">Deferred</option>
-          </select></td>
-          <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—">21 Jun</div></td>
-          <td class="col-ref"></td>
-          <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…"></div></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="ws-empty" id="empty-fundraising">No tasks visible with current filter.</div>
-</section>
 
 
 <!-- ═══════════════════════════════════════
