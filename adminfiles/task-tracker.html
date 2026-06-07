@@ -229,7 +229,7 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
         -->
         <tr data-id="f-002" data-status="todo" data-owner="maxim">
           <td class="col-date" contenteditable="true" data-field="date">08 Jun</td>
-          <td class="col-task">Share investor list — contacts to approach for the round</td>
+          <td class="col-task">Prepare investor list — contacts to approach for the round</td>
           <td><select class="sel sel-owner" data-field="owner">
             <option value="alena">Alena</option>
             <option value="maxim" selected>Maxim</option>
@@ -859,6 +859,19 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
   }
 
   var data = load();
+
+  // Make task cells editable like notes
+  document.querySelectorAll('tr[data-id] td.col-task').forEach(function(td){
+    var text = td.textContent.trim();
+    var div = document.createElement('div');
+    div.className = 'edit-cell';
+    div.contentEditable = 'true';
+    div.setAttribute('data-field','task');
+    div.setAttribute('data-placeholder','add task…');
+    div.textContent = text;
+    td.textContent = '';
+    td.appendChild(div);
+  });
 
   function restoreRows(){
     document.querySelectorAll('tr[data-id]').forEach(function(row){
