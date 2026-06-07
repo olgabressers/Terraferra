@@ -370,6 +370,29 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
             <td class="col-ref"><a href="gamification.html">Gamification →</a></td>
             <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…">Co-design presentation looks unworkable; users want entertainment, not purchasing</div></td>
           </tr>
+          <tr data-id="o-002" data-status="todo" data-owner="alena">
+            <td class="col-date" contenteditable="true" data-field="date">08 Jun</td>
+            <td class="col-task">Designer brand experience — define how TF enables selling in own brand DNA style (not generic marketplace presentation); quality styling + brand-matched models</td>
+            <td><select class="sel sel-owner" data-field="owner">
+              <option value="alena" selected>Alena</option>
+              <option value="maxim">Maxim</option>
+              <option value="alex">Alex</option>
+            </select></td>
+            <td><select class="sel sel-pri" data-field="priority">
+              <option value="high">High</option>
+              <option value="normal" selected>Normal</option>
+              <option value="low">Low</option>
+            </select></td>
+            <td><select class="sel sel-status" data-field="status">
+              <option value="todo" selected>To Do</option>
+              <option value="in-progress">In Progress</option>
+              <option value="done">Done</option>
+              <option value="deferred">Deferred</option>
+            </select></td>
+            <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—"></div></td>
+            <td class="col-ref"></td>
+            <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…">White background catalog option also possible; key is brand DNA preservation vs. generic marketplace feel</div></td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -543,6 +566,29 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
             <td class="col-ref"></td>
             <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…">No restrictions at this stage — technology cost expected to drop</div></td>
           </tr>
+          <tr data-id="o-001" data-status="todo" data-owner="maxim">
+            <td class="col-date" contenteditable="true" data-field="date">08 Jun</td>
+            <td class="col-task">Visual Discovery — share platform matching quality research results</td>
+            <td><select class="sel sel-owner" data-field="owner">
+              <option value="alena">Alena</option>
+              <option value="maxim" selected>Maxim</option>
+              <option value="alex">Alex</option>
+            </select></td>
+            <td><select class="sel sel-pri" data-field="priority">
+              <option value="high">High</option>
+              <option value="normal" selected>Normal</option>
+              <option value="low">Low</option>
+            </select></td>
+            <td><select class="sel sel-status" data-field="status">
+              <option value="todo" selected>To Do</option>
+              <option value="in-progress">In Progress</option>
+              <option value="done">Done</option>
+              <option value="deferred">Deferred</option>
+            </select></td>
+            <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—">15 Jun</div></td>
+            <td class="col-ref"><a href="TFvisualdiscovery.html">Visual Discovery Engines →</a></td>
+            <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…">Maxim studying matching quality across different platforms; results within the week</div></td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -601,149 +647,6 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
     <div class="ws-empty" id="empty-mvp">No tasks visible with current filter.</div>
   </div>
 
-
-  <!-- ── Operations ── -->
-  <div class="sub-section">
-    <div class="sub-head">Operations</div>
-    <div class="table-scroll">
-      <table>
-        <thead>
-          <tr>
-            <th class="col-date">Date</th>
-            <th class="col-task">Task / Idea</th>
-            <th class="col-owner">Owner</th>
-            <th class="col-pri">Priority</th>
-            <th class="col-status">Status</th>
-            <th class="col-due">Due Date</th>
-            <th class="col-ref">Reference</th>
-            <th class="col-notes">Notes</th>
-          </tr>
-        </thead>
-        <tbody id="ws-operations">
-          <!--
-          HOW TO ADD A ROW — data-id values: o-006, o-007 …
-          Copy template from Product & Gamification above.
-          -->
-          <tr data-id="o-001" data-status="todo" data-owner="maxim">
-            <td class="col-date" contenteditable="true" data-field="date">08 Jun</td>
-            <td class="col-task">Visual Discovery — share platform matching quality research results</td>
-            <td><select class="sel sel-owner" data-field="owner">
-              <option value="alena">Alena</option>
-              <option value="maxim" selected>Maxim</option>
-              <option value="alex">Alex</option>
-            </select></td>
-            <td><select class="sel sel-pri" data-field="priority">
-              <option value="high">High</option>
-              <option value="normal" selected>Normal</option>
-              <option value="low">Low</option>
-            </select></td>
-            <td><select class="sel sel-status" data-field="status">
-              <option value="todo" selected>To Do</option>
-              <option value="in-progress">In Progress</option>
-              <option value="done">Done</option>
-              <option value="deferred">Deferred</option>
-            </select></td>
-            <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—">15 Jun</div></td>
-            <td class="col-ref"><a href="TFvisualdiscovery.html">Visual Discovery Engines →</a></td>
-            <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…">Maxim studying matching quality across different platforms; results within the week</div></td>
-          </tr>
-          <tr data-id="o-002" data-status="todo" data-owner="alena">
-            <td class="col-date" contenteditable="true" data-field="date">08 Jun</td>
-            <td class="col-task">Designer brand experience — define how TF enables selling in own brand DNA style (not generic marketplace presentation); quality styling + brand-matched models</td>
-            <td><select class="sel sel-owner" data-field="owner">
-              <option value="alena" selected>Alena</option>
-              <option value="maxim">Maxim</option>
-              <option value="alex">Alex</option>
-            </select></td>
-            <td><select class="sel sel-pri" data-field="priority">
-              <option value="high">High</option>
-              <option value="normal" selected>Normal</option>
-              <option value="low">Low</option>
-            </select></td>
-            <td><select class="sel sel-status" data-field="status">
-              <option value="todo" selected>To Do</option>
-              <option value="in-progress">In Progress</option>
-              <option value="done">Done</option>
-              <option value="deferred">Deferred</option>
-            </select></td>
-            <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—"></div></td>
-            <td class="col-ref"></td>
-            <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…">White background catalog option also possible; key is brand DNA preservation vs. generic marketplace feel</div></td>
-          </tr>
-          <tr data-id="o-003" data-status="todo" data-owner="alena">
-            <td class="col-date" contenteditable="true" data-field="date">08 Jun</td>
-            <td class="col-task">Influencer accountability — small influencers don't follow through when brands/agencies reach out; think through how TF's model addresses this (consistent workload volume + no product shipment until content is published)</td>
-            <td><select class="sel sel-owner" data-field="owner">
-              <option value="alena" selected>Alena</option>
-              <option value="maxim">Maxim</option>
-              <option value="alex">Alex</option>
-            </select></td>
-            <td><select class="sel sel-pri" data-field="priority">
-              <option value="high">High</option>
-              <option value="normal" selected>Normal</option>
-              <option value="low">Low</option>
-            </select></td>
-            <td><select class="sel sel-status" data-field="status">
-              <option value="todo" selected>To Do</option>
-              <option value="in-progress">In Progress</option>
-              <option value="done">Done</option>
-              <option value="deferred">Deferred</option>
-            </select></td>
-            <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—"></div></td>
-            <td class="col-ref"></td>
-            <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…"></div></td>
-          </tr>
-          <tr data-id="o-004" data-status="todo" data-owner="alena">
-            <td class="col-date" contenteditable="true" data-field="date">08 Jun</td>
-            <td class="col-task">Returns logistics — assess reverse logistics complexity; returns add an extra operational link in the supply chain; think through how TF minimises or removes it</td>
-            <td><select class="sel sel-owner" data-field="owner">
-              <option value="alena" selected>Alena</option>
-              <option value="maxim">Maxim</option>
-              <option value="alex">Alex</option>
-            </select></td>
-            <td><select class="sel sel-pri" data-field="priority">
-              <option value="high">High</option>
-              <option value="normal" selected>Normal</option>
-              <option value="low">Low</option>
-            </select></td>
-            <td><select class="sel sel-status" data-field="status">
-              <option value="todo" selected>To Do</option>
-              <option value="in-progress">In Progress</option>
-              <option value="done">Done</option>
-              <option value="deferred">Deferred</option>
-            </select></td>
-            <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—"></div></td>
-            <td class="col-ref"></td>
-            <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…"></div></td>
-          </tr>
-          <tr data-id="o-005" data-status="todo" data-owner="alena">
-            <td class="col-date" contenteditable="true" data-field="date">08 Jun</td>
-            <td class="col-task">Publication timing — posts staggered over time instead of concentrated at the drop moment; think through how TF structures this to maintain momentum</td>
-            <td><select class="sel sel-owner" data-field="owner">
-              <option value="alena" selected>Alena</option>
-              <option value="maxim">Maxim</option>
-              <option value="alex">Alex</option>
-            </select></td>
-            <td><select class="sel sel-pri" data-field="priority">
-              <option value="high">High</option>
-              <option value="normal" selected>Normal</option>
-              <option value="low">Low</option>
-            </select></td>
-            <td><select class="sel sel-status" data-field="status">
-              <option value="todo" selected>To Do</option>
-              <option value="in-progress">In Progress</option>
-              <option value="done">Done</option>
-              <option value="deferred">Deferred</option>
-            </select></td>
-            <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—"></div></td>
-            <td class="col-ref"></td>
-            <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…"></div></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="ws-empty" id="empty-operations">No tasks visible with current filter.</div>
-  </div>
 
 </section>
 
@@ -805,6 +708,107 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
 </section>
 
 
+<!-- ═══════════════════════════════════════
+     03 · OPERATIONS
+═══════════════════════════════════════ -->
+<section class="ws-section">
+  <div class="ws-head">
+    <h2>03 · Operations</h2>
+    <span class="ws-count" id="count-operations"></span>
+  </div>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th class="col-date">Date</th>
+          <th class="col-task">Task / Idea</th>
+          <th class="col-owner">Owner</th>
+          <th class="col-pri">Priority</th>
+          <th class="col-status">Status</th>
+          <th class="col-due">Due Date</th>
+          <th class="col-ref">Reference</th>
+          <th class="col-notes">Notes</th>
+        </tr>
+      </thead>
+      <tbody id="ws-operations">
+        <!--
+        HOW TO ADD A ROW — data-id values: o-006, o-007 …
+        Copy template from Product & Gamification above.
+        -->
+        <tr data-id="o-003" data-status="todo" data-owner="alena">
+          <td class="col-date" contenteditable="true" data-field="date">08 Jun</td>
+          <td class="col-task">Influencer accountability — small influencers don't follow through when brands/agencies reach out; think through how TF's model addresses this (consistent workload volume + no product shipment until content is published)</td>
+          <td><select class="sel sel-owner" data-field="owner">
+            <option value="alena" selected>Alena</option>
+            <option value="maxim">Maxim</option>
+            <option value="alex">Alex</option>
+          </select></td>
+          <td><select class="sel sel-pri" data-field="priority">
+            <option value="high">High</option>
+            <option value="normal" selected>Normal</option>
+            <option value="low">Low</option>
+          </select></td>
+          <td><select class="sel sel-status" data-field="status">
+            <option value="todo" selected>To Do</option>
+            <option value="in-progress">In Progress</option>
+            <option value="done">Done</option>
+            <option value="deferred">Deferred</option>
+          </select></td>
+          <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—"></div></td>
+          <td class="col-ref"></td>
+          <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…"></div></td>
+        </tr>
+        <tr data-id="o-004" data-status="todo" data-owner="alena">
+          <td class="col-date" contenteditable="true" data-field="date">08 Jun</td>
+          <td class="col-task">Returns logistics — assess reverse logistics complexity; returns add an extra operational link in the supply chain; think through how TF minimises or removes it</td>
+          <td><select class="sel sel-owner" data-field="owner">
+            <option value="alena" selected>Alena</option>
+            <option value="maxim">Maxim</option>
+            <option value="alex">Alex</option>
+          </select></td>
+          <td><select class="sel sel-pri" data-field="priority">
+            <option value="high">High</option>
+            <option value="normal" selected>Normal</option>
+            <option value="low">Low</option>
+          </select></td>
+          <td><select class="sel sel-status" data-field="status">
+            <option value="todo" selected>To Do</option>
+            <option value="in-progress">In Progress</option>
+            <option value="done">Done</option>
+            <option value="deferred">Deferred</option>
+          </select></td>
+          <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—"></div></td>
+          <td class="col-ref"></td>
+          <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…"></div></td>
+        </tr>
+        <tr data-id="o-005" data-status="todo" data-owner="alena">
+          <td class="col-date" contenteditable="true" data-field="date">08 Jun</td>
+          <td class="col-task">Publication timing — posts staggered over time instead of concentrated at the drop moment; think through how TF structures this to maintain momentum</td>
+          <td><select class="sel sel-owner" data-field="owner">
+            <option value="alena" selected>Alena</option>
+            <option value="maxim">Maxim</option>
+            <option value="alex">Alex</option>
+          </select></td>
+          <td><select class="sel sel-pri" data-field="priority">
+            <option value="high">High</option>
+            <option value="normal" selected>Normal</option>
+            <option value="low">Low</option>
+          </select></td>
+          <td><select class="sel sel-status" data-field="status">
+            <option value="todo" selected>To Do</option>
+            <option value="in-progress">In Progress</option>
+            <option value="done">Done</option>
+            <option value="deferred">Deferred</option>
+          </select></td>
+          <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—"></div></td>
+          <td class="col-ref"></td>
+          <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…"></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="ws-empty" id="empty-operations">No tasks visible with current filter.</div>
+</section>
 
 
 </div>
@@ -926,13 +930,16 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
 
   function updateAllCounts(){
     // Section 01 — aggregate sub-groups
-    var subs = ['gamification','narrative','technology','mvp','operations'];
+    var subs = ['gamification','narrative','technology','mvp'];
     var tot = {all:0,open:0};
     subs.forEach(function(ws){ var c=sectionCount(ws); tot.all+=c.all; tot.open+=c.open; });
     renderCount(document.getElementById('count-concept'), tot.all, tot.open);
     // Section 02
     var c2 = sectionCount('fundraising');
     renderCount(document.getElementById('count-fundraising'), c2.all, c2.open);
+    // Section 03
+    var c3 = sectionCount('operations');
+    renderCount(document.getElementById('count-operations'), c3.all, c3.open);
   }
 
   function updateEmpties(){
