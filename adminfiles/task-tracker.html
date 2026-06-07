@@ -106,11 +106,10 @@ td.col-ref a:hover{color:var(--orange);text-decoration:underline}
 .sel-status.s-done{background-color:var(--green-tint);color:var(--green)}
 .sel-status.s-deferred{background-color:var(--off-white);color:var(--sub);border-color:var(--rule)}
 
-/* EDITABLE CELLS — date, due, notes */
+/* EDITABLE CELLS */
 .edit-cell{outline:none;font-size:11.5px;color:var(--ink);line-height:1.5;cursor:text;min-height:20px}
 .edit-cell:empty::before{content:attr(data-placeholder);color:#C4C1D8;font-style:italic}
 .edit-cell:focus{background:#FAFAFE;box-shadow:inset 0 0 0 1.5px var(--tf);padding:2px 4px;margin:-2px -4px}
-/* date column — same editable treatment, different font style */
 td.col-date{font-size:11px;color:var(--ink);font-weight:600;white-space:nowrap;cursor:text}
 td.col-date:focus{outline:none;background:#FAFAFE;box-shadow:inset 0 0 0 1.5px var(--tf)}
 td.col-date:empty::before{content:"date";color:#C4C1D8;font-style:italic}
@@ -127,8 +126,24 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
 #back-to-top{position:fixed;bottom:28px;right:28px;width:40px;height:40px;background:var(--tf);color:white;border:none;border-radius:50%;font-size:18px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900;transition:background .2s}
 #back-to-top:hover{background:var(--tf-dark)}
 
-@media(max-width:900px){.page-header,.view-bar,main{padding-left:20px;padding-right:20px}.page-title{font-size:26px}}
-@media(max-width:700px){.page-header,.view-bar,main{padding-left:14px;padding-right:14px}.page-title{font-size:22px}footer{padding:16px 14px}}
+/* RESPONSIVE */
+@media(max-width:1000px){
+  .page-header,.view-bar,main{padding-left:24px;padding-right:24px}
+  .page-title{font-size:28px}
+}
+@media(max-width:700px){
+  .page-header,.view-bar,main{padding-left:14px;padding-right:14px}
+  .page-title{font-size:22px}
+  footer{padding:16px 14px}
+  .ws-head h2{font-size:14px}
+  .sub-head{font-size:9px;padding:7px 12px;letter-spacing:2px}
+  .view-bar-inner{gap:8px}
+  #back-to-top{bottom:16px;right:16px;width:36px;height:36px;font-size:16px}
+}
+@media(max-width:480px){
+  .page-header,.view-bar,main{padding-left:10px;padding-right:10px}
+  .page-title{font-size:20px}
+}
 </style>
 </head>
 <body>
@@ -211,9 +226,9 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
         </thead>
         <tbody id="ws-gamification">
           <!--
-          HOW TO ADD A ROW — data-id values: g-005, g-006 …
+          HOW TO ADD A ROW — data-id values: g-006, g-007 …
 
-          <tr data-id="g-005" data-status="todo" data-owner="alena">
+          <tr data-id="g-006" data-status="todo" data-owner="alena">
             <td class="col-date" contenteditable="true" data-field="date">08 Jun</td>
             <td class="col-task">Task description</td>
             <td><select class="sel sel-owner" data-field="owner">
@@ -259,6 +274,29 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
             <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—"></div></td>
             <td class="col-ref"><a href="TFreferral.html">Referral &amp; Viral Mechanics →</a></td>
             <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…">Status and social rewards may have more value than cash referral fees in this segment</div></td>
+          </tr>
+          <tr data-id="g-005" data-status="todo" data-owner="alena">
+            <td class="col-date" contenteditable="true" data-field="date">08 Jun</td>
+            <td class="col-task">Referral mechanic — review existing app logic (designer-led perks); assess what works; define standard perk set recommendation</td>
+            <td><select class="sel sel-owner" data-field="owner">
+              <option value="alena" selected>Alena</option>
+              <option value="maxim">Maxim</option>
+              <option value="alex">Alex</option>
+            </select></td>
+            <td><select class="sel sel-pri" data-field="priority">
+              <option value="high">High</option>
+              <option value="normal" selected>Normal</option>
+              <option value="low">Low</option>
+            </select></td>
+            <td><select class="sel sel-status" data-field="status">
+              <option value="todo" selected>To Do</option>
+              <option value="in-progress">In Progress</option>
+              <option value="done">Done</option>
+              <option value="deferred">Deferred</option>
+            </select></td>
+            <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—"></div></td>
+            <td class="col-ref"><a href="TFreferral.html">Referral &amp; Viral Mechanics →</a></td>
+            <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…">Each designer gives own perks in existing app — need to recommend a standard set; confirm whether existing referral logic requires changes</div></td>
           </tr>
           <tr data-id="g-002" data-status="done" data-owner="alena">
             <td class="col-date" contenteditable="true" data-field="date">07 Jun</td>
@@ -620,6 +658,86 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
 </section>
 
 
+<!-- ═══════════════════════════════════════
+     03 · OPERATIONS
+═══════════════════════════════════════ -->
+<section class="ws-section">
+  <div class="ws-head">
+    <h2>03 · Operations</h2>
+    <span class="ws-count" id="count-operations"></span>
+  </div>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th class="col-date">Date</th>
+          <th class="col-task">Task / Idea</th>
+          <th class="col-owner">Owner</th>
+          <th class="col-pri">Priority</th>
+          <th class="col-status">Status</th>
+          <th class="col-due">Due Date</th>
+          <th class="col-ref">Reference</th>
+          <th class="col-notes">Notes</th>
+        </tr>
+      </thead>
+      <tbody id="ws-operations">
+        <!--
+        HOW TO ADD A ROW — data-id values: o-003, o-004 …
+        Copy template from Product & Gamification above.
+        -->
+        <tr data-id="o-001" data-status="todo" data-owner="maxim">
+          <td class="col-date" contenteditable="true" data-field="date">08 Jun</td>
+          <td class="col-task">Visual Discovery — share platform matching quality research results</td>
+          <td><select class="sel sel-owner" data-field="owner">
+            <option value="alena">Alena</option>
+            <option value="maxim" selected>Maxim</option>
+            <option value="alex">Alex</option>
+          </select></td>
+          <td><select class="sel sel-pri" data-field="priority">
+            <option value="high">High</option>
+            <option value="normal" selected>Normal</option>
+            <option value="low">Low</option>
+          </select></td>
+          <td><select class="sel sel-status" data-field="status">
+            <option value="todo" selected>To Do</option>
+            <option value="in-progress">In Progress</option>
+            <option value="done">Done</option>
+            <option value="deferred">Deferred</option>
+          </select></td>
+          <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—">15 Jun</div></td>
+          <td class="col-ref"><a href="TFvisualdiscovery.html">Visual Discovery Engines →</a></td>
+          <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…">Maxim studying matching quality across different platforms; results within the week</div></td>
+        </tr>
+        <tr data-id="o-002" data-status="todo" data-owner="alena">
+          <td class="col-date" contenteditable="true" data-field="date">08 Jun</td>
+          <td class="col-task">Designer brand experience — define how TF enables selling in own brand DNA style (not generic marketplace presentation); quality styling + brand-matched models</td>
+          <td><select class="sel sel-owner" data-field="owner">
+            <option value="alena" selected>Alena</option>
+            <option value="maxim">Maxim</option>
+            <option value="alex">Alex</option>
+          </select></td>
+          <td><select class="sel sel-pri" data-field="priority">
+            <option value="high">High</option>
+            <option value="normal" selected>Normal</option>
+            <option value="low">Low</option>
+          </select></td>
+          <td><select class="sel sel-status" data-field="status">
+            <option value="todo" selected>To Do</option>
+            <option value="in-progress">In Progress</option>
+            <option value="done">Done</option>
+            <option value="deferred">Deferred</option>
+          </select></td>
+          <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—"></div></td>
+          <td class="col-ref"></td>
+          <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…">White background catalog option also possible; key is brand DNA preservation vs. generic marketplace feel</div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="ws-empty" id="empty-operations">No tasks visible with current filter.</div>
+</section>
+
+
 </div>
 </main>
 
@@ -737,16 +855,21 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
   }
 
   function updateAllCounts(){
+    // Section 01 — aggregate sub-groups
     var subs = ['gamification','narrative','technology','mvp'];
     var tot = {all:0,open:0};
     subs.forEach(function(ws){ var c=sectionCount(ws); tot.all+=c.all; tot.open+=c.open; });
     renderCount(document.getElementById('count-concept'), tot.all, tot.open);
+    // Section 02
     var c2 = sectionCount('fundraising');
     renderCount(document.getElementById('count-fundraising'), c2.all, c2.open);
+    // Section 03
+    var c3 = sectionCount('operations');
+    renderCount(document.getElementById('count-operations'), c3.all, c3.open);
   }
 
   function updateEmpties(){
-    ['gamification','narrative','technology','mvp','fundraising'].forEach(function(ws){
+    ['gamification','narrative','technology','mvp','fundraising','operations'].forEach(function(ws){
       var tbody = document.getElementById('ws-'+ws);
       var emptyEl = document.getElementById('empty-'+ws);
       if(!tbody||!emptyEl) return;
