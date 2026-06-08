@@ -147,6 +147,14 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
   .page-header,.view-bar,main{padding-left:10px;padding-right:10px}
   .page-title{font-size:20px}
 }
+
+/* DELETE + ADD ROW CONTROLS */
+th.col-del{width:28px;padding:6px 4px;text-align:center}
+td.col-del{padding:4px;text-align:center;vertical-align:middle}
+.btn-del{background:none;border:none;color:var(--rule);font-size:16px;line-height:1;cursor:pointer;padding:1px 5px;border-radius:2px;transition:color .15s}
+.btn-del:hover{color:var(--red)}
+.btn-add-row{display:flex;align-items:center;gap:6px;padding:8px 14px;background:white;border:1px solid var(--rule);border-top:none;font-size:11px;font-weight:700;color:var(--sub);cursor:pointer;width:100%;text-align:left;transition:color .15s,background .15s;letter-spacing:.4px}
+.btn-add-row:hover{color:var(--tf);background:var(--tf-ghost)}
 </style>
 </head>
 <body>
@@ -248,7 +256,7 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
           </select></td>
           <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—">13 Jun</div></td>
           <td class="col-ref"></td>
-          <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…"></div></td>
+          <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…">Large angel communities + funds available — include as priority contacts in list</div></td>
         </tr>
         <tr data-id="f-001" data-status="todo" data-owner="alena">
           <td class="col-date" contenteditable="true" data-field="date">07 Jun</td>
@@ -555,6 +563,74 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
   </div>
 
 
+
+  <!-- ── MVP ── -->
+  <div class="sub-section">
+    <div class="sub-head">MVP</div>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th class="col-date">Date</th>
+            <th class="col-task">Task / Idea</th>
+            <th class="col-owner">Owner</th>
+            <th class="col-pri">Priority</th>
+            <th class="col-status">Status</th>
+            <th class="col-due">Due Date</th>
+            <th class="col-ref">Reference</th>
+            <th class="col-notes">Notes</th>
+          </tr>
+        </thead>
+        <tbody id="ws-mvp">
+          <!--
+          HOW TO ADD A ROW — data-id values: m-002, m-003 …
+          Copy template from Product & Gamification above.
+          -->
+          <tr data-id="m-001" data-status="todo" data-owner="alena">
+            <td class="col-date" contenteditable="true" data-field="date">08 Jun</td>
+            <td class="col-task">Review MVP Scope &amp; Costs — define priorities and open questions</td>
+            <td><select class="sel sel-owner" data-field="owner">
+              <option value="alena" selected>Alena</option>
+              <option value="maxim">Maxim</option>
+              <option value="alex">Alex</option>
+            </select></td>
+            <td><select class="sel sel-pri" data-field="priority">
+              <option value="high">High</option>
+              <option value="normal" selected>Normal</option>
+              <option value="low">Low</option>
+            </select></td>
+            <td><select class="sel sel-status" data-field="status">
+              <option value="todo" selected>To Do</option>
+              <option value="in-progress">In Progress</option>
+              <option value="done">Done</option>
+              <option value="deferred">Deferred</option>
+            </select></td>
+            <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—"></div></td>
+            <td class="col-ref"><a href="TFmvpcosts.html">MVP Scope &amp; Costs →</a></td>
+            <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…"></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="ws-empty" id="empty-mvp">No tasks visible with current filter.</div>
+  </div>
+
+
+</section>
+
+
+
+
+<!-- ═══════════════════════════════════════
+     03 · TECHNOLOGY & PRODUCT DESIGN
+═══════════════════════════════════════ -->
+<section class="ws-section">
+  <div class="ws-head">
+    <h2>03 · Technology &amp; Product Design</h2>
+    <span class="ws-count" id="count-tech-design"></span>
+  </div>
+
+
   <!-- ── Technology ── -->
   <div class="sub-section">
     <div class="sub-head">Technology</div>
@@ -575,7 +651,7 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
         <tbody id="ws-technology">
           <!--
           HOW TO ADD A ROW — data-id values: t-004, t-005 …
-          Copy template from Product & Gamification above.
+          Copy template from Product &amp; Gamification above.
           -->
           <tr data-id="t-001" data-status="done" data-owner="alena">
             <td class="col-date" contenteditable="true" data-field="date">07 Jun</td>
@@ -667,7 +743,7 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
             </select></td>
             <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—">15 Jun</div></td>
             <td class="col-ref"><a href="TFvisualdiscovery.html">Visual Discovery Engines →</a></td>
-            <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…">Maxim studying matching quality across different platforms; results within the week</div></td>
+            <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…">Studying matching quality across platforms; results expected within the week</div></td>
           </tr>
         </tbody>
       </table>
@@ -676,9 +752,9 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
   </div>
 
 
-  <!-- ── MVP ── -->
+  <!-- ── Product Design ── -->
   <div class="sub-section">
-    <div class="sub-head">MVP</div>
+    <div class="sub-head">Product Design</div>
     <div class="table-scroll">
       <table>
         <thead>
@@ -693,14 +769,14 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
             <th class="col-notes">Notes</th>
           </tr>
         </thead>
-        <tbody id="ws-mvp">
+        <tbody id="ws-product-design">
           <!--
-          HOW TO ADD A ROW — data-id values: m-002, m-003 …
-          Copy template from Product & Gamification above.
+          HOW TO ADD A ROW — data-id values: pd-002, pd-003 …
+          Copy template from Product &amp; Gamification above.
           -->
-          <tr data-id="m-001" data-status="todo" data-owner="alena">
+          <tr data-id="pd-001" data-status="todo" data-owner="alena">
             <td class="col-date" contenteditable="true" data-field="date">08 Jun</td>
-            <td class="col-task">Review MVP Scope &amp; Costs — define priorities and open questions</td>
+            <td class="col-task">Define content standards for designers to upload products — image formats, styling requirements, brand DNA alignment criteria</td>
             <td><select class="sel sel-owner" data-field="owner">
               <option value="alena" selected>Alena</option>
               <option value="maxim">Maxim</option>
@@ -718,13 +794,13 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
               <option value="deferred">Deferred</option>
             </select></td>
             <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—"></div></td>
-            <td class="col-ref"><a href="TFmvpcosts.html">MVP Scope &amp; Costs →</a></td>
-            <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…"></div></td>
+            <td class="col-ref"></td>
+            <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…">Designers need brand identity preservation — not generic marketplace presentation. White background catalog option possible with quality styling and brand-matched model selection. Platform should enable each designer's visual DNA.</div></td>
           </tr>
         </tbody>
       </table>
     </div>
-    <div class="ws-empty" id="empty-mvp">No tasks visible with current filter.</div>
+    <div class="ws-empty" id="empty-product-design">No tasks visible with current filter.</div>
   </div>
 
 
@@ -734,11 +810,11 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
 
 
 <!-- ═══════════════════════════════════════
-     03 · OPERATIONS
+     04 · OPERATIONS
 ═══════════════════════════════════════ -->
 <section class="ws-section">
   <div class="ws-head">
-    <h2>03 · Operations</h2>
+    <h2>04 · Operations</h2>
     <span class="ws-count" id="count-operations"></span>
   </div>
   <div class="table-scroll">
@@ -967,25 +1043,153 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
   }
 
   function updateAllCounts(){
-    // Section 01 — aggregate sub-groups
-    var subs = ['gamification','narrative','technology','mvp'];
-    var tot = {all:0,open:0};
-    subs.forEach(function(ws){ var c=sectionCount(ws); tot.all+=c.all; tot.open+=c.open; });
-    renderCount(document.getElementById('count-concept'), tot.all, tot.open);
-    // Section 02
-    var c2 = sectionCount('fundraising');
-    renderCount(document.getElementById('count-fundraising'), c2.all, c2.open);
-    // Section 03
-    var c3 = sectionCount('operations');
-    renderCount(document.getElementById('count-operations'), c3.all, c3.open);
+    // Section 01 — Fundraising
+    var c1 = sectionCount('fundraising');
+    renderCount(document.getElementById('count-fundraising'), c1.all, c1.open);
+    // Section 02 — Concept
+    var subs02 = ['gamification','narrative','mvp'];
+    var tot02 = {all:0,open:0};
+    subs02.forEach(function(ws){ var c=sectionCount(ws); tot02.all+=c.all; tot02.open+=c.open; });
+    renderCount(document.getElementById('count-concept'), tot02.all, tot02.open);
+    // Section 03 — Technology & Product Design
+    var subs03 = ['technology','product-design'];
+    var tot03 = {all:0,open:0};
+    subs03.forEach(function(ws){ var c=sectionCount(ws); tot03.all+=c.all; tot03.open+=c.open; });
+    renderCount(document.getElementById('count-tech-design'), tot03.all, tot03.open);
+    // Section 04 — Operations
+    var c4 = sectionCount('operations');
+    renderCount(document.getElementById('count-operations'), c4.all, c4.open);
   }
 
   function updateEmpties(){
-    ['gamification','narrative','technology','mvp','fundraising','operations'].forEach(function(ws){
+    ['gamification','narrative','technology','mvp','fundraising','operations','product-design'].forEach(function(ws){
       var tbody = document.getElementById('ws-'+ws);
       var emptyEl = document.getElementById('empty-'+ws);
       if(!tbody||!emptyEl) return;
       emptyEl.classList.toggle('show', tbody.querySelectorAll('tr[data-id]:not(.hidden)').length === 0);
+    });
+  }
+
+  // DELETE BUTTONS
+  function wireDeleteButtons(){
+    document.querySelectorAll('thead tr').forEach(function(tr){
+      var th = document.createElement('th');
+      th.className = 'col-del';
+      tr.appendChild(th);
+    });
+    document.querySelectorAll('tr[data-id]').forEach(function(row){
+      var td = document.createElement('td');
+      td.className = 'col-del';
+      var btn = document.createElement('button');
+      btn.className = 'btn-del';
+      btn.title = 'Remove task';
+      btn.textContent = '×';
+      btn.addEventListener('click', function(){
+        var id = row.dataset.id;
+        if(window.confirm('Remove this task?')){
+          delete data[id];
+          save(data);
+          row.remove();
+          updateAllCounts(); updateEmpties();
+        }
+      });
+      td.appendChild(btn);
+      row.appendChild(td);
+    });
+  }
+
+  // ADD ROW BUTTONS
+  var ROW_CTR_KEY = 'tf_row_ctr_v1';
+  function nextRowId(){
+    var n = parseInt(localStorage.getItem(ROW_CTR_KEY)||'1000',10) + 1;
+    localStorage.setItem(ROW_CTR_KEY, n);
+    return 'r-' + n;
+  }
+  function todayLabel(){
+    var d = new Date();
+    var m = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getMonth()];
+    return String(d.getDate()).padStart(2,' ') + ' ' + m;
+  }
+  function makeNewRow(id){
+    var tr = document.createElement('tr');
+    tr.dataset.id = id;
+    tr.dataset.status = 'todo';
+    tr.dataset.owner = 'alena';
+    tr.innerHTML =
+      '<td class="col-date" contenteditable="true" data-field="date">'+todayLabel()+'</td>'+
+      '<td class="col-task"><div class="edit-cell" contenteditable="true" data-field="task" data-placeholder="add task…"></div></td>'+
+      '<td><select class="sel sel-owner o-alena" data-field="owner">'+
+        '<option value="alena" selected>Alena</option>'+
+        '<option value="maxim">Maxim</option>'+
+        '<option value="alex">Alex</option>'+
+      '</select></td>'+
+      '<td><select class="sel sel-pri p-normal" data-field="priority">'+
+        '<option value="high">High</option>'+
+        '<option value="normal" selected>Normal</option>'+
+        '<option value="low">Low</option>'+
+      '</select></td>'+
+      '<td><select class="sel sel-status s-todo" data-field="status">'+
+        '<option value="todo" selected>To Do</option>'+
+        '<option value="in-progress">In Progress</option>'+
+        '<option value="done">Done</option>'+
+        '<option value="deferred">Deferred</option>'+
+      '</select></td>'+
+      '<td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—"></div></td>'+
+      '<td class="col-ref"></td>'+
+      '<td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…"></div></td>'+
+      '<td class="col-del"><button class="btn-del" title="Remove task">×</button></td>';
+    return tr;
+  }
+  function wireNewRow(tr){
+    tr.querySelectorAll('select[data-field]').forEach(function(sel){
+      sel.addEventListener('change', function(){
+        var id = tr.dataset.id, f = sel.dataset.field, v = sel.value;
+        if(!data[id]) data[id] = {};
+        data[id][f] = v;
+        save(data);
+        if(f==='status') tr.dataset.status = v;
+        if(f==='owner')  tr.dataset.owner  = v;
+        styleSelect(sel);
+        applyFilter(); updateAllCounts(); updateEmpties();
+      });
+    });
+    tr.querySelectorAll('[contenteditable][data-field]').forEach(function(el){
+      el.addEventListener('blur', function(){
+        var id = tr.dataset.id, f = el.dataset.field;
+        if(!data[id]) data[id] = {};
+        data[id][f] = el.textContent;
+        save(data);
+      });
+      el.addEventListener('keydown', function(e){
+        if(e.key==='Enter'){ e.preventDefault(); el.blur(); }
+      });
+    });
+    tr.querySelector('.btn-del').addEventListener('click', function(){
+      var id = tr.dataset.id;
+      if(window.confirm('Remove this task?')){
+        delete data[id];
+        save(data);
+        tr.remove();
+        updateAllCounts(); updateEmpties();
+      }
+    });
+  }
+  function wireAddButtons(){
+    document.querySelectorAll('tbody[id^="ws-"]').forEach(function(tbody){
+      var ws = tbody.id.replace('ws-','');
+      var emptyEl = document.getElementById('empty-'+ws);
+      if(!emptyEl) return;
+      var btn = document.createElement('button');
+      btn.className = 'btn-add-row';
+      btn.textContent = '+ Add Task';
+      btn.addEventListener('click', function(){
+        var id = nextRowId();
+        var tr = makeNewRow(id);
+        tbody.insertBefore(tr, tbody.firstChild);
+        wireNewRow(tr);
+        updateAllCounts(); updateEmpties(); applyFilter();
+      });
+      emptyEl.after(btn);
     });
   }
 
@@ -994,6 +1198,7 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
   });
 
   restoreRows(); styleAllSelects(); wireSelects(); wireEditable();
+  wireDeleteButtons(); wireAddButtons();
   updateAllCounts(); updateEmpties();
 
 })();
