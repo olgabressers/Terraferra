@@ -150,19 +150,20 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 
 /* TAM · SAM · SOM VISUAL */
 .tsm-vis-wrap{background:white;border:1px solid var(--rule);padding:40px 48px;margin-bottom:24px}
-.tsm-vis-eyebrow{font-size:9.5px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--sub);margin-bottom:24px}
+.tsm-vis-eyebrow{font-size:24px;font-weight:800;color:var(--orange);letter-spacing:-0.5px;text-transform:none;margin-bottom:28px;line-height:1.1}
 .tsm-vis{display:flex;gap:60px;align-items:center}
 .tsm-circles-area{position:relative;width:280px;height:280px;flex-shrink:0}
 .tsm-c{border-radius:50%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
 .tsm-tam{width:280px;height:280px;background:var(--tf-ghost);border:2.5px solid var(--tf-mid)}
-.tsm-sam{width:186px;height:186px;background:var(--tf-light);border:2.5px solid var(--tf)}
+.tsm-sam{width:186px;height:186px;background:#FEF0E8;border:2.5px solid var(--orange)}
 .tsm-som{width:96px;height:96px;background:var(--tf);display:flex;align-items:center;justify-content:center;z-index:2}
 .tsm-legend{flex:1;display:flex;flex-direction:column;gap:24px}
 .tsm-leg{display:flex;gap:14px;align-items:flex-start}
 .tsm-leg-dot{width:14px;height:14px;border-radius:50%;flex-shrink:0;margin-top:5px}
 .tsm-leg-abbr{font-size:9.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--tf);margin-bottom:5px;display:block}
-.tsm-leg-val{font-size:clamp(22px,2.2vw,30px);font-weight:800;color:var(--ink);line-height:1;margin-bottom:5px;display:block}
-.tsm-leg-desc{font-size:11px;color:var(--sub);line-height:1.5}
+.tsm-leg-val{font-size:clamp(22px,2.2vw,30px);font-weight:800;color:var(--ink);line-height:1;margin-bottom:4px;display:block}
+.tsm-leg-proj{display:block;font-size:15px;font-weight:700;color:var(--sub);margin-bottom:6px}
+.tsm-leg-desc{font-size:13px;color:var(--ink);line-height:1.5}
 .tsm-vis-src{font-size:10px;color:var(--sub);margin-top:24px;padding-top:14px;border-top:1px solid var(--rule);line-height:1.5}
 @media(max-width:800px){
   .tsm-vis-wrap{padding:24px 20px}
@@ -340,14 +341,16 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
           <div>
             <span class="tsm-leg-abbr" style="color:var(--sub)">TAM · Total Addressable Market</span>
             <span class="tsm-leg-val">$359B</span>
+            <span class="tsm-leg-proj">→ ~$540B est. · 2030 · illustrative</span>
             <div class="tsm-leg-desc">USA + Europe fashion e-commerce · 2025<br>Source: ECDB · Mordor Intelligence</div>
           </div>
         </div>
         <div class="tsm-leg">
-          <div class="tsm-leg-dot" style="background:var(--tf-light);border:2px solid var(--tf)"></div>
+          <div class="tsm-leg-dot" style="background:#FEF0E8;border:2px solid var(--orange)"></div>
           <div>
             <span class="tsm-leg-abbr">SAM · Serviceable Addressable Market</span>
             <span class="tsm-leg-val">$36–54B</span>
+            <span class="tsm-leg-proj">→ ~$54–80B est. · 2030 · illustrative</span>
             <div class="tsm-leg-desc">Creator-native fashion · 10–15% of TAM<br>Source: TF team estimate · eMarketer social commerce share</div>
           </div>
         </div>
@@ -356,12 +359,13 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
           <div>
             <span class="tsm-leg-abbr" style="color:var(--orange)">SOM · Serviceable Obtainable Market</span>
             <span class="tsm-leg-val" style="color:var(--tf)">$360M–$1.6B</span>
+            <span class="tsm-leg-proj">→ ~$540M–$2.4B est. · 2030 · illustrative</span>
             <div class="tsm-leg-desc">Emerging designer pre-order &amp; ambassador commerce · 1–3% of SAM<br>Source: TF team estimate · benchmarked vs Wolf &amp; Badger $95M GMV (2024)</div>
           </div>
         </div>
       </div>
     </div>
-    <div class="tsm-vis-src">Sources: ECDB · Mordor Intelligence · eMarketer 2026 forecast · TF team estimates · All figures 2025 unless noted</div>
+    <div class="tsm-vis-src">Sources: ECDB · Mordor Intelligence · eMarketer 2026 forecast · TF team estimates · 2025 verified · 2030 at 8.5% CAGR · illustrative</div>
   </div>
 
   <div class="table-wrap">
