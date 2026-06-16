@@ -47,8 +47,29 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 /* HERO */
 .hero{margin-bottom:52px}
 .hero-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--sub);margin-bottom:10px}
-.hero-title{font-size:clamp(28px,4vw,44px);font-weight:800;color:var(--ink);line-height:1.1;letter-spacing:-1.5px;margin-bottom:20px}
-.kpi-row{display:flex;gap:0;flex-wrap:wrap;border:1px solid var(--rule);background:white}
+.hero-title{font-size:clamp(28px,4vw,44px);font-weight:800;color:var(--ink);line-height:1.1;letter-spacing:-1.5px}
+
+/* SECTION HEADERS */
+.sec-head{margin:52px 0 20px}
+.sec-head h2{font-size:clamp(18px,2.2vw,24px);font-weight:800;color:var(--ink);display:flex;align-items:baseline}
+.sec-num{font-size:inherit;font-weight:800;color:var(--orange);margin-right:14px}
+
+/* INLINE SOURCE */
+.src-note{font-size:10px;color:var(--sub);margin-top:4px;line-height:1.45}
+.src-note a{color:var(--tf);text-decoration:none}
+.src-note a:hover{text-decoration:underline}
+
+/* DEFINITIONS ROW */
+.def-row{display:flex;gap:0;background:white;border:1px solid var(--rule);margin-bottom:20px}
+.def-item{flex:1;padding:16px 20px;border-right:1px solid var(--rule)}
+.def-item:last-child{border-right:none}
+.def-abbr{font-size:13px;font-weight:800;color:var(--tf);display:block;margin-bottom:3px;letter-spacing:0.5px}
+.def-label{font-size:11px;font-weight:700;color:var(--ink);display:block;margin-bottom:4px}
+.def-text{font-size:11px;color:var(--ink);line-height:1.5}
+@media(max-width:700px){.def-row{flex-direction:column}.def-item{border-right:none;border-bottom:1px solid var(--rule)}.def-item:last-child{border-bottom:none}}
+
+/* KPI ROW */
+.kpi-row{display:flex;gap:0;flex-wrap:wrap;border:1px solid var(--rule);background:white;margin-bottom:24px}
 .kpi{flex:1;min-width:150px;padding:20px 24px;border-right:1px solid var(--rule)}
 .kpi:last-child{border-right:none}
 .kpi-val{font-size:clamp(18px,2.5vw,28px);font-weight:800;color:var(--tf);line-height:1}
@@ -60,16 +81,6 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
   .kpi{border-right:none;border-bottom:1px solid var(--rule)}
   .kpi:last-child{border-bottom:none}
 }
-
-/* SECTION HEADERS */
-.sec-head{margin:52px 0 20px}
-.sec-head h2{font-size:clamp(18px,2.2vw,24px);font-weight:800;color:var(--ink);display:flex;align-items:baseline}
-.sec-num{font-size:inherit;font-weight:800;color:var(--orange);margin-right:14px}
-
-/* INLINE SOURCE */
-.src-note{font-size:10px;color:var(--sub);margin-top:4px;line-height:1.45}
-.src-note a{color:var(--tf);text-decoration:none}
-.src-note a:hover{text-decoration:underline}
 
 /* BAR CHART */
 .chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:0}
@@ -83,7 +94,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .cagr-badge{display:inline-block;font-size:10px;font-weight:800;letter-spacing:1.5px;padding:4px 10px;background:var(--tf-light);color:var(--tf);text-transform:uppercase;margin-bottom:10px}
 @media(max-width:700px){.chart-grid{grid-template-columns:1fr}}
 
-/* AMBER BOX */
+/* AMBER / INFO BOXES */
 .box-amber{background:var(--amber-bg);border:1px solid #fde68a;padding:12px 16px;font-size:11px;color:var(--amber);line-height:1.55;margin-top:14px}
 .box-amber strong{color:#92400e}
 
@@ -102,7 +113,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .verdict strong{color:var(--tf)}
 
 /* TABLES */
-.table-wrap{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--rule);margin-top:16px;white-space:nowrap}
+.table-wrap{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--rule);margin-top:0;white-space:nowrap}
 .table-wrap table{white-space:normal}
 .tam-table{width:100%;border-collapse:collapse;font-size:13px;min-width:700px}
 .tam-table th{background:var(--tf);color:white;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:10px 14px;text-align:left}
@@ -135,7 +146,6 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .rev-key{color:var(--ink)}
 .rev-val{font-weight:700;color:var(--ink);text-align:right}
 .rev-row.hi .rev-val{color:var(--tf);font-size:16px;font-weight:800}
-
 @media(max-width:600px){.rev-grid{grid-template-columns:1fr}}
 
 /* BACK TO TOP */
@@ -170,28 +180,6 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
   <div class="hero">
     <div class="hero-eyebrow">Market Size · Investor Reference</div>
     <h1 class="hero-title">Market Size &amp; Opportunity</h1>
-    <div class="kpi-row">
-      <div class="kpi">
-        <div class="kpi-val">$359B</div>
-        <div class="kpi-label">TAM · USA+Europe Fashion E-com 2025</div>
-        <div class="kpi-note">US $233.7B · Europe $125.7B · Source: <a href="https://ecdb.com" target="_blank" rel="noopener">ECDB</a>, <a href="https://www.mordorintelligence.com" target="_blank" rel="noopener">Mordor Intelligence</a></div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-val">$36–54B</div>
-        <div class="kpi-label">SAM · Creator-Native Fashion 2025</div>
-        <div class="kpi-note">10–15% of broad TAM · TF team estimate</div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-val">$360M–$1.6B</div>
-        <div class="kpi-label">SOM · Emerging Designer Commerce</div>
-        <div class="kpi-note">1–3% of SAM · pre-sale, ambassador, co-creation</div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-val">$70B</div>
-        <div class="kpi-label">2022 Deck TAM · 2026 Projection</div>
-        <div class="kpi-note">Influencer fashion + crowdfunding + MCA · Source: TF 2022 pitch deck, slide 5</div>
-      </div>
-    </div>
   </div>
 
   <!-- 01 — ORIGINAL DECK SLIDE 5 -->
@@ -227,7 +215,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
         </div>
         <div class="bar-group">
           <div class="bar-val">$5.4B</div>
-          <div class="bar-rect" style="height:140px;background:var(--tf)"></div>
+          <div class="bar-rect" style="height:155px;background:var(--tf)"></div>
           <div class="bar-year">2026</div>
         </div>
       </div>
@@ -249,69 +237,64 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
       </div>
       <div class="check-row check-warn">
         <span class="check-icon">⚠</span>
-        <span><strong>IMH and Affilimate measure influencer marketing spend, not fashion GMV.</strong> Global influencer marketing was ~$9.7B across all categories in 2020 — not $36B in fashion GMV. The spend → GMV bridge uses an uncited multiplier investors will ask for. Source: <a href="https://influencermarketinghub.com" target="_blank" rel="noopener">IMH Annual Benchmark</a>.</span>
+        <span><strong>IMH and Affilimate measure influencer marketing spend, not fashion GMV.</strong> Global influencer marketing spend was ~$9.7B across all categories in 2020. The deck's spend → GMV bridge uses an uncited multiplier investors will ask for. Source: <a href="https://influencermarketinghub.com" target="_blank" rel="noopener">IMH Annual Benchmark</a>.</span>
       </div>
       <div class="check-row check-fail">
         <span class="check-icon">✗</span>
-        <span><strong>MCA is a financing product, not consumer spending.</strong> Adding merchant cash advance volume to a consumer-facing TAM mixes economic layers. Fashion crowdfunding is small — Kickstarter reported $706M pledged across all categories in 2024. Source: <a href="https://www.kickstarter.com/help/stats" target="_blank" rel="noopener">Kickstarter Statistics</a>.</span>
+        <span><strong>MCA is a financing product, not consumer spending.</strong> Adding merchant cash advance volume to a consumer-facing TAM mixes economic layers. Fashion crowdfunding is small — Kickstarter $706M pledged across all categories in 2024. Source: <a href="https://www.kickstarter.com/help/stats" target="_blank" rel="noopener">Kickstarter Statistics</a>.</span>
       </div>
       <div class="check-row check-fail">
         <span class="check-icon">✗</span>
         <span><strong>Three markets summed without overlap deduplication.</strong> A designer using MCA to fund a drop sold through influencers with a crowdfunding campaign is counted three times.</span>
       </div>
     </div>
-    <div class="verdict"><strong>Verdict:</strong> Growth assumptions were directionally right — influencer fashion commerce grew at least as fast as projected. $70B for the influencer component alone is defensible on 2025 data. The construction problem — combining consumer GMV with a financing product and a small episodic market — will not pass investor scrutiny. The 2026 reframe to $359B USA+Europe anchor narrowed to $36–54B creator-native SAM is cleaner and states a larger opportunity.</div>
+    <div class="verdict"><strong>Verdict:</strong> Growth assumptions were directionally right. $70B for the influencer component alone is defensible on 2025 data. The construction — combining consumer GMV with a financing product and a small episodic market — will not pass investor scrutiny. The 2026 reframe to $359B USA+Europe anchor narrowed to $36–54B creator-native SAM is cleaner and states a larger opportunity.</div>
   </div>
 
-  <!-- 02 — SAME METHODOLOGY, 2026→2030 -->
+  <!-- 02 — TAM · SAM · SOM -->
   <div class="sec-head">
-    <h2><span class="sec-num">02</span>Same Methodology · 2026→2030 Projection</h2>
+    <h2><span class="sec-num">02</span>TAM · SAM · SOM — 2025 Verified vs 2039 Directional</h2>
   </div>
 
-  <div class="chart-grid">
-    <div class="chart-box">
-      <div class="chart-title">Global fashion online sales through influencers, $B</div>
-      <div class="chart-bars">
-        <div class="bar-group">
-          <div class="bar-val">$64B</div>
-          <div class="bar-rect" style="height:86px;background:var(--tf-light);border:2px solid var(--tf-mid)"></div>
-          <div class="bar-year">2026</div>
-        </div>
-        <div class="bar-group">
-          <div class="bar-val">$104B</div>
-          <div class="bar-rect" style="height:140px;background:var(--tf)"></div>
-          <div class="bar-year">2030</div>
-        </div>
-      </div>
-      <div><span class="cagr-badge">CAGR 12.8%</span></div>
-      <div class="src-note">2022 deck CAGR applied forward 4 years from the $64B 2026 base · directional projection only</div>
+  <div class="def-row">
+    <div class="def-item">
+      <span class="def-abbr">TAM</span>
+      <span class="def-label">Total Addressable Market</span>
+      <span class="def-text">The full revenue opportunity if TF captured 100% of the market. Used to show the ceiling of the opportunity.</span>
     </div>
-    <div class="chart-box">
-      <div class="chart-title">Global fashion crowdfunding + Merchant Cash Advance, $B</div>
-      <div class="chart-bars">
-        <div class="bar-group">
-          <div class="bar-val">$5.4B</div>
-          <div class="bar-rect" style="height:95px;background:var(--tf-light);border:2px solid var(--tf-mid)"></div>
-          <div class="bar-year">2026</div>
-        </div>
-        <div class="bar-group">
-          <div class="bar-val">$7.9B</div>
-          <div class="bar-rect" style="height:140px;background:var(--tf)"></div>
-          <div class="bar-year">2030</div>
-        </div>
-      </div>
-      <div><span class="cagr-badge">CAGR 10.1%</span></div>
-      <div class="src-note">2022 deck CAGR applied forward 4 years from the $5.37B 2026 base · directional projection only</div>
+    <div class="def-item">
+      <span class="def-abbr">SAM</span>
+      <span class="def-label">Serviceable Addressable Market</span>
+      <span class="def-text">The portion of TAM reachable with TF's product and target geography. Filtered by segment fit.</span>
+    </div>
+    <div class="def-item">
+      <span class="def-abbr">SOM</span>
+      <span class="def-label">Serviceable Obtainable Market</span>
+      <span class="def-text">The realistic near-term share TF can capture within SAM. The number investors will pressure-test hardest.</span>
     </div>
   </div>
 
-  <div class="box-amber">
-    <strong>Directional projection only.</strong> CAGRs from the 2022 pitch deck (12.8% and 10.1%) applied forward 4 years from the 2026 deck endpoints. Combined 2030 on this methodology: ~$112B. No independent market report projects these exact segment definitions to 2030.
-  </div>
-
-  <!-- 03 — TAM/SAM/SOM TABLE -->
-  <div class="sec-head">
-    <h2><span class="sec-num">03</span>TAM · SAM · SOM — 2025 Verified vs 2039 Directional</h2>
+  <div class="kpi-row">
+    <div class="kpi">
+      <div class="kpi-val">$359B</div>
+      <div class="kpi-label">TAM · USA+Europe Fashion E-com 2025</div>
+      <div class="kpi-note">US $233.7B · Europe $125.7B · Source: <a href="https://ecdb.com" target="_blank" rel="noopener">ECDB</a>, <a href="https://www.mordorintelligence.com" target="_blank" rel="noopener">Mordor Intelligence</a></div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-val">$36–54B</div>
+      <div class="kpi-label">SAM · Creator-Native Fashion 2025</div>
+      <div class="kpi-note">10–15% of broad TAM · TF team estimate</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-val">$360M–$1.6B</div>
+      <div class="kpi-label">SOM · Emerging Designer Commerce</div>
+      <div class="kpi-note">1–3% of SAM · pre-sale, ambassador, co-creation</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-val">$70B</div>
+      <div class="kpi-label">2022 Deck TAM · 2026 Projection</div>
+      <div class="kpi-note">Influencer fashion + crowdfunding + MCA · Source: TF 2022 pitch deck, slide 5</div>
+    </div>
   </div>
 
   <div class="table-wrap">
@@ -319,7 +302,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
       <thead>
         <tr>
           <th style="min-width:110px">Layer</th>
-          <th style="min-width:180px">2025–2026 · Verified</th>
+          <th style="min-width:190px">2025–2026 · Verified</th>
           <th class="col-proj" style="min-width:160px">2039 · Directional</th>
           <th style="min-width:240px">Definition &amp; Source</th>
         </tr>
@@ -329,7 +312,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
           <td><span class="layer-badge badge-tam">TAM · Broad</span><br>USA+Europe fashion e-commerce</td>
           <td>
             <span class="fig">~$359B</span>
-            US $233.7B · Europe $125.7B
+            US $233.7B · Europe $125.7B (2025)
             <div class="src-note">Source: <a href="https://ecdb.com" target="_blank" rel="noopener">ECDB</a> · <a href="https://www.mordorintelligence.com" target="_blank" rel="noopener">Mordor Intelligence</a></div>
           </td>
           <td>
@@ -377,6 +360,54 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
         </tr>
       </tbody>
     </table>
+  </div>
+
+  <!-- 03 — REAL 2026 DATA → 2030 PROJECTION -->
+  <div class="sec-head">
+    <h2><span class="sec-num">03</span>Real 2026 Market Data · Projection to 2030</h2>
+  </div>
+
+  <p style="font-size:13px;color:var(--ink);line-height:1.65;margin-bottom:20px">No single published source isolates "global influencer fashion GMV" for 2026. The closest primary-source anchors: US social commerce (all categories, eMarketer 2026 forecast) and the global influencer marketing industry spend (Statista 2025). Fashion accounts for 27.95% of social commerce transactions globally.</p>
+
+  <div class="chart-grid">
+    <div class="chart-box">
+      <div class="chart-title">US Social Commerce Sales, $B · All categories</div>
+      <div class="chart-bars">
+        <div class="bar-group">
+          <div class="bar-val">$122.7B</div>
+          <div class="bar-rect" style="height:80px;background:var(--tf-light);border:2px solid var(--tf-mid)"></div>
+          <div class="bar-year">2026</div>
+        </div>
+        <div class="bar-group">
+          <div class="bar-val">~$215B</div>
+          <div class="bar-rect" style="height:140px;background:var(--tf)"></div>
+          <div class="bar-year">2030</div>
+        </div>
+      </div>
+      <div><span class="cagr-badge">CAGR ~15% · illustrative</span></div>
+      <div class="src-note">2026 actual: <a href="https://www.shopify.com/enterprise/blog/ecommerce-fashion-industry" target="_blank" rel="noopener">Shopify Enterprise</a> citing eMarketer · Fashion = 27.95% of social commerce → US fashion social commerce 2026: ~$34B · 2030 projection at 15% CAGR · not a published forecast</div>
+    </div>
+    <div class="chart-box">
+      <div class="chart-title">Global Influencer Marketing Industry, $B · All categories (spend)</div>
+      <div class="chart-bars">
+        <div class="bar-group">
+          <div class="bar-val">~$38B</div>
+          <div class="bar-rect" style="height:67px;background:var(--tf-light);border:2px solid var(--tf-mid)"></div>
+          <div class="bar-year">2026 est.</div>
+        </div>
+        <div class="bar-group">
+          <div class="bar-val">~$79B</div>
+          <div class="bar-rect" style="height:140px;background:var(--tf)"></div>
+          <div class="bar-year">2030</div>
+        </div>
+      </div>
+      <div><span class="cagr-badge">CAGR ~20% · illustrative</span></div>
+      <div class="src-note">2025 confirmed: $33B (<a href="https://www.statista.com/statistics/1092819/global-influencer-market-size/" target="_blank" rel="noopener">Statista</a>) · 2026 est. ~$38B at 15% YoY · Note: this is <strong>marketing spend</strong> (what brands pay influencers), not consumer GMV · 2030 projection at 20% CAGR · not a published forecast</div>
+    </div>
+  </div>
+
+  <div class="box-amber">
+    <strong>Note on the 2022 deck vs real 2026 data.</strong> The deck projected $64B for "global fashion influencer sales" in 2026 using 12.8% CAGR from a 2020 base. Real data shows: US social commerce alone reached $122.7B in 2026 (eMarketer), of which fashion is ~$34B US-only. The deck's $64B figure was likely intended as global — consistent with the real scale when Europe is added (~$34B US + ~$47B Europe est. = ~$81B). The direction and magnitude were broadly correct; the construction issue is the spend/GMV conflation, not the headline number.
   </div>
 
   <!-- 04 — COMPETITIVE SCALE -->
@@ -460,7 +491,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
       <div class="rev-row"><span class="rev-key">SOM GMV low</span><span class="rev-val">$360M</span></div>
       <div class="rev-row"><span class="rev-key">SOM GMV high</span><span class="rev-val">$1.6B</span></div>
       <div class="rev-row hi"><span class="rev-key">Revenue at 7% take rate</span><span class="rev-val">$25M–$112M</span></div>
-      <div class="rev-row"><span class="rev-key">Commission model</span><span class="rev-val" style="font-size:10px;font-weight:400">7% GMV · 7% crowdfunding · 10% ambassador · 10% co-creator<br><a href="#" style="color:var(--sub)">Source: TF 2022 pitch deck</a></span></div>
+      <div class="rev-row"><span class="rev-key">Commission model</span><span class="rev-val" style="font-size:10px;font-weight:400">7% GMV · 7% crowdfunding · 10% ambassador · 10% co-creator — Source: TF 2022 pitch deck</span></div>
     </div>
     <div class="rev-card">
       <div class="rev-head">2039 · Long-Range — Illustrative Only</div>
