@@ -150,37 +150,34 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 
 /* TAM · SAM · SOM VISUAL */
 .tsm-vis-wrap{background:white;border:1px solid var(--rule);padding:40px 48px;margin-bottom:24px}
-.tsm-vis-eyebrow{font-size:24px;font-weight:800;color:var(--orange);letter-spacing:-0.5px;text-transform:none;margin-bottom:28px;line-height:1.1}
-.tsm-vis{display:flex;gap:48px;align-items:flex-start}
-.tsm-minichart{padding-bottom:16px;border-bottom:1px solid var(--rule)}
-.tsm-minichart:last-child{border-bottom:none;padding-bottom:0}
-.tsm-mc-head{font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
-.tsm-mc-bars{display:flex;align-items:flex-end;gap:14px;margin-bottom:8px}
-.tsm-mc-bg{display:flex;flex-direction:column;align-items:center;gap:4px}
-.tsm-mc-val{font-size:11px;font-weight:800;color:var(--ink);text-align:center;line-height:1.25}
-.tsm-mc-rect{width:60px;border-radius:3px 3px 0 0}
-.tsm-mc-yr{font-size:10px;font-weight:700;color:var(--sub);letter-spacing:1px}
-.tsm-circles-area{position:relative;width:280px;height:280px;flex-shrink:0}
-.tsm-c{border-radius:50%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
-.tsm-tam{width:280px;height:280px;background:var(--tf-ghost);border:2.5px solid var(--tf-mid)}
-.tsm-sam{width:186px;height:186px;background:#FEF0E8;border:2.5px solid var(--orange)}
-.tsm-som{width:96px;height:96px;background:var(--tf);display:flex;align-items:center;justify-content:center;z-index:2}
-.tsm-legend{flex:1;display:flex;flex-direction:column;gap:24px}
-.tsm-leg{display:flex;gap:14px;align-items:flex-start}
-.tsm-leg-dot{width:14px;height:14px;border-radius:50%;flex-shrink:0;margin-top:5px}
-.tsm-leg-abbr{font-size:9.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--tf);margin-bottom:5px;display:block}
-.tsm-leg-val{font-size:clamp(22px,2.2vw,30px);font-weight:800;color:var(--ink);line-height:1;margin-bottom:4px;display:block}
-.tsm-leg-proj{display:block;font-size:15px;font-weight:700;color:var(--sub);margin-bottom:6px}
+.tsm-vis-eyebrow{font-size:24px;font-weight:800;color:var(--orange);letter-spacing:-0.5px;text-transform:none;margin-bottom:24px;line-height:1.1}
+.tsm-charts-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;margin-bottom:24px}
+.tsm-chart-col{display:flex;flex-direction:column;padding:0 32px 0 0;border-right:1px solid var(--rule)}
+.tsm-chart-col:last-child{border-right:none;padding-right:0;padding-left:32px}
+.tsm-chart-col:nth-child(2){padding:0 32px}
+.tsm-mc-head{font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.tsm-mc-bars-big{display:flex;align-items:flex-end;gap:20px;margin-bottom:14px}
+.tsm-mc-bg{display:flex;flex-direction:column;align-items:center}
+.tsm-mc-val-big{font-size:16px;font-weight:800;color:var(--ink);text-align:center;line-height:1.25;margin-bottom:8px}
+.tsm-mc-rect-big{width:88px;border-radius:4px 4px 0 0}
+.tsm-mc-yr-big{font-size:11px;font-weight:700;color:var(--sub);letter-spacing:1px;margin-top:8px}
+.tsm-leg-desc{font-size:13px;color:var(--ink);line-height:1.5;margin-top:8px}
 .tsm-cagr{color:var(--orange);font-size:16px;font-weight:800;margin-left:10px;letter-spacing:-0.3px}
-.tsm-leg-desc{font-size:13px;color:var(--ink);line-height:1.5}
+.tsm-keymsg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border:1px solid var(--rule);margin-bottom:28px}
+.tsm-keymsg-item{padding:16px 20px;border-right:1px solid var(--rule)}
+.tsm-keymsg-item:last-child{border-right:none}
+.tsm-keymsg-label{font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);margin-bottom:6px}
+.tsm-keymsg-val{font-size:15px;font-weight:800;color:var(--ink);line-height:1.35}
+.tsm-keymsg-sub{font-size:12px;color:var(--ink);margin-top:4px;line-height:1.4}
 .tsm-vis-src{font-size:10px;color:var(--sub);margin-top:24px;padding-top:14px;border-top:1px solid var(--rule);line-height:1.5}
-@media(max-width:800px){
+@media(max-width:900px){
   .tsm-vis-wrap{padding:24px 20px}
-  .tsm-vis{flex-direction:column;gap:28px}
-  .tsm-circles-area{width:220px;height:220px}
-  .tsm-tam{width:220px;height:220px}
-  .tsm-sam{width:146px;height:146px}
-  .tsm-som{width:75px;height:75px}
+  .tsm-charts-row{grid-template-columns:1fr}
+  .tsm-chart-col,.tsm-chart-col:nth-child(2),.tsm-chart-col:last-child{padding:20px 0;border-right:none;border-bottom:1px solid var(--rule)}
+  .tsm-chart-col:last-child{border-bottom:none}
+  .tsm-keymsg{grid-template-columns:1fr}
+  .tsm-keymsg-item{border-right:none;border-bottom:1px solid var(--rule)}
+  .tsm-keymsg-item:last-child{border-bottom:none}
 }
 
 /* BACK TO TOP */
@@ -336,76 +333,91 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
   <!-- INVESTOR DECK VISUAL -->
   <div class="tsm-vis-wrap">
     <div class="tsm-vis-eyebrow">Market Opportunity · Use in Investor Deck</div>
-    <div class="tsm-vis">
-      <div class="tsm-circles-area">
-        <div class="tsm-c tsm-tam"></div>
-        <div class="tsm-c tsm-sam"></div>
-        <div class="tsm-c tsm-som">
-          <span style="color:white;font-size:12px;font-weight:800;letter-spacing:1.5px">TF</span>
+
+    <!-- 3 charts side by side -->
+    <div class="tsm-charts-row">
+
+      <!-- TAM -->
+      <div class="tsm-chart-col">
+        <div class="tsm-mc-head" style="color:var(--sub)">TAM · Total Addressable Market</div>
+        <div class="tsm-mc-bars-big">
+          <div class="tsm-mc-bg">
+            <div class="tsm-mc-val-big">$359B</div>
+            <div class="tsm-mc-rect-big" style="height:119px;background:var(--tf-ghost);border:2px solid var(--tf-mid)"></div>
+            <div class="tsm-mc-yr-big">2025</div>
+          </div>
+          <div class="tsm-mc-bg">
+            <div class="tsm-mc-val-big">~$540B</div>
+            <div class="tsm-mc-rect-big" style="height:180px;background:var(--tf)"></div>
+            <div class="tsm-mc-yr-big">2030</div>
+          </div>
         </div>
+        <span class="cagr-badge">CAGR 8.5%</span>
+        <div class="tsm-leg-desc">USA + Europe fashion e-commerce</div>
+        <div class="src-note">Source: ECDB · Mordor Intelligence</div>
       </div>
-      <div style="font-size:9px;font-weight:700;color:var(--sub);text-align:center;letter-spacing:1px;text-transform:uppercase;margin-top:8px">Circles not to scale</div>
-      <div class="tsm-legend">
 
-        <!-- TAM bars -->
-        <div class="tsm-minichart">
-          <div class="tsm-mc-head" style="color:var(--sub)">TAM · Total Addressable Market</div>
-          <div class="tsm-mc-bars">
-            <div class="tsm-mc-bg">
-              <div class="tsm-mc-val">$359B</div>
-              <div class="tsm-mc-rect" style="height:73px;background:var(--tf-ghost);border:2px solid var(--tf-mid)"></div>
-              <div class="tsm-mc-yr">2025</div>
-            </div>
-            <div class="tsm-mc-bg">
-              <div class="tsm-mc-val">~$540B</div>
-              <div class="tsm-mc-rect" style="height:110px;background:var(--tf)"></div>
-              <div class="tsm-mc-yr">2030</div>
-            </div>
+      <!-- SAM -->
+      <div class="tsm-chart-col">
+        <div class="tsm-mc-head" style="color:var(--orange)">SAM · Serviceable Addressable Market</div>
+        <div class="tsm-mc-bars-big">
+          <div class="tsm-mc-bg">
+            <div class="tsm-mc-val-big">$36–54B</div>
+            <div class="tsm-mc-rect-big" style="height:88px;background:#FEF0E8;border:2px solid var(--orange)"></div>
+            <div class="tsm-mc-yr-big">2025</div>
           </div>
-          <span class="cagr-badge">CAGR 8.5%</span>
-          <div class="tsm-leg-desc" style="margin-top:6px">USA + Europe fashion e-commerce · Source: ECDB · Mordor Intelligence</div>
-        </div>
-
-        <!-- SAM bars -->
-        <div class="tsm-minichart">
-          <div class="tsm-mc-head" style="color:var(--orange)">SAM · Serviceable Addressable Market</div>
-          <div class="tsm-mc-bars">
-            <div class="tsm-mc-bg">
-              <div class="tsm-mc-val">$36–54B</div>
-              <div class="tsm-mc-rect" style="height:54px;background:#FEF0E8;border:2px solid var(--orange)"></div>
-              <div class="tsm-mc-yr">2025</div>
-            </div>
-            <div class="tsm-mc-bg">
-              <div class="tsm-mc-val">~$72–110B</div>
-              <div class="tsm-mc-rect" style="height:110px;background:var(--orange)"></div>
-              <div class="tsm-mc-yr">2030</div>
-            </div>
+          <div class="tsm-mc-bg">
+            <div class="tsm-mc-val-big">~$72–110B</div>
+            <div class="tsm-mc-rect-big" style="height:180px;background:var(--orange)"></div>
+            <div class="tsm-mc-yr-big">2030</div>
           </div>
-          <span class="cagr-badge" style="background:#FEF0E8;color:var(--orange)">CAGR 15%</span>
-          <div class="tsm-leg-desc" style="margin-top:6px">Creator-native fashion · 10–15% of TAM · Source: TF team estimate · eMarketer social commerce</div>
         </div>
+        <span class="cagr-badge" style="background:#FEF0E8;color:var(--orange)">CAGR 15%</span>
+        <div class="tsm-leg-desc">Creator-native fashion · 10–15% of TAM</div>
+        <div class="src-note">Source: TF team estimate · eMarketer social commerce</div>
+      </div>
 
-        <!-- SOM bars -->
-        <div class="tsm-minichart">
-          <div class="tsm-mc-head" style="color:var(--tf)">SOM · Serviceable Obtainable Market</div>
-          <div class="tsm-mc-bars">
-            <div class="tsm-mc-bg">
-              <div class="tsm-mc-val">$360M–$1.6B</div>
-              <div class="tsm-mc-rect" style="height:44px;background:var(--tf-light);border:2px solid var(--tf)"></div>
-              <div class="tsm-mc-yr">2025</div>
-            </div>
-            <div class="tsm-mc-bg">
-              <div class="tsm-mc-val">~$900M–$4B</div>
-              <div class="tsm-mc-rect" style="height:110px;background:var(--tf)"></div>
-              <div class="tsm-mc-yr">2030</div>
-            </div>
+      <!-- SOM -->
+      <div class="tsm-chart-col">
+        <div class="tsm-mc-head" style="color:var(--tf)">SOM · Serviceable Obtainable Market</div>
+        <div class="tsm-mc-bars-big">
+          <div class="tsm-mc-bg">
+            <div class="tsm-mc-val-big">$360M–$1.6B</div>
+            <div class="tsm-mc-rect-big" style="height:72px;background:var(--tf-light);border:2px solid var(--tf)"></div>
+            <div class="tsm-mc-yr-big">2025</div>
           </div>
-          <span class="cagr-badge">CAGR 20%</span>
-          <div class="tsm-leg-desc" style="margin-top:6px">Emerging designer pre-order &amp; ambassador · 1–3% of SAM · Source: TF team estimate</div>
+          <div class="tsm-mc-bg">
+            <div class="tsm-mc-val-big">~$900M–$4B</div>
+            <div class="tsm-mc-rect-big" style="height:180px;background:var(--tf)"></div>
+            <div class="tsm-mc-yr-big">2030</div>
+          </div>
         </div>
+        <span class="cagr-badge">CAGR 20%</span>
+        <div class="tsm-leg-desc">Emerging designer pre-order &amp; ambassador · 1–3% of SAM</div>
+        <div class="src-note">Source: TF team estimate</div>
+      </div>
 
+    </div>
+
+    <!-- Investor key message -->
+    <div class="tsm-keymsg">
+      <div class="tsm-keymsg-item">
+        <div class="tsm-keymsg-label">The market</div>
+        <div class="tsm-keymsg-val">$359B fashion e-commerce — USA + Europe</div>
+        <div class="tsm-keymsg-sub">Growing at 8.5% CAGR. Base market is large, established, and expanding.</div>
+      </div>
+      <div class="tsm-keymsg-item">
+        <div class="tsm-keymsg-label">The opportunity</div>
+        <div class="tsm-keymsg-val">Creator-native fashion growing 1.8× faster than the market</div>
+        <div class="tsm-keymsg-sub">15% CAGR vs. 8.5% for broad fashion e-commerce. Social and creator channels taking share.</div>
+      </div>
+      <div class="tsm-keymsg-item">
+        <div class="tsm-keymsg-label">TF's target segment</div>
+        <div class="tsm-keymsg-val">$900M–$4B by 2030</div>
+        <div class="tsm-keymsg-sub">Emerging designer pre-order + ambassador commerce. 20% CAGR. 1–3% of creator-native layer.</div>
       </div>
     </div>
+
     <div class="tsm-vis-src">2025 verified · 2030 projected · TAM 8.5% CAGR (Mordor Intelligence fashion e-com) · SAM 15% CAGR (eMarketer social commerce) · SOM 20% CAGR (creator commerce) · Sources: ECDB · Mordor Intelligence · eMarketer · TF team estimates</div>
   </div>
 
