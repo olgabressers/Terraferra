@@ -242,6 +242,18 @@ ul li strong{color:var(--ink);font-weight:700}
   .collapse-btn{font-size:9.5px;padding:6px 10px}
 }
 
+/* USE OF FUNDS VISUAL */
+.uof-wrap{background:var(--tf);padding:36px 40px;margin-bottom:36px}
+.uof-eyebrow{font-size:9px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:6px}
+.uof-title{font-size:36px;font-weight:800;color:white;margin-bottom:24px;letter-spacing:-1px;line-height:1.1}
+.uof-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.uof-card{background:rgba(0,0,0,0.28);padding:22px 20px 18px}
+.uof-label{font-size:12px;font-weight:600;color:rgba(255,255,255,0.7);margin-bottom:14px;line-height:1.4}
+.uof-pct{font-size:48px;font-weight:800;color:white;line-height:1;letter-spacing:-2px}
+.uof-amount{font-size:11px;font-weight:600;color:rgba(255,255,255,0.55);margin-top:8px;line-height:1.4}
+@media(max-width:900px){.uof-wrap{padding:24px 20px}.uof-grid{grid-template-columns:repeat(2,1fr)}.uof-title{font-size:28px}.uof-pct{font-size:38px}}
+@media(max-width:500px){.uof-grid{grid-template-columns:1fr 1fr}.uof-pct{font-size:30px}}
+
 /* Top navigation */
 .topnav{background:white;border-bottom:1px solid #D8D4EF;padding:12px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50;font-family:'Inter',sans-serif}
 .topnav-home{font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#4B40C2;text-decoration:none;font-size:11px}
@@ -297,6 +309,34 @@ ul li strong{color:var(--ink);font-weight:700}
   <div class="fx-banner">
     <div>Working rate: <strong>1 EUR = 1.10 USD</strong> &nbsp;·&nbsp; 1 USD = 0.909 EUR</div>
     <div class="note">3-month average (Feb–May 2026) · ECB reference rate to be confirmed at signing</div>
+  </div>
+
+  <!-- ── USE OF FUNDS ── -->
+  <div class="uof-wrap">
+    <div class="uof-eyebrow">Year 1 Operating Budget · ~€658K</div>
+    <div class="uof-title">Use of Funds</div>
+    <div class="uof-grid">
+      <div class="uof-card">
+        <div class="uof-label">Team &amp;<br>Execution</div>
+        <div class="uof-pct">52%</div>
+        <div class="uof-amount">€345K · CEO, Founder, CTO,<br>Dev, Ops</div>
+      </div>
+      <div class="uof-card">
+        <div class="uof-label">Marketing<br>&amp; Growth</div>
+        <div class="uof-pct">8%</div>
+        <div class="uof-amount">€55K · designer acquisition,<br>content, PR, consumer ads</div>
+      </div>
+      <div class="uof-card">
+        <div class="uof-label">Technology<br>&amp; Product</div>
+        <div class="uof-pct">9%</div>
+        <div class="uof-amount">€61K · software stack,<br>AI tools, UX/UI refresh</div>
+      </div>
+      <div class="uof-card">
+        <div class="uof-label">Legal, Ops<br>&amp; Buffer</div>
+        <div class="uof-pct">31%</div>
+        <div class="uof-amount">€197K · legal, compliance,<br>T&amp;E, contingency</div>
+      </div>
+    </div>
   </div>
 
   <!-- ── TABLE OF CONTENTS ── -->
@@ -770,6 +810,13 @@ ul li strong{color:var(--ink);font-weight:700}
         <td class="num">€10,152 <span class="usd">$11,160</span></td>
       </tr>
       <tr>
+        <td>Marketing Budget</td>
+        <td class="num">€15,510 <span class="usd">$17,061</span></td>
+        <td class="num">€37,020 <span class="usd">$40,722</span></td>
+        <td class="num">€61,530 <span class="usd">$67,683</span></td>
+        <td class="num">€89,040 <span class="usd">$97,944</span></td>
+      </tr>
+      <tr>
         <td>One-time Launch Costs (paid Year 1)</td>
         <td class="num">€52,000 <span class="usd">$57,200</span></td>
         <td class="num">€52,000 <span class="usd">$57,200</span></td>
@@ -778,17 +825,17 @@ ul li strong{color:var(--ink);font-weight:700}
       </tr>
       <tr>
         <td>Contingency 10%</td>
-        <td class="num">€29,629 <span class="usd">$32,592</span></td>
-        <td class="num">€56,158 <span class="usd">$61,774</span></td>
-        <td class="num">€82,687 <span class="usd">$90,956</span></td>
-        <td class="num">€109,216 <span class="usd">$120,138</span></td>
+        <td class="num">€31,180 <span class="usd">$34,298</span></td>
+        <td class="num">€59,860 <span class="usd">$65,846</span></td>
+        <td class="num">€88,840 <span class="usd">$97,724</span></td>
+        <td class="num">€118,120 <span class="usd">$129,932</span></td>
       </tr>
       <tr class="total">
         <td>TOTAL BUDGET REQUIREMENT</td>
-        <td class="num">€325,920 <span class="usd">$358,512</span></td>
-        <td class="num">€617,738 <span class="usd">$679,512</span></td>
-        <td class="num">€909,557 <span class="usd">$1,000,513</span></td>
-        <td class="num">€1,201,376 <span class="usd">$1,321,514</span></td>
+        <td class="num">€342,981 <span class="usd">$377,279</span></td>
+        <td class="num">€658,460 <span class="usd">$724,306</span></td>
+        <td class="num">€977,240 <span class="usd">$1,074,964</span></td>
+        <td class="num">€1,299,320 <span class="usd">$1,429,252</span></td>
       </tr>
     </tbody>
   </table>
@@ -1118,7 +1165,99 @@ ul li strong{color:var(--ink);font-weight:700}
   </table>
 
   <!-- ============================================ -->
-  <h2><span class="sec-num">5.</span>One-time Launch Costs</h2>
+  <h2><span class="sec-num">5.</span>Marketing Budget</h2>
+  <p class="lead">Dedicated marketing spend for designer acquisition (B2B) and consumer growth (post-launch). Months 1–6 focus on outreach, content and PR; consumer paid social starts Month 7 after first designer cohort is live. All figures are TF team estimates — no prior spend to benchmark against.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th class="num">Monthly</th>
+        <th class="num">6 Months</th>
+        <th class="num">1 Year</th>
+        <th class="num">1.5 Years</th>
+        <th class="num">2 Years</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>CRM &amp; outreach tools (HubSpot Starter)</td>
+        <td class="num">€45 <span class="usd">$50</span></td>
+        <td class="num">€270 <span class="usd">$297</span></td>
+        <td class="num">€540 <span class="usd">$594</span></td>
+        <td class="num">€810 <span class="usd">$891</span></td>
+        <td class="num">€1,080 <span class="usd">$1,188</span></td>
+        <td class="note">HubSpot Starter — CRM, email sequences, deal pipeline for designer outreach and onboarding tracking. Source: <a href="https://www.hubspot.com/pricing" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">hubspot.com/pricing</a>.</td>
+      </tr>
+      <tr>
+        <td>Paid social — B2B designer acquisition (LinkedIn + Instagram)</td>
+        <td class="num">€1,200 <span class="usd">$1,320</span></td>
+        <td class="num">€7,200 <span class="usd">$7,920</span></td>
+        <td class="num">€14,400 <span class="usd">$15,840</span></td>
+        <td class="num">€21,600 <span class="usd">$23,760</span></td>
+        <td class="num">€28,800 <span class="usd">$31,680</span></td>
+        <td class="note">LinkedIn Sponsored Content targeting US fashion brand owners and indie labels. Instagram ads to reach emerging designers and creative communities. B2B focus throughout — no consumer ads until launch. Budget managed in-house; no agency fee. TF team estimate.</td>
+      </tr>
+      <tr>
+        <td>Content creation (photography, copy, social assets)</td>
+        <td class="num">€600 <span class="usd">$660</span></td>
+        <td class="num">€3,600 <span class="usd">$3,960</span></td>
+        <td class="num">€7,200 <span class="usd">$7,920</span></td>
+        <td class="num">€10,800 <span class="usd">$11,880</span></td>
+        <td class="num">€14,400 <span class="usd">$15,840</span></td>
+        <td class="note">Freelance brief: platform demo visuals, brand social imagery, pitch deck photography, monthly social content calendar. Project-based engagements, no retainer. TF team estimate.</td>
+      </tr>
+      <tr>
+        <td>PR &amp; trade press outreach (freelance)</td>
+        <td class="num">€400 <span class="usd">$440</span></td>
+        <td class="num">€2,400 <span class="usd">$2,640</span></td>
+        <td class="num">€4,800 <span class="usd">$5,280</span></td>
+        <td class="num">€7,200 <span class="usd">$7,920</span></td>
+        <td class="num">€9,600 <span class="usd">$10,560</span></td>
+        <td class="note">Freelance pitches to fashion trade press (Fashionista, Business of Fashion, WWD, Glossy). No agency retainer; project-based. Budget covers writer/PR freelancer cost per placement attempt. TF team estimate.</td>
+      </tr>
+      <tr>
+        <td>Ambassador seeding &amp; gifting</td>
+        <td class="num">€250 <span class="usd">$275</span></td>
+        <td class="num">€1,500 <span class="usd">$1,650</span></td>
+        <td class="num">€3,000 <span class="usd">$3,300</span></td>
+        <td class="num">€4,500 <span class="usd">$4,950</span></td>
+        <td class="num">€6,000 <span class="usd">$6,600</span></td>
+        <td class="note">Platform credits and product gifting for the first 20 ambassador pilots to build UGC and social proof before public launch. No cash payments — credit against future commission. TF team estimate.</td>
+      </tr>
+      <tr>
+        <td>Consumer paid social — Instagram / TikTok (from Month 7)</td>
+        <td class="num">—</td>
+        <td class="num">€0</td>
+        <td class="num">€6,000 <span class="usd">$6,600</span></td>
+        <td class="num">€15,000 <span class="usd">$16,500</span></td>
+        <td class="num">€27,000 <span class="usd">$29,700</span></td>
+        <td class="note">Consumer-facing Instagram Reels and TikTok ads targeting fashion-forward shoppers in the US. Zero pre-launch. Starts Month 7 at €1,000/month; ramps to €1,500/month by Month 13 and €2,000/month from Month 19. TF team estimate.</td>
+      </tr>
+      <tr>
+        <td>Email marketing — Klaviyo</td>
+        <td class="num">€90 <span class="usd">$99</span></td>
+        <td class="num">€540 <span class="usd">$594</span></td>
+        <td class="num">€1,080 <span class="usd">$1,188</span></td>
+        <td class="num">€1,620 <span class="usd">$1,782</span></td>
+        <td class="num">€2,160 <span class="usd">$2,376</span></td>
+        <td class="note">Klaviyo Email plan — consumer waitlist nurture, designer newsletter, drop announcement campaigns. Source: <a href="https://www.klaviyo.com/pricing" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">klaviyo.com/pricing</a>. Scales with list size; budget set at Year-1 list volume.</td>
+      </tr>
+      <tr class="subtotal">
+        <td>Subtotal — Marketing Budget</td>
+        <td class="num">€2,585 <span class="usd">$2,844</span> (M1–6)<br>€3,585 <span class="usd">$3,944</span> (M7+)</td>
+        <td class="num">€15,510 <span class="usd">$17,061</span></td>
+        <td class="num">€37,020 <span class="usd">$40,722</span></td>
+        <td class="num">€61,530 <span class="usd">$67,683</span></td>
+        <td class="num">€89,040 <span class="usd">$97,944</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ============================================ -->
+  <h2><span class="sec-num">6.</span>One-time Launch Costs</h2>
   <p class="lead">Pre-launch corporate costs required to ship the platform publicly and process payments. Paid once in Year 1 and persist in cumulative totals thereafter.</p>
 
   <table>
@@ -1171,7 +1310,7 @@ ul li strong{color:var(--ink);font-weight:700}
   </table>
 
   <!-- ============================================ -->
-  <h2><span class="sec-num">6.</span>Contingency</h2>
+  <h2><span class="sec-num">7.</span>Contingency</h2>
   <table>
     <thead>
       <tr>
@@ -1187,18 +1326,18 @@ ul li strong{color:var(--ink);font-weight:700}
     <tbody>
       <tr>
         <td>Contingency — 10% buffer on total budget</td>
-        <td class="num">€4,422 <span class="usd">$4,864</span></td>
-        <td class="num">€29,629 <span class="usd">$32,592</span></td>
-        <td class="num">€56,158 <span class="usd">$61,774</span></td>
-        <td class="num">€82,687 <span class="usd">$90,956</span></td>
-        <td class="num">€109,216 <span class="usd">$120,138</span></td>
-        <td class="note">FX movement, banking and wire fees on cross-border invoice settlement, unanticipated legal or tax events, executive recruitment if required. Recomputed at 10% of pre-contingency base after Operations Stack (including outsourced CS) and AI Tools.</td>
+        <td class="num">€4,681 <span class="usd">$5,149</span></td>
+        <td class="num">€31,180 <span class="usd">$34,298</span></td>
+        <td class="num">€59,860 <span class="usd">$65,846</span></td>
+        <td class="num">€88,840 <span class="usd">$97,724</span></td>
+        <td class="num">€118,120 <span class="usd">$129,932</span></td>
+        <td class="note">FX movement, banking and wire fees on cross-border invoice settlement, unanticipated legal or tax events, executive recruitment if required. Recomputed at 10% of pre-contingency base including Marketing Budget.</td>
       </tr>
     </tbody>
   </table>
 
   <!-- ============================================ -->
-  <h2><span class="sec-num">7.</span>Total Budget</h2>
+  <h2><span class="sec-num">8.</span>Total Budget</h2>
 
   <table>
     <thead>
@@ -1245,6 +1384,14 @@ ul li strong{color:var(--ink);font-weight:700}
         <td class="num">€10,152 <span class="usd">$11,160</span></td>
       </tr>
       <tr>
+        <td>Marketing Budget</td>
+        <td class="num">€2,585–€3,585 <span class="usd">$2,844–$3,944</span></td>
+        <td class="num">€15,510 <span class="usd">$17,061</span></td>
+        <td class="num">€37,020 <span class="usd">$40,722</span></td>
+        <td class="num">€61,530 <span class="usd">$67,683</span></td>
+        <td class="num">€89,040 <span class="usd">$97,944</span></td>
+      </tr>
+      <tr>
         <td>One-time Launch Costs (paid Year 1)</td>
         <td class="num">—</td>
         <td class="num">€52,000 <span class="usd">$57,200</span></td>
@@ -1254,25 +1401,25 @@ ul li strong{color:var(--ink);font-weight:700}
       </tr>
       <tr>
         <td>Contingency 10%</td>
-        <td class="num">€4,422 <span class="usd">$4,864</span></td>
-        <td class="num">€29,629 <span class="usd">$32,592</span></td>
-        <td class="num">€56,158 <span class="usd">$61,774</span></td>
-        <td class="num">€82,687 <span class="usd">$90,956</span></td>
-        <td class="num">€109,216 <span class="usd">$120,138</span></td>
+        <td class="num">€4,681 <span class="usd">$5,149</span></td>
+        <td class="num">€31,180 <span class="usd">$34,298</span></td>
+        <td class="num">€59,860 <span class="usd">$65,846</span></td>
+        <td class="num">€88,840 <span class="usd">$97,724</span></td>
+        <td class="num">€118,120 <span class="usd">$129,932</span></td>
       </tr>
       <tr class="total">
         <td>TOTAL BUDGET REQUIREMENT</td>
-        <td class="num">€44,788–€48,638 <span class="usd">$49,267–$53,502</span></td>
-        <td class="num">€325,920 <span class="usd">$358,512</span></td>
-        <td class="num">€617,738 <span class="usd">$679,512</span></td>
-        <td class="num">€909,557 <span class="usd">$1,000,513</span></td>
-        <td class="num">€1,201,376 <span class="usd">$1,321,514</span></td>
+        <td class="num">€47,373–€52,223 <span class="usd">$52,111–$57,445</span></td>
+        <td class="num">€342,981 <span class="usd">$377,279</span></td>
+        <td class="num">€658,460 <span class="usd">$724,306</span></td>
+        <td class="num">€977,240 <span class="usd">$1,074,964</span></td>
+        <td class="num">€1,299,320 <span class="usd">$1,429,252</span></td>
       </tr>
     </tbody>
   </table>
 
   <!-- ============================================ -->
-  <h2><span class="sec-num">8.</span>Operating Assumptions</h2>
+  <h2><span class="sec-num">9.</span>Operating Assumptions</h2>
   <div class="assumptions">
     <ul>
       <li>All compensation is <strong>gross</strong>. Each founder invoices the corporation as an independent freelance contractor.</li>
@@ -1286,7 +1433,7 @@ ul li strong{color:var(--ink);font-weight:700}
   </div>
 
   <!-- ============================================ -->
-  <h2><span class="sec-num">9.</span>Fashion Fairs Reference</h2>
+  <h2><span class="sec-num">10.</span>Fashion Fairs Reference</h2>
   <p class="lead">Indicative pricing for the conference attendance assumption in the T&amp;E line. Terra Ferra is classified as a non-retailer / solution provider at industry events.</p>
 
   <table>
