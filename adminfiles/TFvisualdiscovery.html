@@ -146,8 +146,9 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
     <div class="honest-body">
       <strong>Problem A — "Show me similar products" on a product page.</strong> Consumer clicks a jacket, sees 6 similar jackets. This is behavioural recommendation (Algolia Recommend). It needs click and purchase history to train on — cold-start problem: zero data on day 1, gets better over time. Not true visual search.<br/><br/>
       <strong>Problem B — "Upload a photo, find matching products."</strong> Consumer is on TF, uploads a photo of something they like, TF returns matching products from its catalog. No purchase history needed — works from day 1 based on image similarity.<br/><br/>
-      <strong style="font-size:16px;color:var(--ink);line-height:1.5;display:block;margin-top:4px">Algolia is cheap and easy but solves Problem A. ViSenze and FashionCLIP solve Problem B. They are not interchangeable.</strong><br/><br/>
-      <strong style="font-size:15px;color:var(--orange);line-height:1.5;display:block;margin-top:4px">TF's use case is almost entirely Problem B. Most enterprise vendors have no public pricing and require contracts — the realistic options are Ximilar (public pricing, free tier) or a self-hosted model (FashionCLIP / Marqo). There is no plug-and-play cheap solution from a proven fashion vendor.</strong>
+      <strong>Problem C — "Build a look on a virtual model."</strong> Consumer selects multiple items and sees how they look together on a model — adapting to different body types, layering fabrics in real time. No catalog matching, no photo upload. This is virtual styling composition. Zelig is the only proven provider doing this at scale today (Revolve, Oct 2025: 3× conversion, 3× time-on-site, double-digit returns reduction).<br/><br/>
+      <strong style="font-size:16px;color:var(--ink);line-height:1.5;display:block;margin-top:4px">Algolia is cheap and easy but solves Problem A. ViSenze and FashionCLIP solve Problem B. Zelig solves Problem C. They are not interchangeable.</strong><br/><br/>
+      <strong style="font-size:15px;color:var(--orange);line-height:1.5;display:block;margin-top:4px">TF's use case spans Problem B (photo-upload search) and Problem C (outfit composition on model). For Problem B: Ximilar (public pricing, free tier) or FashionCLIP / Marqo (self-hosted). For Problem C: Zelig is the leading option — enterprise pricing, no public tiers, but proven at Revolve.</strong>
     </div>
   </div>
 
@@ -255,6 +256,22 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
           <td><span class="price-free">Yes — self-hosted version free</span><br/><span class="tool-sub">Same model as FashionCLIP but with managed infrastructure option</span></td>
           <td>Self-hosted via GitHub or managed cloud API. One-click integrations for Shopify, Adobe Commerce, Salesforce CC. Accepts image upload + text in same query ("like this photo but in darker blue").</td>
           <td><span class="cx cx-high">High (self-hosted)</span><br/><span class="cx cx-med" style="margin-top:4px;display:inline-block">Medium (cloud)</span></td>
+          <td><span class="vb vb-go">Active</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <span class="tool-name"><a href="https://www.zelig.com" target="_blank" rel="noopener">Zelig</a></span>
+            <span class="tool-sub">zelig.com · Fashion virtual styling</span>
+          </td>
+          <td>Problem C<br/><span class="tool-sub">Virtual outfit composition — mix thousands of products on virtual models, adapt to body types, layered fabric rendering in real time. Digital closet. NOT a photo-upload catalog search.</span></td>
+          <td>
+            <span class="price-custom">No public pricing — enterprise contract</span><br/>
+            <span class="tool-sub">Launch client: Revolve (Oct 2025). No self-serve or free tier. Requires outreach and integration agreement. Source: <a href="https://www.businesswire.com/news/home/20251008971478/en/Zelig-Debuts-AI-Powered-Build-a-Look-Fashion-Experience-on-REVOLVE" target="_blank" rel="noopener">Business Wire, 8 Oct 2025</a></span>
+          </td>
+          <td>No — enterprise only</td>
+          <td>API + SaaS integration into retailer product catalog. Patented AI renders garments on virtual models with lifelike fabric physics. Accepts multi-product selection for outfit composition.</td>
+          <td><span class="cx cx-high">High (enterprise)</span></td>
           <td><span class="vb vb-go">Active</span></td>
         </tr>
 
@@ -448,9 +465,52 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
     </div>
   </div>
 
+  <!-- REVOLVE CASE STUDY -->
+  <div class="section">
+    <div class="sec-heading"><span class="sec-num">04</span>Revolve AI ecosystem — what they built and what it is</div>
+    <div class="sec-sub">Maxim shared Revolve as a reference. Two separate tools — one is a direct vendor integration (Zelig), the other is a third-party distribution platform (Curated for You). They are not the same thing.</div>
+
+    <table class="mtable" style="min-width:0">
+      <thead>
+        <tr>
+          <th style="min-width:160px">Tool at Revolve</th>
+          <th style="min-width:120px">What it actually is</th>
+          <th>What it does</th>
+          <th style="min-width:160px">Results at Revolve</th>
+          <th>Relevant for TF?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Zelig "Build a Look"</strong><br/><span class="tool-sub">Launched Oct 2025</span></td>
+          <td><span class="vb vb-go">Direct vendor integration</span><br/><span class="tool-sub">Revolve integrated Zelig's API into its product pages</span></td>
+          <td>Shoppers combine any products into a full look on a virtual model. Adapts to body types, real-time fabric rendering. Also creates a digital closet on-site.</td>
+          <td>
+            <strong style="color:var(--green)">3× time on site</strong> vs non-users<br/>
+            <strong style="color:var(--green)">3× conversion rate</strong> vs non-users<br/>
+            <strong style="color:var(--green)">Double-digit % reduction</strong> in returns<br/>
+            <span class="tool-sub">Source: <a href="https://www.thedrum.com/news/how-revolve-utilizing-ai-styling-fix-fashion-s-billion-dollar-returns-problem" target="_blank" rel="noopener">The Drum</a> · <a href="https://www.businesswire.com/news/home/20251008971478/en/Zelig-Debuts-AI-Powered-Build-a-Look-Fashion-Experience-on-REVOLVE" target="_blank" rel="noopener">Business Wire</a></span>
+          </td>
+          <td><span class="cx cx-low">Yes — Problem C solution, add to TF roadmap</span></td>
+        </tr>
+        <tr>
+          <td><strong>Curated for You × Microsoft Copilot</strong><br/><span class="tool-sub">Launched Sep 2025</span></td>
+          <td><span class="vb vb-pilot">Third-party platform</span><br/><span class="tool-sub">NOT Revolve's own algorithm. Revolve is one of several participating retailers.</span></td>
+          <td>"Curated for You" (CFY, Austin) is a separate AI commerce platform. It placed shoppable outfit recommendations inside Microsoft Copilot. Users ask Copilot styling questions ("outfit for Napa bachelorette"); CFY returns looks from participating retailers — Revolve, Steve Madden, Rent the Runway, Tuckernuck, Lulus. Revolve provides inventory; CFY runs the model.</td>
+          <td>No public performance data yet.<br/><span class="tool-sub">Source: <a href="https://www.prnewswire.com/news-releases/curated-you-and-microsoft-launch-first-its-kind-ai-fashion-experience-in-copilot-302559337.html" target="_blank" rel="noopener">PR Newswire, Sep 2025</a></span></td>
+          <td><span class="cx cx-med">Possible — TF could apply to join CFY as a participating retailer for AI-driven distribution. Not a visual discovery engine to build; a distribution channel to join.</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="margin-top:16px;font-size:12.5px;color:var(--sub);line-height:1.65;max-width:820px;padding:14px 18px;background:var(--amber-bg);border-left:3px solid var(--amber)">
+      <strong style="color:var(--amber)">Note on Maxim's message:</strong> The Microsoft Copilot feature is not "Revolve's own search algorithm." Revolve participates in a platform built by Curated for You (CFY). These are two separate tracks: (1) Zelig is a visual styling vendor Revolve integrated — TF can integrate it the same way. (2) CFY × Copilot is a distribution network Revolve participates in — TF could apply to join it as a retailer, separately from any visual search build.
+    </div>
+  </div>
+
   <!-- EXCLUDED -->
   <div class="section">
-    <div class="sec-heading"><span class="sec-num">04</span>Tools excluded — reasons</div>
+    <div class="sec-heading"><span class="sec-num">05</span>Tools excluded — reasons</div>
     <div class="sec-sub">Researched but not recommended for TF at this stage.</div>
     <table class="mtable" style="min-width:0">
       <thead>
