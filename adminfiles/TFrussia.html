@@ -162,74 +162,107 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <div class="pg-title">Designers, Investors, Co-owners &amp; Employees — Russian Residents · US Sanctions</div>
   <div class="pg-sub">Research as of June 2026.</div>
 
-  <!-- TOP ANSWER TABLE -->
-  <div style="background:white;border:1px solid var(--rule);border-top:4px solid var(--orange);padding:24px 28px;margin:28px 0 0">
-    <div style="font-size:10px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:16px">Direct answers</div>
-  <table class="dtable" style="margin:0 0 0px">
-    <thead>
-      <tr>
-        <th style="width:22%">Who</th>
-        <th style="width:10%">Can TF work with them?</th>
-        <th>Limitations</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Designers &amp; brands based in Russia</strong></td>
-        <td class="yes" style="font-size:13px;font-weight:800">YES</td>
-        <td>
-          <div style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--ink)">
-            <div>1. Payouts require a non-Russian bank account — standard card payments and most bank transfers to Russia stopped working in 2022. This is infrastructure, not a legal ban on TF's side.</div>
-            <div>2. Do not provide strategic business advice to Russia-based users. US law prohibits "management consulting services" to persons located in Russia — meaning AI or human features that give strategic recommendations (growth strategy, pricing advice, competitive analysis). Standard platform features (sales dashboards, product search, discovery) are not covered.</div>
-            <div>3. Must not be on the US Specially Designated Nationals (SDN) blacklist. Stripe checks this automatically at payout.</div>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td><strong>Investors based in Russia</strong></td>
-        <td class="yes" style="font-size:13px;font-weight:800">YES</td>
-        <td>
-          <div style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--ink)">
-            <div>1. Must not be on the US sanctions blacklist.</div>
-            <div>2. Getting money from Russia to TF is their logistical problem — most Russia-to-West bank transfers are blocked. Not TF's legal issue.</div>
-            <div>3. Paying dividends back to them: legally fine, but they need a non-Russian bank account to receive it (same infrastructure problem).</div>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td><strong>Co-founders &amp; employees based in Russia</strong></td>
-        <td class="yes" style="font-size:13px;font-weight:800">YES</td>
-        <td>
-          <div style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--ink)">
-            <div>1. Holding equity: yes, if not on the sanctions blacklist.</div>
-            <div>2. Paying salary: no US sanctions law prohibits paying a Russia-resident person who works <em>for</em> TF. The law (EO 14071) prohibits TF providing consulting services <em>to</em> Russia — the direction is opposite. The real constraint is practical: US banks often refuse wire transfers to Russia-resident individuals, and payment infrastructure is blocked. SDN screening required before any payment.</div>
-            <div>3. Practical path: pay to a non-Russian bank account (Georgian, Armenian, EU). No sanctions barrier — only an infrastructure one.</div>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <!-- TOP SPLIT PANEL -->
+  <div id="top-split" style="display:grid;grid-template-columns:3fr 2fr;gap:20px;margin:28px 0 36px;align-items:start">
+
+    <!-- LEFT: Direct answers -->
+    <div style="background:white;border:1px solid var(--rule);border-top:4px solid var(--orange);padding:24px 28px">
+      <div style="font-size:10px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:16px">Direct answers</div>
+      <table class="dtable" style="margin:0">
+        <thead>
+          <tr>
+            <th style="width:24%">Who</th>
+            <th style="width:9%">Allowed?</th>
+            <th>Key limitations</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Designers &amp; brands based in Russia</strong></td>
+            <td><span class="yes">YES</span></td>
+            <td>
+              <div style="display:flex;flex-direction:column;gap:5px;font-size:12.5px;color:var(--ink)">
+                <div>1. Payouts require a non-Russian bank account — card payments and transfers to Russia blocked since 2022. Infrastructure issue, not a legal ban on TF.</div>
+                <div>2. Do not provide strategic business advice to Russia-based users. US law prohibits "management consulting" to persons in Russia — AI features giving growth strategy, pricing advice, competitive analysis are covered. Sales dashboards, product search, discovery are not.</div>
+                <div>3. Must not be on the US Specially Designated Nationals (SDN) blacklist. Stripe checks this automatically at payout.</div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Investors based in Russia</strong></td>
+            <td><span class="yes">YES</span></td>
+            <td>
+              <div style="display:flex;flex-direction:column;gap:5px;font-size:12.5px;color:var(--ink)">
+                <div>1. Must not be on the SDN blacklist.</div>
+                <div>2. Transferring money from Russia to TF is their logistical problem — most Russia-to-West transfers blocked. Not TF's legal issue.</div>
+                <div>3. Paying dividends: legally fine, but they need a non-Russian bank account to receive it.</div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Co-founders &amp; employees based in Russia</strong></td>
+            <td><span class="yes">YES</span></td>
+            <td>
+              <div style="display:flex;flex-direction:column;gap:5px;font-size:12.5px;color:var(--ink)">
+                <div>1. Holding equity: yes, if not on the SDN blacklist.</div>
+                <div>2. Paying salary: no US sanctions law prohibits paying a Russia-resident person working <em>for</em> TF. EO 14071 prohibits TF providing services <em>to</em> Russia — the direction is opposite. Real constraint: US banks often refuse Russia wire transfers. SDN screening required before payment.</div>
+                <div>3. Practical path: pay to a Georgian, Armenian, or EU bank account. No sanctions barrier — infrastructure only.</div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- RIGHT: Section conclusions -->
+    <div style="background:var(--tf-ghost);border:1px solid var(--rule);border-top:4px solid var(--tf);padding:20px 22px">
+      <div style="font-size:10px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--sub);margin-bottom:14px">Section conclusions</div>
+      <div style="display:flex;flex-direction:column;gap:0">
+        <div style="display:grid;grid-template-columns:32px 1fr;gap:8px;padding:9px 0;border-bottom:1px solid var(--rule);align-items:baseline">
+          <span style="font-weight:800;font-size:11px;color:var(--orange)">§01</span>
+          <div><a href="#s01" style="color:var(--ink);text-decoration:none;font-size:12px;font-weight:700;display:block;margin-bottom:2px">Sanctions Programs</a><span style="font-size:11.5px;color:var(--green)">No ban on fashion. Russian individuals not blocked by default.</span></div>
+        </div>
+        <div style="display:grid;grid-template-columns:32px 1fr;gap:8px;padding:9px 0;border-bottom:1px solid var(--rule);align-items:baseline">
+          <span style="font-weight:800;font-size:11px;color:var(--orange)">§02</span>
+          <div><a href="#s02" style="color:var(--ink);text-decoration:none;font-size:12px;font-weight:700;display:block;margin-bottom:2px">IT Services Prohibition</a><span style="font-size:11.5px;color:var(--green)">Marketplace, buying, selling, discovery = outside scope.</span></div>
+        </div>
+        <div style="display:grid;grid-template-columns:32px 1fr;gap:8px;padding:9px 0;border-bottom:1px solid var(--rule);align-items:baseline">
+          <span style="font-weight:800;font-size:11px;color:var(--orange)">§03</span>
+          <div><a href="#s03" style="color:var(--ink);text-decoration:none;font-size:12px;font-weight:700;display:block;margin-bottom:2px">SDN Screening</a><span style="font-size:11.5px;color:var(--green)">Stripe handles automatically. No manual checks needed.</span></div>
+        </div>
+        <div style="display:grid;grid-template-columns:32px 1fr;gap:8px;padding:9px 0;border-bottom:1px solid var(--rule);align-items:baseline">
+          <span style="font-weight:800;font-size:11px;color:var(--orange)">§04</span>
+          <div><a href="#s04" style="color:var(--ink);text-decoration:none;font-size:12px;font-weight:700;display:block;margin-bottom:2px">Payment Infrastructure</a><span style="font-size:11.5px;color:var(--amber)">Direct to Russia blocked. Workaround: Georgian/Armenian account.</span></div>
+        </div>
+        <div style="display:grid;grid-template-columns:32px 1fr;gap:8px;padding:9px 0;border-bottom:1px solid var(--rule);align-items:baseline">
+          <span style="font-weight:800;font-size:11px;color:var(--orange)">§05</span>
+          <div><a href="#s05" style="color:var(--ink);text-decoration:none;font-size:12px;font-weight:700;display:block;margin-bottom:2px">Key Risks</a><span style="font-size:11.5px;color:var(--amber)">Three risks to monitor. No immediate blockers.</span></div>
+        </div>
+        <div style="display:grid;grid-template-columns:32px 1fr;gap:8px;padding:9px 0;border-bottom:1px solid var(--rule);align-items:baseline">
+          <span style="font-weight:800;font-size:11px;color:var(--orange)">§06</span>
+          <div><a href="#s06" style="color:var(--ink);text-decoration:none;font-size:12px;font-weight:700;display:block;margin-bottom:2px">SDN Technology</a><span style="font-size:11.5px;color:var(--green)">Stripe + Persona. No custom build needed.</span></div>
+        </div>
+        <div style="display:grid;grid-template-columns:32px 1fr;gap:8px;padding:9px 0;border-bottom:1px solid var(--rule);align-items:baseline">
+          <span style="font-weight:800;font-size:11px;color:var(--orange)">§07</span>
+          <div><a href="#s07" style="color:var(--ink);text-decoration:none;font-size:12px;font-weight:700;display:block;margin-bottom:2px">Consumers &amp; Influencers</a><span style="font-size:11.5px;color:var(--amber)">Can browse. Need non-Russian account to transact.</span></div>
+        </div>
+        <div style="display:grid;grid-template-columns:32px 1fr;gap:8px;padding:9px 0;border-bottom:1px solid var(--rule);align-items:baseline">
+          <span style="font-weight:800;font-size:11px;color:var(--orange)">§08</span>
+          <div><a href="#s08" style="color:var(--ink);text-decoration:none;font-size:12px;font-weight:700;display:block;margin-bottom:2px">Co-Founders &amp; Investors</a><span style="font-size:11.5px;color:var(--green)">Allowed. SDN check is the only requirement.</span></div>
+        </div>
+        <div style="display:grid;grid-template-columns:32px 1fr;gap:8px;padding:9px 0;border-bottom:1px solid var(--rule);align-items:baseline">
+          <span style="font-weight:800;font-size:11px;color:var(--orange)">§09</span>
+          <div><a href="#s09" style="color:var(--ink);text-decoration:none;font-size:12px;font-weight:700;display:block;margin-bottom:2px">Nationality vs. Residency</a><span style="font-size:11.5px;color:var(--green)">Sanctions target residents, not passport holders.</span></div>
+        </div>
+        <div style="display:grid;grid-template-columns:32px 1fr;gap:8px;padding:9px 0;align-items:baseline">
+          <span style="font-weight:800;font-size:11px;color:var(--orange)">§10</span>
+          <div><a href="#s10" style="color:var(--ink);text-decoration:none;font-size:12px;font-weight:700;display:block;margin-bottom:2px">Physical Goods</a><span style="font-size:11.5px;color:var(--amber)">Selling globally: OK. Shipping to Russia: $300 threshold.</span></div>
+        </div>
+      </div>
+    </div>
 
   </div>
-
-  <!-- TOC -->
-  <div style="background:var(--tf-ghost);border:1px solid var(--rule);padding:20px 28px;margin:24px 0 36px">
-    <div style="font-size:10px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--sub);margin-bottom:14px">What's on this page</div>
-    <table style="width:100%;border-collapse:collapse;font-size:12.5px">
-      <tbody>
-        <tr style="border-bottom:1px solid var(--rule)"><td style="padding:7px 0;font-weight:700;width:40px;color:var(--orange)">§01</td><td style="padding:7px 14px 7px 0;font-weight:600"><a href="#s01" style="color:var(--ink);text-decoration:none">Sanctions Programs</a></td><td style="padding:7px 0;color:var(--green)">No blanket ban on fashion. Russian individuals not blocked by default.</td></tr>
-        <tr style="border-bottom:1px solid var(--rule)"><td style="padding:7px 0;font-weight:700;color:var(--orange)">§02</td><td style="padding:7px 14px 7px 0;font-weight:600"><a href="#s02" style="color:var(--ink);text-decoration:none">IT Services Prohibition</a></td><td style="padding:7px 0;color:var(--green)">Marketplace, buying, selling, discovery = outside scope.</td></tr>
-        <tr style="border-bottom:1px solid var(--rule)"><td style="padding:7px 0;font-weight:700;color:var(--orange)">§03</td><td style="padding:7px 14px 7px 0;font-weight:600"><a href="#s03" style="color:var(--ink);text-decoration:none">SDN Screening</a></td><td style="padding:7px 0;color:var(--green)">Stripe handles automatically. No manual checks for individual users.</td></tr>
-        <tr style="border-bottom:1px solid var(--rule)"><td style="padding:7px 0;font-weight:700;color:var(--orange)">§04</td><td style="padding:7px 14px 7px 0;font-weight:600"><a href="#s04" style="color:var(--ink);text-decoration:none">Payment Infrastructure</a></td><td style="padding:7px 0;color:var(--amber)">Direct payments to Russia blocked. Workaround: Georgian/Armenian bank account.</td></tr>
-        <tr style="border-bottom:1px solid var(--rule)"><td style="padding:7px 0;font-weight:700;color:var(--orange)">§05</td><td style="padding:7px 14px 7px 0;font-weight:600"><a href="#s05" style="color:var(--ink);text-decoration:none">Key Risks</a></td><td style="padding:7px 0;color:var(--amber)">Three risks to monitor. None are immediate blockers for the core model.</td></tr>
-        <tr style="border-bottom:1px solid var(--rule)"><td style="padding:7px 0;font-weight:700;color:var(--orange)">§06</td><td style="padding:7px 14px 7px 0;font-weight:600"><a href="#s06" style="color:var(--ink);text-decoration:none">SDN Screening Technology</a></td><td style="padding:7px 0;color:var(--green)">Stripe + Persona covers payout and onboarding. No custom build needed.</td></tr>
-        <tr style="border-bottom:1px solid var(--rule)"><td style="padding:7px 0;font-weight:700;color:var(--orange)">§07</td><td style="padding:7px 14px 7px 0;font-weight:600"><a href="#s07" style="color:var(--ink);text-decoration:none">Russia-Based Consumers &amp; Influencers</a></td><td style="padding:7px 0;color:var(--amber)">Can browse. Cannot pay via Russian cards. Need non-Russian account for payouts.</td></tr>
-        <tr style="border-bottom:1px solid var(--rule)"><td style="padding:7px 0;font-weight:700;color:var(--orange)">§08</td><td style="padding:7px 14px 7px 0;font-weight:600"><a href="#s08" style="color:var(--ink);text-decoration:none">Co-Founders, Investors &amp; Shareholders</a></td><td style="padding:7px 0;color:var(--green)">Allowed. SDN check is the single legal requirement.</td></tr>
-        <tr style="border-bottom:1px solid var(--rule)"><td style="padding:7px 0;font-weight:700;color:var(--orange)">§09</td><td style="padding:7px 14px 7px 0;font-weight:600"><a href="#s09" style="color:var(--ink);text-decoration:none">Nationality vs. Residency</a></td><td style="padding:7px 0;color:var(--green)">Sanctions target residents, not passport holders. Russian national abroad = no issue.</td></tr>
-        <tr><td style="padding:7px 0;font-weight:700;color:var(--orange)">§10</td><td style="padding:7px 14px 7px 0;font-weight:600"><a href="#s10" style="color:var(--ink);text-decoration:none">Physical Goods</a></td><td style="padding:7px 0;color:var(--amber)">Russian designers selling globally: no BIS restriction. Shipping into Russia: $300 threshold + all art blocked.</td></tr>
-      </tbody>
-    </table>
-  </div>
+  <style>@media(max-width:800px){#top-split{grid-template-columns:1fr !important;}}</style>
 
   <!-- CONCLUSION -->
   <div class="concl-box">
