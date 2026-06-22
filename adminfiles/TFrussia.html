@@ -194,12 +194,12 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
       </tr>
       <tr>
         <td><strong>Co-founders &amp; employees based in Russia</strong></td>
-        <td class="warn" style="font-size:13px;font-weight:800">PARTLY</td>
+        <td class="yes" style="font-size:13px;font-weight:800">YES</td>
         <td>
           <div style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--ink)">
             <div>1. Holding equity: yes, if not on the sanctions blacklist.</div>
-            <div>2. Paying salary or consulting fees for active management work: <strong>legal risk</strong>. US law may treat this as providing a prohibited service to a Russia-based person.</div>
-            <div>3. Until they relocate outside Russia: structure as a passive equity holder only — no salary, no consulting agreement, no active management role paid from TF.</div>
+            <div>2. Paying salary: no US sanctions law prohibits paying a Russia-resident person who works <em>for</em> TF. The law (EO 14071) prohibits TF providing consulting services <em>to</em> Russia — the direction is opposite. The real constraint is practical: US banks often refuse wire transfers to Russia-resident individuals, and payment infrastructure is blocked. SDN screening required before any payment.</div>
+            <div>3. Practical path: pay to a non-Russian bank account (Georgian, Armenian, EU). No sanctions barrier — only an infrastructure one.</div>
           </div>
         </td>
       </tr>
@@ -215,8 +215,8 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
       <div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);margin-bottom:12px">Legal requirements — must do</div>
       <div style="display:flex;flex-direction:column;gap:8px">
         <div style="font-size:13px;color:var(--ink);line-height:1.5;display:flex;gap:10px"><span style="color:var(--orange);font-weight:800;flex-shrink:0">1.</span><span><strong>Use a regulated payment processor — it handles SDN screening automatically.</strong> OFAC prohibits transacting with SDN-listed persons (strict liability — penalty applies even without knowledge). In practice, this obligation is met by using Stripe or equivalent: Stripe automatically screens all connected accounts against the OFAC SDN list and pauses payouts to any flagged account. No user-facing nationality declaration is required or expected. <a href="https://support.stripe.com/questions/understanding-sanctions" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600;font-size:12px">Stripe sanctions support ↗</a> <a href="https://ofac.treasury.gov/faqs/topic/1631" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600;font-size:12px">OFAC SDN FAQ ↗</a></span></div>
-        <div style="font-size:13px;color:var(--ink);line-height:1.5;display:flex;gap:10px"><span style="color:var(--orange);font-weight:800;flex-shrink:0">2.</span><span><strong>Do not provide strategic business advice to Russia-located users.</strong> US law (EO 14071) prohibits providing "management consulting services" to persons located in Russia — this means strategic recommendations (growth strategy, pricing advice, competitive intelligence). Standard platform features (sales dashboards, search, discovery) are not covered.</span></div>
-        <div style="font-size:13px;color:var(--ink);line-height:1.5;display:flex;gap:10px"><span style="color:var(--orange);font-weight:800;flex-shrink:0">3.</span><span><strong>Verify beneficial ownership for any legal entity counterparty.</strong> Under OFAC's 50% rule, a company is treated as a blocked entity if 50% or more of it is owned by a person on the SDN list — even if the company itself is not listed.</span></div>
+        <div style="font-size:13px;color:var(--ink);line-height:1.5;display:flex;gap:10px"><span style="color:var(--orange);font-weight:800;flex-shrink:0">2.</span><span><strong>Do not provide strategic business advice or cloud analytics tools to Russia-located users.</strong> Two separate prohibitions: (a) "management consulting services" ban — strategic recommendations, growth strategy, brand management; (b) since September 2024, a separate ban on cloud-delivered business intelligence (BI) and CRM software to Russia-located users. Standard browsing, search, and social features are not covered by either. <a href="https://ofac.treasury.gov/faqs/1064" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600;font-size:12px">OFAC FAQ 1064 ↗</a> <a href="https://ofac.treasury.gov/faqs/1187" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600;font-size:12px">FAQ 1187 ↗</a></span></div>
+        <div style="font-size:13px;color:var(--ink);line-height:1.5;display:flex;gap:10px"><span style="color:var(--orange);font-weight:800;flex-shrink:0">3.</span><span><strong>Verify beneficial ownership for any legal entity counterparty.</strong> Under OFAC's 50% rule, a company is blocked if 50% or more of it is owned <em>in aggregate</em> by one or more blocked persons — two SDN-listed individuals each owning 25% = company blocked. Applies to indirect ownership chains too. <a href="https://ofac.treasury.gov/faqs/399" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600;font-size:12px">OFAC FAQ 399 ↗</a></span></div>
       </div>
     </div>
   </div>
@@ -258,11 +258,11 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
           <td class="no">Not relevant. TF is not providing debt, equity, or financing to sanctioned entities.</td>
         </tr>
         <tr>
-          <td>GL 25F (Russia internet services)</td>
-          <td>General License explicitly <strong>authorizing</strong> internet communications services to Russia: social platforms, collaboration tools, web hosting, user authentication.
-            <span class="src"><a href="https://www.federalregister.gov/documents/2024/09/25/2024-21796/publication-of-russian-harmful-foreign-activities-sanctions-regulations-web-general-licenses-25e-25f" target="_blank" rel="noopener">Federal Register — GL 25F (Sep 2024) ↗</a></span>
+          <td>GL 25G (Russia internet services)</td>
+          <td>General License authorizing internet communications services to Russia: browsing, messaging, social features, web hosting, user authentication. <strong>Does not authorize commercial transactions or payments.</strong> Superseded GL 25F effective October 30, 2024.
+            <span class="src"><a href="https://www.federalregister.gov/documents/2024/11/14/2024-26229/publication-of-russian-harmful-foreign-activities-sanctions-regulations-web-general-licenses-8k-25g" target="_blank" rel="noopener">Federal Register — GL 25G (Oct 2024) ↗</a></span>
           </td>
-          <td class="yes">Protects TF's communications and platform-access layer.</td>
+          <td class="warn">Covers TF's platform access layer (browsing, social). Does NOT cover the transaction layer — Russian users buying goods or money moving through the platform requires separate analysis.</td>
         </tr>
       </tbody>
     </table>
@@ -295,9 +295,9 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         </tr>
         <tr>
           <td>Sales analytics / performance dashboards</td>
-          <td>Potentially "enterprise management"</td>
-          <td class="warn">Arguable — business intelligence tools are in the prohibited list. Get legal opinion before shipping analytics to Russia-located designers.
-            <span class="src"><a href="https://www.millerchevalier.com/publication/trade-compliance-flash-ofac-announces-prohibitions-provision-certain-it-and-software" target="_blank" rel="noopener">Miller &amp; Chevalier overview ↗</a></span>
+          <td>Prohibited — "enterprise management software" (BI/CRM)</td>
+          <td class="no">Since September 12, 2024, OFAC independently prohibits cloud-delivered Business Intelligence (BI) and CRM software to Russia — separate from the management consulting ban. A SaaS analytics dashboard for Russian designers is caught by this rule regardless of whether it constitutes "consulting."
+            <span class="src"><a href="https://ofac.treasury.gov/faqs/1187" target="_blank" rel="noopener">OFAC FAQ 1187 — BI &amp; CRM in scope ↗</a> · <a href="https://ofac.treasury.gov/faqs/1184" target="_blank" rel="noopener">FAQ 1184 ↗</a></span>
           </td>
         </tr>
         <tr>
@@ -314,7 +314,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <!-- SECTION 03 -->
   <div class="section">
     <div class="sec-heading"><span class="sec-num">03</span>SDN Screening — Mandatory for Every Counterparty</div>
-    <p style="font-size:13px;color:var(--ink);line-height:1.65;margin-bottom:16px">OFAC sanctions are strict liability. Transacting with an SDN — even unknowingly — triggers civil penalties. <a href="https://ofac.treasury.gov/faqs/topic/1631" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600;font-size:12px">OFAC SDN FAQ ↗</a></p>
+    <p style="font-size:13px;color:var(--ink);line-height:1.65;margin-bottom:16px">OFAC sanctions are strict liability — liability attaches even without knowledge that a counterparty is on the list. However, the penalty amount varies dramatically: an unknowing violation with a documented compliance program and voluntary self-disclosure is treated as non-egregious and resolved at the lower end of the range. Voluntary disclosure alone cuts the base penalty by 50%. Criminal liability (up to $1M + imprisonment) requires proof of deliberate intent. <a href="https://ofac.treasury.gov/faqs/65" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600;font-size:12px">OFAC FAQ 65 ↗</a></p>
     <table class="dtable">
       <thead>
         <tr>
@@ -333,7 +333,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         </tr>
         <tr>
           <td>50% ownership rule</td>
-          <td>A non-listed entity is still blocked if 50%+ of its ownership is held by a blocked person, even if the entity itself is not on the SDN list.</td>
+          <td>A non-listed entity is blocked if 50% or more of it is owned <em>in aggregate</em> by one or more blocked persons. Two SDN-listed individuals each owning 25% = company blocked. Applies to indirect ownership chains. <a href="https://ofac.treasury.gov/faqs/399" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600;font-size:11px">OFAC FAQ 399 ↗</a></td>
         </tr>
         <tr>
           <td>On hit: block and report</td>
@@ -366,7 +366,9 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         </tr>
         <tr>
           <td>SWIFT transfers to Russia</td>
-          <td class="no">Major Russian banks removed from SWIFT from March 2022. Most Western correspondent banks refuse Russia-bound transfers regardless of SWIFT connectivity.</td>
+          <td class="no">The practical barrier is OFAC sanctions law, not universal SWIFT disconnection. OFAC has imposed full-blocking sanctions on Russia's major banks (VTB, Sberbank, etc.), making USD-denominated transfers prohibited for US persons regardless of SWIFT. SWIFT itself has formally disconnected approximately 70 of ~300 Russian member banks — most Russian banks remain technically connected to SWIFT, but sanctioned and practically unreachable for US-origin payments.
+            <span class="src"><a href="https://www.consilium.europa.eu/en/press/press-releases/2022/03/02/russia-s-military-aggression-against-ukraine-eu-bans-certain-russian-banks-from-swift-system-and-introduces-further-restrictions/" target="_blank" rel="noopener">EU Council — SWIFT disconnections ↗</a></span>
+          </td>
         </tr>
         <tr>
           <td>Wise / Payoneer</td>
@@ -556,13 +558,13 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
       <tbody>
         <tr>
           <td><strong>Consumers in Russia</strong></td>
-          <td class="yes">Browsing, discovery, and social features are covered by GL 25F. Platform access is not restricted.</td>
+          <td class="yes">Browsing, discovery, and social features are covered by GL 25G. Platform access is not restricted.</td>
           <td class="warn">Paying from Russia: Visa/Mastercard non-functional to Russian-issued cards since 2022. Russian consumers cannot pay via standard card rails. No legal prohibition on accepting payment from a non-SDN Russian consumer — but the payment infrastructure does not support it.</td>
-          <td class="no">Physical goods cannot be shipped to Russia if they qualify as luxury goods under BIS rules. Fashion apparel, footwear, and accessories are explicitly listed. <a href="https://www.federalregister.gov/documents/2022/03/16/2022-05604/imposition-of-sanctions-on-luxury-goods-destined-for-russia-and-belarus-and-for-russian-and" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600;font-size:11px">Federal Register — BIS luxury goods rule ↗</a></td>
+          <td class="warn">BIS restricts physical shipment of apparel and footwear to Russia when items are valued at <strong>$300 or more per unit wholesale price</strong>. Items below $300/unit are not subject to a BIS license requirement. For TF's affordable-luxury price range, many items will cross the $300 threshold — but it is not a blanket ban. <a href="https://www.federalregister.gov/documents/2022/03/16/2022-05604/imposition-of-sanctions-on-luxury-goods-destined-for-russia-and-belarus-and-for-russian-and" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600;font-size:11px">Federal Register — BIS luxury goods rule ↗</a></td>
         </tr>
         <tr>
           <td><strong>Influencers / ambassadors in Russia</strong></td>
-          <td class="yes">Platform access and content creation covered by GL 25F.</td>
+          <td class="yes">Platform access and content creation covered by GL 25G.</td>
           <td class="warn">Earning commissions = same payment problem as designers. Must have non-Russian bank account to receive payouts. SDN screening required before each payout.</td>
           <td>Not applicable — influencers receive cash commissions, not goods.</td>
         </tr>
@@ -604,7 +606,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <div class="section">
     <div class="sec-heading"><span class="sec-num">09</span>Russian Co-Founders, Investors &amp; Shareholders</div>
     <p style="font-size:13px;color:var(--ink);line-height:1.65;margin-bottom:8px">The determining factor for all ownership instruments — common shares, preferred shares, SAFE, convertible note — is whether the individual is on the OFAC SDN list. The instrument type does not change the rule. SDN-listed: blocked in all forms. Not SDN-listed: permitted in all forms.</p>
-    <p style="font-size:12px;color:var(--ink);line-height:1.6;margin-bottom:20px;padding:10px 14px;background:var(--tf-ghost);border-left:3px solid var(--tf)">Note on EO 14071 "new investment" prohibition: this restricts US persons from making new investments <em>in Russia</em> — it does not restrict a Russian national from investing money into a US company. A Russian investor wiring into a US Delaware C-corp SAFE is outside this prohibition. <a href="https://ofac.treasury.gov/faqs/1128" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600;font-size:11px">OFAC FAQ 1128 ↗</a></p>
+    <p style="font-size:12px;color:var(--ink);line-height:1.6;margin-bottom:20px;padding:10px 14px;background:var(--tf-ghost);border-left:3px solid var(--tf)">EO 14071 "new investment" prohibition runs one direction only: it restricts US persons from investing <em>in Russia</em>. It does not restrict a Russian national from investing in a US company. However, EO 14024 and the SDN blocking regime apply in both directions: receiving funds from any SDN-listed person is prohibited regardless of which direction money flows. In June 2025, OFAC imposed a $215.9M penalty on GVA Capital (a San Francisco VC) for managing investments on behalf of a sanctioned Russian oligarch. Every Russian investor must be screened against the SDN list before any transaction closes. <a href="https://www.arnoldporter.com/en/perspectives/advisories/2025/06/ofac-hits-venture-capital-firm" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600;font-size:11px">GVA Capital enforcement case ↗</a></p>
 
     <table class="dtable" style="margin-bottom:28px">
       <thead>
@@ -624,17 +626,17 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         </tr>
         <tr>
           <td>Russian national holds any ownership interest (shares, SAFE, note) — <strong>on SDN list</strong></td>
-          <td class="no">Blocked in all instrument forms. Paying dividends, distributions, or any other benefit to an SDN-listed person is prohibited. If the SDN-listed person holds 50%+ of TF, TF itself becomes a blocked entity and any US person transacting with TF is also in violation.
+          <td class="no">Blocked in all instrument forms. Paying dividends, distributions, or any other benefit to an SDN-listed person is prohibited. If SDN-listed persons hold 50% or more of TF <em>in aggregate</em>, TF itself becomes a blocked entity and any US person transacting with TF is also in violation.
             <span class="src"><a href="https://ofac.treasury.gov/faqs/topic/1631" target="_blank" rel="noopener">OFAC 50% rule ↗</a></span>
           </td>
           <td>No SDN-listed person can hold any form of ownership interest in TF. Existing interests must be restructured out before TF can operate legally.</td>
         </tr>
         <tr>
           <td>Paying <strong>salary or consulting fees</strong> to a Russia-resident co-founder</td>
-          <td class="warn">EO 14071 prohibits US persons from providing or receiving "management consulting" services when payment flows to or from a person located in Russia. Paying a Russia-resident co-founder for active management work falls in this grey zone.
-            <span class="src"><a href="https://ofac.treasury.gov/faqs/1128" target="_blank" rel="noopener">OFAC FAQ 1128 — EO 14071 services ↗</a></span>
+          <td class="yes">No US sanctions law prohibits paying a Russia-resident person who works <em>for</em> TF. EO 14071 prohibits TF from providing consulting services <em>to</em> persons in Russia — the direction is opposite. A Russia-resident co-founder providing management services to a US company is the provider, not the recipient. EO 14071 does not apply.
+            <span class="src"><a href="https://ofac.treasury.gov/faqs/1061" target="_blank" rel="noopener">OFAC FAQ 1061 — employment by Russian entities ↗</a></span>
           </td>
-          <td>Risk arises only when payment flows for active work. A Russia-resident co-founder who holds equity but receives no salary or consulting fee is outside this prohibition.</td>
+          <td>Real constraints: (1) US banks may refuse wire transfers to Russia-resident individuals — practical, not legal. (2) SDN screening required before any payment. (3) Pay to a non-Russian bank account (Georgian, Armenian, EU). No sanctions barrier — infrastructure only.</td>
         </tr>
         <tr>
           <td>Paying <strong>dividends or profit distributions</strong> to a Russia-resident shareholder (non-SDN)</td>
@@ -653,11 +655,11 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         </tr>
         <tr>
           <td>Apply the 50% rule to the cap table</td>
-          <td>If any SDN-listed person holds or could accumulate 50%+ of TF equity, TF itself becomes a blocked entity. Cap table must be structured to prevent this outcome.</td>
+          <td>If SDN-listed persons hold 50% or more of TF equity <em>in aggregate</em> — even if no single person reaches 50% alone — TF itself becomes a blocked entity. Structure the cap table to prevent this outcome. <a href="https://ofac.treasury.gov/faqs/399" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600;font-size:11px">OFAC FAQ 399 ↗</a></td>
         </tr>
         <tr>
-          <td>Separate passive equity from active services</td>
-          <td>A Russia-resident co-founder who holds equity but provides no management services (no salary, no consulting agreement) avoids the EO 14071 management consulting risk.</td>
+          <td>Pay Russia-resident co-founders to a non-Russian bank account</td>
+          <td>No sanctions law bars the payment — the constraint is payment infrastructure. Arrange salary/fees to a Georgian, Armenian, or EU account. SDN screen the individual before every payment.</td>
         </tr>
       </tbody>
     </table>
