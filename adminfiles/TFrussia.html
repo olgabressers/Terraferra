@@ -355,41 +355,62 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
 
   <!-- SECTION 04 -->
   <div class="section">
-    <div class="sec-heading"><span class="sec-num">04</span>Payment Infrastructure — The Practical Blocker</div>
-    <table class="dtable">
+    <div class="sec-heading"><span class="sec-num">04</span>Payment Infrastructure</div>
+    <table class="dtable" style="margin-bottom:28px">
       <thead>
         <tr>
-          <th>Route</th>
-          <th>Status</th>
+          <th style="width:30%">Route</th>
+          <th style="width:12%">Works?</th>
+          <th>Notes</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>Visa / Mastercard to Russian-issued cards</td>
-          <td class="no">Non-functional. Both suspended Russia operations March 2022. Chip certificates for existing cards expired January 2025.
+          <td class="no">Blocked</td>
+          <td style="color:var(--ink)">Both networks suspended Russia operations March 2022. Chip certificates for existing Russian-issued cards expired January 2025. Non-functional.
             <span class="src"><a href="https://usa.visa.com/about-visa/newsroom/press-releases.releaseId.18871.html" target="_blank" rel="noopener">Visa press release ↗</a></span>
           </td>
         </tr>
         <tr>
-          <td>SWIFT transfers to Russia</td>
-          <td class="no">The practical barrier is OFAC sanctions law, not universal SWIFT disconnection. OFAC has imposed full-blocking sanctions on Russia's major banks (VTB, Sberbank, etc.), making USD-denominated transfers prohibited for US persons regardless of SWIFT. SWIFT itself has formally disconnected approximately 70 of ~300 Russian member banks — most Russian banks remain technically connected to SWIFT, but sanctioned and practically unreachable for US-origin payments.
+          <td>USD wire to Russian bank account (SWIFT)</td>
+          <td class="no">Blocked</td>
+          <td style="color:var(--ink)">OFAC has sanctioned Russia's major banks (VTB, Sberbank, Gazprombank). USD transfers to these banks are prohibited for US persons — the barrier is sanctions law, not SWIFT disconnection. SWIFT has formally disconnected ~70 of ~300 Russian member banks; the sanctioned ones are unreachable for US-origin USD payments.
             <span class="src"><a href="https://www.consilium.europa.eu/en/press/press-releases/2022/03/02/russia-s-military-aggression-against-ukraine-eu-bans-certain-russian-banks-from-swift-system-and-introduces-further-restrictions/" target="_blank" rel="noopener">EU Council — SWIFT disconnections ↗</a></span>
           </td>
         </tr>
         <tr>
-          <td>Wise / Payoneer</td>
-          <td class="warn">Both have severely restricted Russia service as of 2025. Not a reliable route.</td>
+          <td>Wise / Payoneer (to Russia)</td>
+          <td class="no">Blocked</td>
+          <td style="color:var(--ink)">Both suspended Russia-destination transfers. Not available as a Russia-bound payout route.</td>
         </tr>
         <tr>
-          <td>Payment via non-Russian account (Georgian, Armenian, EU bank)</td>
-          <td class="yes">Legally and technically feasible if the account is outside Russia and the holder is not SDN-listed. Used by European payroll intermediaries working with Russian contractors. Requires each designer to hold a non-Russian bank account.</td>
+          <td>Stripe → non-Russian bank account (Georgian, Armenian, EU)</td>
+          <td class="yes">Works</td>
+          <td style="color:var(--ink)">If the Russia-based designer has a bank account outside Russia, Stripe can pay to it. Legally clean. Technically functional. No sanctions issue if the individual is not SDN-listed.</td>
         </tr>
         <tr>
-          <td>Crypto</td>
-          <td class="warn">Not prohibited per se for non-SDN individuals, but raises AML/BSA compliance obligations. OFAC has warned about crypto use to evade sanctions. Requires separate legal analysis.</td>
+          <td>Wise / Payoneer → non-Russian account</td>
+          <td class="yes">Works</td>
+          <td style="color:var(--ink)">Both work for transfers to Georgian, Armenian, Kazakh, or EU accounts. Used widely by Russian freelancers and contractors since 2022.</td>
+        </tr>
+        <tr>
+          <td>Crypto (USDT/USDC stablecoin)</td>
+          <td class="warn">Possible but complex</td>
+          <td style="color:var(--ink)">Not prohibited for non-SDN individuals, but TF would need to implement AML/KYC procedures for crypto disbursements and manage the legal and compliance overhead. Not a recommended first path.</td>
         </tr>
       </tbody>
     </table>
+
+    <div style="background:var(--green-bg);border:1px solid #6EE7B7;border-left:4px solid var(--green);padding:20px 24px">
+      <div style="font-size:10px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--green);margin-bottom:14px">How it works in practice — the workaround</div>
+      <div style="font-size:13px;color:var(--ink);line-height:1.7">
+        <p style="margin-bottom:12px"><strong>The solution used by hundreds of thousands of Russian freelancers and contractors since 2022: open a bank account in Georgia, Armenia, or another non-sanctioned country and receive payments there.</strong></p>
+        <p style="margin-bottom:12px">For <strong>Russia-based designers receiving payouts from TF</strong>: TF pays to their Georgian or Armenian account via Stripe or Wise. The designer withdraws locally or converts to rubles via their own bank. No sanctions issue on TF's end — the account is outside Russia, the bank is unsanctioned, and Stripe's automatic SDN check clears at payout.</p>
+        <p style="margin-bottom:12px">For <strong>Russian consumers buying goods</strong>: they cannot pay with a Russian-issued Visa/Mastercard. Options that work: (1) a Georgian or Armenian-issued Visa/Mastercard, which a growing share of Russia-resident buyers already hold; (2) Apple Pay / Google Pay linked to a non-Russian card; (3) MIR card — Russia's domestic network, not accepted by Western processors. In practice, TF's Russia-based consumer base will be those who already have a foreign-issued card or foreign account — a self-selecting group that is already operating across the payment barrier.</p>
+        <p><strong>Practical requirement TF should add to onboarding:</strong> designers must provide a non-Russian bank account to receive payouts. This is standard across all platforms serving Russian creators post-2022 — it is not unusual or burdensome; most Russian professionals in the digital economy already have a Georgian or Armenian account.</p>
+      </div>
+    </div>
   </div>
 
   <!-- SECTION 05 -->
