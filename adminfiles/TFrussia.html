@@ -258,7 +258,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         <tr>
           <td>Brand strategy tools / launch guidance / AI insights to designers</td>
           <td>Potentially "management consulting"</td>
-          <td class="warn">EO 14071 prohibits "management consulting" broadly, including strategic business advice and brand management. Any feature providing strategic advisory output to a Russia-located designer needs legal sign-off.
+          <td class="warn">EO 14071 prohibits "management consulting" broadly, including strategic business advice and brand management. Any feature providing strategic advisory output to a Russia-located designer falls in the prohibited zone under EO 14071.
             <span class="src"><a href="https://www.davispolk.com/insights/client-update/us-issues-guidance-bans-new-investments-and-provision-certain-services" target="_blank" rel="noopener">Davis Polk — EO 14071 guidance ↗</a></span>
           </td>
         </tr>
@@ -405,9 +405,153 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         </tr>
       </tbody>
     </table>
-    <div class="alert" style="margin-top:20px">
-      <strong>Disclaimer:</strong> This page is research, not legal advice. Russia sanctions law is strict liability, frequently amended, and enforced by OFAC with substantial civil penalties. Before onboarding any Russian-located counterparty, obtain a written sanctions opinion from a US trade law firm specialising in OFAC (e.g. DLA Piper, Miller &amp; Chevalier, Arnold &amp; Porter, Davis Polk). Do not rely on this research as a compliance sign-off.
-    </div>
+  </div>
+
+
+  <!-- SECTION 07 -->
+  <div class="section">
+    <div class="sec-heading"><span class="sec-num">07</span>SDN Screening — Technology &amp; Integration</div>
+    <p style="font-size:13px;color:var(--ink);line-height:1.65;margin-bottom:16px">The SDN list is a machine-readable database maintained by OFAC. It can be integrated directly into a platform's onboarding and payout flows.</p>
+
+    <table class="dtable" style="margin-bottom:28px">
+      <thead>
+        <tr>
+          <th>Option</th>
+          <th>What it is</th>
+          <th>Integration</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>OFAC free download</td>
+          <td>OFAC publishes the full SDN list as downloadable XML, CSV, and XLSX files, updated in near-real-time.
+            <span class="src"><a href="https://www.treasury.gov/ofac/downloads/" target="_blank" rel="noopener">treasury.gov/ofac/downloads ↗</a></span>
+          </td>
+          <td>Can be ingested into any database and matched against counterparty names/IDs. Requires building the matching logic in-house. Free.</td>
+        </tr>
+        <tr>
+          <td>OFAC Sanctions List Service API</td>
+          <td>OFAC provides a free REST API to query the SDN list by name, ID, or other identifiers.
+            <span class="src"><a href="https://sanctionslist.ofac.treas.gov/" target="_blank" rel="noopener">sanctionslist.ofac.treas.gov ↗</a></span>
+          </td>
+          <td>REST API calls. Can be triggered at onboarding and before each payout. Free. No SLA or uptime guarantee from OFAC — not suitable as the sole production screening method for a live platform.</td>
+        </tr>
+        <tr>
+          <td>ComplyAdvantage</td>
+          <td>Commercial sanctions and AML screening platform. Covers SDN list plus 1,000+ other global sanctions lists. Real-time database updates.
+            <span class="src"><a href="https://complyadvantage.com/products/aml-screening/" target="_blank" rel="noopener">complyadvantage.com ↗</a></span>
+          </td>
+          <td>REST API. Supports batch screening at onboarding and event-triggered screening before payouts. Usage-based pricing (per-search). Built for marketplace and fintech platforms.</td>
+        </tr>
+        <tr>
+          <td>Sanction Scanner</td>
+          <td>Sanctions, PEP, and adverse media screening. Covers OFAC SDN plus 3,000+ global lists.
+            <span class="src"><a href="https://sanctionscanner.com/solutions/api-integration" target="_blank" rel="noopener">sanctionscanner.com ↗</a></span>
+          </td>
+          <td>REST API with webhook support for ongoing monitoring. Can alert when a previously clean user appears on a new list.</td>
+        </tr>
+        <tr>
+          <td>Dow Jones Risk &amp; Compliance</td>
+          <td>Enterprise-grade screening covering SDN, PEP, and adverse media. Used by banks and large payment platforms.
+            <span class="src"><a href="https://www.dowjones.com/professional/risk/" target="_blank" rel="noopener">dowjones.com/professional/risk ↗</a></span>
+          </td>
+          <td>API + batch file processing. Enterprise pricing. Better suited to high-volume platforms than early-stage.</td>
+        </tr>
+        <tr>
+          <td>Persona</td>
+          <td>Identity verification platform with built-in watchlist screening (including OFAC SDN). Commonly used for marketplace KYC flows.
+            <span class="src"><a href="https://withpersona.com/features/watchlist-screening" target="_blank" rel="noopener">withpersona.com ↗</a></span>
+          </td>
+          <td>SDK + API. Drop-in onboarding flow with document verification + SDN check combined. Practical for a fashion marketplace that needs KYC at designer onboarding.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="dtable">
+      <thead>
+        <tr>
+          <th>Integration point on TF platform</th>
+          <th>When to trigger</th>
+          <th>What to check</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Designer / influencer onboarding</td>
+          <td>Before account approval</td>
+          <td>Full name, date of birth, country, any linked legal entity name against SDN list. Beneficial ownership disclosure for entities.</td>
+        </tr>
+        <tr>
+          <td>Before each payout</td>
+          <td>At payment initiation</td>
+          <td>Re-screen payee name + bank account country. List updates multiple times weekly — a clean check at onboarding is not sufficient.</td>
+        </tr>
+        <tr>
+          <td>Ongoing monitoring (optional but recommended)</td>
+          <td>Automated, triggered by list updates</td>
+          <td>Commercial vendors (ComplyAdvantage, Sanction Scanner) offer webhooks that alert when an existing user appears on a newly updated list. Catches mid-relationship designations.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SECTION 08 -->
+  <div class="section">
+    <div class="sec-heading"><span class="sec-num">08</span>Russia-Based Consumers &amp; Influencers</div>
+
+    <table class="dtable" style="margin-bottom:28px">
+      <thead>
+        <tr>
+          <th>User type</th>
+          <th>Platform access</th>
+          <th>Payments</th>
+          <th>Physical goods</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Consumers in Russia</strong></td>
+          <td class="yes">Browsing, discovery, and social features are covered by GL 25F. Platform access is not restricted.</td>
+          <td class="warn">Paying from Russia: Visa/Mastercard non-functional to Russian-issued cards since 2022. Russian consumers cannot pay via standard card rails. No legal prohibition on accepting payment from a non-SDN Russian consumer — but the payment infrastructure does not support it.</td>
+          <td class="no">Physical goods cannot be shipped to Russia if they qualify as luxury goods under BIS rules. Fashion apparel, footwear, and accessories are explicitly listed. <a href="https://www.federalregister.gov/documents/2022/03/16/2022-05604/imposition-of-sanctions-on-luxury-goods-destined-for-russia-and-belarus-and-for-russian-and" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600;font-size:11px">Federal Register — BIS luxury goods rule ↗</a></td>
+        </tr>
+        <tr>
+          <td><strong>Influencers / ambassadors in Russia</strong></td>
+          <td class="yes">Platform access and content creation covered by GL 25F.</td>
+          <td class="warn">Earning commissions = same payment problem as designers. Must have non-Russian bank account to receive payouts. SDN screening required before each payout.</td>
+          <td>Not applicable — influencers receive cash commissions, not goods.</td>
+        </tr>
+        <tr>
+          <td><strong>Russian nationals outside Russia</strong></td>
+          <td class="yes">Not subject to EO 14071. The prohibition applies to persons "located in the Russian Federation" — not to Russian nationals living in the EU, US, or other third countries.</td>
+          <td class="yes">No payment infrastructure problem if they hold a non-Russian bank account. SDN screening still required.</td>
+          <td class="yes">Standard shipping to their non-Russia address. BIS luxury goods restriction does not apply.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="dtable">
+      <thead>
+        <tr>
+          <th>Practical conclusion</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Russia-based consumers</td>
+          <td>Can browse and engage with the platform. Cannot realistically complete a purchase: card payment is blocked and physical goods cannot be shipped to Russia. No action required to block them — the infrastructure gap prevents transactions automatically. SDN screening is still required if they attempt a purchase.</td>
+        </tr>
+        <tr>
+          <td>Russia-based influencers</td>
+          <td>Can participate in content, social, and ambassador activities. Cannot receive commission payouts to a Russian account. Require a non-Russian bank account as a condition of payout — same rule as designers.</td>
+        </tr>
+        <tr>
+          <td>Digital-only goods (no physical shipment)</td>
+          <td>If TF were ever to sell digital products (gift cards, tokens, digital downloads) to Russia-based users: no BIS restriction applies to digital goods. GL 25F covers digital content distribution. Payment remains the bottleneck.</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
 </div>
