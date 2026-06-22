@@ -75,6 +75,8 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .yes{color:var(--green);font-weight:800}
 .no{color:var(--red);font-weight:800}
 .warn{color:var(--amber);font-weight:800}
+/* status class on td = color only; on span = color + bold (verdict word only) */
+.dtable td.yes,.dtable td.no,.dtable td.warn{font-weight:400}
 
 /* CARDS */
 .card-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:4px}
@@ -224,6 +226,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <!-- SECTION 01 -->
   <div class="section">
     <div class="sec-heading"><span class="sec-num">01</span>Applicable Sanctions Programs</div>
+    <div style="background:var(--green-bg);border:1px solid #6EE7B7;border-left:4px solid var(--green);padding:14px 18px;margin-bottom:20px;font-size:13px;color:var(--ink);line-height:1.6"><strong>No blanket ban on fashion.</strong> Russian individuals and fashion brands are not restricted by default. Only specific named persons on the Specially Designated Nationals (SDN) list and companies in designated sectors (finance, defense, metals, energy) are blocked. Fashion is not a designated sector.</div>
     <table class="dtable">
       <thead>
         <tr>
@@ -271,6 +274,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <!-- SECTION 02 -->
   <div class="section">
     <div class="sec-heading"><span class="sec-num">02</span>IT Services Prohibition — Does It Apply?</div>
+    <div style="background:var(--green-bg);border:1px solid #6EE7B7;border-left:4px solid var(--green);padding:14px 18px;margin-bottom:20px;font-size:13px;color:var(--ink);line-height:1.6"><strong>Marketplace features are outside scope.</strong> Buying, selling, product discovery, pre-orders, and payments are not enterprise management or manufacturing software. One area to watch: do not specifically market analytics dashboards as a Russia-targeted feature — geoblock advanced analytics for Russian IPs if practical.</div>
     <p style="font-size:13px;color:var(--ink);line-height:1.65;margin-bottom:16px">EO 14071 (effective September 12, 2024) prohibits US persons from providing cloud-based services to Russia for <strong>enterprise management software</strong> (ERP, CRM, business intelligence, supply chain, project management, data warehousing) and <strong>design/manufacturing software</strong> (CAD, CAM, BIM, engineer-to-order tools). <a href="https://ofac.treasury.gov/faqs/added/2024-06-12" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600;font-size:12px">OFAC FAQs 1184 &amp; 1188 ↗</a></p>
     <table class="dtable">
       <thead>
@@ -314,6 +318,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <!-- SECTION 03 -->
   <div class="section">
     <div class="sec-heading"><span class="sec-num">03</span>SDN Screening</div>
+    <div style="background:var(--green-bg);border:1px solid #6EE7B7;border-left:4px solid var(--green);padding:14px 18px;margin-bottom:20px;font-size:13px;color:var(--ink);line-height:1.6"><strong>Stripe handles this automatically.</strong> No manual passport check or user declaration needed for platform users — Stripe screens every connected account against the SDN list before each payout and blocks matches. For investors and co-founders, run a manual SDN check before signing any legal agreement.</div>
     <p style="font-size:13px;color:var(--ink);line-height:1.65;margin-bottom:16px">OFAC sanctions are strict liability — liability attaches even without knowledge that a counterparty is on the list. In practice, <strong>no platform asks users for their passport or manually checks SDN at signup</strong>. Compliance happens through payment processors: Stripe automatically screens all connected accounts against the SDN list at payout and blocks any match. TF does not need a user-facing nationality declaration or manual SDN lookup for individual platform users. Higher manual due diligence applies to business partners (investors, co-founders, large contract counterparties) — not individual designers or influencers. Penalty varies by knowledge: unknowing violations with documented compliance + voluntary disclosure are treated as non-egregious. <a href="https://ofac.treasury.gov/faqs/65" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600;font-size:12px">OFAC FAQ 65 ↗</a></p>
     <table class="dtable">
       <thead>
@@ -350,6 +355,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <!-- SECTION 04 -->
   <div class="section">
     <div class="sec-heading"><span class="sec-num">04</span>Payment Infrastructure</div>
+    <div style="background:var(--amber-bg);border:1px solid #FCD34D;border-left:4px solid var(--amber);padding:14px 18px;margin-bottom:20px;font-size:13px;color:var(--ink);line-height:1.6"><strong>All direct payments to Russia are blocked by infrastructure — not by sanctions law.</strong> Solution: require designers and co-founders to provide a non-Russian bank account (Georgian, Armenian, or EU). Georgian and Armenian accounts are widely held by Russian professionals since 2022 and work with Stripe and Wise.</div>
     <table class="dtable" style="margin-bottom:28px">
       <thead>
         <tr>
@@ -410,6 +416,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <!-- SECTION 05 -->
   <div class="section">
     <div class="sec-heading"><span class="sec-num">05</span>Compliance Paths — Ranked by Simplicity</div>
+    <div style="background:var(--green-bg);border:1px solid #6EE7B7;border-left:4px solid var(--green);padding:14px 18px;margin-bottom:20px;font-size:13px;color:var(--ink);line-height:1.6"><strong>Four paths, all workable.</strong> Cleanest: work with Russian-national designers who live outside Russia — no sanctions complication at all. Standard: require any Russia-resident designer to hold a non-Russian bank account. Both are normal operating practice for platforms serving the Russian diaspora.</div>
     <div class="card-grid">
       <div class="icard best">
         <div class="icard-num">Path A · Cleanest</div>
@@ -440,6 +447,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <!-- SECTION 06 -->
   <div class="section">
     <div class="sec-heading"><span class="sec-num">06</span>Key Risks to Watch</div>
+    <div style="background:var(--amber-bg);border:1px solid #FCD34D;border-left:4px solid var(--amber);padding:14px 18px;margin-bottom:20px;font-size:13px;color:var(--ink);line-height:1.6"><strong>No blockers for TF's core marketplace model.</strong> Three ongoing risks: (1) any feature providing strategic advice to Russia-located users needs a legal opinion; (2) sanctions lists update frequently — build a review cycle; (3) entity counterparties need beneficial ownership disclosure (SDN list catches individuals, not always the companies they control).</div>
     <table class="dtable">
       <thead>
         <tr>
@@ -479,6 +487,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <!-- SECTION 07 -->
   <div class="section">
     <div class="sec-heading"><span class="sec-num">07</span>SDN Screening — Technology &amp; Integration</div>
+    <div style="background:var(--green-bg);border:1px solid #6EE7B7;border-left:4px solid var(--green);padding:14px 18px;margin-bottom:20px;font-size:13px;color:var(--ink);line-height:1.6"><strong>Stripe covers this automatically at payout.</strong> For onboarding, Persona (identity verification + SDN in one flow) is the practical choice for a fashion marketplace. No custom engineering needed — both are API integrations.</div>
     <p style="font-size:13px;color:var(--ink);line-height:1.65;margin-bottom:16px">The SDN list is a machine-readable database maintained by OFAC. It can be integrated directly into a platform's onboarding and payout flows.</p>
 
     <table class="dtable" style="margin-bottom:28px">
@@ -566,6 +575,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <!-- SECTION 08 -->
   <div class="section">
     <div class="sec-heading"><span class="sec-num">08</span>Russia-Based Consumers &amp; Influencers</div>
+    <div style="background:var(--amber-bg);border:1px solid #FCD34D;border-left:4px solid var(--amber);padding:14px 18px;margin-bottom:20px;font-size:13px;color:var(--ink);line-height:1.6"><strong>Can use the platform, cannot pay or receive payouts via Russian bank accounts.</strong> Russian consumers can browse and engage but cannot pay with Russian-issued cards — they need a foreign card (Georgian, Armenian). Russian influencers can participate in campaigns but must provide a non-Russian bank account to receive commissions. Physical goods shipped into Russia are subject to the $300 wholesale threshold (see §11).</div>
 
     <table class="dtable" style="margin-bottom:28px">
       <thead>
@@ -760,7 +770,8 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <div class="section">
     <div class="sec-heading"><span class="sec-num">11</span>Physical Goods: What Can Be Sold &amp; Shipped to Russian Buyers?</div>
 
-    <div style="background:var(--amber-bg);border:1px solid #FCD34D;border-left:4px solid var(--amber);padding:14px 18px;margin-bottom:20px;font-size:13px;color:var(--ink);line-height:1.6"><strong>Restricted for high-value items and all art.</strong> Fashion apparel and footwear below $300/unit wholesale can be shipped — no BIS restriction. Items at or above $300/unit wholesale are blocked. Art objects of any price are blocked regardless of value. Payment to Russian buyers remains separately blocked by infrastructure (see §04). <a href="https://www.federalregister.gov/documents/2022/09/16/2022-19910/implementation-of-additional-sanctions-against-russia-and-belarus-under-the-export-administration" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Federal Register — BIS September 2022 rule ↗</a></div>
+    <div style="background:var(--green-bg);border:1px solid #6EE7B7;border-left:4px solid var(--green);padding:14px 18px;margin-bottom:6px;font-size:13px;color:var(--ink);line-height:1.6"><strong>Russian designers selling to US/global buyers: no BIS restriction.</strong> BIS controls US exports — goods shipped OUT of Russia by a Russian designer are not a US export. No US license required. Payment from TF to the designer is the only constraint (see §04 for the workaround).</div>
+    <div style="background:var(--amber-bg);border:1px solid #FCD34D;border-left:4px solid var(--amber);padding:14px 18px;margin-bottom:20px;font-size:13px;color:var(--ink);line-height:1.6"><strong>Shipping goods INTO Russia (Russian buyers purchasing): restricted at $300+ wholesale and all art.</strong> Fashion apparel below $300/unit wholesale from US-based designers = not restricted by BIS. At or above $300 = blocked. Art objects at any price = blocked. Plus: payment from Russian buyers is blocked by infrastructure regardless. <a href="https://www.federalregister.gov/documents/2022/09/16/2022-19910/implementation-of-additional-sanctions-against-russia-and-belarus-under-the-export-administration" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Federal Register — BIS rule ↗</a></div>
 
     <p style="font-size:13px;color:var(--ink);line-height:1.65;margin-bottom:16px">Governed by the US Export Administration Regulations (EAR), enforced by BIS (Bureau of Industry and Security, US Department of Commerce) — separate from OFAC. BIS restricts physical export of "luxury goods" to Russia under Supplement No. 5 to Part 746 of the EAR. The threshold is <strong>$300 per unit wholesale price</strong>. Items at or above this require an export license, issued under a policy of denial for Russia.</p>
 
