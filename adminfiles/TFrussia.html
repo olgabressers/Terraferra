@@ -89,12 +89,9 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .alert{background:var(--amber-bg);border:1px solid #FCD34D;border-left:4px solid var(--amber);padding:16px 20px;font-size:13px;color:var(--ink);line-height:1.6;margin-top:8px}
 .alert strong{color:var(--amber)}
 
-/* REFS */
-.refs-list{display:flex;flex-direction:column;gap:8px;margin-top:8px}
-.ref-item{font-size:12px;color:var(--ink);line-height:1.5}
-.ref-item a{color:var(--tf);text-decoration:none;font-weight:600}
-.ref-item a:hover{color:var(--orange);text-decoration:underline}
-.ref-source{font-size:11px;color:var(--sub);margin-left:6px}
+.src{font-size:11px;color:var(--sub);display:block;margin-top:4px}
+.src a{color:var(--tf);text-decoration:none;font-weight:600}
+.src a:hover{color:var(--orange);text-decoration:underline}
 
 footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);opacity:.5}
 
@@ -177,12 +174,16 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
       <tbody>
         <tr>
           <td>EO 14024 (31 CFR §587)</td>
-          <td>Blocks designated individuals and entities in named sectors: financial services, technology, defense, aerospace, electronics, metals, energy, manufacturing, management consulting, architecture, engineering.</td>
+          <td>Blocks designated individuals and entities in named sectors: financial services, technology, defense, aerospace, electronics, metals, energy, manufacturing, management consulting, architecture, engineering.
+            <span class="src"><a href="https://ofac.treasury.gov/sanctions-programs-and-country-information/russian-harmful-foreign-activities-sanctions" target="_blank" rel="noopener">OFAC EO 14024 program page ↗</a></span>
+          </td>
           <td class="no">Fashion not designated. Non-designated Russian individuals are not blocked.</td>
         </tr>
         <tr>
           <td>EO 14071 — Prohibited Services</td>
-          <td>US persons cannot provide: accounting, management consulting, architecture, engineering, trust/corporate formation, IT consultancy, IT support and cloud-based services for <em>enterprise management software</em> and <em>design/manufacturing software</em> to persons in Russia.</td>
+          <td>US persons cannot provide: accounting, management consulting, architecture, engineering, trust/corporate formation, IT consultancy, IT support and cloud-based services for <em>enterprise management software</em> and <em>design/manufacturing software</em> to persons in Russia.
+            <span class="src"><a href="https://ofac.treasury.gov/faqs/1128" target="_blank" rel="noopener">OFAC FAQ 1128 ↗</a></span>
+          </td>
           <td class="warn">Consumer marketplace = outside scope. Management consulting / brand advisory features = legal risk (see §03).</td>
         </tr>
         <tr>
@@ -192,12 +193,14 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         </tr>
         <tr>
           <td>SSI List (Sectoral Sanctions)</td>
-          <td>Debt / equity transactions with major Russian financial and energy companies listed on the SSI list.</td>
+          <td>Debt / equity transactions with major Russian financial and energy companies on the SSI list.</td>
           <td class="no">Not relevant. TF is not providing debt, equity, or financing to sanctioned entities.</td>
         </tr>
         <tr>
           <td>GL 25F (Russia internet services)</td>
-          <td>General License explicitly <strong>authorizing</strong> internet communications services to Russia: social platforms, collaboration tools, web hosting, user authentication.</td>
+          <td>General License explicitly <strong>authorizing</strong> internet communications services to Russia: social platforms, collaboration tools, web hosting, user authentication.
+            <span class="src"><a href="https://www.federalregister.gov/documents/2024/09/25/2024-21796/publication-of-russian-harmful-foreign-activities-sanctions-regulations-web-general-licenses-25e-25f" target="_blank" rel="noopener">Federal Register — GL 25F (Sep 2024) ↗</a></span>
+          </td>
           <td class="yes">Protects TF's communications and platform-access layer.</td>
         </tr>
       </tbody>
@@ -207,7 +210,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <!-- SECTION 02 -->
   <div class="section">
     <div class="sec-heading"><span class="sec-num">02</span>IT Services Prohibition — Does It Apply?</div>
-    <p style="font-size:13px;color:var(--ink);line-height:1.65;margin-bottom:16px">EO 14071 (effective September 12, 2024) prohibits US persons from providing cloud-based services to Russia for <strong>enterprise management software</strong> (ERP, CRM, business intelligence, supply chain, project management, data warehousing) and <strong>design/manufacturing software</strong> (CAD, CAM, BIM, engineer-to-order tools).</p>
+    <p style="font-size:13px;color:var(--ink);line-height:1.65;margin-bottom:16px">EO 14071 (effective September 12, 2024) prohibits US persons from providing cloud-based services to Russia for <strong>enterprise management software</strong> (ERP, CRM, business intelligence, supply chain, project management, data warehousing) and <strong>design/manufacturing software</strong> (CAD, CAM, BIM, engineer-to-order tools). <a href="https://ofac.treasury.gov/faqs/added/2024-06-12" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600;font-size:12px">OFAC FAQs 1184 &amp; 1188 ↗</a></p>
     <table class="dtable">
       <thead>
         <tr>
@@ -220,7 +223,9 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         <tr>
           <td>Consumer marketplace (pre-orders, co-creation, drops)</td>
           <td>Not listed</td>
-          <td class="yes">Outside prohibition scope. Consumer e-commerce platforms are not enterprise management or manufacturing software.</td>
+          <td class="yes">Outside prohibition scope. Consumer e-commerce platforms are not enterprise management or manufacturing software.
+            <span class="src"><a href="https://www.dlapiper.com/en-cz/insights/publications/2024/06/new-russia-sanctions-restrict-certain-it-software-related-services" target="_blank" rel="noopener">DLA Piper analysis ↗</a> · <a href="https://www.arnoldporter.com/en/perspectives/advisories/2024/06/russias-access-to-it-services-and-software-restricted" target="_blank" rel="noopener">Arnold &amp; Porter ↗</a></span>
+          </td>
         </tr>
         <tr>
           <td>Influencer / ambassador payout layer</td>
@@ -230,12 +235,16 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         <tr>
           <td>Sales analytics / performance dashboards</td>
           <td>Potentially "enterprise management"</td>
-          <td class="warn">Arguable. If framed as business intelligence software provided to a Russia-located entity, could be challenged. Get legal opinion before shipping analytics to Russian designers.</td>
+          <td class="warn">Arguable — business intelligence tools are in the prohibited list. Get legal opinion before shipping analytics to Russia-located designers.
+            <span class="src"><a href="https://www.millerchevalier.com/publication/trade-compliance-flash-ofac-announces-prohibitions-provision-certain-it-and-software" target="_blank" rel="noopener">Miller &amp; Chevalier overview ↗</a></span>
+          </td>
         </tr>
         <tr>
           <td>Brand strategy tools / launch guidance / AI insights to designers</td>
           <td>Potentially "management consulting"</td>
-          <td class="warn">EO 14071 prohibits "management consulting" broadly, including strategic business advice and brand management. Any feature that provides strategic advisory output to a Russia-located designer needs legal sign-off.</td>
+          <td class="warn">EO 14071 prohibits "management consulting" broadly, including strategic business advice and brand management. Any feature providing strategic advisory output to a Russia-located designer needs legal sign-off.
+            <span class="src"><a href="https://www.davispolk.com/insights/client-update/us-issues-guidance-bans-new-investments-and-provision-certain-services" target="_blank" rel="noopener">Davis Polk — EO 14071 guidance ↗</a></span>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -244,7 +253,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <!-- SECTION 03 -->
   <div class="section">
     <div class="sec-heading"><span class="sec-num">03</span>SDN Screening — Mandatory for Every Counterparty</div>
-    <p style="font-size:13px;color:var(--ink);line-height:1.65;margin-bottom:16px">OFAC sanctions are strict liability. Transacting with an SDN — even unknowingly — triggers civil penalties. Required steps:</p>
+    <p style="font-size:13px;color:var(--ink);line-height:1.65;margin-bottom:16px">OFAC sanctions are strict liability. Transacting with an SDN — even unknowingly — triggers civil penalties. <a href="https://ofac.treasury.gov/faqs/topic/1631" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600;font-size:12px">OFAC SDN FAQ ↗</a></p>
     <table class="dtable">
       <thead>
         <tr>
@@ -255,23 +264,23 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
       <tbody>
         <tr>
           <td>Screen at onboarding</td>
-          <td>Every designer, influencer, or brand seeking to join the platform must be checked against the OFAC SDN list before approval.</td>
+          <td>Every designer, influencer, or brand must be checked against the OFAC SDN list before approval.</td>
         </tr>
         <tr>
           <td>Screen before each payout</td>
-          <td>Designations change (OFAC updates the SDN list multiple times weekly). A clean screen at onboarding does not substitute for screening at payment time.</td>
+          <td>Designations change multiple times weekly. A clean screen at onboarding does not substitute for screening at payment time.</td>
         </tr>
         <tr>
           <td>50% ownership rule</td>
-          <td>A non-listed entity is still blocked if 50% or more of its ownership is held by a blocked person, even if the entity itself is not on the SDN list.</td>
+          <td>A non-listed entity is still blocked if 50%+ of its ownership is held by a blocked person, even if the entity itself is not on the SDN list.</td>
         </tr>
         <tr>
           <td>On hit: block and report</td>
           <td>Freeze the transaction immediately. File a blocked property report with OFAC within 10 business days.</td>
         </tr>
         <tr>
-          <td>Tools</td>
-          <td>Free: <a href="https://sanctionssearch.ofac.treas.gov/" target="_blank" rel="noopener">sanctionssearch.ofac.treas.gov</a>. Commercial automated screening (Dow Jones, Refinitiv, Sanction Scanner) recommended for platform-scale volume.</td>
+          <td>Screening tools</td>
+          <td>Free search: <a href="https://sanctionssearch.ofac.treas.gov/" target="_blank" rel="noopener">sanctionssearch.ofac.treas.gov ↗</a>. Commercial automated screening (Dow Jones, Refinitiv, Sanction Scanner) recommended for platform-scale volume.</td>
         </tr>
       </tbody>
     </table>
@@ -290,23 +299,25 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
       <tbody>
         <tr>
           <td>Visa / Mastercard to Russian-issued cards</td>
-          <td class="no">Non-functional. Both suspended Russia operations March 2022. Cards issued by Russian banks do not process on international networks. Chip certificates expired January 2025.</td>
+          <td class="no">Non-functional. Both suspended Russia operations March 2022. Chip certificates for existing cards expired January 2025.
+            <span class="src"><a href="https://usa.visa.com/about-visa/newsroom/press-releases.releaseId.18871.html" target="_blank" rel="noopener">Visa press release ↗</a></span>
+          </td>
         </tr>
         <tr>
           <td>SWIFT transfers to Russia</td>
-          <td class="no">Major Russian banks removed from SWIFT from March 2022. Remaining connected banks cannot find Western correspondents willing to process. Practically blocked.</td>
+          <td class="no">Major Russian banks removed from SWIFT from March 2022. Most Western correspondent banks refuse Russia-bound transfers regardless of SWIFT connectivity.</td>
         </tr>
         <tr>
           <td>Wise / Payoneer</td>
-          <td class="warn">Both have severely restricted Russia service. Not a reliable route as of 2025.</td>
+          <td class="warn">Both have severely restricted Russia service as of 2025. Not a reliable route.</td>
         </tr>
         <tr>
           <td>Payment via non-Russian account (Georgian, Armenian, EU bank)</td>
-          <td class="yes">Legally and technically feasible if the account is outside Russia and the holder is not SDN-listed. Used by European payroll intermediaries. Requires each designer to set up a non-Russian bank account.</td>
+          <td class="yes">Legally and technically feasible if the account is outside Russia and the holder is not SDN-listed. Used by European payroll intermediaries working with Russian contractors. Requires each designer to hold a non-Russian bank account.</td>
         </tr>
         <tr>
           <td>Crypto</td>
-          <td class="warn">Not prohibited per se for non-SDN individuals, but raises its own AML/BSA compliance obligations. OFAC has warned about crypto use to evade sanctions. Requires separate legal analysis.</td>
+          <td class="warn">Not prohibited per se for non-SDN individuals, but raises AML/BSA compliance obligations. OFAC has warned about crypto use to evade sanctions. Requires separate legal analysis.</td>
         </tr>
       </tbody>
     </table>
@@ -319,26 +330,26 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
       <div class="icard best">
         <div class="icard-num">Path A · Cleanest</div>
         <div class="icard-title">Russian diaspora / EU or US-resident designers</div>
-        <div class="icard-body">A Russian national legally resident in the EU, US, or other non-sanctioned country is not "a person located in the Russian Federation" for EO 14071 purposes. No special license required. Payments go to a non-Russian account. SDN screening still required.</div>
+        <div class="icard-body">A Russian national legally resident in the EU, US, or other non-sanctioned country is not "a person located in the Russian Federation" for EO 14071 purposes. No special license required. Payments go to a non-Russian account. SDN screening still required on the individual.</div>
       </div>
       <div class="icard best">
         <div class="icard-num">Path B · Clean</div>
         <div class="icard-title">Require non-Russian legal entity</div>
-        <div class="icard-body">Designer registers a legal entity in the EU, UAE, UK, or other third country and contracts through it. TF's counterparty is that entity — not a Russia-located individual. Resolves both the OFAC and the payment problem. Standard for cross-border digital platforms working with Russian creatives.</div>
+        <div class="icard-body">Designer registers a legal entity in the EU, UAE, UK, or other third country and contracts through it. TF's counterparty is that entity — not a Russia-located individual. Resolves both the OFAC and the payment problem.</div>
       </div>
       <div class="icard">
         <div class="icard-num">Path C · Workable</div>
         <div class="icard-title">Require non-Russian bank account</div>
-        <div class="icard-body">Russia-resident designer may contract with TF but must receive all payouts into a bank account outside Russia (Georgian, Armenian, or EU account). Sidesteps payment infrastructure. OFAC still requires SDN screening of the individual regardless of account location.</div>
+        <div class="icard-body">Russia-resident designer contracts with TF but receives all payouts into a bank account outside Russia (Georgian, Armenian, or EU account). Sidesteps payment infrastructure. OFAC SDN screening of the individual still required.</div>
       </div>
       <div class="icard">
         <div class="icard-num">Path D · Fallback</div>
         <div class="icard-title">OFAC Specific License</div>
-        <div class="icard-body">For any scenario that remains ambiguous, a US company can apply to OFAC for a specific license. OFAC grants these for commercially reasonable cases outside the prohibited categories. Process takes weeks to months. Source: <a href="https://ofac.treasury.gov/faqs/topic/1501" target="_blank" rel="noopener">OFAC licensing overview</a>.</div>
+        <div class="icard-body">For any scenario that remains ambiguous after legal review, apply to OFAC for a specific license. OFAC grants these for commercially reasonable cases outside the prohibited categories. Process takes weeks to months. <a href="https://ofac.treasury.gov/faqs/topic/1501" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">OFAC licensing overview ↗</a></div>
       </div>
     </div>
     <div style="margin-top:16px" class="alert">
-      <strong>Mandatory baseline for all paths:</strong> SDN screening at onboarding and before every payout. Non-compliance is not a defense, and "we didn't know they were on the list" does not eliminate civil liability.
+      <strong>Mandatory baseline for all paths:</strong> SDN screening at onboarding and before every payout. "We didn't know they were on the list" does not eliminate civil liability under strict liability enforcement.
     </div>
   </div>
 
@@ -356,48 +367,30 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
       <tbody>
         <tr>
           <td>"Management consulting" prohibition</td>
-          <td>Defined broadly to include strategic business advice and brand management. Any TF feature providing strategic advisory output to a Russia-located designer could be argued to fall under EO 14071's service prohibition.</td>
+          <td>Defined broadly to include strategic business advice and brand management. Any TF feature providing strategic advisory output to a Russia-located designer could be argued to fall under EO 14071.
+            <span class="src"><a href="https://www.davispolk.com/insights/client-update/us-issues-guidance-bans-new-investments-and-provision-certain-services" target="_blank" rel="noopener">Davis Polk — EO 14071 services scope ↗</a></span>
+          </td>
           <td class="warn">Get written legal opinion before shipping AI-driven brand insights or launch strategy tools to Russia-located users.</td>
         </tr>
         <tr>
           <td>Sanctions change frequently</td>
-          <td>New sector determinations were issued December 2025 and January 2025. The framework is actively evolving. An analysis current today may be outdated in 6 months.</td>
-          <td class="warn">Build a periodic review cycle into compliance process. Track OFAC Russia updates at ofac.treasury.gov.</td>
+          <td>New sector determinations were added in December 2025 and January 2025. The framework evolves; an analysis current today may be outdated in 6 months.</td>
+          <td class="warn">Build a periodic review cycle. Track updates at <a href="https://ofac.treasury.gov/sanctions-programs-and-country-information/russian-harmful-foreign-activities-sanctions" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">ofac.treasury.gov ↗</a></td>
         </tr>
         <tr>
-          <td>50% ownership rule / nominee structures</td>
-          <td>Russian designers may route through third-country entities controlled by SDN-listed individuals. Name screening alone does not catch this.</td>
-          <td class="warn">KYC process must include beneficial ownership disclosure for any legal entity counterparty.</td>
+          <td>50% ownership / nominee structures</td>
+          <td>Designers may route through third-country entities controlled by SDN-listed individuals. Name screening alone does not catch this.</td>
+          <td class="warn">KYC must include beneficial ownership disclosure for any legal entity counterparty.</td>
         </tr>
         <tr>
           <td>Secondary sanctions</td>
-          <td>OFAC has expanded secondary sanctions targeting non-US financial institutions that materially support Russian sanctions evasion. Not directly applicable to TF but affects which payment processors will cooperate.</td>
+          <td>OFAC has expanded secondary sanctions targeting non-US financial institutions that support Russian sanctions evasion. Affects which payment processors will cooperate with TF.</td>
           <td class="no">Non-issue if TF uses compliant Western payment infrastructure. Do not route via Russian payment processors.</td>
         </tr>
       </tbody>
     </table>
-  </div>
-
-  <!-- REFERENCES -->
-  <div class="section">
-    <div class="sec-heading"><span class="sec-num">Ref</span>Sources</div>
-    <div class="refs-list">
-      <div class="ref-item"><a href="https://ofac.treasury.gov/sanctions-programs-and-country-information/russian-harmful-foreign-activities-sanctions" target="_blank" rel="noopener">OFAC — Russian Harmful Foreign Activities Sanctions (EO 14024 program page)</a></div>
-      <div class="ref-item"><a href="https://ofac.treasury.gov/faqs/1128" target="_blank" rel="noopener">OFAC FAQ 1128 — EO 14071 new investment and services prohibition</a></div>
-      <div class="ref-item"><a href="https://ofac.treasury.gov/faqs/added/2024-06-12" target="_blank" rel="noopener">OFAC FAQs added June 12 2024 — IT software and services scope (FAQ 1184, 1188)</a></div>
-      <div class="ref-item"><a href="https://www.federalregister.gov/documents/2024/09/25/2024-21796/publication-of-russian-harmful-foreign-activities-sanctions-regulations-web-general-licenses-25e-25f" target="_blank" rel="noopener">Federal Register — General License 25F (internet communications services authorized for Russia)</a></div>
-      <div class="ref-item"><a href="https://ofac.treasury.gov/faqs/topic/1501" target="_blank" rel="noopener">OFAC — Specific License Application process</a></div>
-      <div class="ref-item"><a href="https://ofac.treasury.gov/faqs/topic/1631" target="_blank" rel="noopener">OFAC — SDN screening FAQ and requirements</a></div>
-      <div class="ref-item"><a href="https://sanctionssearch.ofac.treas.gov/" target="_blank" rel="noopener">OFAC SDN Search Tool (free)</a></div>
-      <div class="ref-item"><a href="https://www.dlapiper.com/en-cz/insights/publications/2024/06/new-russia-sanctions-restrict-certain-it-software-related-services" target="_blank" rel="noopener">DLA Piper — "New Russia Sanctions Restrict Certain IT Software-Related Services" (June 2024)</a></div>
-      <div class="ref-item"><a href="https://www.arnoldporter.com/en/perspectives/advisories/2024/06/russias-access-to-it-services-and-software-restricted" target="_blank" rel="noopener">Arnold &amp; Porter — Russia IT Services Restriction Analysis (June 2024)</a></div>
-      <div class="ref-item"><a href="https://www.millerchevalier.com/publication/trade-compliance-flash-ofac-announces-prohibitions-provision-certain-it-and-software" target="_blank" rel="noopener">Miller &amp; Chevalier — OFAC IT and Software Prohibition Overview</a></div>
-      <div class="ref-item"><a href="https://www.davispolk.com/insights/client-update/us-issues-guidance-bans-new-investments-and-provision-certain-services" target="_blank" rel="noopener">Davis Polk — "US Issues Guidance, Bans New Investments and Provision of Certain Services" (EO 14071)</a></div>
-      <div class="ref-item"><a href="https://www.thompsonhinesmartrade.com/2024/09/ofac-issues-revised-russia-telecommunications-general-licenses-and-an-alert-on-russian-attempts-to-evade-sanctions/" target="_blank" rel="noopener">Thompson Hine SmarTrade — GL 25F Russia Telecommunications Update (September 2024)</a></div>
-      <div class="ref-item"><a href="https://www.federalregister.gov/documents/2022/03/16/2022-05604/imposition-of-sanctions-on-luxury-goods-destined-for-russia-and-belarus-and-for-russian-and" target="_blank" rel="noopener">Federal Register — BIS Luxury Goods Export Restriction (covers physical goods, not platform services)</a></div>
-    </div>
     <div class="alert" style="margin-top:20px">
-      <strong>Disclaimer:</strong> This page is research, not legal advice. Russia sanctions law is strict liability, frequently amended, and enforced by OFAC with substantial civil penalties. Before onboarding any Russian-located counterparty, obtain a written sanctions opinion from a qualified US trade law firm (OFAC specialists such as DLA Piper, Miller &amp; Chevalier, Arnold &amp; Porter, Davis Polk, or Crowell &amp; Moring). Do not rely on this research as a compliance sign-off.
+      <strong>Disclaimer:</strong> This page is research, not legal advice. Russia sanctions law is strict liability, frequently amended, and enforced by OFAC with substantial civil penalties. Before onboarding any Russian-located counterparty, obtain a written sanctions opinion from a US trade law firm specialising in OFAC (e.g. DLA Piper, Miller &amp; Chevalier, Arnold &amp; Porter, Davis Polk). Do not rely on this research as a compliance sign-off.
     </div>
   </div>
 
