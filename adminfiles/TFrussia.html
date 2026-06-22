@@ -157,14 +157,8 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
 <div class="pg-wrap">
 
   <div class="pg-eyebrow">Legal / Tax Research · Internal</div>
-  <div class="pg-title">Russian Designers on TF — US Sanctions</div>
+  <div class="pg-title">Working with Russians — US Sanctions &amp; Compliance</div>
   <div class="pg-sub">Research as of June 2026.</div>
-
-  <!-- SDN DEFINITION -->
-  <div style="background:white;border:1px solid var(--rule);border-left:4px solid var(--orange);padding:16px 20px;margin-top:22px;margin-bottom:0">
-    <div style="font-size:10px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--orange);margin-bottom:8px">Key term: SDN</div>
-    <div style="font-size:13px;color:var(--ink);line-height:1.65"><strong>SDN = Specially Designated Nationals list.</strong> OFAC's (US Treasury) blacklist of individuals and entities with whom all transactions are completely banned for US persons and US companies. Currently ~7,500 entries worldwide — mostly government officials, oligarchs, armed groups, and their connected companies. Being on this list means: all US-accessible assets are frozen, no US bank will process money to or from them, and payment processors (Stripe, PayPal, Adyen) automatically block them. <strong>Most Russians are NOT on this list.</strong> The list targets specific named people, not Russian nationals generally. You can search it at <a href="https://sanctionssearch.ofac.treas.gov/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">sanctionssearch.ofac.treas.gov ↗</a>.</div>
-  </div>
 
   <!-- TOP ANSWER TABLE -->
   <table class="dtable" style="margin:28px 0 36px">
@@ -183,7 +177,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
           <div style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--ink)">
             <div>1. Payouts require a non-Russian bank account — standard card payments and most bank transfers to Russia stopped working in 2022. This is infrastructure, not a legal ban on TF's side.</div>
             <div>2. Do not provide strategic business advice to Russia-based users. US law prohibits "management consulting services" to persons located in Russia — meaning AI or human features that give strategic recommendations (growth strategy, pricing advice, competitive analysis). Standard platform features (sales dashboards, product search, discovery) are not covered.</div>
-            <div>3. Must not be on the US sanctions blacklist. Stripe checks this automatically at payout.</div>
+            <div>3. Must not be on the US Specially Designated Nationals (SDN) blacklist. Stripe checks this automatically at payout.</div>
           </div>
         </td>
       </tr>
@@ -632,6 +626,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <!-- SECTION 09 -->
   <div class="section">
     <div class="sec-heading"><span class="sec-num">09</span>Russian Co-Founders, Investors &amp; Shareholders</div>
+    <div style="background:var(--green-bg);border:1px solid #6EE7B7;border-left:4px solid var(--green);padding:14px 18px;margin-bottom:20px;font-size:13px;color:var(--ink);line-height:1.6"><strong>Allowed.</strong> A Russian national can hold equity, invest via SAFE, receive salary, and receive dividends — as long as they are not on the OFAC SDN blacklist. SDN screening is the single legal requirement. Payment to Russia is blocked by infrastructure (not law) — require a non-Russian bank account.</div>
     <p style="font-size:13px;color:var(--ink);line-height:1.65;margin-bottom:8px">The determining factor for all ownership instruments — common shares, preferred shares, SAFE, convertible note — is whether the individual is on the OFAC SDN list. The instrument type does not change the rule. SDN-listed: blocked in all forms. Not SDN-listed: permitted in all forms.</p>
     <p style="font-size:12px;color:var(--ink);line-height:1.6;margin-bottom:20px;padding:10px 14px;background:var(--tf-ghost);border-left:3px solid var(--tf)">EO 14071 "new investment" prohibition runs one direction only: it restricts US persons from investing <em>in Russia</em>. It does not restrict a Russian national from investing in a US company. However, EO 14024 and the SDN blocking regime apply in both directions: receiving funds from any SDN-listed person is prohibited regardless of which direction money flows. In June 2025, OFAC imposed a $215.9M penalty on GVA Capital (a San Francisco VC) for managing investments on behalf of a sanctioned Russian oligarch. Every Russian investor must be screened against the SDN list before any transaction closes. <a href="https://www.arnoldporter.com/en/perspectives/advisories/2025/06/ofac-hits-venture-capital-firm" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600;font-size:11px">GVA Capital enforcement case ↗</a></p>
 
@@ -646,28 +641,28 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
       <tbody>
         <tr>
           <td>Russian national holds any ownership interest (shares, SAFE, note) — <strong>not on SDN list</strong></td>
-          <td class="yes">Permitted. No provision of US sanctions law prohibits a non-designated Russian national from holding an ownership interest in a US company, in any instrument form.
+          <td><span class="yes">Permitted.</span> No provision of US sanctions law prohibits a non-designated Russian national from holding an ownership interest in a US company, in any instrument form.
             <span class="src"><a href="https://ofac.treasury.gov/sanctions-programs-and-country-information/russian-harmful-foreign-activities-sanctions" target="_blank" rel="noopener">OFAC EO 14024 program page ↗</a></span>
           </td>
           <td>Screen the individual against the SDN list at the time of grant or investment, and periodically thereafter. If they remain off the list, no restriction applies.</td>
         </tr>
         <tr>
           <td>Russian national holds any ownership interest (shares, SAFE, note) — <strong>on SDN list</strong></td>
-          <td class="no">Blocked in all instrument forms. Paying dividends, distributions, or any other benefit to an SDN-listed person is prohibited. If SDN-listed persons hold 50% or more of TF <em>in aggregate</em>, TF itself becomes a blocked entity and any US person transacting with TF is also in violation.
+          <td><span class="no">Blocked.</span> Paying dividends, distributions, or any other benefit to an SDN-listed person is prohibited. If SDN-listed persons hold 50% or more of TF <em>in aggregate</em>, TF itself becomes a blocked entity and any US person transacting with TF is also in violation.
             <span class="src"><a href="https://ofac.treasury.gov/faqs/topic/1631" target="_blank" rel="noopener">OFAC 50% rule ↗</a></span>
           </td>
           <td>No SDN-listed person can hold any form of ownership interest in TF. Existing interests must be restructured out before TF can operate legally.</td>
         </tr>
         <tr>
           <td>Paying <strong>salary or consulting fees</strong> to a Russia-resident co-founder</td>
-          <td class="yes">No US sanctions law prohibits paying a Russia-resident person who works <em>for</em> TF. EO 14071 prohibits TF from providing consulting services <em>to</em> persons in Russia — the direction is opposite. A Russia-resident co-founder providing management services to a US company is the provider, not the recipient. EO 14071 does not apply.
+          <td><span class="yes">Permitted.</span> No US sanctions law prohibits paying a Russia-resident person who works <em>for</em> TF. EO 14071 prohibits TF from providing consulting services <em>to</em> persons in Russia — the direction is opposite. A Russia-resident co-founder providing management services to a US company is the provider, not the recipient. EO 14071 does not apply.
             <span class="src"><a href="https://ofac.treasury.gov/faqs/1061" target="_blank" rel="noopener">OFAC FAQ 1061 — employment by Russian entities ↗</a></span>
           </td>
           <td>Real constraints: (1) US banks may refuse wire transfers to Russia-resident individuals — practical, not legal. (2) SDN screening required before any payment. (3) Pay to a non-Russian bank account (Georgian, Armenian, EU). No sanctions barrier — infrastructure only.</td>
         </tr>
         <tr>
           <td>Paying <strong>dividends or profit distributions</strong> to a Russia-resident shareholder (non-SDN)</td>
-          <td class="warn">No US sanctions law prohibits distributing dividends to a non-SDN Russian-resident shareholder. The legal right to pay exists. Executing the payment does not: Visa/Mastercard and most SWIFT routes to Russia are non-functional since 2022.</td>
+          <td><span class="warn">Permitted legally, infrastructure blocked.</span> No US sanctions law prohibits distributing dividends to a non-SDN Russian-resident shareholder. The legal right to pay exists. Executing the payment does not: Visa/Mastercard and most SWIFT routes to Russia are non-functional since 2022.</td>
           <td>Shareholder agreement should require payment to a non-Russian bank account. This is a contractual requirement, not a sanctions requirement.</td>
         </tr>
       </tbody>
@@ -765,12 +760,9 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <div class="section">
     <div class="sec-heading"><span class="sec-num">11</span>Physical Goods: What Can Be Sold &amp; Shipped to Russian Buyers?</div>
 
-    <p style="font-size:13px;color:var(--ink);line-height:1.65;margin-bottom:16px">This section covers <strong>physical goods shipment</strong> — separate from OFAC (which governs payments and services). The relevant law is the US Export Administration Regulations (EAR), enforced by BIS (Bureau of Industry and Security, US Department of Commerce). BIS restricts export of "luxury goods" to Russia under Supplement No. 5 to Part 746 of the EAR.</p>
+    <div style="background:var(--amber-bg);border:1px solid #FCD34D;border-left:4px solid var(--amber);padding:14px 18px;margin-bottom:20px;font-size:13px;color:var(--ink);line-height:1.6"><strong>Restricted for high-value items and all art.</strong> Fashion apparel and footwear below $300/unit wholesale can be shipped — no BIS restriction. Items at or above $300/unit wholesale are blocked. Art objects of any price are blocked regardless of value. Payment to Russian buyers remains separately blocked by infrastructure (see §04). <a href="https://www.federalregister.gov/documents/2022/09/16/2022-19910/implementation-of-additional-sanctions-against-russia-and-belarus-under-the-export-administration" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Federal Register — BIS September 2022 rule ↗</a></div>
 
-    <div style="background:var(--amber-bg);border:1px solid #FCD34D;border-left:4px solid var(--amber);padding:14px 18px;margin-bottom:20px;font-size:13px;color:var(--ink);line-height:1.6">
-      <strong>The threshold is $300 per unit wholesale price — not $200.</strong> Items below $300/unit wholesale are not restricted by BIS. Items at or above $300/unit wholesale require an export license — which is issued under a policy of denial for Russia (= effectively blocked). The original 2022 threshold was $1,000; BIS lowered it to $300 in September 2022 to align with EU/UK rules.
-      <span class="src"><a href="https://www.federalregister.gov/documents/2022/09/16/2022-19910/implementation-of-additional-sanctions-against-russia-and-belarus-under-the-export-administration" target="_blank" rel="noopener">Federal Register — BIS September 2022 rule ↗</a></span>
-    </div>
+    <p style="font-size:13px;color:var(--ink);line-height:1.65;margin-bottom:16px">Governed by the US Export Administration Regulations (EAR), enforced by BIS (Bureau of Industry and Security, US Department of Commerce) — separate from OFAC. BIS restricts physical export of "luxury goods" to Russia under Supplement No. 5 to Part 746 of the EAR. The threshold is <strong>$300 per unit wholesale price</strong>. Items at or above this require an export license, issued under a policy of denial for Russia.</p>
 
     <table class="dtable" style="margin-bottom:24px">
       <thead>
