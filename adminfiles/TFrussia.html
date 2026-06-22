@@ -135,27 +135,20 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
 
   <div class="pg-eyebrow">Legal / Tax Research · Internal</div>
   <div class="pg-title">Russian Designers on TF — US Sanctions</div>
-  <div class="pg-sub">Whether a US Delaware C-corp can legally operate a fashion marketplace with Russian-based designers. Research current as of June 2026. Not legal advice — requires US sanctions counsel sign-off before onboarding any Russian counterparty.</div>
+  <div class="pg-sub">Research as of June 2026.</div>
 
   <!-- CONCLUSION -->
   <div class="concl-box">
-    <div class="concl-label">Bottom Line</div>
-    <div class="concl-verdict">Not structurally prohibited. Fashion is not a sanctioned sector. The platform's services are outside the IT software prohibition scope. Two mandatory requirements: SDN screening of every counterparty, and non-Russian banking for all payouts.</div>
-    <div class="concl-row">
-      <div class="concl-item">
-        <div class="concl-item-label">Sector Risk</div>
-        <div class="badge badge-green">Low</div>
-        <div class="concl-item-val">Fashion / consumer goods not designated under any Russia sanctions program.</div>
-      </div>
-      <div class="concl-item">
-        <div class="concl-item-label">IT Prohibition Risk</div>
-        <div class="badge badge-amber">Watch</div>
-        <div class="concl-item-val">Consumer marketplace is outside scope. Brand analytics / advisory features require legal review.</div>
-      </div>
-      <div class="concl-item">
-        <div class="concl-item-label">Payment Risk</div>
-        <div class="badge badge-red">High</div>
-        <div class="concl-item-val">Visa/Mastercard and most SWIFT routes to Russia are non-functional. Non-Russian bank accounts required.</div>
+    <div class="concl-label">Conclusion</div>
+    <div class="concl-verdict">Not prohibited. Fashion is not a sanctioned sector. Consumer marketplace services are outside the IT prohibition scope.</div>
+
+    <div style="margin-top:20px">
+      <div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);margin-bottom:12px">Legal requirements — must do</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="font-size:13px;color:var(--ink);line-height:1.5;display:flex;gap:10px"><span style="color:var(--orange);font-weight:800;flex-shrink:0">1.</span><span><strong>Screen every counterparty against the OFAC SDN list</strong> before onboarding and before each payout. SDN = Specially Designated Nationals — OFAC's list of individuals and entities US persons are legally prohibited from transacting with. Strict liability: no knowledge required to trigger a penalty.</span></div>
+        <div style="font-size:13px;color:var(--ink);line-height:1.5;display:flex;gap:10px"><span style="color:var(--orange);font-weight:800;flex-shrink:0">2.</span><span><strong>Require non-Russian bank accounts for all payouts.</strong> Visa/Mastercard and SWIFT to Russia are non-functional since 2022 regardless of sanctions — this is a payment infrastructure fact, not a legal restriction.</span></div>
+        <div style="font-size:13px;color:var(--ink);line-height:1.5;display:flex;gap:10px"><span style="color:var(--orange);font-weight:800;flex-shrink:0">3.</span><span><strong>Do not provide brand strategy, AI advisory, or analytics features to Russia-located users.</strong> EO 14071 prohibits "management consulting" and business intelligence software to persons in Russia — these features fall in that grey zone.</span></div>
+        <div style="font-size:13px;color:var(--ink);line-height:1.5;display:flex;gap:10px"><span style="color:var(--orange);font-weight:800;flex-shrink:0">4.</span><span><strong>Verify beneficial ownership for any legal entity counterparty.</strong> A company not on the SDN list is still blocked if 50%+ is owned by a blocked individual.</span></div>
       </div>
     </div>
   </div>
