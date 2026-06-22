@@ -168,7 +168,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
     <div style="margin-top:20px">
       <div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);margin-bottom:12px">Legal requirements — must do</div>
       <div style="display:flex;flex-direction:column;gap:8px">
-        <div style="font-size:13px;color:var(--ink);line-height:1.5;display:flex;gap:10px"><span style="color:var(--orange);font-weight:800;flex-shrink:0">1.</span><span><strong>Screen every counterparty against the OFAC SDN list</strong> before onboarding and before each payout. SDN = Specially Designated Nationals — OFAC's list of individuals and entities that US persons and companies are prohibited by law from transacting with. Penalty applies even if you did not know the person was on the list.</span></div>
+        <div style="font-size:13px;color:var(--ink);line-height:1.5;display:flex;gap:10px"><span style="color:var(--orange);font-weight:800;flex-shrink:0">1.</span><span><strong>Use a regulated payment processor — it handles SDN screening automatically.</strong> OFAC prohibits transacting with SDN-listed persons (strict liability — penalty applies even without knowledge). In practice, this obligation is met by using Stripe or equivalent: Stripe automatically screens all connected accounts against the OFAC SDN list and pauses payouts to any flagged account. No user-facing nationality declaration is required or expected. <a href="https://support.stripe.com/questions/understanding-sanctions" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600;font-size:12px">Stripe sanctions support ↗</a> <a href="https://ofac.treasury.gov/faqs/topic/1631" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600;font-size:12px">OFAC SDN FAQ ↗</a></span></div>
         <div style="font-size:13px;color:var(--ink);line-height:1.5;display:flex;gap:10px"><span style="color:var(--orange);font-weight:800;flex-shrink:0">2.</span><span><strong>Do not provide brand strategy, AI advisory, or analytics features to Russia-located users.</strong> EO 14071 prohibits providing management consulting and business intelligence software services to persons located in Russia. Violation is a civil and criminal offence.</span></div>
         <div style="font-size:13px;color:var(--ink);line-height:1.5;display:flex;gap:10px"><span style="color:var(--orange);font-weight:800;flex-shrink:0">3.</span><span><strong>Verify beneficial ownership for any legal entity counterparty.</strong> Under OFAC's 50% rule, a company is treated as a blocked entity if 50% or more of it is owned by a person on the SDN list — even if the company itself is not listed.</span></div>
       </div>
@@ -612,6 +612,74 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         <tr>
           <td>Separate passive equity from active services</td>
           <td>A Russia-resident co-founder who holds equity but provides no management services (no salary, no consulting agreement) avoids the EO 14071 management consulting risk.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <!-- SECTION 10 -->
+  <div class="section">
+    <div class="sec-heading"><span class="sec-num">10</span>Russian Nationality vs. Russian Residency</div>
+
+    <div style="background:var(--green-bg);border-left:3px solid var(--green);padding:14px 18px;margin-bottom:22px;font-size:13px;color:var(--ink);line-height:1.6">
+      <strong>Conclusion:</strong> Sanctions restrictions apply based on <em>location in Russia</em> and <em>SDN-list status</em> — not on Russian passport or nationality. A Russian national living outside Russia is not "a person located in the Russian Federation" for EO 14071 purposes.
+      <span class="src"><a href="https://ofac.treasury.gov/faqs/1058" target="_blank" rel="noopener">OFAC FAQ 1058 ↗</a></span>
+    </div>
+
+    <table class="dtable" style="margin-bottom:28px">
+      <thead>
+        <tr><th>Rule</th><th>What it covers</th><th>Test</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>"Located in the Russian Federation" — EO 14071 services prohibition</td>
+          <td>Persons <em>ordinarily resident</em> in Russia. Russian nationals living abroad are not covered as prohibition targets.
+            <span class="src"><a href="https://ofac.treasury.gov/faqs/1058" target="_blank" rel="noopener">OFAC FAQ 1058 ↗</a></span>
+          </td>
+          <td><strong>Location / residency</strong> — not nationality</td>
+        </tr>
+        <tr>
+          <td>"US person" — who must comply with OFAC rules</td>
+          <td>US citizens; US permanent residents (green card holders) anywhere in the world; US-incorporated entities; persons physically in the US.
+            <span class="src"><a href="https://ofacblockedfundslawyers.com/faq/who-is-considered-a-us-person-under-ofac/" target="_blank" rel="noopener">OFAC US person definition ↗</a></span>
+          </td>
+          <td><strong>Citizenship / permanent residency</strong> — green card = US person</td>
+        </tr>
+        <tr>
+          <td>SDN list — blocked regardless of where they live</td>
+          <td>Specific named individuals and entities. SDN status applies regardless of nationality or current location. An SDN-listed Russian living in Dubai is still blocked.</td>
+          <td><strong>Individual-specific</strong> — not nationality-based</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);margin-bottom:12px">TF co-founders — how this applies</div>
+    <table class="dtable">
+      <thead>
+        <tr><th>Role</th><th>Status</th><th>Located in Russia?</th><th>US person?</th><th>Position</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Founder</td>
+          <td>Russian national · US green card · US resident</td>
+          <td class="yes">No</td>
+          <td style="background:var(--amber-bg);color:var(--amber);font-weight:700;font-size:12px">YES — green card = US person</td>
+          <td>Not a sanctions target. Russian nationality irrelevant. Must not personally transact with SDN-listed persons, same as any US person. OFAC compliance obligations apply to him personally.</td>
+        </tr>
+        <tr>
+          <td>CEO</td>
+          <td>Russian national · Dutch passport · NL resident</td>
+          <td class="yes">No</td>
+          <td class="yes">No — not a US person personally</td>
+          <td>Not a target of EO 14071. Acts on behalf of TF (a US Delaware C-corp). TF's OFAC obligations apply at entity level.</td>
+        </tr>
+        <tr>
+          <td>CTO</td>
+          <td>Nationality unclear · Asia-resident</td>
+          <td class="yes">No</td>
+          <td class="warn">Confirm — depends on citizenship/residency</td>
+          <td>Not in Russia — EO 14071 location test does not apply. If US citizen or green card holder: OFAC compliance obligations apply personally. SDN screening required regardless.</td>
         </tr>
       </tbody>
     </table>
