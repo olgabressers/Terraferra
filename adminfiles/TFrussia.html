@@ -557,7 +557,8 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <!-- SECTION 09 -->
   <div class="section">
     <div class="sec-heading"><span class="sec-num">09</span>Russian Co-Founders, Investors &amp; Shareholders</div>
-    <p style="font-size:13px;color:var(--ink);line-height:1.65;margin-bottom:20px">US sanctions law does not prohibit a Russian national from holding equity in a US Delaware C-corp — provided that person is not on the SDN list and does not own 50%+ of the company while being a blocked person. The relevant restrictions are as follows.</p>
+    <p style="font-size:13px;color:var(--ink);line-height:1.65;margin-bottom:8px">The determining factor for all ownership instruments — common shares, preferred shares, SAFE, convertible note — is whether the individual is on the OFAC SDN list. The instrument type does not change the rule. SDN-listed: blocked in all forms. Not SDN-listed: permitted in all forms.</p>
+    <p style="font-size:12px;color:var(--ink);line-height:1.6;margin-bottom:20px;padding:10px 14px;background:var(--tf-ghost);border-left:3px solid var(--tf)">Note on EO 14071 "new investment" prohibition: this restricts US persons from making new investments <em>in Russia</em> — it does not restrict a Russian national from investing money into a US company. A Russian investor wiring into a US Delaware C-corp SAFE is outside this prohibition. <a href="https://ofac.treasury.gov/faqs/1128" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600;font-size:11px">OFAC FAQ 1128 ↗</a></p>
 
     <table class="dtable" style="margin-bottom:28px">
       <thead>
@@ -569,38 +570,30 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
       </thead>
       <tbody>
         <tr>
-          <td>Russian national holds equity, <strong>not on SDN list</strong></td>
-          <td class="yes">Permitted. No provision of US sanctions law prohibits a non-designated Russian national from holding shares in a US company.
+          <td>Russian national holds any ownership interest (shares, SAFE, note) — <strong>not on SDN list</strong></td>
+          <td class="yes">Permitted. No provision of US sanctions law prohibits a non-designated Russian national from holding an ownership interest in a US company, in any instrument form.
             <span class="src"><a href="https://ofac.treasury.gov/sanctions-programs-and-country-information/russian-harmful-foreign-activities-sanctions" target="_blank" rel="noopener">OFAC EO 14024 program page ↗</a></span>
           </td>
-          <td>Screen the individual against the SDN list at the time of equity grant and periodically thereafter. If they remain off the list, no restriction applies to holding equity.</td>
+          <td>Screen the individual against the SDN list at the time of grant or investment, and periodically thereafter. If they remain off the list, no restriction applies.</td>
         </tr>
         <tr>
-          <td>Russian national holds equity, <strong>on SDN list</strong></td>
-          <td class="no">TF itself becomes effectively blocked if a blocked person holds 50%+ of the company. Any US person who transacts with TF in that scenario is also in violation. Even below 50%, transacting with or benefiting an SDN-listed individual is prohibited — meaning paying dividends, distributions, or salary to them violates sanctions law.
+          <td>Russian national holds any ownership interest (shares, SAFE, note) — <strong>on SDN list</strong></td>
+          <td class="no">Blocked in all instrument forms. Paying dividends, distributions, or any other benefit to an SDN-listed person is prohibited. If the SDN-listed person holds 50%+ of TF, TF itself becomes a blocked entity and any US person transacting with TF is also in violation.
             <span class="src"><a href="https://ofac.treasury.gov/faqs/topic/1631" target="_blank" rel="noopener">OFAC 50% rule ↗</a></span>
           </td>
-          <td>A co-founder or investor who is on the SDN list cannot hold equity in TF. Their shares must be restructured out before TF can operate legally.</td>
+          <td>No SDN-listed person can hold any form of ownership interest in TF. Existing interests must be restructured out before TF can operate legally.</td>
         </tr>
         <tr>
           <td>Paying <strong>salary or consulting fees</strong> to a Russia-resident co-founder</td>
-          <td class="warn">EO 14071 prohibits US persons from providing "management consulting" services to persons located in Russia — and also from receiving such services from persons in Russia when the payment flows back. Paying a Russia-resident co-founder for active management work is in the grey zone of this prohibition.
+          <td class="warn">EO 14071 prohibits US persons from providing or receiving "management consulting" services when payment flows to or from a person located in Russia. Paying a Russia-resident co-founder for active management work falls in this grey zone.
             <span class="src"><a href="https://ofac.treasury.gov/faqs/1128" target="_blank" rel="noopener">OFAC FAQ 1128 — EO 14071 services ↗</a></span>
           </td>
-          <td>A Russia-resident co-founder who receives a salary or consulting fee from TF for active management work triggers this risk. A passive equity holder who receives no payment for services does not.</td>
+          <td>Risk arises only when payment flows for active work. A Russia-resident co-founder who holds equity but receives no salary or consulting fee is outside this prohibition.</td>
         </tr>
         <tr>
           <td>Paying <strong>dividends or profit distributions</strong> to a Russia-resident shareholder (non-SDN)</td>
-          <td class="warn">No specific provision of US sanctions law prohibits distributing dividends to a non-SDN Russian-resident shareholder. However, executing the payment faces the same infrastructure constraint as all Russia-bound transfers: Visa/Mastercard and most SWIFT routes are non-functional. The legal right to pay exists; the ability to execute it does not via standard channels.
-          </td>
-          <td>Shareholder agreement should specify payment to a non-Russian bank account as a condition of receiving distributions. This is a contractual requirement, not a sanctions requirement.</td>
-        </tr>
-        <tr>
-          <td><strong>Russian-resident investor holds SAFE or convertible note</strong></td>
-          <td class="yes">EO 14071 restricts "new investment" by US persons <em>in Russia</em> — it does not restrict a Russian national from investing in a US company. A Russian investor wiring money into a US Delaware C-corp SAFE is not covered by this prohibition.
-            <span class="src"><a href="https://ofac.treasury.gov/faqs/1128" target="_blank" rel="noopener">OFAC FAQ 1128 — new investment definition ↗</a></span>
-          </td>
-          <td>Screen the investor against the SDN list. If clean, the investment itself is not prohibited by US sanctions. The investor may face Russian domestic capital controls on outbound transfers — that is Russian law, not US sanctions.</td>
+          <td class="warn">No US sanctions law prohibits distributing dividends to a non-SDN Russian-resident shareholder. The legal right to pay exists. Executing the payment does not: Visa/Mastercard and most SWIFT routes to Russia are non-functional since 2022.</td>
+          <td>Shareholder agreement should require payment to a non-Russian bank account. This is a contractual requirement, not a sanctions requirement.</td>
         </tr>
       </tbody>
     </table>
@@ -610,15 +603,15 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
       <tbody>
         <tr>
           <td>Screen all co-founders and investors against the SDN list</td>
-          <td>At equity grant, at each subsequent funding round, and when OFAC updates the list. Applies to every shareholder regardless of nationality.</td>
+          <td>At equity grant or investment, at each subsequent funding round, and when OFAC updates the list. Applies to every shareholder regardless of nationality.</td>
         </tr>
         <tr>
           <td>Apply the 50% rule to the cap table</td>
-          <td>If any shareholder who is on the SDN list holds or could accumulate 50%+ of TF equity, TF itself becomes a blocked entity. Cap table must be structured to prevent this outcome.</td>
+          <td>If any SDN-listed person holds or could accumulate 50%+ of TF equity, TF itself becomes a blocked entity. Cap table must be structured to prevent this outcome.</td>
         </tr>
         <tr>
           <td>Separate passive equity from active services</td>
-          <td>A Russia-resident co-founder who holds equity but provides no management services (no salary, no consulting agreement) avoids the EO 14071 management consulting risk. The risk arises only when payment flows for active work.</td>
+          <td>A Russia-resident co-founder who holds equity but provides no management services (no salary, no consulting agreement) avoids the EO 14071 management consulting risk.</td>
         </tr>
       </tbody>
     </table>
