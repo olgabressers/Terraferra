@@ -160,6 +160,12 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <div class="pg-title">Russian Designers on TF — US Sanctions</div>
   <div class="pg-sub">Research as of June 2026.</div>
 
+  <!-- SDN DEFINITION -->
+  <div style="background:white;border:1px solid var(--rule);border-left:4px solid var(--orange);padding:16px 20px;margin-top:22px;margin-bottom:0">
+    <div style="font-size:10px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--orange);margin-bottom:8px">Key term: SDN</div>
+    <div style="font-size:13px;color:var(--ink);line-height:1.65"><strong>SDN = Specially Designated Nationals list.</strong> OFAC's (US Treasury) blacklist of individuals and entities with whom all transactions are completely banned for US persons and US companies. Currently ~7,500 entries worldwide — mostly government officials, oligarchs, armed groups, and their connected companies. Being on this list means: all US-accessible assets are frozen, no US bank will process money to or from them, and payment processors (Stripe, PayPal, Adyen) automatically block them. <strong>Most Russians are NOT on this list.</strong> The list targets specific named people, not Russian nationals generally. You can search it at <a href="https://sanctionssearch.ofac.treas.gov/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">sanctionssearch.ofac.treas.gov ↗</a>.</div>
+  </div>
+
   <!-- TOP ANSWER TABLE -->
   <table class="dtable" style="margin:28px 0 36px">
     <thead>
@@ -215,7 +221,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
       <div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);margin-bottom:12px">Legal requirements — must do</div>
       <div style="display:flex;flex-direction:column;gap:8px">
         <div style="font-size:13px;color:var(--ink);line-height:1.5;display:flex;gap:10px"><span style="color:var(--orange);font-weight:800;flex-shrink:0">1.</span><span><strong>Use a regulated payment processor — it handles SDN screening automatically.</strong> OFAC prohibits transacting with SDN-listed persons (strict liability — penalty applies even without knowledge). In practice, this obligation is met by using Stripe or equivalent: Stripe automatically screens all connected accounts against the OFAC SDN list and pauses payouts to any flagged account. No user-facing nationality declaration is required or expected. <a href="https://support.stripe.com/questions/understanding-sanctions" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600;font-size:12px">Stripe sanctions support ↗</a> <a href="https://ofac.treasury.gov/faqs/topic/1631" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600;font-size:12px">OFAC SDN FAQ ↗</a></span></div>
-        <div style="font-size:13px;color:var(--ink);line-height:1.5;display:flex;gap:10px"><span style="color:var(--orange);font-weight:800;flex-shrink:0">2.</span><span><strong>Do not provide strategic business advice or cloud analytics tools to Russia-located users.</strong> Two separate prohibitions: (a) "management consulting services" ban — strategic recommendations, growth strategy, brand management; (b) since September 2024, a separate ban on cloud-delivered business intelligence (BI) and CRM software to Russia-located users. Standard browsing, search, and social features are not covered by either. <a href="https://ofac.treasury.gov/faqs/1064" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600;font-size:12px">OFAC FAQ 1064 ↗</a> <a href="https://ofac.treasury.gov/faqs/1187" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600;font-size:12px">FAQ 1187 ↗</a></span></div>
+        <div style="font-size:13px;color:var(--ink);line-height:1.5;display:flex;gap:10px"><span style="color:var(--orange);font-weight:800;flex-shrink:0">2.</span><span><strong>Do not actively market AI advisory or strategic consulting features to Russia-located users.</strong> Two prohibitions apply where TF has knowledge the user is in Russia: (a) "management consulting" ban — strategic recommendations, growth strategy, competitive analysis; (b) since September 2024, cloud-delivered BI and CRM software where TF knowingly provides it to Russia-based users. Standard browsing, product discovery, and social features are outside both. Compliance approach used by all major platforms: geoblock Russia for advanced advisory/analytics features; let standard marketplace features operate globally. No platform asks users for passports. <a href="https://ofac.treasury.gov/faqs/1064" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600;font-size:12px">OFAC FAQ 1064 ↗</a> <a href="https://ofac.treasury.gov/faqs/1187" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600;font-size:12px">FAQ 1187 ↗</a></span></div>
         <div style="font-size:13px;color:var(--ink);line-height:1.5;display:flex;gap:10px"><span style="color:var(--orange);font-weight:800;flex-shrink:0">3.</span><span><strong>Verify beneficial ownership for any legal entity counterparty.</strong> Under OFAC's 50% rule, a company is blocked if 50% or more of it is owned <em>in aggregate</em> by one or more blocked persons — two SDN-listed individuals each owning 25% = company blocked. Applies to indirect ownership chains too. <a href="https://ofac.treasury.gov/faqs/399" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600;font-size:12px">OFAC FAQ 399 ↗</a></span></div>
       </div>
     </div>
@@ -295,9 +301,9 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         </tr>
         <tr>
           <td>Sales analytics / performance dashboards</td>
-          <td>Prohibited — "enterprise management software" (BI/CRM)</td>
-          <td class="no">Since September 12, 2024, OFAC independently prohibits cloud-delivered Business Intelligence (BI) and CRM software to Russia — separate from the management consulting ban. A SaaS analytics dashboard for Russian designers is caught by this rule regardless of whether it constitutes "consulting."
-            <span class="src"><a href="https://ofac.treasury.gov/faqs/1187" target="_blank" rel="noopener">OFAC FAQ 1187 — BI &amp; CRM in scope ↗</a> · <a href="https://ofac.treasury.gov/faqs/1184" target="_blank" rel="noopener">FAQ 1184 ↗</a></span>
+          <td>Potentially "enterprise management software" (BI)</td>
+          <td class="warn">The prohibition covers cloud-delivered BI and CRM software provided to persons TF <strong>knows</strong> are located in Russia. The knowledge requirement matters: major SaaS providers (Google, Microsoft, Salesforce) comply by geoblocking Russia at country level — they don't ask for passports, they simply don't serve Russia as a market. No platform screens individual users against a map. If TF explicitly onboards Russia-based designers and markets analytics features to them, that creates the knowledge that triggers this rule. If Russia-based users access the same global analytics any platform user can access, that's lower risk. <strong>Practical approach: do not market analytics as a Russia-specific feature; geoblock advanced analytics for Russia IPs if practical.</strong>
+            <span class="src"><a href="https://ofac.treasury.gov/faqs/1187" target="_blank" rel="noopener">OFAC FAQ 1187 ↗</a> · <a href="https://ofac.treasury.gov/faqs/1184" target="_blank" rel="noopener">FAQ 1184 ↗</a></span>
           </td>
         </tr>
         <tr>
@@ -313,23 +319,23 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
 
   <!-- SECTION 03 -->
   <div class="section">
-    <div class="sec-heading"><span class="sec-num">03</span>SDN Screening — Mandatory for Every Counterparty</div>
-    <p style="font-size:13px;color:var(--ink);line-height:1.65;margin-bottom:16px">OFAC sanctions are strict liability — liability attaches even without knowledge that a counterparty is on the list. However, the penalty amount varies dramatically: an unknowing violation with a documented compliance program and voluntary self-disclosure is treated as non-egregious and resolved at the lower end of the range. Voluntary disclosure alone cuts the base penalty by 50%. Criminal liability (up to $1M + imprisonment) requires proof of deliberate intent. <a href="https://ofac.treasury.gov/faqs/65" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600;font-size:12px">OFAC FAQ 65 ↗</a></p>
+    <div class="sec-heading"><span class="sec-num">03</span>SDN Screening</div>
+    <p style="font-size:13px;color:var(--ink);line-height:1.65;margin-bottom:16px">OFAC sanctions are strict liability — liability attaches even without knowledge that a counterparty is on the list. In practice, <strong>no platform asks users for their passport or manually checks SDN at signup</strong>. Compliance happens through payment processors: Stripe automatically screens all connected accounts against the SDN list at payout and blocks any match. TF does not need a user-facing nationality declaration or manual SDN lookup for individual platform users. Higher manual due diligence applies to business partners (investors, co-founders, large contract counterparties) — not individual designers or influencers. Penalty varies by knowledge: unknowing violations with documented compliance + voluntary disclosure are treated as non-egregious. <a href="https://ofac.treasury.gov/faqs/65" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600;font-size:12px">OFAC FAQ 65 ↗</a></p>
     <table class="dtable">
       <thead>
         <tr>
           <th>Requirement</th>
-          <th>Detail</th>
+          <th>How it works in practice</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Screen at onboarding</td>
-          <td>Every designer, influencer, or brand must be checked against the OFAC SDN list before approval.</td>
+          <td>SDN screening for platform users (designers, influencers)</td>
+          <td>Handled automatically by Stripe. Stripe screens all connected accounts against the SDN list before every payout and pauses payments to flagged accounts. No manual check, no passport, no user declaration required. <a href="https://support.stripe.com/questions/understanding-sanctions" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600;font-size:11px">Stripe sanctions support ↗</a></td>
         </tr>
         <tr>
-          <td>Screen before each payout</td>
-          <td>Designations change multiple times weekly. A clean screen at onboarding does not substitute for screening at payment time.</td>
+          <td>SDN screening for business counterparties (investors, co-founders)</td>
+          <td>Manual check expected before entering a legal agreement: investing, equity grant, employment contract. Check the individual AND any company they control (50% rule). Re-check when OFAC updates the list and at each new funding round.</td>
         </tr>
         <tr>
           <td>50% ownership rule</td>
@@ -732,6 +738,117 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
       </tbody>
     </table>
   </div>
+
+
+  <!-- SECTION 11 -->
+  <div class="section">
+    <div class="sec-heading"><span class="sec-num">11</span>Physical Goods: What Can Be Sold &amp; Shipped to Russian Buyers?</div>
+
+    <p style="font-size:13px;color:var(--ink);line-height:1.65;margin-bottom:16px">This section covers <strong>physical goods shipment</strong> — separate from OFAC (which governs payments and services). The relevant law is the US Export Administration Regulations (EAR), enforced by BIS (Bureau of Industry and Security, US Department of Commerce). BIS restricts export of "luxury goods" to Russia under Supplement No. 5 to Part 746 of the EAR.</p>
+
+    <div style="background:var(--amber-bg);border:1px solid #FCD34D;border-left:4px solid var(--amber);padding:14px 18px;margin-bottom:20px;font-size:13px;color:var(--ink);line-height:1.6">
+      <strong>The threshold is $300 per unit wholesale price — not $200.</strong> Items below $300/unit wholesale are not restricted by BIS. Items at or above $300/unit wholesale require an export license — which is issued under a policy of denial for Russia (= effectively blocked). The original 2022 threshold was $1,000; BIS lowered it to $300 in September 2022 to align with EU/UK rules.
+      <span class="src"><a href="https://www.federalregister.gov/documents/2022/09/16/2022-19910/implementation-of-additional-sanctions-against-russia-and-belarus-under-the-export-administration" target="_blank" rel="noopener">Federal Register — BIS September 2022 rule ↗</a></span>
+    </div>
+
+    <table class="dtable" style="margin-bottom:24px">
+      <thead>
+        <tr>
+          <th style="width:22%">Category</th>
+          <th style="width:18%">US BIS threshold</th>
+          <th style="width:12%">Status</th>
+          <th>TF relevance</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Fashion apparel — clothing, dresses, coats</td>
+          <td>$300/unit wholesale</td>
+          <td class="warn">Threshold</td>
+          <td>Under $300/unit wholesale: not restricted. At or above $300: requires license (= blocked). TF affordable-luxury price range will often cross this line. A $250 wholesale price shirt = OK. A $350 wholesale jacket = blocked.</td>
+        </tr>
+        <tr>
+          <td>Footwear</td>
+          <td>$300/unit wholesale</td>
+          <td class="warn">Threshold</td>
+          <td>Same $300 rule. Luxury or designer shoes are frequently above this threshold.</td>
+        </tr>
+        <tr>
+          <td>Handbags, accessories</td>
+          <td>$300/unit wholesale</td>
+          <td class="warn">Threshold</td>
+          <td>Same $300 rule.</td>
+        </tr>
+        <tr>
+          <td>Jewelry</td>
+          <td>$300/unit wholesale</td>
+          <td class="warn">Threshold</td>
+          <td>Same $300 rule.</td>
+        </tr>
+        <tr>
+          <td>Watches</td>
+          <td>$300/unit wholesale</td>
+          <td class="warn">Threshold</td>
+          <td>Same $300 rule.</td>
+        </tr>
+        <tr>
+          <td>Art objects, limited edition prints, original artworks, collectibles</td>
+          <td style="color:var(--red);font-weight:700">No minimum — all values</td>
+          <td class="no">All restricted</td>
+          <td>The US BIS rule has NO dollar floor for art/collectibles. A $50 print and a $50,000 painting are both restricted for physical export to Russia. EU/UK rules have a €300/£250 threshold; US does not. Emerging-designer limited edition drops qualify as "works of art" and are covered.
+            <span class="src"><a href="https://knowledgebase.artaml.com/what-is-the-luxury-goods-ban" target="_blank" rel="noopener">ArtAML — luxury goods ban overview ↗</a></span>
+          </td>
+        </tr>
+        <tr>
+          <td>Automobiles</td>
+          <td>$50,000/unit wholesale</td>
+          <td class="no">High threshold but blocked</td>
+          <td>Not relevant to TF's fashion marketplace.</td>
+        </tr>
+        <tr>
+          <td>Digital goods (downloadable files, patterns, licenses)</td>
+          <td>Not covered by BIS</td>
+          <td class="yes">N/A</td>
+          <td>BIS governs physical export only. Digital downloads, NFTs, and design files are not physical exports — they fall under OFAC services rules if applicable.</td>
+        </tr>
+        <tr>
+          <td>Platform marketplace services (TF's own service)</td>
+          <td>Not covered by BIS</td>
+          <td class="yes">N/A</td>
+          <td>TF's platform service is not a physical export. Covered by OFAC rules in §01–02 above. The BIS rule affects the physical goods that designers ship to Russian buyers — not TF's platform itself.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);margin-bottom:12px">Who does this rule apply to?</div>
+    <table class="dtable" style="margin-bottom:20px">
+      <thead>
+        <tr><th>Scenario</th><th>Does BIS apply?</th><th>Practical position</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>US-based designer ships goods to a Russian buyer via TF</td>
+          <td class="no">Yes — US exporter</td>
+          <td>The designer is the exporter. Shipping $300+ apparel to Russia without a BIS license is a violation. TF as US platform facilitating the transaction may be considered an intermediary — legal exposure exists. Require all designers to confirm they comply with BIS rules in terms of service.</td>
+        </tr>
+        <tr>
+          <td>EU-based or UK-based designer ships goods to a Russian buyer via TF</td>
+          <td class="warn">BIS does not apply directly</td>
+          <td>BIS is US law and covers US exporters. A French designer shipping from Paris to Moscow is governed by EU sanctions (which also restrict luxury goods to Russia). TF is not the exporter — the EU designer is. TF's liability exposure is lower, but check whether TF's role as payment processor for the transaction creates US nexus.</td>
+        </tr>
+        <tr>
+          <td>Russian designer (based in Russia) ships goods within Russia or to another country</td>
+          <td class="yes">No</td>
+          <td>A designer shipping goods out of Russia is not a US export. BIS does not apply. OFAC rules govern whether TF can pay them (see §08).</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="background:var(--tf-ghost);border-left:3px solid var(--tf);padding:14px 18px;font-size:13px;color:var(--ink);line-height:1.65">
+      <strong>What this means for TF:</strong> TF should not facilitate physical shipment of apparel valued at $300+ wholesale, or any art objects, from US-based designers to Russia-based buyers. TF's terms of service should explicitly prohibit designers from using the platform to ship restricted goods to sanctioned countries. This protects TF from BIS intermediary liability. Shipment below $300 wholesale from US designers, or all shipments from non-US designers, fall outside BIS — though OFAC payment restrictions still apply separately.
+    </div>
+  </div>
+
 
 </div>
 
