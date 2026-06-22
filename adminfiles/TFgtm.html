@@ -139,9 +139,75 @@ table.risks td.mit{color:var(--ink)}
   table.risks{display:block;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch}
   table.risks td.mit{white-space:normal;min-width:200px}
 }
+
+/* Standard nav */
+.topnav{background:white;border-bottom:1px solid var(--rule,#D8D4EF);padding:12px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
+.topnav-home{font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);text-decoration:none;font-size:11px}
+.topnav-home:hover{color:var(--tf-dark)}
+.topnav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:var(--sub,#5B5880);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:10px}
+.topnav-links a:hover{color:var(--tf)}
+.has-dropdown{position:relative;padding-bottom:10px;margin-bottom:-10px}
+.dropdown-trigger{cursor:pointer;color:var(--sub,#5B5880);font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:10px;user-select:none}
+.dropdown-trigger:hover,.has-dropdown:focus-within .dropdown-trigger{color:var(--tf)}
+.dropdown{display:none;position:absolute;top:100%;right:0;background:white;border:1px solid #D8D4EF;min-width:210px;box-shadow:0 6px 14px rgba(0,0,0,.08);padding:6px 0;z-index:60}
+.has-dropdown:hover .dropdown,.has-dropdown:focus-within .dropdown{display:block}
+.dropdown a{display:block;padding:9px 16px;font-size:10px;font-weight:700;color:var(--sub,#5B5880);text-transform:uppercase;letter-spacing:1px;text-decoration:none}
+.dropdown a:hover{background:#F4F2FC;color:var(--tf)}
+@media(max-width:700px){
+  .topnav{position:static;padding:10px 14px}
+  .topnav-links{gap:10px;justify-content:flex-start;width:100%}
+  .topnav-links a{font-size:9.5px}
+  .has-dropdown{padding-bottom:0;margin-bottom:0}
+  .dropdown{position:static;display:block;box-shadow:none;border:none;padding:0;min-width:0;margin-left:8px}
+  .dropdown a{padding:4px 0;font-size:9px}
+}
 </style>
 </head>
 <body>
+
+<nav class="topnav">
+  <a href="index.html" class="topnav-home">Terra Ferra</a>
+  <div class="topnav-links">
+    <a href="index.html">Files</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Budget ▾</span>
+      <div class="dropdown">
+        <a href="TFmarketsize.html">Market Size &amp; Opportunity</a>
+        <a href="budget.html">Budget &amp; Sales Scenarios</a>
+      </div>
+    </div>
+    <a href="roles.html">Roles</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Business Model ▾</span>
+      <div class="dropdown">
+        <a href="TFbusinessmodel.html">Comparison Matrix</a>
+        <a href="TFaltmodel.html">Alternative Model</a>
+        <a href="TFmvpcosts.html">MVP Scope &amp; Costs</a>
+        <a href="TFgtm.html">GTM</a>
+        <a href="TFwhynow.html">Why Now</a>
+        <a href="TFdropsmarket.html">Drop Market Research</a>
+        <a href="TFunservedmarket.html">Unserved Market</a>
+        <a href="TFreferral.html">Referral &amp; Viral</a>
+        <a href="TFcreatortoken.html">Creator Payments</a>
+        <a href="TFstylists.html">Stylist Layer</a>
+        <a href="TFvisualdiscovery.html">Visual Discovery</a>
+      </div>
+    </div>
+    <a href="architecture.html">Architecture</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Ideas ▾</span>
+      <div class="dropdown">
+        <a href="gamification.html">Gamification</a>
+        <a href="ideas.html">Ideas &amp; AI Research</a>
+        <a href="influencer.html">Influencer Selling</a>
+        <a href="strategic-brief.html">Strategic Brief</a>
+      </div>
+    </div>
+    <a href="TFrussia.html">Legal / Tax</a>
+    <a href="task-tracker.html">Planning</a>
+  </div>
+</nav>
 
 <div class="wrap">
 
