@@ -333,6 +333,16 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 
       <div class="sl-group">
         <div class="sl-top">
+          <span class="sl-label">Fixed pay per influencer (per drop)</span>
+          <span class="sl-val" id="v-postfee">$50</span>
+        </div>
+        <input type="range" id="sl-postfee" min="0" max="250" step="10" value="50" oninput="calc()"/>
+        <div class="sl-hints"><span>$0</span><span>$250</span></div>
+        <div class="sl-note">Flat fee per influencer per drop, regardless of sales. ≤50K followers → $50, >50K → $100 suggested.</div>
+      </div>
+
+      <div class="sl-group">
+        <div class="sl-top">
           <span class="sl-label">Click-through rate — post → platform</span>
           <span class="sl-val" id="v-ctr">10.0%</span>
         </div>
@@ -390,16 +400,6 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         <input type="range" id="sl-inf" min="5" max="25" step="1" value="20" oninput="calc()"/>
         <div class="sl-hints"><span>5%</span><span>25%</span></div>
         <div class="sl-note">Standard 10%. Founding Creators: 20%. Benchmarks: LTK ~12%, ShopMy ~20%.</div>
-      </div>
-
-      <div class="sl-group">
-        <div class="sl-top">
-          <span class="sl-label">Fixed pay per influencer (per drop)</span>
-          <span class="sl-val" id="v-postfee">$50</span>
-        </div>
-        <input type="range" id="sl-postfee" min="0" max="250" step="10" value="50" oninput="calc()"/>
-        <div class="sl-hints"><span>$0</span><span>$250</span></div>
-        <div class="sl-note">Flat fee paid per influencer regardless of sales. Suggested: ≤50K followers → $50, >50K → $100.</div>
       </div>
 
       <div class="sl-group">
