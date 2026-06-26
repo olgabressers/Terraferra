@@ -277,7 +277,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 <!-- 01 CALCULATOR -->
 <section class="section">
   <div class="sec-heading"><span class="sec-num">01</span> Unit Economics · Drop Calculator</div>
-  <p style="font-size:13px;color:var(--sub);margin-bottom:28px;line-height:1.6">Per-drop economics for one influencer promoting one drop. VTO cost reflects all visitors who try VTO — not just buyers. Orders are capped by items in the drop (defaults open sold-out: 50K followers × 0.5% = 250 orders, above the 150-item cap — reduce items or followers to model an unsold-out scenario — increase items to model an unsold-out scenario). Monthly fixed costs excluded; see section 03.</p>
+  <p style="font-size:13px;color:var(--sub);margin-bottom:28px;line-height:1.6">Per-drop economics for one or more influencers promoting one drop. Funnel: total follower reach → click-through to TF → order on platform. VTO cost reflects all visitors who try VTO — not just buyers. Orders are capped by items in the drop (defaults sold-out: 50K followers × 10% click-through = 5,000 platform visitors × 5% platform conversion = 250 orders, above the 150-item cap). Monthly fixed costs excluded; see section 03.</p>
 
   <div class="calc-wrap">
 
@@ -310,40 +310,64 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
       </div>
 
       <div class="sl-group">
-        <div class="sl-top">
-          <span class="sl-label">Influencer followers</span>
-          <span class="sl-val" id="v-followers">50K</span>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+          <div>
+            <div class="sl-top">
+              <span class="sl-label">Followers per influencer</span>
+              <span class="sl-val" id="v-followers">50K</span>
+            </div>
+            <input type="range" id="sl-followers" min="1000" max="500000" step="1000" value="50000" oninput="calc()"/>
+            <div class="sl-hints"><span>1K</span><span>500K</span></div>
+          </div>
+          <div>
+            <div class="sl-top">
+              <span class="sl-label">Number of influencers</span>
+              <span class="sl-val" id="v-influencers">1</span>
+            </div>
+            <input type="range" id="sl-influencers" min="1" max="20" step="1" value="1" oninput="calc()"/>
+            <div class="sl-hints"><span>1</span><span>20</span></div>
+          </div>
         </div>
-        <input type="range" id="sl-followers" min="1000" max="500000" step="1000" value="50000" oninput="calc()"/>
-        <div class="sl-hints"><span>1K</span><span>500K</span></div>
+        <div class="sl-note" style="margin-top:8px">Total reach: <strong id="v-total-reach">50K</strong> &nbsp;·&nbsp; 1 × 50K = same reach as 10 × 5K</div>
       </div>
 
       <div class="sl-group">
         <div class="sl-top">
-          <span class="sl-label">Conversion — followers → order</span>
-          <span class="sl-val" id="v-conv">0.5%</span>
+          <span class="sl-label">Click-through rate — post → platform</span>
+          <span class="sl-val" id="v-ctr">10.0%</span>
         </div>
-        <input type="range" id="sl-conv" min="0.1" max="5.0" step="0.1" value="0.5" oninput="calc()"/>
-        <div class="sl-hints"><span>0.1%</span><span>5.0%</span></div>
+        <input type="range" id="sl-ctr" min="1" max="30" step="0.5" value="10" oninput="calc()"/>
+        <div class="sl-hints"><span>1%</span><span>30%</span></div>
+        <div class="sl-note">% of followers who click from the influencer post to TF. Story swipe-up: 3–15%. Dedicated drop post: 5–20%.</div>
+      </div>
+
+      <div class="sl-group">
+        <div class="sl-top">
+          <span class="sl-label">Conversion on platform — visitor → order</span>
+          <span class="sl-val" id="v-conv">5.0%</span>
+        </div>
+        <input type="range" id="sl-conv" min="0.5" max="20" step="0.5" value="5" oninput="calc()"/>
+        <div class="sl-hints"><span>0.5%</span><span>20%</span></div>
+        <div class="sl-note">% of platform visitors who place an order. Fashion e-commerce: 1–4%. Pre-order with VTO and scarcity: 3–8%.</div>
       </div>
 
       <div class="sl-group">
         <div class="sl-top">
           <span class="sl-label">Drop sale price (per item)</span>
-          <span class="sl-val" id="v-price">$150</span>
+          <span class="sl-val" id="v-price">$200</span>
         </div>
-        <input type="range" id="sl-price" min="50" max="1000" step="10" value="150" oninput="calc()"/>
-        <div class="sl-hints"><span>$50</span><span>$1,000</span></div>
+        <input type="range" id="sl-price" min="50" max="500" step="10" value="200" oninput="calc()"/>
+        <div class="sl-hints"><span>$50</span><span>$500</span></div>
       </div>
 
       <div class="sl-group">
         <div class="sl-top">
-          <span class="sl-label">Production cost per piece</span>
-          <span class="sl-val" id="v-cogs">$50</span>
+          <span class="sl-label">Production cost (% of sale price)</span>
+          <span class="sl-val" id="v-cogs">20% ($40)</span>
         </div>
-        <input type="range" id="sl-cogs" min="5" max="500" step="5" value="50" oninput="calc()"/>
-        <div class="sl-hints"><span>$5</span><span>$500</span></div>
-        <div class="sl-note">Apparel: 30–40% of retail · Footwear: 35–45%. At $150 retail → ~$45–68 typical for emerging designers.</div>
+        <input type="range" id="sl-cogs" min="5" max="40" step="1" value="20" oninput="calc()"/>
+        <div class="sl-hints"><span>5%</span><span>40%</span></div>
+        <div class="sl-note">Apparel: 25–40% of retail. Emerging designers with small runs: 20–35%. Dollar amount updates with price.</div>
       </div>
 
       <div class="sliders-section-label" style="margin-top:20px">Fees &amp; Commissions</div>
@@ -447,8 +471,16 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
       <div class="out-eyebrow">Per-Drop Result</div>
 
       <div class="out-row">
-        <span class="out-row-lbl">Orders</span>
-        <span class="out-row-val" id="o-orders">100</span><span class="sold-out-tag" id="sold-out-tag" style="display:none">Sold out</span>
+        <span class="out-row-lbl">Total reach</span>
+        <span class="out-row-val" id="o-total-reach">50K</span>
+      </div>
+      <div class="out-row" style="padding-top:5px;padding-bottom:5px">
+        <span class="out-row-lbl" style="font-size:11px;padding-left:10px">↳ Platform visitors</span>
+        <span class="out-row-val" style="font-size:13px" id="o-visitors">5,000</span>
+      </div>
+      <div class="out-row">
+        <span class="out-row-lbl" style="font-size:11px;padding-left:20px">↳ Orders</span>
+        <span class="out-row-val" id="o-orders">250</span><span class="sold-out-tag" id="sold-out-tag" style="display:none">Sold out</span>
       </div>
       <div class="out-row">
         <span class="out-row-lbl">Gross Revenue</span>
@@ -596,9 +628,14 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
           <td class="note">TF pays FASHN.AI directly. Reducing tries per session or capping to 3 (free tier) cuts this cost immediately.</td>
         </tr>
         <tr>
-          <td class="bold">Conversion rate</td>
-          <td id="concl-p-conv" class="bold" style="color:var(--sub)">0.5%</td>
-          <td class="note">Active only when drop is not sold out — higher conversion reaches the items cap faster. Once sold out, conversion has no effect on revenue.</td>
+          <td class="bold">Click-through rate</td>
+          <td id="concl-p-ctr" class="bold" style="color:var(--sub)">10.0%</td>
+          <td class="note">% of followers who click to TF. Higher CTR = more platform visitors. Doesn't help once the drop is sold out.</td>
+        </tr>
+        <tr>
+          <td class="bold">Platform conversion</td>
+          <td id="concl-p-conv" class="bold" style="color:var(--sub)">5.0%</td>
+          <td class="note">% of platform visitors who order. Active only when drop is not sold out — once sold out, further conversion has no effect on revenue.</td>
         </tr>
         <tr>
           <td class="bold">Designer monthly fee</td>
@@ -611,9 +648,9 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
           <td class="note">Doubling cadence from 1→2 drops/month halves designers needed. Depends on designer capacity.</td>
         </tr>
         <tr>
-          <td class="bold">Influencer followers</td>
-          <td id="concl-p-followers" class="bold" style="color:var(--sub)">25K</td>
-          <td class="note">Minimum 50K for a drop to reliably sell out at 0.5% conversion with 100 items. Below 50K, the drop likely won't clear — TF earns less per drop and VTO cost as % of revenue rises.</td>
+          <td class="bold">Total influencer reach</td>
+          <td id="concl-p-followers" class="bold" style="color:var(--sub)">1×50K = 50K</td>
+          <td class="note">Total reach = influencer count × followers each. At 10% CTR and 5% platform conversion, ~30K total reach reliably sells out a 100-item drop. Below 30K total reach, the drop likely won't clear.</td>
         </tr>
       </tbody>
     </table>
@@ -956,33 +993,41 @@ function fmtNeg(n){ return '−$'+Math.round(Math.abs(n)).toLocaleString(); }
 function fmtPos(n){ return (n<0?'−$':'$')+Math.abs(Math.round(n)).toLocaleString(); }
 
 function calc() {
-  var items      = +document.getElementById('sl-items').value;
-  var followers  = +document.getElementById('sl-followers').value;
-  var conv       = +document.getElementById('sl-conv').value / 100;
-  var price      = +document.getElementById('sl-price').value;
-  var cogs       = +document.getElementById('sl-cogs').value;
-  var platPct    = +document.getElementById('sl-platform').value / 100;
-  var infPct     = +document.getElementById('sl-inf').value / 100;
-  var payPct     = +document.getElementById('sl-payment').value / 100;
+  var items           = +document.getElementById('sl-items').value;
+  var followersPerInf = +document.getElementById('sl-followers').value;
+  var numInfluencers  = +document.getElementById('sl-influencers').value;
+  var totalFollowers  = followersPerInf * numInfluencers;
+  var ctr             = +document.getElementById('sl-ctr').value / 100;
+  var conv            = +document.getElementById('sl-conv').value / 100;
+  var price           = +document.getElementById('sl-price').value;
+  var cogsRaw         = +document.getElementById('sl-cogs').value;
+  var cogs            = price * cogsRaw / 100;
+  var platPct         = +document.getElementById('sl-platform').value / 100;
+  var infPct          = +document.getElementById('sl-inf').value / 100;
+  var payPct          = +document.getElementById('sl-payment').value / 100;
   var browseMultiplier = +document.getElementById('sl-browse').value;
-  var tries      = +document.getElementById('sl-tries').value;
+  var tries           = +document.getElementById('sl-tries').value;
 
   // Update slider labels
-  document.getElementById('v-items').textContent    = items.toLocaleString();
-  document.getElementById('v-followers').textContent = fK(followers);
-  document.getElementById('v-conv').textContent     = parseFloat(document.getElementById('sl-conv').value).toFixed(1)+'%';
+  document.getElementById('v-items').textContent       = items.toLocaleString();
+  document.getElementById('v-followers').textContent   = fK(followersPerInf);
+  document.getElementById('v-influencers').textContent = numInfluencers;
+  document.getElementById('v-total-reach').textContent = fK(totalFollowers);
+  document.getElementById('v-ctr').textContent         = parseFloat(document.getElementById('sl-ctr').value).toFixed(1)+'%';
+  document.getElementById('v-conv').textContent        = parseFloat(document.getElementById('sl-conv').value).toFixed(1)+'%';
   document.getElementById('v-price').textContent    = '$'+price;
-  document.getElementById('v-cogs').textContent     = '$'+cogs;
+  document.getElementById('v-cogs').textContent     = cogsRaw+'% ($'+Math.round(cogs)+')';
   document.getElementById('v-platform').textContent = parseFloat(document.getElementById('sl-platform').value).toFixed(1)+'%';
   document.getElementById('v-inf').textContent      = parseInt(document.getElementById('sl-inf').value)+'%';
   document.getElementById('v-payment').textContent  = parseFloat(document.getElementById('sl-payment').value).toFixed(1)+'%';
   document.getElementById('v-browse').textContent   = browseMultiplier+'×';
   document.getElementById('v-tries').textContent    = tries+'×';
 
-  // Orders capped by items in drop
-  var rawOrders = Math.round(followers * conv);
-  var orders    = Math.min(rawOrders, items);
-  var soldOut   = rawOrders >= items;
+  // Two-step funnel: total reach → platform visitors → orders
+  var platformVisitors = Math.round(totalFollowers * ctr);
+  var rawOrders        = Math.round(platformVisitors * conv);
+  var orders           = Math.min(rawOrders, items);
+  var soldOut          = rawOrders >= items;
 
   var revenue    = orders * price;
   var tfFee      = revenue * platPct;
@@ -1013,8 +1058,10 @@ function calc() {
   var profit = revenue - production - sampleCost - tfFee - infShare - payFee;
   var margin = revenue > 0 ? (profit / revenue * 100) : 0;
 
-  // Sold-out indicator
-  document.getElementById('o-orders').textContent = orders.toLocaleString();
+  // Funnel output
+  document.getElementById('o-total-reach').textContent = fK(totalFollowers);
+  document.getElementById('o-visitors').textContent    = platformVisitors.toLocaleString();
+  document.getElementById('o-orders').textContent      = orders.toLocaleString();
   document.getElementById('sold-out-tag').style.display = soldOut ? 'inline' : 'none';
 
   document.getElementById('o-rev').textContent    = '$'+Math.round(revenue).toLocaleString();
@@ -1108,11 +1155,12 @@ function calc() {
   document.getElementById('concl-vto-pct').style.color = vtoPct > 50 ? 'var(--red-text)' : vtoPct > 25 ? 'var(--orange)' : 'var(--ink)';
   document.getElementById('concl-p-designers').textContent = designers;
   document.getElementById('concl-p-price').textContent = '$'+price;
+  document.getElementById('concl-p-ctr').textContent  = parseFloat(document.getElementById('sl-ctr').value).toFixed(1)+'%';
   document.getElementById('concl-p-conv').textContent = parseFloat(document.getElementById('sl-conv').value).toFixed(1)+'%';
   document.getElementById('concl-p-vto').textContent = vtoMode === 'none' ? 'Off' : '$'+Math.round(vtoCost)+' ('+vtoPct+'% of TF fee)';
   document.getElementById('concl-p-dsfee').textContent = '$'+designerFee+'/mo per designer';
   document.getElementById('concl-p-cadence').textContent = dropsPerDesigner+' drop'+(dropsPerDesigner>1?'s':'')+'/mo';
-  document.getElementById('concl-p-followers').textContent = fK(followers)+(followers >= 50000 ? '' : ' ⚠ below 50K min');
+  document.getElementById('concl-p-followers').textContent = numInfluencers+'×'+fK(followersPerInf)+' = '+fK(totalFollowers)+(totalFollowers < 30000 ? ' ⚠ below 30K min' : '');
   if (revenuePerDes1 > 0) {
     var desAt2 = Math.ceil(10000 / ((tfNet * 2) + designerFee));
     var vtoTip = vtoMode === 'none' ? 'VTO is off — no try-on costs.' :
