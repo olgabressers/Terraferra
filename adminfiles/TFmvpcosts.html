@@ -507,6 +507,10 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         <span class="out-row-val neg" id="o-inf">−$1,050</span>
       </div>
       <div class="out-row">
+        <span class="out-row-lbl" id="o-post-lbl">Influencer flat fee (1 × $100/post)</span>
+        <span class="out-row-val neg" id="o-post">−$100</span>
+      </div>
+      <div class="out-row">
         <span class="out-row-lbl" id="o-pay-lbl">Payment Processing (2.9%)</span>
         <span class="out-row-val neg" id="o-pay">−$435</span>
       </div>
@@ -1035,6 +1039,12 @@ function calc() {
   var payFee     = revenue * payPct;
   var production = orders * cogs;
 
+  // Flat per-post fee: $100 (>50K followers) or $50 (≤50K). Correlated: higher commission → lower fee.
+  var basePostRate = followersPerInf > 50000 ? 100 : 50;
+  var postFactor = Math.min(2, Math.max(0, (0.10 - infPct) / 0.10 + 1));
+  var perPostFee = Math.min(250, Math.round(basePostRate * postFactor));
+  var infPostCost = perPostFee * numInfluencers;
+
   // Compute drop scale early — needed for Kivisense monthly fee split
   var designers = +document.getElementById('sl-designers').value;
   var dropsPerDesigner = +document.getElementById('sl-drops-per').value;
@@ -1055,7 +1065,7 @@ function calc() {
 
   var sampleCost = 5 * cogs;
   var gamiCost = +document.getElementById('inp-gami').value;
-  var profit = revenue - production - sampleCost - tfFee - infShare - payFee;
+  var profit = revenue - production - sampleCost - tfFee - infShare - infPostCost - payFee;
   var margin = revenue > 0 ? (profit / revenue * 100) : 0;
 
   // Funnel output
@@ -1071,6 +1081,8 @@ function calc() {
   document.getElementById('o-tf-lbl').textContent = 'TF Fee ('+parseFloat(document.getElementById('sl-platform').value).toFixed(1)+'%)';
   document.getElementById('o-inf').textContent    = fmtNeg(infShare);
   document.getElementById('o-inf-lbl').textContent= 'Influencer ('+parseInt(document.getElementById('sl-inf').value)+'%)';
+  document.getElementById('o-post-lbl').textContent = 'Influencer flat fee ('+numInfluencers+' × $'+perPostFee+'/post'+(infPct > 0.10 ? ' · ↓ high commission' : infPct < 0.10 ? ' · ↑ low commission' : '')+')';
+  document.getElementById('o-post').textContent   = fmtNeg(infPostCost);
   document.getElementById('o-pay').textContent    = fmtNeg(payFee);
   document.getElementById('o-pay-lbl').textContent= 'Payment Processing ('+parseFloat(document.getElementById('sl-payment').value).toFixed(1)+'%)';
 
