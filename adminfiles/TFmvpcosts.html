@@ -394,6 +394,16 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 
       <div class="sl-group">
         <div class="sl-top">
+          <span class="sl-label">Fixed pay per influencer (per drop)</span>
+          <span class="sl-val" id="v-postfee">$50</span>
+        </div>
+        <input type="range" id="sl-postfee" min="0" max="250" step="10" value="50" oninput="calc()"/>
+        <div class="sl-hints"><span>$0</span><span>$250</span></div>
+        <div class="sl-note">Flat fee paid per influencer regardless of sales. Suggested: ≤50K followers → $50, >50K → $100.</div>
+      </div>
+
+      <div class="sl-group">
+        <div class="sl-top">
           <span class="sl-label">Payment processing</span>
           <span class="sl-val" id="v-payment">2.9%</span>
         </div>
@@ -1023,6 +1033,7 @@ function calc() {
   document.getElementById('v-cogs').textContent     = cogsRaw+'% ($'+Math.round(cogs)+')';
   document.getElementById('v-platform').textContent = parseFloat(document.getElementById('sl-platform').value).toFixed(1)+'%';
   document.getElementById('v-inf').textContent      = parseInt(document.getElementById('sl-inf').value)+'%';
+  document.getElementById('v-postfee').textContent  = '$'+document.getElementById('sl-postfee').value;
   document.getElementById('v-payment').textContent  = parseFloat(document.getElementById('sl-payment').value).toFixed(1)+'%';
   document.getElementById('v-browse').textContent   = browseMultiplier+'×';
   document.getElementById('v-tries').textContent    = tries+'×';
@@ -1039,8 +1050,8 @@ function calc() {
   var payFee     = revenue * payPct;
   var production = orders * cogs;
 
-  // Flat per-post fee: >50K followers → $100, ≤50K → $50, max $250
-  var perPostFee = Math.min(250, followersPerInf > 50000 ? 100 : 50);
+  // Flat per-post fee — read from slider
+  var perPostFee  = +document.getElementById('sl-postfee').value;
   var infPostCost = perPostFee * numInfluencers;
 
   // Compute drop scale early — needed for Kivisense monthly fee split
