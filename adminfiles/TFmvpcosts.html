@@ -277,7 +277,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 <!-- 01 CALCULATOR -->
 <section class="section">
   <div class="sec-heading"><span class="sec-num">01</span> Unit Economics · Drop Calculator</div>
-  <p style="font-size:13px;color:var(--sub);margin-bottom:28px;line-height:1.6">Per-drop economics for one or more influencers promoting one drop. Funnel: total follower reach → click-through to TF → order on platform. VTO cost reflects all visitors who try VTO — not just buyers. Orders are capped by items in the drop (defaults sold-out: 50K followers × 10% click-through = 5,000 platform visitors × 5% platform conversion = 250 orders, above the 150-item cap). Monthly fixed costs excluded; see section 03.</p>
+  <p style="font-size:13px;color:var(--sub);margin-bottom:28px;line-height:1.6">Per-drop economics for one or more influencers promoting one drop. Funnel: total follower reach → click-through to TF → order on platform. VTO cost reflects all visitors who try VTO — not just buyers. Orders are capped by items in the drop (defaults: 10K followers × 1 influencer × 10% click-through = 1,000 platform visitors × 5% platform conversion = 50 orders). Monthly fixed costs excluded; see section 03.</p>
 
   <div class="calc-wrap">
 
@@ -314,10 +314,10 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
           <div>
             <div class="sl-top">
               <span class="sl-label">Followers per influencer</span>
-              <span class="sl-val" id="v-followers">50K</span>
+              <span class="sl-val" id="v-followers">10K</span>
             </div>
-            <input type="range" id="sl-followers" min="1000" max="500000" step="1000" value="50000" oninput="calc()"/>
-            <div class="sl-hints"><span>1K</span><span>500K</span></div>
+            <input type="range" id="sl-followers" min="1000" max="250000" step="1000" value="10000" oninput="calc()"/>
+            <div class="sl-hints"><span>1K</span><span>250K</span></div>
           </div>
           <div>
             <div class="sl-top">
