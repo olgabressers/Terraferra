@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Terra Ferra — New Name</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --tf:#4B40C2;--tf-dark:#2D2595;--tf-mid:#7169D4;--tf-light:#ECEAF9;--tf-ghost:#F4F2FC;
+  --orange:#E86820;--off-white:#F7F6FB;--ink:#12102B;--sub:#5B5880;--rule:#D8D4EF;
+  --va:#E86820;--vc:#4B40C2;--vm:#2D2595;
+}
+body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink);min-height:100vh}
+
+/* Nav */
+.topnav{background:white;border-bottom:1px solid #D8D4EF;padding:12px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
+.topnav-home{font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#4B40C2;text-decoration:none;font-size:11px}
+.topnav-home:hover{color:#2D2595}
+.topnav-links{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:#5B5880;font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:10px}
+.topnav-links a:hover{color:#4B40C2}
+.topnav-links a.active{color:#E86820}
+@media(max-width:700px){.topnav{position:static;padding:10px 14px}.topnav-links{gap:8px;justify-content:flex-start;width:100%}.topnav-links a{font-size:9.5px}}
+.topnav-links .has-dropdown{position:relative;padding-bottom:10px;margin-bottom:-10px}
+.topnav-links .dropdown-trigger{cursor:pointer;color:#5B5880;font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:10px;user-select:none}
+.topnav-links .dropdown-trigger:hover,.topnav-links .has-dropdown:focus-within .dropdown-trigger{color:#4B40C2}
+.topnav-links .dropdown{display:none;position:absolute;top:100%;left:0;background:white;border:1px solid #D8D4EF;min-width:200px;box-shadow:0 6px 14px rgba(0,0,0,.08);padding:6px 0;z-index:60}
+.topnav-links .has-dropdown:hover .dropdown,.topnav-links .has-dropdown:focus-within .dropdown{display:block}
+.topnav-links .dropdown a{display:block;padding:9px 16px;font-size:10px;font-weight:700;color:#5B5880;text-transform:uppercase;letter-spacing:1px;text-decoration:none}
+.topnav-links .dropdown a:hover{background:#F4F2FC;color:#4B40C2}
+@media(max-width:700px){.topnav-links .has-dropdown{padding-bottom:0;margin-bottom:0}.topnav-links .dropdown{position:static;display:block;box-shadow:none;border:none;padding:0;min-width:0;margin-left:8px}.topnav-links .dropdown a{padding:4px 0;font-size:9px}}
+
+/* Page */
+.wrap{max-width:1240px;margin:0 auto;padding:40px 48px 80px}
+@media(max-width:700px){.wrap{padding:24px 16px 60px}}
+
+.page-hd{margin-bottom:28px}
+.page-hd h1{font-size:28px;font-weight:800;color:var(--ink);margin-bottom:6px}
+.page-hd p{font-size:12.5px;color:var(--sub)}
+
+/* Voter selector */
+.voter-bar{background:white;border:1px solid var(--rule);border-top:3px solid var(--tf);padding:18px 24px;margin-bottom:28px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.voter-bar-label{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub)}
+.voter-btn{padding:7px 18px;border:2px solid var(--rule);background:white;color:var(--sub);font-family:'Inter',sans-serif;font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all .15s}
+.voter-btn:hover{border-color:var(--tf);color:var(--tf)}
+.voter-btn[data-voter="alena"].active{background:var(--va);border-color:var(--va);color:white}
+.voter-btn[data-voter="chris"].active{background:var(--vc);border-color:var(--vc);color:white}
+.voter-btn[data-voter="maxim"].active{background:var(--vm);border-color:var(--vm);color:white}
+.voter-status{font-size:12px;color:var(--sub);margin-left:6px;font-style:italic}
+.voter-status.ready{color:var(--tf);font-weight:700;font-style:normal}
+
+/* 3-column grid */
+.cols-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start}
+@media(max-width:900px){.cols-grid{grid-template-columns:1fr}}
+
+.col-block{background:white;border:1px solid var(--rule);border-top:3px solid var(--tf)}
+.col-header{padding:14px 20px;border-bottom:1px solid var(--rule);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--tf);display:flex;align-items:center;gap:8px}
+.col-header-count{font-size:10px;font-weight:700;color:var(--sub);background:var(--tf-ghost);padding:2px 7px;border-radius:10px;letter-spacing:0}
+.ideas-list{padding:8px 12px}
+
+/* Idea row */
+.idea-row{display:flex;align-items:center;gap:6px;padding:5px 0;border-bottom:1px solid var(--rule)}
+.idea-row:last-child{border-bottom:none}
+.idea-row-num{font-size:10px;color:var(--rule);font-weight:700;min-width:18px;text-align:right;flex-shrink:0}
+.idea-input{flex:1;border:1px solid transparent;background:transparent;font-family:'Inter',sans-serif;font-size:13px;font-weight:500;color:var(--ink);padding:5px 6px;outline:none;min-width:0}
+.idea-input:focus{border-color:var(--tf);background:var(--tf-ghost);border-radius:2px}
+.idea-input::placeholder{color:var(--rule);font-weight:400}
+.idea-input.has-text{font-weight:600}
+
+/* Vote buttons */
+.vote-btns{display:flex;gap:3px;flex-shrink:0}
+.vote-btn{width:24px;height:24px;border-radius:50%;border:1.5px solid var(--rule);background:white;font-size:9px;font-weight:800;font-family:'Inter',sans-serif;color:var(--sub);cursor:pointer;transition:all .12s;display:flex;align-items:center;justify-content:center;padding:0;line-height:1}
+.vote-btn:hover{border-color:var(--tf-mid);color:var(--tf-mid)}
+.vote-btn.va{background:var(--va);border-color:var(--va);color:white}
+.vote-btn.vc{background:var(--vc);border-color:var(--vc);color:white}
+.vote-btn.vm{background:var(--vm);border-color:var(--vm);color:white}
+.vote-count{font-size:11px;font-weight:800;color:var(--ink);min-width:16px;text-align:center;flex-shrink:0}
+
+/* Add button */
+.add-btn{display:block;width:100%;padding:9px;background:transparent;border:none;border-top:1px solid var(--rule);font-family:'Inter',sans-serif;font-size:11px;font-weight:700;color:var(--tf);cursor:pointer;text-align:center;letter-spacing:1px;transition:background .12s}
+.add-btn:hover{background:var(--tf-ghost)}
+
+/* Results strip */
+.results-bar{margin-top:28px;background:white;border:1px solid var(--rule);padding:16px 24px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.results-bar-label{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub)}
+.copy-btn{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:7px 16px;background:white;border:1px solid var(--rule);color:var(--sub);cursor:pointer;font-family:'Inter',sans-serif;transition:all .12s}
+.copy-btn:hover{border-color:var(--tf);color:var(--tf)}
+.copy-msg{font-size:11px;color:var(--tf);font-weight:600;display:none}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="index.html" class="topnav-home">Terra Ferra</a>
+  <div class="topnav-links">
+    <a href="index.html">Files</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Budget ▾</span>
+      <div class="dropdown">
+        <a href="TFmarketsize.html">Market Size &amp; Opportunity</a>
+        <a href="budget.html">Budget &amp; Sales Scenarios</a>
+      </div>
+    </div>
+    <a href="roles.html">Roles</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Business Model ▾</span>
+      <div class="dropdown">
+        <a href="TFbusinessmodel.html">Comparison Matrix</a>
+        <a href="TFaltmodel.html">Alternative Model</a>
+        <a href="TFmvpcosts.html">MVP Scope &amp; Costs</a>
+        <a href="TFgtm.html">GTM</a>
+        <a href="TFwhynow.html">Why Now</a>
+        <a href="TFdropsmarket.html">Drop Market Research</a>
+        <a href="TFunservedmarket.html">Unserved Market</a>
+        <a href="TFreferral.html">Referral &amp; Viral</a>
+        <a href="TFcreatortoken.html">Creator Payments</a>
+        <a href="TFstylists.html">Stylist Layer</a>
+        <a href="TFvisualdiscovery.html">Visual Discovery</a>
+      </div>
+    </div>
+    <a href="architecture.html">Architecture &amp; Tools</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Ideas ▾</span>
+      <div class="dropdown">
+        <a href="gamification.html">Gamification</a>
+        <a href="ideas.html">Ideas &amp; AI Research</a>
+        <a href="influencer.html">Influencer Selling</a>
+        <a href="strategic-brief.html">Strategic Brief</a>
+      </div>
+    </div>
+    <a href="TFnewname.html" class="active">Design</a>
+    <a href="TFrussia.html">Legal / Tax</a>
+    <a href="task-tracker.html">Planning</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <div class="page-hd">
+    <h1>New Name Brainstorm</h1>
+    <p>Select your name above the board, then click A · C · M to vote on any idea. Ideas and votes are saved in your browser.</p>
+  </div>
+
+  <div class="voter-bar">
+    <span class="voter-bar-label">I am:</span>
+    <button class="voter-btn" data-voter="alena" onclick="setVoter('alena')">Alena</button>
+    <button class="voter-btn" data-voter="chris" onclick="setVoter('chris')">Chris</button>
+    <button class="voter-btn" data-voter="maxim" onclick="setVoter('maxim')">Maxim</button>
+    <span class="voter-status" id="voter-status">Select your name to enable voting</span>
+  </div>
+
+  <div class="cols-grid">
+    <div class="col-block">
+      <div class="col-header">Alena <span class="col-header-count" id="cnt-alena">0 votes</span></div>
+      <div class="ideas-list" id="col-alena"></div>
+      <button class="add-btn" onclick="addIdea('alena')">+ Add idea</button>
+    </div>
+    <div class="col-block">
+      <div class="col-header">Chris <span class="col-header-count" id="cnt-chris">0 votes</span></div>
+      <div class="ideas-list" id="col-chris"></div>
+      <button class="add-btn" onclick="addIdea('chris')">+ Add idea</button>
+    </div>
+    <div class="col-block">
+      <div class="col-header">Maxim <span class="col-header-count" id="cnt-maxim">0 votes</span></div>
+      <div class="ideas-list" id="col-maxim"></div>
+      <button class="add-btn" onclick="addIdea('maxim')">+ Add idea</button>
+    </div>
+  </div>
+
+  <div class="results-bar">
+    <span class="results-bar-label">Export</span>
+    <button class="copy-btn" onclick="copyResults()">Copy vote summary</button>
+    <span class="copy-msg" id="copy-msg">Copied to clipboard</span>
+  </div>
+
+</div>
+
+<script>
+var currentVoter = null;
+
+function makeIdea(id, text) {
+  return {id: id, text: text, votes: {alena: false, chris: false, maxim: false}};
+}
+
+function makeEmpty(prefix, count) {
+  var arr = [];
+  for (var i = 0; i < count; i++) arr.push(makeIdea(prefix + i, ''));
+  return arr;
+}
+
+var DEFAULTS = {
+  alena: [makeIdea('a-0','DropToBe.com'),makeIdea('a-x1','fashioonfire.com'),makeIdea('a-x2','DropsOnFire.com')].concat(makeEmpty('a-', 10)),
+  chris: makeEmpty('c-', 10),
+  maxim: makeEmpty('m-', 10)
+};
+
+var ideas = JSON.parse(JSON.stringify(DEFAULTS));
+
+function load() {
+  try {
+    var saved = localStorage.getItem('tf-newname-v1');
+    if (saved) ideas = JSON.parse(saved);
+  } catch(e) {}
+}
+
+function save() {
+  try { localStorage.setItem('tf-newname-v1', JSON.stringify(ideas)); } catch(e) {}
+}
+
+function setVoter(name) {
+  currentVoter = name;
+  document.querySelectorAll('.voter-btn').forEach(function(b) {
+    b.classList.toggle('active', b.dataset.voter === name);
+  });
+  var st = document.getElementById('voter-status');
+  st.textContent = 'Voting as ' + name.charAt(0).toUpperCase() + name.slice(1);
+  st.className = 'voter-status ready';
+}
+
+function vote(col, id) {
+  if (!currentVoter) {
+    var st = document.getElementById('voter-status');
+    st.textContent = '← Select your name first';
+    st.className = 'voter-status';
+    return;
+  }
+  var idea = ideas[col].find(function(i){ return i.id === id; });
+  if (!idea) return;
+  idea.votes[currentVoter] = !idea.votes[currentVoter];
+  save();
+  updateRowVotes(col, idea);
+  updateColCount(col);
+}
+
+function updateRowVotes(col, idea) {
+  var row = document.getElementById('row-' + idea.id);
+  if (!row) return;
+  var btns = row.querySelectorAll('.vote-btn');
+  var voters = ['alena', 'chris', 'maxim'];
+  var classes = ['va', 'vc', 'vm'];
+  var total = 0;
+  btns.forEach(function(btn, i) {
+    btn.className = 'vote-btn';
+    if (idea.votes[voters[i]]) { btn.classList.add(classes[i]); total++; }
+    btn.title = voters[i].charAt(0).toUpperCase() + voters[i].slice(1) + (idea.votes[voters[i]] ? ' ✓' : '');
+  });
+  var cnt = row.querySelector('.vote-count');
+  cnt.textContent = total > 0 ? total : '';
+}
+
+function updateColCount(col) {
+  var total = ideas[col].reduce(function(sum, idea) {
+    return sum + Object.values(idea.votes).filter(Boolean).length;
+  }, 0);
+  var el = document.getElementById('cnt-' + col);
+  if (el) el.textContent = total + (total === 1 ? ' vote' : ' votes');
+}
+
+function updateText(col, id, text) {
+  var idea = ideas[col].find(function(i){ return i.id === id; });
+  if (!idea) return;
+  idea.text = text;
+  var inp = document.getElementById('inp-' + id);
+  if (inp) inp.classList.toggle('has-text', text.length > 0);
+  save();
+}
+
+function addIdea(col) {
+  var newId = col[0] + '-' + Date.now();
+  ideas[col].push(makeIdea(newId, ''));
+  save();
+  var container = document.getElementById('col-' + col);
+  var row = buildRow(col, ideas[col][ideas[col].length - 1], ideas[col].length);
+  container.appendChild(row);
+  updateColCount(col);
+  setTimeout(function() {
+    var inp = document.getElementById('inp-' + newId);
+    if (inp) inp.focus();
+  }, 30);
+}
+
+function buildRow(col, idea, num) {
+  var row = document.createElement('div');
+  row.className = 'idea-row';
+  row.id = 'row-' + idea.id;
+
+  var numEl = document.createElement('span');
+  numEl.className = 'idea-row-num';
+  numEl.textContent = num;
+
+  var inp = document.createElement('input');
+  inp.type = 'text';
+  inp.className = 'idea-input' + (idea.text ? ' has-text' : '');
+  inp.id = 'inp-' + idea.id;
+  inp.value = idea.text;
+  inp.placeholder = 'Type a name…';
+  inp.autocomplete = 'off';
+  inp.spellcheck = false;
+  inp.addEventListener('input', function() { updateText(col, idea.id, inp.value); });
+
+  var btns = document.createElement('div');
+  btns.className = 'vote-btns';
+  var voters = ['alena','chris','maxim'];
+  var classes = ['va','vc','vm'];
+  var labels = ['A','C','M'];
+  voters.forEach(function(voter, i) {
+    var btn = document.createElement('button');
+    btn.className = 'vote-btn' + (idea.votes[voter] ? ' ' + classes[i] : '');
+    btn.textContent = labels[i];
+    btn.title = voter.charAt(0).toUpperCase() + voter.slice(1) + (idea.votes[voter] ? ' ✓' : '');
+    btn.onclick = function() { vote(col, idea.id); };
+    btns.appendChild(btn);
+  });
+
+  var cnt = document.createElement('span');
+  cnt.className = 'vote-count';
+  var total = Object.values(idea.votes).filter(Boolean).length;
+  cnt.textContent = total > 0 ? total : '';
+
+  row.appendChild(numEl);
+  row.appendChild(inp);
+  row.appendChild(btns);
+  row.appendChild(cnt);
+  return row;
+}
+
+function renderCol(col) {
+  var container = document.getElementById('col-' + col);
+  container.innerHTML = '';
+  ideas[col].forEach(function(idea, i) {
+    container.appendChild(buildRow(col, idea, i + 1));
+  });
+  updateColCount(col);
+}
+
+function copyResults() {
+  var lines = ['Terra Ferra — New Name Vote Summary\n'];
+  ['alena','chris','maxim'].forEach(function(col) {
+    lines.push(col.toUpperCase() + "'S IDEAS:");
+    ideas[col].forEach(function(idea) {
+      if (!idea.text) return;
+      var total = Object.values(idea.votes).filter(Boolean).length;
+      var who = [];
+      if (idea.votes.alena) who.push('Alena');
+      if (idea.votes.chris) who.push('Chris');
+      if (idea.votes.maxim) who.push('Maxim');
+      lines.push('  ' + idea.text + ' — ' + total + ' vote' + (total !== 1 ? 's' : '') + (who.length ? ' (' + who.join(', ') + ')' : ''));
+    });
+    lines.push('');
+  });
+  navigator.clipboard.writeText(lines.join('\n')).then(function() {
+    var msg = document.getElementById('copy-msg');
+    msg.style.display = 'inline';
+    setTimeout(function(){ msg.style.display = 'none'; }, 2000);
+  });
+}
+
+load();
+renderCol('alena');
+renderCol('chris');
+renderCol('maxim');
+</script>
+</body>
+</html>
