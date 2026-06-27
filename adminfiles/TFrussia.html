@@ -36,10 +36,11 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .dropdown a:hover{background:var(--tf-ghost);color:var(--tf)}
 @media(max-width:700px){
   .topnav{position:static;padding:10px 14px}
-  .topnav-links{gap:8px;justify-content:flex-start;width:100%;flex-wrap:wrap}
-  .topnav-links a{font-size:9.5px}
+  .topnav-links{gap:8px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:2px;width:100%}
+  .topnav-links a{font-size:9.5px;white-space:nowrap}
+  .dropdown-trigger{font-size:9.5px;white-space:nowrap}
   .has-dropdown{padding-bottom:0;margin-bottom:0}
-  .dropdown{display:none}
+  .dropdown{display:none!important}
 }
 
 /* LAYOUT */

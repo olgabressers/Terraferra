@@ -239,12 +239,12 @@ footer .inner{max-width:1100px;margin:0 auto}
 }
 @media(max-width:700px){
   .topnav{position:static;padding:10px 14px}
-  .topnav-links{gap:10px;justify-content:flex-start;width:100%}
-  .topnav-links a{font-size:9.5px}
-  .topnav-links .has-dropdown{padding-bottom:0;margin-bottom:0}
-  .topnav-links .dropdown{position:static;display:block;box-shadow:none;border:none;padding:0;min-width:0;margin-left:8px}
-  .topnav-links .dropdown a{padding:4px 0;font-size:9px}
-  .cover{padding:36px 16px}
+  .topnav-links{gap:8px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:2px;width:100%}
+  .topnav-links a{font-size:9.5px;white-space:nowrap}
+  .dropdown-trigger{font-size:9.5px;white-space:nowrap}
+  .has-dropdown{padding-bottom:0;margin-bottom:0}
+  .dropdown{display:none!important}
+}
   .cover h1{font-size:30px;letter-spacing:-1.5px}
   .cover-sub{font-size:13.5px}
   main{padding:28px 16px 48px}

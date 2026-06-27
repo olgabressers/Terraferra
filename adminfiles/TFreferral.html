@@ -30,11 +30,11 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .dropdown a:hover{background:var(--tf-ghost);color:var(--tf)}
 @media(max-width:700px){
   .topnav{position:static;padding:10px 14px}
-  .topnav-links{gap:10px;justify-content:flex-start;width:100%}
-  .topnav-links a{font-size:9.5px}
+  .topnav-links{gap:8px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:2px;width:100%}
+  .topnav-links a{font-size:9.5px;white-space:nowrap}
+  .dropdown-trigger{font-size:9.5px;white-space:nowrap}
   .has-dropdown{padding-bottom:0;margin-bottom:0}
-  .dropdown{position:static;display:block;box-shadow:none;border:none;padding:0;min-width:0;margin-left:8px}
-  .dropdown a{padding:4px 0;font-size:9px}
+  .dropdown{display:none!important}
 }
 
 .pg-wrap{max-width:1240px;margin:0 auto;padding:40px 48px 80px}

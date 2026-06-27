@@ -32,7 +32,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .topnav-links a{color:var(--sub);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:10px}
 .topnav-links a:hover{color:var(--tf)}
 .topnav-links a.active{color:var(--orange)}
-@media(max-width:700px){.topnav{position:static;padding:10px 14px}.topnav-links{gap:10px;justify-content:flex-start;width:100%}.topnav-links a{font-size:9.5px}}
+@media(max-width:700px){.topnav{position:static;padding:10px 14px}.topnav-links{gap:8px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:2px;width:100%}.topnav-links a{font-size:9.5px;white-space:nowrap}.topnav-links .dropdown-trigger{font-size:9.5px;white-space:nowrap}}
 
 .wrap{max-width:1240px;margin:0 auto;padding:40px 48px 80px}
 
@@ -142,7 +142,7 @@ td.outcome{font-size:12px;color:var(--ink)}
 .topnav-links .has-dropdown:hover .dropdown,.topnav-links .has-dropdown:focus-within .dropdown{display:block}
 .topnav-links .dropdown a{display:block;padding:9px 16px;font-size:10px;font-weight:700;color:#5B5880;text-transform:uppercase;letter-spacing:1px;text-decoration:none}
 .topnav-links .dropdown a:hover{background:#F4F2FC;color:#4B40C2}
-@media(max-width:700px){.topnav-links .has-dropdown{padding-bottom:0;margin-bottom:0}.topnav-links .dropdown{position:static;display:block;box-shadow:none;border:none;padding:0;min-width:0;margin-left:8px}.topnav-links .dropdown a{padding:4px 0;font-size:9px}}
+@media(max-width:700px){.topnav-links .has-dropdown{padding-bottom:0;margin-bottom:0}.topnav-links .dropdown{display:none!important}}
 </style>
 </head>
 <body>
