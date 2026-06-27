@@ -39,8 +39,12 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 @media(max-width:700px){.wrap{padding:24px 16px 60px}}
 
 .page-hd{margin-bottom:28px}
-.page-hd h1{font-size:28px;font-weight:800;color:var(--ink);margin-bottom:6px}
-.page-hd p{font-size:12.5px;color:var(--sub)}
+.page-hd h1{font-size:28px;font-weight:800;color:var(--ink);margin-bottom:8px}
+.page-hd p{font-size:12.5px;color:var(--ink);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.sync-dot{width:8px;height:8px;border-radius:50%;background:#ccc;display:inline-block;flex-shrink:0;transition:background .4s}
+.sync-dot.live{background:#22c55e}
+.sync-dot.err{background:#ef4444}
+.sync-label{font-size:11px;font-weight:700;color:var(--sub)}
 
 /* Voter selector */
 .voter-bar{background:white;border:1px solid var(--rule);border-top:3px solid var(--tf);padding:18px 24px;margin-bottom:28px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
@@ -120,6 +124,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
         <a href="TFcreatortoken.html">Creator Payments</a>
         <a href="TFstylists.html">Stylist Layer</a>
         <a href="TFvisualdiscovery.html">Visual Discovery</a>
+        <a href="TFbrandsworldwide.html">Fashion Brands Worldwide</a>
       </div>
     </div>
     <a href="architecture.html">Architecture &amp; Tools</a>
@@ -142,7 +147,10 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 
   <div class="page-hd">
     <h1>New Name Brainstorm</h1>
-    <p>Select your name above the board, then click A · C · M to vote on any idea. Ideas and votes are saved in your browser.</p>
+    <p>
+      Select your name, then click A · C · M to vote on any idea. All changes sync live across devices.
+      &nbsp;<span class="sync-dot" id="sync-dot"></span><span class="sync-label" id="sync-label">Connecting…</span>
+    </p>
   </div>
 
   <div class="voter-bar">
@@ -180,132 +188,294 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 </div>
 
 <script>
+// ── Firebase config ──────────────────────────────────────────────────────────
+var DB = 'https://terra-ferra-1ac34-default-rtdb.firebaseio.com';
+var ROOT = '/tf-newname/v2';
+
+// ── State ─────────────────────────────────────────────────────────────────────
 var currentVoter = null;
+// fbData[col][id] = {text, va, vc, vm}
+var fbData = {alena:{}, chris:{}, maxim:{}};
+// colOrder[col] = [id, id, ...]
+var colOrder = {alena:[], chris:[], maxim:[]};
 
-function makeIdea(id, text) {
-  return {id: id, text: text, votes: {alena: false, chris: false, maxim: false}};
-}
-
-function makeEmpty(prefix, count) {
-  var arr = [];
-  for (var i = 0; i < count; i++) arr.push(makeIdea(prefix + i, ''));
-  return arr;
-}
-
-var DEFAULTS = {
+// ── Defaults (Alena's pre-filled list) ────────────────────────────────────────
+var DEFS = {
   alena: [
-    makeIdea('a-0','DropToBe.com'),makeIdea('a-x1','fashioonfire.com'),makeIdea('a-x2','DropsOnFire.com'),
-    makeIdea('a-x3','WantedDrops.com'),makeIdea('a-x4','OrderTheDrop.com'),makeIdea('a-x5','SeasonOfDrops.com'),
-    makeIdea('a-x6','LabelsOnFire.com'),makeIdea('a-20',''),makeIdea('a-21',''),makeIdea('a-22','')
+    {id:'a-0',  text:'DropToBe.com'},
+    {id:'a-x1', text:'fashioonfire.com'},
+    {id:'a-x2', text:'DropsOnFire.com'},
+    {id:'a-x3', text:'WantedDrops.com'},
+    {id:'a-x4', text:'OrderTheDrop.com'},
+    {id:'a-x5', text:'SeasonOfDrops.com'},
+    {id:'a-x6', text:'LabelsOnFire.com'},
+    {id:'a-20', text:''},
+    {id:'a-21', text:''},
+    {id:'a-22', text:''}
   ],
-  chris: makeEmpty('c-', 10),
-  maxim: makeEmpty('m-', 10)
+  chris: (function(){var a=[];for(var i=0;i<10;i++)a.push({id:'c-'+i,text:''});return a;})(),
+  maxim: (function(){var a=[];for(var i=0;i<10;i++)a.push({id:'m-'+i,text:''});return a;})()
 };
 
-var ideas = JSON.parse(JSON.stringify(DEFAULTS));
+function blankItem(text){ return {text:text||'',va:false,vc:false,vm:false}; }
 
-function load() {
+// ── Firebase helpers ──────────────────────────────────────────────────────────
+function furl(path){ return DB+ROOT+(path||'')+'.json'; }
+
+function fput(path, data){
+  return fetch(furl(path),{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+}
+
+// ── Initialise ────────────────────────────────────────────────────────────────
+async function init(){
+  setSyncStatus('connecting');
   try {
-    var saved = localStorage.getItem('tf-newname-v1');
-    if (saved) {
-      var stored = JSON.parse(saved);
-      // Merge: follow DEFAULTS order, use stored data (votes/text) where available,
-      // then append any user-added rows not in DEFAULTS. Preserves all collaborator data.
-      ['alena','chris','maxim'].forEach(function(col) {
-        var storedMap = {};
-        stored[col].forEach(function(i){ storedMap[i.id] = i; });
-        var merged = DEFAULTS[col].map(function(d){ return storedMap[d.id] || d; });
-        stored[col].forEach(function(i){
-          var inDef = DEFAULTS[col].some(function(d){ return d.id === i.id; });
-          if (!inDef && i.text && i.text.trim()) merged.push(i);
+    var r = await fetch(furl());
+    var saved = await r.json();
+
+    if(saved && saved.items && saved.order){
+      fbData = saved.items;
+      colOrder = saved.order;
+      mergeNewDefs();
+    } else {
+      // First load — write DEFAULTS to Firebase
+      ['alena','chris','maxim'].forEach(function(col){
+        fbData[col] = {};
+        colOrder[col] = [];
+        DEFS[col].forEach(function(d){
+          fbData[col][d.id] = blankItem(d.text);
+          colOrder[col].push(d.id);
         });
-        ideas[col] = merged;
       });
-      save();
+      await fput('', {items:fbData, order:colOrder});
     }
-  } catch(e) {}
+    setSyncStatus('live');
+  } catch(e){
+    setSyncStatus('err');
+    // Offline fallback — show DEFAULTS locally only
+    ['alena','chris','maxim'].forEach(function(col){
+      fbData[col] = {};
+      colOrder[col] = [];
+      DEFS[col].forEach(function(d){
+        fbData[col][d.id] = blankItem(d.text);
+        colOrder[col].push(d.id);
+      });
+    });
+  }
+  renderAll(null);
+  startSSE();
 }
 
-function save() {
-  try { localStorage.setItem('tf-newname-v1', JSON.stringify(ideas)); } catch(e) {}
-}
-
-function setVoter(name) {
-  currentVoter = name;
-  document.querySelectorAll('.voter-btn').forEach(function(b) {
-    b.classList.toggle('active', b.dataset.voter === name);
+// Add any new DEFAULTS entries not yet in Firebase (e.g. Alena adds a name via code)
+function mergeNewDefs(){
+  var changed = false;
+  ['alena','chris','maxim'].forEach(function(col){
+    if(!fbData[col]) fbData[col] = {};
+    if(!colOrder[col]) colOrder[col] = [];
+    DEFS[col].forEach(function(d, i){
+      if(!fbData[col][d.id]){
+        fbData[col][d.id] = blankItem(d.text);
+        // Insert at position matching DEFAULTS order
+        var insertAt = 0;
+        for(var j = i-1; j >= 0; j--){
+          var pos = colOrder[col].indexOf(DEFS[col][j].id);
+          if(pos >= 0){ insertAt = pos+1; break; }
+        }
+        colOrder[col].splice(insertAt, 0, d.id);
+        changed = true;
+      }
+    });
   });
-  var st = document.getElementById('voter-status');
-  st.textContent = 'Voting as ' + name.charAt(0).toUpperCase() + name.slice(1);
-  st.className = 'voter-status ready';
+  if(changed) fput('', {items:fbData, order:colOrder});
 }
 
-function vote(col, id) {
-  if (!currentVoter) {
+// ── SSE real-time listener ────────────────────────────────────────────────────
+function startSSE(){
+  var src = new EventSource(furl()+'?accept=text/event-stream');
+
+  src.addEventListener('put', function(e){
+    try{ handleSSEPut(JSON.parse(e.data)); }catch(ex){}
+  });
+  src.addEventListener('patch', function(e){
+    try{ handleSSEPatch(JSON.parse(e.data)); }catch(ex){}
+  });
+  src.onopen = function(){ setSyncStatus('live'); };
+  src.onerror = function(){ setSyncStatus('err'); };
+}
+
+function handleSSEPut(p){
+  var path = p.path || '/';
+  var val = p.data;
+  var parts = path.replace(/^\/+/,'').split('/').filter(Boolean);
+  var fid = focusedId();
+
+  if(parts.length === 0){
+    // Root: full object
+    if(val && val.items && val.order){
+      fbData = val.items;
+      colOrder = val.order;
+      renderAll(fid);
+    }
+  } else if(parts[0]==='items'){
+    if(parts.length===2 && val){
+      // Whole column replaced
+      fbData[parts[1]] = val;
+      renderCol(parts[1], fid);
+    } else if(parts.length===3){
+      // Whole item replaced
+      if(!fbData[parts[1]]) fbData[parts[1]] = {};
+      fbData[parts[1]][parts[2]] = val || blankItem();
+      renderRow(parts[1], parts[2], fid);
+    } else if(parts.length===4 && val !== undefined){
+      // Single field (va/vc/vm/text)
+      if(!fbData[parts[1]]) fbData[parts[1]] = {};
+      if(!fbData[parts[1]][parts[2]]) fbData[parts[1]][parts[2]] = blankItem();
+      fbData[parts[1]][parts[2]][parts[3]] = val;
+      renderRow(parts[1], parts[2], fid);
+    }
+  } else if(parts[0]==='order' && parts.length===2 && Array.isArray(val)){
+    colOrder[parts[1]] = val;
+    renderCol(parts[1], fid);
+  }
+}
+
+function handleSSEPatch(p){
+  var path = p.path || '/';
+  var patchData = p.data;
+  if(!patchData) return;
+  var parts = path.replace(/^\/+/,'').split('/').filter(Boolean);
+  var fid = focusedId();
+
+  if(parts[0]==='items' && parts.length===3){
+    // Partial item update (e.g. {va:true} or {text:'...'})
+    if(!fbData[parts[1]]) fbData[parts[1]] = {};
+    if(!fbData[parts[1]][parts[2]]) fbData[parts[1]][parts[2]] = blankItem();
+    Object.assign(fbData[parts[1]][parts[2]], patchData);
+    renderRow(parts[1], parts[2], fid);
+  } else if(parts[0]==='items' && parts.length===2){
+    if(!fbData[parts[1]]) fbData[parts[1]] = {};
+    Object.assign(fbData[parts[1]], patchData);
+    renderCol(parts[1], fid);
+  }
+}
+
+// ── Write operations ──────────────────────────────────────────────────────────
+var textTimers = {};
+
+function vote(col, id){
+  if(!currentVoter){
     var st = document.getElementById('voter-status');
     st.textContent = '← Select your name first';
     st.className = 'voter-status';
     return;
   }
-  var idea = ideas[col].find(function(i){ return i.id === id; });
-  if (!idea) return;
-  idea.votes[currentVoter] = !idea.votes[currentVoter];
-  save();
-  updateRowVotes(col, idea);
-  updateColCount(col);
-}
+  var vk = 'v'+currentVoter[0]; // va / vc / vm
+  if(!fbData[col] || !fbData[col][id]) return;
+  var newVal = !fbData[col][id][vk];
 
-function updateRowVotes(col, idea) {
-  var row = document.getElementById('row-' + idea.id);
-  if (!row) return;
-  var btns = row.querySelectorAll('.vote-btn');
-  var voters = ['alena', 'chris', 'maxim'];
-  var classes = ['va', 'vc', 'vm'];
-  var total = 0;
-  btns.forEach(function(btn, i) {
-    btn.className = 'vote-btn';
-    if (idea.votes[voters[i]]) { btn.classList.add(classes[i]); total++; }
-    btn.title = voters[i].charAt(0).toUpperCase() + voters[i].slice(1) + (idea.votes[voters[i]] ? ' ✓' : '');
+  // Optimistic local update
+  fbData[col][id][vk] = newVal;
+  renderRow(col, id, null);
+  updateColCount(col);
+
+  // Atomic write — just this one field
+  fput('/items/'+col+'/'+id+'/'+vk, newVal).catch(function(){
+    // Revert on failure
+    fbData[col][id][vk] = !newVal;
+    renderRow(col, id, null);
+    updateColCount(col);
   });
-  var cnt = row.querySelector('.vote-count');
-  cnt.textContent = total > 0 ? total : '';
 }
 
-function updateColCount(col) {
-  var total = ideas[col].reduce(function(sum, idea) {
-    return sum + Object.values(idea.votes).filter(Boolean).length;
-  }, 0);
-  var el = document.getElementById('cnt-' + col);
-  if (el) el.textContent = total + (total === 1 ? ' vote' : ' votes');
+function updateText(col, id, text){
+  if(!fbData[col] || !fbData[col][id]) return;
+  fbData[col][id].text = text;
+  var inp = document.getElementById('inp-'+id);
+  if(inp) inp.classList.toggle('has-text', text.length > 0);
+  // Debounced write
+  clearTimeout(textTimers[id]);
+  textTimers[id] = setTimeout(function(){
+    fput('/items/'+col+'/'+id+'/text', text).catch(function(){});
+  }, 600);
 }
 
-function updateText(col, id, text) {
-  var idea = ideas[col].find(function(i){ return i.id === id; });
-  if (!idea) return;
-  idea.text = text;
-  var inp = document.getElementById('inp-' + id);
-  if (inp) inp.classList.toggle('has-text', text.length > 0);
-  save();
-}
+function addIdea(col){
+  var newId = col[0]+'-'+Date.now();
+  var newItem = blankItem();
+  if(!fbData[col]) fbData[col] = {};
+  fbData[col][newId] = newItem;
+  colOrder[col].push(newId);
 
-function addIdea(col) {
-  var newId = col[0] + '-' + Date.now();
-  ideas[col].push(makeIdea(newId, ''));
-  save();
-  var container = document.getElementById('col-' + col);
-  var row = buildRow(col, ideas[col][ideas[col].length - 1], ideas[col].length);
-  container.appendChild(row);
+  fput('/items/'+col+'/'+newId, newItem);
+  fput('/order/'+col, colOrder[col]);
+
+  var list = document.getElementById('col-'+col);
+  list.appendChild(buildRow(col, newId, colOrder[col].length));
   updateColCount(col);
-  setTimeout(function() {
-    var inp = document.getElementById('inp-' + newId);
-    if (inp) inp.focus();
+
+  setTimeout(function(){
+    var inp = document.getElementById('inp-'+newId);
+    if(inp) inp.focus();
   }, 30);
 }
 
-function buildRow(col, idea, num) {
+// ── Render ────────────────────────────────────────────────────────────────────
+function focusedId(){ return (document.activeElement && document.activeElement.id) ? document.activeElement.id : null; }
+
+function renderAll(fid){
+  ['alena','chris','maxim'].forEach(function(col){ renderCol(col, fid); });
+}
+
+function renderCol(col, fid){
+  var list = document.getElementById('col-'+col);
+  if(!list) return;
+  list.innerHTML = '';
+  (colOrder[col]||[]).forEach(function(id, i){
+    if(fbData[col] && fbData[col][id] !== undefined){
+      list.appendChild(buildRow(col, id, i+1));
+    }
+  });
+  updateColCount(col);
+  // Restore focus after re-render
+  if(fid){
+    var el = document.getElementById(fid);
+    if(el){ el.focus(); if(el.setSelectionRange) el.setSelectionRange(el.value.length, el.value.length); }
+  }
+}
+
+function renderRow(col, id, fid){
+  var item = fbData[col] && fbData[col][id];
+  if(!item) return;
+  var row = document.getElementById('row-'+id);
+  if(!row) return;
+
+  // Update vote buttons
+  var vkeys = ['va','vc','vm'];
+  var classes = ['va','vc','vm'];
+  var total = 0;
+  var btns = row.querySelectorAll('.vote-btn');
+  btns.forEach(function(btn, i){
+    btn.className = 'vote-btn';
+    if(item[vkeys[i]]){ btn.classList.add(classes[i]); total++; }
+  });
+  var cnt = row.querySelector('.vote-count');
+  if(cnt) cnt.textContent = total > 0 ? total : '';
+
+  // Update text input only if not currently focused
+  var inp = document.getElementById('inp-'+id);
+  if(inp && document.activeElement !== inp){
+    inp.value = item.text || '';
+    inp.classList.toggle('has-text', !!(item.text && item.text.length > 0));
+  }
+  updateColCount(col);
+}
+
+function buildRow(col, id, num){
+  var item = (fbData[col] && fbData[col][id]) || blankItem();
+
   var row = document.createElement('div');
   row.className = 'idea-row';
-  row.id = 'row-' + idea.id;
+  row.id = 'row-'+id;
 
   var numEl = document.createElement('span');
   numEl.className = 'idea-row-num';
@@ -313,75 +483,97 @@ function buildRow(col, idea, num) {
 
   var inp = document.createElement('input');
   inp.type = 'text';
-  inp.className = 'idea-input' + (idea.text ? ' has-text' : '');
-  inp.id = 'inp-' + idea.id;
-  inp.value = idea.text;
+  inp.className = 'idea-input'+(item.text ? ' has-text' : '');
+  inp.id = 'inp-'+id;
+  inp.value = item.text || '';
   inp.placeholder = 'Type a name…';
   inp.autocomplete = 'off';
   inp.spellcheck = false;
-  inp.addEventListener('input', function() { updateText(col, idea.id, inp.value); });
+  inp.addEventListener('input', function(){ updateText(col, id, inp.value); });
 
-  var btns = document.createElement('div');
-  btns.className = 'vote-btns';
-  var voters = ['alena','chris','maxim'];
-  var classes = ['va','vc','vm'];
-  var labels = ['A','C','M'];
-  voters.forEach(function(voter, i) {
+  var btnsEl = document.createElement('div');
+  btnsEl.className = 'vote-btns';
+  ['alena','chris','maxim'].forEach(function(v, i){
+    var vkeys = ['va','vc','vm'];
+    var classes = ['va','vc','vm'];
+    var labels = ['A','C','M'];
     var btn = document.createElement('button');
-    btn.className = 'vote-btn' + (idea.votes[voter] ? ' ' + classes[i] : '');
+    btn.className = 'vote-btn'+(item[vkeys[i]] ? ' '+classes[i] : '');
     btn.textContent = labels[i];
-    btn.title = voter.charAt(0).toUpperCase() + voter.slice(1) + (idea.votes[voter] ? ' ✓' : '');
-    btn.onclick = function() { vote(col, idea.id); };
-    btns.appendChild(btn);
+    (function(capturedId){ btn.onclick = function(){ vote(col, capturedId); }; })(id);
+    btnsEl.appendChild(btn);
   });
 
   var cnt = document.createElement('span');
   cnt.className = 'vote-count';
-  var total = Object.values(idea.votes).filter(Boolean).length;
+  var total = ['va','vc','vm'].filter(function(k){ return item[k]; }).length;
   cnt.textContent = total > 0 ? total : '';
 
   row.appendChild(numEl);
   row.appendChild(inp);
-  row.appendChild(btns);
+  row.appendChild(btnsEl);
   row.appendChild(cnt);
   return row;
 }
 
-function renderCol(col) {
-  var container = document.getElementById('col-' + col);
-  container.innerHTML = '';
-  ideas[col].forEach(function(idea, i) {
-    container.appendChild(buildRow(col, idea, i + 1));
-  });
-  updateColCount(col);
+function updateColCount(col){
+  var order = colOrder[col] || [];
+  var total = order.reduce(function(s, id){
+    var it = fbData[col] && fbData[col][id];
+    if(!it) return s;
+    return s + ['va','vc','vm'].filter(function(k){ return it[k]; }).length;
+  }, 0);
+  var el = document.getElementById('cnt-'+col);
+  if(el) el.textContent = total+(total===1?' vote':' votes');
 }
 
-function copyResults() {
+// ── Voter selector ────────────────────────────────────────────────────────────
+function setVoter(name){
+  currentVoter = name;
+  document.querySelectorAll('.voter-btn').forEach(function(b){
+    b.classList.toggle('active', b.dataset.voter === name);
+  });
+  var st = document.getElementById('voter-status');
+  st.textContent = 'Voting as '+name.charAt(0).toUpperCase()+name.slice(1);
+  st.className = 'voter-status ready';
+}
+
+// ── Sync indicator ────────────────────────────────────────────────────────────
+function setSyncStatus(state){
+  var dot = document.getElementById('sync-dot');
+  var label = document.getElementById('sync-label');
+  if(!dot || !label) return;
+  dot.className = 'sync-dot';
+  if(state==='live'){ dot.classList.add('live'); label.textContent='Live'; }
+  else if(state==='err'){ dot.classList.add('err'); label.textContent='Offline'; }
+  else { label.textContent='Connecting…'; }
+}
+
+// ── Copy results ──────────────────────────────────────────────────────────────
+function copyResults(){
   var lines = ['Terra Ferra — New Name Vote Summary\n'];
-  ['alena','chris','maxim'].forEach(function(col) {
-    lines.push(col.toUpperCase() + "'S IDEAS:");
-    ideas[col].forEach(function(idea) {
-      if (!idea.text) return;
-      var total = Object.values(idea.votes).filter(Boolean).length;
+  ['alena','chris','maxim'].forEach(function(col){
+    lines.push(col.toUpperCase()+"'S IDEAS:");
+    (colOrder[col]||[]).forEach(function(id){
+      var it = fbData[col] && fbData[col][id];
+      if(!it || !it.text) return;
+      var total = ['va','vc','vm'].filter(function(k){ return it[k]; }).length;
       var who = [];
-      if (idea.votes.alena) who.push('Alena');
-      if (idea.votes.chris) who.push('Chris');
-      if (idea.votes.maxim) who.push('Maxim');
-      lines.push('  ' + idea.text + ' — ' + total + ' vote' + (total !== 1 ? 's' : '') + (who.length ? ' (' + who.join(', ') + ')' : ''));
+      if(it.va) who.push('Alena');
+      if(it.vc) who.push('Chris');
+      if(it.vm) who.push('Maxim');
+      lines.push('  '+it.text+' — '+total+' vote'+(total!==1?'s':'')+(who.length?' ('+who.join(', ')+')':''));
     });
     lines.push('');
   });
-  navigator.clipboard.writeText(lines.join('\n')).then(function() {
+  navigator.clipboard.writeText(lines.join('\n')).then(function(){
     var msg = document.getElementById('copy-msg');
     msg.style.display = 'inline';
     setTimeout(function(){ msg.style.display = 'none'; }, 2000);
   });
 }
 
-load();
-renderCol('alena');
-renderCol('chris');
-renderCol('maxim');
+init();
 </script>
 </body>
 </html>
