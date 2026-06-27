@@ -4,15 +4,13 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <meta name="robots" content="noindex, nofollow"/>
-<title>Terra Ferra — Psychology + Fashion Research</title>
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<title>Psychology + Fashion — Platform Research</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --tf:#4B40C2;
   --tf-dark:#2D2595;
-  --tf-light:#ECEAF9;
   --tf-ghost:#F4F2FC;
   --orange:#E86820;
   --off-white:#F7F6FB;
@@ -21,45 +19,20 @@
   --rule:#D8D4EF;
   --green:#1F7A4E;
   --green-tint:#DDEEE5;
-  --red:#A02020;
-  --red-tint:#F5DCDC;
   --amber:#B8862B;
   --amber-tint:#FBF1D5;
-  --blue:#2C90C9;
-  --blue-tint:#D5E9F4;
 }
 body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink);line-height:1.55}
 a{color:var(--tf)}
 a:hover{color:var(--orange)}
 
-.topnav{background:white;border-bottom:1px solid var(--rule);padding:12px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
-.topnav-home{font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);text-decoration:none;font-size:11px}
-.topnav-home:hover{color:var(--tf-dark)}
-.topnav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
-.topnav-links a{color:var(--sub);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:10px}
-.topnav-links a:hover{color:var(--tf)}
-.topnav-links a.active{color:var(--orange)}
-.topnav-links .has-dropdown{position:relative;padding-bottom:10px;margin-bottom:-10px}
-.topnav-links .dropdown-trigger{cursor:pointer;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:10px;user-select:none}
-.topnav-links .dropdown-trigger:hover,.topnav-links .has-dropdown:focus-within .dropdown-trigger{color:var(--tf)}
-.topnav-links .dropdown-trigger.active{color:var(--orange)}
-.topnav-links .dropdown{display:none;position:absolute;top:100%;right:0;background:white;border:1px solid var(--rule);min-width:220px;box-shadow:0 6px 14px rgba(0,0,0,0.08);padding:6px 0;z-index:60}
-.topnav-links .has-dropdown:hover .dropdown,.topnav-links .has-dropdown:focus-within .dropdown{display:block}
-.topnav-links .dropdown a{display:block;padding:9px 16px;font-size:10px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:1px;text-decoration:none}
-.topnav-links .dropdown a:hover{background:var(--tf-ghost);color:var(--tf)}
-@media(max-width:700px){.topnav{position:static;padding:10px 14px}.topnav-links{gap:8px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:2px;width:100%}.topnav-links a{font-size:9.5px;white-space:nowrap}.topnav-links .dropdown-trigger{font-size:9.5px;white-space:nowrap}.topnav-links .has-dropdown{padding-bottom:0;margin-bottom:0}.topnav-links .dropdown{display:none!important}}
-
-.wrap{max-width:1240px;margin:0 auto;padding:40px 48px 80px}
+.wrap{max-width:1240px;margin:0 auto;padding:48px 48px 80px}
 @media(max-width:700px){.wrap{padding:24px 16px 60px}}
 
-.eyebrow{font-size:10px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
-h1{font-size:34px;font-weight:800;letter-spacing:-1px;color:var(--ink);margin-bottom:8px;text-transform:uppercase}
+h1{font-size:34px;font-weight:800;letter-spacing:-1px;color:var(--ink);margin-bottom:24px;text-transform:uppercase}
 @media(max-width:700px){h1{font-size:24px}}
 
-.snote{background:var(--tf-ghost);border:1px solid var(--rule);border-left:4px solid var(--orange);padding:14px 18px;margin:18px 0 28px;font-size:12.5px;color:var(--ink);line-height:1.6}
-.snote strong{font-weight:800;color:var(--ink)}
-
-.conclusion{background:var(--amber-tint);border:1px solid #E5D4A2;border-left:4px solid var(--amber);padding:18px 22px;margin:0 0 32px}
+.conclusion{background:var(--amber-tint);border:1px solid #E5D4A2;border-left:4px solid var(--amber);padding:18px 22px;margin:0 0 36px}
 .conclusion-label{font-size:9.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:8px}
 .conclusion p{font-size:13px;color:var(--ink);line-height:1.65}
 
@@ -75,21 +48,29 @@ h1{font-size:34px;font-weight:800;letter-spacing:-1px;color:var(--ink);margin-bo
 .card{background:white;border:1px solid var(--rule);border-top:4px solid var(--tf);padding:18px 18px 16px;display:flex;flex-direction:column}
 .card.amber{border-top-color:var(--amber)}
 .card.green{border-top-color:var(--green)}
-.card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:8px}
+.card-head{margin-bottom:6px}
 .card-name{font-size:15px;font-weight:800;color:var(--ink);letter-spacing:-.2px;line-height:1.2}
 .card-meta{font-size:10.5px;color:var(--sub);margin-bottom:10px;line-height:1.4}
 .badges{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
 .badge{font-size:8.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:3px 7px;border:1px solid var(--rule);border-radius:2px;line-height:1}
 .b-live{background:var(--green-tint);color:var(--green);border-color:#BCD9C9}
 .b-b2c{background:white;color:var(--tf);border-color:var(--tf)}
+.b-b2b{background:white;color:var(--orange);border-color:var(--orange)}
 .b-hybrid{background:white;color:var(--green);border-color:var(--green)}
 .card-desc{font-size:11.5px;color:var(--ink);line-height:1.55;margin-bottom:8px}
-.card-row{font-size:11px;color:var(--ink);line-height:1.5;padding:4px 0;border-top:1px dashed var(--rule)}
+.card-row{font-size:11px;color:var(--ink);line-height:1.5;padding:5px 0;border-top:1px dashed var(--rule)}
 .card-row .label{font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--sub);display:block;margin-bottom:2px}
 .card-srcs{margin-top:auto;padding-top:10px;border-top:1px solid var(--rule);font-size:10.5px;line-height:1.5;display:flex;flex-direction:column;gap:3px}
 .card-srcs .label{font-size:8.5px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--sub);margin-bottom:3px}
 .card-srcs a{color:var(--tf);text-decoration:none;word-break:break-word}
 .card-srcs a:hover{color:var(--orange);text-decoration:underline}
+
+/* Methodology table */
+.mtable{width:100%;border-collapse:collapse;margin-bottom:30px;font-size:11.5px}
+.mtable th{font-size:9px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--sub);padding:8px 12px;border-bottom:2px solid var(--rule);text-align:left;background:white}
+.mtable td{padding:9px 12px;border-bottom:1px solid var(--rule);color:var(--ink);vertical-align:top;background:white}
+.mtable tr:hover td{background:var(--tf-ghost)}
+@media(max-width:700px){.mtable{display:block;overflow-x:auto;white-space:nowrap}}
 
 .gap-box{background:white;border:1px solid var(--rule);border-left:4px solid var(--tf);padding:22px 24px;margin:0 0 30px}
 .gap-box h3{font-size:13px;font-weight:800;color:var(--ink);text-transform:uppercase;letter-spacing:.5px;margin-bottom:14px}
@@ -106,6 +87,13 @@ h1{font-size:34px;font-weight:800;letter-spacing:-1px;color:var(--ink);margin-bo
 .flow-step .step-note{font-size:10.5px;color:var(--ink);line-height:1.45}
 @media(max-width:700px){.flow{flex-direction:column}.flow-step::after{display:none}}
 
+.assess{background:white;border:1px solid var(--rule);border-top:4px solid var(--green);padding:24px 28px;margin-top:6px}
+.assess-label{font-size:9.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+.assess-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+@media(max-width:800px){.assess-grid{grid-template-columns:1fr}}
+.assess-item h4{font-size:11px;font-weight:800;color:var(--ink);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
+.assess-item p{font-size:12px;color:var(--ink);line-height:1.6}
+
 #back-to-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:#4B40C2;color:white;border:1px solid rgba(113,105,212,.5);border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900;transition:background .2s}
 #back-to-top:hover{background:#2D2595}
 @media(max-width:700px){#back-to-top{position:static;display:none !important}}
@@ -113,87 +101,39 @@ h1{font-size:34px;font-weight:800;letter-spacing:-1px;color:var(--ink);margin-bo
 </head>
 <body>
 
-<nav class="topnav">
-  <a href="index.html" class="topnav-home">Terra Ferra</a>
-  <div class="topnav-links">
-    <a href="index.html">Files</a>
-    <div class="has-dropdown">
-      <span class="dropdown-trigger" tabindex="0">Budget ▾</span>
-      <div class="dropdown">
-        <a href="TFmarketsize.html">Market Size &amp; Opportunity</a>
-        <a href="budget.html">Budget &amp; Sales Scenarios</a>
-      </div>
-    </div>
-    <a href="roles.html">Roles</a>
-    <div class="has-dropdown">
-      <span class="dropdown-trigger active" tabindex="0">Business Model ▾</span>
-      <div class="dropdown">
-        <a href="TFbusinessmodel.html">Comparison Matrix</a>
-        <a href="TFaltmodel.html">Alternative Model</a>
-        <a href="TFmvpcosts.html">MVP Scope &amp; Costs</a>
-        <a href="TFgtm.html">GTM</a>
-        <a href="TFwhynow.html">Why Now</a>
-        <a href="TFdropsmarket.html">Drop Market Research</a>
-        <a href="TFunservedmarket.html">Unserved Market</a>
-        <a href="TFreferral.html">Referral &amp; Viral</a>
-        <a href="TFcreatortoken.html">Creator Payments</a>
-        <a href="TFstylists.html">Stylist Layer</a>
-        <a href="TFpsychology.html" style="color:var(--orange)">Psychology + Fashion</a>
-        <a href="TFvisualdiscovery.html">Visual Discovery</a>
-      </div>
-    </div>
-    <a href="architecture.html">Architecture</a>
-    <div class="has-dropdown">
-      <span class="dropdown-trigger" tabindex="0">Ideas ▾</span>
-      <div class="dropdown">
-        <a href="gamification.html">Gamification</a>
-        <a href="ideas.html">Ideas &amp; AI Research</a>
-        <a href="influencer.html">Influencer Selling</a>
-        <a href="strategic-brief.html">Strategic Brief</a>
-      </div>
-    </div>
-    <a href="TFrussia.html">Legal / Tax</a>
-    <a href="task-tracker.html">Planning</a>
-  </div>
-</nav>
-
 <div class="wrap">
 
-  <div class="eyebrow">Business Model · Research</div>
-  <h1>Psychology + Fashion — Existing Platforms</h1>
-
-  <div class="snote">
-    Research into platforms combining personality psychology with fashion styling and shopping. Covers live products as of 2026-06-27. Entries sourced from primary URLs; user metrics and funding figures from named press sources.
-  </div>
+  <h1>Psychology + Fashion — Platform Research</h1>
 
   <div class="conclusion">
     <div class="conclusion-label">Conclusion</div>
-    <p>Photo analysis + personality quiz + designer shopping is not fully combined in one product. PSYKHE (Big 5 psychology → multi-retailer marketplace) is the closest. No platform uses DISC typology for fashion. The three-layer flow — appearance → psychotype → context → outfit — does not exist as a live product.</p>
+    <p>No platform combines photo analysis + personality typology + context + designer-specific shopping in one flow. PSYKHE (the most psychology-rigorous player) pivoted to B2B enterprise software — it is no longer consumer-facing. Consumer apps use colour season analysis and body typing, not clinical personality models. DISC, Enneagram, and Jungian archetypes exist in stylist consulting content but not in any shopping product.</p>
   </div>
 
-  <!-- ═══ SECTION 01 — WHAT EXISTS ═══ -->
+  <!-- ═══ SECTION 01 — PLATFORMS ═══ -->
   <div class="sec">
     <span class="sec-num">01</span>
-    <span class="sec-title">Platforms That Combine Psychology with Fashion</span>
-    <span class="sec-sub">Live · Verified 2026-06-27</span>
+    <span class="sec-title">How Platforms Apply Psychology to Fashion</span>
+    <span class="sec-sub">Verified 2026-06-27</span>
   </div>
 
   <div class="cards">
 
-    <div class="card">
+    <div class="card amber">
       <div class="card-head">
         <div class="card-name">PSYKHE</div>
       </div>
-      <div class="card-meta">psykhe.com · Founded 2019 · $1.7M seed (2020)</div>
-      <div class="badges"><span class="badge b-live">Live</span><span class="badge b-b2c">B2C</span></div>
-      <div class="card-desc">Big 5 personality model (openness, conscientiousness, extroversion, agreeableness, neuroticism) drives product recommendations from a 1M+ item pool. Quiz at signup; AI re-scores recommendations as preferences shift.</div>
-      <div class="card-row"><span class="label">Psychology model</span>Big 5 (academic)</div>
-      <div class="card-row"><span class="label">Photo analysis</span>No</div>
-      <div class="card-row"><span class="label">Shopping</span>Multi-retailer marketplace — Moda Operandi, Mytheresa, LuisaViaRoma, 24S</div>
+      <div class="card-meta">psykhe.com · Founded 2019 · $1.7M seed · B2B pivot</div>
+      <div class="badges"><span class="badge b-live">Live</span><span class="badge b-b2b">B2B SaaS</span></div>
+      <div class="card-desc">Originally conceived as a consumer platform where shoppers take a Big 5 personality quiz and receive matched outfit recommendations from luxury retailers. <strong>Now a B2B enterprise API.</strong> PSYKHE licenses "taste intelligence" software to retailers — the personality engine runs behind other brands' recommendation carousels, search ranking, and "For You" pages. There is no consumer-facing shopping flow on psykhe.com.</div>
+      <div class="card-row"><span class="label">Psychology model</span>Big 5 / OCEAN (academic model — openness, conscientiousness, extroversion, agreeableness, neuroticism)</div>
+      <div class="card-row"><span class="label">How it integrates with shopping</span>Retailers embed PSYKHE's API; it reranks their product catalogue by personality-predicted preference. The shopper never sees "psychology" — they just see a more personalised product feed on the retailer's own site.</div>
+      <div class="card-row"><span class="label">Consumer access</span>None. No quiz, no shopping, no product listings on psykhe.com.</div>
+      <div class="card-row"><span class="label">Claimed results</span>10–30% revenue-per-visitor lift for enterprise clients</div>
       <div class="card-srcs">
         <span class="label">Sources</span>
         <a href="https://psykhe.com/about" target="_blank" rel="noopener">psykhe.com/about</a>
-        <a href="https://techcrunch.com/2020/10/22/psykhe-secures-seed-funding-to-match-consumer-personalities-to-fashion-products/" target="_blank" rel="noopener">TechCrunch — seed funding announcement</a>
+        <a href="https://techcrunch.com/2020/10/22/psykhe-secures-seed-funding-to-match-consumer-personalities-to-fashion-products/" target="_blank" rel="noopener">TechCrunch — original seed round (2020)</a>
       </div>
     </div>
 
@@ -203,47 +143,14 @@ h1{font-size:34px;font-weight:800;letter-spacing:-1px;color:var(--ink);margin-bo
       </div>
       <div class="card-meta">styledna.ai · 3.2M downloads · 70K+ paid subscribers (2024)</div>
       <div class="badges"><span class="badge b-live">Live</span><span class="badge b-b2c">B2C</span></div>
-      <div class="card-desc">Selfie photo → seasonal color typing (e.g. Light Summer, Dark Autumn) + personal style category. AI stylist chatbot. Marketplace links to 150+ retailers. Item-match check: photograph any garment to test against your profile.</div>
-      <div class="card-row"><span class="label">Psychology model</span>Color season theory (not clinical psychology)</div>
-      <div class="card-row"><span class="label">Photo analysis</span>Yes — selfie input</div>
-      <div class="card-row"><span class="label">Shopping</span>H&M, Zara, Urban Outfitters and 148 others</div>
+      <div class="card-desc">User uploads a selfie. AI analyses skin tone, hair colour, and eye colour to assign a seasonal colour type (e.g. Light Summer, Dark Autumn). The app then shows outfit ideas and links to matching products from 150+ partner retailers.</div>
+      <div class="card-row"><span class="label">Psychology model</span>Seasonal colour analysis — a colour-harmony system, not a clinical personality model</div>
+      <div class="card-row"><span class="label">How it integrates with shopping</span>Outfit cards link directly to products at H&M, Zara, Urban Outfitters and 148 others. User taps a garment → redirected to the retailer's product page. Affiliate commission model.</div>
+      <div class="card-row"><span class="label">Photo analysis</span>Yes — selfie determines the colour profile. No personality quiz.</div>
       <div class="card-srcs">
         <span class="label">Sources</span>
         <a href="https://styledna.ai/" target="_blank" rel="noopener">styledna.ai</a>
-        <a href="https://techcrunch.com/2024/06/21/style-dna-generative-ai-fashion-stylist-app/" target="_blank" rel="noopener">TechCrunch — Style DNA feature (Jun 2024)</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-head">
-        <div class="card-name">16 Style Types</div>
-      </div>
-      <div class="card-meta">16styletypes.com · Content / education platform</div>
-      <div class="badges"><span class="badge b-live">Live</span><span class="badge b-b2c">B2C</span></div>
-      <div class="card-desc">Maps all 16 Myers-Briggs personality types to distinct fashion style profiles — preferences, silhouettes, textures, and colour palettes per type. Guides written per MBTI code (INFJ, ESTJ, etc.).</div>
-      <div class="card-row"><span class="label">Psychology model</span>Myers-Briggs (MBTI)</div>
-      <div class="card-row"><span class="label">Photo analysis</span>No</div>
-      <div class="card-row"><span class="label">Shopping</span>No e-commerce — content only</div>
-      <div class="card-srcs">
-        <span class="label">Sources</span>
-        <a href="https://16styletypes.com/16-style-types/" target="_blank" rel="noopener">16styletypes.com</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-head">
-        <div class="card-name">Stitch Fix</div>
-      </div>
-      <div class="card-meta">stitchfix.com · Public company (SFIX) · US/UK</div>
-      <div class="badges"><span class="badge b-live">Live</span><span class="badge b-hybrid">Hybrid</span></div>
-      <div class="card-desc">StyleFile quiz assigns up to 5 proprietary style personality tags. AI recommendation engine + human stylists curate physical boxes. AI Vision tool generates photos of the user wearing styled outfits before purchase.</div>
-      <div class="card-row"><span class="label">Psychology model</span>Proprietary 10-type system (not clinical)</div>
-      <div class="card-row"><span class="label">Photo analysis</span>Vision tool — AI-generated try-on</div>
-      <div class="card-row"><span class="label">Shopping</span>Direct e-commerce (subscription + à la carte)</div>
-      <div class="card-srcs">
-        <span class="label">Sources</span>
-        <a href="https://newsroom.stitchfix.com/blog/stitch-fix-rolls-out-stylefile-its-style-personality-resource-to-all-clients/" target="_blank" rel="noopener">Stitch Fix — StyleFile announcement</a>
-        <a href="https://www.stitchfix.com/women/blog/inside-stitchfix/introducing-vision-stitch-fixs-new-style-visualization-tool/" target="_blank" rel="noopener">Stitch Fix — Vision tool announcement</a>
+        <a href="https://techcrunch.com/2024/06/21/style-dna-generative-ai-fashion-stylist-app/" target="_blank" rel="noopener">TechCrunch — Style DNA (Jun 2024)</a>
       </div>
     </div>
 
@@ -251,12 +158,12 @@ h1{font-size:34px;font-weight:800;letter-spacing:-1px;color:var(--ink);margin-bo
       <div class="card-head">
         <div class="card-name">misi</div>
       </div>
-      <div class="card-meta">misi.app · App Store · iOS</div>
-      <div class="badges"><span class="badge b-live">Live</span><span class="badge b-hybrid">Hybrid</span></div>
-      <div class="card-desc">Photo analysis → seasonal color palette + body shape classification. Style Kit output includes color swatches, silhouette recommendations, and outfit ideas. Curates premium brands (Gucci, Burberry, Vivienne Westwood) colour-matched to profile. Shopify integration for retailers.</div>
-      <div class="card-row"><span class="label">Psychology model</span>Color season + body shape (not clinical psychology)</div>
-      <div class="card-row"><span class="label">Photo analysis</span>Yes — selfie input</div>
-      <div class="card-row"><span class="label">Shopping</span>Premium brand curation; B2B Shopify app</div>
+      <div class="card-meta">misi.app · iOS · Shopify B2B integration</div>
+      <div class="badges"><span class="badge b-live">Live</span><span class="badge b-hybrid">B2C + B2B</span></div>
+      <div class="card-desc">Selfie photo → AI assigns seasonal colour palette and body shape category. Outputs a Style Kit: colour swatches, recommended silhouettes, outfit ideas. Curates premium brand products (Gucci, Burberry, Vivienne Westwood) colour-matched to the user's profile.</div>
+      <div class="card-row"><span class="label">Psychology model</span>Seasonal colour analysis + Kibbe-style body shape classification. No personality quiz.</div>
+      <div class="card-row"><span class="label">How it integrates with shopping</span>App shows shoppable premium brand items filtered to the user's colour palette and body shape. B2B side: Shopify app lets retailers embed misi's analysis into their own storefronts.</div>
+      <div class="card-row"><span class="label">Photo analysis</span>Yes — selfie is the only input.</div>
       <div class="card-srcs">
         <span class="label">Sources</span>
         <a href="https://www.misi.app/" target="_blank" rel="noopener">misi.app</a>
@@ -264,66 +171,193 @@ h1{font-size:34px;font-weight:800;letter-spacing:-1px;color:var(--ink);margin-bo
       </div>
     </div>
 
-    <div class="card amber">
+    <div class="card">
       <div class="card-head">
-        <div class="card-name">DISC + Fashion</div>
+        <div class="card-name">Stitch Fix</div>
       </div>
-      <div class="card-meta">Not found in any live product as of 2026-06-27</div>
-      <div class="badges"><span class="badge" style="background:var(--amber-tint);color:var(--amber);border-color:#E5D4A2">Gap</span></div>
-      <div class="card-desc">DISC typology (Dominance / Influence / Steadiness / Conscientiousness) is widely used in HR and business coaching. No live fashion platform applies DISC as a styling input. The model maps onto behaviour and communication style, not aesthetics — the translation to wardrobe choices has not been built.</div>
-      <div class="card-row"><span class="label">Closest live use</span>Business and executive coaching apps (not fashion)</div>
-      <div class="card-row"><span class="label">Opportunity</span>DISC could map onto formality preference, statement vs. understated dressing, risk tolerance in outfit choice</div>
+      <div class="card-meta">stitchfix.com · Public company (SFIX) · US / UK</div>
+      <div class="badges"><span class="badge b-live">Live</span><span class="badge b-b2c">B2C</span></div>
+      <div class="card-desc">Onboarding quiz assigns up to 5 proprietary style personality tags (e.g. "Classic", "Bohemian", "Edgy"). A combination of the algorithm and human stylists selects garments for a physical box shipped to the user. The user pays a styling fee, keeps what they like, returns the rest.</div>
+      <div class="card-row"><span class="label">Psychology model</span>Proprietary 10-type style personality system — not a clinical model. Closer to psychographics than to MBTI or Big 5.</div>
+      <div class="card-row"><span class="label">How it integrates with shopping</span>The quiz output directly determines which physical garments arrive in the user's box. No product browsing — the stylist and algorithm choose on your behalf. The AI Vision tool generates photos of the user in outfits before the box ships.</div>
+      <div class="card-row"><span class="label">Photo analysis</span>Vision tool: AI try-on generated from user's photo. Not used for personality profiling.</div>
+      <div class="card-srcs">
+        <span class="label">Sources</span>
+        <a href="https://newsroom.stitchfix.com/blog/stitch-fix-rolls-out-stylefile-its-style-personality-resource-to-all-clients/" target="_blank" rel="noopener">Stitch Fix — StyleFile announcement</a>
+        <a href="https://www.stitchfix.com/women/blog/inside-stitchfix/introducing-vision-stitch-fixs-new-style-visualization-tool/" target="_blank" rel="noopener">Stitch Fix — Vision tool</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-name">16 Style Types</div>
+      </div>
+      <div class="card-meta">16styletypes.com · Content platform · No e-commerce</div>
+      <div class="badges"><span class="badge b-live">Live</span><span class="badge b-b2c">B2C</span></div>
+      <div class="card-desc">Maps all 16 Myers-Briggs (MBTI) types to distinct style profiles — silhouettes, textures, colour palettes, and aesthetic direction per type (INFJ, ESTJ, etc.). Editorial content only.</div>
+      <div class="card-row"><span class="label">Psychology model</span>Myers-Briggs (MBTI) — 4-axis model: Introvert/Extravert, Sensing/iNtuition, Thinking/Feeling, Judging/Perceiving</div>
+      <div class="card-row"><span class="label">How it integrates with shopping</span>It does not. Style guides are editorial — no product links, no checkout, no affiliate integration. The psychology-to-style translation is done in long-form content, not in a product.</div>
+      <div class="card-row"><span class="label">Gap</span>The MBTI → style connection exists as theory. No platform has turned it into a shoppable flow.</div>
+      <div class="card-srcs">
+        <span class="label">Sources</span>
+        <a href="https://16styletypes.com/16-style-types/" target="_blank" rel="noopener">16styletypes.com</a>
+      </div>
     </div>
 
   </div>
 
-  <!-- ═══ SECTION 02 — THE GAP ═══ -->
+  <!-- ═══ SECTION 02 — METHODOLOGY MAP ═══ -->
   <div class="sec">
     <span class="sec-num">02</span>
+    <span class="sec-title">Psychology Frameworks Used in Fashion</span>
+    <span class="sec-sub">Across platforms + stylist practice</span>
+  </div>
+
+  <table class="mtable">
+    <thead>
+      <tr>
+        <th>Framework</th>
+        <th>How it maps to style</th>
+        <th>Used in live products</th>
+        <th>Used in stylist practice</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Big 5 / OCEAN</strong><br/><span style="font-size:10px;color:var(--sub)">Openness · Conscientiousness · Extraversion · Agreeableness · Neuroticism</span></td>
+        <td>High openness → experimental / avant-garde; high conscientiousness → structured / tailored; high extraversion → colour and statement pieces</td>
+        <td>PSYKHE (B2B API only — not consumer-facing)</td>
+        <td>Rarely — too academic for client conversations</td>
+      </tr>
+      <tr>
+        <td><strong>Myers-Briggs (MBTI)</strong><br/><span style="font-size:10px;color:var(--sub)">16 types from 4 binary axes</span></td>
+        <td>INFJs → muted, layered, artistic; ESTJs → sharp, formal, status-signalling; ENFPs → eclectic, colour-forward, maximalist</td>
+        <td>16 Style Types (content only — no shopping integration)</td>
+        <td>Yes — widely used by personal stylists as a client onboarding frame</td>
+      </tr>
+      <tr>
+        <td><strong>Enneagram</strong><br/><span style="font-size:10px;color:var(--sub)">9 types based on core motivations and fears</span></td>
+        <td>Type 4 (Individualist) → unique, non-conformist; Type 3 (Achiever) → polished, aspirational; Type 7 (Enthusiast) → colourful, playful, maximalist</td>
+        <td>No live shopping product — editorial content only (<a href="https://outfitformulas.com/does-your-enneagram-type-match-your-style/" target="_blank" rel="noopener">Outfit Formulas</a>)</td>
+        <td>Yes — growing use among image consultants and personal stylists</td>
+      </tr>
+      <tr>
+        <td><strong>Jungian Archetypes</strong><br/><span style="font-size:10px;color:var(--sub)">12 universal character types (Hero, Lover, Magician, Ruler, etc.)</span></td>
+        <td>The Lover → sensual fabrics, fluid silhouettes; The Ruler → structured, authoritative, dark palette; The Explorer → functional, utilitarian, earthy</td>
+        <td>No live shopping product — used in brand positioning (luxury houses) and stylist content (<a href="https://fashionispsychology.com/how-can-jungian-archetypes-shape-the-way-we-dress/" target="_blank" rel="noopener">Fashion Is Psychology</a>)</td>
+        <td>Yes — especially among image coaches and brand stylists</td>
+      </tr>
+      <tr>
+        <td><strong>Seasonal Colour Analysis</strong><br/><span style="font-size:10px;color:var(--sub)">Spring / Summer / Autumn / Winter (and sub-seasons)</span></td>
+        <td>Based on skin undertone, hair and eye colour → assigns a palette of flattering colours and warns against clashing tones</td>
+        <td>Style DNA (3.2M downloads), misi, LookSky — all consumer-facing with affiliate shopping links</td>
+        <td>Yes — the most mainstream framework used by stylists worldwide</td>
+      </tr>
+      <tr>
+        <td><strong>Kibbe Body Types</strong><br/><span style="font-size:10px;color:var(--sub)">13 types based on yin/yang balance of bone structure, flesh, and facial features</span></td>
+        <td>Dramatic → sharp, minimal, linear; Romantic → curved, soft, ornate; Natural → relaxed, textured, unconstructed</td>
+        <td>LookSky (photo analysis → Kibbe type → brand recommendations). misi uses a simplified version.</td>
+        <td>Yes — extremely popular with stylists and among fashion-literate consumers</td>
+      </tr>
+      <tr>
+        <td><strong>DISC</strong><br/><span style="font-size:10px;color:var(--sub)">Dominance · Influence · Steadiness · Conscientiousness</span></td>
+        <td>Potential mapping: Dominance → bold, structured, power dressing; Influence → colourful, trend-forward, social; Steadiness → classic, understated, comfort-first; Conscientiousness → precise, quality-focused, minimal</td>
+        <td><strong>None.</strong> DISC is used in HR and business coaching; no fashion platform has applied it.</td>
+        <td>Rare — not a common stylist framework</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ═══ SECTION 03 — THE GAP ═══ -->
+  <div class="sec">
+    <span class="sec-num">03</span>
     <span class="sec-title">What Does Not Exist</span>
   </div>
 
   <div class="gap-box">
-    <h3>Three-Layer Flow — Not Built</h3>
+    <h3>The Missing Chain</h3>
     <div class="gap-grid">
       <div class="gap-item">
-        <h4>Photo → Psychotype → Context → Designer</h4>
-        <p>No platform chains all four: (1) AI photo read of appearance, (2) clinical psychology typology quiz, (3) context layer (occasion / role / impression goal), (4) final outfits drawn from a specific designer marketplace. Each layer exists somewhere in isolation; the chain does not.</p>
+        <h4>Photo + psychotype + context → designer shopping</h4>
+        <p>Photo analysis exists (Style DNA, misi). Personality quiz exists in content form (16 Style Types, Enneagram guides). Context-aware recommendations exist at Stitch Fix. But no platform chains all three — photo read, then temperament quiz, then occasion/role context — and routes the result into a curated designer catalogue with a purchase path.</p>
       </div>
       <div class="gap-item">
-        <h4>Designer-only output</h4>
-        <p>Style DNA and misi route users to mass-market retailers. PSYKHE links to luxury multi-brand retailers, not emerging designers. No platform routes the psychology output specifically into emerging affordable-luxury designer inventory.</p>
+        <h4>Emerging designer output</h4>
+        <p>All platforms with live shopping route to mass-market (H&M, Zara) or established luxury (Gucci, Moda Operandi). No platform uses a psychology profile to surface emerging or independent designer collections specifically.</p>
       </div>
     </div>
   </div>
 
-  <!-- ═══ SECTION 03 — HOW THE FLOW WOULD WORK ═══ -->
+  <!-- ═══ SECTION 04 — THE FLOW ═══ -->
   <div class="sec">
-    <span class="sec-num">03</span>
-    <span class="sec-title">The Untested Flow</span>
-    <span class="sec-sub">Direction, not a decided feature</span>
+    <span class="sec-num">04</span>
+    <span class="sec-title">How the Full Flow Could Work</span>
+    <span class="sec-sub">Direction · Not a built product</span>
   </div>
 
   <div class="flow">
     <div class="flow-step">
       <div class="step-num">Step 1</div>
       <div class="step-label">Photo read</div>
-      <div class="step-note">AI analyses selfie → appearance profile (coloring, proportions). Already proven at scale by Style DNA and misi.</div>
+      <div class="step-note">AI selfie analysis → colour season + body type. Validated at scale by Style DNA (3.2M users) and misi. Establishes the appearance layer.</div>
     </div>
     <div class="flow-step">
       <div class="step-num">Step 2</div>
       <div class="step-label">Psychotype quiz</div>
-      <div class="step-note">Short DISC-based or Big 5 quiz → temperament profile. Adds a dimension no photo alone can capture.</div>
+      <div class="step-note">Short quiz using Enneagram, MBTI, or DISC → temperament profile. Adds the personality layer that photo alone cannot capture.</div>
     </div>
     <div class="flow-step">
       <div class="step-num">Step 3</div>
       <div class="step-label">Context layer</div>
-      <div class="step-note">Occasion (work / event / everyday), role, intended impression. Narrows from style profile to specific outfit direction.</div>
+      <div class="step-note">Occasion (work / event / everyday), role, intended impression. Narrows the output from a broad style profile to a specific outfit direction.</div>
     </div>
     <div class="flow-step">
       <div class="step-num">Step 4</div>
-      <div class="step-label">Designer output</div>
-      <div class="step-note">Final look shown using TF platform inventory — emerging affordable-luxury designers only. Purchase path built in.</div>
+      <div class="step-label">Curated outfits</div>
+      <div class="step-note">Final looks sourced from a specific designer catalogue — emerging, independent, or affordable-luxury. Purchase path built in. No generic mass-market output.</div>
+    </div>
+  </div>
+
+  <!-- ═══ SECTION 05 — AI ASSESSMENT ═══ -->
+  <div class="sec">
+    <span class="sec-num">05</span>
+    <span class="sec-title">AI Assessment — What Could Work for a Designer Platform</span>
+  </div>
+
+  <div class="assess">
+    <div class="assess-label">Assessment · Not a decided feature</div>
+    <div class="assess-grid">
+
+      <div class="assess-item">
+        <h4>Start with colour season + body type</h4>
+        <p>Seasonal colour analysis is the most validated consumer-facing framework — Style DNA proved 3.2M users will engage with it. It is also the easiest to automate (selfie → AI output) and the most immediately actionable for clothing choice. Body type adds a silhouette filter. Together they handle the appearance layer without any quiz. This is the proven, low-friction entry point.</p>
+      </div>
+
+      <div class="assess-item">
+        <h4>Layer a short personality quiz on top</h4>
+        <p>Enneagram or MBTI (not DISC — too corporate in framing) adds the temperament dimension: whether someone dresses to stand out or blend in, to signal authority or softness, to experiment or to build a reliable wardrobe. 5–7 questions is enough. The quiz doubles as an engagement mechanic — MBTI and Enneagram type-sharing is an established social behaviour; users share results, which is organic discovery.</p>
+      </div>
+
+      <div class="assess-item">
+        <h4>Context questions close the loop</h4>
+        <p>Asking about occasion, profession, and intended impression narrows from "your style profile" to "what to wear for this situation." This is the step that moves the output from interesting to useful — and it is the step no current app takes. It is also the natural moment to surface pre-order or drop mechanics: the user has identified what they need and is ready to buy.</p>
+      </div>
+
+      <div class="assess-item">
+        <h4>Why it fits a designer marketplace specifically</h4>
+        <p>Emerging designers have distinct, consistent aesthetics that map well onto personality archetypes — better than fast-fashion SKUs, which vary too much to tag meaningfully. A buyer who identifies as Enneagram Type 4 or MBTI INFP is also more likely to value uniqueness and co-creation, which is the core proposition of an emerging-designer platform. The psychology layer is not a gimmick here — it selects for the exact customer who already values what the platform offers.</p>
+      </div>
+
+      <div class="assess-item">
+        <h4>No novel psychology IP needed</h4>
+        <p>The frameworks (Enneagram, MBTI, colour season, Kibbe) are all public domain. The work is in tagging the designer catalogue — assigning each collection to archetypes, colour seasons, and body types — and building the matching logic. That is editorial and curatorial work, not research. A small team can do it manually at launch and automate it as the catalogue scales.</p>
+      </div>
+
+      <div class="assess-item">
+        <h4>Acquisition angle</h4>
+        <p>The quiz result is shareable content. "I'm a Light Summer / Enneagram 4 / Natural Kibbe" is a shareable identity statement — the same mechanic that made 16Personalities one of the most-visited psychology sites in the world. Building the quiz as a standalone shareable experience (with results that link back to the platform) creates a low-cost discovery channel independent of paid advertising.</p>
+      </div>
+
     </div>
   </div>
 
