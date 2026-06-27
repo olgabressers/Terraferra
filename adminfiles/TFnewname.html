@@ -203,7 +203,22 @@ var ideas = JSON.parse(JSON.stringify(DEFAULTS));
 function load() {
   try {
     var saved = localStorage.getItem('tf-newname-v1');
-    if (saved) ideas = JSON.parse(saved);
+    if (saved) {
+      var stored = JSON.parse(saved);
+      // Merge: follow DEFAULTS order, use stored data (votes/text) where available,
+      // then append any user-added rows not in DEFAULTS. Preserves all collaborator data.
+      ['alena','chris','maxim'].forEach(function(col) {
+        var storedMap = {};
+        stored[col].forEach(function(i){ storedMap[i.id] = i; });
+        var merged = DEFAULTS[col].map(function(d){ return storedMap[d.id] || d; });
+        stored[col].forEach(function(i){
+          var inDef = DEFAULTS[col].some(function(d){ return d.id === i.id; });
+          if (!inDef) merged.push(i);
+        });
+        ideas[col] = merged;
+      });
+      save();
+    }
   } catch(e) {}
 }
 
