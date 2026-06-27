@@ -52,6 +52,12 @@ h2.section-title{font-size:28px;font-weight:800;color:var(--ink);margin:48px 0 1
 .topnav-links .dropdown a:hover{background:#F4F2FC;color:#4B40C2}
 @media(max-width:700px){.topnav-links .has-dropdown{padding-bottom:0;margin-bottom:0}.topnav-links .dropdown{display:none!important}}
 
+/* Conclusion box */
+.conclusion-box{background:var(--tf-ghost);border:2px solid var(--tf);padding:28px 32px 24px;margin:24px 0 48px}
+.conclusion-tag{font-size:9.5px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--orange);margin-bottom:16px}
+.conclusion-lead{font-size:17px;font-weight:700;color:var(--ink);line-height:1.65;margin-bottom:24px}
+@media(max-width:700px){.conclusion-box{padding:20px 18px 18px}.conclusion-lead{font-size:15px}}
+
 /* Asia table */
 .asia-table-wrap{background:white;border:1px solid var(--rule);overflow-x:auto;margin-bottom:32px}
 .asia-table{width:100%;border-collapse:collapse;font-size:12px;color:var(--ink);min-width:900px}
@@ -91,8 +97,8 @@ h2.section-title{font-size:28px;font-weight:800;color:var(--ink);margin:48px 0 1
 .gap-stat-label{font-size:12px;font-weight:700;color:var(--ink);margin-bottom:2px}
 .gap-stat-sub{font-size:11px;color:var(--sub)}
 
-.gap-list{list-style:none;margin:8px 0 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.gap-list li{background:white;border:1px solid var(--rule);border-left:3px solid var(--green);padding:10px 14px;font-size:12px;color:var(--ink);line-height:1.5}
+.gap-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.gap-list li{background:white;border:1px solid var(--rule);border-left:3px solid var(--green);padding:10px 14px;font-size:12.5px;color:var(--ink);line-height:1.55}
 .gap-list li strong{color:var(--green);font-weight:800}
 .foot-note{font-size:11px;color:var(--sub);line-height:1.6;margin-top:6px}
 .foot-note a{color:var(--tf);text-decoration:underline}
@@ -163,87 +169,32 @@ h2.section-title{font-size:28px;font-weight:800;color:var(--ink);margin:48px 0 1
   <a class="back" href="TFbusinessmodel.html">← Business Model &amp; GTM</a>
   <div class="eyebrow">Confidential · Business Model &amp; GTM · Fashion Brands Worldwide</div>
   <h1>Fashion Brands Worldwide</h1>
+
+  <!-- ============================================================ -->
+  <!-- CONCLUSION + WHERE THE GAP SITS -->
+  <!-- ============================================================ -->
+
+  <div class="conclusion-box">
+    <div class="conclusion-tag">TF Opportunity — Emerging Brands Worldwide</div>
+    <div class="conclusion-lead">Over 35,000 independent fashion businesses operate across the US and EU. Comparable platforms combined have reached roughly 15,600 — fewer than half of the US market alone. Asian brands moving into EU and US face the same gap: no community platform, no pre-order infrastructure, no ambassador layer built for a cross-border launch.</div>
+    <ul class="gap-list">
+      <li><strong>Pre-production entry.</strong> Not found in any comparable platform in this research: a path for designers at sketch stage with zero inventory to launch pre-orders.</li>
+      <li><strong>Pre-order + crowdfunding for fashion.</strong> Neither function is present in any platform in this matrix.</li>
+      <li><strong>Co-creation.</strong> Community input into design is absent from all platforms in this research.</li>
+      <li><strong>Superfan / ambassador earnings layer.</strong> LTK and ShopMy run traditional influencer affiliate networks — a direct earnings layer for superfans is absent from both.</li>
+      <li><strong>10K–150K niche fashion influencers.</strong> LTK and ShopMy set minimums that exclude this segment. Instagram, TikTok and Rednote reach them but are general platforms, not fashion-specific commerce.</li>
+      <li><strong>EU emerging-designer recruitment.</strong> Not present in any comparable platform in this research.</li>
+      <li><strong>Asian brand infrastructure gap.</strong> K-fashion, Chinese designer, and SE Asian lifestyle brands moving into EU/US have no community platform built for pre-order launch and ambassador-led growth in this research.</li>
+      <li><strong>ShopMy — closest competitive threat.</strong> 200% YoY growth, profitable, $70M raised — <a href="https://menlovc.com/perspective/doubling-down-on-curated-commerce-with-shopmy/" target="_blank" rel="noopener">Menlo Ventures 2025</a>. Circles community feature launched July 2025.</li>
+    </ul>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 1 — US AND EUROPE -->
+  <!-- ============================================================ -->
+
+  <h2 class="section-title">US and Europe</h2>
   <div class="snote">Market size of independent fashion brand businesses across key geographies — and how many have been reached by existing platforms. Asian brands are covered separately as an emerging expansion pool.</div>
-
-  <!-- ============================================================ -->
-  <!-- SECTION 1 — ASIA -->
-  <!-- ============================================================ -->
-
-  <h2 class="section-title" style="margin-top:36px;">Asian Fashion Brands — International Expansion</h2>
-  <div style="background:var(--green-tint);border-left:4px solid var(--green);padding:14px 20px;margin:0 0 24px;font-size:13px;color:var(--ink);line-height:1.6;">
-    Asia is the world's largest fashion production base and an accelerating source of consumer-facing brands moving into EU and US markets. South Korea's apparel exports grew 45% in four years. Chinese designers are regularly featured at Paris and London Fashion Weeks. Southeast Asia's online fashion market grew 630% in a decade. These brands lack the community infrastructure and pre-order tooling to scale in Western markets — that is the gap TF addresses.
-  </div>
-
-  <div class="asia-table-wrap">
-    <table class="asia-table">
-      <thead>
-        <tr>
-          <th style="min-width:130px;">Country / Region</th>
-          <th class="r" style="min-width:140px;">Apparel establishments</th>
-          <th style="min-width:160px;">What is counted · source</th>
-          <th style="min-width:200px;">Key brands going global</th>
-          <th style="min-width:220px;">EU / US expansion evidence</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="section-row"><td colspan="5">EAST ASIA</td></tr>
-
-        <tr>
-          <td class="country">🇨🇳 China</td>
-          <td class="count">44,000+</td>
-          <td class="meta">Enterprises above designated size (revenue ≥ 20M yuan) in apparel, accessories &amp; leather goods. Actual total including micro-enterprises is multiples higher. · <a href="https://www.statista.com/topics/7494/apparel-industry-in-china/" target="_blank" rel="noopener">Statista / China NBS</a></td>
-          <td class="brands">Li-Ning, Uma Wang, Feng Chen Wang, SHUSHU/TONG, Chenpeng, Peacebird, Songmont, Icicle</td>
-          <td class="expand">Songmont debuted at Paris Fashion Week 2024 — first Chinese handbag brand at PFW. Icicle operates 4 Paris stores. Uma Wang is the first Chinese designer in the European fashion calendar. "More Chinese brands going global in 2025, with new opportunities in Europe and North America." · <a href="https://www.fedex.com/en-cn/business-insights/ecommerce/asia-luxury-brands-europe-market-entry.html" target="_blank" rel="noopener">FedEx China</a></td>
-        </tr>
-
-        <tr>
-          <td class="country">🇯🇵 Japan</td>
-          <td class="count">~1,200</td>
-          <td class="meta">Large apparel brands and manufacturers. Full industry: 130,000 textile &amp; garment businesses; 7,500 specialty fashion shops. · <a href="https://rawshot.ai/statistic/japanese-fashion-industry" target="_blank" rel="noopener">rawshot.ai / Japan stats</a></td>
-          <td class="brands">Comme des Garçons, Yohji Yamamoto, Issey Miyake, Sacai, BAPE, Undercover, Visvim, Snow Peak</td>
-          <td class="expand">Japanese heritage and "gorpcore" labels (Snow Peak, Visvim) have established EU and US wholesale distribution. Japan's apparel market is $89.9B (2024) — domestic saturation drives export-push from smaller labels. · <a href="https://rawshot.ai/statistic/japanese-fashion-industry" target="_blank" rel="noopener">rawshot.ai</a></td>
-        </tr>
-
-        <tr>
-          <td class="country">🇰🇷 South Korea</td>
-          <td class="count">46,000</td>
-          <td class="meta">Textile &amp; clothing establishments (all sizes). ~500,000 apparel workers. · <a href="https://rawshot.ai/statistic/korean-fashion-industry" target="_blank" rel="noopener">rawshot.ai / Korean stats</a></td>
-          <td class="brands">Gentle Monster, Andersson Bell, ADER error, Post Archive Faction (PAF), MINJUKIM, MatinKim, WE11DONE, Mardi Mercredi</td>
-          <td class="expand">Apparel exports: <strong>+45%</strong> in 4 years ($375M → $545M, 2020–2024). WE11DONE stocked at Net-A-Porter (UK) and Luisaviaroma (Italy). Mardi Mercredi: over half of sales from international buyers including US. K-fashion fuels a 25% purchase increase in surrounding markets. · <a href="https://www.koreaherald.com/article/10598018" target="_blank" rel="noopener">Korea Herald</a> · <a href="https://spray.io/en/blog/k-fashion-global-success" target="_blank" rel="noopener">spray.io</a></td>
-        </tr>
-
-        <tr class="section-row"><td colspan="5">SOUTH ASIA</td></tr>
-
-        <tr>
-          <td class="country">🇮🇳 India</td>
-          <td class="count">4,200+</td>
-          <td class="meta">Consumer-facing apparel brands tracked (Tracxn 2025). Full textile+apparel MSME sector is multiples larger (80% of India's textile capacity is MSME). · <a href="https://tracxn.com/d/explore/apparel-brands-startups-in-india/" target="_blank" rel="noopener">Tracxn</a> · <a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2224408" target="_blank" rel="noopener">PIB / MSME</a></td>
-          <td class="brands">Anita Dongre, Sabyasachi (now licensing to US), Raw Mango, Anavila, Abraham &amp; Thakore, Rahul Mishra (Paris couture)</td>
-          <td class="expand">India's apparel market $115.7B (2024). Rahul Mishra shows at Paris Haute Couture. Sabyasachi has a US licensing deal. Luxury fashion segment $9.4B growing at double-digit CAGR — creating aspirational brands seeking Western credibility. · <a href="https://tracxn.com/d/explore/apparel-brands-startups-in-india/" target="_blank" rel="noopener">Tracxn</a></td>
-        </tr>
-
-        <tr class="section-row"><td colspan="5">SOUTHEAST ASIA</td></tr>
-
-        <tr>
-          <td class="country">🌏 SE Asia<br/><span style="font-size:10px;font-weight:400;color:var(--sub);">Thailand · Indonesia · Vietnam · Singapore</span></td>
-          <td class="count">—</td>
-          <td class="meta">No single clean brand count published for the region. 630% growth in online fashion sales 2013–2023. · <a href="https://www.statista.com/topics/10690/apparel-market-in-the-asia-pacific-region/" target="_blank" rel="noopener">Statista APAC</a></td>
-          <td class="brands">GENTLEWOMAN (Thailand), MATTER MAKERS (Thailand), Love, Bonito (Singapore — 27 stores across 6 markets), Yody (Vietnam — 270+ stores), Eiger (Indonesia)</td>
-          <td class="expand">Love, Bonito expanded to US and Hong Kong. SE Asian brands positioned in lifestyle and resort wear — categories with strong Western consumer appetite. Fast-growing cross-border e-commerce with no established community platform to support launch. · <a href="https://www.statista.com/topics/10690/apparel-market-in-the-asia-pacific-region/" target="_blank" rel="noopener">Statista</a></td>
-        </tr>
-
-      </tbody>
-    </table>
-  </div>
-
-  <p class="foot-note" style="margin-bottom:40px;">Note: establishment counts for China, Japan, and South Korea include manufacturers and retailers alongside consumer-facing brands — they are the best available proxy, not a precise "fashion brand" count. The India figure (Tracxn) is the closest to a consumer-brand-only count. The 3.3M / 1.5M / 1.2M figures appearing in some aggregator and marketing sources could not be traced to a primary statistical source and are not used here.</p>
-
-  <!-- ============================================================ -->
-  <!-- SECTION 2 — US + EU MARKET SIZE vs PLATFORM REACH -->
-  <!-- ============================================================ -->
-
-  <h2 class="section-title">Brand Market Size vs. Platform Reach</h2>
-  <div class="snote">Total independent fashion brands in the biggest markets vs. how many each comparable platform has onboarded. The gap is the untapped opportunity.</div>
 
   <div style="background:var(--green-tint);border-left:4px solid var(--green);padding:14px 20px;margin:0 0 24px;font-size:13px;color:var(--ink);line-height:1.6;">
     The US has 32,253 registered fashion design businesses (<a href="https://www.ibisworld.com/industry-statistics/number-of-businesses/fashion-designers-united-states/" target="_blank" rel="noopener" style="color:var(--green);">IBISWorld 2026</a>) — independent labels, design studios, and freelance designers operating as businesses (NAICS 54149). Of those, 3,061 are already selling designer clothing online DTC (<a href="https://www.ibisworld.com/united-states/industry/online-designer-clothing-sales/5436/" target="_blank" rel="noopener" style="color:var(--green);">IBISWorld 2025</a>). The EU has ~262,000 clothing retail stores (<a href="https://www.statista.com/statistics/422309/clothing-footwear-retail-enterprises-eurpean-union-eu/" target="_blank" rel="noopener" style="color:var(--green);">Eurostat via Statista, 2020</a>) and ~123,510 clothing manufacturing companies — the actual producing brands (<a href="https://www.statista.com/statistics/417766/eu-european-union-textile-clothing-manufacturing-companies-by-segment/" target="_blank" rel="noopener" style="color:var(--green);">Eurostat via Statista, 2022</a>). All comparable platforms combined have onboarded roughly 15,600 brands — a fraction of either market.
@@ -275,7 +226,7 @@ h2.section-title{font-size:28px;font-weight:800;color:var(--ink);margin:48px 0 1
           <tr style="background:#fffbf5;">
             <td><strong>EU — established designer brands &amp; independent labels</strong></td>
             <td class="num" style="color:var(--orange);">50,000–70,000</td>
-            <td class="meta">Active professional fashion designer businesses and established independent labels in EU‑27. Derived from EURATEX industry data (~197,000 total textile+clothing companies) narrowed to apparel-only and excluding pure manufacturers and micro-retailers. <em>Primary source behind paywall — industry estimate; treat as directional.</em> Excludes UK (+10,000–15,000 est.)</td>
+            <td class="meta">Active professional fashion designer businesses and established independent labels in EU‑27. Derived from EURATEX industry data (~197,000 total textile+clothing companies) narrowed to apparel-only and excluding pure manufacturers and micro-retailers. <em>Primary source behind paywall — industry estimate; treat as directional.</em> Excludes UK (+10,000–15,000 est.) · <a href="https://euratex.eu/facts-and-key-figures/" target="_blank" rel="noopener">EURATEX 2023</a></td>
           </tr>
           <tr>
             <td><strong>EU — retail stores</strong></td>
@@ -301,7 +252,7 @@ h2.section-title{font-size:28px;font-weight:800;color:var(--ink);margin:48px 0 1
           <tr>
             <td><strong>Not On The High Street</strong></td>
             <td class="num">5,000+</td>
-            <td class="meta">UK · handmade &amp; independent · <a href="https://www.mintsoft.com/ecommerce-management/should-you-sell-on-not-on-the-high-street/" target="_blank" rel="noopener">Mintsoft</a></td>
+            <td class="meta">UK · handmade &amp; independent · <a href="https://www.notonthehighstreet.com/about-us" target="_blank" rel="noopener">NOTHS about page</a></td>
           </tr>
           <tr>
             <td><strong>Wolf &amp; Badger</strong></td>
@@ -332,12 +283,12 @@ h2.section-title{font-size:28px;font-weight:800;color:var(--ink);margin:48px 0 1
     <div class="gap-stat" style="background:white;">
       <div class="gap-stat-num" style="color:var(--orange);">32,253</div>
       <div class="gap-stat-label">US registered fashion design businesses</div>
-      <div class="gap-stat-sub">NAICS 54149 · independent labels, studios, designers · IBISWorld 2026</div>
+      <div class="gap-stat-sub">NAICS 54149 · independent labels, studios, designers · <a href="https://www.ibisworld.com/industry-statistics/number-of-businesses/fashion-designers-united-states/" target="_blank" rel="noopener" style="color:var(--tf);">IBISWorld 2026</a></div>
     </div>
     <div class="gap-stat" style="background:white;">
       <div class="gap-stat-num" style="color:var(--orange);">50K–70K</div>
       <div class="gap-stat-label">EU established designer brands &amp; independent labels</div>
-      <div class="gap-stat-sub">EURATEX-derived · 2023 · directional estimate</div>
+      <div class="gap-stat-sub">EURATEX-derived · 2023 · directional estimate · <a href="https://euratex.eu/facts-and-key-figures/" target="_blank" rel="noopener" style="color:var(--tf);">EURATEX</a></div>
     </div>
     <div class="gap-stat" style="background:var(--green-tint);">
       <div class="gap-stat-num" style="color:var(--green);">~15,600</div>
@@ -345,6 +296,79 @@ h2.section-title{font-size:28px;font-weight:800;color:var(--ink);margin:48px 0 1
       <div class="gap-stat-sub">under 50% of US fashion businesses reached · majority untapped</div>
     </div>
   </div>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 2 — ASIA -->
+  <!-- ============================================================ -->
+
+  <h2 class="section-title">Asian Fashion Brands — International Expansion</h2>
+  <div style="background:var(--green-tint);border-left:4px solid var(--green);padding:14px 20px;margin:0 0 24px;font-size:13px;color:var(--ink);line-height:1.6;">
+    Asia is the world's largest fashion production base and an accelerating source of consumer-facing brands moving into EU and US markets. South Korea's apparel exports grew <a href="https://www.koreaherald.com/article/10598018" target="_blank" rel="noopener" style="color:var(--green);font-weight:700;">45% in four years</a> ($375M → $545M, 2020–2024). Chinese independent designers are establishing EU retail presence — Icicle operates Paris stores; Songmont debuted at Paris Fashion Week 2024. Southeast Asia's online fashion market grew <a href="https://www.statista.com/topics/10690/apparel-market-in-the-asia-pacific-region/" target="_blank" rel="noopener" style="color:var(--green);font-weight:700;">630% over ten years</a>. These brands lack the community infrastructure and pre-order tooling to scale in Western markets.
+  </div>
+
+  <div class="asia-table-wrap">
+    <table class="asia-table">
+      <thead>
+        <tr>
+          <th style="min-width:130px;">Country / Region</th>
+          <th class="r" style="min-width:140px;">Apparel establishments</th>
+          <th style="min-width:160px;">What is counted · source</th>
+          <th style="min-width:200px;">Key brands going global</th>
+          <th style="min-width:220px;">EU / US expansion evidence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="section-row"><td colspan="5">EAST ASIA</td></tr>
+
+        <tr>
+          <td class="country">🇨🇳 China</td>
+          <td class="count">44,000+</td>
+          <td class="meta">Enterprises above designated size (revenue ≥ 20M yuan) in apparel, accessories &amp; leather goods. Actual total including micro-enterprises is multiples higher. · <a href="https://www.statista.com/topics/7494/apparel-industry-in-china/" target="_blank" rel="noopener">Statista / China NBS</a></td>
+          <td class="brands">Li-Ning, Uma Wang, Feng Chen Wang, SHUSHU/TONG, Chenpeng, Peacebird, Songmont, Icicle</td>
+          <td class="expand">Songmont debuted at Paris Fashion Week 2024 — first Chinese handbag brand at PFW. Icicle operates Paris stores. Uma Wang is an established Chinese designer in the European fashion calendar.</td>
+        </tr>
+
+        <tr>
+          <td class="country">🇯🇵 Japan</td>
+          <td class="count">~1,200</td>
+          <td class="meta">Large apparel brands and manufacturers. Full sector: 130,000 textile &amp; garment businesses; 7,500 specialty fashion shops. · Industry reporting — primary source behind paywall</td>
+          <td class="brands">Comme des Garçons, Yohji Yamamoto, Issey Miyake, Sacai, BAPE, Undercover, Visvim, Snow Peak</td>
+          <td class="expand">Japanese heritage and outdoor labels (Snow Peak, Visvim) have established EU and US wholesale distribution. Japan's apparel market ($89.9B, 2024) — domestic saturation drives export-push from smaller labels.</td>
+        </tr>
+
+        <tr>
+          <td class="country">🇰🇷 South Korea</td>
+          <td class="count">46,000</td>
+          <td class="meta">Textile &amp; clothing establishments (all sizes). ~500,000 apparel workers. · Industry reporting — primary source behind paywall · Export data: <a href="https://www.koreaherald.com/article/10598018" target="_blank" rel="noopener">Korea Herald 2024</a></td>
+          <td class="brands">Gentle Monster, Andersson Bell, ADER error, Post Archive Faction (PAF), MINJUKIM, MatinKim, WE11DONE, Mardi Mercredi</td>
+          <td class="expand">Apparel exports: <strong>+45%</strong> in 4 years ($375M → $545M, 2020–2024) · <a href="https://www.koreaherald.com/article/10598018" target="_blank" rel="noopener">Korea Herald</a>. WE11DONE stocked at Net-A-Porter and Luisaviaroma. Mardi Mercredi: over half of sales from international buyers including US.</td>
+        </tr>
+
+        <tr class="section-row"><td colspan="5">SOUTH ASIA</td></tr>
+
+        <tr>
+          <td class="country">🇮🇳 India</td>
+          <td class="count">4,200+</td>
+          <td class="meta">Consumer-facing apparel brands tracked (Tracxn 2025). Full textile+apparel MSME sector is multiples larger (80% of India's textile capacity is MSME). · <a href="https://tracxn.com/d/explore/apparel-brands-startups-in-india/" target="_blank" rel="noopener">Tracxn</a></td>
+          <td class="brands">Anita Dongre, Sabyasachi (now licensing to US), Raw Mango, Anavila, Abraham &amp; Thakore, Rahul Mishra (Paris couture)</td>
+          <td class="expand">Rahul Mishra shows at Paris Haute Couture. Sabyasachi has a US licensing deal. India's luxury fashion segment growing at double-digit CAGR — creating aspirational brands seeking Western credibility.</td>
+        </tr>
+
+        <tr class="section-row"><td colspan="5">SOUTHEAST ASIA</td></tr>
+
+        <tr>
+          <td class="country">🌏 SE Asia<br/><span style="font-size:10px;font-weight:400;color:var(--sub);">Thailand · Indonesia · Vietnam · Singapore</span></td>
+          <td class="count">—</td>
+          <td class="meta">No single clean brand count published for the region. Online fashion growth 2013–2023: <a href="https://www.statista.com/topics/10690/apparel-market-in-the-asia-pacific-region/" target="_blank" rel="noopener">+630% (Statista APAC)</a></td>
+          <td class="brands">GENTLEWOMAN (Thailand), MATTER MAKERS (Thailand), Love, Bonito (Singapore — 27 stores across 6 markets), Yody (Vietnam — 270+ stores), Eiger (Indonesia)</td>
+          <td class="expand">Love, Bonito expanded to US and Hong Kong. SE Asian brands positioned in lifestyle and resort wear — categories with strong Western consumer appetite. Fast-growing cross-border e-commerce with no established community platform to support launch. · <a href="https://www.statista.com/topics/10690/apparel-market-in-the-asia-pacific-region/" target="_blank" rel="noopener">Statista</a></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <p class="foot-note" style="margin-bottom:40px;">Note: establishment counts for China, Japan, and South Korea include manufacturers and retailers alongside consumer-facing brands — they are the best available proxy, not a precise "fashion brand" count. The India figure (Tracxn) is the closest to a consumer-brand-only count. The 3.3M / 1.5M / 1.2M figures appearing in some aggregator and marketing sources could not be traced to a primary statistical source and are not used here.</p>
 
   <!-- ============================================================ -->
   <!-- DATA TABLE -->
@@ -378,14 +402,14 @@ h2.section-title{font-size:28px;font-weight:800;color:var(--ink);margin:48px 0 1
           <td style="padding:9px 14px;font-weight:700;">South Korea — apparel establishments</td>
           <td style="padding:9px 14px;text-align:right;font-weight:800;font-size:14px;">46,000</td>
           <td style="padding:9px 14px;color:var(--ink);">Textile and clothing establishments all sizes. ~500,000 workers. Exports: $545M clothing (2024), up 45% from $375M (2020).</td>
-          <td style="padding:9px 14px;color:var(--sub);font-size:11px;"><a href="https://rawshot.ai/statistic/korean-fashion-industry" target="_blank" rel="noopener" style="color:var(--tf);">rawshot.ai / Korea census</a> · <a href="https://www.koreaherald.com/article/10598018" target="_blank" rel="noopener" style="color:var(--tf);">Korea Herald 2024</a></td>
+          <td style="padding:9px 14px;color:var(--sub);font-size:11px;">Industry reporting — primary source behind paywall · Export figure: <a href="https://www.koreaherald.com/article/10598018" target="_blank" rel="noopener" style="color:var(--tf);">Korea Herald 2024</a></td>
           <td style="padding:9px 14px;color:var(--sub);font-size:11px;">Export figure covers all clothing, not only fashion brands. K-fashion brand count within 46K not separately published.</td>
         </tr>
         <tr style="border-bottom:1px solid var(--rule);">
           <td style="padding:9px 14px;font-weight:700;">Japan — large apparel brands</td>
           <td style="padding:9px 14px;text-align:right;font-weight:800;font-size:14px;">~1,200</td>
           <td style="padding:9px 14px;color:var(--ink);">Large apparel brands and manufacturers. Full sector: 130,000 textile &amp; garment businesses, 7,500 specialty fashion shops, 112,000 clothing stores.</td>
-          <td style="padding:9px 14px;color:var(--sub);font-size:11px;"><a href="https://rawshot.ai/statistic/japanese-fashion-industry" target="_blank" rel="noopener" style="color:var(--tf);">rawshot.ai / Japan stats</a></td>
+          <td style="padding:9px 14px;color:var(--sub);font-size:11px;">Industry reporting — primary source behind paywall</td>
           <td style="padding:9px 14px;color:var(--sub);font-size:11px;">1,200 is "large brands/manufacturers" subset. Most emerging Japanese labels are micro-businesses within the 130K.</td>
         </tr>
         <tr style="border-bottom:1px solid var(--rule);">
@@ -408,7 +432,7 @@ h2.section-title{font-size:28px;font-weight:800;color:var(--ink);margin:48px 0 1
         <tr style="border-bottom:1px solid var(--rule);">
           <td style="padding:9px 14px;font-weight:700;">SE Asia online fashion growth (2013–2023)</td>
           <td style="padding:9px 14px;text-align:right;font-weight:800;font-size:14px;color:var(--orange);">+630%</td>
-          <td style="padding:9px 14px;color:var(--ink);">Online fashion sales in Southeast Asia grew 630% over ten years. SE Asia now captures 46% of global online retail growth.</td>
+          <td style="padding:9px 14px;color:var(--ink);">Online fashion sales in Southeast Asia grew 630% over ten years.</td>
           <td style="padding:9px 14px;color:var(--sub);font-size:11px;"><a href="https://www.statista.com/topics/10690/apparel-market-in-the-asia-pacific-region/" target="_blank" rel="noopener" style="color:var(--tf);">Statista APAC</a></td>
           <td style="padding:9px 14px;color:var(--sub);font-size:11px;">Covers total online fashion sales in region — not cross-border to EU/US specifically.</td>
         </tr>
@@ -471,7 +495,7 @@ h2.section-title{font-size:28px;font-weight:800;color:var(--ink);margin:48px 0 1
           <td style="padding:9px 14px;font-weight:700;">Not On The High Street</td>
           <td style="padding:9px 14px;text-align:right;font-weight:800;font-size:14px;">5,000+</td>
           <td style="padding:9px 14px;color:var(--ink);">UK-based independent small businesses. Handmade and hand-finished products required. UK market only.</td>
-          <td style="padding:9px 14px;color:var(--sub);font-size:11px;"><a href="https://www.mintsoft.com/ecommerce-management/should-you-sell-on-not-on-the-high-street/" target="_blank" rel="noopener" style="color:var(--tf);">Mintsoft / NOTHS</a> · 2024–25</td>
+          <td style="padding:9px 14px;color:var(--sub);font-size:11px;"><a href="https://www.notonthehighstreet.com/about-us" target="_blank" rel="noopener" style="color:var(--tf);">NOTHS about page</a> · 2024–25</td>
           <td style="padding:9px 14px;color:var(--sub);font-size:11px;">UK-only; not a direct US competitor. Included for EU market context.</td>
         </tr>
         <tr style="border-bottom:1px solid var(--rule);">
@@ -493,7 +517,7 @@ h2.section-title{font-size:28px;font-weight:800;color:var(--ink);margin:48px 0 1
           <td style="padding:9px 14px;text-align:right;font-weight:800;font-size:14px;">1,200+</td>
           <td style="padding:9px 14px;color:var(--ink);">Premium brands paying $399–$2,799+/month subscription. Influencer affiliate platform, not a designer marketplace.</td>
           <td style="padding:9px 14px;color:var(--sub);font-size:11px;"><a href="https://menlovc.com/perspective/doubling-down-on-curated-commerce-with-shopmy/" target="_blank" rel="noopener" style="color:var(--tf);">Menlo Ventures</a> · 2025</td>
-          <td style="padding:9px 14px;color:var(--sub);font-size:11px;">High subscription cost excludes early-stage designers. 47,000+ brands in broader affiliate network (lower tier).</td>
+          <td style="padding:9px 14px;color:var(--sub);font-size:11px;">High subscription cost excludes early-stage designers. $70M raised total · <a href="https://menlovc.com/perspective/doubling-down-on-curated-commerce-with-shopmy/" target="_blank" rel="noopener" style="color:var(--tf);">Menlo Ventures 2025</a>.</td>
         </tr>
         <tr style="border-bottom:2px solid var(--ink);background:var(--tf-ghost);">
           <td style="padding:9px 14px;font-weight:800;">Combined (est.)</td>
@@ -522,18 +546,6 @@ h2.section-title{font-size:28px;font-weight:800;color:var(--ink);margin:48px 0 1
       </tbody>
     </table>
   </div>
-
-  <h2>Where the gap sits</h2>
-  <ul class="gap-list">
-    <li><strong>Pre-production entry.</strong> TF is the only platform that signs designers with sketches and zero inventory.</li>
-    <li><strong>Pre-order + crowdfunding for fashion.</strong> No platform in this matrix offers either function for fashion designers.</li>
-    <li><strong>Co-creation.</strong> Community input into design is unique to TF across this matrix.</li>
-    <li><strong>Superfan / ambassador earnings layer.</strong> Unique to TF; LTK and ShopMy run only traditional influencer affiliate networks.</li>
-    <li><strong>10K–150K niche fashion influencers.</strong> LTK and ShopMy exclude this segment; Instagram, TikTok and Rednote include them but are not fashion-specific commerce platforms.</li>
-    <li><strong>EU emerging-designer recruitment.</strong> No competitor in this matrix actively recruits EU emerging designers.</li>
-    <li><strong>Asian brand infrastructure gap.</strong> K-fashion, Chinese designer, and SE Asian lifestyle brands moving into EU/US have no community platform built for pre-order launch and ambassador-led growth.</li>
-    <li><strong>Closest direct competitive threat.</strong> ShopMy — 200% YoY, profitable, $147.5M raised, Circles community launched July 2025.</li>
-  </ul>
 
 </div>
 
