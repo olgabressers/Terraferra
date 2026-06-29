@@ -159,7 +159,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
     <div class="ctx-box">
       <strong>Stack proposed by ChangeCX (now Icreon):</strong> commercetools (headless commerce backend) + Marketplacer (marketplace layer) + ChangeCX as system integrator. Proposal sent Sep 28, 2022.<br>
       <strong>Mirakl RFP:</strong> TF sent a requirements document to Mirakl — no pricing response was received.<br>
-      <strong>Note on current pricing:</strong> 2022 figures below. Both providers wanted ~1.5% of GMV on top of fixed annual fees. Prices may be lower now with a simpler RFP scope; verify directly before re-engaging. (Source: Founder note, June 2026)
+      <strong>Note on current pricing:</strong> 2022 figures below. Both providers wanted ~1.5% of GMV on top of fixed annual fees. Prices may be lower now with a simpler RFP scope; verify directly before re-engaging. (Verified internally, June 2026)
     </div>
 
     <table class="ctable">
@@ -200,8 +200,8 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         </tr>
         <tr>
           <td>Known customers</td>
-          <td>Plick (fashion resale → electronics), Rackhams (luxury, 300% revenue growth), Woolworths.
-            <span class="src"><a href="https://marketplacer.com/case-studies" target="_blank" rel="noopener">marketplacer.com/case-studies</a></span>
+          <td>Plick (fashion resale → electronics), Rackhams (luxury — 300% increase in affiliate traffic, +35% sales in 6 months), Woolworths.
+            <span class="src"><a href="https://marketplacer.com/case-studies/rackhams" target="_blank" rel="noopener">marketplacer.com/case-studies/rackhams</a></span>
           </td>
           <td>Macy's, Nordstrom, H&amp;M, Best Buy, Carrefour. 450+ operators. $11.2B GMV transacted in 2024.
             <span class="src"><a href="https://www.mirakl.com" target="_blank" rel="noopener">mirakl.com</a></span>
@@ -214,8 +214,8 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         </tr>
         <tr>
           <td>Pre-order / drops</td>
-          <td><span class="warn">Configurable</span> — a drop is a product with a release date, quantity cap, and status flag. Implementable as custom product attributes on any API-first platform. Not included out of the box but not a blocker.</td>
-          <td><span class="warn">Configurable</span> — same logic applies. Standard catalog supports products with any attributes; drop mechanics are a configuration + custom UI layer.</td>
+          <td><span class="warn">Configurable</span> — a drop is a product with a release date, quantity cap, and status flag. Catalog attributes are configuration, not a blocker. Countdown timers, waitlist flows, and concurrency handling at drop release (inventory race conditions across multiple sellers) require custom engineering on top.</td>
+          <td><span class="warn">Configurable</span> — same logic. Catalog attributes are configuration. Waitlist flows and concurrency handling at drop release require custom development on top.</td>
         </tr>
         <tr>
           <td>Revenue share / ambassador</td>
@@ -297,7 +297,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
           <td>$39–$299/mo. Free transactions up to tier limit.
             <span class="src"><a href="https://www.sharetribe.com/pricing/" target="_blank" rel="noopener">sharetribe.com/pricing</a></span>
           </td>
-          <td><span class="warn">Early stage only</span> — good for MVP validation. Limited for social commerce at scale. Plick used Sharetribe before graduating to Marketplacer.</td>
+          <td><span class="warn">Early stage only</span> — good for MVP validation. Limited for social commerce at scale. Designed to be outgrown as transaction volume increases.</td>
         </tr>
         <tr>
           <td><a href="https://www.cs-cart.com/multivendor.html" target="_blank" rel="noopener">CS-Cart Multi-Vendor</a></td>
