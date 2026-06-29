@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Marketplace Platform Options — Terra Ferra</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --tf:#4B40C2;--tf-dark:#2D2595;--tf-ghost:#F4F2FC;
+  --orange:#E86820;--off-white:#F7F6FB;--ink:#12102B;
+  --sub:#5B5880;--rule:#D8D4EF;
+  --green:#1A7A4A;--green-bg:#EDFAF3;
+  --red:#C0392B;--red-bg:#FDF2F1;
+  --amber:#B45309;--amber-bg:#FFFBEB;
+}
+body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)}
+
+/* NAV */
+.topnav{background:white;border-bottom:1px solid var(--rule);padding:12px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
+.topnav-home{font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);text-decoration:none;font-size:11px}
+.topnav-home:hover{color:var(--tf-dark)}
+.topnav-links{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:var(--sub);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:10px}
+.topnav-links a:hover{color:var(--tf)}
+.topnav-links a.active{color:var(--orange)}
+.has-dropdown{position:relative;padding-bottom:10px;margin-bottom:-10px}
+.dropdown-trigger{cursor:pointer;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:10px;user-select:none}
+.dropdown-trigger:hover,.has-dropdown:focus-within .dropdown-trigger{color:var(--tf)}
+.dropdown{display:none;position:absolute;top:100%;right:0;background:white;border:1px solid var(--rule);min-width:210px;box-shadow:0 6px 14px rgba(0,0,0,.08);padding:6px 0;z-index:60}
+.has-dropdown:hover .dropdown,.has-dropdown:focus-within .dropdown{display:block}
+.dropdown a{display:block;padding:9px 16px;font-size:10px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:1px;text-decoration:none}
+.dropdown a:hover{background:var(--tf-ghost);color:var(--tf)}
+@media(max-width:700px){
+  .topnav{position:static;padding:10px 14px}
+  .topnav-links{gap:8px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:2px;width:100%}
+  .topnav-links a{font-size:9.5px;white-space:nowrap}
+  .dropdown-trigger{font-size:9.5px;white-space:nowrap}
+  .has-dropdown{padding-bottom:0;margin-bottom:0}
+  .dropdown{display:none!important}
+}
+
+/* LAYOUT */
+.pg-wrap{max-width:1240px;margin:0 auto;padding:40px 48px 80px}
+@media(max-width:700px){.pg-wrap{padding:24px 16px 60px}}
+.pg-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--sub);opacity:.6}
+.pg-title{font-size:clamp(22px,4vw,34px);font-weight:800;letter-spacing:-1px;color:var(--ink);margin-top:14px;line-height:1.15}
+.pg-sub{font-size:13px;color:var(--ink);margin-top:8px;line-height:1.6;max-width:780px}
+
+.section{padding:40px 0}
+.section+.section{border-top:1px solid var(--rule)}
+.sec-heading{font-size:17px;font-weight:800;color:var(--ink);margin-bottom:18px;line-height:1.2}
+.sec-num{font-size:17px;font-weight:800;color:var(--orange);margin-right:8px}
+
+/* CONTEXT BOX */
+.ctx-box{background:white;border:1px solid var(--rule);border-left:4px solid var(--tf);padding:20px 24px;margin-bottom:32px;font-size:13px;color:var(--ink);line-height:1.6}
+.ctx-box strong{color:var(--tf)}
+
+/* VERDICT BADGE */
+.badge{display:inline-block;padding:2px 9px;border-radius:3px;font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}
+.badge-green{background:var(--green-bg);color:var(--green)}
+.badge-red{background:var(--red-bg);color:var(--red)}
+.badge-amber{background:var(--amber-bg);color:var(--amber)}
+
+/* COMPARISON TABLE */
+.ctable{width:100%;border-collapse:collapse;font-size:13px;margin-top:4px}
+.ctable thead th{padding:10px 14px 10px 0;font-size:9.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);border-bottom:2px solid var(--rule)}
+.ctable thead th.col-dim{min-width:160px}
+.ctable thead th.col-val{color:var(--ink);font-size:12px;font-weight:800;letter-spacing:0;text-transform:none}
+.ctable tbody td{border-bottom:1px solid var(--rule);padding:12px 14px 12px 0;color:var(--ink);vertical-align:top;line-height:1.55}
+.ctable tbody td:first-child{font-weight:700;color:var(--sub);font-size:11px;text-transform:uppercase;letter-spacing:1px;padding-top:14px}
+.ctable tbody tr:last-child td{border-bottom:none}
+.yes{color:var(--green);font-weight:700}
+.no{color:var(--red);font-weight:700}
+.warn{color:var(--amber);font-weight:700}
+.src{font-size:11px;color:var(--sub);display:block;margin-top:3px}
+.src a{color:var(--tf);text-decoration:none;font-weight:600}
+.src a:hover{color:var(--orange);text-decoration:underline}
+@media(max-width:800px){
+  .ctable{display:block;overflow-x:auto;white-space:nowrap}
+  .ctable td,.ctable th{padding:10px 12px 10px 0}
+}
+
+/* ALTERNATIVES TABLE */
+.atable{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:4px}
+.atable th{padding:8px 14px 8px 0;font-size:9.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);border-bottom:2px solid var(--rule)}
+.atable td{border-bottom:1px solid var(--rule);padding:11px 14px 11px 0;color:var(--ink);vertical-align:top;line-height:1.5}
+.atable td:first-child{font-weight:700}
+.atable tr:last-child td{border-bottom:none}
+@media(max-width:800px){
+  .atable{display:block;overflow-x:auto;white-space:nowrap}
+  .atable td,.atable th{padding:9px 12px 9px 0}
+}
+
+footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);opacity:.5}
+@media(max-width:700px){footer{padding:16px}}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="index.html" class="topnav-home">Terra Ferra</a>
+  <div class="topnav-links">
+    <a href="index.html">Files</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Budget ▾</span>
+      <div class="dropdown">
+        <a href="TFmarketsize.html">Market Size &amp; Opportunity</a>
+        <a href="budget.html">Budget &amp; Sales Scenarios</a>
+      </div>
+    </div>
+    <a href="roles.html">Roles</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Business Model ▾</span>
+      <div class="dropdown">
+        <a href="TFbusinessmodel.html">Comparison Matrix</a>
+        <a href="TFaltmodel.html">Alternative Model</a>
+        <a href="TFmvpcosts.html">MVP Scope &amp; Costs</a>
+        <a href="TFgtm.html">GTM</a>
+        <a href="TFwhynow.html">Why Now</a>
+        <a href="TFdropsmarket.html">Drop Market Research</a>
+        <a href="TFunservedmarket.html">Unserved Market</a>
+        <a href="TFreferral.html">Referral &amp; Viral</a>
+        <a href="TFcreatortoken.html">Creator Payments</a>
+        <a href="TFstylists.html">Stylist Layer</a>
+        <a href="TFvisualdiscovery.html">Visual Discovery</a>
+        <a href="TFbrandsworldwide.html">Fashion Brands Worldwide</a>
+      </div>
+    </div>
+    <a href="architecture.html" class="active">Architecture &amp; Tools</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Ideas ▾</span>
+      <div class="dropdown">
+        <a href="gamification.html">Gamification</a>
+        <a href="ideas.html">Ideas &amp; AI Research</a>
+        <a href="influencer.html">Influencer Selling</a>
+        <a href="strategic-brief.html">Strategic Brief</a>
+      </div>
+    </div>
+    <a href="TFnewname.html">Design</a>
+    <a href="TFrussia.html">Legal / Tax</a>
+    <a href="task-tracker.html">Planning</a>
+  </div>
+</nav>
+
+<div class="pg-wrap">
+
+  <div class="pg-eyebrow">Architecture &amp; Tools · Internal</div>
+  <h1 class="pg-title">Marketplace Platform Options</h1>
+  <p class="pg-sub">Two platforms proposed to power TF's marketplace backend (2022–2023 RFPs). Current features and pricing sourced from vendor websites, June 2026.</p>
+
+  <!-- Section 1: RFP platforms compared -->
+  <div class="section">
+    <h2 class="sec-heading"><span class="sec-num">01</span>Proposed Platforms: Marketplacer vs Mirakl</h2>
+
+    <div class="ctx-box">
+      <strong>Stack proposed by ChangeCX (now Icreon):</strong> commercetools (headless commerce backend) + Marketplacer (marketplace layer) + ChangeCX as system integrator.<br>
+      <strong>Mirakl RFP:</strong> submitted by TF directly to Mirakl — standalone marketplace-as-a-service.
+    </div>
+
+    <table class="ctable">
+      <thead>
+        <tr>
+          <th class="col-dim">Dimension</th>
+          <th class="col-val">Marketplacer</th>
+          <th class="col-val">Mirakl</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>What it is</td>
+          <td>Multi-vendor marketplace &amp; dropship layer. Sits on top of an existing commerce platform (commercetools, Shopify, Salesforce, BigCommerce, Adobe Commerce).
+            <span class="src"><a href="https://marketplacer.com/platform" target="_blank" rel="noopener">marketplacer.com/platform</a></span>
+          </td>
+          <td>End-to-end marketplace &amp; dropship management platform. Includes AI catalog onboarding (Mirakl Catalog Platform), seller payouts (Mirakl Payout), retail media (Mirakl Ads), and agent-led commerce (Mirakl Nexus).
+            <span class="src"><a href="https://www.mirakl.com" target="_blank" rel="noopener">mirakl.com</a></span>
+          </td>
+        </tr>
+        <tr>
+          <td>Architecture</td>
+          <td>API-first, headless. Composable catalog. Requires a separate commerce platform as the foundation.
+            <span class="src"><a href="https://marketplacer.com/platform" target="_blank" rel="noopener">marketplacer.com/platform</a></span>
+          </td>
+          <td>SaaS marketplace layer. Headless-compatible. Integrates with existing commerce stack via APIs.
+            <span class="src"><a href="https://www.mirakl.com" target="_blank" rel="noopener">mirakl.com</a></span>
+          </td>
+        </tr>
+        <tr>
+          <td>Core features</td>
+          <td>Seller onboarding, catalog management, order routing, commission management, SAML SSO, MFA. "Fast Start Program" — 90-day launch path.
+            <span class="src"><a href="https://marketplacer.com/platform" target="_blank" rel="noopener">marketplacer.com/platform</a></span>
+          </td>
+          <td>Seller/operator portal, AI-powered catalog onboarding, order management, commission automation, global payout processing, retail media ads, AI/agent commerce layer (Nexus).
+            <span class="src"><a href="https://www.mirakl.com" target="_blank" rel="noopener">mirakl.com</a></span>
+          </td>
+        </tr>
+        <tr>
+          <td>Known customers</td>
+          <td>Plick (fashion resale → electronics), Rackhams (luxury, 300% revenue growth), Woolworths.
+            <span class="src"><a href="https://marketplacer.com/case-studies" target="_blank" rel="noopener">marketplacer.com/case-studies</a></span>
+          </td>
+          <td>Macy's, Nordstrom, H&amp;M, Best Buy, Carrefour. 450+ operators. $11.2B GMV transacted in 2024.
+            <span class="src"><a href="https://www.mirakl.com" target="_blank" rel="noopener">mirakl.com</a></span>
+          </td>
+        </tr>
+        <tr>
+          <td>Fashion fit</td>
+          <td><span class="warn">Partial</span> — Plick used Marketplacer for fashion resale before expanding into electronics. No native social commerce or community features.</td>
+          <td><span class="warn">Partial</span> — H&amp;M uses Mirakl. Built for broad retail, not social commerce or community-led drops. No ambassador/co-creator layer.</td>
+        </tr>
+        <tr>
+          <td>Pre-order / drops</td>
+          <td><span class="no">Not native</span> — standard pre-order requires custom build on top.</td>
+          <td><span class="no">Not native</span> — standard catalog/inventory model. No drop mechanics.</td>
+        </tr>
+        <tr>
+          <td>Revenue share / ambassador</td>
+          <td><span class="no">Not native</span> — commission rules cover seller payouts, not multi-tier creator/ambassador splits.</td>
+          <td><span class="no">Not native</span> — commission management covers seller-operator split only.</td>
+        </tr>
+        <tr>
+          <td>Pricing</td>
+          <td><span class="warn">No public pricing</span> — enterprise custom quote. SI implementation (ChangeCX/Icreon) + commercetools license + Marketplacer license stack on top of each other.
+            <span class="src"><a href="https://marketplacer.com/platform" target="_blank" rel="noopener">marketplacer.com/platform</a></span>
+          </td>
+          <td><span class="no">No public pricing</span> — enterprise contract. Scale of customers (Macy's, Nordstrom, H&amp;M) indicates 6-figure annual contracts.
+            <span class="src"><a href="https://www.mirakl.com" target="_blank" rel="noopener">mirakl.com</a></span>
+          </td>
+        </tr>
+        <tr>
+          <td>Time to launch</td>
+          <td>90 days (Fast Start Program — basic setup). Full custom implementation: 6–12 months.
+            <span class="src"><a href="https://marketplacer.com/platform" target="_blank" rel="noopener">marketplacer.com/platform</a></span>
+          </td>
+          <td>Typically 6–12 months for enterprise onboarding. No fast-start program publicised.
+            <span class="src"><a href="https://www.mirakl.com" target="_blank" rel="noopener">mirakl.com</a></span>
+          </td>
+        </tr>
+        <tr>
+          <td>TF verdict</td>
+          <td><span class="warn">Overbuilt for current stage</span> — triple-stack (commercetools + Marketplacer + SI) is complex and expensive. Lacks TF's core differentiators: social commerce, co-creator revenue share, drops.</td>
+          <td><span class="no">Wrong scale</span> — built for $10M+ GMV enterprise retailers. Features TF does not need (retail media, B2B). Missing features TF does need (social, community, drops).</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Section 2: Other options -->
+  <div class="section">
+    <h2 class="sec-heading"><span class="sec-num">02</span>Other Platforms to Consider</h2>
+
+    <table class="atable">
+      <thead>
+        <tr>
+          <th style="min-width:130px">Platform</th>
+          <th style="min-width:220px">What it does</th>
+          <th style="min-width:160px">Pricing (public)</th>
+          <th style="min-width:180px">Best fit for TF</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="https://thetraide.com" target="_blank" rel="noopener">Traide</a><br><span style="font-size:10px;font-weight:400;color:var(--sub)">formerly Nautical Commerce</span></td>
+          <td>Multi-vendor marketplace SaaS. Shopify-native. Multivendor checkout, seller dashboards, commission splits, headless storefront API (Business+).</td>
+          <td>$79–$2,000/mo + 0.5–1% transaction fee. 14-day free trial.
+            <span class="src"><a href="https://thetraide.com/pricing" target="_blank" rel="noopener">thetraide.com/pricing</a></span>
+          </td>
+          <td><span class="warn">Partial</span> — good multi-vendor foundation. No drops, no social, no ambassador layer. Best if TF goes Shopify-stack.</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.sharetribe.com" target="_blank" rel="noopener">Sharetribe</a></td>
+          <td>No-code marketplace builder + API. Supports listings, transactions, commission splits. Fully customisable via API.</td>
+          <td>$39–$299/mo. Free transactions up to tier limit.
+            <span class="src"><a href="https://www.sharetribe.com/pricing/" target="_blank" rel="noopener">sharetribe.com/pricing</a></span>
+          </td>
+          <td><span class="warn">Early stage only</span> — good for MVP validation. Limited for social commerce at scale. Plick used Sharetribe before graduating to Marketplacer.</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.cs-cart.com/multivendor.html" target="_blank" rel="noopener">CS-Cart Multi-Vendor</a></td>
+          <td>Self-hosted multi-vendor marketplace software. Full code access. App marketplace for extensions.</td>
+          <td>From $725/yr. Lifetime plan available.
+            <span class="src"><a href="https://www.cs-cart.com/multivendor.html" target="_blank" rel="noopener">cs-cart.com/multivendor</a></span>
+          </td>
+          <td><span class="warn">Low cost, high dev effort</span> — requires hosting and custom dev. No SaaS management. Not a fit unless TF wants full ownership and has dev resource.</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.vendure.io" target="_blank" rel="noopener">Vendure</a></td>
+          <td>Open-source headless commerce framework (GPLv3). API-first, plugin model. Multi-vendor possible via plugins. Managed cloud in 2026.</td>
+          <td>Core: free (open source). Platform: annual subscription (no public price).
+            <span class="src"><a href="https://www.vendure.io/pricing" target="_blank" rel="noopener">vendure.io/pricing</a></span>
+          </td>
+          <td><span class="green">Strong option</span> — API-first, fully extensible, no GMV fees, can build ambassador/drop mechanics on top. Requires engineering capacity. Worth evaluating if TF builds custom stack.</td>
+        </tr>
+        <tr>
+          <td><a href="https://spryker.com/marketplace/" target="_blank" rel="noopener">Spryker Marketplace</a></td>
+          <td>Enterprise marketplace platform for B2B and retail. Merchant management, order splitting, commission automation. Strong B2B focus.</td>
+          <td>No public pricing — enterprise custom quote.
+            <span class="src"><a href="https://spryker.com/marketplace/" target="_blank" rel="noopener">spryker.com/marketplace</a></span>
+          </td>
+          <td><span class="no">Wrong fit</span> — optimised for B2B (automotive, industrial, wholesale). Not built for fashion social commerce.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="margin-top:24px;padding:16px 20px;background:var(--amber-bg);border:1px solid #FCD34D;border-left:4px solid var(--amber);font-size:13px;color:var(--ink);line-height:1.6">
+      <strong style="color:var(--amber)">Gap across all options:</strong> No platform above provides native drops/pre-order mechanics, multi-tier creator revenue share (ambassador + co-creator splits), or community-led social commerce. Building these on top of any of these platforms requires custom development. This is TF's core product differentiator — the reason for building a custom app rather than licensing existing infrastructure.
+    </div>
+  </div>
+
+</div>
+
+<footer>Private · noindex · Not for distribution</footer>
+
+</body>
+</html>
