@@ -12,7 +12,7 @@
 :root{
   --tf:#4B40C2;--tf-dark:#2D2595;--tf-mid:#7169D4;--tf-light:#ECEAF9;--tf-ghost:#F4F2FC;
   --orange:#E86820;--off-white:#F7F6FB;--ink:#12102B;--sub:#5B5880;--rule:#D8D4EF;
-  --va:#B8106D;--vc:#E86820;--vm:#1A6BCC;
+  --va:#B8106D;--vc:#E86820;--vm:#1A6BCC;--vx:#167A47;
 }
 body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink);min-height:100vh}
 
@@ -54,12 +54,14 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .voter-btn[data-voter="alena"].active{background:var(--va);border-color:var(--va);color:white}
 .voter-btn[data-voter="chris"].active{background:var(--vc);border-color:var(--vc);color:white}
 .voter-btn[data-voter="maxim"].active{background:var(--vm);border-color:var(--vm);color:white}
+.voter-btn[data-voter="alex"].active{background:var(--vx);border-color:var(--vx);color:white}
 .voter-status{font-size:12px;color:var(--sub);margin-left:6px;font-style:italic}
 .voter-status.ready{color:var(--tf);font-weight:700;font-style:normal}
 
 /* 3-column grid */
-.cols-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start}
-@media(max-width:900px){.cols-grid{grid-template-columns:1fr}}
+.cols-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;align-items:start}
+@media(max-width:1100px){.cols-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.cols-grid{grid-template-columns:1fr}}
 
 .col-block{background:white;border:1px solid var(--rule);border-top:3px solid var(--tf)}
 .col-header{padding:14px 20px;border-bottom:1px solid var(--rule);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--tf);display:flex;align-items:center;gap:8px}
@@ -82,6 +84,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .vote-btn.va{background:var(--va);border-color:var(--va);color:white}
 .vote-btn.vc{background:var(--vc);border-color:var(--vc);color:white}
 .vote-btn.vm{background:var(--vm);border-color:var(--vm);color:white}
+.vote-btn.vx{background:var(--vx);border-color:var(--vx);color:white}
 .vote-count{font-size:11px;font-weight:800;color:var(--ink);min-width:16px;text-align:center;flex-shrink:0}
 
 /* Add button */
@@ -159,6 +162,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
     <button class="voter-btn" data-voter="alena" onclick="setVoter('alena')">Alena</button>
     <button class="voter-btn" data-voter="chris" onclick="setVoter('chris')">Chris</button>
     <button class="voter-btn" data-voter="maxim" onclick="setVoter('maxim')">Maxim</button>
+    <button class="voter-btn" data-voter="alex" onclick="setVoter('alex')">Alex</button>
     <span class="voter-status" id="voter-status">Select your name to enable voting</span>
   </div>
 
@@ -178,6 +182,11 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
       <div class="ideas-list" id="col-maxim"></div>
       <button class="add-btn" onclick="addIdea('maxim')">+ Add idea</button>
     </div>
+    <div class="col-block">
+      <div class="col-header" style="border-top-color:var(--vx)">Alex <span class="col-header-count" id="cnt-alex">0 votes</span></div>
+      <div class="ideas-list" id="col-alex"></div>
+      <button class="add-btn" onclick="addIdea('alex')">+ Add idea</button>
+    </div>
   </div>
 
   <div class="results-bar">
@@ -196,9 +205,9 @@ var ROOT = '/tf-newname/v2';
 // ── State ─────────────────────────────────────────────────────────────────────
 var currentVoter = null;
 // fbData[col][id] = {text, va, vc, vm}
-var fbData = {alena:{}, chris:{}, maxim:{}};
+var fbData = {alena:{}, chris:{}, maxim:{}, alex:{}};
 // colOrder[col] = [id, id, ...]
-var colOrder = {alena:[], chris:[], maxim:[]};
+var colOrder = {alena:[], chris:[], maxim:[], alex:[]};
 
 // ── Defaults (Alena's pre-filled list) ────────────────────────────────────────
 var DEFS = {
@@ -216,10 +225,12 @@ var DEFS = {
     {id:'a-22', text:''}
   ],
   chris: (function(){var a=[];for(var i=0;i<10;i++)a.push({id:'c-'+i,text:''});return a;})(),
-  maxim: (function(){var a=[];for(var i=0;i<10;i++)a.push({id:'m-'+i,text:''});return a;})()
+  maxim: (function(){var a=[];for(var i=0;i<10;i++)a.push({id:'m-'+i,text:''});return a;})(),
+  alex: (function(){var a=[];for(var i=0;i<10;i++)a.push({id:'x-'+i,text:''});return a;})()
 };
 
-function blankItem(text){ return {text:text||'',va:false,vc:false,vm:false}; }
+function blankItem(text){ return {text:text||'',va:false,vc:false,vm:false,vx:false}; }
+var VOTER_KEYS = {alena:'va', chris:'vc', maxim:'vm', alex:'vx'};
 
 // ── Firebase helpers ──────────────────────────────────────────────────────────
 function furl(path){ return DB+ROOT+(path||'')+'.json'; }
@@ -241,7 +252,7 @@ async function init(){
       mergeNewDefs();
     } else {
       // First load — write DEFAULTS to Firebase
-      ['alena','chris','maxim'].forEach(function(col){
+      ['alena','chris','maxim','alex'].forEach(function(col){
         fbData[col] = {};
         colOrder[col] = [];
         DEFS[col].forEach(function(d){
@@ -255,7 +266,7 @@ async function init(){
   } catch(e){
     setSyncStatus('err');
     // Offline fallback — show DEFAULTS locally only
-    ['alena','chris','maxim'].forEach(function(col){
+    ['alena','chris','maxim','alex'].forEach(function(col){
       fbData[col] = {};
       colOrder[col] = [];
       DEFS[col].forEach(function(d){
@@ -271,7 +282,7 @@ async function init(){
 // Add any new DEFAULTS entries not yet in Firebase (e.g. Alena adds a name via code)
 function mergeNewDefs(){
   var changed = false;
-  ['alena','chris','maxim'].forEach(function(col){
+  ['alena','chris','maxim','alex'].forEach(function(col){
     if(!fbData[col]) fbData[col] = {};
     if(!colOrder[col]) colOrder[col] = [];
     DEFS[col].forEach(function(d, i){
@@ -371,7 +382,7 @@ function vote(col, id){
     st.className = 'voter-status';
     return;
   }
-  var vk = 'v'+currentVoter[0]; // va / vc / vm
+  var vk = VOTER_KEYS[currentVoter]; // va / vc / vm / vx
   if(!fbData[col] || !fbData[col][id]) return;
   var newVal = !fbData[col][id][vk];
 
@@ -425,7 +436,7 @@ function addIdea(col){
 function focusedId(){ return (document.activeElement && document.activeElement.id) ? document.activeElement.id : null; }
 
 function renderAll(fid){
-  ['alena','chris','maxim'].forEach(function(col){ renderCol(col, fid); });
+  ['alena','chris','maxim','alex'].forEach(function(col){ renderCol(col, fid); });
 }
 
 function renderCol(col, fid){
@@ -452,8 +463,8 @@ function renderRow(col, id, fid){
   if(!row) return;
 
   // Update vote buttons
-  var vkeys = ['va','vc','vm'];
-  var classes = ['va','vc','vm'];
+  var vkeys = ['va','vc','vm','vx'];
+  var classes = ['va','vc','vm','vx'];
   var total = 0;
   var btns = row.querySelectorAll('.vote-btn');
   btns.forEach(function(btn, i){
@@ -495,10 +506,10 @@ function buildRow(col, id, num){
 
   var btnsEl = document.createElement('div');
   btnsEl.className = 'vote-btns';
-  ['alena','chris','maxim'].forEach(function(v, i){
-    var vkeys = ['va','vc','vm'];
-    var classes = ['va','vc','vm'];
-    var labels = ['A','C','M'];
+  ['alena','chris','maxim','alex'].forEach(function(v, i){
+    var vkeys = ['va','vc','vm','vx'];
+    var classes = ['va','vc','vm','vx'];
+    var labels = ['A','C','M','X'];
     var btn = document.createElement('button');
     btn.className = 'vote-btn'+(item[vkeys[i]] ? ' '+classes[i] : '');
     btn.textContent = labels[i];
@@ -508,7 +519,7 @@ function buildRow(col, id, num){
 
   var cnt = document.createElement('span');
   cnt.className = 'vote-count';
-  var total = ['va','vc','vm'].filter(function(k){ return item[k]; }).length;
+  var total = ['va','vc','vm','vx'].filter(function(k){ return item[k]; }).length;
   cnt.textContent = total > 0 ? total : '';
 
   row.appendChild(numEl);
@@ -523,7 +534,7 @@ function updateColCount(col){
   var total = order.reduce(function(s, id){
     var it = fbData[col] && fbData[col][id];
     if(!it) return s;
-    return s + ['va','vc','vm'].filter(function(k){ return it[k]; }).length;
+    return s + ['va','vc','vm','vx'].filter(function(k){ return it[k]; }).length;
   }, 0);
   var el = document.getElementById('cnt-'+col);
   if(el) el.textContent = total+(total===1?' vote':' votes');
@@ -554,7 +565,7 @@ function setSyncStatus(state){
 // ── Copy results ──────────────────────────────────────────────────────────────
 function copyResults(){
   var lines = ['Terra Ferra — New Name Vote Summary\n'];
-  ['alena','chris','maxim'].forEach(function(col){
+  ['alena','chris','maxim','alex'].forEach(function(col){
     lines.push(col.toUpperCase()+"'S IDEAS:");
     (colOrder[col]||[]).forEach(function(id){
       var it = fbData[col] && fbData[col][id];
@@ -564,6 +575,7 @@ function copyResults(){
       if(it.va) who.push('Alena');
       if(it.vc) who.push('Chris');
       if(it.vm) who.push('Maxim');
+      if(it.vx) who.push('Alex');
       lines.push('  '+it.text+' — '+total+' vote'+(total!==1?'s':'')+(who.length?' ('+who.join(', ')+')':''));
     });
     lines.push('');
