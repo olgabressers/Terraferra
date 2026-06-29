@@ -214,13 +214,13 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         </tr>
         <tr>
           <td>Pre-order / drops</td>
-          <td><span class="no">Not native</span> — standard pre-order requires custom build on top.</td>
-          <td><span class="no">Not native</span> — standard catalog/inventory model. No drop mechanics.</td>
+          <td><span class="warn">Configurable</span> — a drop is a product with a release date, quantity cap, and status flag. Implementable as custom product attributes on any API-first platform. Not included out of the box but not a blocker.</td>
+          <td><span class="warn">Configurable</span> — same logic applies. Standard catalog supports products with any attributes; drop mechanics are a configuration + custom UI layer.</td>
         </tr>
         <tr>
           <td>Revenue share / ambassador</td>
-          <td><span class="no">Not native</span> — commission rules cover seller payouts, not multi-tier creator/ambassador splits.</td>
-          <td><span class="no">Not native</span> — commission management covers seller-operator split only.</td>
+          <td><span class="warn">Partial</span> — simple seller commission splits are native. Multi-tier splits (seller + ambassador + co-creator in one transaction) require custom routing logic on top. This is the genuine custom-dev item.</td>
+          <td><span class="warn">Partial</span> — same: seller-operator splits are native. Multi-tier payout routing across creator tiers requires custom development.</td>
         </tr>
         <tr>
           <td>Pricing<br><span style="font-size:10px;font-weight:400;color:var(--sub)">2022 RFP quoted</span></td>
@@ -258,11 +258,15 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         </tr>
         <tr>
           <td>TF verdict</td>
-          <td><span class="warn">Overbuilt for current stage</span> — triple-stack (commercetools + Marketplacer + SI) is complex and expensive. Lacks TF's core differentiators: social commerce, co-creator revenue share, drops.</td>
-          <td><span class="no">Wrong scale</span> — built for $10M+ GMV enterprise retailers. Features TF does not need (retail media, B2B). Missing features TF does need (social, community, drops).</td>
+          <td><span class="warn">High cost for current stage</span> — triple-stack (commercetools + Marketplacer + SI) is API-first and fully customizable. Drop mechanics and basic commission splits are buildable on top. The issue is cost and complexity relative to TF's current scale, not capability. The social layer (feeds, co-creation, community) still requires full custom development on top of any platform.</td>
+          <td><span class="warn">Wrong scale, not wrong category</span> — platform is technically capable and API-accessible. Built for $10M+ GMV enterprise retailers; pricing and contract structure are not suited for an early-stage startup. The social and co-creation layer still requires custom development regardless.</td>
         </tr>
       </tbody>
     </table>
+    <div style="margin-top:24px;padding:18px 22px;background:var(--tf-ghost);border:1px solid var(--rule);border-left:4px solid var(--tf);font-size:13px;color:var(--ink);line-height:1.65">
+      <strong style="color:var(--tf)">On customizability:</strong> Both platforms above are API-first. Standard e-commerce objects — products, orders, inventory, commissions — are configurable via custom attributes and webhook integrations. A drop is a product with a release date and quantity cap; this is implementable on any platform as a configuration layer. The commerce rail (catalog, checkout, payouts) is covered by both platforms and does not require a rebuild.<br><br>
+      What requires genuine custom engineering on top of any marketplace platform: (1) the <strong>social layer</strong> — content feeds, co-creation projects, community interaction; (2) <strong>multi-tier revenue routing</strong> — a single transaction splitting simultaneously across seller, ambassador, and co-creator. These are the actual custom-development items, not drops or pre-orders.
+    </div>
   </div>
 
   <!-- Section 2: Other options -->
@@ -323,7 +327,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
     </table>
 
     <div style="margin-top:24px;padding:16px 20px;background:var(--amber-bg);border:1px solid #FCD34D;border-left:4px solid var(--amber);font-size:13px;color:var(--ink);line-height:1.6">
-      <strong style="color:var(--amber)">Gap across all options:</strong> No platform above provides native drops/pre-order mechanics, multi-tier creator revenue share (ambassador + co-creator splits), or community-led social commerce. Building these on top of any of these platforms requires custom development. This is TF's core product differentiator — the reason for building a custom app rather than licensing existing infrastructure.
+      <strong style="color:var(--amber)">What requires custom development on any platform:</strong> (1) The social layer — content feeds, co-creation projects, community interaction. (2) Multi-tier revenue routing — one transaction splitting simultaneously to seller + ambassador + co-creator. Drop mechanics and basic pre-orders are standard catalog configuration on any API-first platform and are not a blocker.
     </div>
   </div>
 
