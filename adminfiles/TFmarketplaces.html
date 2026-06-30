@@ -278,17 +278,49 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
       <thead>
         <tr>
           <th style="min-width:130px">Platform</th>
-          <th style="min-width:220px">What it does</th>
-          <th style="min-width:160px">Pricing (public)</th>
-          <th style="min-width:180px">Best fit for TF</th>
+          <th style="min-width:200px">What it does</th>
+          <th style="min-width:140px">Pricing (public)</th>
+          <th style="min-width:170px">Cross-border shipment</th>
+          <th style="min-width:170px">VAT / multi-country tax</th>
+          <th style="min-width:180px">TF verdict</th>
         </tr>
       </thead>
       <tbody>
+        <tr>
+          <td><a href="https://marketplacer.com" target="_blank" rel="noopener">Marketplacer</a><br><span style="font-size:10px;font-weight:400;color:var(--sub)">+ commercetools · full detail §01</span></td>
+          <td>Multi-vendor marketplace layer on top of commercetools / Shopify / BigCommerce. API-first, composable. Requires a separate commerce platform as foundation.</td>
+          <td>$275K–$588K/yr + 1.5% GMV (2022 RFP). New quote needed.<br><span class="src">ChangeCX proposal, Sep 2022</span></td>
+          <td><span class="warn">Via commerce platform</span> — inherits from underlying stack. commercetools supports multi-currency and multi-region pricing natively. Marketplacer adds multi-seller order routing; cross-border logic sits in the commerce layer below it.
+            <span class="src"><a href="https://commercetools.com" target="_blank" rel="noopener">commercetools.com</a></span>
+          </td>
+          <td><span class="warn">Via integration</span> — commercetools integrates with Avalara and Vertex for tax calculation. EU VAT / OSS compliance not handled natively; requires third-party tax service configuration.
+            <span class="src"><a href="https://commercetools.com" target="_blank" rel="noopener">commercetools.com</a></span>
+          </td>
+          <td><span class="warn">High cost for current stage</span> — see §01 for full verdict.</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.mirakl.com" target="_blank" rel="noopener">Mirakl</a><br><span style="font-size:10px;font-weight:400;color:var(--sub)">full detail §01</span></td>
+          <td>Enterprise marketplace platform. 450+ operators (Macy's, H&M, Nordstrom, Carrefour). Full suite: catalog AI, global payout, retail media, agentic commerce.</td>
+          <td><span class="warn">No public pricing</span> — enterprise custom quote. No proposal received on TF's 2022 RFP.</td>
+          <td><span class="warn">International operators on platform</span> — H&M and Carrefour indicate multi-country support. Cross-border logistics via seller own arrangements. Specific cross-border features not publicly documented.
+            <span class="src">Inferred from customer list — <a href="https://www.mirakl.com" target="_blank" rel="noopener">mirakl.com</a></span>
+          </td>
+          <td><span class="warn">Via integration</span> — Mirakl Payout handles global seller payouts and tax withholding. Platform-level VAT calculation depends on host commerce platform's tax settings. Full EU OSS VAT compliance requires third-party service.
+            <span class="src"><a href="https://www.mirakl.com" target="_blank" rel="noopener">mirakl.com</a></span>
+          </td>
+          <td><span class="warn">Wrong scale</span> — actively screens out pre-revenue operators. See §01 for full verdict.</td>
+        </tr>
         <tr>
           <td><a href="https://thetraide.com" target="_blank" rel="noopener">Traide</a><br><span style="font-size:10px;font-weight:400;color:var(--sub)">formerly Nautical Commerce</span></td>
           <td>Multi-vendor marketplace SaaS. Shopify-native. Multivendor checkout, seller dashboards, commission splits, headless storefront API (Business+).</td>
           <td>$79–$2,000/mo + 0.5–1% transaction fee. 14-day free trial.
             <span class="src"><a href="https://thetraide.com/pricing" target="_blank" rel="noopener">thetraide.com/pricing</a></span>
+          </td>
+          <td><span class="yes">Via Shopify Markets</span> — local pricing, duties and import taxes at checkout, multi-currency, international domains. Traide inherits Shopify's cross-border stack.
+            <span class="src"><a href="https://www.shopify.com/markets" target="_blank" rel="noopener">shopify.com/markets</a></span>
+          </td>
+          <td><span class="warn">US automated; EU via config</span> — Shopify Tax handles US sales tax automatically. EU VAT: Shopify has OSS-aware calculation built in; full EU compliance requires configuration or Avalara integration.
+            <span class="src"><a href="https://www.shopify.com/tax" target="_blank" rel="noopener">shopify.com/tax</a></span>
           </td>
           <td><span class="warn">Partial</span> — good multi-vendor foundation. No drops, no social, no ambassador layer. Best if TF goes Shopify-stack.</td>
         </tr>
@@ -298,12 +330,24 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
           <td>$39–$299/mo. Free transactions up to tier limit.
             <span class="src"><a href="https://www.sharetribe.com/pricing/" target="_blank" rel="noopener">sharetribe.com/pricing</a></span>
           </td>
+          <td><span class="warn">Basic only</span> — multi-currency supported. No native international shipping or customs calculation. Carrier integrations require custom development.
+            <span class="src"><a href="https://www.sharetribe.com" target="_blank" rel="noopener">sharetribe.com</a></span>
+          </td>
+          <td><span class="no">Manual / external</span> — no native VAT calculation. Tax handling requires external integration or manual process.
+            <span class="src"><a href="https://www.sharetribe.com" target="_blank" rel="noopener">sharetribe.com</a></span>
+          </td>
           <td><span class="warn">Early stage only</span> — good for MVP validation. Limited for social commerce at scale. Designed to be outgrown as transaction volume increases.</td>
         </tr>
         <tr>
           <td><a href="https://www.cs-cart.com/multivendor.html" target="_blank" rel="noopener">CS-Cart Multi-Vendor</a></td>
           <td>Self-hosted multi-vendor marketplace software. Full code access. App marketplace for extensions.</td>
           <td>From $725/yr. Lifetime plan available.
+            <span class="src"><a href="https://www.cs-cart.com/multivendor.html" target="_blank" rel="noopener">cs-cart.com/multivendor</a></span>
+          </td>
+          <td><span class="warn">Configurable</span> — self-hosted; multi-currency and shipping carrier integrations (DHL, FedEx, UPS) built in. Requires server-side configuration and hosting setup.
+            <span class="src"><a href="https://www.cs-cart.com/multivendor.html" target="_blank" rel="noopener">cs-cart.com/multivendor</a></span>
+          </td>
+          <td><span class="warn">Manual per-country rates</span> — VAT rates per country configurable in admin. No automated EU OSS submission; manual or third-party addon required.
             <span class="src"><a href="https://www.cs-cart.com/multivendor.html" target="_blank" rel="noopener">cs-cart.com/multivendor</a></span>
           </td>
           <td><span class="warn">Low cost, high dev effort</span> — requires hosting and custom dev. No SaaS management. Not a fit unless TF wants full ownership and has dev resource.</td>
@@ -314,12 +358,24 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
           <td>Core: free (open source). Platform: annual subscription (no public price).
             <span class="src"><a href="https://www.vendure.io/pricing" target="_blank" rel="noopener">vendure.io/pricing</a></span>
           </td>
+          <td><span class="warn">Via plugin / config</span> — multi-currency in core. Shipping providers via plugins. Tax zones per country/region built into the framework.
+            <span class="src"><a href="https://www.vendure.io" target="_blank" rel="noopener">vendure.io</a></span>
+          </td>
+          <td><span class="warn">Tax zones native; EU OSS needs setup</span> — per-country rate configuration supported. Avalara and TaxJar integrations available as plugins. EU OSS filing still requires third-party service.
+            <span class="src"><a href="https://www.vendure.io" target="_blank" rel="noopener">vendure.io</a></span>
+          </td>
           <td><span class="green">Strong commerce backend</span> — API-first, fully extensible, no GMV fees, multi-vendor via plugins. Social layer (feeds, co-creation, community) is fully custom on top — Vendure does not provide it. The right choice if TF builds a custom stack and wants a solid commerce foundation without GMV taxes. Not a near-fit — a foundation.</td>
         </tr>
         <tr>
           <td><a href="https://spryker.com/marketplace/" target="_blank" rel="noopener">Spryker Marketplace</a></td>
           <td>Enterprise marketplace platform for B2B and retail. Merchant management, order splitting, commission automation. Strong B2B focus.</td>
           <td>No public pricing — enterprise custom quote.
+            <span class="src"><a href="https://spryker.com/marketplace/" target="_blank" rel="noopener">spryker.com/marketplace</a></span>
+          </td>
+          <td><span class="warn">Enterprise-grade</span> — multi-warehouse, multi-currency, multi-store natively. Complex to configure; built for large retailers with dedicated implementation teams.
+            <span class="src"><a href="https://spryker.com/marketplace/" target="_blank" rel="noopener">spryker.com/marketplace</a></span>
+          </td>
+          <td><span class="warn">Via integration</span> — integrates with Avalara and Vertex for multi-jurisdiction tax. Full international compliance supported but requires enterprise-level implementation.
             <span class="src"><a href="https://spryker.com/marketplace/" target="_blank" rel="noopener">spryker.com/marketplace</a></span>
           </td>
           <td><span class="no">Wrong fit</span> — optimised for B2B (automotive, industrial, wholesale). Not built for fashion social commerce.</td>
@@ -332,6 +388,12 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
           <td>Core: free (open source). Medusa Cloud: pricing on request.
             <span class="src"><a href="https://medusajs.com/pricing" target="_blank" rel="noopener">medusajs.com/pricing</a></span>
           </td>
+          <td><span class="yes">Native multi-region</span> — multi-region and multi-currency designed into core. Shipping provider modules (EasyPost, ShipBob, others) available.
+            <span class="src"><a href="https://medusajs.com" target="_blank" rel="noopener">medusajs.com</a></span>
+          </td>
+          <td><span class="warn">Tax regions native; EU OSS via integration</span> — per-country tax rates built in. Avalara module available. EU OSS VAT filing still requires third-party service.
+            <span class="src"><a href="https://medusajs.com" target="_blank" rel="noopener">medusajs.com</a></span>
+          </td>
           <td><span class="green">Strong commerce backend</span> — same profile as Vendure: API-first, no GMV fees, fully extensible. Social layer still fully custom on top. Worth evaluating alongside Vendure; community and ecosystem are strong points.</td>
         </tr>
         <tr>
@@ -341,6 +403,12 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
           </td>
           <td>Shopify Advanced: $299/mo. Multi-vendor apps: $50–$300/mo.
             <span class="src"><a href="https://www.shopify.com/pricing" target="_blank" rel="noopener">shopify.com/pricing</a></span>
+          </td>
+          <td><span class="yes">Shopify Markets</span> — local pricing, duties and import taxes at checkout, multi-currency, international domains. Native carrier integrations (USPS, DHL, FedEx, UPS).
+            <span class="src"><a href="https://www.shopify.com/markets" target="_blank" rel="noopener">shopify.com/markets</a></span>
+          </td>
+          <td><span class="yes">US + EU native</span> — Shopify Tax: US sales tax fully automated. EU VAT: built-in OSS-aware calculation, no third-party required for standard compliance.
+            <span class="src"><a href="https://www.shopify.com/tax" target="_blank" rel="noopener">shopify.com/tax</a></span>
           </td>
           <td><span class="warn">Lowest cost path to MVP</span> — fastest time to a working multi-vendor checkout. Shopify handles drops natively (Launchpad app). Social layer still custom. Traide (above) is the more polished Shopify-native option; raw Shopify + app is the minimum-cost version.</td>
         </tr>
