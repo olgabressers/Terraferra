@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <meta name="robots" content="noindex, nofollow"/>
-<title>Terra Ferra — System Architecture &amp; Tools</title>
+<title>Terra Ferra — System Architecture</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
@@ -33,11 +33,11 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .topnav{background:white;border-bottom:1px solid var(--rule);padding:12px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
 .topnav-home{font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);text-decoration:none;font-size:11px}
 .topnav-home:hover{color:var(--tf-dark)}
-.topnav-links{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.topnav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
 .topnav-links a{color:var(--sub);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:10px}
 .topnav-links a:hover{color:var(--tf)}
 .topnav-links a.active{color:var(--orange)}
-@media(max-width:700px){.topnav{position:static;padding:10px 14px}.topnav-links{gap:8px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:2px;width:100%}.topnav-links a{font-size:9.5px;white-space:nowrap}.topnav-links .dropdown-trigger{font-size:9.5px;white-space:nowrap}}
+@media(max-width:700px){.topnav{position:static;padding:10px 14px}.topnav-links{gap:10px;justify-content:flex-start;width:100%}.topnav-links a{font-size:9.5px}}
 .topnav-links .has-dropdown{position:relative;padding-bottom:10px;margin-bottom:-10px}
 .topnav-links .dropdown-trigger{cursor:pointer;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:10px;user-select:none}
 .topnav-links .dropdown-trigger:hover,.topnav-links .has-dropdown:focus-within .dropdown-trigger{color:var(--tf)}
@@ -45,7 +45,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .topnav-links .has-dropdown:hover .dropdown,.topnav-links .has-dropdown:focus-within .dropdown{display:block}
 .topnav-links .dropdown a{display:block;padding:9px 16px;font-size:10px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:1px;text-decoration:none}
 .topnav-links .dropdown a:hover{background:var(--tf-ghost);color:var(--tf)}
-@media(max-width:700px){.topnav-links .has-dropdown{padding-bottom:0;margin-bottom:0}.topnav-links .dropdown{display:none!important}}
+@media(max-width:700px){.topnav-links .has-dropdown{padding-bottom:0;margin-bottom:0}.topnav-links .dropdown{position:static;display:block;box-shadow:none;border:none;padding:0;min-width:0;margin-left:8px}.topnav-links .dropdown a{padding:4px 0;font-size:9px}}
 
 /* Cover */
 .cover{background:var(--tf);color:white;padding:64px 60px 60px;position:relative;overflow:hidden}
@@ -218,11 +218,9 @@ main{max-width:1200px;margin:0 auto;padding:56px 40px 88px}
         <a href="TFreferral.html">Referral &amp; Viral</a>
         <a href="TFcreatortoken.html">Creator Payments</a>
         <a href="TFstylists.html">Stylist Layer</a>
-        <a href="/psychology-fashion.html">Psychology + Fashion</a>
         <a href="TFvisualdiscovery.html">Visual Discovery</a>
       </div>
     </div>
-    <a href="TFmarketplaces.html">Operations</a>
     <a href="architecture.html">Architecture</a>
     <div class="has-dropdown">
       <span class="dropdown-trigger" tabindex="0">Ideas ▾</span>
@@ -241,9 +239,8 @@ main{max-width:1200px;margin:0 auto;padding:56px 40px 88px}
 <div class="cover">
   <div class="cover-inner">
     <div class="cover-eyebrow">Internal · Private</div>
-    <div class="tf-logo">System Architecture &amp; Tools</div>
+    <div class="tf-logo">System Architecture</div>
     <div class="tf-tagline">04</div>
-    <div style="margin-top:20px"><a href="Insense_Fashion_Creator_Network_Snapshot.pdf" target="_blank" rel="noopener" style="display:inline-block;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:white;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);padding:8px 16px;text-decoration:none">↓ Insense — Fashion Creator Network Snapshot (PDF)</a></div>
   </div>
 </div>
 
