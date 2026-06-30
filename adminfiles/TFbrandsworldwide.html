@@ -372,6 +372,52 @@ h2.section-title{font-size:28px;font-weight:800;color:var(--ink);margin:48px 0 1
   <p class="foot-note" style="margin-bottom:40px;">Note: establishment counts for China, Japan, and South Korea include manufacturers and retailers alongside consumer-facing brands — they are the best available proxy, not a precise "fashion brand" count. The India figure (Tracxn) is the closest to a consumer-brand-only count. The 3.3M / 1.5M / 1.2M figures appearing in some aggregator and marketing sources could not be traced to a primary statistical source and are not used here.</p>
 
   <!-- ============================================================ -->
+  <!-- SECTION 3 — MVP ONBOARDING CONSTRAINTS BY BRAND ORIGIN -->
+  <!-- ============================================================ -->
+
+  <h2 class="section-title" style="margin-top:48px;">MVP Onboarding — Which Brands Can Transact at Launch</h2>
+  <div class="snote">Cross-border compliance determines which geographies TF can onboard at MVP. Domestic routes are clean; cross-border requires a compliance stack not built at MVP. Full detail: <a href="TFmarketplaces.html">Cross-Border Compliance</a>.</div>
+
+  <div style="background:white;border:1px solid var(--rule);overflow-x:auto;margin-bottom:36px;">
+    <table style="width:100%;border-collapse:collapse;font-size:12.5px;color:var(--ink);min-width:700px;">
+      <thead>
+        <tr style="background:var(--ink);color:white;">
+          <th style="padding:10px 14px;text-align:left;font-weight:800;">Brand origin → buyer market</th>
+          <th style="padding:10px 14px;text-align:left;font-weight:800;min-width:120px;">MVP status</th>
+          <th style="padding:10px 14px;text-align:left;font-weight:800;">What applies</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--rule);">
+          <td style="padding:10px 14px;font-weight:700;">US brand → US buyer</td>
+          <td style="padding:10px 14px;font-weight:800;color:var(--green);">Launch-ready</td>
+          <td style="padding:10px 14px;">US state sales tax via Stripe Tax. No customs, no import VAT.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--rule);background:var(--tf-ghost);">
+          <td style="padding:10px 14px;font-weight:700;">EU brand → EU buyer (intra-EU)</td>
+          <td style="padding:10px 14px;font-weight:800;color:var(--green);">Launch-ready</td>
+          <td style="padding:10px 14px;">EU OSS registration (free, quarterly). VAT is the brand's obligation as an EU registrant. No customs.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--rule);">
+          <td style="padding:10px 14px;font-weight:700;">Asian brand → EU buyer</td>
+          <td style="padding:10px 14px;font-weight:800;color:var(--orange);">Post-MVP</td>
+          <td style="padding:10px 14px;">EU IOSS deemed-supplier rule: TF is liable for import VAT on goods ≤€150 shipped from outside EU. Requires IOSS registration + Avalara or equivalent. China-origin also requires CBEC registration.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--rule);background:var(--tf-ghost);">
+          <td style="padding:10px 14px;font-weight:700;">Asian brand → UK buyer</td>
+          <td style="padding:10px 14px;font-weight:800;color:var(--orange);">Post-MVP</td>
+          <td style="padding:10px 14px;">UK deemed-supplier rule on goods ≤£135. Separate UK VAT number required.</td>
+        </tr>
+        <tr>
+          <td style="padding:10px 14px;font-weight:700;">US brand → EU buyer / EU brand → US buyer</td>
+          <td style="padding:10px 14px;font-weight:800;color:var(--orange);">Post-MVP</td>
+          <td style="padding:10px 14px;">Cross-border. IOSS applies on EU-bound goods. Full compliance stack required — cannot be handled manually once TF collects payment.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ============================================================ -->
   <!-- DATA TABLE -->
   <!-- ============================================================ -->
 
