@@ -420,6 +420,117 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
     </div>
   </div>
 
+  <!-- Section 3: APAC drop-ship -->
+  <div class="section">
+    <h2 class="sec-heading"><span class="sec-num">03</span>Drop-Ship from APAC Brands (China · Japan · Korea)</h2>
+
+    <div class="ctx-box">
+      <strong>Model:</strong> TF does not hold stock. Brands from China, Japan, and Korea list on TF and ship directly to the end customer. TF provides the purchasing infrastructure, collects payment, routes the order to the brand, and takes a commission — comparable to Amazon's third-party marketplace model.<br><br>
+      <strong style="color:var(--red)">Two compliance issues apply regardless of platform choice:</strong><br><br>
+      <strong>1. EU + UK marketplace VAT liability (IOSS / deemed supplier rule):</strong> Under EU VAT rules in force since July 2021, when a marketplace facilitates the sale of goods shipped from outside the EU to an EU buyer (value ≤ €150), the marketplace — not the brand — is the deemed supplier responsible for collecting and remitting VAT. The UK has an equivalent rule for goods ≤ £135 (in force since January 2021). TF would need EU IOSS registration and a UK VAT number, plus an integrated tax remittance layer. No platform in this table handles this natively; a third-party service (e.g. Avalara, Taxually) is required on top of any platform.<br><br>
+      <strong>2. US de minimis for Chinese-origin goods:</strong> As of 2025, the $800 de minimis exemption has been eliminated for goods of Chinese origin shipped to the US. Each package from a Chinese brand to a US customer requires a formal customs entry with applicable duties — a per-shipment compliance burden independent of platform. Japanese and Korean goods are not affected; the standard $800 de minimis threshold still applies.
+    </div>
+
+    <table class="atable">
+      <thead>
+        <tr>
+          <th style="min-width:130px">Platform</th>
+          <th style="min-width:170px">APAC seller onboarding</th>
+          <th style="min-width:160px">Seller payout (CNY / JPY / KRW)</th>
+          <th style="min-width:150px">Drop-ship order routing</th>
+          <th style="min-width:190px">China · Japan / Korea fit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="https://marketplacer.com" target="_blank" rel="noopener">Marketplacer</a><br><span style="font-size:10px;font-weight:400;color:var(--sub)">+ commercetools</span></td>
+          <td><span class="warn">No APAC-specific features documented</span> — seller registration is custom-built on the API. UI localization (Chinese/Japanese/Korean) requires custom development.</td>
+          <td><span class="warn">Via payment processor layer</span> — Marketplacer does not handle payouts. Depends on the processor below (Adyen has good APAC coverage; Stripe limited in mainland China). Payoneer or Wise for APAC wire transfers requires custom integration.</td>
+          <td><span class="yes">Native</span> — order routing to sellers is a core Marketplacer feature. Drop-ship (order notified to seller who ships direct) is the standard model.</td>
+          <td><span class="warn">China:</span> payout workaround needed (Adyen or Payoneer required) · <span class="yes">Japan / Korea:</span> viable with Adyen</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.mirakl.com" target="_blank" rel="noopener">Mirakl</a></td>
+          <td><span class="warn">Mirakl Connect — global seller network</span> — international sellers supported. Most mature international onboarding in this list. KYC/AML for Chinese entities still requires manual review.
+            <span class="src"><a href="https://www.mirakl.com" target="_blank" rel="noopener">mirakl.com</a></span>
+          </td>
+          <td><span class="yes">Mirakl Payout</span> — global multi-currency payout infrastructure including international wire transfers. Most capable payout option in this comparison for APAC sellers.
+            <span class="src"><a href="https://www.mirakl.com" target="_blank" rel="noopener">mirakl.com</a></span>
+          </td>
+          <td><span class="yes">Core model</span> — Mirakl is built for marketplace drop-ship (brands ship directly to end customer). Order routing and seller notification are native.</td>
+          <td><span class="yes">China / Japan / Korea:</span> most capable for APAC drop-ship — but wrong scale for TF currently</td>
+        </tr>
+        <tr>
+          <td><a href="https://thetraide.com" target="_blank" rel="noopener">Traide</a><br><span style="font-size:10px;font-weight:400;color:var(--sub)">Shopify-based</span></td>
+          <td><span class="warn">Shopify Payments not available in mainland China</span> — Chinese sellers must use a third-party payment processor. Japan and South Korea have broader Shopify coverage.
+            <span class="src"><a href="https://www.shopify.com/payment-gateways" target="_blank" rel="noopener">shopify.com/payment-gateways</a></span>
+          </td>
+          <td><span class="warn">China: third-party apps only</span> — Chinese sellers need PingPong, Payoneer, or Lianlian Global via Shopify apps. Japan / Korea: Shopify Payouts or third-party available.</td>
+          <td><span class="warn">Via Shopify drop-ship apps</span> — DSers, AutoDS, and similar apps integrate with Shopify. Traide adds multi-vendor seller dashboards on top.</td>
+          <td><span class="no">China:</span> payment infrastructure gap · <span class="warn">Japan / Korea:</span> workable with payout app setup</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.sharetribe.com" target="_blank" rel="noopener">Sharetribe</a></td>
+          <td><span class="warn">Stripe-dependent</span> — Stripe is limited in mainland China for seller payouts. Japan and South Korea are supported.
+            <span class="src"><a href="https://stripe.com/global" target="_blank" rel="noopener">stripe.com/global</a></span>
+          </td>
+          <td><span class="no">China: not viable</span> — Stripe Payouts are unavailable to mainland Chinese businesses as recipients. Japan / Korea: Stripe Payouts supported.
+            <span class="src"><a href="https://stripe.com/global" target="_blank" rel="noopener">stripe.com/global</a></span>
+          </td>
+          <td><span class="no">Not purpose-built for drop-ship</span> — designed for services, rentals, and simple P2P goods. Routing an order to a third-party fulfillment party requires custom development.</td>
+          <td><span class="no">China:</span> not viable · <span class="no">Japan / Korea:</span> not built for drop-ship at scale</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.cs-cart.com/multivendor.html" target="_blank" rel="noopener">CS-Cart Multi-Vendor</a></td>
+          <td><span class="warn">Configurable</span> — self-hosted; can integrate Alipay, WeChat Pay, UnionPay for Chinese seller onboarding and payment collection. Requires custom integration work.</td>
+          <td><span class="warn">Via custom integration</span> — can integrate Payoneer, Alipay payouts, international wire. No native APAC payout; requires dev effort to configure per region.</td>
+          <td><span class="yes">Built-in vendor drop-ship mode</span> — CS-Cart has a dedicated drop-shipping mode; orders route to the relevant vendor who fulfills and ships directly.</td>
+          <td><span class="warn">China / Japan / Korea:</span> technically possible — requires substantial custom payment and payout integration</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.vendure.io" target="_blank" rel="noopener">Vendure</a></td>
+          <td><span class="warn">Framework-level — no opinionated payment system</span> — any payment provider can be integrated, including APAC-compatible ones (Adyen, regional processors).</td>
+          <td><span class="warn">Via custom integration</span> — Payoneer, Wise, Adyen, or regional providers for CNY / JPY / KRW payouts. No native payout module; requires custom plugin development.</td>
+          <td><span class="warn">Custom fulfillment plugin</span> — Vendure's fulfillment model is extensible. Drop-ship routing (pass order to seller's fulfillment endpoint) is a custom plugin, not native out of the box.</td>
+          <td><span class="warn">China / Japan / Korea:</span> technically viable — needs custom APAC payment and payout integration</td>
+        </tr>
+        <tr>
+          <td><a href="https://spryker.com/marketplace/" target="_blank" rel="noopener">Spryker Marketplace</a></td>
+          <td><span class="warn">Enterprise-grade international</span> — global markets supported at enterprise scale. APAC seller onboarding possible but implementation-heavy. Not relevant at TF's stage.</td>
+          <td><span class="warn">Via enterprise payment integration</span> — full flexibility at enterprise implementation level; Adyen, Payoneer, regional processors configurable.</td>
+          <td><span class="yes">Enterprise drop-ship</span> — B2B drop-ship is a core Spryker use case. Order routing to merchant fulfillment is native.</td>
+          <td><span class="no">Wrong fit</span> — B2B / enterprise scale, not fashion social commerce</td>
+        </tr>
+        <tr>
+          <td><a href="https://medusajs.com" target="_blank" rel="noopener">Medusa.js</a></td>
+          <td><span class="warn">Framework-level</span> — any payment provider integrable as a module. APAC-compatible processors (Adyen, Stripe where available) can be added.
+            <span class="src"><a href="https://medusajs.com" target="_blank" rel="noopener">medusajs.com</a></span>
+          </td>
+          <td><span class="warn">Via custom module</span> — Medusa has a payment provider interface; Payoneer, Wise, or regional APAC payout services can be implemented as custom modules.
+            <span class="src"><a href="https://medusajs.com" target="_blank" rel="noopener">medusajs.com</a></span>
+          </td>
+          <td><span class="yes">Fulfillment module (native)</span> — Medusa 2.0 has a dedicated Fulfillment module built for third-party fulfillment routing. Drop-ship (route order to brand's fulfillment endpoint) is a supported pattern.
+            <span class="src"><a href="https://medusajs.com" target="_blank" rel="noopener">medusajs.com</a></span>
+          </td>
+          <td><span class="warn">China / Japan / Korea:</span> most flexible framework — native drop-ship routing; needs custom APAC payout integration</td>
+        </tr>
+        <tr>
+          <td>Shopify + multi-vendor app</td>
+          <td><span class="warn">Chinese sellers: Shopify Payments not available</span> — third-party processors required for mainland China. Japan / Korea: broader Shopify coverage.
+            <span class="src"><a href="https://www.shopify.com/payment-gateways" target="_blank" rel="noopener">shopify.com/payment-gateways</a></span>
+          </td>
+          <td><span class="warn">China: third-party apps only</span> — PingPong, Payoneer, Lianlian Global via Shopify app ecosystem. Japan / Korea: Shopify Payouts or third-party available.</td>
+          <td><span class="yes">Via Shopify ecosystem</span> — DSers, AutoDS, and dedicated drop-ship apps integrate natively with Shopify. Multi-vendor app adds seller dashboards and commission splits.</td>
+          <td><span class="no">China:</span> payout gap · <span class="warn">Japan / Korea:</span> viable with payout apps installed</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="margin-top:24px;padding:18px 22px;background:var(--tf-ghost);border:1px solid var(--rule);border-left:4px solid var(--tf);font-size:13px;color:var(--ink);line-height:1.65">
+      <strong style="color:var(--tf)">Overall assessment:</strong> The drop-ship routing model is well-supported across most platforms — passing an order to a third-party fulfillment party is a standard marketplace pattern. The constraint is not the platform layer. The three real bottlenecks are: (1) <strong>Seller payout for Chinese brands</strong> — no platform has turnkey CNY payouts; all require third-party services (Payoneer, PingPong, Lianlian Global, Wise); this is solvable but adds operational complexity. (2) <strong>EU + UK marketplace VAT liability</strong> — TF bears the deemed-supplier VAT obligation for APAC-origin goods under €150 / £135 regardless of platform; IOSS + UK VAT registration and a tax remittance integration (Avalara or equivalent) are required from day one of selling to EU/UK buyers. (3) <strong>US customs burden for Chinese-origin goods</strong> — the de minimis removal means each Chinese brand shipment to a US customer requires a formal customs entry with duties; this is a per-order operational burden that affects unit economics for Chinese brands specifically. Japan and Korea face fewer compliance barriers than China on all three dimensions.
+    </div>
+  </div>
+
 </div>
 
 <footer>Private · noindex · Not for distribution</footer>
