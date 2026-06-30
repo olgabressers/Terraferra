@@ -96,6 +96,17 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
   .atable td,.atable th{padding:9px 12px 9px 0}
 }
 
+/* BACK TO TOP */
+.back-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--tf);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity .25s;z-index:100;border:none;box-shadow:0 4px 12px rgba(75,64,194,.35)}
+.back-top.visible{opacity:1}
+.back-top:hover{background:var(--tf-dark)}
+.back-top svg{fill:white;width:18px;height:18px;display:block}
+@media(max-width:700px){.back-top{bottom:16px;right:16px;width:38px;height:38px}}
+/* TOC */
+.toc-box{background:white;border:1px solid var(--rule);border-left:4px solid var(--tf);padding:18px 24px;margin:24px 0 0;font-size:13px;color:var(--ink)}
+.toc-box ol{margin:10px 0 0 18px;line-height:2}
+.toc-box a{color:var(--tf);text-decoration:none;font-weight:600}
+.toc-box a:hover{color:var(--orange)}
 footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);opacity:.5}
 @media(max-width:700px){footer{padding:16px}}
 </style>
@@ -152,10 +163,20 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
 
   <div class="pg-eyebrow">Operations · Internal</div>
   <h1 class="pg-title">Marketplace Technology &amp; Cross-border Requirements</h1>
-  <p class="pg-sub">Marketplace platform comparison (2022–23 RFPs) · Alternative platforms assessed · APAC drop-ship suitability · Cross-border compliance for all origin–destination routes (EU, UK, US, China, Japan, Korea). Sources: vendor websites and official trade/tax authority pages, June 2026.</p>
+  <p class="pg-sub">Marketplace platform comparison (2022–23 RFPs) · Alternative platforms assessed · Drop-ship by brand region (APAC · US · UK · EU) · Cross-border compliance: all origin–destination routes · Certification costs and timelines. Sources: vendor websites and official trade/tax authority pages, June 2026.</p>
+
+  <nav class="toc-box">
+    <strong style="font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub)">Contents</strong>
+    <ol>
+      <li><a href="#sec01">Proposed Platforms: Marketplacer vs Mirakl</a></li>
+      <li><a href="#sec02">Other Platforms to Consider</a></li>
+      <li><a href="#sec03">Drop-Ship by Brand Region (APAC · US · UK · EU)</a></li>
+      <li><a href="#sec04">Cross-Border Compliance: All Origin–Destination Routes</a></li>
+    </ol>
+  </nav>
 
   <!-- Section 1: RFP platforms compared -->
-  <div class="section">
+  <div class="section" id="sec01">
     <h2 class="sec-heading"><span class="sec-num">01</span>Proposed Platforms: Marketplacer vs Mirakl</h2>
 
     <div class="ctx-box">
@@ -272,7 +293,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   </div>
 
   <!-- Section 2: Other options -->
-  <div class="section">
+  <div class="section" id="sec02">
     <h2 class="sec-heading"><span class="sec-num">02</span>Other Platforms to Consider</h2>
 
     <table class="atable">
@@ -421,12 +442,12 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
     </div>
   </div>
 
-  <!-- Section 3: APAC drop-ship -->
-  <div class="section">
-    <h2 class="sec-heading"><span class="sec-num">03</span>Drop-Ship from APAC Brands (China · Japan · Korea)</h2>
+  <!-- Section 3: Drop-ship by region -->
+  <div class="section" id="sec03">
+    <h2 class="sec-heading"><span class="sec-num">03</span>Drop-Ship by Brand Region</h2>
 
     <div class="ctx-box">
-      <strong>Model:</strong> TF does not hold stock. Brands from China, Japan, and Korea list on TF and ship directly to the end customer. TF provides the purchasing infrastructure, collects payment, routes the order to the brand, and takes a commission — comparable to Amazon's third-party marketplace model.<br><br>
+      <strong>Model:</strong> TF does not hold stock. Brands from any region — EU, UK, US, China, Japan, Korea — list on TF and ship directly to the end customer. TF provides the purchasing infrastructure, collects payment, routes the order to the brand, and takes a commission — comparable to Amazon's third-party marketplace model.<br><br>
       <strong style="color:var(--red)">Two compliance issues apply regardless of platform choice:</strong><br><br>
       <strong>1. EU + UK marketplace VAT liability (IOSS / deemed supplier rule):</strong> Under EU VAT rules in force since July 2021, when a marketplace facilitates the sale of goods shipped from outside the EU to an EU buyer (value ≤ €150), the marketplace — not the brand — is the deemed supplier responsible for collecting and remitting VAT. The UK has an equivalent rule for goods ≤ £135 (in force since January 2021). TF would need EU IOSS registration and a UK VAT number, plus an integrated tax remittance layer. No platform in this table handles this natively; a third-party service (e.g. Avalara, Taxually) is required on top of any platform.<br><br>
       <strong>2. US de minimis for Chinese-origin goods:</strong> As of 2025, the $800 de minimis exemption has been eliminated for goods of Chinese origin shipped to the US. Each package from a Chinese brand to a US customer requires a formal customs entry with applicable duties — a per-shipment compliance burden independent of platform. Japanese and Korean goods are not affected; the standard $800 de minimis threshold still applies.
@@ -530,11 +551,125 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
     <div style="margin-top:24px;padding:18px 22px;background:var(--tf-ghost);border:1px solid var(--rule);border-left:4px solid var(--tf);font-size:13px;color:var(--ink);line-height:1.65">
       <strong style="color:var(--tf)">Overall assessment:</strong> The drop-ship routing model is well-supported across most platforms — passing an order to a third-party fulfillment party is a standard marketplace pattern. The constraint is not the platform layer. The three real bottlenecks are: (1) <strong>Seller payout for Chinese brands</strong> — no platform has turnkey CNY payouts; all require third-party services (Payoneer, PingPong, Lianlian Global, Wise); this is solvable but adds operational complexity. (2) <strong>EU + UK marketplace VAT liability</strong> — TF bears the deemed-supplier VAT obligation for APAC-origin goods under €150 / £135 regardless of platform; IOSS + UK VAT registration and a tax remittance integration (Avalara or equivalent) are required from day one of selling to EU/UK buyers. (3) <strong>US customs burden for Chinese-origin goods</strong> — the de minimis removal means each Chinese brand shipment to a US customer requires a formal customs entry with duties; this is a per-order operational burden that affects unit economics for Chinese brands specifically. Japan and Korea face fewer compliance barriers than China on all three dimensions.
     </div>
+
+    <!-- WESTERN BRANDS: US · UK · EU -->
+    <div style="margin-top:40px">
+      <div style="font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);padding-bottom:10px;border-bottom:2px solid var(--rule);margin-bottom:16px">Western Brands — EU · UK · US</div>
+
+      <div style="padding:16px 20px;background:var(--tf-ghost);border:1px solid var(--rule);border-left:4px solid var(--tf);margin-bottom:18px;font-size:13px;color:var(--ink);line-height:1.6">
+        EU, UK, and US brands face no structural barriers on any platform — Stripe, Shopify Payments, and Adyen cover USD, EUR, and GBP natively. The question is platform selection and cost, not payment infrastructure. <strong>Cross-border compliance for Western brands shipping to other markets (EU → UK, US → EU, etc.) is covered in Section 04.</strong>
+      </div>
+
+      <table class="atable">
+        <thead>
+          <tr>
+            <th style="min-width:130px">Platform</th>
+            <th style="min-width:170px">EU / UK / US brand onboarding</th>
+            <th style="min-width:150px">Seller payout (USD · EUR · GBP)</th>
+            <th style="min-width:150px">Drop-ship order routing</th>
+            <th style="min-width:180px">Assessment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://marketplacer.com" target="_blank" rel="noopener">Marketplacer</a><br><span style="font-size:10px;font-weight:400;color:var(--sub)">+ commercetools</span></td>
+            <td><span class="yes">Full coverage</span> — API-based seller registration; Stripe and Adyen available for US, UK, EU. No regional blockers.</td>
+            <td><span class="yes">Adyen or Stripe</span> — USD, EUR, GBP multi-currency transfers to seller bank accounts natively.</td>
+            <td><span class="yes">Native</span> — order routing to sellers (drop-ship to end customer) is Marketplacer's core model.</td>
+            <td><span class="warn">Suitable; high cost</span> — no barriers for Western brands. Cost and complexity vs. TF stage are the concern (see §01).</td>
+          </tr>
+          <tr>
+            <td><a href="https://www.mirakl.com" target="_blank" rel="noopener">Mirakl</a></td>
+            <td><span class="yes">Full coverage</span> — Mirakl Connect supports international sellers; EU/UK/US onboarding is standard.</td>
+            <td><span class="yes">Mirakl Payout</span> — USD, EUR, GBP multi-currency payouts native.
+              <span class="src"><a href="https://www.mirakl.com" target="_blank" rel="noopener">mirakl.com</a></span>
+            </td>
+            <td><span class="yes">Core model</span> — brand ships directly to end customer; order routing is native.</td>
+            <td><span class="warn">Suitable; wrong scale</span> — fully capable. Enterprise GMV minimum screens out pre-revenue operators (see §01).</td>
+          </tr>
+          <tr>
+            <td><a href="https://thetraide.com" target="_blank" rel="noopener">Traide</a><br><span style="font-size:10px;font-weight:400;color:var(--sub)">Shopify-based</span></td>
+            <td><span class="yes">Full coverage</span> — Shopify Payments available in US, UK, and all major EU markets; lowest-friction seller onboarding.
+              <span class="src"><a href="https://www.shopify.com/payment-gateways" target="_blank" rel="noopener">shopify.com/payment-gateways</a></span>
+            </td>
+            <td><span class="yes">Shopify Payments</span> — direct bank transfer to seller in USD, EUR, GBP; no third-party payout service needed.</td>
+            <td><span class="warn">Via Shopify apps</span> — DSers, AutoDS, and similar apps integrate natively; Traide adds seller dashboards and commission splits on top.</td>
+            <td><span class="yes">Best for Shopify MVP</span> — lowest friction for EU/UK/US brand drop-ship. Shopify Markets adds multi-currency routing at checkout.</td>
+          </tr>
+          <tr>
+            <td><a href="https://www.sharetribe.com" target="_blank" rel="noopener">Sharetribe</a></td>
+            <td><span class="yes">Full coverage</span> — Stripe available in US, UK, and major EU markets. Simple seller setup.</td>
+            <td><span class="yes">Stripe Payouts</span> — USD, EUR, GBP direct to seller bank. No workaround.
+              <span class="src"><a href="https://stripe.com/global" target="_blank" rel="noopener">stripe.com/global</a></span>
+            </td>
+            <td><span class="no">Not purpose-built</span> — drop-ship routing to brand fulfillment requires custom development. Designed for P2P and services.</td>
+            <td><span class="warn">Easy onboarding; limited</span> — not built for brand drop-ship at scale. Better for MVP validation than production use.</td>
+          </tr>
+          <tr>
+            <td><a href="https://www.cs-cart.com/multivendor.html" target="_blank" rel="noopener">CS-Cart Multi-Vendor</a></td>
+            <td><span class="yes">Full coverage</span> — Stripe, PayPal, Braintree for US/UK/EU. Standard processor setup.</td>
+            <td><span class="yes">Stripe or PayPal</span> — USD, EUR, GBP payouts configurable; wire transfer also supported.</td>
+            <td><span class="yes">Native drop-ship mode</span> — built-in vendor fulfillment routing; orders route to brand who ships direct.</td>
+            <td><span class="warn">Viable; dev-heavy</span> — suitable for EU/UK/US brands. Requires self-hosting and custom dev overhead.</td>
+          </tr>
+          <tr>
+            <td><a href="https://www.vendure.io" target="_blank" rel="noopener">Vendure</a></td>
+            <td><span class="yes">Full coverage</span> — any payment provider via plugin; Stripe for US/UK/EU is the standard integration.</td>
+            <td><span class="warn">Custom plugin required</span> — Stripe or Wise for USD/EUR/GBP; no native payout module out of the box.</td>
+            <td><span class="warn">Custom fulfillment plugin</span> — extensible model; drop-ship routing is a custom plugin, not native.</td>
+            <td><span class="warn">Strong backend; needs custom dev</span> — no barriers for EU/UK/US brands; payout and drop-ship require custom plugin work.</td>
+          </tr>
+          <tr>
+            <td><a href="https://spryker.com/marketplace/" target="_blank" rel="noopener">Spryker Marketplace</a></td>
+            <td><span class="yes">Full coverage</span> — enterprise-grade; EU/UK/US fully supported at implementation level.</td>
+            <td><span class="yes">Enterprise integration</span> — Adyen or Stripe; USD/EUR/GBP configurable.</td>
+            <td><span class="yes">Enterprise drop-ship</span> — B2B drop-ship is a core use case; order routing to brand fulfillment is native.</td>
+            <td><span class="no">Wrong fit</span> — B2B/enterprise scale, not fashion social commerce.</td>
+          </tr>
+          <tr>
+            <td><a href="https://medusajs.com" target="_blank" rel="noopener">Medusa.js</a></td>
+            <td><span class="yes">Full coverage</span> — Stripe module for US/UK/EU; low-friction onboarding.
+              <span class="src"><a href="https://medusajs.com" target="_blank" rel="noopener">medusajs.com</a></span>
+            </td>
+            <td><span class="yes">Stripe module (native)</span> — USD/EUR/GBP via native Stripe payment module; no custom work for Western markets.
+              <span class="src"><a href="https://medusajs.com" target="_blank" rel="noopener">medusajs.com</a></span>
+            </td>
+            <td><span class="yes">Native Fulfillment module</span> — Medusa 2.0 Fulfillment module routes orders to brand's endpoint natively; drop-ship is a supported pattern.
+              <span class="src"><a href="https://medusajs.com" target="_blank" rel="noopener">medusajs.com</a></span>
+            </td>
+            <td><span class="green">Best open-source option</span> — native drop-ship routing + Stripe for EU/UK/US = fastest open-source MVP path. No GMV fees.</td>
+          </tr>
+          <tr>
+            <td>Shopify + multi-vendor app</td>
+            <td><span class="yes">Full coverage</span> — Shopify Payments in US, UK, and major EU markets. Simplest seller onboarding across all options.
+              <span class="src"><a href="https://www.shopify.com/payment-gateways" target="_blank" rel="noopener">shopify.com</a></span>
+            </td>
+            <td><span class="yes">Shopify Payouts</span> — USD/EUR/GBP direct to seller bank; no third-party required.
+              <span class="src"><a href="https://www.shopify.com/pricing" target="_blank" rel="noopener">shopify.com</a></span>
+            </td>
+            <td><span class="yes">Via Shopify ecosystem</span> — DSers, AutoDS, and dedicated drop-ship apps integrate natively; multi-vendor app adds commission splits.
+              <span class="src"><a href="https://apps.shopify.com" target="_blank" rel="noopener">apps.shopify.com</a></span>
+            </td>
+            <td><span class="yes">Lowest cost MVP path</span> — fastest time to a working multi-vendor drop-ship for EU/UK/US brands. Shopify Markets for international routing.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="margin-top:20px;padding:16px 20px;background:var(--tf-ghost);border:1px solid var(--rule);border-left:4px solid var(--tf);font-size:13px;color:var(--ink);line-height:1.65">
+        <strong style="color:var(--tf)">Western brands summary:</strong> EU, UK, and US brand drop-ship has no structural platform barriers. The decision is cost and speed. <strong>Shopify Advanced + Traide (or Shopify multi-vendor app)</strong> is the fastest and cheapest path — approximately $350–600/mo all-in (Shopify Advanced $299/mo + multi-vendor app $50–300/mo; see §02 for detail), with Shopify Payments for brand payouts, Shopify Tax for US sales tax, and Shopify Markets for EU/UK buyer routing. <strong>Medusa.js</strong> is the best open-source alternative for a team that wants full code ownership and no GMV fees. The social layer (feeds, co-creation, community) remains fully custom on top of any platform choice.
+      </div>
+    </div>
+
   </div>
 
 
-  <div class="section">
+  <div class="section" id="sec04">
     <h2 class="sec-heading"><span class="sec-num">04</span>Cross-Border Compliance: All Origin–Destination Routes</h2>
+
+    <div style="padding:20px 26px;background:var(--green-bg);border:1px solid #b6e8ce;border-left:4px solid var(--green);margin-bottom:24px;font-size:13px;color:var(--ink);line-height:1.75">
+      <strong style="font-size:14px;color:var(--green)">MVP Market: Start Domestic</strong><br><br>
+      For MVP, prioritise domestic routes: <strong>US brands → US consumers</strong> and <strong>EU brands → EU consumers</strong>. Both eliminate IOSS, UK deemed-supplier VAT, FTA origin documentation, and cross-border customs duties. Compliance reduces to US state sales tax (automated via Shopify Tax) and EU domestic VAT (OSS, handled natively by most platforms). Cross-border routes — EU → UK, EU → US, US → EU — can be added post-traction; the DDP infrastructure (Global-e / Zonos + Avalara IOSS) is proven at scale and ready, but adds operational overhead not justified before product–market fit is established.
+    </div>
 
     <div style="background:var(--red-bg);border:1px solid #f0b4b0;border-left:4px solid var(--red);padding:20px 24px;margin-bottom:28px;font-size:13px;color:var(--ink);line-height:1.7">
       <strong style="color:var(--red)">Compliance rules that apply regardless of origin or platform:</strong><br><br>
@@ -546,6 +681,79 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
       <span class="src"><a href="https://ustr.gov/issue-areas/enforcement/section-301-investigations" target="_blank" rel="noopener">ustr.gov — Section 301</a></span><br><br>
       <strong>4. China CBEC (Cross-Border E-Commerce) regime:</strong> Foreign goods sold online to Chinese consumers must comply with China's CBEC framework: GACC registration, product listing on the China Customs CBEC system, and integrated CBEC tax (approximately 9.1% for most fashion goods). No standard Western marketplace platform handles this natively. Requires a specialist CBEC provider or listing on existing China cross-border platforms (Tmall Global, JD Worldwide, Kaola). This barrier applies regardless of whether the brand's origin is EU, UK, US, Korea, or Japan.
     </div>
+
+    <!-- CERTIFICATION COSTS TABLE -->
+    <div style="margin-bottom:28px">
+      <div style="font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);padding-bottom:10px;border-bottom:2px solid var(--rule);margin-bottom:16px">Required Registrations &amp; Certificates — Cost · Lead Time · Validity</div>
+      <table class="atable">
+        <thead>
+          <tr>
+            <th style="min-width:210px">Registration / Certificate</th>
+            <th style="min-width:130px">Cost</th>
+            <th style="min-width:140px">Lead time</th>
+            <th style="min-width:140px">Validity</th>
+            <th style="min-width:90px">Who obtains</th>
+            <th>Source</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>EU IOSS registration</strong><br><span style="font-size:10px;color:var(--sub)">Collect &amp; remit EU VAT on goods ≤€150 sold to EU buyers from outside EU</span></td>
+            <td><span class="green">Free</span> — no EU government fee</td>
+            <td>~2–4 weeks (varies by member state of registration; non-EU businesses register in one chosen EU member state)</td>
+            <td>Indefinite; quarterly VAT returns required</td>
+            <td><span class="no" style="font-weight:900">TF</span></td>
+            <td><span class="src"><a href="https://ec.europa.eu/taxation_customs/business/vat/ioss_en" target="_blank" rel="noopener">ec.europa.eu — IOSS</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>UK VAT registration</strong><br><span style="font-size:10px;color:var(--sub)">Collect &amp; remit UK VAT on goods ≤£135 sold to UK buyers from outside UK</span></td>
+            <td><span class="green">Free</span> — HMRC charges no registration fee</td>
+            <td>Up to 40 business days (HMRC guidance)
+              <span class="src"><a href="https://www.gov.uk/register-for-vat" target="_blank" rel="noopener">gov.uk — register for VAT</a></span>
+            </td>
+            <td>Indefinite; quarterly returns required</td>
+            <td><span class="no" style="font-weight:900">TF</span></td>
+            <td><span class="src"><a href="https://www.gov.uk/register-for-vat" target="_blank" rel="noopener">gov.uk — register for VAT</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>US state sales tax registration</strong><br><span style="font-size:10px;color:var(--sub)">Required per state once economic nexus threshold met — typically $100K sales or 200 transactions in a state</span></td>
+            <td><span class="green">Free</span> in most states; small fee in some ($10–50)</td>
+            <td>1–10 business days per state (most states have online registration)</td>
+            <td>Indefinite; return frequency varies by state revenue volume</td>
+            <td><span class="no" style="font-weight:900">TF</span></td>
+            <td><span class="src">Each state Department of Revenue — collection automated via Shopify Tax or Avalara</span></td>
+          </tr>
+          <tr>
+            <td><strong>EUR.1 movement certificate</strong><br><span style="font-size:10px;color:var(--sub)">FTA origin proof — EU-UK TCA · EU-Japan EPA · EU-Korea FTA · UK-Japan CEPA · UK-Korea FTA</span></td>
+            <td>Small admin fee per certificate (issued by customs authority of exporting country; verify current rate directly with issuing authority). Approved Exporter status allows self-certification on invoice — no certificate fee per shipment.</td>
+            <td>Issued at export — same-day to 5 business days; faster with Approved Exporter status</td>
+            <td>4 months (EU-UK TCA) · 10 months (EPA · EU-Korea FTA · CEPA · UK-Korea FTA)</td>
+            <td><span class="warn">Brand</span></td>
+            <td><span class="src"><a href="https://www.gov.uk/guidance/get-proof-of-origin-for-your-goods" target="_blank" rel="noopener">gov.uk — proof of origin</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>KORUS certificate of origin</strong><br><span style="font-size:10px;color:var(--sub)">US-Korea FTA — US exports to Korea · Korean exports to US</span></td>
+            <td>Contact accredited issuing body (US Chamber of Commerce for US exporters; Korea Chamber of Commerce &amp; Industry for Korean exporters)</td>
+            <td>1–3 business days; electronic certificates available same-day at some issuing bodies</td>
+            <td>Per shipment, or annual blanket certificate for recurring shipments to same destination</td>
+            <td><span class="warn">Brand</span></td>
+            <td><span class="src"><a href="https://ustr.gov/trade-agreements/free-trade-agreements/korus-fta" target="_blank" rel="noopener">KORUS FTA — ustr.gov</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>GACC / CBEC registration</strong><br><span style="font-size:10px;color:var(--sub)">Mandatory for all brands selling goods to Chinese consumers online — covers brand, product, and platform registration with China Customs</span></td>
+            <td>Significant — includes GACC registration fee, mandatory product testing, and compliance documentation. Engage a specialist CBEC SaaS provider (e.g. CBNcloud, Azoya) for current costs by product category.</td>
+            <td>3–6 months (documentation preparation, product testing, GACC review)</td>
+            <td>5 years (general; category-specific rules apply)
+              <span class="src"><a href="http://www.gacc.gov.cn/english/" target="_blank" rel="noopener">gacc.gov.cn</a></span>
+            </td>
+            <td><span class="warn">Brand</span> + CBEC specialist</td>
+            <td><span class="src"><a href="http://www.gacc.gov.cn/english/" target="_blank" rel="noopener">gacc.gov.cn</a></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);padding-bottom:10px;border-bottom:2px solid var(--rule);margin-bottom:16px">All Origin–Destination Routes</div>
 
     <table class="atable">
       <thead>
@@ -941,6 +1149,13 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
 </div>
 
 <footer>Private · noindex · Not for distribution</footer>
+
+<button class="back-top" id="backTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg viewBox="0 0 24 24"><path d="M12 4l-8 8h5v8h6v-8h5z"/></svg>
+</button>
+<script>
+(function(){var b=document.getElementById('backTop');window.addEventListener('scroll',function(){b.classList.toggle('visible',window.scrollY>400)});})();
+</script>
 
 </body>
 </html>
