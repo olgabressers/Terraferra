@@ -187,6 +187,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
       <li><a href="#sec03">Drop-Ship by Brand Region (APAC · US · UK · EU)</a></li>
       <li><a href="#sec04">Cross-Border Compliance: All Origin–Destination Routes</a></li>
       <li><a href="#sec05">MVP Strategy</a></li>
+      <li><a href="#sec06">Cross-Border Compliance Services — MoR vs Tax-Only</a></li>
     </ol>
   </nav>
 
@@ -1199,6 +1200,224 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   </div>
 
 </div>
+
+  <div class="section" id="sec06">
+    <h2 class="sec-heading"><span class="sec-num">06</span>Cross-Border Compliance Services — MoR vs Tax-Only</h2>
+
+    <div class="ctx-box">
+      Two categories of service exist. <strong>Merchant of Record (MoR)</strong>: the provider becomes the legal seller in each destination country — they hold VAT registrations, collect duties and taxes at checkout, remit to authorities, and absorb compliance liability. TF hands off the cross-border transaction. <strong>Tax-calculation-only</strong>: TF remains the seller; the service calculates and displays landed cost at checkout, automates filing and remittance, but does not absorb legal liability. The MoR model removes complexity but is not natively designed for multi-vendor marketplaces where multiple independent brands ship from different origins — that is TF's model. Tax-only services (Zonos + Avalara) are platform-agnostic, work with any multi-vendor setup, and give TF full transaction control.
+    </div>
+
+    <div style="background:white;border:1px solid var(--rule);overflow-x:auto;margin-bottom:28px;">
+    <table style="width:100%;border-collapse:collapse;font-size:12px;color:var(--ink);min-width:1000px;">
+      <thead>
+        <tr style="background:var(--ink);color:white;">
+          <th style="padding:10px 12px;text-align:left;font-weight:800;min-width:110px;">Service</th>
+          <th style="padding:10px 12px;text-align:left;font-weight:800;min-width:90px;">Model</th>
+          <th style="padding:10px 12px;text-align:left;font-weight:800;min-width:80px;">EU IOSS</th>
+          <th style="padding:10px 12px;text-align:left;font-weight:800;min-width:80px;">UK VAT</th>
+          <th style="padding:10px 12px;text-align:left;font-weight:800;min-width:80px;">US sales tax</th>
+          <th style="padding:10px 12px;text-align:left;font-weight:800;min-width:100px;">Duties calc at checkout</th>
+          <th style="padding:10px 12px;text-align:left;font-weight:800;min-width:80px;">China support</th>
+          <th style="padding:10px 12px;text-align:left;font-weight:800;min-width:110px;">Multi-vendor marketplace</th>
+          <th style="padding:10px 12px;text-align:left;font-weight:800;min-width:110px;">Integration</th>
+          <th style="padding:10px 12px;text-align:left;font-weight:800;min-width:120px;">Pricing</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--rule);">
+          <td style="padding:10px 12px;font-weight:800;"><a href="https://www.global-e.com" target="_blank" rel="noopener" style="color:var(--tf);">Global-e</a><br><span style="font-size:10px;font-weight:400;color:var(--sub);">Nasdaq: GLBE</span></td>
+          <td style="padding:10px 12px;"><span class="badge badge-green">MoR</span><br><span style="font-size:10px;color:var(--sub);">Global-e is the legal seller in each destination</span></td>
+          <td style="padding:10px 12px;"><span class="yes">Yes</span> — handles registration and remittance</td>
+          <td style="padding:10px 12px;"><span class="yes">Yes</span> — UK VAT collected and remitted</td>
+          <td style="padding:10px 12px;"><span class="warn">Partial</span> — US sales tax covered in their stack</td>
+          <td style="padding:10px 12px;"><span class="yes">Yes</span> — DDP landed cost at checkout across 200+ markets</td>
+          <td style="padding:10px 12px;"><span class="no">Weak</span> — 200+ markets but Chinese sellers shipping outbound not a documented use case; selling into China not supported</td>
+          <td style="padding:10px 12px;"><span class="warn">Not natively</span> — built for single-brand retailers. Multi-vendor drop-ship (each seller ships independently from different origins) requires custom integration work not available out of the box.<span class="src"><a href="https://www.global-e.com" target="_blank" rel="noopener">global-e.com</a></span></td>
+          <td style="padding:10px 12px;">Shopify native; Salesforce Commerce Cloud; API for custom stacks</td>
+          <td style="padding:10px 12px;">Revenue share on cross-border GMV — custom quote. No public pricing.<span class="src"><a href="https://www.global-e.com" target="_blank" rel="noopener">global-e.com</a></span></td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--rule);background:#fafafa;">
+          <td style="padding:10px 12px;font-weight:800;"><a href="https://esw.com" target="_blank" rel="noopener" style="color:var(--tf);">ESW</a><br><span style="font-size:10px;font-weight:400;color:var(--sub);">formerly eShopWorld</span></td>
+          <td style="padding:10px 12px;"><span class="badge badge-green">MoR</span><br><span style="font-size:10px;color:var(--sub);">Full compliance handoff</span></td>
+          <td style="padding:10px 12px;"><span class="yes">Yes</span> — IOSS managed</td>
+          <td style="padding:10px 12px;"><span class="yes">Yes</span> — UK VAT managed</td>
+          <td style="padding:10px 12px;"><span class="yes">Yes</span> — covered in their stack</td>
+          <td style="padding:10px 12px;"><span class="yes">Yes</span> — DDP across 200+ markets; fashion-specific duty expertise (sizing, textiles)<span class="src"><a href="https://esw.com/industries/fashion-apparel/" target="_blank" rel="noopener">esw.com/fashion</a></span></td>
+          <td style="padding:10px 12px;"><span class="no">No</span> — no documented China coverage</td>
+          <td style="padding:10px 12px;"><span class="no">No</span> — enterprise single-brand platform. Not designed for multi-vendor. Customer profile: Levi's, Ralph Lauren, New Balance.<span class="src"><a href="https://esw.com" target="_blank" rel="noopener">esw.com</a></span></td>
+          <td style="padding:10px 12px;">Shopify (strategic partnership 2025); Salesforce; custom API<span class="src"><a href="https://www.forbes.com/sites/sharonedelson/2025/09/08/esw-and-shopify-fuel-international-e-commerce-for-enterprise-brands/" target="_blank" rel="noopener">Forbes Sep 2025</a></span></td>
+          <td style="padding:10px 12px;">Enterprise custom quote only. Minimum GMV threshold applies — pre-revenue companies are not onboarded.<span class="src"><a href="https://esw.com" target="_blank" rel="noopener">esw.com</a></span></td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--rule);">
+          <td style="padding:10px 12px;font-weight:800;"><a href="https://passportglobal.com" target="_blank" rel="noopener" style="color:var(--tf);">Passport</a></td>
+          <td style="padding:10px 12px;"><span class="badge badge-amber">MoR or SoR</span><br><span style="font-size:10px;color:var(--sub);">Seller of Record = tax-only; MoR = full handoff</span></td>
+          <td style="padding:10px 12px;"><span class="yes">Yes</span> — via MoR or SoR option</td>
+          <td style="padding:10px 12px;"><span class="yes">Yes</span> — UK expansion announced 2025<span class="src"><a href="https://www.prnewswire.co.uk/news-releases/passport-expands-to-the-uk-supporting-e-commerce-brands-with-cross-border-shipping--in-market-enablement-across-the-globe-302500614.html" target="_blank" rel="noopener">PR Newswire 2025</a></span></td>
+          <td style="padding:10px 12px;"><span class="yes">Yes</span></td>
+          <td style="padding:10px 12px;"><span class="yes">Yes</span> — real-time landed cost at checkout; DDP model</td>
+          <td style="padding:10px 12px;"><span class="no">No</span> — US-outbound focused. Not documented for Chinese sellers or China as destination.</td>
+          <td style="padding:10px 12px;"><span class="warn">Not natively</span> — built for single brands. Multi-vendor not a documented use case.<span class="src"><a href="https://passportglobal.com" target="_blank" rel="noopener">passportglobal.com</a></span></td>
+          <td style="padding:10px 12px;">Shopify native; API available</td>
+          <td style="padding:10px 12px;">Custom pricing — flat-rate per-shipment model plus compliance fees. Contact for quote.<span class="src"><a href="https://passportglobal.com" target="_blank" rel="noopener">passportglobal.com</a></span></td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--rule);background:#fafafa;">
+          <td style="padding:10px 12px;font-weight:800;"><a href="https://zonos.com" target="_blank" rel="noopener" style="color:var(--tf);">Zonos</a></td>
+          <td style="padding:10px 12px;"><span class="badge badge-amber">Tax-calc + DDP</span><br><span style="font-size:10px;color:var(--sub);">TF stays the seller; Zonos calculates and collects</span></td>
+          <td style="padding:10px 12px;"><span class="warn">Calc only</span> — Zonos calculates EU VAT at checkout and collects it from the buyer. TF still needs IOSS registration and a remittance layer (Avalara/Taxually) to file with EU authorities.</td>
+          <td style="padding:10px 12px;"><span class="warn">Calc only</span> — same: collects UK VAT at checkout; TF still needs UK VAT number and remittance layer.</td>
+          <td style="padding:10px 12px;"><span class="no">No</span> — US sales tax is not Zonos's scope. Use Stripe Tax or Avalara for US.</td>
+          <td style="padding:10px 12px;"><span class="yes">Yes</span> — real-time guaranteed landed cost (duties + taxes + carrier fees) at checkout. 200+ destinations. $2 + 10% of duties/taxes per order.<span class="src"><a href="https://zonos.com/docs/global-ecommerce/landed-cost/pricing" target="_blank" rel="noopener">zonos.com/docs</a></span></td>
+          <td style="padding:10px 12px;"><span class="warn">Duty calc only</span> — can calculate duties on Chinese-origin goods to any destination. Does not solve Chinese seller payout or US de minimis removal for Chinese goods.</td>
+          <td style="padding:10px 12px;"><span class="yes">Yes</span> — API-first, platform-agnostic. Works with any multi-vendor setup; each seller's shipment can pass through Zonos independently. Most flexible option for TF's marketplace model.<span class="src"><a href="https://zonos.com" target="_blank" rel="noopener">zonos.com</a></span></td>
+          <td style="padding:10px 12px;">Shopify app (native); REST API; Medusa.js; custom stack</td>
+          <td style="padding:10px 12px;">Per-shipment: $2 + 10% of duties and taxes collected per order. No subscription required for basic use. Custom plans for volume.<span class="src"><a href="https://zonos.com/docs/global-ecommerce/landed-cost/pricing" target="_blank" rel="noopener">zonos.com/docs</a></span></td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--rule);">
+          <td style="padding:10px 12px;font-weight:800;"><a href="https://www.avalara.com" target="_blank" rel="noopener" style="color:var(--tf);">Avalara</a></td>
+          <td style="padding:10px 12px;"><span class="badge badge-amber">Tax automation</span><br><span style="font-size:10px;color:var(--sub);">TF stays the seller; Avalara calculates, collects, and files</span></td>
+          <td style="padding:10px 12px;"><span class="yes">Yes</span> — Avalara AvaTax handles IOSS calculation, collection, and quarterly EU filing. One of the most complete IOSS solutions available.<span class="src"><a href="https://www.avalara.com/us/en/products/global-tax-compliance.html" target="_blank" rel="noopener">avalara.com</a></span></td>
+          <td style="padding:10px 12px;"><span class="yes">Yes</span> — UK VAT calculation and return filing covered.</td>
+          <td style="padding:10px 12px;"><span class="yes">Yes</span> — US state sales tax is Avalara's core product. Automated nexus tracking and filing across all 50 states.</td>
+          <td style="padding:10px 12px;"><span class="yes">Yes</span> — AvaTax Cross-Border calculates duties and landed cost at checkout. 200+ countries.</td>
+          <td style="padding:10px 12px;"><span class="warn">Duty calc only</span> — calculates duties on Chinese-origin goods but does not solve seller payouts or de minimis removal.</td>
+          <td style="padding:10px 12px;"><span class="yes">Yes</span> — integrates at platform level, not per-brand. All sellers on the platform covered by the same Avalara integration.<span class="src"><a href="https://www.avalara.com" target="_blank" rel="noopener">avalara.com</a></span></td>
+          <td style="padding:10px 12px;">Shopify; commercetools; Medusa; Vendure; Magento; custom API</td>
+          <td style="padding:10px 12px;">Usage-based SaaS — priced per transaction volume and jurisdictions covered. Custom quote for cross-border module. US sales tax plans start ~$50/mo; full cross-border stack is significantly higher.<span class="src"><a href="https://www.avalara.com/us/en/products/pricing.html" target="_blank" rel="noopener">avalara.com/pricing</a></span></td>
+        </tr>
+        <tr>
+          <td style="padding:10px 12px;font-weight:800;"><a href="https://taxually.com" target="_blank" rel="noopener" style="color:var(--tf);">Taxually</a></td>
+          <td style="padding:10px 12px;"><span class="badge badge-amber">VAT filing</span><br><span style="font-size:10px;color:var(--sub);">EU + UK VAT compliance only</span></td>
+          <td style="padding:10px 12px;"><span class="yes">Yes</span> — EU IOSS registration + quarterly filing. Specialist EU VAT provider; simpler and cheaper than Avalara for EU-only scope.<span class="src"><a href="https://taxually.com" target="_blank" rel="noopener">taxually.com</a></span></td>
+          <td style="padding:10px 12px;"><span class="yes">Yes</span> — UK VAT registration and returns.</td>
+          <td style="padding:10px 12px;"><span class="no">No</span> — EU/UK only. US sales tax not in scope.</td>
+          <td style="padding:10px 12px;"><span class="no">No</span> — Taxually handles VAT filing only, not duty calculation at checkout. Pair with Zonos for DDP.</td>
+          <td style="padding:10px 12px;"><span class="no">No</span> — EU/UK only.</td>
+          <td style="padding:10px 12px;"><span class="yes">Yes</span> — not platform-specific; handles filing for any marketplace operator.<span class="src"><a href="https://taxually.com" target="_blank" rel="noopener">taxually.com</a></span></td>
+          <td style="padding:10px 12px;">Platform-agnostic — connects via API or manual reporting</td>
+          <td style="padding:10px 12px;">SaaS subscription — lower cost than Avalara for EU/UK scope only. Contact for quote.<span class="src"><a href="https://taxually.com" target="_blank" rel="noopener">taxually.com</a></span></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <!-- RECOMMENDATION -->
+    <div style="font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);padding-bottom:10px;border-bottom:2px solid var(--rule);margin-bottom:16px;">TF Recommendation by Stage</div>
+
+    <div class="ibox" style="padding:18px 24px;background:var(--green-bg);border:1px solid #b6e8ce;border-left:4px solid var(--green);margin-bottom:16px;font-size:13px;color:var(--ink);line-height:1.75;">
+      <strong style="color:var(--green);">MVP — US→US and EU→EU domestic only</strong><br><br>
+      <strong>Stripe Tax.</strong> No additional compliance service needed. Stripe Tax handles US state sales tax automatically and is OSS-aware for intra-EU cross-border. Free to activate as an add-on to the existing Stripe integration. None of the services above are necessary or cost-justified before cross-border routes open.
+    </div>
+
+    <div class="ibox" style="padding:18px 24px;background:var(--tf-ghost);border:1px solid var(--rule);border-left:4px solid var(--tf);margin-bottom:16px;font-size:13px;color:var(--ink);line-height:1.75;">
+      <strong style="color:var(--tf);">Post-MVP cross-border — recommended stack for TF's marketplace model</strong><br><br>
+      <strong>Zonos + Avalara (or Taxually).</strong> This combination gives TF full cross-border DDP capability while keeping transaction control — critical for routing co-creator revenue shares automatically.<br><br>
+      <strong>Zonos</strong> sits at checkout: calculates and collects duties, taxes, and carrier fees from the buyer in real time for all 200+ destinations. Per-shipment fee ($2 + 10% of duties collected) passes cost to the buyer within the landed price — no fixed monthly overhead until volume justifies it. Platform-agnostic API works with any multi-vendor setup.<br><br>
+      <strong>Avalara</strong> (or <strong>Taxually</strong> for EU/UK only) handles the filing layer: IOSS quarterly returns to the EU, UK VAT returns to HMRC, and US state sales tax returns across all states where TF hits economic nexus. Avalara is the fuller stack (US + EU + UK); Taxually is cheaper if EU/UK filing is all that's needed.<br><br>
+      This combination does not require Global-e or ESW integration — both MoR services would need custom work to accommodate multi-vendor drop-ship and would remove TF's visibility into per-order data needed for co-creator payouts.
+    </div>
+
+    <div class="ibox" style="padding:18px 24px;background:white;border:1px solid var(--rule);border-left:4px solid var(--ink);margin-bottom:16px;font-size:13px;color:var(--ink);line-height:1.75;">
+      <strong>Global-e or ESW — when they become relevant</strong><br><br>
+      If TF reaches a stage where cross-border compliance overhead is the primary operational burden and transaction-level co-creator revenue sharing is handled via a separate settled layer (not real-time per order), a MoR handoff to Global-e becomes worth evaluating. Global-e's Shopify integration is production-grade and used by major US fashion brands for US→EU routes today. ESW is relevant only at enterprise GMV — not the right scale for TF in the foreseeable future.<br><br>
+      Passport is a US-outbound option if TF begins with US brands shipping to EU/UK/Canada/Australia — simpler than Global-e for a US-first brand strategy. Less relevant if EU brands (shipping intra-EU) are the first onboarded cohort.
+    </div>
+
+    <div class="ibox" style="padding:18px 24px;background:var(--red-bg);border:1px solid #f0b4b0;border-left:4px solid var(--red);font-size:13px;color:var(--ink);line-height:1.75;">
+      <strong style="color:var(--red);">China — none of these services solve it</strong><br><br>
+      Chinese brands selling outbound (to EU/US buyers): Zonos handles the duty calculation at the destination side. But Chinese seller payouts (CNY) require Payoneer, PingPong, or Lianlian Global — outside the scope of all services above. US customs on Chinese-origin goods (de minimis eliminated) requires per-shipment customs entry — a per-order operational burden no SaaS removes.<br><br>
+      Selling into China (Chinese consumers buying from TF brands): none of these services cover it. The CBEC regime (GACC registration, China Customs CBEC system, CNY payment via Alipay/WeChat) requires a specialist China CBEC provider (CBNcloud, Azoya) or listing via existing China cross-border channels (Tmall Global, JD Worldwide). Post-MVP, not viable as a managed service without a dedicated China operations hire.
+    </div>
+
+    <div style="margin-top:24px;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);padding-bottom:10px;border-bottom:2px solid var(--rule);margin-bottom:12px;">Service × Country Coverage Summary</div>
+    <div style="background:white;border:1px solid var(--rule);overflow-x:auto;margin-bottom:4px;">
+    <table style="width:100%;border-collapse:collapse;font-size:12px;color:var(--ink);min-width:700px;">
+      <thead>
+        <tr style="background:var(--ink);color:white;">
+          <th style="padding:9px 12px;text-align:left;font-weight:800;">Service</th>
+          <th style="padding:9px 12px;text-align:center;font-weight:800;">US→EU</th>
+          <th style="padding:9px 12px;text-align:center;font-weight:800;">US→UK</th>
+          <th style="padding:9px 12px;text-align:center;font-weight:800;">EU→UK</th>
+          <th style="padding:9px 12px;text-align:center;font-weight:800;">EU→US</th>
+          <th style="padding:9px 12px;text-align:center;font-weight:800;">Korea/Japan→EU/UK</th>
+          <th style="padding:9px 12px;text-align:center;font-weight:800;">China→EU/US</th>
+          <th style="padding:9px 12px;text-align:center;font-weight:800;">→China (CBEC)</th>
+          <th style="padding:9px 12px;text-align:left;font-weight:800;">TF fit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--rule);">
+          <td style="padding:9px 12px;font-weight:700;">Global-e</td>
+          <td style="padding:9px 12px;text-align:center;"><span class="yes">✓</span></td>
+          <td style="padding:9px 12px;text-align:center;"><span class="yes">✓</span></td>
+          <td style="padding:9px 12px;text-align:center;"><span class="yes">✓</span></td>
+          <td style="padding:9px 12px;text-align:center;"><span class="yes">✓</span></td>
+          <td style="padding:9px 12px;text-align:center;"><span class="yes">✓</span></td>
+          <td style="padding:9px 12px;text-align:center;"><span class="warn">Partial</span></td>
+          <td style="padding:9px 12px;text-align:center;"><span class="no">✗</span></td>
+          <td style="padding:9px 12px;font-size:11px;">Post-MVP; needs custom integration for multi-vendor</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--rule);background:#fafafa;">
+          <td style="padding:9px 12px;font-weight:700;">ESW</td>
+          <td style="padding:9px 12px;text-align:center;"><span class="yes">✓</span></td>
+          <td style="padding:9px 12px;text-align:center;"><span class="yes">✓</span></td>
+          <td style="padding:9px 12px;text-align:center;"><span class="yes">✓</span></td>
+          <td style="padding:9px 12px;text-align:center;"><span class="yes">✓</span></td>
+          <td style="padding:9px 12px;text-align:center;"><span class="yes">✓</span></td>
+          <td style="padding:9px 12px;text-align:center;"><span class="no">✗</span></td>
+          <td style="padding:9px 12px;text-align:center;"><span class="no">✗</span></td>
+          <td style="padding:9px 12px;font-size:11px;">Wrong scale — enterprise GMV minimum</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--rule);">
+          <td style="padding:9px 12px;font-weight:700;">Passport</td>
+          <td style="padding:9px 12px;text-align:center;"><span class="yes">✓</span></td>
+          <td style="padding:9px 12px;text-align:center;"><span class="yes">✓</span></td>
+          <td style="padding:9px 12px;text-align:center;"><span class="warn">Partial</span></td>
+          <td style="padding:9px 12px;text-align:center;"><span class="yes">✓</span></td>
+          <td style="padding:9px 12px;text-align:center;"><span class="warn">Partial</span></td>
+          <td style="padding:9px 12px;text-align:center;"><span class="no">✗</span></td>
+          <td style="padding:9px 12px;text-align:center;"><span class="no">✗</span></td>
+          <td style="padding:9px 12px;font-size:11px;">Post-MVP; US-outbound only; not multi-vendor</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--rule);background:#fafafa;">
+          <td style="padding:9px 12px;font-weight:700;">Zonos</td>
+          <td style="padding:9px 12px;text-align:center;"><span class="yes">✓</span></td>
+          <td style="padding:9px 12px;text-align:center;"><span class="yes">✓</span></td>
+          <td style="padding:9px 12px;text-align:center;"><span class="yes">✓</span></td>
+          <td style="padding:9px 12px;text-align:center;"><span class="yes">✓</span></td>
+          <td style="padding:9px 12px;text-align:center;"><span class="yes">✓</span></td>
+          <td style="padding:9px 12px;text-align:center;"><span class="warn">Duty calc only</span></td>
+          <td style="padding:9px 12px;text-align:center;"><span class="no">✗</span></td>
+          <td style="padding:9px 12px;font-size:11px;"><strong style="color:var(--green);">Recommended</strong> — post-MVP DDP at checkout; multi-vendor compatible</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--rule);">
+          <td style="padding:9px 12px;font-weight:700;">Avalara</td>
+          <td style="padding:9px 12px;text-align:center;"><span class="yes">✓</span></td>
+          <td style="padding:9px 12px;text-align:center;"><span class="yes">✓</span></td>
+          <td style="padding:9px 12px;text-align:center;"><span class="yes">✓</span></td>
+          <td style="padding:9px 12px;text-align:center;"><span class="yes">✓</span></td>
+          <td style="padding:9px 12px;text-align:center;"><span class="yes">✓</span></td>
+          <td style="padding:9px 12px;text-align:center;"><span class="warn">Duty calc only</span></td>
+          <td style="padding:9px 12px;text-align:center;"><span class="no">✗</span></td>
+          <td style="padding:9px 12px;font-size:11px;"><strong style="color:var(--green);">Recommended</strong> — post-MVP IOSS + UK VAT + US sales tax filing; multi-vendor compatible</td>
+        </tr>
+        <tr>
+          <td style="padding:9px 12px;font-weight:700;">Taxually</td>
+          <td style="padding:9px 12px;text-align:center;"><span class="yes">✓</span></td>
+          <td style="padding:9px 12px;text-align:center;"><span class="yes">✓</span></td>
+          <td style="padding:9px 12px;text-align:center;"><span class="yes">✓</span></td>
+          <td style="padding:9px 12px;text-align:center;"><span class="yes">✓</span></td>
+          <td style="padding:9px 12px;text-align:center;"><span class="yes">✓</span></td>
+          <td style="padding:9px 12px;text-align:center;"><span class="no">✗</span></td>
+          <td style="padding:9px 12px;text-align:center;"><span class="no">✗</span></td>
+          <td style="padding:9px 12px;font-size:11px;">EU/UK VAT filing only — lower cost alternative to Avalara if US tax handled separately</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="font-size:11px;color:var(--sub);margin-top:6px;margin-bottom:0;">✓ = covered · Partial = limited or requires additional configuration · ✗ = not covered · Duty calc only = calculates and collects at checkout but TF still needs a VAT filing service on top</p>
+
+  </div>
 
 <footer>Private · noindex · Not for distribution</footer>
 
