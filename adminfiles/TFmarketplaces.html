@@ -215,13 +215,13 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         </tr>
         <tr>
           <td>Pre-order / drops</td>
-          <td><span class="warn">Configurable</span> — a drop is a product with a release date, quantity cap, and status flag. Catalog attributes are configuration, not a blocker. Countdown timers, waitlist flows, and concurrency handling at drop release (inventory race conditions across multiple sellers) require custom engineering on top.</td>
-          <td><span class="warn">Configurable</span> — same logic. Catalog attributes are configuration. Waitlist flows and concurrency handling at drop release require custom development on top.</td>
+          <td><span class="warn">Configurable</span> — a drop is a product with a release date, quantity cap, and status flag. Catalog attributes and basic inventory reservation are native to API-first platforms. Countdown timers, waitlist flows, and queue-based reservation for high-concurrency simultaneous launches (thousands of buyers at second-zero) require custom engineering — the stock locking itself is not custom, the launch-scale queuing is.</td>
+          <td><span class="warn">Configurable</span> — same logic. Basic inventory reservation is native. Queue-based reservation for high-concurrency drop launches requires custom development on top.</td>
         </tr>
         <tr>
           <td>Revenue share / ambassador</td>
-          <td><span class="warn">Partial</span> — simple seller commission splits are native. Multi-tier splits (seller + ambassador + co-creator in one transaction) require custom routing logic on top. This is the genuine custom-dev item.</td>
-          <td><span class="warn">Partial</span> — same: seller-operator splits are native. Multi-tier payout routing across creator tiers requires custom development.</td>
+          <td><span class="warn">Partial</span> — simple seller commission splits are native. Multi-tier splits (seller + ambassador + co-creator in one transaction) require custom routing logic. The heavier engineering item is payout compliance: tax withholding, US 1099-K, and EU VAT per payee across three parties in one transaction. No marketplace platform handles this natively.</td>
+          <td><span class="warn">Partial</span> — same: seller-operator splits are native. Multi-tier routing requires custom development. Payout compliance across US (1099-K) and EU (VAT per payee) is the heavier lift — not solved natively by any platform.</td>
         </tr>
         <tr>
           <td>Pricing<br><span style="font-size:10px;font-weight:400;color:var(--sub)">2022 RFP quoted</span></td>
@@ -259,14 +259,14 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         </tr>
         <tr>
           <td>TF verdict</td>
-          <td><span class="warn">High cost for current stage</span> — triple-stack (commercetools + Marketplacer + SI) is API-first and fully customizable. Drop mechanics and basic commission splits are buildable on top. The issue is cost and complexity relative to TF's current scale, not capability. The social layer (feeds, co-creation, community) still requires full custom development on top of any platform.</td>
-          <td><span class="warn">Wrong scale, not wrong category</span> — platform is technically capable and API-accessible. Built for $10M+ GMV enterprise retailers; pricing and contract structure are not suited for an early-stage startup. The social and co-creation layer still requires custom development regardless.</td>
+          <td><span class="warn">High cost for current stage</span> — triple-stack (commercetools + Marketplacer + SI) is API-accessible with a configurable schema. Drop mechanics and basic commission splits are buildable on top. Deep customisation (custom order lifecycle states, non-standard checkout flows) requires Marketplacer's professional services team. The issue is cost and complexity relative to TF's current scale. The social layer still requires full custom development regardless.</td>
+          <td><span class="warn">Wrong scale — actively screens out early-stage</span> — Mirakl's sales process qualifies operators by GMV; pre-revenue companies routinely receive no response. TF's 2022 RFP with no reply is consistent with this. Even if onboarded, pricing and contract structure are not suited for a startup. Social and co-creation layer still requires custom development regardless.</td>
         </tr>
       </tbody>
     </table>
     <div style="margin-top:24px;padding:18px 22px;background:var(--tf-ghost);border:1px solid var(--rule);border-left:4px solid var(--tf);font-size:13px;color:var(--ink);line-height:1.65">
       <strong style="color:var(--tf)">On customizability:</strong> Both platforms above are API-first. Standard e-commerce objects — products, orders, inventory, commissions — are configurable via custom attributes and webhook integrations. A drop is a product with a release date and quantity cap; this is implementable on any platform as a configuration layer. The commerce rail (catalog, checkout, payouts) is covered by both platforms and does not require a rebuild.<br><br>
-      What requires genuine custom engineering on top of any marketplace platform: (1) the <strong>social layer</strong> — content feeds, co-creation projects, community interaction; (2) <strong>multi-tier revenue routing</strong> — a single transaction splitting simultaneously across seller, ambassador, and co-creator. These are the actual custom-development items, not drops or pre-orders.
+      What requires genuine custom engineering on top of any marketplace platform: (1) the <strong>social layer</strong> — content feeds, co-creation projects, community interaction; (2) <strong>multi-tier revenue routing</strong> — a single transaction splitting simultaneously across seller, ambassador, and co-creator; (3) <strong>payout compliance</strong> — US 1099-K and EU VAT handling per payee across multiple parties in one transaction. Drop mechanics (catalog attributes + basic inventory reservation) are not in this list — those are standard platform configuration.
     </div>
   </div>
 
@@ -314,7 +314,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
           <td>Core: free (open source). Platform: annual subscription (no public price).
             <span class="src"><a href="https://www.vendure.io/pricing" target="_blank" rel="noopener">vendure.io/pricing</a></span>
           </td>
-          <td><span class="green">Strong option</span> — API-first, fully extensible, no GMV fees, can build ambassador/drop mechanics on top. Requires engineering capacity. Worth evaluating if TF builds custom stack.</td>
+          <td><span class="green">Strong commerce backend</span> — API-first, fully extensible, no GMV fees, multi-vendor via plugins. Social layer (feeds, co-creation, community) is fully custom on top — Vendure does not provide it. The right choice if TF builds a custom stack and wants a solid commerce foundation without GMV taxes. Not a near-fit — a foundation.</td>
         </tr>
         <tr>
           <td><a href="https://spryker.com/marketplace/" target="_blank" rel="noopener">Spryker Marketplace</a></td>
@@ -324,11 +324,31 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
           </td>
           <td><span class="no">Wrong fit</span> — optimised for B2B (automotive, industrial, wholesale). Not built for fashion social commerce.</td>
         </tr>
+        <tr>
+          <td><a href="https://medusajs.com" target="_blank" rel="noopener">Medusa.js</a></td>
+          <td>Open-source headless commerce framework (MIT). TypeScript-native, modular, active community. Multi-vendor via modules. Comparable to Vendure; generally considered more actively maintained as of 2026.
+            <span class="src"><a href="https://medusajs.com" target="_blank" rel="noopener">medusajs.com</a></span>
+          </td>
+          <td>Core: free (open source). Medusa Cloud: pricing on request.
+            <span class="src"><a href="https://medusajs.com/pricing" target="_blank" rel="noopener">medusajs.com/pricing</a></span>
+          </td>
+          <td><span class="green">Strong commerce backend</span> — same profile as Vendure: API-first, no GMV fees, fully extensible. Social layer still fully custom on top. Worth evaluating alongside Vendure; community and ecosystem are strong points.</td>
+        </tr>
+        <tr>
+          <td>Shopify + multi-vendor app<br><span style="font-size:10px;font-weight:400;color:var(--sub)">e.g. Multi-Vendor Marketplace by Webkul</span></td>
+          <td>Shopify as the commerce foundation with a multi-vendor app layer. Handles catalog, checkout, payments natively. Multi-vendor apps add seller dashboards and commission splits.
+            <span class="src"><a href="https://apps.shopify.com/multi-vendor-marketplace" target="_blank" rel="noopener">apps.shopify.com</a></span>
+          </td>
+          <td>Shopify Advanced: $299/mo. Multi-vendor apps: $50–$300/mo.
+            <span class="src"><a href="https://www.shopify.com/pricing" target="_blank" rel="noopener">shopify.com/pricing</a></span>
+          </td>
+          <td><span class="warn">Lowest cost path to MVP</span> — fastest time to a working multi-vendor checkout. Shopify handles drops natively (Launchpad app). Social layer still custom. Traide (above) is the more polished Shopify-native option; raw Shopify + app is the minimum-cost version.</td>
+        </tr>
       </tbody>
     </table>
 
     <div style="margin-top:24px;padding:16px 20px;background:var(--amber-bg);border:1px solid #FCD34D;border-left:4px solid var(--amber);font-size:13px;color:var(--ink);line-height:1.6">
-      <strong style="color:var(--amber)">What requires custom development on any platform:</strong> (1) The social layer — content feeds, co-creation projects, community interaction. (2) Multi-tier revenue routing — one transaction splitting simultaneously to seller + ambassador + co-creator. Drop mechanics and basic pre-orders are standard catalog configuration on any API-first platform and are not a blocker.
+      <strong style="color:var(--amber)">What requires custom development on any platform:</strong> (1) The social layer — content feeds, co-creation projects, community interaction. (2) Multi-tier revenue routing — one transaction splitting simultaneously to seller + ambassador + co-creator. (3) Payout compliance — US 1099-K and EU VAT per payee across multiple parties. Drop mechanics and basic inventory reservation are standard catalog configuration and are not a blocker.
     </div>
   </div>
 
