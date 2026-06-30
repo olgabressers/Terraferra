@@ -90,7 +90,7 @@ h2.section-title{font-size:28px;font-weight:800;color:var(--ink);margin:48px 0 1
 .opp-table tr.total td{background:var(--tf-ghost);font-weight:800}
 .opp-table tr.total td.num{color:var(--orange);font-size:15px}
 
-.gap-stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-bottom:36px;border:1px solid var(--rule)}
+.gap-stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-bottom:36px;border:1px solid var(--rule)}
 .gap-stat{padding:18px 22px;border-right:1px solid var(--rule)}
 .gap-stat:last-child{border-right:none}
 .gap-stat-num{font-size:32px;font-weight:800;line-height:1;margin-bottom:4px}
@@ -105,7 +105,7 @@ h2.section-title{font-size:28px;font-weight:800;color:var(--ink);margin:48px 0 1
 
 @media(max-width:1000px){
   .opp-grid{grid-template-columns:1fr}
-  .gap-stat-row{grid-template-columns:1fr}
+  .gap-stat-row{grid-template-columns:repeat(2,1fr)}
   .gap-stat{border-right:none;border-bottom:1px solid var(--rule)}
   .gap-stat:last-child{border-bottom:none}
   .gap-list{grid-template-columns:1fr}
@@ -178,7 +178,7 @@ h2.section-title{font-size:28px;font-weight:800;color:var(--ink);margin:48px 0 1
 
   <div class="conclusion-box">
     <div class="conclusion-tag">TF Opportunity — Emerging Brands Worldwide</div>
-    <div class="conclusion-lead">The US has 32,253 registered fashion design businesses. The EU has 50,000–70,000 established independent designer labels. Comparable platforms combined have reached roughly 17,600. Asian brands moving into EU and US face the same gap: no community platform found in this research, no pre-order infrastructure, no ambassador layer built for cross-border launch.</div>
+    <div class="conclusion-lead">The US has 32,253 registered fashion design businesses. The UK has 14,700 textiles and clothing businesses. The EU-27 has 50,000–70,000 established independent designer labels. Comparable platforms combined have reached roughly 17,600. Asian brands moving into EU and US face the same gap: no community platform found in this research, no pre-order infrastructure, no ambassador layer built for cross-border launch.</div>
     <ul class="gap-list">
       <li><strong>Pre-production entry.</strong> Not found in any comparable platform in this research: a path for designers at sketch stage with zero inventory to launch pre-orders.</li>
       <li><strong>Pre-order + crowdfunding for fashion.</strong> Neither function is present in any platform in this matrix.</li>
@@ -225,10 +225,15 @@ h2.section-title{font-size:28px;font-weight:800;color:var(--ink);margin:48px 0 1
             <td class="num">235,844</td>
             <td class="meta">Single-location retail stores — mix of own-label designer stores and curated multi-brand boutiques · <a href="https://www.ibisworld.com/united-states/number-of-businesses/clothing-boutiques/5616/" target="_blank" rel="noopener">IBISWorld 2025</a></td>
           </tr>
+          <tr>
+            <td><strong>UK — textiles, clothing &amp; leather businesses</strong></td>
+            <td class="num">14,700</td>
+            <td class="meta">VAT/PAYE registered businesses in textiles, clothing and leather products (SIC 13–15), 2023. Covers independent labels, manufacturers, and clothing businesses operating in the UK. · <a href="https://ukft.org/industry-reports-and-stats/" target="_blank" rel="noopener">UKFT 2023</a></td>
+          </tr>
           <tr style="background:#fffbf5;">
-            <td><strong>EU — established designer brands &amp; independent labels</strong></td>
+            <td><strong>EU-27 — established designer brands &amp; independent labels</strong></td>
             <td class="num" style="color:var(--orange);">50,000–70,000</td>
-            <td class="meta">Active professional fashion designer businesses and established independent labels in EU‑27. Derived from EURATEX industry data (nearly 200,000 total textile+clothing companies, per EURATEX) narrowed to apparel-only and excluding pure manufacturers and micro-retailers. <em>Primary source behind paywall — industry estimate; treat as directional.</em> Excludes UK (+10,000–15,000 est.) · <a href="https://euratex.eu/facts-and-key-figures/" target="_blank" rel="noopener">EURATEX 2023</a></td>
+            <td class="meta">Active professional fashion designer businesses and established independent labels in EU‑27. Derived from EURATEX industry data narrowed to apparel-only, excluding pure manufacturers and micro-retailers. <em>Directional estimate — primary source behind paywall.</em> Italy alone accounts for ~29,000 wearing apparel enterprises (Eurostat/ISTAT 2021). · <a href="https://euratex.eu/facts-and-key-figures/" target="_blank" rel="noopener">EURATEX 2023</a></td>
           </tr>
           <tr>
             <td><strong>EU — retail stores</strong></td>
@@ -288,16 +293,94 @@ h2.section-title{font-size:28px;font-weight:800;color:var(--ink);margin:48px 0 1
       <div class="gap-stat-sub">NAICS 54149 · independent labels, studios, designers · <a href="https://www.ibisworld.com/industry-statistics/number-of-businesses/fashion-designers-united-states/" target="_blank" rel="noopener" style="color:var(--tf);">IBISWorld 2026</a></div>
     </div>
     <div class="gap-stat" style="background:white;">
+      <div class="gap-stat-num" style="color:var(--orange);">14,700</div>
+      <div class="gap-stat-label">UK textiles &amp; clothing businesses</div>
+      <div class="gap-stat-sub">SIC 13–15 · VAT/PAYE registered · 2023 · <a href="https://ukft.org/industry-reports-and-stats/" target="_blank" rel="noopener" style="color:var(--tf);">UKFT</a></div>
+    </div>
+    <div class="gap-stat" style="background:white;">
       <div class="gap-stat-num" style="color:var(--orange);">50K–70K</div>
-      <div class="gap-stat-label">EU established designer brands &amp; independent labels</div>
+      <div class="gap-stat-label">EU-27 established designer brands &amp; independent labels</div>
       <div class="gap-stat-sub">EURATEX-derived · 2023 · directional estimate · <a href="https://euratex.eu/facts-and-key-figures/" target="_blank" rel="noopener" style="color:var(--tf);">EURATEX</a></div>
     </div>
     <div class="gap-stat" style="background:var(--green-tint);">
       <div class="gap-stat-num" style="color:var(--green);">~17,600</div>
       <div class="gap-stat-label">Brands on all comparable platforms combined</div>
-      <div class="gap-stat-sub">sum derived from platform figures below · under 7% of the US boutique universe · ~220,000+ boutiques unreached</div>
+      <div class="gap-stat-sub">sum derived from platform figures in table above · a fraction of US + UK + EU market</div>
     </div>
   </div>
+
+  <!-- ============================================================ -->
+  <!-- EU COUNTRY BREAKDOWN — INFLUENCER FOCUS -->
+  <!-- ============================================================ -->
+
+  <h2 class="section-title" style="margin-top:48px;">EU + UK Country Breakdown — Influencer Focus</h2>
+  <div class="snote">Country priority for influencer recruitment and brand onboarding. Company counts where primary sources exist; consumer market shown as apparel import value (CBI / Eurostat 2024) as proxy for buyer-side opportunity.</div>
+
+  <div style="background:white;border:1px solid var(--rule);overflow-x:auto;margin-bottom:12px;">
+    <table style="width:100%;border-collapse:collapse;font-size:12.5px;color:var(--ink);min-width:820px;">
+      <thead>
+        <tr style="background:var(--ink);color:white;">
+          <th style="padding:10px 14px;text-align:left;font-weight:800;min-width:100px;">Country</th>
+          <th style="padding:10px 14px;text-align:left;font-weight:800;min-width:180px;">Fashion companies</th>
+          <th style="padding:10px 14px;text-align:left;font-weight:800;min-width:160px;">Consumer market</th>
+          <th style="padding:10px 14px;text-align:left;font-weight:800;min-width:220px;">Influencer ecosystem</th>
+          <th style="padding:10px 14px;text-align:center;font-weight:800;min-width:80px;">TF priority</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--rule);background:var(--tf-ghost);">
+          <td style="padding:10px 14px;font-weight:800;">🇬🇧 UK</td>
+          <td style="padding:10px 14px;">14,700 textiles &amp; clothing businesses (SIC 13–15, 2023) · <a href="https://ukft.org/industry-reports-and-stats/" target="_blank" rel="noopener" style="color:var(--tf);">UKFT</a></td>
+          <td style="padding:10px 14px;">Largest apparel market in Europe · TikTok Shop most established of any EU/UK market · <a href="https://www.cbi.eu/market-information/apparel/what-demand" target="_blank" rel="noopener" style="color:var(--tf);">CBI 2024</a></td>
+          <td style="padding:10px 14px;">Most mature influencer commerce market in region. High brand spend per creator. English-language — no localization cost. TikTok Shop live and scaled.</td>
+          <td style="padding:10px 14px;text-align:center;font-weight:800;color:var(--green);">High</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--rule);">
+          <td style="padding:10px 14px;font-weight:800;">🇮🇹 Italy</td>
+          <td style="padding:10px 14px;">~29,000 wearing apparel enterprises (Eurostat / ISTAT 2021) · <a href="https://www.statista.com/statistics/369965/number-of-enterprises-in-the-manufacturing-of-wearing-apparel-sector-in-italy/" target="_blank" rel="noopener" style="color:var(--tf);">Statista / Eurostat</a> · 45% of EU fashion turnover</td>
+          <td style="padding:10px 14px;">€17B apparel imports · dominant EU production base · <a href="https://www.cbi.eu/market-information/apparel/what-demand" target="_blank" rel="noopener" style="color:var(--tf);">CBI 2024</a></td>
+          <td style="padding:10px 14px;">Most engaged fashion audiences in Europe. Fashion capital (Milan). High organic creator activity. Strong nano/micro influencer culture for independent labels.</td>
+          <td style="padding:10px 14px;text-align:center;font-weight:800;color:var(--green);">High</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--rule);background:var(--tf-ghost);">
+          <td style="padding:10px 14px;font-weight:800;">🇫🇷 France</td>
+          <td style="padding:10px 14px;">~12,500 designers and stylists employed (no enterprise count available) · 25 official Haute Couture houses · <a href="https://fashionunited.com/statistics/global-fashion-industry-statistics/france" target="_blank" rel="noopener" style="color:var(--tf);">FashionUnited</a></td>
+          <td style="padding:10px 14px;">€23.2B apparel imports (2nd largest EU market) · luxury and premium bias · <a href="https://www.cbi.eu/market-information/apparel/what-demand" target="_blank" rel="noopener" style="color:var(--tf);">CBI 2024</a></td>
+          <td style="padding:10px 14px;">Luxury and lifestyle influencer capital. Paris Fashion Week drives creator attention globally. TikTok Shop rolled out March 2025. Strong for premium emerging labels.</td>
+          <td style="padding:10px 14px;text-align:center;font-weight:800;color:var(--green);">High</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--rule);">
+          <td style="padding:10px 14px;font-weight:800;">🇩🇪 Germany</td>
+          <td style="padding:10px 14px;">No enterprise count confirmed in public sources</td>
+          <td style="padding:10px 14px;">€39.1B apparel imports — largest consumer market in EU · <a href="https://www.cbi.eu/market-information/apparel/what-demand" target="_blank" rel="noopener" style="color:var(--tf);">CBI 2024</a></td>
+          <td style="padding:10px 14px;">Largest influencer market in Europe by spend. Strong e-commerce and retail creator culture. TikTok Shop March 2025 rollout. Practical/quality-focused consumer vs. fashion-first.</td>
+          <td style="padding:10px 14px;text-align:center;font-weight:800;color:var(--orange);">Medium</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--rule);background:var(--tf-ghost);">
+          <td style="padding:10px 14px;font-weight:800;">🇳🇱 Netherlands</td>
+          <td style="padding:10px 14px;">No enterprise count confirmed in public sources</td>
+          <td style="padding:10px 14px;">€17.9B apparel imports (4th largest EU) — major re-export hub for EU · <a href="https://www.cbi.eu/market-information/apparel/what-demand" target="_blank" rel="noopener" style="color:var(--tf);">CBI 2024</a></td>
+          <td style="padding:10px 14px;">Growing social commerce. English-proficient audience. EU CEO base — operational and network advantage. Strong sustainability-conscious consumer segment.</td>
+          <td style="padding:10px 14px;text-align:center;font-weight:800;color:var(--orange);">Medium</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--rule);">
+          <td style="padding:10px 14px;font-weight:800;">🇪🇸 Spain</td>
+          <td style="padding:10px 14px;">No enterprise count confirmed in public sources</td>
+          <td style="padding:10px 14px;">€19.6B apparel exports (major producer) · €13.99B imports · <a href="https://www.cbi.eu/market-information/apparel/what-demand" target="_blank" rel="noopener" style="color:var(--tf);">CBI 2024</a></td>
+          <td style="padding:10px 14px;">Strong street style and TikTok creator culture. Growing creator market. Home of Inditex — consumer is fashion-literate and trend-responsive.</td>
+          <td style="padding:10px 14px;text-align:center;font-weight:800;color:var(--orange);">Medium</td>
+        </tr>
+        <tr>
+          <td style="padding:10px 14px;font-weight:800;">🇵🇱 Poland</td>
+          <td style="padding:10px 14px;">No enterprise count confirmed in public sources</td>
+          <td style="padding:10px 14px;">€14.6B apparel imports · fastest-growing EU market +14.7% CAGR 2019–24 · <a href="https://www.cbi.eu/market-information/apparel/what-demand" target="_blank" rel="noopener" style="color:var(--tf);">CBI 2024</a></td>
+          <td style="padding:10px 14px;">Emerging influencer market. Rapidly growing consumer class. Early-mover advantage possible. Language barrier for English-first platform onboarding.</td>
+          <td style="padding:10px 14px;text-align:center;font-weight:800;color:var(--sub);">Watch</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:11px;color:var(--sub);margin-bottom:40px;">Influencer ecosystem notes sourced from: <a href="https://www.goviralglobal.com/post/europe-influencer-marketing-kol-statistics-2025" target="_blank" rel="noopener" style="color:var(--tf);">Go Viral Global 2025</a> · <a href="https://awisee.com/blog/influencer-marketing-in-europe/" target="_blank" rel="noopener" style="color:var(--tf);">AWISEE 2024</a>. TikTok Shop EU/UK rollout dates: <a href="https://www.modernretail.co" target="_blank" rel="noopener" style="color:var(--tf);">Modern Retail 2025</a>. Priority ratings are directional — not a confirmed TF strategy decision.</p>
 
   <!-- ============================================================ -->
   <!-- SECTION 2 — ASIA -->
@@ -332,8 +415,8 @@ h2.section-title{font-size:28px;font-weight:800;color:var(--ink);margin:48px 0 1
 
         <tr>
           <td class="country">🇯🇵 Japan</td>
-          <td class="count">TBC</td>
-          <td class="meta">Full sector: 130,000 textile &amp; garment businesses (industry reporting — primary source behind paywall). Large-brand subset count not confirmed in a publicly accessible primary source.</td>
+          <td class="count">~28,000</td>
+          <td class="meta">Apparel manufacturing enterprises (2022 estimate). Full sector: 130,000 textile &amp; garment businesses; 112,000 clothing retail stores; 7,500 specialty apparel stores. No single primary source publicly available — derived from Japan trade statistics aggregation · <a href="https://rawshot.ai/statistic/japanese-fashion-industry" target="_blank" rel="noopener">Japan industry statistics compilation</a></td>
           <td class="brands">Comme des Garçons, Yohji Yamamoto, Issey Miyake, Sacai, BAPE, Undercover, Visvim, Snow Peak</td>
           <td class="expand">Japanese heritage and outdoor labels (Snow Peak, Visvim) have established EU and US wholesale distribution. Japan's apparel market ($89.9B, 2024) — domestic saturation drives export-push from smaller labels.</td>
         </tr>
