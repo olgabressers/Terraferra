@@ -533,17 +533,418 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
 
 
   <div class="section">
-    <h2 class="sec-heading"><span class="sec-num">04</span>Cross-Border Compliance by Origin &amp; Destination</h2>
+    <h2 class="sec-heading"><span class="sec-num">04</span>Cross-Border Compliance: All Origin–Destination Routes</h2>
 
     <div style="background:var(--red-bg);border:1px solid #f0b4b0;border-left:4px solid var(--red);padding:20px 24px;margin-bottom:28px;font-size:13px;color:var(--ink);line-height:1.7">
-      <strong style="color:var(--red)">Three compliance rules that apply regardless of platform choice:</strong><br><br>
+      <strong style="color:var(--red)">Compliance rules that apply regardless of origin or platform:</strong><br><br>
       <strong>1. EU IOSS — marketplace deemed supplier (in force July 2021):</strong> When TF facilitates a sale of goods shipped from outside the EU to an EU buyer where the consignment value is ≤ €150, TF — not the brand — is the deemed supplier under EU VAT rules and must collect VAT at the point of sale and remit it via EU IOSS registration. Goods >€150 clear customs normally (import VAT + duties paid by buyer at border). One IOSS number covers all 27 EU member states.
       <span class="src"><a href="https://ec.europa.eu/taxation_customs/business/vat/ioss_en" target="_blank" rel="noopener">ec.europa.eu — IOSS</a></span><br><br>
       <strong>2. UK equivalent deemed supplier rule (in force January 2021):</strong> Identical logic for goods ≤ £135 shipped from outside the UK to a UK buyer. TF is responsible for UK VAT collection and remittance. A separate UK VAT number is required — IOSS covers EU only, not UK.
       <span class="src"><a href="https://www.gov.uk/guidance/vat-overseas-goods-sold-to-customers-in-the-uk-using-online-marketplaces" target="_blank" rel="noopener">gov.uk — overseas goods on online marketplaces</a></span><br><br>
-      <strong>3. US de minimis elimination for Chinese-origin goods (2025):</strong> The $800 de minimis exemption that previously allowed small parcels to enter the US duty-free has been eliminated for goods of Chinese origin. Every shipment from a Chinese brand to a US customer now requires a formal customs entry (ISF filing, HS codes, applicable Section 301 and executive order duties) regardless of value. Japan- and Korea-origin goods retain the standard $800 de minimis.
-      <span class="src"><a href="https://ustr.gov/issue-areas/enforcement/section-301-investigations" target="_blank" rel="noopener">ustr.gov — Section 301</a></span>
+      <strong>3. US de minimis elimination for Chinese-origin goods (2025):</strong> The $800 de minimis exemption has been eliminated for goods of Chinese origin. Every parcel from a Chinese brand to a US customer requires a formal customs entry (ISF filing, HS codes, Section 301 and executive order duties) regardless of value. Japan- and Korea-origin goods retain the standard $800 de minimis.
+      <span class="src"><a href="https://ustr.gov/issue-areas/enforcement/section-301-investigations" target="_blank" rel="noopener">ustr.gov — Section 301</a></span><br><br>
+      <strong>4. China CBEC (Cross-Border E-Commerce) regime:</strong> Foreign goods sold online to Chinese consumers must comply with China's CBEC framework: GACC registration, product listing on the China Customs CBEC system, and integrated CBEC tax (approximately 9.1% for most fashion goods). No standard Western marketplace platform handles this natively. Requires a specialist CBEC provider or listing on existing China cross-border platforms (Tmall Global, JD Worldwide, Kaola). This barrier applies regardless of whether the brand's origin is EU, UK, US, Korea, or Japan.
     </div>
+
+    <table class="atable">
+      <thead>
+        <tr>
+          <th style="min-width:70px">Origin</th>
+          <th style="min-width:80px">Destination</th>
+          <th style="min-width:210px">Requirements</th>
+          <th style="min-width:170px">Who is responsible</th>
+          <th style="min-width:130px">Platform support</th>
+          <th style="min-width:190px">Workaround / solution</th>
+          <th style="min-width:90px">Complexity</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <!-- ═══════════════ EU AS ORIGIN ═══════════════ -->
+        <tr style="background:var(--tf-ghost)">
+          <td colspan="7" style="font-weight:900;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--tf);padding:10px 0 10px 2px">European Union as Origin</td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;font-size:11px;color:var(--sub)">EU</td>
+          <td><strong>→ UK</strong></td>
+          <td>
+            <strong>Customs:</strong> Post-Brexit — EU goods entering UK are third-country imports. EU-UK TCA: 0% tariff for goods meeting UK rules of origin. Goods not meeting origin rules: UK Global Tariff rates apply by HS code.<br>
+            <strong>VAT:</strong> UK deemed supplier rule — TF collects &amp; remits UK VAT (20%) on consignments ≤ £135. Goods >£135: UK import VAT collected at border (buyer pays).
+            <span class="src"><a href="https://www.gov.uk/guidance/vat-overseas-goods-sold-to-customers-in-the-uk-using-online-marketplaces" target="_blank" rel="noopener">gov.uk — deemed supplier</a></span>
+          </td>
+          <td><span class="no">TF:</span> UK VAT registration; collect &amp; remit on ≤£135.<br><span class="warn">Brand:</span> TCA EUR.1 origin cert; HS codes; UK export declaration.</td>
+          <td><span class="warn">Partial</span> — multi-currency routing yes; UK VAT remittance needs Avalara or Taxually.</td>
+          <td>Avalara or Taxually for UK VAT. DHL/FedEx international shipping. TCA EUR.1 origin cert to claim 0% UK duty on EU-made goods.</td>
+          <td><span class="warn">Medium</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;font-size:11px;color:var(--sub)">EU</td>
+          <td><strong>→ US</strong></td>
+          <td>
+            <strong>Customs:</strong> No US-EU FTA. Goods ≤$800: Section 321 de minimis — no duty, simplified clearance. Goods >$800: US MFN tariffs apply (rates vary by HS code).<br>
+            <strong>Tax:</strong> US state sales tax — TF is the marketplace facilitator and liable for collection and remittance once economic nexus threshold is met per state.
+            <span class="src"><a href="https://www.cbp.gov/trade/basic-import-export/de-minimis" target="_blank" rel="noopener">cbp.gov — de minimis</a></span>
+          </td>
+          <td><span class="warn">TF:</span> US state sales tax (marketplace facilitator laws).<br><span class="warn">Brand:</span> formal customs entry + MFN duties for goods >$800 (or pass as DDU to buyer).</td>
+          <td><span class="warn">Partial</span> — Shopify Tax handles US state sales tax natively. Duty calc for goods >$800 needs Zonos or Avalara cross-border module.</td>
+          <td>Shopify Tax for US state tax. Zonos or Avalara for landed cost / duty calculation at checkout. DDP option: duties collected at checkout, provider clears customs.</td>
+          <td><span class="warn">Medium</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;font-size:11px;color:var(--sub)">EU</td>
+          <td><strong>→ China</strong></td>
+          <td>
+            <strong>CBEC regime:</strong> GACC registration required; product listed on China Customs CBEC system; integrated CBEC tax (~9.1% most fashion). Payment in CNY via Alipay/WeChat Pay/UnionPay.<br>
+            <strong>Per-consumer annual quota:</strong> ¥26,000/yr; single transaction ≤ ¥5,000.
+          </td>
+          <td><span class="no">Brand:</span> GACC registration; product compliance; CBEC filings and integrated tax.<br><span class="no">TF:</span> CNY payment infrastructure required.</td>
+          <td><span class="no">No</span> — no Western marketplace platform supports China CBEC natively.</td>
+          <td>Specialist China CBEC SaaS provider (e.g. CBNcloud, Azoya) to handle GACC, customs, and CNY settlement. Or list via Tmall Global, JD Worldwide, Kaola. Not viable for early stage.</td>
+          <td><span class="no" style="font-weight:900">Very High</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;font-size:11px;color:var(--sub)">EU</td>
+          <td><strong>→ Japan</strong></td>
+          <td>
+            <strong>Customs:</strong> EU-Japan EPA (in force February 2019) — most EU apparel enters Japan at 0% or significantly reduced tariff. Goods must meet EPA rules of origin. Japan informal import threshold: ¥10,000 CIF (~$65); below this, minimal formalities.<br>
+            <strong>Tax:</strong> Japan Consumption Tax (JCT) 10% — paid at customs on B2C imports. Above ¥10M annual Japan sales: JCT registration required for TF.
+            <span class="src"><a href="https://trade.ec.europa.eu/access-to-markets/en/content/eu-japan-economic-partnership-agreement" target="_blank" rel="noopener">EU-Japan EPA</a></span>
+          </td>
+          <td><span class="warn">Brand:</span> EPA origin proof (EUR.1 or invoice declaration); HS codes; export docs.<br><span class="warn">Buyer:</span> JCT paid at customs (standard B2C import process in Japan).</td>
+          <td><span class="warn">Partial</span> — standard international shipping supported; no native Japan JCT tool. Avalara covers Japan at scale.</td>
+          <td>EU-Japan EPA origin cert eliminates or reduces duties. DHL/FedEx Japan import handling. DDP at checkout via Zonos for JCT collection.</td>
+          <td><span class="warn">Medium</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;font-size:11px;color:var(--sub)">EU</td>
+          <td><strong>→ Korea</strong></td>
+          <td>
+            <strong>Customs:</strong> EU-Korea FTA (fully in force since 2016) — most EU fashion apparel enters Korea at 0% tariff. Origin proof required to claim preference.<br>
+            <strong>Tax:</strong> Korean VAT 10% — collected at customs on B2C imports. High-volume consistent B2C sellers may need Korean VAT registration.
+            <span class="src"><a href="https://trade.ec.europa.eu/access-to-markets/en/content/eu-korea-free-trade-agreement" target="_blank" rel="noopener">EU-Korea FTA</a></span>
+          </td>
+          <td><span class="warn">Brand:</span> FTA origin cert (EUR.1 or origin declaration); HS codes; export docs.<br><span class="warn">Buyer:</span> Korean VAT at customs.</td>
+          <td><span class="warn">Partial</span> — standard international shipping; no native Korea VAT handling in most platforms.</td>
+          <td>EU-Korea FTA origin cert for 0% duty on most apparel. DHL/FedEx Korea. DDP at checkout via Zonos or Global-e.</td>
+          <td><span class="warn">Medium</span></td>
+        </tr>
+
+        <!-- ═══════════════ UK AS ORIGIN ═══════════════ -->
+        <tr style="background:var(--tf-ghost)">
+          <td colspan="7" style="font-weight:900;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--tf);padding:10px 0 10px 2px">United Kingdom as Origin</td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;font-size:11px;color:var(--sub)">UK</td>
+          <td><strong>→ EU</strong></td>
+          <td>
+            <strong>Customs:</strong> Post-Brexit — UK goods entering EU are third-country imports. EU-UK TCA: 0% tariff for goods meeting EU rules of origin. No TCA preference: standard EU MFN tariff rates apply by HS code.<br>
+            <strong>VAT:</strong> EU IOSS — TF liable for EU VAT on ≤€150 consignments. Goods >€150: EU import VAT at border (buyer pays).
+            <span class="src"><a href="https://ec.europa.eu/taxation_customs/business/vat/ioss_en" target="_blank" rel="noopener">IOSS</a> · <a href="https://www.gov.uk/guidance/trading-with-the-eu-from-1-january-2021" target="_blank" rel="noopener">EU-UK TCA</a></span>
+          </td>
+          <td><span class="no">TF:</span> EU IOSS registration; collect &amp; remit EU VAT on ≤€150.<br><span class="warn">Brand:</span> TCA EUR.1 origin proof; HS codes; export docs.</td>
+          <td><span class="warn">Partial</span> — multi-currency routing yes; IOSS remittance needs Avalara or Taxually.</td>
+          <td>Avalara or Taxually for IOSS. DHL/FedEx EU shipping. TCA EUR.1 cert to claim 0% EU duty on UK-origin goods.</td>
+          <td><span class="warn">Medium</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;font-size:11px;color:var(--sub)">UK</td>
+          <td><strong>→ US</strong></td>
+          <td>
+            <strong>Customs:</strong> No UK-US FTA (negotiations ongoing as of 2026). Goods ≤$800: Section 321 de minimis — no duty. Goods >$800: US MFN tariffs apply by HS code.<br>
+            <strong>Tax:</strong> US state sales tax — TF liable as marketplace facilitator per state nexus rules.
+          </td>
+          <td><span class="warn">TF:</span> US state sales tax collection and remittance.<br><span class="warn">Brand:</span> formal customs entry + MFN duty for goods >$800.</td>
+          <td><span class="warn">Partial</span> — Shopify Tax for US sales tax; Zonos or Avalara for duty calc on goods >$800.</td>
+          <td>Shopify Tax for US state tax. Zonos or Global-e for DDP landed cost at checkout. DHL/FedEx for customs clearance at US entry.</td>
+          <td><span class="warn">Medium</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;font-size:11px;color:var(--sub)">UK</td>
+          <td><strong>→ China</strong></td>
+          <td>Same China CBEC framework applies — origin country does not change the regime. GACC registration; CBEC integrated tax; CNY payment required.</td>
+          <td>Same as EU → China.</td>
+          <td><span class="no">No</span> — same CBEC barrier regardless of origin.</td>
+          <td>Same as EU → China: specialist CBEC provider (CBNcloud, Azoya) or Tmall Global / JD Worldwide.</td>
+          <td><span class="no" style="font-weight:900">Very High</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;font-size:11px;color:var(--sub)">UK</td>
+          <td><strong>→ Japan</strong></td>
+          <td>
+            <strong>Customs:</strong> UK-Japan CEPA (in force January 2021) — tariff reductions broadly matching EU-Japan EPA. Most UK apparel: 0% or significantly reduced duty with CEPA origin proof.<br>
+            <strong>Tax:</strong> JCT 10% at import (buyer pays at customs). Same JCT registration threshold as EU route.
+            <span class="src"><a href="https://www.gov.uk/guidance/uk-japan-comprehensive-economic-partnership-agreement" target="_blank" rel="noopener">UK-Japan CEPA</a></span>
+          </td>
+          <td><span class="warn">Brand:</span> CEPA origin proof; HS codes; export docs.<br><span class="warn">Buyer:</span> JCT at customs.</td>
+          <td><span class="warn">Partial</span> — standard shipping; Avalara for Japan JCT at scale.</td>
+          <td>CEPA origin cert reduces/eliminates duties. DHL/FedEx Japan. DDP at checkout via Zonos for JCT.</td>
+          <td><span class="warn">Medium</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;font-size:11px;color:var(--sub)">UK</td>
+          <td><strong>→ Korea</strong></td>
+          <td>
+            <strong>Customs:</strong> UK-Korea FTA (in force January 2021) — reduced tariffs on most UK goods. Most apparel: 0–6.5%.<br>
+            <strong>Tax:</strong> Korean VAT 10% at customs (buyer pays on B2C imports).
+            <span class="src"><a href="https://www.gov.uk/guidance/uk-korea-free-trade-agreement" target="_blank" rel="noopener">UK-Korea FTA</a></span>
+          </td>
+          <td><span class="warn">Brand:</span> FTA origin proof; HS codes; export docs.<br><span class="warn">Buyer:</span> Korean VAT at customs.</td>
+          <td><span class="warn">Partial</span> — standard shipping; no native Korea VAT handling.</td>
+          <td>FTA origin cert for reduced duty. DDP at checkout via Zonos. DHL/FedEx Korea.</td>
+          <td><span class="warn">Medium</span></td>
+        </tr>
+
+        <!-- ═══════════════ US AS ORIGIN ═══════════════ -->
+        <tr style="background:var(--tf-ghost)">
+          <td colspan="7" style="font-weight:900;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--tf);padding:10px 0 10px 2px">United States as Origin</td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;font-size:11px;color:var(--sub)">US</td>
+          <td><strong>→ EU</strong></td>
+          <td>
+            <strong>Customs:</strong> No US-EU FTA. EU standard MFN tariff rates apply on US goods by HS code. Goods ≤€150: IOSS VAT applies (TF is deemed supplier). Goods >€150: EU import VAT + EU customs duties at border (buyer pays).<br>
+            <strong>VAT:</strong> TF must collect &amp; remit EU VAT via IOSS on all consignments ≤€150.
+            <span class="src"><a href="https://ec.europa.eu/taxation_customs/business/vat/ioss_en" target="_blank" rel="noopener">IOSS</a></span>
+          </td>
+          <td><span class="no">TF:</span> EU IOSS registration; collect &amp; remit EU VAT on ≤€150.<br><span class="warn">Brand:</span> HS codes; US export docs; customs clearance at EU entry point.</td>
+          <td><span class="warn">Partial</span> — Shopify Markets + Zonos for duty calc; Avalara or Taxually for IOSS remittance. No single platform handles IOSS end-to-end natively.</td>
+          <td><strong>DDP model used by US fashion brands shipping to EU</strong> (e.g. Victoria's Secret). Cross-border provider (Global-e or Zonos) integrates at checkout: calculates EU duties + VAT in real time, collects from customer as landed cost, remits VAT via IOSS, clears customs at EU entry. Customer pays one price — no surprise charges at delivery.
+            <span class="src"><a href="https://www.global-e.com" target="_blank" rel="noopener">global-e.com</a> · <a href="https://zonos.com" target="_blank" rel="noopener">zonos.com</a></span>
+          </td>
+          <td><span class="warn">Medium</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;font-size:11px;color:var(--sub)">US</td>
+          <td><strong>→ UK</strong></td>
+          <td>
+            <strong>Customs:</strong> No US-UK FTA. UK Global Tariff rates apply on goods >£135. Goods ≤£135: 0% customs duty, but UK VAT applies.<br>
+            <strong>VAT:</strong> UK deemed supplier rule — TF collects &amp; remits UK VAT (20%) on consignments ≤ £135.
+            <span class="src"><a href="https://www.gov.uk/guidance/vat-overseas-goods-sold-to-customers-in-the-uk-using-online-marketplaces" target="_blank" rel="noopener">gov.uk</a></span>
+          </td>
+          <td><span class="no">TF:</span> UK VAT registration; collect &amp; remit UK VAT on ≤£135.<br><span class="warn">Brand:</span> HS codes; US export docs; UK customs entry for goods >£135.</td>
+          <td><span class="warn">Partial</span> — same DDP workaround; UK VAT remittance needs Avalara or Taxually.</td>
+          <td>Global-e or Zonos for DDP landed cost at checkout (UK VAT + duties). Avalara for UK VAT remittance. DHL/FedEx for UK customs clearance. Same DDP model as US → EU.</td>
+          <td><span class="warn">Medium</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;font-size:11px;color:var(--sub)">US</td>
+          <td><strong>→ China</strong></td>
+          <td>Same China CBEC framework. GACC registration; CBEC integrated tax; CNY payment. Note: US-China trade tensions may create additional regulatory scrutiny for US-origin goods.
+          </td>
+          <td>Same as EU → China.</td>
+          <td><span class="no">No</span> — same CBEC barrier.</td>
+          <td>Same as EU → China: specialist CBEC provider or Tmall Global / JD Worldwide. US-origin goods face additional due-diligence scrutiny in current trade environment.</td>
+          <td><span class="no" style="font-weight:900">Very High</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;font-size:11px;color:var(--sub)">US</td>
+          <td><strong>→ Japan</strong></td>
+          <td>
+            <strong>Customs:</strong> No comprehensive US-Japan FTA for fashion goods as of 2026. Japan MFN tariff rates apply on goods above Japan's low-value import threshold (¥10,000 CIF, approx $65). Below threshold: informal entry, minimal formalities.<br>
+            <strong>Tax:</strong> JCT 10% at import — paid at Japanese customs for B2C imports.
+          </td>
+          <td><span class="green">Brand (goods below ¥10K CIF):</span> country of origin on package; no formal entry.<br><span class="warn">Brand (goods above ¥10K CIF):</span> customs entry + Japan MFN duty. No FTA preference available for US-origin goods.<br><span class="warn">Buyer:</span> JCT at customs.</td>
+          <td><span class="warn">Partial</span> — standard shipping; no US-Japan duty preference; Avalara for Japan JCT if above registration threshold.</td>
+          <td>DHL/FedEx Japan import handling. No FTA preference — standard tariff rates apply above ¥10K threshold. DDP at checkout via Zonos for JCT collection.</td>
+          <td><span class="green">Low–Medium</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;font-size:11px;color:var(--sub)">US</td>
+          <td><strong>→ Korea</strong></td>
+          <td>
+            <strong>Customs:</strong> KORUS FTA (in force March 2012) — zero or near-zero tariffs on most US apparel and fashion goods entering Korea. KORUS origin proof required to claim preference.<br>
+            <strong>Tax:</strong> Korean VAT 10% — paid at customs on import (buyer pays for B2C).
+            <span class="src"><a href="https://ustr.gov/trade-agreements/free-trade-agreements/korus-fta" target="_blank" rel="noopener">KORUS FTA</a></span>
+          </td>
+          <td><span class="warn">Brand:</span> KORUS certificate of origin; HS codes; export docs.<br><span class="warn">Buyer:</span> Korean VAT at customs.</td>
+          <td><span class="warn">Partial</span> — standard shipping; no native Korea VAT handling; DDP option via Zonos.</td>
+          <td>KORUS origin cert for 0% or near-zero duty. DDP at checkout via Zonos. DHL/FedEx Korea customs handling.</td>
+          <td><span class="green">Low</span></td>
+        </tr>
+
+        <!-- ═══════════════ KOREA AS ORIGIN ═══════════════ -->
+        <tr style="background:var(--tf-ghost)">
+          <td colspan="7" style="font-weight:900;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--tf);padding:10px 0 10px 2px">South Korea as Origin</td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;font-size:11px;color:var(--sub)">Korea</td>
+          <td><strong>→ EU</strong></td>
+          <td>
+            <strong>Customs:</strong> EU-Korea FTA (fully in force since 2016) — most Korean apparel enters EU at 0% tariff. EUR.1 or origin declaration required.<br>
+            <strong>VAT:</strong> EU IOSS — TF liable for EU VAT on ≤€150 consignments.
+            <span class="src"><a href="https://trade.ec.europa.eu/access-to-markets/en/content/eu-korea-free-trade-agreement" target="_blank" rel="noopener">EU-Korea FTA</a></span>
+          </td>
+          <td><span class="no">TF:</span> IOSS; EU VAT on ≤€150 (same IOSS registration used across all non-EU origins).<br><span class="warn">Brand:</span> EUR.1 cert or origin declaration; HS codes; export docs.</td>
+          <td><span class="warn">Partial</span> — Avalara/Taxually for IOSS; standard multi-currency shipping routing.</td>
+          <td>Avalara for IOSS. DHL/FedEx EU. EU-Korea FTA origin cert for 0% duty on most apparel.</td>
+          <td><span class="warn">Medium</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;font-size:11px;color:var(--sub)">Korea</td>
+          <td><strong>→ UK</strong></td>
+          <td>
+            <strong>Customs:</strong> UK-Korea FTA (in force January 2021) — reduced tariffs on most Korean goods. Most apparel: 0–6.5% with origin proof.<br>
+            <strong>VAT:</strong> UK deemed supplier rule — TF collects &amp; remits UK VAT on ≤£135.
+            <span class="src"><a href="https://www.gov.uk/guidance/uk-korea-free-trade-agreement" target="_blank" rel="noopener">UK-Korea FTA</a></span>
+          </td>
+          <td><span class="no">TF:</span> UK VAT registration; UK VAT on ≤£135.<br><span class="warn">Brand:</span> FTA origin proof; HS codes; export docs.</td>
+          <td><span class="warn">Partial</span> — UK VAT remittance needs Avalara or Taxually.</td>
+          <td>Avalara for UK VAT. UK-Korea FTA origin cert for reduced duty. DHL/FedEx UK.</td>
+          <td><span class="warn">Medium</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;font-size:11px;color:var(--sub)">Korea</td>
+          <td><strong>→ US</strong></td>
+          <td>
+            <strong>Customs:</strong> Standard $800 de minimis applies. Goods ≤$800: no duty, Section 321 simplified clearance. Goods >$800: KORUS FTA — zero or near-zero tariffs on most Korean apparel.<br>
+            <strong>Tax:</strong> US state sales tax — TF liable as marketplace facilitator.
+            <span class="src"><a href="https://ustr.gov/trade-agreements/free-trade-agreements/korus-fta" target="_blank" rel="noopener">KORUS FTA</a></span>
+          </td>
+          <td><span class="green">Brand (≤$800):</span> country of origin on package; no formal entry.<br><span class="green">Brand (>$800):</span> KORUS origin cert — 0% or near-zero duty.<br><span class="warn">TF:</span> US state sales tax collection.</td>
+          <td><span class="warn">Partial</span> — Shopify Tax for US sales tax; minimal customs burden vs. other origins.</td>
+          <td>Shopify Tax for US state tax. Standard DHL/FedEx shipping. Most parcels clear under $800 de minimis — no customs action required.</td>
+          <td><span class="green">Low</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;font-size:11px;color:var(--sub)">Korea</td>
+          <td><strong>→ China</strong></td>
+          <td>Same China CBEC framework. RCEP (in force January 2022) covers Korea-China trade and may reduce some headline tariff rates, but the CBEC B2C compliance regime (GACC, CBEC system, integrated tax) remains mandatory and unchanged.
+            <span class="src"><a href="https://rcepsec.org" target="_blank" rel="noopener">RCEP Secretariat</a></span>
+          </td>
+          <td>Same as EU → China. GACC registration; CNY payment; CBEC filings.</td>
+          <td><span class="no">No</span> — CBEC barrier unchanged even with RCEP.</td>
+          <td>CBEC SaaS provider (CBNcloud, Azoya). RCEP may reduce headline tariff rates but does not bypass CBEC compliance requirements.</td>
+          <td><span class="no" style="font-weight:900">Very High</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;font-size:11px;color:var(--sub)">Korea</td>
+          <td><strong>→ Japan</strong></td>
+          <td>
+            <strong>Customs:</strong> RCEP (in force January 2022) — covers Korea-Japan trade; tariff reductions apply on most goods including fashion. Japan informal import threshold applies (¥10,000 CIF).<br>
+            <strong>Tax:</strong> JCT 10% at import (buyer pays at customs).
+            <span class="src"><a href="https://www.mofa.go.jp/ecm/ep/page1we_000103.html" target="_blank" rel="noopener">RCEP — Japan MOFA</a></span>
+          </td>
+          <td><span class="warn">Brand:</span> RCEP origin cert; HS codes; export docs.<br><span class="warn">Buyer:</span> JCT at customs.</td>
+          <td><span class="warn">Partial</span> — standard shipping; no native Japan JCT handling.</td>
+          <td>RCEP origin cert for reduced duty. DHL/FedEx Japan. DDP at checkout via Zonos for JCT.</td>
+          <td><span class="warn">Medium</span></td>
+        </tr>
+
+        <!-- ═══════════════ JAPAN AS ORIGIN ═══════════════ -->
+        <tr style="background:var(--tf-ghost)">
+          <td colspan="7" style="font-weight:900;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--tf);padding:10px 0 10px 2px">Japan as Origin</td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;font-size:11px;color:var(--sub)">Japan</td>
+          <td><strong>→ EU</strong></td>
+          <td>
+            <strong>Customs:</strong> EU-Japan EPA (in force February 2019) — most Japanese apparel enters EU at 0% or significantly reduced tariff. Origin proof required.<br>
+            <strong>VAT:</strong> EU IOSS — TF liable for EU VAT on ≤€150 consignments.
+            <span class="src"><a href="https://trade.ec.europa.eu/access-to-markets/en/content/eu-japan-economic-partnership-agreement" target="_blank" rel="noopener">EU-Japan EPA</a></span>
+          </td>
+          <td><span class="no">TF:</span> IOSS; EU VAT on ≤€150.<br><span class="warn">Brand:</span> EPA origin proof; HS codes; export docs.</td>
+          <td><span class="warn">Partial</span> — Avalara/Taxually for IOSS; standard multi-currency shipping.</td>
+          <td>Avalara for IOSS. EU-Japan EPA origin cert for 0% or reduced duty. DHL/FedEx EU.</td>
+          <td><span class="warn">Medium</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;font-size:11px;color:var(--sub)">Japan</td>
+          <td><strong>→ UK</strong></td>
+          <td>
+            <strong>Customs:</strong> UK-Japan CEPA (in force January 2021) — tariff reductions on most Japanese goods. Most apparel: 0% or reduced rate with CEPA origin proof.<br>
+            <strong>VAT:</strong> UK deemed supplier rule — TF collects &amp; remits UK VAT on ≤£135.
+            <span class="src"><a href="https://www.gov.uk/guidance/uk-japan-comprehensive-economic-partnership-agreement" target="_blank" rel="noopener">UK-Japan CEPA</a></span>
+          </td>
+          <td><span class="no">TF:</span> UK VAT registration; UK VAT on ≤£135.<br><span class="warn">Brand:</span> CEPA origin proof; HS codes; export docs.</td>
+          <td><span class="warn">Partial</span> — UK VAT remittance needs Avalara or Taxually.</td>
+          <td>Avalara for UK VAT. UK-Japan CEPA cert for 0% or reduced duty. DHL/FedEx UK.</td>
+          <td><span class="warn">Medium</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;font-size:11px;color:var(--sub)">Japan</td>
+          <td><strong>→ US</strong></td>
+          <td>
+            <strong>Customs:</strong> Standard $800 de minimis applies to Japanese-origin goods. Goods ≤$800: no duty, Section 321 simplified clearance. Goods >$800: no comprehensive US-Japan FTA as of 2026 — US MFN tariff rates apply by HS code.<br>
+            <strong>Tax:</strong> US state sales tax — TF liable as marketplace facilitator.
+          </td>
+          <td><span class="green">Brand (≤$800):</span> country of origin on package; no formal entry.<br><span class="warn">Brand (>$800):</span> customs entry + US MFN duty; no FTA preference available.<br><span class="warn">TF:</span> US state sales tax.</td>
+          <td><span class="warn">Partial</span> — Shopify Tax for US sales tax; Zonos for duty calc on goods >$800.</td>
+          <td>Most parcels clear under $800 de minimis. Shopify Tax for US state tax. Zonos for landed cost if offering DDP on larger orders. No FTA reduces duty on goods >$800.</td>
+          <td><span class="green">Low–Medium</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;font-size:11px;color:var(--sub)">Japan</td>
+          <td><strong>→ China</strong></td>
+          <td>Same China CBEC framework. RCEP (in force January 2022) covers Japan-China trade and may reduce headline tariff rates within CBEC, but the CBEC compliance regime (GACC, CBEC system registration, integrated tax) remains mandatory.
+          </td>
+          <td>Same as EU → China. GACC; CNY payment; CBEC filings.</td>
+          <td><span class="no">No</span> — same CBEC barrier regardless of origin.</td>
+          <td>CBEC SaaS provider (CBNcloud, Azoya) or Tmall Global / JD Worldwide. RCEP tariff reduction does not bypass CBEC registration requirements.</td>
+          <td><span class="no" style="font-weight:900">Very High</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;font-size:11px;color:var(--sub)">Japan</td>
+          <td><strong>→ Korea</strong></td>
+          <td>
+            <strong>Customs:</strong> RCEP (in force January 2022) — covers Japan-Korea trade; tariff reductions apply. Korea's informal import threshold (~KRW 150,000, approx $110) for simplified clearance.<br>
+            <strong>Tax:</strong> Korean VAT 10% at import (buyer pays at customs for B2C).
+            <span class="src"><a href="https://www.mofa.go.jp/ecm/ep/page1we_000103.html" target="_blank" rel="noopener">RCEP — Japan MOFA</a></span>
+          </td>
+          <td><span class="warn">Brand:</span> RCEP origin cert; HS codes; export docs.<br><span class="warn">Buyer:</span> Korean VAT at customs.</td>
+          <td><span class="warn">Partial</span> — standard shipping; no native Korea VAT handling.</td>
+          <td>RCEP origin cert for reduced duty. DDP at checkout via Zonos. DHL/FedEx Korea.</td>
+          <td><span class="warn">Medium</span></td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <!-- LEGEND -->
+    <div style="margin-top:32px;padding:22px 24px;background:white;border:1px solid var(--rule);font-size:12px;color:var(--ink);line-height:1.75">
+      <strong style="font-size:13px;font-weight:800;color:var(--ink)">Legend — abbreviations used above</strong>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:6px 32px;margin-top:12px">
+        <div><strong>HS code</strong> — Harmonized System product classification code (6-digit international standard used by customs authorities worldwide to identify goods and determine tariff rates)</div>
+        <div><strong>ISF</strong> — Importer Security Filing ("10+2 filing") required by US CBP for ocean freight shipments entering the US; must be filed 24 hours before vessel loading</div>
+        <div><strong>IOSS</strong> — Import One-Stop Shop (EU scheme since July 2021): marketplace registers once and remits EU VAT for all 27 member states on goods ≤€150 sold to EU buyers from outside the EU</div>
+        <div><strong>OSS</strong> — One-Stop Shop (EU VAT simplification for EU-based sellers on cross-border B2C sales within the EU — distinct from IOSS which is for imports)</div>
+        <div><strong>FTA</strong> — Free Trade Agreement: treaty reducing or eliminating customs tariffs between signatory countries; origin proof required to claim preferential rates</div>
+        <div><strong>TCA</strong> — EU-UK Trade and Cooperation Agreement (post-Brexit, in force January 2021): zero tariffs on goods meeting rules of origin between EU and UK</div>
+        <div><strong>EPA</strong> — Economic Partnership Agreement; specifically used here for the EU-Japan EPA (in force February 2019): reduces/eliminates EU-Japan tariffs on most goods</div>
+        <div><strong>CEPA</strong> — Comprehensive Economic Partnership Agreement (UK-Japan, in force January 2021): tariff reductions broadly matching EU-Japan EPA</div>
+        <div><strong>KORUS</strong> — Korea-US Free Trade Agreement (in force March 2012): zero or near-zero tariffs on most goods traded between South Korea and the US (bilateral)</div>
+        <div><strong>RCEP</strong> — Regional Comprehensive Economic Partnership (in force January 2022): multilateral FTA covering ASEAN nations + China, Japan, South Korea, Australia, New Zealand; provides tariff reductions across member pairs</div>
+        <div><strong>MFN</strong> — Most Favoured Nation rate: the standard WTO tariff applied without any preferential FTA; the default rate when no trade agreement is in force between two countries</div>
+        <div><strong>DDP</strong> — Delivered Duty Paid (Incoterm): seller or platform collects all duties and taxes at checkout; logistics provider handles customs clearance; buyer pays one all-inclusive landed cost</div>
+        <div><strong>DDU</strong> — Delivered Duty Unpaid (Incoterm): buyer is responsible for paying duties at the destination border; risk of surprise charges and delivery refusal</div>
+        <div><strong>De minimis</strong> — minimum consignment value threshold below which customs duties are waived (US: $800 for most origins, eliminated for Chinese-origin goods; EU: €150 customs + VAT threshold; UK: £135 customs duty threshold)</div>
+        <div><strong>CBEC</strong> — Cross-Border E-Commerce: China's regulatory framework for foreign goods sold online to Chinese consumers, administered through GACC; requires seller registration, product listing, and integrated tax payment</div>
+        <div><strong>GACC</strong> — General Administration of Customs of China: regulates all goods entering China including CBEC; foreign sellers must register brand, products, and platform with GACC before first sale</div>
+        <div><strong>JCT</strong> — Japan Consumption Tax (10%): applies to goods imported into Japan; on standard B2C small-parcel imports, paid by the buyer at customs clearance</div>
+        <div><strong>EUR.1</strong> — Movement certificate used to prove origin under EU FTAs and the EU-UK TCA; issued by customs authority of the exporting country; required to claim preferential tariff rates at destination</div>
+        <div><strong>Global-e</strong> — Cross-border DDP SaaS platform (Nasdaq: GLBE): integrates with Shopify and other commerce stacks to offer localised checkout — local currency, local payment methods, duties + VAT collected at point of sale and remitted to authorities</div>
+        <div><strong>Zonos</strong> — Cross-border landed cost and customs duty calculation platform; Shopify native integration; real-time duty + tax estimate at checkout; supports DDP model</div>
+        <div><strong>Avalara</strong> — Tax automation SaaS: covers US state sales tax, EU VAT / IOSS, UK VAT, and cross-border duty calculation; integrates with most commerce platforms in this comparison</div>
+      </div>
+    </div>
+
+    <!-- Summary -->
+    <div style="margin-top:20px;padding:18px 22px;background:var(--tf-ghost);border:1px solid var(--rule);border-left:4px solid var(--tf);font-size:13px;color:var(--ink);line-height:1.65">
+      <strong style="color:var(--tf)">Pattern across all 25 routes:</strong>
+      <strong>EU and UK VAT liability always lands on TF</strong> — regardless of which country the brand ships from. Both markets have deemed-supplier rules that make the marketplace responsible for collecting and remitting tax on imports below the threshold.<br>
+      <strong>No platform in this comparison handles VAT/duty compliance natively end-to-end.</strong> Every route requires a third-party layer: Avalara or Taxually for EU IOSS + UK VAT; Shopify Tax for US state sales tax; Zonos or Global-e for DDP landed cost at checkout.<br>
+      <strong>China as destination is uniquely hard</strong> — the CBEC regime applies regardless of origin. No standard Western marketplace platform can handle it. All other destinations (EU, UK, US, Japan, Korea) are operationally solvable with the DDP stack above.<br>
+      <strong>Korea and Japan as origins</strong> have the most favourable trade position: active FTAs with EU (EU-Korea, EU-Japan EPA), UK (UK-Korea, UK-Japan CEPA), and for Korea the KORUS FTA with the US. The $800 de minimis still applies to both for US-bound shipments.<br>
+      <strong>US → EU is the proven commercial route</strong> — the DDP model used by major US fashion brands (e.g. Victoria's Secret) is well-established: Global-e or Zonos integrates at checkout, calculates and collects duties + EU VAT in real time, handles IOSS remittance and customs clearance. Infrastructure exists and integrates with Shopify-based stacks.
+    </div>
+
+  </div>
+
+</div>
+
+<footer>Private · noindex · Not for distribution</footer>
+
+</body>
+</html>
 
     <table class="atable">
       <thead>
