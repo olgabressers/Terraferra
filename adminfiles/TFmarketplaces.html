@@ -1162,7 +1162,18 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
     <h2 class="sec-heading"><span class="sec-num">05</span>MVP Strategy</h2>
 
     <div class="ibox" style="padding:18px 24px;background:var(--green-bg);border:1px solid #b6e8ce;border-left:4px solid var(--green);margin-bottom:20px;font-size:13px;color:var(--ink);line-height:1.75">
-      <strong style="color:var(--green)">Domestic routes only at MVP — US→US and EU→EU.</strong> No customs, no import VAT, no FTA documentation. US state sales tax is automated via Shopify Tax. EU domestic VAT is the brand's own obligation as an EU registrant. This is the only route where TF can ship without building platform-level tax compliance first.
+      <strong style="color:var(--green)">Domestic routes only at MVP — US→US and EU→EU.</strong> No customs, no import VAT, no FTA documentation. US state sales tax must be collected and remitted — requires a tax API integration (see below). EU domestic VAT is the brand's own obligation as an EU registrant. This is the only route where TF can ship without cross-border compliance infrastructure.
+    </div>
+
+    <div class="ibox" style="padding:18px 24px;background:white;border:1px solid var(--rule);border-left:4px solid var(--ink);margin-bottom:20px;font-size:13px;color:var(--ink);line-height:1.75">
+      <strong>Custom-built drop pages — compliance stack at MVP (domestic only)</strong><br><br>
+      <strong>Payment + tax: Stripe + Stripe Tax.</strong> Stripe Tax is an API add-on to the standard Stripe integration — no separate tax service required at MVP. It handles US state sales tax (economic nexus tracking, automated calculation and collection across all states), EU domestic VAT (OSS-aware for intra-EU cross-border sales), and UK VAT. One line of configuration in the Stripe dashboard activates it on any custom checkout.
+      <span class="src"><a href="https://stripe.com/tax" target="_blank" rel="noopener">stripe.com/tax</a></span><br><br>
+      <strong>Marketplace payouts: Stripe Connect.</strong> Splits each transaction automatically — brand receives their share minus TF commission, co-creator revenue shares can be routed as separate transfers. No manual payout calculation. Works with any custom frontend via API.
+      <span class="src"><a href="https://stripe.com/connect" target="_blank" rel="noopener">stripe.com/connect</a></span><br><br>
+      <strong>EU OSS (One Stop Shop).</strong> If TF facilitates sales from EU-based brands to consumers in other EU member states (e.g. French brand → German consumer), TF may need EU OSS registration — one registration covers all 27 member states for intra-EU cross-border sales. Free; filed quarterly. Different from IOSS (IOSS applies only to imports from outside the EU). Verify with EU tax counsel whether TF or the brand is the deemed supplier for intra-EU sales on a custom platform.
+      <span class="src"><a href="https://ec.europa.eu/taxation_customs/business/vat/oss_en" target="_blank" rel="noopener">ec.europa.eu — OSS</a></span><br><br>
+      <strong>What TF must build itself</strong> — product pages, checkout flow, order management, brand dashboard, shipping label generation, return handling. No platform provides this out of the box on a custom stack. Stripe handles money movement and tax; everything else is custom code.
     </div>
 
     <div class="ibox" style="padding:18px 24px;background:var(--red-bg);border:1px solid #f0b4b0;border-left:4px solid var(--red);margin-bottom:20px;font-size:13px;color:var(--ink);line-height:1.75">
