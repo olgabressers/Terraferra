@@ -108,6 +108,10 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .final-tbl tbody tr{border-bottom:1px solid var(--rule)}
 .final-tbl tbody tr:last-child{border-bottom:none}
 .final-tbl td{padding:5px 6px;vertical-align:middle}
+.mv-cell{width:28px;padding:2px!important;text-align:center;vertical-align:middle}
+.mv-btn{display:block;width:100%;border:none;background:transparent;cursor:pointer;font-size:11px;color:var(--rule);line-height:1.3;padding:0;transition:color .12s;font-family:'Inter',sans-serif}
+.mv-btn:hover:not(:disabled){color:var(--tf)}
+.mv-btn:disabled{opacity:.2;cursor:default}
 .final-row-num{font-size:10px;color:var(--rule);font-weight:700;text-align:right;width:24px}
 .final-inp{border:1px solid transparent;background:transparent;font-family:'Inter',sans-serif;font-size:13px;font-weight:500;color:var(--ink);padding:4px 6px;outline:none;width:100%;min-width:140px;box-sizing:border-box}
 .final-inp:focus{border-color:var(--tf);background:var(--tf-ghost);border-radius:2px}
@@ -198,6 +202,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
       <table class="final-tbl">
         <thead>
           <tr>
+            <th style="width:28px"></th>
             <th style="width:24px;color:var(--sub)">#</th>
             <th style="text-align:left;color:var(--sub);min-width:160px">Name</th>
             <th colspan="2" style="text-align:center;color:var(--va)">Alena</th>
@@ -207,7 +212,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
             <th style="text-align:left;color:var(--sub)">Tally</th>
           </tr>
           <tr>
-            <th></th><th></th>
+            <th></th><th></th><th></th>
             <th style="text-align:center;color:#16a34a">For</th><th style="text-align:center;color:#dc2626">Against</th>
             <th style="text-align:center;color:#16a34a">For</th><th style="text-align:center;color:#dc2626">Against</th>
             <th style="text-align:center;color:#16a34a">For</th><th style="text-align:center;color:#dc2626">Against</th>
@@ -218,6 +223,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
         <tbody id="final-rows"></tbody>
       </table>
     </div>
+    <button class="add-btn" onclick="addFinalRow()">+ Add name</button>
   </div>
 
   <div class="cols-grid">
@@ -658,10 +664,21 @@ async function initFinal(){
     if(saved && saved.items && saved.order){
       finalData = saved.items;
       finalOrder = saved.order;
+      // Migrate: ensure at least 20 rows
+      var mChanged = false;
+      for(var mi = finalOrder.length; mi < 20; mi++){
+        var mfid = 'f-'+mi;
+        if(!finalData[mfid]){
+          finalOrder.push(mfid);
+          finalData[mfid] = {text:'',alena:'',chris:'',maxim:'',alex:''};
+          mChanged = true;
+        }
+      }
+      if(mChanged) fpF('',{items:finalData,order:finalOrder});
     } else {
       finalOrder = [];
       finalData = {};
-      for(var i=0;i<10;i++){
+      for(var i=0;i<20;i++){
         var fid='f-'+i;
         finalOrder.push(fid);
         finalData[fid]={text:'',alena:'',chris:'',maxim:'',alex:''};
@@ -671,7 +688,7 @@ async function initFinal(){
   }catch(e){
     finalOrder = [];
     finalData = {};
-    for(var i=0;i<10;i++){
+    for(var i=0;i<20;i++){
       var fid='f-'+i;
       finalOrder.push(fid);
       finalData[fid]={text:'',alena:'',chris:'',maxim:'',alex:''};
@@ -744,6 +761,24 @@ function buildFinalRow(id, num){
   var tr=document.createElement('tr');
   tr.id='frow-'+id;
 
+  var tdMv=document.createElement('td');
+  tdMv.className='mv-cell';
+  var btnUp=document.createElement('button');
+  btnUp.className='mv-btn';
+  btnUp.textContent='▲';
+  btnUp.title='Move up';
+  btnUp.disabled=(finalOrder.indexOf(id)===0);
+  (function(cId){btnUp.onclick=function(){moveFinalRow(cId,-1);};})(id);
+  var btnDn=document.createElement('button');
+  btnDn.className='mv-btn';
+  btnDn.textContent='▼';
+  btnDn.title='Move down';
+  btnDn.disabled=(finalOrder.indexOf(id)===finalOrder.length-1);
+  (function(cId){btnDn.onclick=function(){moveFinalRow(cId,1);};})(id);
+  tdMv.appendChild(btnUp);
+  tdMv.appendChild(btnDn);
+  tr.appendChild(tdMv);
+
   var tdN=document.createElement('td');
   tdN.className='final-row-num';
   tdN.textContent=num;
@@ -812,6 +847,32 @@ function renderFinalRow(id){
     inp.value=item.text||'';
     inp.classList.toggle('has-text',!!(item.text));
   }
+}
+
+function moveFinalRow(id, dir){
+  var idx = finalOrder.indexOf(id);
+  if(idx < 0) return;
+  var newIdx = idx + dir;
+  if(newIdx < 0 || newIdx >= finalOrder.length) return;
+  var tmp = finalOrder[idx];
+  finalOrder[idx] = finalOrder[newIdx];
+  finalOrder[newIdx] = tmp;
+  fpF('/order', finalOrder);
+  renderFinal();
+}
+
+function addFinalRow(){
+  var newId = 'f-'+Date.now();
+  finalOrder.push(newId);
+  finalData[newId] = {text:'',alena:'',chris:'',maxim:'',alex:''};
+  fpF('/items/'+newId, finalData[newId]);
+  fpF('/order', finalOrder);
+  var tbody = document.getElementById('final-rows');
+  if(tbody) tbody.appendChild(buildFinalRow(newId, finalOrder.length));
+  setTimeout(function(){
+    var inp = document.getElementById('finp-'+newId);
+    if(inp) inp.focus();
+  }, 30);
 }
 
 init();
