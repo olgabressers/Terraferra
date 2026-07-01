@@ -99,7 +99,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .copy-msg{font-size:11px;color:var(--tf);font-weight:600;display:none}
 
 /* Final Naming */
-.final-section{margin-top:40px;padding-top:32px;border-top:2px solid var(--rule)}
+.final-section{margin-top:28px;margin-bottom:40px}
 .final-section-hd{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);margin-bottom:16px}
 .final-tbl-wrap{background:white;border:1px solid var(--rule);overflow-x:auto}
 .final-tbl{width:100%;border-collapse:collapse;font-size:12px;min-width:680px}
@@ -192,6 +192,34 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
     <span class="voter-status" id="voter-status">Select your name to enable voting</span>
   </div>
 
+  <div class="final-section">
+    <div class="final-section-hd">Final Naming</div>
+    <div class="final-tbl-wrap">
+      <table class="final-tbl">
+        <thead>
+          <tr>
+            <th style="width:24px;color:var(--sub)">#</th>
+            <th style="text-align:left;color:var(--sub);min-width:160px">Name</th>
+            <th colspan="2" style="text-align:center;color:var(--va)">Alena</th>
+            <th colspan="2" style="text-align:center;color:var(--vc)">Chris</th>
+            <th colspan="2" style="text-align:center;color:var(--vm)">Maxim</th>
+            <th colspan="2" style="text-align:center;color:var(--vx)">Alex</th>
+            <th style="text-align:left;color:var(--sub)">Tally</th>
+          </tr>
+          <tr>
+            <th></th><th></th>
+            <th style="text-align:center;color:#16a34a">For</th><th style="text-align:center;color:#dc2626">Against</th>
+            <th style="text-align:center;color:#16a34a">For</th><th style="text-align:center;color:#dc2626">Against</th>
+            <th style="text-align:center;color:#16a34a">For</th><th style="text-align:center;color:#dc2626">Against</th>
+            <th style="text-align:center;color:#16a34a">For</th><th style="text-align:center;color:#dc2626">Against</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="final-rows"></tbody>
+      </table>
+    </div>
+  </div>
+
   <div class="cols-grid">
     <div class="col-block">
       <div class="col-header">Alena <span class="col-header-count" id="cnt-alena">0 votes</span></div>
@@ -219,34 +247,6 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
     <span class="results-bar-label">Export</span>
     <button class="copy-btn" onclick="copyResults()">Copy vote summary</button>
     <span class="copy-msg" id="copy-msg">Copied to clipboard</span>
-  </div>
-
-  <div class="final-section">
-    <div class="final-section-hd">Final Naming</div>
-    <div class="final-tbl-wrap">
-      <table class="final-tbl">
-        <thead>
-          <tr>
-            <th style="width:24px;color:var(--sub)">#</th>
-            <th style="text-align:left;color:var(--sub);min-width:160px">Name</th>
-            <th colspan="2" style="text-align:center;color:var(--va)">Alena</th>
-            <th colspan="2" style="text-align:center;color:var(--vc)">Chris</th>
-            <th colspan="2" style="text-align:center;color:var(--vm)">Maxim</th>
-            <th colspan="2" style="text-align:center;color:var(--vx)">Alex</th>
-            <th style="text-align:left;color:var(--sub)">Tally</th>
-          </tr>
-          <tr>
-            <th></th><th></th>
-            <th style="text-align:center;color:#16a34a">For</th><th style="text-align:center;color:#dc2626">Against</th>
-            <th style="text-align:center;color:#16a34a">For</th><th style="text-align:center;color:#dc2626">Against</th>
-            <th style="text-align:center;color:#16a34a">For</th><th style="text-align:center;color:#dc2626">Against</th>
-            <th style="text-align:center;color:#16a34a">For</th><th style="text-align:center;color:#dc2626">Against</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody id="final-rows"></tbody>
-      </table>
-    </div>
   </div>
 
 </div>
