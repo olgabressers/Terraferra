@@ -316,6 +316,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
       <thead>
         <tr>
           <th style="min-width:130px">Platform</th>
+          <th style="min-width:110px">Headless?</th>
           <th style="min-width:200px">What it does</th>
           <th style="min-width:140px">Pricing (public)</th>
           <th style="min-width:170px">Cross-border shipment</th>
@@ -326,6 +327,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
       <tbody>
         <tr>
           <td><a href="https://marketplacer.com" target="_blank" rel="noopener">Marketplacer</a><br><span style="font-size:10px;font-weight:400;color:var(--sub)">+ commercetools · full detail §01</span></td>
+          <td><span class="yes">Yes</span> — API-first, no bundled storefront. Frontend is built separately and consumes the platform via API.</td>
           <td>Multi-vendor marketplace layer on top of commercetools / Shopify / BigCommerce. API-first, composable. Requires a separate commerce platform as foundation.</td>
           <td>$275K–$588K/yr + 1.5% GMV (2022 RFP). New quote needed.<br><span class="src">ChangeCX proposal, Sep 2022</span></td>
           <td><span class="warn">Via commerce platform</span> — inherits from underlying stack. commercetools supports multi-currency and multi-region pricing natively. Marketplacer adds multi-seller order routing; cross-border logic sits in the commerce layer below it.
@@ -338,6 +340,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         </tr>
         <tr>
           <td><a href="https://www.mirakl.com" target="_blank" rel="noopener">Mirakl</a><br><span style="font-size:10px;font-weight:400;color:var(--sub)">full detail §01</span></td>
+          <td><span class="yes">Yes</span> — SaaS marketplace backend only; integrates into an existing commerce stack via APIs. No bundled storefront.</td>
           <td>Enterprise marketplace platform. 450+ operators (Macy's, H&M, Nordstrom, Carrefour). Full suite: catalog AI, global payout, retail media, agentic commerce.</td>
           <td><span class="warn">No public pricing</span> — enterprise custom quote. No proposal received on TF's 2022 RFP.</td>
           <td><span class="warn">International operators on platform</span> — H&M and Carrefour indicate multi-country support. Cross-border logistics via seller own arrangements. Specific cross-border features not publicly documented.
@@ -350,6 +353,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         </tr>
         <tr>
           <td><a href="https://thetraide.com" target="_blank" rel="noopener">Traide</a><br><span style="font-size:10px;font-weight:400;color:var(--sub)">formerly Nautical Commerce</span></td>
+          <td><span class="warn">Partial</span> — Shopify supports headless via Storefront API / Hydrogen, but this requires a deliberate separate frontend project. Traide's default setup uses Shopify's theme-based storefront.</td>
           <td>Multi-vendor marketplace SaaS. Shopify-native. Multivendor checkout, seller dashboards, commission splits, headless storefront API (Business+).</td>
           <td>$79–$2,000/mo + 0.5–1% transaction fee. 14-day free trial.
             <span class="src"><a href="https://thetraide.com/pricing" target="_blank" rel="noopener">thetraide.com/pricing</a></span>
@@ -364,6 +368,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         </tr>
         <tr>
           <td><a href="https://www.sharetribe.com" target="_blank" rel="noopener">Sharetribe</a></td>
+          <td><span class="warn">Partial</span> — ships with its own hosted marketplace UI, but also exposes an API for custom frontend builds. Headless use requires the API-tier plan.</td>
           <td>No-code marketplace builder + API. Supports listings, transactions, commission splits. Fully customisable via API.</td>
           <td>$39–$299/mo. Free transactions up to tier limit.
             <span class="src"><a href="https://www.sharetribe.com/pricing/" target="_blank" rel="noopener">sharetribe.com/pricing</a></span>
@@ -378,6 +383,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         </tr>
         <tr>
           <td><a href="https://www.cs-cart.com/multivendor.html" target="_blank" rel="noopener">CS-Cart Multi-Vendor</a></td>
+          <td><span class="no">No</span> — self-hosted monolithic PHP platform; frontend and backend are tightly coupled. Has a REST API for data access but is not an API-first / headless architecture.</td>
           <td>Self-hosted multi-vendor marketplace software. Full code access. App marketplace for extensions.</td>
           <td>From $725/yr. Lifetime plan available.
             <span class="src"><a href="https://www.cs-cart.com/multivendor.html" target="_blank" rel="noopener">cs-cart.com/multivendor</a></span>
@@ -392,6 +398,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         </tr>
         <tr>
           <td><a href="https://www.vendure.io" target="_blank" rel="noopener">Vendure</a></td>
+          <td><span class="yes">Yes</span> — explicitly headless. GraphQL API only; no bundled storefront. Frontend is always custom-built.</td>
           <td>Open-source headless commerce framework (GPLv3). API-first, plugin model. Multi-vendor possible via plugins. Managed cloud in 2026.</td>
           <td>Core: free (open source). Platform: annual subscription (no public price).
             <span class="src"><a href="https://www.vendure.io/pricing" target="_blank" rel="noopener">vendure.io/pricing</a></span>
@@ -406,6 +413,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         </tr>
         <tr>
           <td><a href="https://spryker.com/marketplace/" target="_blank" rel="noopener">Spryker Marketplace</a></td>
+          <td><span class="yes">Yes</span> — MACH-compliant (Microservices, API-first, Cloud-native, Headless). No bundled storefront; frontend built separately via API.</td>
           <td>Enterprise marketplace platform for B2B and retail. Merchant management, order splitting, commission automation. Strong B2B focus.</td>
           <td>No public pricing — enterprise custom quote.
             <span class="src"><a href="https://spryker.com/marketplace/" target="_blank" rel="noopener">spryker.com/marketplace</a></span>
@@ -420,6 +428,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         </tr>
         <tr>
           <td><a href="https://medusajs.com" target="_blank" rel="noopener">Medusa.js</a></td>
+          <td><span class="yes">Yes</span> — explicitly headless. REST + GraphQL APIs only; no bundled storefront. Frontend is always custom-built.</td>
           <td>Open-source headless commerce framework (MIT). TypeScript-native, modular, active community. Multi-vendor via modules. Comparable to Vendure; generally considered more actively maintained as of 2026.
             <span class="src"><a href="https://medusajs.com" target="_blank" rel="noopener">medusajs.com</a></span>
           </td>
@@ -436,6 +445,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         </tr>
         <tr>
           <td>Shopify + multi-vendor app<br><span style="font-size:10px;font-weight:400;color:var(--sub)">e.g. Multi-Vendor Marketplace by Webkul</span></td>
+          <td><span class="warn">Partial</span> — Shopify supports headless via Storefront API / Hydrogen, but requires a separate frontend project. Default setup (theme + multi-vendor app) is not headless.</td>
           <td>Shopify as the commerce foundation with a multi-vendor app layer. Handles catalog, checkout, payments natively. Multi-vendor apps add seller dashboards and commission splits.
             <span class="src"><a href="https://apps.shopify.com/multi-vendor-marketplace" target="_blank" rel="noopener">apps.shopify.com</a></span>
           </td>
