@@ -1182,9 +1182,10 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
     <h2 class="sec-heading"><span class="sec-num">05</span>MVP Strategy</h2>
 
     <div class="ibox" style="padding:18px 24px;background:var(--green-bg);border:1px solid #b6e8ce;border-left:4px solid var(--green);margin-bottom:20px;font-size:13px;color:var(--ink);line-height:1.75">
-      <strong style="color:var(--green)">MVP scope: US consumers only.</strong> Two brand scenarios:<br><br>
+      <strong style="color:var(--green)">MVP scope: US and EU consumers. Three brand scenarios:</strong><br><br>
       <strong>US brand → US consumer</strong> — domestic. No customs, no duties, no import documents. TF collects state sales tax via Stripe Tax.<br>
-      <strong>EU brand → US consumer</strong> — cross-border import into the US. Manageable at MVP via the $800 de minimis threshold (see table below).<br><br>
+      <strong>EU brand → US consumer</strong> — cross-border import into the US. Manageable at MVP via the $800 de minimis threshold (see table below).<br>
+      <strong>US brand → EU consumer</strong> — cross-border import into the EU. Manageable at MVP for orders ≤€150 via IOSS. Requires IOSS registration before first EU sale (see table below).<br><br>
       <strong style="color:var(--red)">China-origin goods: exclude at MVP.</strong> The $800 de minimis was eliminated for Chinese-origin goods in 2025. Every parcel now requires formal customs entry, ISF filing, HS codes, and applicable duties regardless of value — too complex for MVP.
     </div>
 
@@ -1194,7 +1195,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
       <span class="src"><a href="https://stripe.com/tax" target="_blank" rel="noopener">stripe.com/tax</a></span><br><br>
       <strong>Stripe Connect</strong> — splits each transaction automatically: brand receives their share minus TF commission; co-creator revenue shares routed as separate transfers. No manual payout calculation.
       <span class="src"><a href="https://stripe.com/connect" target="_blank" rel="noopener">stripe.com/connect</a></span><br><br>
-      <strong>What TF must build:</strong> product pages · checkout flow · order management · brand dashboard · shipping label generation · return handling. Stripe handles money and tax; everything else is custom code.
+      <strong>What TF must build:</strong> product pages · checkout flow · order management · brand dashboard · shipping label generation · return handling.
     </div>
 
     <!-- EU → US de minimis example -->
