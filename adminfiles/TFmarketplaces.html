@@ -1280,6 +1280,91 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
       <div style="margin-top:10px;font-size:11px;color:var(--ink)">MFN rate range (12–20%) is typical for EU apparel by HS code under US tariff schedules — verify exact rate for each product's HS code before MVP launch. <span class="src"><a href="https://hts.usitc.gov" target="_blank" rel="noopener">hts.usitc.gov</a></span></div>
     </div>
 
+    <!-- US → EU threshold example -->
+    <div class="ibox" style="padding:18px 24px;background:white;border:1px solid var(--rule);border-left:4px solid var(--orange);margin-bottom:20px;font-size:13px;color:var(--ink);line-height:1.75">
+      <strong>US brand → EU consumer: €150 threshold in practice</strong><br>
+      <span style="font-size:12px;color:var(--ink)">The EU threshold is <strong>€150 on goods value — shipping excluded.</strong> Below €150: no customs duty, but EU VAT applies and TF must collect it via IOSS. Above €150: EU customs duty + VAT both apply; buyer pays at delivery (DDU) unless DDP is arranged separately.</span>
+
+      <div style="overflow-x:auto;margin-top:14px;">
+      <table style="width:100%;border-collapse:collapse;font-size:12px;color:var(--ink);">
+        <thead>
+          <tr style="background:var(--ink);color:white;">
+            <th style="padding:8px 12px;text-align:left;min-width:180px;font-weight:700;"> </th>
+            <th style="padding:8px 12px;text-align:left;min-width:160px;font-weight:700;">Example A — dress €120</th>
+            <th style="padding:8px 12px;text-align:left;min-width:160px;font-weight:700;">Example B — dress €200</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--rule);">
+            <td style="padding:8px 12px;font-weight:700;">Goods value (customs basis)</td>
+            <td style="padding:8px 12px;">€120</td>
+            <td style="padding:8px 12px;">€200</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);background:#fafafa;">
+            <td style="padding:8px 12px;font-weight:700;">Shipping cost</td>
+            <td style="padding:8px 12px;">€15 — <strong>excluded from €150 calc</strong></td>
+            <td style="padding:8px 12px;">€15 — <strong>excluded from €150 calc</strong></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);">
+            <td style="padding:8px 12px;font-weight:700;">Under €150?</td>
+            <td style="padding:8px 12px;"><span class="yes">Yes</span> — €120 goods value</td>
+            <td style="padding:8px 12px;"><span class="no">No</span> — €200 goods value</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);background:#fafafa;">
+            <td style="padding:8px 12px;font-weight:700;">EU customs duty</td>
+            <td style="padding:8px 12px;"><span class="yes">€0</span> — goods ≤€150 exempt from EU customs duty</td>
+            <td style="padding:8px 12px;"><span class="warn">~€24</span> — EU MFN ~12% on €200 (no US-EU FTA)</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);">
+            <td style="padding:8px 12px;font-weight:700;">EU VAT</td>
+            <td style="padding:8px 12px;"><span class="warn">TF collects at checkout via IOSS</span> — local rate by buyer's country (e.g. DE 19% · FR 20% · NL 21%)</td>
+            <td style="padding:8px 12px;">Buyer pays VAT on (goods + duty) at customs on delivery — DDU model, poor buyer experience. DDP via Zonos/Global-e needed for good UX; not MVP scope.</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);background:#fafafa;">
+            <td style="padding:8px 12px;font-weight:700;">What is IOSS?</td>
+            <td style="padding:8px 12px;">Import One-Stop Shop — TF registers once with an EU tax authority (free, ~2–4 weeks). One registration covers all 27 EU member states. TF collects VAT at checkout at the buyer's local rate; remits monthly. IOSS number goes on the shipping label — parcel clears customs without a VAT stop at the border. Without IOSS: buyer charged VAT at delivery, poor experience — and TF still owes the VAT regardless. Stripe Tax calculates and collects the correct rate; monthly remittance filed via the IOSS portal (or via Avalara/Taxually).<span class="src"><a href="https://ec.europa.eu/taxation_customs/business/vat/ioss_en" target="_blank" rel="noopener">ec.europa.eu — IOSS</a></span></td>
+            <td style="padding:8px 12px;">IOSS applies only to goods ≤€150. Above €150: standard EU import process — no IOSS.</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);">
+            <td style="padding:8px 12px;font-weight:700;">Customs entry</td>
+            <td style="padding:8px 12px;">Simplified — carrier handles; IOSS number on label routes parcel through fast-track EU customs</td>
+            <td style="padding:8px 12px;">Formal EU customs entry — carrier files; buyer notified to pay duty + VAT before delivery</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);background:#fafafa;">
+            <td style="padding:8px 12px;font-weight:700;">Required documents (per parcel)</td>
+            <td style="padding:8px 12px;">Commercial invoice · packing list · country of origin on label · IOSS number on shipment · air waybill (DHL/FedEx generates)</td>
+            <td style="padding:8px 12px;">Same — no IOSS number (not applicable above €150). Carrier files EU customs entry.</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);">
+            <td style="padding:8px 12px;font-weight:700;">US sales tax</td>
+            <td style="padding:8px 12px;" colspan="2">Not applicable — consumer is in EU, not a US taxable event</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);background:#fafafa;">
+            <td style="padding:8px 12px;font-weight:700;">TF does</td>
+            <td style="padding:8px 12px;">Register for IOSS · collect EU VAT at checkout (Stripe Tax calculates rate by country) · remit VAT monthly via IOSS portal · process payment · refund payment + VAT via Stripe if returned</td>
+            <td style="padding:8px 12px;">Process payment only. Buyer handles duty + VAT at border (DDU). DDP would require Zonos/Global-e — not MVP scope.</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);">
+            <td style="padding:8px 12px;font-weight:700;">Brand does</td>
+            <td style="padding:8px 12px;">Prepare commercial invoice + packing list · label parcel with country of origin · add IOSS number to shipping label · book DHL/FedEx · ship</td>
+            <td style="padding:8px 12px;">Same — no IOSS number. Carrier files formal EU customs entry; buyer pays duty + VAT at delivery.</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);background:#fafafa;">
+            <td style="padding:8px 12px;font-weight:700;">Returns</td>
+            <td style="padding:8px 12px;"><strong>Consumer → Brand (EU → US):</strong> brand issues pre-paid return label · no EU export restriction on fashion · US re-import: Section 321 de minimis ($800) applies — returned item clears automatically · TF refunds payment + VAT via Stripe · VAT refund deducted from next monthly IOSS remittance</td>
+            <td style="padding:8px 12px;"><span class="no">Out of MVP scope.</span> EU customs duty already paid is not automatically refunded — requires formal EU drawback claim. DDU model already poor experience; returns add further complexity.</td>
+          </tr>
+          <tr style="background:#fafafa;">
+            <td style="padding:8px 12px;font-weight:700;">MVP action</td>
+            <td style="padding:8px 12px;"><span class="yes">In scope</span> — requires IOSS registration before first EU sale</td>
+            <td style="padding:8px 12px;"><span class="no">Exclude</span> — DDU buyer experience and returns complexity out of MVP scope</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <div style="margin-top:10px;font-size:11px;color:var(--ink)">EU MFN rate ~12% is typical for US fashion apparel — verify exact rate per product HS code. VAT rates vary by country: DE 19% · FR 20% · NL 21% · IT 22%. <span class="src"><a href="https://trade.ec.europa.eu/access-to-markets/en/content/import-tariffs" target="_blank" rel="noopener">EU Access2Markets — tariffs</a></span></div>
+    </div>
+
   </div>
 
   <div class="section" id="sec06">
