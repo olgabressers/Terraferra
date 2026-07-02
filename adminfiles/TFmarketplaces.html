@@ -1182,10 +1182,13 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
     <h2 class="sec-heading"><span class="sec-num">05</span>MVP Strategy</h2>
 
     <div class="ibox" style="padding:18px 24px;background:var(--green-bg);border:1px solid #b6e8ce;border-left:4px solid var(--green);margin-bottom:20px;font-size:13px;color:var(--ink);line-height:1.75">
-      <strong style="color:var(--green)">MVP scope: US and EU consumers. Three brand scenarios:</strong><br><br>
+      <strong style="color:var(--green)">MVP scope: US, EU, and UK consumers. Six brand scenarios:</strong><br><br>
       <strong>US brand → US consumer</strong> — domestic. No customs, no duties, no import documents. TF collects state sales tax via Stripe Tax.<br>
-      <strong>EU brand → US consumer</strong> — cross-border import into the US. Manageable at MVP via the $800 de minimis threshold (see table below).<br>
-      <strong>US brand → EU consumer</strong> — cross-border import into the EU. Manageable at MVP for orders ≤€150 via IOSS. Requires IOSS registration before first EU sale (see table below).<br><br>
+      <strong>EU brand → EU consumer</strong> — brand handles domestic EU VAT. TF (US C-corp) is not the deemed supplier when brand is EU-established — that rule applies only to non-EU sellers. No TF goods-tax obligation.<br>
+      <strong>EU brand → US consumer</strong> — $800 de minimis applies (see table below).<br>
+      <strong>UK brand → US consumer</strong> — same $800 de minimis as EU→US (see table below).<br>
+      <strong>US brand → EU consumer</strong> — €150 threshold; IOSS registration required before first EU sale (see table below).<br>
+      <strong>US brand → UK consumer</strong> — £135 threshold; UK VAT registration required before first UK sale (see table below).<br><br>
       <strong style="color:var(--red)">China-origin goods: exclude at MVP.</strong> The $800 de minimis was eliminated for Chinese-origin goods in 2025. Every parcel now requires formal customs entry, ISF filing, HS codes, and applicable duties regardless of value — too complex for MVP.
     </div>
 
@@ -1202,7 +1205,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
 
     <!-- EU → US de minimis example -->
     <div class="ibox" style="padding:18px 24px;background:white;border:1px solid var(--rule);border-left:4px solid var(--orange);margin-bottom:20px;font-size:13px;color:var(--ink);line-height:1.75">
-      <strong>EU brand → US consumer: $800 de minimis in practice</strong><br>
+      <strong style="color:var(--orange)">EU brand → US consumer: $800 de minimis in practice</strong><br>
       <span style="font-size:12px;color:var(--ink)">The $800 threshold is <strong>goods value only — shipping excluded.</strong> CBP assesses customs value on the declared item price on the commercial invoice, not the total charged to the customer.</span>
 
       <div style="overflow-x:auto;margin-top:14px;">
@@ -1283,9 +1286,85 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
       <div style="margin-top:10px;font-size:11px;color:var(--ink)">MFN rate range (12–20%) is typical for EU apparel by HS code under US tariff schedules — verify exact rate for each product's HS code before MVP launch. <span class="src"><a href="https://hts.usitc.gov" target="_blank" rel="noopener">hts.usitc.gov</a></span></div>
     </div>
 
+    <!-- UK → US de minimis example -->
+    <div class="ibox" style="padding:18px 24px;background:white;border:1px solid var(--rule);border-left:4px solid var(--orange);margin-bottom:20px;font-size:13px;color:var(--ink);line-height:1.75">
+      <strong style="color:var(--orange)">UK brand → US consumer: $800 de minimis in practice</strong><br>
+      <span style="font-size:12px;color:var(--ink)">Same rule as EU→US. The $800 threshold is <strong>goods value only — shipping excluded.</strong> No US-UK FTA in force; US MFN tariff rates apply on goods above $800.</span>
+
+      <div style="overflow-x:auto;margin-top:14px;">
+      <table style="width:100%;border-collapse:collapse;font-size:12px;color:var(--ink);">
+        <thead>
+          <tr style="background:var(--ink);color:white;">
+            <th style="padding:8px 12px;text-align:left;min-width:180px;font-weight:700;"> </th>
+            <th style="padding:8px 12px;text-align:left;min-width:160px;font-weight:700;">Example A — dress $680</th>
+            <th style="padding:8px 12px;text-align:left;min-width:160px;font-weight:700;">Example B — dress $950</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--rule);">
+            <td style="padding:8px 12px;font-weight:700;">Goods value (customs basis)</td>
+            <td style="padding:8px 12px;">$680</td>
+            <td style="padding:8px 12px;">$950</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);background:#fafafa;">
+            <td style="padding:8px 12px;font-weight:700;">Shipping cost</td>
+            <td style="padding:8px 12px;">$40 — <strong>excluded from $800 calc</strong></td>
+            <td style="padding:8px 12px;">$40 — <strong>excluded from $800 calc</strong></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);">
+            <td style="padding:8px 12px;font-weight:700;">Under $800?</td>
+            <td style="padding:8px 12px;"><span class="yes">Yes</span> — $680 goods value</td>
+            <td style="padding:8px 12px;"><span class="no">No</span> — $950 goods value</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);background:#fafafa;">
+            <td style="padding:8px 12px;font-weight:700;">Import duty</td>
+            <td style="padding:8px 12px;"><span class="yes">$0</span> — Section 321 waiver</td>
+            <td style="padding:8px 12px;"><span class="warn">~$114–190</span> — US MFN 12–20% on $950</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);">
+            <td style="padding:8px 12px;font-weight:700;">Customs entry</td>
+            <td style="padding:8px 12px;">Carrier handles automatically</td>
+            <td style="padding:8px 12px;">Formal entry — DHL/FedEx brokerage arm handles if using their carrier</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);background:#fafafa;">
+            <td style="padding:8px 12px;font-weight:700;">US sales tax</td>
+            <td style="padding:8px 12px;">Stripe Tax collects at checkout</td>
+            <td style="padding:8px 12px;">Stripe Tax collects at checkout</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);">
+            <td style="padding:8px 12px;font-weight:700;">Required documents (per parcel)</td>
+            <td style="padding:8px 12px;">Commercial invoice · packing list · origin on label · air waybill (DHL/FedEx generates)</td>
+            <td style="padding:8px 12px;">Same + DHL/FedEx brokerage files formal entry</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);background:#fafafa;">
+            <td style="padding:8px 12px;font-weight:700;">TF does</td>
+            <td style="padding:8px 12px;">Collect sales tax at checkout (Stripe Tax) · process payment · issue refund via Stripe if returned</td>
+            <td style="padding:8px 12px;">Same — but order is out of MVP scope</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);">
+            <td style="padding:8px 12px;font-weight:700;">Brand does</td>
+            <td style="padding:8px 12px;">Prepare commercial invoice + packing list · label parcel with country of origin · book DHL/FedEx · ship</td>
+            <td style="padding:8px 12px;">Same + DHL/FedEx brokerage handles formal customs entry · duty paid at US import</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);background:#fafafa;">
+            <td style="padding:8px 12px;font-weight:700;">Returns</td>
+            <td style="padding:8px 12px;"><strong>Consumer → Brand (US → UK):</strong> brand issues pre-paid return label · no US export restriction on fashion · UK re-import: UK Returned Goods Relief applies (duty-free if same condition, returned within 3 years) · TF refunds payment + sales tax via Stripe</td>
+            <td style="padding:8px 12px;"><span class="no">Out of MVP scope.</span> Duty paid at US import is non-refundable without a formal drawback claim.</td>
+          </tr>
+          <tr style="background:#fafafa;">
+            <td style="padding:8px 12px;font-weight:700;">MVP action</td>
+            <td style="padding:8px 12px;"><span class="yes">In scope</span> — standard workflow</td>
+            <td style="padding:8px 12px;"><span class="no">Exclude</span> — too complex for MVP</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <div style="margin-top:10px;font-size:11px;color:var(--ink)">MFN rate range (12–20%) is typical for UK apparel under US tariff schedules — same as EU goods; no US-UK FTA in force as of 2026. <span class="src"><a href="https://hts.usitc.gov" target="_blank" rel="noopener">hts.usitc.gov</a></span></div>
+    </div>
+
     <!-- US → EU threshold example -->
     <div class="ibox" style="padding:18px 24px;background:white;border:1px solid var(--rule);border-left:4px solid var(--orange);margin-bottom:20px;font-size:13px;color:var(--ink);line-height:1.75">
-      <strong>US brand → EU consumer: €150 threshold in practice</strong><br>
+      <strong style="color:var(--orange)">US brand → EU consumer: €150 threshold in practice</strong><br>
       <span style="font-size:12px;color:var(--ink)">The EU threshold is <strong>€150 on goods value — shipping excluded.</strong> Below €150: no customs duty, but EU VAT applies and TF must collect it via IOSS. Above €150: EU customs duty + VAT both apply; buyer pays at delivery (DDU) unless DDP is arranged separately.</span>
 
       <div style="overflow-x:auto;margin-top:14px;">
@@ -1366,6 +1445,91 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
       </table>
       </div>
       <div style="margin-top:10px;font-size:11px;color:var(--ink)">EU MFN rate ~12% is typical for US fashion apparel — verify exact rate per product HS code. VAT rates vary by country: DE 19% · FR 20% · NL 21% · IT 22%. <span class="src"><a href="https://trade.ec.europa.eu/access-to-markets/en/content/import-tariffs" target="_blank" rel="noopener">EU Access2Markets — tariffs</a></span></div>
+    </div>
+
+    <!-- US → UK threshold example -->
+    <div class="ibox" style="padding:18px 24px;background:white;border:1px solid var(--rule);border-left:4px solid var(--orange);margin-bottom:20px;font-size:13px;color:var(--ink);line-height:1.75">
+      <strong style="color:var(--orange)">US brand → UK consumer: £135 threshold in practice</strong><br>
+      <span style="font-size:12px;color:var(--ink)">The UK threshold is <strong>£135 on goods value — shipping excluded.</strong> Below £135: no customs duty, but UK VAT (20% flat rate) applies — TF must collect via UK VAT registration. Above £135: UK MFN customs duty + UK VAT; buyer pays at delivery (DDU). No US-UK FTA in force.</span>
+
+      <div style="overflow-x:auto;margin-top:14px;">
+      <table style="width:100%;border-collapse:collapse;font-size:12px;color:var(--ink);">
+        <thead>
+          <tr style="background:var(--ink);color:white;">
+            <th style="padding:8px 12px;text-align:left;min-width:180px;font-weight:700;"> </th>
+            <th style="padding:8px 12px;text-align:left;min-width:160px;font-weight:700;">Example A — dress £110</th>
+            <th style="padding:8px 12px;text-align:left;min-width:160px;font-weight:700;">Example B — dress £200</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--rule);">
+            <td style="padding:8px 12px;font-weight:700;">Goods value (customs basis)</td>
+            <td style="padding:8px 12px;">£110</td>
+            <td style="padding:8px 12px;">£200</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);background:#fafafa;">
+            <td style="padding:8px 12px;font-weight:700;">Shipping cost</td>
+            <td style="padding:8px 12px;">£15 — <strong>excluded from £135 calc</strong></td>
+            <td style="padding:8px 12px;">£15 — <strong>excluded from £135 calc</strong></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);">
+            <td style="padding:8px 12px;font-weight:700;">Under £135?</td>
+            <td style="padding:8px 12px;"><span class="yes">Yes</span> — £110 goods value</td>
+            <td style="padding:8px 12px;"><span class="no">No</span> — £200 goods value</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);background:#fafafa;">
+            <td style="padding:8px 12px;font-weight:700;">UK customs duty</td>
+            <td style="padding:8px 12px;"><span class="yes">£0</span> — goods ≤£135 exempt from UK customs duty</td>
+            <td style="padding:8px 12px;"><span class="warn">~£24</span> — UK Global Tariff ~12% on £200 (no US-UK FTA)</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);">
+            <td style="padding:8px 12px;font-weight:700;">UK VAT</td>
+            <td style="padding:8px 12px;"><span class="warn">TF collects at checkout via UK VAT registration</span> — 20% flat rate across all UK</td>
+            <td style="padding:8px 12px;">Buyer pays VAT on (goods + duty) at customs on delivery — DDU model, poor buyer experience. DDP via Zonos needed for good UX; not MVP scope.</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);background:#fafafa;">
+            <td style="padding:8px 12px;font-weight:700;">What is UK VAT registration?</td>
+            <td style="padding:8px 12px;">TF registers for a UK VAT number with HMRC (free, up to 40 working days). One registration covers all UK sales. TF collects 20% VAT at checkout (Stripe Tax handles this) and files quarterly VAT returns with HMRC. Simpler than EU IOSS — one country, one flat rate, one registration. TF's UK VAT number is submitted in the electronic customs data when the parcel ships; carrier handles this automatically.<span class="src"><a href="https://www.gov.uk/guidance/vat-overseas-goods-sold-to-customers-in-the-uk-using-online-marketplaces" target="_blank" rel="noopener">HMRC — marketplace VAT rules</a></span></td>
+            <td style="padding:8px 12px;">UK VAT registration applies only to goods ≤£135. Above £135: standard UK import — buyer pays duty + VAT at customs (DDU).</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);">
+            <td style="padding:8px 12px;font-weight:700;">Customs entry</td>
+            <td style="padding:8px 12px;">Simplified — carrier handles; UK VAT number in electronic customs data routes parcel through fast-track clearance</td>
+            <td style="padding:8px 12px;">Formal UK customs entry — carrier files; buyer notified to pay duty + VAT before delivery</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);background:#fafafa;">
+            <td style="padding:8px 12px;font-weight:700;">Required documents (per parcel)</td>
+            <td style="padding:8px 12px;">Commercial invoice · packing list · country of origin on label · air waybill (DHL/FedEx generates) · UK VAT number submitted in electronic customs data by carrier</td>
+            <td style="padding:8px 12px;">Same — no VAT number (not applicable above £135). Carrier files formal UK customs entry.</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);">
+            <td style="padding:8px 12px;font-weight:700;">US sales tax</td>
+            <td style="padding:8px 12px;" colspan="2">Not applicable — consumer is in UK, not a US taxable event</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);background:#fafafa;">
+            <td style="padding:8px 12px;font-weight:700;">TF does</td>
+            <td style="padding:8px 12px;">Register for UK VAT number (HMRC) · collect 20% UK VAT at checkout (Stripe Tax) · file quarterly VAT return with HMRC · process payment · refund payment + VAT via Stripe if returned</td>
+            <td style="padding:8px 12px;">Process payment only. Buyer handles duty + VAT at border (DDU). DDP would require Zonos — not MVP scope.</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);">
+            <td style="padding:8px 12px;font-weight:700;">Brand does</td>
+            <td style="padding:8px 12px;">Prepare commercial invoice + packing list · label parcel with country of origin · book DHL/FedEx · ship</td>
+            <td style="padding:8px 12px;">Same. Carrier files formal UK customs entry; buyer pays duty + VAT at delivery.</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);background:#fafafa;">
+            <td style="padding:8px 12px;font-weight:700;">Returns</td>
+            <td style="padding:8px 12px;"><strong>Consumer → Brand (UK → US):</strong> brand issues pre-paid return label · no UK export restriction on fashion · US re-import: Section 321 de minimis ($800) applies — returned item clears automatically · TF refunds payment + UK VAT via Stripe · VAT refund deducted from next quarterly HMRC VAT return</td>
+            <td style="padding:8px 12px;"><span class="no">Out of MVP scope.</span> UK customs duty already paid is not automatically refunded — requires formal UK drawback claim. DDU model already poor experience; returns add further complexity.</td>
+          </tr>
+          <tr style="background:#fafafa;">
+            <td style="padding:8px 12px;font-weight:700;">MVP action</td>
+            <td style="padding:8px 12px;"><span class="yes">In scope</span> — requires UK VAT registration before first UK sale</td>
+            <td style="padding:8px 12px;"><span class="no">Exclude</span> — DDU buyer experience and returns complexity out of MVP scope</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <div style="margin-top:10px;font-size:11px;color:var(--ink)">UK Global Tariff rate ~12% is typical for US fashion apparel entering UK — verify exact rate per HS code. UK VAT is 20% flat rate across all of UK. <span class="src"><a href="https://www.trade-tariff.service.gov.uk" target="_blank" rel="noopener">UK Trade Tariff</a></span></div>
     </div>
 
   </div>
