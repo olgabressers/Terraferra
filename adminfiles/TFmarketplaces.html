@@ -1202,6 +1202,67 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
       China-origin goods shipped to the US: the $800 de minimis exemption was eliminated in 2025. Every parcel requires a formal customs entry (ISF filing, HS codes, applicable duties) regardless of value. Brands cannot simply ship a package.
     </div>
 
+    <!-- EU → US de minimis example -->
+    <div class="ibox" style="padding:18px 24px;background:white;border:1px solid var(--rule);border-left:4px solid var(--orange);margin-bottom:20px;font-size:13px;color:var(--ink);line-height:1.75">
+      <strong>EU brand → US consumer: $800 de minimis in practice</strong><br>
+      <span style="font-size:12px;color:var(--ink)">The $800 threshold is <strong>goods value only — shipping excluded.</strong> CBP assesses customs value on the declared item price on the commercial invoice, not the total charged to the customer.</span>
+
+      <div style="overflow-x:auto;margin-top:14px;">
+      <table style="width:100%;border-collapse:collapse;font-size:12px;color:var(--ink);">
+        <thead>
+          <tr style="background:var(--ink);color:white;">
+            <th style="padding:8px 12px;text-align:left;min-width:180px;font-weight:700;"> </th>
+            <th style="padding:8px 12px;text-align:left;min-width:160px;font-weight:700;">Example A — dress $650</th>
+            <th style="padding:8px 12px;text-align:left;min-width:160px;font-weight:700;">Example B — dress $900</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--rule);">
+            <td style="padding:8px 12px;font-weight:700;">Goods value (customs basis)</td>
+            <td style="padding:8px 12px;">$650</td>
+            <td style="padding:8px 12px;">$900</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);background:#fafafa;">
+            <td style="padding:8px 12px;font-weight:700;">Shipping cost</td>
+            <td style="padding:8px 12px;">$45 — <strong>excluded from $800 calc</strong></td>
+            <td style="padding:8px 12px;">$45 — <strong>excluded from $800 calc</strong></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);">
+            <td style="padding:8px 12px;font-weight:700;">Under $800?</td>
+            <td style="padding:8px 12px;"><span class="yes">Yes</span> — $650 goods value</td>
+            <td style="padding:8px 12px;"><span class="no">No</span> — $900 goods value</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);background:#fafafa;">
+            <td style="padding:8px 12px;font-weight:700;">Import duty</td>
+            <td style="padding:8px 12px;"><span class="yes">$0</span> — Section 321 waiver</td>
+            <td style="padding:8px 12px;"><span class="warn">~$108–180</span> — US MFN 12–20% on $900</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);">
+            <td style="padding:8px 12px;font-weight:700;">Customs entry</td>
+            <td style="padding:8px 12px;">Carrier handles automatically</td>
+            <td style="padding:8px 12px;">Formal entry + customs broker required</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);background:#fafafa;">
+            <td style="padding:8px 12px;font-weight:700;">US sales tax</td>
+            <td style="padding:8px 12px;">Stripe Tax collects at checkout</td>
+            <td style="padding:8px 12px;">Stripe Tax collects at checkout</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);">
+            <td style="padding:8px 12px;font-weight:700;">Required documents (per parcel)</td>
+            <td style="padding:8px 12px;">Commercial invoice · packing list · origin on label · air waybill (DHL/FedEx generates)</td>
+            <td style="padding:8px 12px;">Same + customs broker files formal entry</td>
+          </tr>
+          <tr style="background:#fafafa;">
+            <td style="padding:8px 12px;font-weight:700;">MVP action</td>
+            <td style="padding:8px 12px;"><span class="yes">In scope</span> — standard workflow</td>
+            <td style="padding:8px 12px;"><span class="no">Exclude</span> — too complex for MVP</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <div style="margin-top:10px;font-size:11px;color:var(--ink)">MFN rate range (12–20%) is typical for EU apparel by HS code under US tariff schedules — verify exact rate for each product's HS code before MVP launch. <span class="src"><a href="https://hts.usitc.gov" target="_blank" rel="noopener">hts.usitc.gov</a></span></div>
+    </div>
+
     <div class="ibox" style="padding:18px 24px;background:var(--tf-ghost);border:1px solid #d4d0f5;border-left:4px solid var(--tf);font-size:13px;color:var(--ink);line-height:1.75">
       <strong>Two clean options for cross-border post-MVP:</strong><br><br>
       <strong>1. Build marketplace compliance</strong> — EU IOSS registration (~2–4 weeks, free) + UK VAT number (up to 40 business days, free) + Avalara or Taxually for automated remittance + Zonos or Global-e for DDP landed cost at checkout. This is the proven path used by major US fashion brands today. TF owns the transaction and can pay co-creator revenue shares automatically.<br><br>
