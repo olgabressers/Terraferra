@@ -1252,6 +1252,23 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
             <td style="padding:8px 12px;">Commercial invoice · packing list · origin on label · air waybill (DHL/FedEx generates)</td>
             <td style="padding:8px 12px;">Same + customs broker files formal entry</td>
           </tr>
+          <tr style="border-bottom:1px solid var(--rule);background:#fafafa;">
+            <td style="padding:8px 12px;font-weight:700;">TF does</td>
+            <td style="padding:8px 12px;">Collect sales tax at checkout (Stripe Tax) · process payment · issue refund via Stripe if returned</td>
+            <td style="padding:8px 12px;">Same — but order is out of MVP scope</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);">
+            <td style="padding:8px 12px;font-weight:700;">Brand does</td>
+            <td style="padding:8px 12px;">Prepare commercial invoice + packing list · label parcel with country of origin · book DHL/FedEx · ship</td>
+            <td style="padding:8px 12px;">Same + engage customs broker for formal entry · duty paid at US import</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);background:#fafafa;">
+            <td style="padding:8px 12px;font-weight:700;">Returns</td>
+            <td style="padding:8px 12px;">
+              <strong>Consumer → Brand (US → EU):</strong> brand issues pre-paid return label · no US export restriction on fashion items · EU re-import: returned goods relief applies (duty-free if same condition, returned within 3 years) · TF refunds payment + sales tax via Stripe
+            </td>
+            <td style="padding:8px 12px;"><span class="no">Out of MVP scope.</span> Duty already paid at US import is non-refundable without a formal drawback claim — too complex for MVP.</td>
+          </tr>
           <tr style="background:#fafafa;">
             <td style="padding:8px 12px;font-weight:700;">MVP action</td>
             <td style="padding:8px 12px;"><span class="yes">In scope</span> — standard workflow</td>
