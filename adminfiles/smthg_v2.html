@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>SMTHG — Fashion Discovery Platform · V2</title>
+<meta name="description" content="SMTHG — a three-sided marketplace at the intersection of fashion, art, music, and AI. Something made for you."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --red:#E8002D;
+  --red-dark:#C0001F;
+  --black:#0A0A0A;
+  --white:#FFFFFF;
+  --off:#F7F7F7;
+  --mid:#888888;
+  --sub:#555555;
+  --border:#E5E5E5;
+}
+
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--white);color:var(--black);overflow-x:hidden}
+
+/* ── VERSION BAR ── */
+.ver-bar{
+  background:#111;
+  border-bottom:1px solid rgba(255,255,255,.06);
+  padding:8px 52px;
+  font-size:9.5px;font-weight:800;letter-spacing:3px;text-transform:uppercase;
+  color:rgba(255,255,255,.4);text-align:right;
+}
+@media(max-width:768px){.ver-bar{padding:8px 24px}}
+@media(max-width:500px){.ver-bar{padding:7px 18px}}
+
+/* ── NAV ── */
+.nav{
+  position:sticky;top:0;z-index:100;
+  background:var(--white);border-bottom:1px solid var(--border);
+  padding:0 52px;height:64px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-logo{font-size:21px;font-weight:900;letter-spacing:-1px;color:var(--black);text-decoration:none;line-height:1}
+.nav-logo .dot{color:var(--red)}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--mid);text-decoration:none;transition:color .15s}
+.nav-links a:hover{color:var(--black)}
+.nav-links .nav-cta{background:var(--red);color:var(--white);padding:9px 22px;font-size:10px;font-weight:800;letter-spacing:1.5px;transition:background .15s}
+.nav-links .nav-cta:hover{background:var(--red-dark);color:var(--white)}
+
+/* ── HERO ── */
+.hero{
+  background:var(--black);min-height:88vh;
+  display:flex;align-items:center;
+  padding:96px 52px 80px;
+  position:relative;overflow:hidden;
+}
+.hero-stripe{
+  position:absolute;right:0;top:0;width:34%;height:100%;
+  background:var(--red);
+  clip-path:polygon(18% 0,100% 0,100% 100%,0 100%);
+  opacity:.09;pointer-events:none;
+}
+.hero-inner{max-width:1160px;width:100%;margin:0 auto}
+.hero-eye{font-size:10px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:32px;display:block}
+.hero-title{font-size:clamp(88px,11.5vw,168px);font-weight:900;line-height:.88;letter-spacing:-5px;color:var(--white);margin-bottom:20px}
+.hero-title .dot{color:var(--red)}
+.hero-slogan{font-size:clamp(18px,2.2vw,26px);font-weight:800;letter-spacing:-0.5px;color:var(--red);margin-bottom:32px;font-style:italic}
+.hero-desc{font-size:clamp(16px,1.8vw,20px);line-height:1.65;color:rgba(255,255,255,.65);max-width:540px;margin-bottom:52px;font-weight:400}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn-primary{background:var(--red);color:var(--white);padding:15px 34px;font-family:'Inter',sans-serif;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:background .15s;display:inline-block}
+.btn-primary:hover{background:var(--red-dark)}
+.btn-ghost{border:1.5px solid rgba(255,255,255,.28);color:var(--white);padding:14px 34px;font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:1px;text-decoration:none;transition:border-color .15s;display:inline-block}
+.btn-ghost:hover{border-color:rgba(255,255,255,.7)}
+
+/* ── TICKER BAND ── */
+.band{background:var(--red);padding:16px 0;overflow:hidden}
+.band-inner{display:flex;gap:60px;align-items:center;font-size:10px;font-weight:800;letter-spacing:3.5px;text-transform:uppercase;color:var(--white);white-space:nowrap;padding:0 52px}
+.band-sep{opacity:.45}
+
+/* ── LAYOUT ── */
+.container{max-width:1200px;margin:0 auto;padding:0 52px}
+section{padding:100px 0}
+.section-label{font-size:10px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:14px;display:block}
+.section-h2{font-size:clamp(30px,3.5vw,46px);font-weight:800;letter-spacing:-1.2px;line-height:1.15;color:var(--black);margin-top:14px;margin-bottom:48px}
+
+/* ── WHAT IS SMTHG ── */
+.what-section{background:var(--white)}
+.what-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:44px;align-items:start}
+.what-left h2{font-size:clamp(30px,3.5vw,46px);font-weight:800;line-height:1.15;letter-spacing:-1.2px;color:var(--black)}
+.what-right p{font-size:16px;line-height:1.8;color:var(--sub);margin-bottom:20px}
+.what-right p:last-child{margin-bottom:0}
+.what-right strong{color:var(--black);font-weight:700}
+
+/* ── AUDIENCE (3 cols) ── */
+.audience-section{background:var(--off)}
+.audience-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+.aud-card{background:var(--white);padding:36px 26px 32px;border-top:3px solid var(--black);transition:border-top-color .2s;display:flex;flex-direction:column}
+.aud-card:hover{border-top-color:var(--red)}
+.aud-num{font-size:10px;font-weight:800;letter-spacing:2px;color:var(--red);margin-bottom:18px}
+.aud-tag{display:inline-block;background:var(--black);color:var(--white);font-size:8.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:4px 10px;margin-bottom:18px;align-self:flex-start}
+.aud-title{font-size:19px;font-weight:800;line-height:1.2;color:var(--black);margin-bottom:16px;letter-spacing:-.4px}
+.aud-card p{font-size:13.5px;line-height:1.72;color:var(--sub);margin-bottom:20px}
+.aud-list{list-style:none;display:flex;flex-direction:column;gap:9px;margin-top:auto}
+.aud-list li{font-size:12.5px;font-weight:600;color:var(--black);padding-left:16px;position:relative;line-height:1.4}
+.aud-list li::before{content:'→';position:absolute;left:0;color:var(--red);font-weight:700;font-size:11px}
+
+/* ── HOW IT WORKS ── */
+.how-section{background:var(--white)}
+.steps{display:flex;flex-direction:column}
+.step{display:grid;grid-template-columns:130px 1fr;gap:48px;border-top:1px solid var(--border);padding:52px 0;align-items:start}
+.step:last-child{border-bottom:1px solid var(--border)}
+.step-num{font-size:80px;font-weight:900;letter-spacing:-4px;line-height:1;color:transparent;-webkit-text-stroke:2px var(--red)}
+.step-role{font-size:9.5px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:12px}
+.step h3{font-size:clamp(20px,2.2vw,26px);font-weight:800;line-height:1.2;color:var(--black);margin-bottom:14px;letter-spacing:-.4px}
+.step p{font-size:15px;line-height:1.78;color:var(--sub);max-width:600px}
+
+/* ── PLATFORM VALUE ── */
+.value-section{background:var(--off)}
+.value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:48px}
+.val-card{background:var(--white);padding:32px 26px 28px;border-top:3px solid var(--black);transition:border-top-color .2s}
+.val-card:hover{border-top-color:var(--red)}
+.val-num{font-size:10px;font-weight:800;letter-spacing:2px;color:var(--red);margin-bottom:14px}
+.val-title{font-size:17px;font-weight:800;line-height:1.2;color:var(--black);letter-spacing:-.3px;margin-bottom:12px}
+.val-card p{font-size:13.5px;line-height:1.72;color:var(--sub)}
+
+/* ── INTERACTIVE ── */
+.interactive-section{background:var(--black);padding:100px 0}
+.interactive-inner{max-width:1200px;margin:0 auto;padding:0 52px}
+.interactive-label{font-size:10px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:14px;display:block}
+.interactive-h2{font-size:clamp(30px,3.5vw,46px);font-weight:800;letter-spacing:-1.2px;line-height:1.15;color:var(--white);margin-bottom:48px}
+.interactive-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+.int-card{background:rgba(255,255,255,.04);border-top:3px solid var(--red);padding:32px 28px}
+.int-title{font-size:17px;font-weight:800;color:var(--white);letter-spacing:-.3px;margin-bottom:12px}
+.int-card p{font-size:14px;line-height:1.75;color:rgba(255,255,255,.55)}
+
+/* ── FUTURE ── */
+.future-section{background:var(--white)}
+.future-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:48px}
+.fut-card{background:var(--off);padding:36px 26px 32px;border-top:3px solid var(--black);transition:border-top-color .2s}
+.fut-card:hover{border-top-color:var(--red)}
+.fut-tag{display:inline-block;background:var(--black);color:var(--white);font-size:8px;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:4px 10px;margin-bottom:16px}
+.fut-title{font-size:17px;font-weight:800;line-height:1.2;color:var(--black);letter-spacing:-.3px;margin-bottom:12px}
+.fut-card p{font-size:13.5px;line-height:1.72;color:var(--sub)}
+
+/* ── FAQ ── */
+.faq-section{background:var(--off)}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 80px}
+details{border-top:1px solid var(--border)}
+details:last-child{border-bottom:1px solid var(--border)}
+summary{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:20px 0;cursor:pointer;list-style:none;font-size:15px;font-weight:700;color:var(--black);line-height:1.3;transition:color .15s}
+summary::-webkit-details-marker{display:none}
+summary::after{content:'+';font-size:20px;font-weight:300;color:var(--red);flex-shrink:0;line-height:1;transition:transform .2s}
+details[open] summary{color:var(--red)}
+details[open] summary::after{transform:rotate(45deg)}
+.faq-body{font-size:14px;line-height:1.78;color:var(--sub);padding-bottom:22px}
+
+/* ── CTA ── */
+.cta-section{background:var(--black);padding:120px 0;text-align:center}
+.cta-section .container{display:flex;flex-direction:column;align-items:center}
+.cta-eye{font-size:10px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:24px}
+.cta-title{font-size:clamp(42px,7vw,88px);font-weight:900;letter-spacing:-3px;color:var(--white);line-height:.95;margin-bottom:28px}
+.cta-title span{color:var(--red)}
+.cta-desc{font-size:17px;line-height:1.65;color:rgba(255,255,255,.55);max-width:460px;margin-bottom:48px}
+.cta-form{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:16px}
+.cta-input{padding:14px 20px;width:292px;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.18);color:var(--white);font-family:'Inter',sans-serif;font-size:14px;outline:none;transition:border-color .15s}
+.cta-input::placeholder{color:rgba(255,255,255,.35)}
+.cta-input:focus{border-color:var(--red)}
+.cta-note{font-size:10px;font-weight:600;letter-spacing:.5px;color:rgba(255,255,255,.28)}
+
+/* ── FOOTER ── */
+footer{background:var(--black);border-top:1px solid rgba(255,255,255,.07);padding:22px 52px;display:flex;justify-content:space-between;align-items:center}
+.footer-logo{font-size:14px;font-weight:900;letter-spacing:-0.5px;color:var(--white)}
+.footer-logo .dot{color:var(--red)}
+.footer-note{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.22)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .audience-grid{grid-template-columns:repeat(2,1fr)}
+  .value-grid{grid-template-columns:repeat(2,1fr)}
+  .future-grid{grid-template-columns:repeat(2,1fr)}
+  .faq-grid{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .nav{padding:0 24px}
+  .nav-links{display:none}
+  .hero{padding:80px 24px 72px;min-height:auto}
+  .hero-title{letter-spacing:-3px}
+  .container{padding:0 24px}
+  .interactive-inner{padding:0 24px}
+  section{padding:72px 0}
+  .interactive-section{padding:72px 0}
+  .what-grid{grid-template-columns:1fr;gap:32px}
+  .audience-grid,.value-grid,.future-grid,.interactive-grid{grid-template-columns:1fr}
+  .step{grid-template-columns:80px 1fr;gap:24px}
+  .step-num{font-size:56px;letter-spacing:-3px}
+  .band-inner{padding:0 24px}
+  footer{padding:18px 24px;flex-direction:column;gap:10px;text-align:center}
+  .cta-section{padding:80px 0}
+}
+@media(max-width:500px){
+  .nav{padding:0 18px}
+  .hero{padding:64px 18px 60px}
+  .container,.interactive-inner{padding:0 18px}
+  .band-inner{padding:0 18px}
+  footer{padding:16px 18px}
+  .cta-input{width:100%}
+  .cta-form{flex-direction:column;align-items:stretch;padding:0 18px}
+  .cta-form .btn-primary{text-align:center}
+}
+</style>
+</head>
+<body>
+
+<div class="ver-bar">V2 · Creative Direction</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#top" class="nav-logo">SMTHG<span class="dot">.</span></a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#for-whom">For Whom</a>
+    <a href="#how">How It Works</a>
+    <a href="#value">Platform</a>
+    <a href="#faq">FAQ</a>
+    <a href="#join" class="nav-cta">Get Early Access</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-stripe"></div>
+  <div class="hero-inner">
+    <span class="hero-eye">Fashion Discovery Platform</span>
+    <h1 class="hero-title">SMTHG<span class="dot">.</span></h1>
+    <div class="hero-slogan">it's so me.</div>
+    <p class="hero-desc">A three-sided marketplace at the intersection of fashion, art, music, and new technology. Not just a store — a new kind of media for creative people who wear what they mean.</p>
+    <div class="hero-actions">
+      <a href="#how" class="btn-primary">How It Works</a>
+      <a href="#join" class="btn-ghost">Get Early Access →</a>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER BAND -->
+<div class="band">
+  <div class="band-inner">
+    <span>something new</span>
+    <span class="band-sep">·</span>
+    <span>something different</span>
+    <span class="band-sep">·</span>
+    <span>something special</span>
+    <span class="band-sep">·</span>
+    <span>so me thing</span>
+    <span class="band-sep">·</span>
+    <span>something made for you</span>
+    <span class="band-sep">·</span>
+    <span>something unique</span>
+    <span class="band-sep">·</span>
+    <span>something interesting</span>
+  </div>
+</div>
+
+<!-- WHAT IS SMTHG -->
+<section class="what-section" id="about">
+  <div class="container">
+    <span class="section-label">something different</span>
+    <div class="what-grid">
+      <div class="what-left">
+        <h2>Fashion, art, music, and new technology — one platform.</h2>
+      </div>
+      <div class="what-right">
+        <p>SMTHG is a three-sided conceptual marketplace for premium and affordable-luxury independent brands. Designers release intentional, limited collections. Creators — influencers, musicians, athletes, artists, architects — style them first and bring them to life. Consumers discover fashion that has a story, a face, and a limited window.</p>
+        <p>Unlike most marketplaces, SMTHG lets brands post their <strong>own visual identity</strong>: lookbooks, campaigns, brand universe — not the generic studio photography that strips away what makes an independent label worth finding. The brand's DNA stays intact.</p>
+        <p>SMTHG is also a <strong>new kind of media for creative people</strong> — a portal combining expert and community content at the intersection of fashion, art, music, and AI. <span style="color:var(--red);font-weight:700;">So-me-thing made for you.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR WHOM -->
+<section class="audience-section" id="for-whom">
+  <div class="container">
+    <span class="section-label">something for everyone</span>
+    <h2 class="section-h2">Built for the people who make fashion move.</h2>
+    <div class="audience-grid">
+
+      <div class="aud-card">
+        <div class="aud-num">01</div>
+        <div class="aud-tag">Designers</div>
+        <div class="aud-title">Emerging Brands</div>
+        <p>You design. SMTHG builds the global community around it. Release limited collections with <strong>your own lookbook, campaign, and brand universe</strong> — not generic studio shots. Pre-orders open before production begins. No warehouse risk. No compromise on how your label looks to the world.</p>
+        <ul class="aud-list">
+          <li>Limited drop releases — your visual identity intact</li>
+          <li>Pre-order tools — production follows confirmed demand</li>
+          <li>Collabs with musicians, athletes, artists, and icons</li>
+          <li>Ambassador programme and creator revenue sharing</li>
+        </ul>
+      </div>
+
+      <div class="aud-card">
+        <div class="aud-num">02</div>
+        <div class="aud-tag">Creators</div>
+        <div class="aud-title">Influencers, Musicians &amp; Artists</div>
+        <p>Get early access before drops go wide. Whether you are a style creator, musician, actor, athlete, architect, artist, or street artist — SMTHG connects you with independent brands that fit your world and rewards you authentically when your community buys.</p>
+        <ul class="aud-list">
+          <li>Early access before the drop goes live</li>
+          <li>Virtual Try-On for authentic content creation</li>
+          <li>Revenue share on community purchases</li>
+          <li>Curated drops matched to your aesthetic and audience</li>
+        </ul>
+      </div>
+
+      <div class="aud-card">
+        <div class="aud-num">03</div>
+        <div class="aud-tag">Superfans</div>
+        <div class="aud-title">Fashion Discoverers</div>
+        <p>Find pieces you will not find anywhere else. The core SMTHG consumer values uniqueness over brand name, chooses independent labels that express who they are, and discovers fashion through creators — not algorithms and banner ads. Try on virtually. Buy before it's gone. Earn through community.</p>
+        <ul class="aud-list">
+          <li>Discover emerging designers via creators you follow</li>
+          <li>AI-powered style matching based on what you love</li>
+          <li>Virtual Try-On before committing to a pre-order</li>
+          <li>Gamified interaction with your favourite brands</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how">
+  <div class="container">
+    <span class="section-label">something that works</span>
+    <h2 class="section-h2">From first look to final sale.</h2>
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <div class="step-role">Designer</div>
+          <h3>A designer releases a limited drop — with their own visual identity</h3>
+          <p>A designer lists a new collection on SMTHG. Their own campaign imagery, their own story, their own brand universe. Pre-orders open. The drop has a defined window. Production follows only after demand is confirmed. No guessing, no leftover stock, no compromise on aesthetics.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <div class="step-role">Creator · Celebrity · Artist</div>
+          <h3>A creator, musician, or artist styles it first</h3>
+          <p>Selected creators — influencers, musicians, actors, athletes, architects, street artists, tattoo artists — get early access before the drop goes wide. They use SMTHG's Virtual Try-On, create content in their own voice, and share with their community. An authentic cultural moment, not a sponsored placement.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <div class="step-role">Consumer</div>
+          <h3>Consumers discover, match, and try on virtually</h3>
+          <p>Through creator content, consumers find the drop. On SMTHG, they try pieces on virtually — seeing the design on their own body, in their own context. AI surfaces drops based on past taste, style keywords, or image search. Discovery becomes personal. Confidence replaces guesswork.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-content">
+          <div class="step-role">Superfan Community</div>
+          <h3>The community creates, earns, buys, and sells out</h3>
+          <p>Superfans share their try-on moments, invent new styles, name them, and earn bonuses from their favourite brands. Pre-orders confirm. The designer produces exactly what was sold — nothing more. No inventory sits. The sold-out piece becomes an object of desire, and on resale it's worth multiples of the original drop price.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PLATFORM VALUE -->
+<section class="value-section" id="value">
+  <div class="container">
+    <span class="section-label">something special</span>
+    <h2 class="section-h2">Built different from every fashion marketplace.</h2>
+    <div class="value-grid">
+
+      <div class="val-card">
+        <div class="val-num">01</div>
+        <div class="val-title">Deficit marketing — limited runs that matter</div>
+        <p>Drops are produced only after demand is confirmed. Genuine scarcity. Pieces sell out on launch. On the resale market, they go on to trade at multiples of the original drop price. Every collection becomes an event.</p>
+      </div>
+
+      <div class="val-card">
+        <div class="val-num">02</div>
+        <div class="val-title">Celebrity and artist collaborations</div>
+        <p>SMTHG connects designers with musicians, actors, athletes, architects, street artists, and tattoo artists — not just style creators. Resonant collaborations that generate cultural conversation, not just content.</p>
+      </div>
+
+      <div class="val-card">
+        <div class="val-num">03</div>
+        <div class="val-title">Brand visual DNA — your lookbook, not ours</div>
+        <p>Most marketplaces (Farfetch, Yoox, and others) force brands into generic studio photography: white backgrounds, no styling, models cropped at the neck. SMTHG lets designers post their own campaigns and lookbooks. What makes the label unique stays visible.</p>
+      </div>
+
+      <div class="val-card">
+        <div class="val-num">04</div>
+        <div class="val-title">AI ecosystem built for fashion</div>
+        <p>SMTHG is an ecosystem of AI tools for discovery, styling, and recommendation. Upload a photo, describe a vibe, or search by image. The AI stylist gives outfit recommendations based on your look and the drops available. Shoppers using AI styling spend significantly longer on the platform.</p>
+      </div>
+
+      <div class="val-card">
+        <div class="val-num">05</div>
+        <div class="val-title">Smart search — find what you actually want</div>
+        <p>Search by style, mood, occasion, or texture. Natural-language queries work: "boho-chic denim jacket with a vintage effect". Upload a photo to find similar pieces available now. Tags map to interests in music, gaming, art, film, sport, and counterculture.</p>
+      </div>
+
+      <div class="val-card">
+        <div class="val-num">06</div>
+        <div class="val-title">Virtual Try-On + AI Stylist</div>
+        <p>Upload a photo and see the piece on your own body. The AI Stylist recommends how to complete the look. Returns from poor fit drop significantly. Discovery becomes personal. Doubt turns into confidence — and into a sale.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- INTERACTIVE -->
+<section class="interactive-section" id="interactive">
+  <div class="interactive-inner">
+    <span class="interactive-label">something interactive</span>
+    <h2 class="interactive-h2">Superfan engagement built in.</h2>
+    <div class="interactive-grid">
+
+      <div class="int-card">
+        <div class="int-title">Create, name, earn</div>
+        <p>Superfans engage with their favourite brands through themed mini-videos, style invention challenges, and community moments. They invent new styles, give them names, share them on and off platform — and earn bonuses from the brands they love. Discovery is participatory, not passive.</p>
+      </div>
+
+      <div class="int-card">
+        <div class="int-title">Community as content</div>
+        <p>Inspired by editorial formats like I-D's A-Z series — where culture gets named and claimed — SMTHG puts that mechanism in the hands of its community. Fashion trends on SMTHG are not declared top-down. They surface from the people wearing the clothes.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FUTURE / SOMETHING MORE -->
+<section class="future-section" id="future">
+  <div class="container">
+    <span class="section-label">something more</span>
+    <h2 class="section-h2">Where SMTHG is going.</h2>
+    <div class="future-grid">
+
+      <div class="fut-card">
+        <div class="fut-tag">Future</div>
+        <div class="fut-title">Music festival partnerships</div>
+        <p>Musicians are independent designers' most powerful creative partners — more followers, stronger resonance, richer storytelling. SMTHG builds the infrastructure for major international music festival partnerships that connect brands with the audiences that move fashion forward.</p>
+      </div>
+
+      <div class="fut-card">
+        <div class="fut-tag">Future</div>
+        <div class="fut-title">World Talent Support — design school grants</div>
+        <p>In collaboration with leading global fashion institutes — Istituto Marangoni, Polimoda, Domus Academy, Central St. Martin's, London College of Fashion, Parsons School of Design, Bunka Fashion College — SMTHG plans a competitive grant programme for emerging designers. World Talent Support.</p>
+      </div>
+
+      <div class="fut-card">
+        <div class="fut-tag">Future</div>
+        <div class="fut-title">Michelin-style brand curation</div>
+        <p>SMTHG does not list every brand. It selects them — the way Michelin selects restaurants. Independent, with a distinct point of view, already building a following but not yet discovered beyond their city or country. SMTHG opens that door.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="container">
+    <span class="section-label">something to tell you</span>
+    <h2 class="section-h2">Questions</h2>
+    <div class="faq-grid">
+
+      <div>
+        <details>
+          <summary>What is SMTHG?</summary>
+          <p class="faq-body">SMTHG is a three-sided fashion discovery platform connecting emerging designers, creators, and consumers. At the intersection of fashion, art, music, and AI technology — not just a marketplace, but a new kind of media for creative people. Designers release limited drops with their own visual identity. Creators style them first. Consumers discover, try on virtually, and buy before the drop sells out.</p>
+        </details>
+        <details>
+          <summary>Who are the designers on SMTHG?</summary>
+          <p class="faq-body">SMTHG is for independent emerging fashion brands in the premium and affordable-luxury segment — ready-to-wear, capsule collections, conceptual merch, art objects, accessories, perfume. Charismatic brands with their own DNA and a growing following, typically reaching $700K–$4M in annual turnover, that are not yet known beyond their city or country. SMTHG is the door to global discovery.</p>
+        </details>
+        <details>
+          <summary>Who is the core SMTHG consumer?</summary>
+          <p class="faq-body">The core SMTHG consumer is Generation Z — the first generation of true digital natives. They value uniqueness and individuality, choose conscious consumption, and reject global mass-luxury brands in favour of independent labels that let them express who they are. They discover through creators they trust, engage through short visual content, and move fashion through community — not advertising.</p>
+        </details>
+        <details>
+          <summary>What is a limited drop?</summary>
+          <p class="faq-body">A limited drop is a small, intentional collection with a defined window and quantity. Drops create genuine scarcity — pieces sell out on launch and become sought-after on the resale market, often trading at multiples of the original price. Production follows only confirmed demand: what gets ordered gets made. No stock sits in a warehouse.</p>
+        </details>
+        <details>
+          <summary>How does Virtual Try-On work?</summary>
+          <p class="faq-body">SMTHG's Virtual Try-On lets consumers and creators see how a garment looks on their own body before purchasing. Upload a photo, select a piece, and see yourself in it. The AI Stylist adds outfit-building recommendations based on your look. Discovery becomes personal — and returns from poor fit drop significantly.</p>
+        </details>
+        <details>
+          <summary>How is SMTHG different from Farfetch or Yoox?</summary>
+          <p class="faq-body">Most fashion marketplaces force brands into generic studio photography — white backgrounds, no styling, models cropped at the neck — which strips away what makes an independent label worth finding. SMTHG lets designers post their own lookbooks, campaigns, and brand universe. The brand's DNA stays visible. SMTHG is also not a catalogue: it is built around the drop as a community event, not a product listing.</p>
+        </details>
+      </div>
+
+      <div>
+        <details>
+          <summary>What kinds of creators can participate?</summary>
+          <p class="faq-body">SMTHG is for any creator whose world intersects with fashion — style influencers, musicians, actors, athletes, architects, artists, street artists, tattoo artists. The platform connects creators with drops that fit their aesthetic and audience, and rewards them when their community buys. Authentic recommendation, not sponsored placement.</p>
+        </details>
+        <details>
+          <summary>How do creators earn on SMTHG?</summary>
+          <p class="faq-body">Creators get early access to drops before they go wide. They use SMTHG's Virtual Try-On to create content and share it with their audience. When their community purchases through their recommendation, they earn a revenue share on the sale — directly rewarding authentic discovery.</p>
+        </details>
+        <details>
+          <summary>Do consumers buy before items are produced?</summary>
+          <p class="faq-body">On SMTHG, drops use a pre-order model: consumers secure pieces during the drop window, and production follows once demand is confirmed. What you order gets made for you — no leftover stock, no mass-market compromise. Drop windows and estimated production timelines are set clearly by each designer.</p>
+        </details>
+        <details>
+          <summary>How does the superfan gamification work?</summary>
+          <p class="faq-body">SMTHG is built for the generation that creates, not just consumes. Superfans engage with their favourite brands through themed content challenges, style invention formats, and community moments — inventing new style directions, naming them, and sharing them on and off platform. Participation earns bonuses from the brands they love.</p>
+        </details>
+        <details>
+          <summary>Where can designers and brands be based?</summary>
+          <p class="faq-body">SMTHG's consumer audience is primarily American and European. Designers can be based anywhere — the US, Europe, the UK, East Asia, South Korea, India, Turkey, Georgia, and beyond. SMTHG is a global platform with no territorial limits on who can bring their label to it.</p>
+        </details>
+        <details>
+          <summary>How do I join as a founding designer or creator?</summary>
+          <p class="faq-body">SMTHG is in its founding phase, selecting its first group of designers and creator partners. Founding designers receive dedicated onboarding, early platform access, and priority placement in the first drops. Creators are matched with drops that fit their aesthetic. Express interest using the form below.</p>
+        </details>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="join">
+  <div class="container">
+    <div class="cta-eye">something to be part of</div>
+    <h2 class="cta-title">Be part of<br><span>SMTHG</span>.</h2>
+    <p class="cta-desc">Founding designers, creators, and brand partners are being selected now. Leave your details and we will be in touch.</p>
+    <div class="cta-form">
+      <input class="cta-input" type="email" placeholder="Your email address" aria-label="Email address"/>
+      <button class="btn-primary" type="button">Request Early Access</button>
+    </div>
+    <div class="cta-note">For designers · creators · brand partners</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">SMTHG<span class="dot">.</span></div>
+  <div class="footer-note">Fashion Discovery Platform · Coming Soon</div>
+</footer>
+
+</body>
+</html>
