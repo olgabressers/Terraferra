@@ -4,96 +4,116 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <meta name="robots" content="noindex, nofollow"/>
-<title>Terra Ferra</title>
+<title>SMTHG — Workflow Hub</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --tf:#4B40C2;
-  --tf-dark:#2D2595;
-  --tf-deep:#12102B;
-  --tf-mid:#7169D4;
-  --tf-light:#ECEAF9;
-  --tf-ghost:#F4F2FC;
-  --orange:#E86820;
-  --off-white:#F7F6FB;
-  --ink:#12102B;
-  --sub:#5B5880;
-  --rule:#D8D4EF;
+  --red:#E8002D;
+  --red-dark:#C0001F;
+  --black:#0A0A0A;
+  --white:#FFFFFF;
+  --off:#F7F7F7;
+  --mid:#888888;
+  --sub:#555555;
+  --border:#E5E5E5;
 }
-body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink);min-height:100vh;display:flex;flex-direction:column}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--off);color:var(--black);min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
 
-header{padding:48px 60px 0}
-.header-inner{max-width:1100px;margin:0 auto}
-.eyebrow{font-size:10px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--sub);opacity:.6}
-.logo{font-size:44px;font-weight:800;letter-spacing:-2px;text-transform:uppercase;color:var(--tf);margin-top:16px;line-height:1}
-.tagline{font-size:10.5px;font-weight:600;letter-spacing:5px;text-transform:uppercase;color:var(--sub);margin-top:12px;opacity:.55}
-
-main{flex:1;padding:64px 60px 80px}
-.grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-
-.card{
-  background:white;
-  border:1px solid var(--rule);
-  border-top:3px solid var(--tf);
-  padding:32px 28px 28px;
-  color:var(--ink);
-  display:flex;
-  flex-direction:column;
-  min-height:200px;
+/* ── TOP NAV ── */
+.topnav{
+  background:var(--white);border-bottom:1px solid var(--border);
+  padding:0 52px;height:56px;
+  display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:100;font-family:'Inter',sans-serif;
+  flex-wrap:wrap;gap:10px;
 }
-.card-num{font-size:11px;font-weight:800;letter-spacing:2px;color:var(--orange);margin-bottom:16px}
-.card-title{font-size:18px;font-weight:800;line-height:1.3;color:var(--ink);margin-bottom:10px}
-.card-sub{font-size:12.5px;color:var(--sub);line-height:1.55;margin-bottom:18px}
-.card-links{margin-top:16px;display:flex;flex-direction:column;gap:6px;padding-top:14px;border-top:1px solid var(--rule)}
-.card-link{font-size:12.5px;font-weight:600;color:var(--tf);text-decoration:none;line-height:1.4}
-.card-link:hover{color:var(--orange);text-decoration:underline}
-
-footer{padding:24px 60px;border-top:1px solid var(--rule);background:white}
-.footer-inner{max-width:1100px;margin:0 auto;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);opacity:.5}
-
-@media(max-width:900px){
-  header{padding:28px 20px 0}
-  main{padding:32px 20px 48px}
-  footer{padding:18px 20px}
-  .logo{font-size:36px}
-  .grid{grid-template-columns:1fr;gap:12px}
-}
-@media(max-width:500px){
-  header{padding:24px 14px 0}
-  main{padding:24px 14px 40px}
-  footer{padding:16px 14px}
-  .logo{font-size:30px}
-  .card{padding:24px 20px}
-  .card-title{font-size:16px}
-}
-
-/* Top navigation */
-.topnav{background:white;border-bottom:1px solid #D8D4EF;padding:12px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50;font-family:'Inter',sans-serif}
-.topnav-home{font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#4B40C2;text-decoration:none;font-size:11px}
-.topnav-home:hover{color:#2D2595}
+.topnav-home{font-size:17px;font-weight:900;letter-spacing:-0.5px;color:var(--black);text-decoration:none;line-height:1}
+.topnav-home .dot{color:var(--red)}
+.topnav-home:hover{color:var(--red)}
 .topnav-links{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-.topnav-links a{color:#5B5880;font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:10px}
-.topnav-links a:hover{color:#4B40C2}
-.topnav-links a.active{color:#E86820}
-@media(max-width:700px){.topnav{position:static;padding:10px 14px}.topnav-links{gap:8px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:2px;width:100%}.topnav-links a{font-size:9.5px;white-space:nowrap}.topnav-links .dropdown-trigger{font-size:9.5px;white-space:nowrap}}
-
+.topnav-links a{font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--mid);text-decoration:none;transition:color .15s}
+.topnav-links a:hover{color:var(--black)}
+.topnav-links a.active{color:var(--red)}
 .topnav-links .has-dropdown{position:relative;padding-bottom:10px;margin-bottom:-10px}
-.topnav-links .dropdown-trigger{cursor:pointer;color:#5B5880;font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:10px;user-select:none}
-.topnav-links .dropdown-trigger:hover,.topnav-links .has-dropdown:focus-within .dropdown-trigger{color:#4B40C2}
-.topnav-links .dropdown-trigger.active{color:#E86820}
-.topnav-links .dropdown{display:none;position:absolute;top:100%;right:0;background:white;border:1px solid #D8D4EF;min-width:220px;box-shadow:0 6px 14px rgba(0,0,0,0.08);padding:6px 0;z-index:60}
+.topnav-links .dropdown-trigger{cursor:pointer;font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--mid);user-select:none}
+.topnav-links .dropdown-trigger:hover,.topnav-links .has-dropdown:focus-within .dropdown-trigger{color:var(--black)}
+.topnav-links .dropdown-trigger.active{color:var(--red)}
+.topnav-links .dropdown{display:none;position:absolute;top:100%;right:0;background:var(--white);border:1px solid var(--border);min-width:220px;box-shadow:0 6px 14px rgba(0,0,0,0.08);padding:6px 0;z-index:60}
 .topnav-links .has-dropdown:hover .dropdown,.topnav-links .has-dropdown:focus-within .dropdown{display:block}
-.topnav-links .dropdown a{display:block;padding:9px 16px;font-size:10px;font-weight:700;color:#5B5880;text-transform:uppercase;letter-spacing:1px;text-decoration:none}
-.topnav-links .dropdown a:hover{background:#F4F2FC;color:#4B40C2}
-@media(max-width:700px){.topnav-links .has-dropdown{padding-bottom:0;margin-bottom:0}.topnav-links .dropdown{display:none!important}}
+.topnav-links .dropdown a{display:block;padding:9px 16px;font-size:10px;font-weight:700;color:var(--mid);text-transform:uppercase;letter-spacing:.8px;text-decoration:none}
+.topnav-links .dropdown a:hover{background:var(--off);color:var(--black)}
+@media(max-width:700px){
+  .topnav{position:static;padding:10px 18px;height:auto}
+  .topnav-links{gap:8px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:2px;width:100%}
+  .topnav-links a,.topnav-links .dropdown-trigger{font-size:9.5px;white-space:nowrap}
+  .topnav-links .has-dropdown{padding-bottom:0;margin-bottom:0}
+  .topnav-links .dropdown{display:none!important}
+}
+
+/* ── HEADER ── */
+header{background:var(--black);padding:72px 52px 60px}
+.header-inner{max-width:1200px;margin:0 auto}
+.eyebrow{font-size:10px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:28px;display:block}
+.logo{font-size:clamp(72px,10vw,136px);font-weight:900;letter-spacing:-4px;line-height:.9;color:var(--white);margin-bottom:24px}
+.logo .dot{color:var(--red)}
+.tagline{font-size:11px;font-weight:800;letter-spacing:5px;text-transform:uppercase;color:rgba(255,255,255,.35)}
+
+/* ── MAIN GRID ── */
+main{flex:1;padding:48px 52px 80px}
+.grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+
+/* ── CARDS ── */
+.card{
+  background:var(--white);
+  border-top:3px solid var(--black);
+  padding:32px 28px 28px;
+  color:var(--black);
+  display:flex;flex-direction:column;
+  min-height:200px;
+  transition:border-top-color .2s;
+}
+.card:hover{border-top-color:var(--red)}
+.card-num{font-size:10px;font-weight:800;letter-spacing:2px;color:var(--red);margin-bottom:18px}
+.card-title{font-size:17px;font-weight:800;line-height:1.2;color:var(--black);letter-spacing:-.3px;margin-bottom:10px}
+.card-links{margin-top:auto;display:flex;flex-direction:column;gap:6px;padding-top:14px;border-top:1px solid var(--border)}
+.card-link{font-size:12.5px;font-weight:600;color:var(--black);text-decoration:none;line-height:1.4;transition:color .15s}
+.card-link:hover{color:var(--red)}
+.card-link.hi{color:var(--red)}
+
+/* ── FOOTER ── */
+footer{background:var(--black);border-top:1px solid rgba(255,255,255,.07);padding:22px 52px;display:flex;justify-content:space-between;align-items:center}
+.footer-logo{font-size:14px;font-weight:900;letter-spacing:-.5px;color:var(--white)}
+.footer-logo .dot{color:var(--red)}
+.footer-note{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.22)}
+
+/* ── BACK TO TOP ── */
+#back-to-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--red);color:var(--white);border:none;border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900;transition:background .15s}
+#back-to-top:hover{background:var(--red-dark)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1000px){
+  header{padding:48px 24px 40px}
+  main{padding:24px 24px 60px}
+  .grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  header{padding:36px 18px 32px}
+  main{padding:18px 18px 48px}
+  footer{padding:16px 18px;flex-direction:column;gap:8px;text-align:center}
+  .grid{grid-template-columns:1fr}
+  .card{padding:24px 20px}
+  .card-title{font-size:15px}
+}
 </style>
 </head>
 <body>
 
 <nav class="topnav">
-  <a href="index.html" class="topnav-home">Terra Ferra</a>
+  <a href="index.html" class="topnav-home">SMTHG<span class="dot">.</span></a>
   <div class="topnav-links">
     <a href="index.html">Files</a>
     <div class="has-dropdown">
@@ -140,8 +160,8 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white}
 
 <header>
   <div class="header-inner">
-    <div class="eyebrow">Internal · Private</div>
-    <div class="logo">Terra Ferra</div>
+    <span class="eyebrow">Internal · Private</span>
+    <div class="logo">SMTHG<span class="dot">.</span></div>
     <div class="tagline">Workflow Hub</div>
   </div>
 </header>
@@ -153,9 +173,9 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white}
       <div class="card-num">00</div>
       <div class="card-title">TF Working Files</div>
       <div class="card-links">
-        <a class="card-link" href="files/terrapresa10_2026_v18.pptx" target="_blank" rel="noopener" style="color:var(--orange)">Investor Deck v18 (PPTX) →</a>
-        <a class="card-link" href="files/terraferra_next_steps_20260621.pptx" target="_blank" rel="noopener" style="color:var(--orange)">Next Steps (PPTX) →</a>
-<a class="card-link" href="files/TerraFerra_OnePager.pdf" target="_blank" rel="noopener" style="color:var(--orange)">One Pager (PDF) →</a>
+        <a class="card-link hi" href="files/terrapresa10_2026_v18.pptx" target="_blank" rel="noopener">Investor Deck v18 (PPTX) →</a>
+        <a class="card-link hi" href="files/terraferra_next_steps_20260621.pptx" target="_blank" rel="noopener">Next Steps (PPTX) →</a>
+        <a class="card-link hi" href="files/TerraFerra_OnePager.pdf" target="_blank" rel="noopener">One Pager (PDF) →</a>
         <a class="card-link" href="files/TerraFerra_OnePager_Landscape.png" target="_blank" rel="noopener">One Pager Landscape (PNG) →</a>
         <a class="card-link" href="files/Terra%20Ferra%20Blurb_.docx" target="_blank" rel="noopener">Blurb (DOCX) →</a>
         <a class="card-link" href="files/TerraFerra_Blurb_visual_AI.png" target="_blank" rel="noopener">Blurb Visual — AI (PNG) →</a>
@@ -169,7 +189,7 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white}
       <div class="card-num">01</div>
       <div class="card-title">TF Budget &amp; Sales Scenarios</div>
       <div class="card-links">
-        <a class="card-link" href="TFmarketsize.html" style="color:var(--orange)">Market Size &amp; Opportunity →</a>
+        <a class="card-link hi" href="TFmarketsize.html">Market Size &amp; Opportunity →</a>
         <a class="card-link" href="budget.html">Budget &amp; Sales Scenarios →</a>
       </div>
     </div>
@@ -186,9 +206,10 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white}
       <div class="card-num">03</div>
       <div class="card-title">TF Business Model &amp; GTM</div>
       <div class="card-links">
-        <a class="card-link" href="TFbrandsworldwide.html" style="color:var(--orange)">Fashion Brands Worldwide (market size + Asia) →</a>
+        <a class="card-link hi" href="community-mktg.html">Community Marketing + Paid Digital Layer — Research →</a>
+        <a class="card-link" href="TFbrandsworldwide.html">Fashion Brands Worldwide (market size + Asia) →</a>
         <a class="card-link" href="TFvisualdiscovery.html">Visual Discovery Engines — Research →</a>
-        <a class="card-link" href="TFmvpcosts.html" style="color:var(--orange)">MVP Scope &amp; Costs →</a>
+        <a class="card-link hi" href="TFmvpcosts.html">MVP Scope &amp; Costs →</a>
         <a class="card-link" href="TFreferral.html">Referral &amp; Viral Mechanics — Research →</a>
         <a class="card-link" href="TFwhynow.html">Why Now — LTK / ShopMy / VTO Timing →</a>
         <a class="card-link" href="TFdropsmarket.html">Drop Market Research →</a>
@@ -216,7 +237,7 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white}
       <div class="card-num">05</div>
       <div class="card-title">Operations</div>
       <div class="card-links">
-        <a class="card-link" href="TFmarketplaces.html" style="color:var(--orange)">Marketplace Technology &amp; Cross-border Requirements →</a>
+        <a class="card-link hi" href="TFmarketplaces.html">Marketplace Technology &amp; Cross-border Requirements →</a>
       </div>
     </div>
 
@@ -234,7 +255,7 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white}
       <div class="card-num">07</div>
       <div class="card-title">Design &amp; Creativity</div>
       <div class="card-links">
-        <a class="card-link" href="smthg.html" style="color:var(--orange)">SMTHG — Concept Landing Page →</a>
+        <a class="card-link hi" href="smthg.html">SMTHG — Concept Landing Page →</a>
         <a class="card-link" href="TFnewname.html">New Name Brainstorm →</a>
       </div>
     </div>
@@ -243,7 +264,7 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white}
       <div class="card-num">08</div>
       <div class="card-title">Legal / Tax</div>
       <div class="card-links">
-        <a class="card-link" href="TFrussia.html" style="color:var(--orange)">Russian Designers — US Sanctions Compliance →</a>
+        <a class="card-link hi" href="TFrussia.html">Russian Designers — US Sanctions Compliance →</a>
       </div>
     </div>
 
@@ -259,21 +280,11 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white}
 </main>
 
 <footer>
-  <div class="footer-inner">Private · noindex · Not for distribution</div>
+  <div class="footer-logo">SMTHG<span class="dot">.</span></div>
+  <div class="footer-note">Private · noindex · Not for distribution</div>
 </footer>
 
-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" title="Back to top">&#8593;</button>
-<style>#back-to-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:#4B40C2;color:white;border:1px solid rgba(113,105,212,.5);border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900;transition:background .2s;}#back-to-top:hover{background:#2D2595;}
-#gate{position:fixed;inset:0;background:#12102B;display:flex;align-items:center;justify-content:center;z-index:9999}
-#gate-box{background:white;padding:40px 44px;max-width:360px;width:90%;text-align:center}
-#gate-box h2{font-family:'Inter',sans-serif;font-size:15px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#12102B;margin-bottom:6px}
-#gate-box p{font-family:'Inter',sans-serif;font-size:12px;color:#5B5880;margin-bottom:20px}
-#gate-input{width:100%;padding:10px 12px;border:1.5px solid #D8D4EF;font-family:'Inter',sans-serif;font-size:14px;color:#12102B;outline:none;margin-bottom:10px}
-#gate-input:focus{border-color:#4B40C2}
-#gate-btn{width:100%;padding:11px;background:#4B40C2;color:white;border:none;font-family:'Inter',sans-serif;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer}
-#gate-btn:hover{background:#2D2595}
-#gate-err{font-family:'Inter',sans-serif;font-size:11px;color:#A02020;margin-top:8px;display:none}
-</style>
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" title="Back to top">↑</button>
 
 <script>window.addEventListener('scroll',function(){var b=document.getElementById('back-to-top');b.style.display=window.scrollY>400?'flex':'none';});</script>
 </body>
