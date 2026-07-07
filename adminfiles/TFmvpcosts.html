@@ -716,13 +716,13 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 
       <div class="cost-item">
         <div class="cost-item-label">
-          <div class="cost-item-name">Shopify Basic</div>
-          <div class="cost-item-note">E-commerce platform — checkout, orders, inventory, hosting</div>
+          <div class="cost-item-name">Shopify Grow</div>
+          <div class="cost-item-note">Grow plan required for 3 admin users — Basic ($39/mo) has no staff accounts. Grow: up to 5 staff. $79/mo billed annually · $105/mo monthly. <a href="https://www.shopify.com/pricing" target="_blank" rel="noopener" style="color:var(--tf)">shopify.com/pricing</a></div>
         </div>
         <div class="cost-item-ctrl">
           <button class="cost-btn" onclick="adjC('shopify',-1)">−</button>
           <span class="cost-unit">$</span>
-          <input class="cost-input" type="number" id="c-shopify" value="49" min="0" step="1" oninput="calcCosts()"/>
+          <input class="cost-input" type="number" id="c-shopify" value="79" min="0" step="1" oninput="calcCosts()"/>
           <span class="cost-unit">/mo</span>
           <button class="cost-btn" onclick="adjC('shopify',1)">+</button>
         </div>
@@ -731,7 +731,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
       <div class="cost-item">
         <div class="cost-item-label">
           <div class="cost-item-name">PuppetVendors</div>
-          <div class="cost-item-note">Shopify app — multi-vendor marketplace and payout management</div>
+          <div class="cost-item-note">Per store — not per user. Launch plan: up to 25 vendors, 5,000 products. <a href="https://apps.shopify.com/puppet-vendors" target="_blank" rel="noopener" style="color:var(--tf)">apps.shopify.com/puppet-vendors</a></div>
         </div>
         <div class="cost-item-ctrl">
           <button class="cost-btn" onclick="adjC('puppet',-1)">−</button>
@@ -832,7 +832,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
       <div class="cost-item">
         <div class="cost-item-label">
           <div class="cost-item-name">Business insurance</div>
-          <div class="cost-item-note">General liability + E&amp;O. Typical range $50–$200/mo. Confirm with broker.</div>
+          <div class="cost-item-note">Estimate — no primary source verified. US startup range: $50–150/mo (general liability + E&amp;O). Get quotes from Next Insurance or Hiscox before launch.</div>
         </div>
         <div class="cost-item-ctrl">
           <button class="cost-btn" onclick="adjC('insurance',-10)">−</button>
@@ -867,7 +867,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
       <div class="cost-item">
         <div class="cost-item-label">
           <div class="cost-item-name">Bank account opening</div>
-          <div class="cost-item-note">Mercury / Brex (US startup bank): free. Traditional banks: $0–500.</div>
+          <div class="cost-item-note">Mercury (US startup bank): free. Brex: free. No minimum deposit required for either.</div>
         </div>
         <div class="cost-item-ctrl">
           <button class="cost-btn" onclick="adjC('bank',-50)">−</button>
@@ -880,13 +880,13 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 
       <div class="cost-item">
         <div class="cost-item-label">
-          <div class="cost-item-name">Legal / incorporation</div>
-          <div class="cost-item-note">Delaware C-corp formation. Confirm with counsel — TBD.</div>
+          <div class="cost-item-name">Legal / incorporation (Delaware C-corp)</div>
+          <div class="cost-item-note">Stripe Atlas: $500 one-time — includes state filing fees, EIN, 83(b) election, and founder share issuance. $100/yr registered agent after year 1. <a href="https://stripe.com/atlas" target="_blank" rel="noopener" style="color:var(--tf)">stripe.com/atlas</a></div>
         </div>
         <div class="cost-item-ctrl">
           <button class="cost-btn" onclick="adjC('legal',-100)">−</button>
           <span class="cost-unit">$</span>
-          <input class="cost-input" type="number" id="c-legal" value="0" min="0" step="100" oninput="calcCosts()"/>
+          <input class="cost-input" type="number" id="c-legal" value="500" min="0" step="100" oninput="calcCosts()"/>
           <span class="cost-unit">one-time</span>
           <button class="cost-btn" onclick="adjC('legal',100)">+</button>
         </div>
@@ -909,8 +909,8 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         <span class="out-row-val" id="co-platform">—</span>
       </div>
       <div class="out-row" style="padding-top:4px;padding-bottom:4px">
-        <span class="out-row-lbl" style="font-size:11px;padding-left:10px">Shopify</span>
-        <span class="out-row-val" style="font-size:12px" id="co-shopify">$49</span>
+        <span class="out-row-lbl" style="font-size:11px;padding-left:10px">Shopify Grow</span>
+        <span class="out-row-val" style="font-size:12px" id="co-shopify">$79</span>
       </div>
       <div class="out-row" style="padding-top:4px;padding-bottom:4px">
         <span class="out-row-lbl" style="font-size:11px;padding-left:10px">PuppetVendors</span>
@@ -971,7 +971,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         <span class="out-row-val" id="co-onetime">$0</span>
       </div>
 
-      <div class="out-gami-note" style="margin-top:14px">Alex's baseline: Shopify $49 + PuppetVendors $49 + VTO (900 tries × $0.10 = $90) + Framer $15 = $203/mo</div>
+      <div class="out-gami-note" style="margin-top:14px">Alex quoted $203/mo (Shopify $49 + PuppetVendors $49 + VTO $90 + Framer $15). Corrected: Basic plan ($49 old price) has no staff accounts — Grow plan needed for 3 users = $79/mo annual · revised baseline $233/mo.</div>
     </div>
 
   </div><!-- calc-wrap -->
