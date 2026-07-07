@@ -181,7 +181,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <h1 class="pg-title">Marketplace Technology &amp; Cross-border Requirements</h1>
 
   <div class="ctx-box" style="border-left-color:var(--green);margin-top:24px">
-    <strong style="color:var(--green)">Recommendation:</strong> Start on <strong>Shopify Grow + Webkul multi-vendor app (~€140/mo)</strong> — covers multi-designer storefronts, commission splits, pre-order drops, and Instagram/TikTok channels. Ambassador payouts and crowdfunding require custom dev on any stack; neither Shopify nor Marketplacer handles these natively. Migrate to <strong>Shopify Plus + Marketplacer</strong> when the designer count exceeds ~50 or GMV approaches $1M — Marketplacer's seller management, product approval, and order routing are meaningfully superior at that volume. The cost jump (€140 → €2,100+/mo, plus Marketplacer enterprise pricing) is not justified at MVP stage. See §00 for full feature comparison.
+    <strong style="color:var(--green)">Pick:</strong> <strong>Shopify Grow + Webkul (~€140/mo)</strong> for MVP. Switch to <strong>Shopify Plus + Marketplacer</strong> at 50+ designers or ~$1M GMV. Ambassador payouts and crowdfunding need custom dev on any stack — see §00.
   </div>
 
   <nav class="toc-box">
@@ -201,11 +201,8 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <div class="section" id="sec00">
     <h2 class="sec-heading"><span class="sec-num">00</span>Shopify vs Marketplacer — Platform Fit for SMTHNG</h2>
 
-    <div class="ctx-box" style="border-left-color:var(--green);margin-bottom:12px">
-      <strong style="color:var(--green)">MVP path:</strong> Shopify Grow (€78/mo) + multi-vendor app (~$60/mo) covers multi-designer storefronts, commission management, and social channels. Live in weeks. Total ~€140/mo.
-    </div>
-    <div class="ctx-box" style="border-left-color:var(--amber);margin-bottom:28px">
-      <strong style="color:var(--amber)">At scale (50+ designers or ~$1M GMV):</strong> Shopify Plus (€2,100+/mo) + Marketplacer connector. Purpose-built seller management, product approval workflows, and enterprise order routing. Marketplacer pricing is custom — no published rates. Neither path covers crowdfunding or ambassador payouts natively — both require custom dev or additional apps regardless of stack.
+    <div class="ctx-box" style="border-left-color:var(--green);margin-bottom:24px">
+      <strong style="color:var(--green)">MVP:</strong> Shopify Grow + Webkul (~€140/mo), live in weeks. &nbsp;<strong style="color:var(--amber)">Scale:</strong> add Shopify Plus + Marketplacer at 50+ designers / ~$1M GMV. &nbsp;<strong style="color:var(--red)">Both stacks:</strong> ambassador payouts and crowdfunding need custom dev.
     </div>
 
     <table class="ctable">
@@ -213,81 +210,99 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         <tr>
           <th class="col-dim">Dimension</th>
           <th class="col-val">Shopify Grow + apps</th>
-          <th class="col-val">Shopify Plus + Marketplacer</th>
+          <th class="col-val">Shopify Plus</th>
+          <th class="col-val">Marketplacer <span style="font-size:10px;font-weight:400;color:var(--sub)">(layer on top)</span></th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Multi-designer / multi-vendor</td>
-          <td>Via Webkul app ($60/mo, unlimited sellers). Seller dashboards, per-seller and per-product commission rates, partial fulfilment, automated payouts.
+          <td>Multi-vendor</td>
+          <td>Webkul app ($60/mo) — seller dashboards, per-seller &amp; per-product commission, partial fulfilment, automated payouts.
             <span class="src"><a href="https://apps.shopify.com/multi-vendor-marketplace" target="_blank" rel="noopener">apps.shopify.com/multi-vendor-marketplace</a></span>
           </td>
-          <td>Native in Marketplacer. Seller onboarding, product approval, AI-assisted catalog ingestion, order routing — no third-party app needed.
-            <span class="src"><a href="https://marketplacer.com/resources/shopify-connector" target="_blank" rel="noopener">marketplacer.com/resources/shopify-connector</a></span>
+          <td>Same Webkul app. Plus adds Shopify Flow automations and custom checkout logic.
+            <span class="src"><a href="https://www.shopify.com/pricing" target="_blank" rel="noopener">shopify.com/pricing</a></span>
+          </td>
+          <td><span class="yes">Native.</span> Seller onboarding portal, product approval workflows, AI-assisted catalog ingestion, order routing — no app needed.
+            <span class="src"><a href="https://marketplacer.com/platform" target="_blank" rel="noopener">marketplacer.com/platform</a></span>
           </td>
         </tr>
         <tr>
           <td>Commission management</td>
-          <td>Webkul: global, per-seller, per-product, per-category, and per-variant commission rules. Automated payout calculations.
+          <td>Webkul: global, per-seller, per-product, per-category, per-variant rules. Automated payouts.
             <span class="src"><a href="https://apps.shopify.com/multi-vendor-marketplace" target="_blank" rel="noopener">apps.shopify.com/multi-vendor-marketplace</a></span>
           </td>
-          <td>Native commission engine in Marketplacer. Revenue from seller commissions and listing fees routed via the connector.
+          <td>Same via Webkul. Shopify Flow adds automation triggers on commission events.
+          </td>
+          <td><span class="yes">Native commission engine</span> — per-seller revenue splits, listing fees, automated routing.
             <span class="src"><a href="https://marketplacer.com/resources/shopify-connector" target="_blank" rel="noopener">marketplacer.com/resources/shopify-connector</a></span>
           </td>
         </tr>
         <tr>
           <td>Ambassador / co-creator payouts</td>
-          <td class="warn">Not native. Requires a separate affiliate app (Refersion, UpPromote, Impact). Additional monthly cost.</td>
-          <td class="warn">Not native to Marketplacer. Same gap — separate affiliate layer required.</td>
+          <td class="warn">Not native. Separate affiliate app required.</td>
+          <td class="warn">Not native. Same gap.</td>
+          <td class="warn">Not native. Same gap.</td>
         </tr>
         <tr>
           <td>Pre-order / drops</td>
-          <td>Multiple pre-order apps in Shopify App Store. Workable for MVP drop launches.
+          <td>Via pre-order apps in App Store. Workable for MVP.
             <span class="src"><a href="https://apps.shopify.com/collections/pre-orders" target="_blank" rel="noopener">apps.shopify.com/collections/pre-orders</a></span>
           </td>
-          <td class="warn">Not native to Marketplacer. Requires app or custom dev on the Shopify layer.</td>
+          <td>Same app options as Grow.</td>
+          <td class="warn">Not native. Handled at the Shopify layer.</td>
         </tr>
         <tr>
           <td>Crowdfunding</td>
-          <td class="warn">Not native on either path. Custom development required on both stacks.</td>
-          <td class="warn">Not native on either path. Custom development required on both stacks.</td>
+          <td class="no">Not native. Custom dev.</td>
+          <td class="no">Not native. Custom dev.</td>
+          <td class="no">Not native. Custom dev.</td>
         </tr>
         <tr>
-          <td>Social commerce (Instagram, TikTok, Pinterest)</td>
-          <td><span class="yes">Native on all Shopify plans.</span> Instagram, TikTok, Pinterest, YouTube Shopping channels built in.
+          <td>Social commerce</td>
+          <td><span class="yes">Native</span> — Instagram, TikTok, Pinterest, YouTube Shopping.
             <span class="src"><a href="https://www.shopify.com/pricing" target="_blank" rel="noopener">shopify.com/pricing</a></span>
           </td>
-          <td><span class="yes">Same channels</span> — delivered via the Shopify layer. Marketplacer does not extend or restrict these.</td>
+          <td><span class="yes">Native</span> + Shopify Markets for multi-region / multi-currency.
+            <span class="src"><a href="https://www.shopify.com/pricing" target="_blank" rel="noopener">shopify.com/pricing</a></span>
+          </td>
+          <td>Via Shopify layer — same channels. Marketplacer does not add or restrict.</td>
         </tr>
         <tr>
-          <td>Multi-brand checkout / revenue sharing</td>
-          <td>Shopify Collective (free): multi-brand cart with automated revenue sharing — Shopify-to-Shopify suppliers only.
+          <td>Multi-brand checkout</td>
+          <td>Shopify Collective (free) — Shopify-to-Shopify suppliers only.
             <span class="src"><a href="https://www.shopify.com/collective" target="_blank" rel="noopener">shopify.com/collective</a></span>
           </td>
-          <td>Standard Shopify checkout. Marketplacer routes orders to sellers post-purchase; no stated multi-brand cart.
+          <td>Shopify Collective (free) — same as Grow.</td>
+          <td>Standard Shopify checkout. Marketplacer routes orders to sellers post-purchase.
             <span class="src"><a href="https://marketplacer.com/resources/shopify-connector" target="_blank" rel="noopener">marketplacer.com/resources/shopify-connector</a></span>
           </td>
         </tr>
         <tr>
           <td>Platform cost / month</td>
-          <td>€78 (Grow) + ~$60 (Webkul) = <strong>~€140/mo</strong>. Pre-order + affiliate apps add ~$30–100/mo.
+          <td><strong>~€140</strong> (€78 Grow + ~$60 Webkul). Apps add ~$30–100.
             <span class="src"><a href="https://www.shopify.com/pricing" target="_blank" rel="noopener">shopify.com/pricing</a></span>
           </td>
-          <td>€2,100+/mo (Shopify Plus) + Marketplacer enterprise (custom, undisclosed). <strong>Minimum 15× higher.</strong>
+          <td><strong>€2,100+</strong> base + apps.
             <span class="src"><a href="https://www.shopify.com/pricing" target="_blank" rel="noopener">shopify.com/pricing</a></span>
+          </td>
+          <td><strong>Custom / undisclosed</strong> — in addition to Shopify Plus base. No published pricing.
+            <span class="src"><a href="https://marketplacer.com/platform" target="_blank" rel="noopener">marketplacer.com/platform</a></span>
           </td>
         </tr>
         <tr>
           <td>Launch speed</td>
-          <td>Weeks. Mature app ecosystem, no implementation partner required.</td>
-          <td>~90 days via Marketplacer Fast Start Program with dedicated specialists.
+          <td>Weeks. No implementation partner needed.</td>
+          <td>Weeks + Shopify Plus onboarding.</td>
+          <td>~90 days via Fast Start Program.
             <span class="src"><a href="https://marketplacer.com/resources/shopify-connector" target="_blank" rel="noopener">marketplacer.com/resources/shopify-connector</a></span>
           </td>
         </tr>
         <tr>
           <td>Scale ceiling</td>
-          <td>Hundreds of designer-sellers via app. Workable through early growth.</td>
-          <td>Thousands of sellers. Enterprise retailers at Woolworths scale. Purpose-built for high-volume multi-seller operations.
+          <td>Hundreds of sellers. Adequate through early growth.</td>
+          <td>Enterprise — unlimited staff, custom checkout, priority support.</td>
+          <td>Thousands of sellers. Enterprise (Woolworths-scale). Purpose-built for high-volume marketplace ops.
             <span class="src"><a href="https://marketplacer.com/platform" target="_blank" rel="noopener">marketplacer.com/platform</a></span>
           </td>
         </tr>
