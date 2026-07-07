@@ -10,9 +10,9 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --tf:#4B40C2;--tf-dark:#2D2595;--tf-ghost:#F4F2FC;
-  --orange:#E86820;--off-white:#F7F6FB;--ink:#12102B;
-  --sub:#5B5880;--rule:#D8D4EF;
+  --tf:#E8002D;--tf-dark:#B50023;--tf-ghost:#FEF0EE;
+  --orange:#E86820;--off-white:#F8F6F2;--ink:#161616;
+  --sub:#5C5A56;--rule:#E6E2DA;
   --green:#1A7A4A;--green-bg:#EDFAF3;
   --red-text:#C0392B;--red-bg:#FEF0EE;
 }
@@ -20,8 +20,9 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 
 /* NAV */
 .topnav{background:white;border-bottom:1px solid var(--rule);padding:12px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
-.topnav-home{font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);text-decoration:none;font-size:11px}
-.topnav-home:hover{color:var(--tf-dark)}
+.topnav-home{font-weight:900;letter-spacing:-.5px;color:var(--ink);text-decoration:none;font-size:17px;line-height:1}
+.topnav-home .dot{color:var(--tf)}
+.topnav-home:hover{color:var(--tf)}
 .topnav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
 .topnav-links a{color:var(--sub);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:10px}
 .topnav-links a:hover,.topnav-links a.active{color:var(--tf)}
@@ -240,7 +241,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 <body>
 
 <nav class="topnav">
-  <a href="index.html" class="topnav-home">Terra Ferra</a>
+  <a href="index.html" class="topnav-home">SMTHG<span class="dot">.</span></a>
   <div class="topnav-links">
     <a href="index.html">Files</a>
     <div class="has-dropdown">
@@ -294,7 +295,6 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 <!-- 01 CALCULATOR -->
 <section class="section">
   <div class="sec-heading"><span class="sec-num">01</span> Unit Economics · Drop Calculator</div>
-  <p style="font-size:13px;color:var(--ink);margin-bottom:28px;line-height:1.6">Per-drop economics for one or more influencers promoting one drop. Funnel: total followers → post viewers (Instagram organic reach %) → click-through to TF → order on platform. Not all followers see a given post — organic reach filters them first, then CTR applies to viewers only. VTO cost reflects all visitors who try VTO. Orders are capped by items in the drop. Monthly fixed costs excluded — see section 02.</p>
 
   <div class="calc-wrap">
 
@@ -304,7 +304,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
       <div class="sliders-section-label">VTO Vendor</div>
       <div class="vto-switch">
         <button class="vto-btn on" id="btn-fashn" onclick="setVTO('fashn')">
-          FASHN.AI<span>$0.075 per try</span>
+          Shopify VTO<span>$0.10 per try</span>
         </button>
         <button class="vto-btn" id="btn-kivisense" onclick="setVTO('kivisense')">
           Kivisense<span>$888 / month flat</span>
@@ -330,7 +330,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
               <span class="sl-label">Followers per influencer</span>
               <span class="sl-val" id="v-followers">10K</span>
             </div>
-            <input type="range" id="sl-followers" min="1000" max="250000" step="1000" value="10000" oninput="calc()"/>
+            <input type="range" id="sl-followers" min="1000" max="250000" step="1000" value="50000" oninput="calc()"/>
             <div class="sl-hints"><span>1K</span><span>250K</span></div>
           </div>
           <div>
@@ -440,12 +440,12 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 
       <div class="sl-group" id="row-browse">
         <div class="sl-top">
-          <span class="sl-label">VTO browsers per order</span>
-          <span class="sl-val" id="v-browse">10×</span>
+          <span class="sl-label">% of platform visitors who use VTO</span>
+          <span class="sl-val" id="v-browse">50%</span>
         </div>
-        <input type="range" id="sl-browse" min="1" max="30" step="1" value="10" oninput="calc()"/>
-        <div class="sl-hints"><span>1×</span><span>30×</span></div>
-        <div class="sl-note">Proxy — actual VTO usage scales with traffic; this ratio keeps VTO cost proportional to revenue for planning purposes.</div>
+        <input type="range" id="sl-browse" min="5" max="100" step="5" value="50" oninput="calc()"/>
+        <div class="sl-hints"><span>5%</span><span>100%</span></div>
+        <div class="sl-note">Share of platform visitors who trigger a virtual try-on. High when VTO is prominently placed on the product page.</div>
       </div>
 
       <div class="sl-group" id="row-tries">
@@ -667,7 +667,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         <tr>
           <td class="bold">VTO cost</td>
           <td id="concl-p-vto" class="bold">$375</td>
-          <td class="note">TF pays FASHN.AI directly. Reducing tries per session or capping to 3 (free tier) cuts this cost immediately.</td>
+          <td class="note">TF pays Shopify VTO per try ($0.10). Reducing tries per session or the % of visitors who use VTO cuts this cost directly.</td>
         </tr>
         <tr>
           <td class="bold">Click-through rate</td>
@@ -703,7 +703,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 <section class="section">
   <div class="sec-heading"><span class="sec-num">02</span> MVP Costs · Platform Calculator</div>
 
-  <p style="font-size:13px;color:var(--ink);margin-bottom:28px;line-height:1.6">Monthly recurring costs to run the platform on Shopify. Defaults from Alex. All items adjustable — type or use +/− buttons. Development costs excluded.</p>
+  <p style="font-size:13px;color:var(--ink);margin-bottom:28px;line-height:1.6">Monthly recurring platform costs on Shopify. All items adjustable — type or use +/− buttons. Operational labor and development costs excluded.</p>
 
   <div class="calc-wrap">
 
@@ -775,20 +775,6 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
           <input class="cost-input" type="number" id="c-vtovol" value="900" min="0" step="100" oninput="calcCosts()" style="width:72px"/>
           <span class="cost-unit">tries</span>
           <button class="cost-btn" onclick="adjC('vtovol',100)">+</button>
-        </div>
-      </div>
-
-      <div class="cost-item">
-        <div class="cost-item-label">
-          <div class="cost-item-name">FASHN.AI base plan (subscription)</div>
-          <div class="cost-item-note">Fixed subscription on top of per-try costs. Basic $19/mo (200 tries incl.), Pro $49/mo (750 tries), Agency $99/mo (1,500 tries). Set $0 for pure pay-per-try. <a href="https://fashn.ai/pricing" target="_blank" rel="noopener" style="color:var(--tf)">fashn.ai/pricing</a></div>
-        </div>
-        <div class="cost-item-ctrl">
-          <button class="cost-btn" onclick="adjC('fashnplan',-1)">−</button>
-          <span class="cost-unit">$</span>
-          <input class="cost-input" type="number" id="c-fashnplan" value="49" min="0" step="1" oninput="calcCosts()"/>
-          <span class="cost-unit">/mo</span>
-          <button class="cost-btn" onclick="adjC('fashnplan',1)">+</button>
         </div>
       </div>
 
@@ -1006,10 +992,6 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         <span class="out-row-lbl" id="co-vto-lbl">VTO (tries)</span>
         <span class="out-row-val" id="co-vto">—</span>
       </div>
-      <div class="out-row" style="padding-top:4px;padding-bottom:4px">
-        <span class="out-row-lbl" style="font-size:11px;padding-left:10px">FASHN.AI plan</span>
-        <span class="out-row-val" style="font-size:12px" id="co-fashn">$49</span>
-      </div>
 
       <div class="out-divider"></div>
 
@@ -1062,7 +1044,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         <span class="out-row-val" id="co-onetime">$0</span>
       </div>
 
-      <div class="out-gami-note" style="margin-top:14px">Alex quoted $203/mo (Shopify $49 + PuppetVendors $49 + VTO $90 + Framer $15). Corrected: Basic plan ($49 old price) has no staff accounts — Grow plan needed for 3 users = $79/mo annual · revised baseline $233/mo.</div>
+      <div class="out-gami-note" style="margin-top:14px">Minimum platform baseline: $233/mo (Shopify Grow $79 + PuppetVendors $49 + VTO $90 + Framer $15). Shopify Basic has no staff accounts — Grow plan required for 3 users.</div>
     </div>
 
   </div><!-- calc-wrap -->
@@ -1156,7 +1138,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
   </div>
 
   <div class="crossover-box">
-    <strong>Volume crossover:</strong> Kivisense ($888/month flat) becomes cheaper than FASHN.AI once total monthly VTO tries exceed <strong>11,840</strong> (= $888 ÷ $0.075). At your current calculator settings: <strong id="xover">37,500 tries — 317% of crossover → Kivisense cheaper</strong>. Adjust browse rate and tries sliders to update.
+    <strong>Volume crossover:</strong> Kivisense ($888/month flat) becomes cheaper than Shopify VTO once total monthly VTO tries exceed <strong>8,880</strong> (= $888 ÷ $0.10). At your current calculator settings: <strong id="xover">—</strong>. Adjust VTO rate and tries sliders to update.
   </div>
 
 </section>
@@ -1316,7 +1298,7 @@ function calc() {
   var platPct         = +document.getElementById('sl-platform').value / 100;
   var infPct          = +document.getElementById('sl-inf').value / 100;
   var payPct          = +document.getElementById('sl-payment').value / 100;
-  var browseMultiplier = +document.getElementById('sl-browse').value;
+  var vtoRate         = +document.getElementById('sl-browse').value / 100;
   var tries           = +document.getElementById('sl-tries').value;
 
   // Update slider labels
@@ -1333,7 +1315,7 @@ function calc() {
   document.getElementById('v-inf').textContent      = parseInt(document.getElementById('sl-inf').value)+'%';
   document.getElementById('v-postfee').textContent  = '$'+document.getElementById('sl-postfee').value;
   document.getElementById('v-payment').textContent  = parseFloat(document.getElementById('sl-payment').value).toFixed(1)+'%';
-  document.getElementById('v-browse').textContent   = browseMultiplier+'×';
+  document.getElementById('v-browse').textContent   = Math.round(vtoRate*100)+'%';
   document.getElementById('v-tries').textContent    = tries+'×';
 
   // Three-step funnel: total followers → post viewers (reach) → platform visitors (CTR) → orders
@@ -1360,14 +1342,14 @@ function calc() {
   var totalDrops = designers * dropsPerDesigner;
   var designerFee = +document.getElementById('sl-designer-fee').value;
 
-  // VTO cost scales with orders (not followers)
-  var vtoUsers = Math.round(orders * browseMultiplier);
+  // VTO usage: % of platform visitors who trigger a try-on
+  var vtoUsers = Math.round(platformVisitors * vtoRate);
   var effectiveTries = limitEnabled ? Math.min(tries, 3) : tries;
   var totalTries = vtoUsers * effectiveTries;
 
   var vtoCost = 0;
   if (vtoMode === 'fashn') {
-    vtoCost = totalTries * 0.075;
+    vtoCost = totalTries * 0.10;
   } else if (vtoMode === 'kivisense') {
     vtoCost = 888 / totalDrops; // $888/mo flat split across all drops
   }
@@ -1398,7 +1380,7 @@ function calc() {
   document.getElementById('o-pay-lbl').textContent= 'Payment Processing ('+parseFloat(document.getElementById('sl-payment').value).toFixed(1)+'%)';
 
   if (vtoMode === 'fashn') {
-    document.getElementById('o-vto-lbl').textContent = 'VTO · FASHN.AI ('+totalTries.toLocaleString()+' tries)';
+    document.getElementById('o-vto-lbl').textContent = 'VTO · Shopify ('+totalTries.toLocaleString()+' tries)';
   } else if (vtoMode === 'kivisense') {
     document.getElementById('o-vto-lbl').textContent = 'VTO · Kivisense ($888/mo ÷ '+totalDrops+' drops)';
   }
@@ -1435,7 +1417,7 @@ function calc() {
     document.getElementById('o-target-drops').textContent = 'N/A — revenue per designer negative';
     document.getElementById('o-target-row').style.opacity = '0.5';
   }
-  document.getElementById('o-vto-users').textContent = fK(vtoUsers)+' browsers ('+browseMultiplier+'× orders)';
+  document.getElementById('o-vto-users').textContent = fK(vtoUsers)+' VTO users ('+Math.round(vtoRate*100)+'% of '+platformVisitors.toLocaleString()+' visitors)';
 
   var profitEl = document.getElementById('o-profit');
   profitEl.className = 'profit-val ' + (profit >= 0 ? 'pos' : 'neg');
@@ -1446,7 +1428,7 @@ function calc() {
   bar.style.background = margin < 0 ? '#FF8A80' : margin < 15 ? '#E86820' : '#7AE3B2';
 
   // Crossover: 11,840 total tries/month = breakeven
-  var crossoverTries = Math.round(888 / 0.075);
+  var crossoverTries = Math.round(888 / 0.10);
   var monthlyTries = totalTries * totalDrops;
   var pct = Math.round(monthlyTries / crossoverTries * 100);
   var xoverEl = document.getElementById('xover');
@@ -1458,7 +1440,7 @@ function calc() {
   if (limitEnabled) {
     ln.textContent = '3-try cap applied. Total tries: '+totalTries.toLocaleString()+'. Without cap: '+(vtoUsers*tries).toLocaleString()+'.';
   } else {
-    ln.textContent = 'No cap — each VTO user runs up to '+tries+'× tries. Total tries: '+totalTries.toLocaleString()+'.';
+    ln.textContent = 'No cap — each VTO user runs up to '+tries+' tries. Total tries: '+totalTries.toLocaleString()+'.';
   }
 
   // Conclusion block
@@ -1481,7 +1463,7 @@ function calc() {
   if (revenuePerDes1 > 0) {
     var desAt2 = Math.ceil(10000 / ((tfNet * 2) + designerFee));
     var vtoTip = vtoMode === 'kivisense' ? 'Kivisense $888/mo is split across '+totalDrops+' drops ($'+Math.round(vtoCost)+'/drop).' :
-                 vtoPct > 30 ? 'VTO is eating '+vtoPct+'% of TF fee — reducing tries per session lowers this directly.' :
+                 vtoPct > 30 ? 'VTO is eating '+vtoPct+'% of TF fee — reduce tries per session or lower the VTO visitor %.' :
                  'VTO cost is '+vtoPct+'% of TF fee — manageable at this setting.';
     document.getElementById('concl-summary').textContent =
       'TF nets $'+Math.round(tfNet).toLocaleString()+'/drop + $'+designerFee+'/designer/month subscription. '
@@ -1529,7 +1511,6 @@ function calcCosts() {
   var platform  = shopify + puppet + framer;
 
   var vtoVol    = +document.getElementById('c-vtovol').value   || 0;
-  var fashnPlan = +document.getElementById('c-fashnplan').value || 0;
   var vtoCost = 0, vtoLbl = '';
   if (costVtoMode === 'pertry') {
     vtoCost = vtoVol * 0.10;
@@ -1539,7 +1520,7 @@ function calcCosts() {
     vtoCost  = pkgs * 99;
     vtoLbl   = 'VTO · '+pkgs+' pkg'+(pkgs!==1?'s':'')+' × $99 ('+vtoVol.toLocaleString()+' tries)';
   }
-  var vtoTotal = vtoCost + fashnPlan;
+  var vtoTotal = vtoCost;
 
   var infPay  = +document.getElementById('c-infpay').value || 0;
   var infFee  = infPay * 0.029;
@@ -1582,7 +1563,6 @@ function calcCosts() {
   document.getElementById('co-framer').textContent      = fc$(framer);
   document.getElementById('co-vto-lbl').textContent     = vtoLbl || 'VTO (tries)';
   document.getElementById('co-vto').textContent         = fc$(vtoCost);
-  document.getElementById('co-fashn').textContent       = fc$(fashnPlan);
   document.getElementById('co-inf').textContent         = fc$(infFee);
   document.getElementById('co-stripe-fixed').textContent= fc$(stripeFixed);
   document.getElementById('co-ops').textContent         = fc$(ops);
