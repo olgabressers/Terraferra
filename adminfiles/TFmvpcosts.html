@@ -53,8 +53,8 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 /* SECTIONS */
 .section{padding:52px 0}
 .section+.section{border-top:1px solid var(--rule)}
-.sec-heading{font-size:28px;font-weight:800;color:var(--orange);margin-bottom:28px;line-height:1.15}
-.sec-num{font-size:28px;font-weight:800;color:var(--orange);margin-right:10px}
+.sec-heading{font-size:28px;font-weight:800;color:var(--tf);margin-bottom:28px;line-height:1.15}
+.sec-num{font-size:28px;font-weight:800;color:var(--tf);margin-right:10px}
 
 /* SCOPE */
 .scope-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
@@ -150,7 +150,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .vto-switch{display:flex;gap:0;margin-bottom:24px;border:1px solid var(--rule)}
 .vto-btn{flex:1;padding:12px 8px;text-align:center;cursor:pointer;font-size:12px;font-weight:700;color:var(--sub);background:white;border:none;border-right:1px solid var(--rule);transition:all .15s;line-height:1.4}
 .vto-btn:last-child{border-right:none}
-.vto-btn.on{background:var(--tf);color:white}
+.vto-btn.on{background:var(--tf-dark);color:white}
 .vto-btn span{display:block;font-size:10px;font-weight:400;margin-top:2px;opacity:.8}
 .sl-group{margin-bottom:20px}
 .sl-group:last-child{margin-bottom:0}
@@ -162,11 +162,11 @@ input[type=range]{width:100%;height:4px;accent-color:var(--tf);cursor:pointer;di
 .sl-note{font-size:11px;color:var(--sub);margin-top:3px}
 
 .out-box{background:var(--ink);padding:28px 28px 24px;position:sticky;top:72px}
-.out-eyebrow{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:white;margin-bottom:22px}
+.out-eyebrow{font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:white;margin-bottom:22px}
 .out-row{display:flex;justify-content:space-between;align-items:baseline;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.15)}
 .out-row:last-child{border-bottom:none}
-.out-row-lbl{font-size:12px;color:white;font-weight:500}
-.out-row-val{font-size:15px;font-weight:800;color:white}
+.out-row-lbl{font-size:14px;color:white;font-weight:500}
+.out-row-val{font-size:17px;font-weight:800;color:white}
 .out-row-val.neg{color:#FF8A80}
 .out-divider{height:1px;background:rgba(255,255,255,.2);margin:16px 0}
 .profit-row{padding:12px 0 4px}
@@ -185,7 +185,7 @@ input[type=range]{width:100%;height:4px;accent-color:var(--tf);cursor:pointer;di
 .out-sub-lbl{font-size:13px;font-weight:600;color:white}
 .out-sub-val{font-size:15px;font-weight:800;color:white}
 .out-gami-note{margin-top:14px;padding:12px;background:rgba(255,255,255,.07);font-size:13px;font-weight:600;color:white;line-height:1.5}
-.calc-model-title{font-size:20px;font-weight:800;color:var(--tf);margin-bottom:22px;letter-spacing:-0.3px}
+.calc-model-title{font-size:20px;font-weight:800;color:var(--ink);margin-bottom:22px;letter-spacing:-0.3px}
 .sold-out-tag{display:inline-block;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;background:var(--orange);color:white;padding:2px 7px;margin-left:8px;vertical-align:middle}
 .excl-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:6px 32px;margin-top:14px}
 .excl-list li{font-size:12px;color:var(--sub);padding:5px 0;border-bottom:1px solid var(--rule);display:flex;gap:7px;line-height:1.5}
@@ -360,7 +360,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
           <span class="sl-label">Fixed pay per influencer (per drop)</span>
           <span class="sl-val" id="v-postfee">$50</span>
         </div>
-        <input type="range" id="sl-postfee" min="0" max="250" step="10" value="50" oninput="calc()"/>
+        <input type="range" id="sl-postfee" min="0" max="250" step="10" value="100" oninput="calc()"/>
         <div class="sl-hints"><span>$0</span><span>$250</span></div>
         <div class="sl-note">Flat fee per influencer per drop, regardless of sales. ≤50K followers → $50, >50K → $100 suggested.</div>
       </div>
@@ -548,10 +548,6 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         <span class="out-row-lbl" id="o-post-lbl">Influencer flat fee (1 × $100/post)</span>
         <span class="out-row-val neg" id="o-post">−$100</span>
       </div>
-      <div class="out-row">
-        <span class="out-row-lbl" id="o-pay-lbl">Payment Processing (2.9%)</span>
-        <span class="out-row-val neg" id="o-pay">−$435</span>
-      </div>
       <div class="out-divider"></div>
 
       <div class="profit-row">
@@ -577,6 +573,10 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px" id="o-vto-tf-row">
           <span style="font-size:12px;font-weight:700;color:white" id="o-vto-lbl">VTO cost (FASHN.AI)</span>
           <span style="font-size:15px;font-weight:800;color:#FF8A80" id="o-vto">−$94</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px">
+          <span style="font-size:12px;font-weight:700;color:white" id="o-pay-lbl">Payment processing (2.9% + $0.30/order)</span>
+          <span style="font-size:15px;font-weight:800;color:#FF8A80" id="o-pay">−$435</span>
         </div>
         <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px">
           <span style="font-size:12px;font-weight:700;color:white">Gamification reserve (<input type="number" id="inp-gami" value="0" min="0" max="500" step="5" oninput="calc()" style="width:46px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);border-radius:3px;color:white;padding:2px 4px;font-size:11px;font-family:inherit;text-align:right"/>$/drop)</span>
@@ -698,7 +698,13 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 <section class="section">
   <div class="sec-heading"><span class="sec-num">02</span> MVP Costs · Platform Calculator</div>
 
-  <p style="font-size:13px;color:var(--ink);margin-bottom:28px;line-height:1.6">Fixed monthly platform costs — subscriptions, infrastructure, marketing. Variable per-drop costs (VTO, payment processing, influencer commissions) are in section 01. Operational labor and development costs excluded.</p>
+  <div style="border:1px solid var(--rule);border-left:4px solid var(--tf);background:white;padding:18px 24px;margin-bottom:28px">
+    <ul style="list-style:none;margin:0;padding:0">
+      <li style="font-size:14px;color:var(--ink);padding:6px 0;border-bottom:1px solid var(--rule);line-height:1.6">Fixed monthly platform costs — subscriptions, infrastructure, marketing.</li>
+      <li style="font-size:14px;color:var(--ink);padding:6px 0;border-bottom:1px solid var(--rule);line-height:1.6">Variable per-drop costs (VTO, payment processing, influencer commissions) are in section 01.</li>
+      <li style="font-size:14px;color:var(--ink);padding:6px 0;line-height:1.6">Operational labor and development costs excluded.</li>
+    </ul>
+  </div>
 
   <div class="calc-wrap">
 
@@ -891,7 +897,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
     <div class="out-box">
       <div class="out-eyebrow">Cost Summary</div>
 
-      <div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:10px">Monthly recurring</div>
+      <div style="font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:10px">Monthly recurring</div>
 
       <div class="out-row">
         <span class="out-row-lbl">Core platform</span>
@@ -936,7 +942,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 
       <div class="out-divider"></div>
 
-      <div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:10px;margin-top:4px">One-time setup</div>
+      <div style="font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:10px;margin-top:4px">One-time setup</div>
       <div class="out-row">
         <span class="out-row-lbl">Bank account</span>
         <span class="out-row-val" id="co-bank">$0</span>
@@ -950,7 +956,6 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         <span class="out-row-val" id="co-onetime">$0</span>
       </div>
 
-      <div class="out-gami-note" style="margin-top:14px">Fixed cost baseline: $143/mo (Shopify Grow $79 + PuppetVendors $49 + Framer $15). Variable per-drop costs — VTO, payment fees, influencer commissions — are in section 01.</div>
     </div>
 
   </div><!-- calc-wrap -->
@@ -965,7 +970,6 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
     <li>VAT, sales tax, currency conversion</li>
     <li>Customer support labor and all staff labor costs</li>
     <li>App development and in-house build costs</li>
-    <li>App infrastructure — separate from web hosting in section 02</li>
   </ul>
 </section>
 
@@ -1261,7 +1265,7 @@ function calc() {
 
   var sampleCost = 5 * cogs;
   var gamiCost = +document.getElementById('inp-gami').value;
-  var profit = revenue - production - sampleCost - tfFee - infShare - infPostCost - payFee;
+  var profit = revenue - production - sampleCost - tfFee - infShare - infPostCost;
   var margin = revenue > 0 ? (profit / revenue * 100) : 0;
 
   // Funnel output
@@ -1282,7 +1286,7 @@ function calc() {
   document.getElementById('o-post-lbl').textContent = 'Post fee ('+numInfluencers+' × $'+perPostFee+')';
   document.getElementById('o-post').textContent   = fmtNeg(infPostCost);
   document.getElementById('o-pay').textContent    = fmtNeg(payFee);
-  document.getElementById('o-pay-lbl').textContent= 'Payment ('+parseFloat(document.getElementById('sl-payment').value).toFixed(1)+'% + $0.30/order)';
+  document.getElementById('o-pay-lbl').textContent= 'Payment processing ('+parseFloat(document.getElementById('sl-payment').value).toFixed(1)+'% + $0.30/order)';
 
   if (vtoMode === 'fashn') {
     document.getElementById('o-vto-lbl').textContent = 'VTO · Shopify ('+totalTries.toLocaleString()+' tries)';
@@ -1295,7 +1299,7 @@ function calc() {
   document.getElementById('o-margin').textContent = margin.toFixed(1)+'%';
   document.getElementById('o-inf-net').textContent= '$'+Math.round(infShare).toLocaleString();
 
-  var tfNet = tfFee - vtoCost - gamiCost;
+  var tfNet = tfFee - vtoCost - gamiCost - payFee;
   document.getElementById('o-gami').textContent = fmtNeg(gamiCost);
   document.getElementById('o-tf-gross').textContent = '$'+Math.round(tfFee).toLocaleString();
   document.getElementById('o-tf-net').textContent = fmtPos(tfNet);
