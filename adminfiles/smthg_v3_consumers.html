@@ -35,12 +35,13 @@ body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--ink);ove
 .nav-links{display:flex;gap:24px;align-items:center}
 .nav-links a{font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .15s}
 .nav-links a:hover{color:var(--ink)}
-.nav-cta{background:var(--red);color:var(--white)!important;padding:9px 22px;font-size:10px;font-weight:800;letter-spacing:1.5px;transition:background .15s!important}
+.nav-btns{display:flex;gap:8px;align-items:center}
+.nav-cta{background:var(--red);color:var(--white)!important;padding:9px 22px;font-size:10px;font-weight:800;letter-spacing:1.5px;transition:background .15s!important;text-decoration:none}
 .nav-cta:hover{background:var(--red-dark)!important}
-.nav-pill{border:1.5px solid var(--border);color:var(--ink)!important;padding:8px 18px;font-size:10px;font-weight:800;letter-spacing:1.5px;transition:all .15s!important}
+.nav-pill{border:1.5px solid var(--border);color:var(--ink)!important;padding:8px 18px;font-size:10px;font-weight:800;letter-spacing:1.5px;transition:all .15s!important;text-decoration:none}
 .nav-pill:hover{border-color:var(--ink)!important;color:var(--ink)!important}
-@media(max-width:768px){.nav{padding:0 24px}.nav-links{display:none}}
-@media(max-width:600px){.nav{padding:0 18px;height:56px}.nav-logo{font-size:18px}}
+@media(max-width:768px){.nav{padding:0 24px}.nav-links{display:none}.nav-btns{gap:6px}}
+@media(max-width:600px){.nav{padding:0 18px;height:56px}.nav-logo{font-size:18px}.nav-pill{display:none}}
 
 /* ── HERO ── */
 .hero{background:var(--off);padding:88px 52px 72px;position:relative;overflow:hidden}
@@ -52,7 +53,7 @@ body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--ink);ove
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
 .btn{padding:14px 32px;font-family:'Inter',sans-serif;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;display:inline-block;transition:all .15s}
 .btn-fill{background:var(--red);color:var(--white)}.btn-fill:hover{background:var(--red-dark)}
-.btn-outline{border:1.5px solid var(--ink);color:var(--ink);background:transparent}.btn-outline:hover{background:var(--ink);color:var(--white)}
+.btn-outline{border:1.5px solid var(--ink);color:var(--ink);background:transparent}.btn-outline:hover{background:var(--border)}
 @media(max-width:768px){.hero{padding:72px 24px 64px}}
 @media(max-width:600px){.hero{padding:56px 18px 52px}.hero-title{letter-spacing:-2px}}
 
@@ -111,11 +112,11 @@ body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--ink);ove
 @media(max-width:600px){.step{grid-template-columns:70px 1fr;gap:20px}.step-num{font-size:50px}}
 
 /* ── SUSTAIN ── */
-.sustain{background:var(--red);padding:64px 0}
+.sustain{background:var(--off);padding:64px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .sustain .container{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
-.sustain-label{font-size:10px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:12px;display:block}
-.sustain-title{font-size:clamp(24px,2.8vw,36px);font-weight:800;letter-spacing:-1px;line-height:1.15;color:var(--white)}
-.sustain-body p{font-size:14px;line-height:1.78;color:rgba(255,255,255,.82);margin-bottom:14px}
+.sustain-label{font-size:10px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:12px;display:block}
+.sustain-title{font-size:clamp(24px,2.8vw,36px);font-weight:800;letter-spacing:-1px;line-height:1.15;color:var(--ink)}
+.sustain-body p{font-size:14px;line-height:1.78;color:var(--sub);margin-bottom:14px}
 .sustain-body p:last-child{margin-bottom:0}
 @media(max-width:800px){.sustain .container{grid-template-columns:1fr;gap:28px}}
 @media(max-width:600px){.sustain{padding:48px 0}}
@@ -135,18 +136,17 @@ details[open] summary::after{transform:rotate(45deg)}
 @media(max-width:600px){.faq-section{padding:56px 0}}
 
 /* ── CTA ── */
-.cta-section{background:var(--ink);padding:100px 0;text-align:center}
+.cta-section{background:var(--white);padding:72px 0;text-align:center;border-top:1px solid var(--border)}
 .cta-section .container{display:flex;flex-direction:column;align-items:center}
-.cta-eye{font-size:10px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:20px}
-.cta-title{font-size:clamp(40px,6.5vw,80px);font-weight:900;letter-spacing:-3px;color:var(--white);line-height:.95;margin-bottom:22px}
-.cta-title span{color:var(--red)}
-.cta-desc{font-size:16px;line-height:1.65;color:rgba(255,255,255,.5);max-width:380px;margin-bottom:40px}
+.cta-eye{font-size:10px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:16px}
+.cta-title{font-size:clamp(28px,3.5vw,48px);font-weight:800;letter-spacing:-1.5px;color:var(--ink);line-height:1.1;margin-bottom:12px}
+.cta-desc{font-size:15px;line-height:1.65;color:var(--sub);max-width:380px;margin-bottom:32px}
 .cta-form{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:12px}
-.cta-input{padding:14px 20px;width:270px;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.15);color:var(--white);font-family:'Inter',sans-serif;font-size:14px;outline:none;transition:border-color .15s}
-.cta-input::placeholder{color:rgba(255,255,255,.3)}
+.cta-input{padding:14px 20px;width:260px;background:var(--off);border:1.5px solid var(--border);color:var(--ink);font-family:'Inter',sans-serif;font-size:14px;outline:none;transition:border-color .15s}
+.cta-input::placeholder{color:var(--muted)}
 .cta-input:focus{border-color:var(--red)}
-.cta-note{font-size:10px;font-weight:600;letter-spacing:.5px;color:rgba(255,255,255,.22)}
-@media(max-width:600px){.cta-section{padding:72px 0}.cta-input{width:100%}.cta-form{flex-direction:column;align-items:stretch;padding:0 18px}.cta-form .btn-fill{text-align:center}}
+.cta-note{font-size:10px;font-weight:600;letter-spacing:.5px;color:var(--muted)}
+@media(max-width:600px){.cta-section{padding:56px 0}.cta-input{width:100%}.cta-form{flex-direction:column;align-items:stretch;padding:0 18px}.cta-form .btn-fill{text-align:center}}
 
 /* ── FOOTER ── */
 footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.07);padding:22px 52px;display:flex;justify-content:space-between;align-items:center}
@@ -171,6 +171,8 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.07);padding:
   <div class="nav-links">
     <a href="#drops">Drops</a>
     <a href="#faq">FAQ</a>
+  </div>
+  <div class="nav-btns">
     <a href="smthg_v3_brands.html" class="nav-pill">For Designers →</a>
     <a href="#join" class="nav-cta">Get Early Access</a>
   </div>
@@ -287,8 +289,8 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.07);padding:
       </div>
       <div class="val-card">
         <div class="val-num">03</div>
-        <div class="val-title">Your order makes it real</div>
-        <p>Pre-orders mean the piece gets produced only because you wanted it. You're not choosing from stock — you're deciding what exists.</p>
+        <div class="val-title">You order it. It gets made.</div>
+        <p>Pre-orders mean the piece is produced only because you wanted it. You're not choosing from stock — you're deciding what exists.</p>
       </div>
     </div>
   </div>
@@ -380,8 +382,8 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.07);padding:
 <!-- CTA -->
 <section class="cta-section" id="join">
   <div class="container">
-    <div class="cta-eye">Something to be part of</div>
-    <h2 class="cta-title">Get early<br>access to <span>drops</span>.</h2>
+    <div class="cta-eye">Early access</div>
+    <h2 class="cta-title">Get early access to drops.</h2>
     <p class="cta-desc">Subscribe for 24-hour early access before every drop goes public.</p>
     <div class="cta-form">
       <input class="cta-input" type="email" placeholder="Your email address" aria-label="Email"/>
