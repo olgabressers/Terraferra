@@ -236,6 +236,17 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
   .out-box{padding:20px 18px}
   footer{padding:16px 20px}
 }
+/* Sync indicator */
+.sync-dot{width:8px;height:8px;border-radius:50%;background:#ccc;display:inline-block;flex-shrink:0;transition:background .4s}
+.sync-dot.live{background:#22c55e}
+.sync-dot.err{background:#ef4444}
+.sync-label{font-size:11px;font-weight:700;color:var(--sub)}
+/* Dynamic cost rows */
+.dyn-name-input{border:none;border-bottom:1px solid var(--rule);background:transparent;font-family:'Inter',sans-serif;font-size:13.5px;font-weight:600;color:var(--ink);padding:2px 4px;outline:none;width:100%;min-width:0}
+.dyn-name-input:focus{border-bottom-color:var(--tf);background:var(--tf-ghost);border-radius:2px}
+.dyn-name-input::placeholder{color:var(--rule);font-weight:400;font-size:12px}
+.add-cost-btn{display:block;width:100%;padding:8px;background:transparent;border:none;border-top:1px dashed var(--rule);font-family:'Inter',sans-serif;font-size:11px;font-weight:700;color:var(--tf);cursor:pointer;text-align:center;letter-spacing:1px;transition:background .12s;margin-top:4px;margin-bottom:4px}
+.add-cost-btn:hover{background:var(--tf-ghost)}
 </style>
 </head>
 <body>
@@ -476,7 +487,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
           <span class="sl-label">Active designers on platform</span>
           <span class="sl-val" id="v-designers">5</span>
         </div>
-        <input type="range" id="sl-designers" min="1" max="50" step="1" value="5" oninput="calc()"/>
+        <input type="range" id="sl-designers" min="1" max="50" step="1" value="8" oninput="calc()"/>
         <div class="sl-hints"><span>1</span><span>50</span></div>
         <div class="sl-note">Designers actively running drops on SMTHG.</div>
       </div>
@@ -696,7 +707,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 
 <!-- 02 MVP COSTS -->
 <section class="section">
-  <div class="sec-heading"><span class="sec-num">02</span> MVP Costs · Platform Calculator</div>
+  <div class="sec-heading"><span class="sec-num">02</span> MVP Costs · Platform Calculator <span class="sync-dot" id="costs-sync-dot" style="vertical-align:middle;margin-left:10px"></span><span class="sync-label" id="costs-sync-label" style="font-size:11px;font-weight:600;margin-left:5px;vertical-align:middle">Connecting…</span></div>
 
   <div style="border:1px solid var(--rule);border-left:4px solid var(--tf);background:white;padding:18px 24px;margin-bottom:28px">
     <ul style="list-style:none;margin:0;padding:0">
@@ -768,6 +779,9 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         </div>
       </div>
 
+      <div id="dyn-platform"></div>
+      <button class="add-cost-btn" onclick="addDynRow('platform')">+ Add cost</button>
+
       <div class="cost-subtotal">
         <span>Core platform</span>
         <span id="cst-platform">—</span>
@@ -816,6 +830,9 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
           <button class="cost-btn" onclick="adjC('other',10)">+</button>
         </div>
       </div>
+
+      <div id="dyn-ops"></div>
+      <button class="add-cost-btn" onclick="addDynRow('ops')">+ Add cost</button>
 
       <div class="cost-subtotal">
         <span>Operations</span>
@@ -866,6 +883,9 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         </div>
       </div>
 
+      <div id="dyn-marketing"></div>
+      <button class="add-cost-btn" onclick="addDynRow('marketing')">+ Add cost</button>
+
       <div class="cost-subtotal">
         <span>Marketing</span>
         <span id="cst-mktg">—</span>
@@ -914,6 +934,9 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
           <button class="cost-btn" onclick="adjC('onetime-other',100)">+</button>
         </div>
       </div>
+
+      <div id="dyn-onetime"></div>
+      <button class="add-cost-btn" onclick="addDynRow('onetime')">+ Add cost</button>
 
       <div class="cost-subtotal">
         <span>One-time total</span>
@@ -1197,6 +1220,17 @@ window.addEventListener('scroll',function(){document.getElementById('btt').style
 
 var vtoMode = 'fashn';
 var limitEnabled = false;
+var _costFromSSE = false;
+var dynData  = {platform:{}, ops:{}, marketing:{}, onetime:{}};
+var dynOrder = {platform:[], ops:[], marketing:[], onetime:[]};
+function dynSum(cat){
+  var s=0;
+  (dynOrder[cat]||[]).forEach(function(id){
+    var it=dynData[cat]&&dynData[cat][id];
+    if(it)s+=+it.value||0;
+  });
+  return s;
+}
 
 function setVTO(m) {
   vtoMode = m;
@@ -1420,6 +1454,7 @@ function adjC(id, delta) {
   if (!el) return;
   el.value = Math.max(0, (+el.value || 0) + delta);
   calcCosts();
+  if(!_costFromSSE) saveFixed(id);
 }
 
 function fc$(n){ return '$'+Math.round(n).toLocaleString(); }
@@ -1430,17 +1465,17 @@ function calcCosts() {
   var puppet          = +document.getElementById('c-puppet').value          || 0;
   var framer          = +document.getElementById('c-framer').value          || 0;
   var platformOther   = +document.getElementById('c-platform-other').value  || 0;
-  var platform        = shopify + puppet + framer + platformOther;
+  var platform        = shopify + puppet + framer + platformOther + dynSum('platform');
 
   var hosting   = +document.getElementById('c-hosting').value   || 0;
   var insurance = +document.getElementById('c-insurance').value || 0;
   var other     = +document.getElementById('c-other').value     || 0;
-  var ops       = hosting + insurance + other;
+  var ops       = hosting + insurance + other + dynSum('ops');
 
   var email     = +document.getElementById('c-email').value      || 0;
   var ads       = +document.getElementById('c-ads').value        || 0;
   var mktgOther = +document.getElementById('c-mktg-other').value || 0;
-  var marketing = email + ads + mktgOther;
+  var marketing = email + ads + mktgOther + dynSum('marketing');
 
   var monthly = platform + ops + marketing;
   var annual  = monthly * 12;
@@ -1448,7 +1483,7 @@ function calcCosts() {
   var bank         = +document.getElementById('c-bank').value         || 0;
   var legal        = +document.getElementById('c-legal').value        || 0;
   var onetimeOther = +document.getElementById('c-onetime-other').value || 0;
-  var onetime      = bank + legal + onetimeOther;
+  var onetime      = bank + legal + onetimeOther + dynSum('onetime');
 
   // Subtotals
   document.getElementById('cst-platform').textContent   = fcMoYr(platform);
@@ -1471,6 +1506,215 @@ function calcCosts() {
 }
 
 calcCosts();
+
+/* ——— FIREBASE COST SYNC (Section 02) ——— */
+var CDB   = 'https://terra-ferra-1ac34-default-rtdb.firebaseio.com';
+var CROOT = '/tf-mvpcosts/v1';
+var FIXED_IDS = ['shopify','puppet','framer','platform-other','hosting','insurance','other','email','ads','mktg-other','bank','legal','onetime-other'];
+var CAT_LABEL = {platform:'Platform tool',ops:'Operations cost',marketing:'Marketing cost',onetime:'One-time cost'};
+var CAT_UNIT  = {platform:'/mo',ops:'/mo',marketing:'/mo',onetime:'one-time'};
+
+function cfurl(path){ return CDB+CROOT+(path||'')+'.json'; }
+function cfput(path,data){
+  return fetch(cfurl(path),{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+}
+
+function setCostSync(state){
+  var dot=document.getElementById('costs-sync-dot');
+  var lbl=document.getElementById('costs-sync-label');
+  if(!dot||!lbl)return;
+  dot.className='sync-dot';
+  if(state==='live'){dot.classList.add('live');lbl.textContent='Live';}
+  else if(state==='err'){dot.classList.add('err');lbl.textContent='Offline';}
+  else{lbl.textContent='Connecting…';}
+}
+
+var fixedSaveTimers={};
+function saveFixed(field){
+  var el=document.getElementById('c-'+field);
+  if(!el)return;
+  var v=+el.value||0;
+  clearTimeout(fixedSaveTimers[field]);
+  fixedSaveTimers[field]=setTimeout(function(){cfput('/fixed/'+field,v).catch(function(){});},600);
+}
+
+async function initCosts(){
+  setCostSync('connecting');
+  try{
+    var r=await fetch(cfurl());
+    var saved=await r.json();
+    _costFromSSE=true;
+    if(saved&&saved.fixed){
+      FIXED_IDS.forEach(function(f){
+        if(saved.fixed[f]!==undefined){var el=document.getElementById('c-'+f);if(el)el.value=saved.fixed[f];}
+      });
+    }
+    if(saved&&saved.rows)    dynData=saved.rows;
+    if(saved&&saved.rowOrder)dynOrder=saved.rowOrder;
+    // Ensure all cats exist
+    ['platform','ops','marketing','onetime'].forEach(function(c){
+      if(!dynData[c])dynData[c]={};
+      if(!dynOrder[c])dynOrder[c]=[];
+    });
+    _costFromSSE=false;
+    setCostSync('live');
+  }catch(e){
+    _costFromSSE=false;
+    setCostSync('err');
+  }
+  ['platform','ops','marketing','onetime'].forEach(function(c){renderDynRows(c);});
+  calcCosts();
+  startCostSSE();
+  // Wire up save-on-input for all fixed cost inputs
+  FIXED_IDS.forEach(function(f){
+    var el=document.getElementById('c-'+f);
+    if(el)el.addEventListener('input',function(){if(!_costFromSSE)saveFixed(f);});
+  });
+}
+
+function startCostSSE(){
+  var src=new EventSource(cfurl()+'?accept=text/event-stream');
+  src.addEventListener('put',function(e){try{handleCostPut(JSON.parse(e.data));}catch(ex){}});
+  src.onopen=function(){setCostSync('live');};
+  src.onerror=function(){setCostSync('err');};
+}
+
+function handleCostPut(p){
+  var path=(p.path||'/').replace(/^\/+/,'');
+  var val=p.data;
+  var parts=path.split('/').filter(Boolean);
+  var fid=document.activeElement&&document.activeElement.id;
+  _costFromSSE=true;
+
+  if(parts.length===0){
+    if(val&&val.fixed)FIXED_IDS.forEach(function(f){
+      if(val.fixed[f]!==undefined){var el=document.getElementById('c-'+f);if(el&&document.activeElement!==el)el.value=val.fixed[f];}
+    });
+    if(val&&val.rows)   {dynData=val.rows;['platform','ops','marketing','onetime'].forEach(function(c){if(!dynData[c])dynData[c]={};});}
+    if(val&&val.rowOrder){dynOrder=val.rowOrder;['platform','ops','marketing','onetime'].forEach(function(c){if(!dynOrder[c])dynOrder[c]=[];});}
+    ['platform','ops','marketing','onetime'].forEach(function(c){renderDynRows(c,fid);});
+  } else if(parts[0]==='fixed'&&parts.length===2&&val!==undefined){
+    var el2=document.getElementById('c-'+parts[1]);
+    if(el2&&document.activeElement!==el2)el2.value=val;
+  } else if(parts[0]==='rows'&&parts[1]){
+    var cat=parts[1];
+    if(!dynData[cat])dynData[cat]={};
+    if(parts.length===2&&val){dynData[cat]=val;renderDynRows(cat,fid);}
+    else if(parts.length===3){
+      if(val===null){delete dynData[cat][parts[2]];renderDynRows(cat,fid);}
+      else if(val){dynData[cat][parts[2]]=val;renderDynRows(cat,fid);}
+    } else if(parts.length===4&&val!==undefined){
+      if(!dynData[cat][parts[2]])dynData[cat][parts[2]]={name:'',value:0};
+      dynData[cat][parts[2]][parts[3]]=val;
+      if(parts[3]==='value'){var vi=document.getElementById('drow-val-'+parts[2]);if(vi&&document.activeElement!==vi){vi.value=val;}}
+      if(parts[3]==='name'){var ni=document.getElementById('drow-name-'+parts[2]);if(ni&&document.activeElement!==ni)ni.value=val;}
+    }
+  } else if(parts[0]==='rowOrder'&&parts.length===2&&Array.isArray(val)){
+    dynOrder[parts[1]]=val;
+    renderDynRows(parts[1],fid);
+  }
+
+  _costFromSSE=false;
+  calcCosts();
+}
+
+function renderDynRows(cat,preserveFocusId){
+  var c=document.getElementById('dyn-'+cat);
+  if(!c)return;
+  c.innerHTML='';
+  (dynOrder[cat]||[]).forEach(function(id){
+    var item=dynData[cat]&&dynData[cat][id];
+    if(item)c.appendChild(buildDynRow(cat,id,item));
+  });
+  if(preserveFocusId){var el=document.getElementById(preserveFocusId);if(el){el.focus();if(el.setSelectionRange)el.setSelectionRange(el.value.length,el.value.length);}}
+}
+
+function buildDynRow(cat,id,item){
+  var div=document.createElement('div');
+  div.className='cost-item';div.id='drow-'+id;
+
+  var ld=document.createElement('div');ld.className='cost-item-label';
+  var ni=document.createElement('input');
+  ni.type='text';ni.className='dyn-name-input';ni.id='drow-name-'+id;
+  ni.value=item.name||'';ni.placeholder=CAT_LABEL[cat]+'…';ni.autocomplete='off';
+  (function(cid,ccat){
+    ni.addEventListener('input',function(){
+      if(!dynData[ccat])dynData[ccat]={};
+      if(!dynData[ccat][cid])dynData[ccat][cid]={name:'',value:0};
+      dynData[ccat][cid].name=ni.value;
+      clearTimeout(ni._t);
+      ni._t=setTimeout(function(){cfput('/rows/'+ccat+'/'+cid+'/name',ni.value).catch(function(){});},600);
+    });
+  })(id,cat);
+  ld.appendChild(ni);div.appendChild(ld);
+
+  var cd=document.createElement('div');cd.className='cost-item-ctrl';
+  var bm=document.createElement('button');bm.className='cost-btn';bm.textContent='−';
+  (function(cid,ccat){bm.onclick=function(){adjDyn(ccat,cid,-10);};})(id,cat);
+  var u1=document.createElement('span');u1.className='cost-unit';u1.textContent='$';
+  var vi=document.createElement('input');
+  vi.className='cost-input';vi.type='number';vi.id='drow-val-'+id;
+  vi.value=item.value||0;vi.min='0';vi.step='10';
+  (function(cid,ccat){
+    vi.addEventListener('input',function(){
+      var v=+vi.value||0;
+      if(!dynData[ccat])dynData[ccat]={};
+      if(!dynData[ccat][cid])dynData[ccat][cid]={name:'',value:0};
+      dynData[ccat][cid].value=v;
+      calcCosts();
+      clearTimeout(vi._t);
+      vi._t=setTimeout(function(){cfput('/rows/'+ccat+'/'+cid+'/value',v).catch(function(){});},600);
+    });
+  })(id,cat);
+  var u2=document.createElement('span');u2.className='cost-unit';u2.textContent=CAT_UNIT[cat];
+  var bp=document.createElement('button');bp.className='cost-btn';bp.textContent='+';
+  (function(cid,ccat){bp.onclick=function(){adjDyn(ccat,cid,10);};})(id,cat);
+  var bx=document.createElement('button');
+  bx.className='cost-btn';bx.textContent='×';bx.title='Remove this cost';
+  bx.style.cssText='color:var(--sub);font-size:16px;font-weight:400';
+  (function(cid,ccat){bx.onclick=function(){removeDynRow(ccat,cid);};})(id,cat);
+
+  cd.appendChild(bm);cd.appendChild(u1);cd.appendChild(vi);cd.appendChild(u2);cd.appendChild(bp);cd.appendChild(bx);
+  div.appendChild(cd);
+  return div;
+}
+
+function adjDyn(cat,id,delta){
+  if(!dynData[cat]||!dynData[cat][id])return;
+  var nv=Math.max(0,(+dynData[cat][id].value||0)+delta);
+  dynData[cat][id].value=nv;
+  var vi=document.getElementById('drow-val-'+id);
+  if(vi)vi.value=nv;
+  calcCosts();
+  cfput('/rows/'+cat+'/'+id+'/value',nv).catch(function(){});
+}
+
+function addDynRow(cat){
+  var newId=cat[0]+'-'+Date.now();
+  var newItem={name:'',value:0};
+  if(!dynData[cat])dynData[cat]={};
+  if(!dynOrder[cat])dynOrder[cat]=[];
+  dynData[cat][newId]=newItem;
+  dynOrder[cat].push(newId);
+  cfput('/rows/'+cat+'/'+newId,newItem);
+  cfput('/rowOrder/'+cat,dynOrder[cat]);
+  var c=document.getElementById('dyn-'+cat);
+  if(c)c.appendChild(buildDynRow(cat,newId,newItem));
+  setTimeout(function(){var ni=document.getElementById('drow-name-'+newId);if(ni)ni.focus();},30);
+}
+
+function removeDynRow(cat,id){
+  if(!dynData[cat])return;
+  delete dynData[cat][id];
+  dynOrder[cat]=(dynOrder[cat]||[]).filter(function(i){return i!==id;});
+  cfput('/rows/'+cat+'/'+id,null);
+  cfput('/rowOrder/'+cat,dynOrder[cat]);
+  var row=document.getElementById('drow-'+id);
+  if(row)row.remove();
+  calcCosts();
+}
+
+initCosts();
 </script>
 </body>
 </html>
