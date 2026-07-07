@@ -13,8 +13,8 @@
   --cream:#F8F6F2;
   --off:#F1EEE9;
   --ink:#161616;
-  --green:#2E4D42;
-  --green-dark:#1E3328;
+  --red:#E8002D;
+  --red-dark:#B50023;
   --muted:#8A8880;
   --sub:#5C5A56;
   --border:#E6E2DA;
@@ -31,102 +31,104 @@ body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--ink);ove
 /* ── NAV ── */
 .nav{background:var(--white);border-bottom:1px solid var(--border);padding:0 52px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
 .nav-logo{font-size:22px;font-weight:900;letter-spacing:-1px;color:var(--ink);text-decoration:none;line-height:1}
-.nav-logo .dot{color:var(--green)}
+.nav-logo .dot{color:var(--red)}
 .nav-links{display:flex;gap:24px;align-items:center}
 .nav-links a{font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .15s}
 .nav-links a:hover{color:var(--ink)}
-.nav-cta{background:var(--green);color:var(--white)!important;padding:9px 22px;font-size:10px;font-weight:800;letter-spacing:1.5px;transition:background .15s!important}
-.nav-cta:hover{background:var(--green-dark)!important}
+.nav-cta{background:var(--red);color:var(--white)!important;padding:9px 22px;font-size:10px;font-weight:800;letter-spacing:1.5px;transition:background .15s!important}
+.nav-cta:hover{background:var(--red-dark)!important}
+.nav-pill{border:1.5px solid var(--border);color:var(--ink)!important;padding:8px 18px;font-size:10px;font-weight:800;letter-spacing:1.5px;transition:all .15s!important}
+.nav-pill:hover{border-color:var(--ink)!important;color:var(--ink)!important}
 @media(max-width:768px){.nav{padding:0 24px}.nav-links{display:none}}
 @media(max-width:600px){.nav{padding:0 18px;height:56px}.nav-logo{font-size:18px}}
 
 /* ── HERO ── */
-.hero{background:var(--off);padding:100px 52px 88px;position:relative;overflow:hidden}
-.hero-bg-circle{position:absolute;right:-120px;bottom:-120px;width:500px;height:500px;border-radius:50%;background:var(--green);opacity:.07;pointer-events:none}
+.hero{background:var(--off);padding:88px 52px 72px;position:relative;overflow:hidden}
+.hero-bg-circle{position:absolute;right:-120px;bottom:-120px;width:500px;height:500px;border-radius:50%;background:var(--red);opacity:.05;pointer-events:none}
 .hero-inner{max-width:1160px;margin:0 auto;position:relative;z-index:1}
-.hero-eye{font-size:10px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--green);margin-bottom:28px;display:block}
+.hero-eye{font-size:10px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:28px;display:block}
 .hero-title{font-size:clamp(52px,7vw,100px);font-weight:900;line-height:.95;letter-spacing:-3px;color:var(--ink);margin-bottom:24px}
 .hero-desc{font-size:clamp(16px,1.8vw,20px);line-height:1.65;color:var(--sub);max-width:520px;margin-bottom:48px;font-weight:400}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
 .btn{padding:14px 32px;font-family:'Inter',sans-serif;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;display:inline-block;transition:all .15s}
-.btn-fill{background:var(--green);color:var(--white)}.btn-fill:hover{background:var(--green-dark)}
+.btn-fill{background:var(--red);color:var(--white)}.btn-fill:hover{background:var(--red-dark)}
 .btn-outline{border:1.5px solid var(--ink);color:var(--ink);background:transparent}.btn-outline:hover{background:var(--ink);color:var(--white)}
 @media(max-width:768px){.hero{padding:72px 24px 64px}}
 @media(max-width:600px){.hero{padding:56px 18px 52px}.hero-title{letter-spacing:-2px}}
 
-/* ── 3 VALUE CARDS ── */
-.val-section{padding:80px 0;background:var(--white)}
+/* ── DROPS ── */
+.drops-section{padding:72px 0;background:var(--white)}
 .container{max-width:1200px;margin:0 auto;padding:0 52px}
-.sec-label{font-size:10px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--green);margin-bottom:12px;display:block}
+.sec-label{font-size:10px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:12px;display:block}
 .sec-h2{font-size:clamp(26px,3vw,40px);font-weight:800;letter-spacing:-1px;line-height:1.15;color:var(--ink);margin-bottom:48px}
+.drops-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px}
+.drop-card{background:var(--off);border-top:3px solid var(--ink);transition:border-top-color .2s;display:flex;flex-direction:column;overflow:hidden}
+.drop-card:hover{border-top-color:var(--red)}
+.drop-img{position:relative;height:230px;overflow:hidden;background:var(--cream)}
+.drop-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.drop-card:hover .drop-img img{transform:scale(1.04)}
+.drop-badge{position:absolute;top:12px;left:12px;background:var(--red);color:var(--white);font-size:8px;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:5px 10px;z-index:2}
+.drop-badge.soon{background:var(--ink)}
+.drop-win{position:absolute;bottom:12px;right:12px;background:rgba(22,22,22,.8);color:var(--white);font-size:9px;font-weight:700;letter-spacing:.7px;padding:5px 9px;text-transform:uppercase;z-index:2}
+.drop-ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.drop-ph span{font-size:44px;font-weight:900;letter-spacing:-3px;user-select:none}
+.drop-body{padding:18px 18px 22px;flex:1;display:flex;flex-direction:column;background:var(--white)}
+.drop-flag{font-size:8px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:7px}
+.drop-brand{font-size:17px;font-weight:800;color:var(--ink);margin-bottom:6px;letter-spacing:-.4px}
+.drop-desc{font-size:12px;line-height:1.6;color:var(--sub);margin-bottom:16px;flex:1}
+.drop-link{display:inline-block;background:var(--ink);color:var(--white);font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:10px 18px;text-decoration:none;transition:background .15s;align-self:flex-start}
+.drop-link:hover{background:var(--red)}
+.drops-sub{background:var(--off);padding:28px 32px;margin-top:4px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.drops-sub h3{font-size:17px;font-weight:800;color:var(--ink);margin-bottom:3px;letter-spacing:-.3px}
+.drops-sub p{font-size:12.5px;color:var(--sub)}
+.sub-form{display:flex;gap:8px;flex-wrap:wrap}
+.sub-input{padding:11px 16px;width:230px;background:var(--white);border:1.5px solid var(--border);color:var(--ink);font-family:'Inter',sans-serif;font-size:13px;outline:none;transition:border-color .15s}
+.sub-input:focus{border-color:var(--red)}
+.sub-btn{background:var(--red);color:var(--white);border:none;padding:11px 22px;font-family:'Inter',sans-serif;font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:background .15s}
+.sub-btn:hover{background:var(--red-dark)}
+@media(max-width:1024px){.drops-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.drops-grid{grid-template-columns:1fr}.drops-section{padding:56px 0}.drops-sub{flex-direction:column;align-items:flex-start;padding:20px 18px}.sub-input{width:100%}.sub-form{flex-direction:column;width:100%}.sub-btn{width:100%}}
+
+/* ── 3 VALUE CARDS ── */
+.val-section{padding:80px 0;background:var(--cream)}
 .val-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
-.val-card{background:var(--off);padding:40px 32px 36px;border-top:3px solid var(--ink);transition:border-top-color .2s}
-.val-card:hover{border-top-color:var(--green)}
-.val-num{font-size:10px;font-weight:800;letter-spacing:2px;color:var(--green);margin-bottom:16px}
+.val-card{background:var(--white);padding:40px 32px 36px;border-top:3px solid var(--ink);transition:border-top-color .2s}
+.val-card:hover{border-top-color:var(--red)}
+.val-num{font-size:10px;font-weight:800;letter-spacing:2px;color:var(--red);margin-bottom:16px}
 .val-title{font-size:18px;font-weight:800;line-height:1.2;color:var(--ink);letter-spacing:-.3px;margin-bottom:12px}
 .val-card p{font-size:14px;line-height:1.75;color:var(--sub)}
 @media(max-width:900px){.val-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.val-grid{grid-template-columns:1fr}.val-section{padding:56px 0}.container{padding:0 18px}}
 
 /* ── HOW IT WORKS ── */
-.how-section{padding:80px 0;background:var(--cream)}
+.how-section{padding:80px 0;background:var(--white)}
 .steps{display:flex;flex-direction:column;margin-top:8px}
 .step{display:grid;grid-template-columns:100px 1fr;gap:36px;border-top:1px solid var(--border);padding:40px 0;align-items:start}
 .step:last-child{border-bottom:1px solid var(--border)}
-.step-num{font-size:72px;font-weight:900;letter-spacing:-4px;line-height:1;color:transparent;-webkit-text-stroke:2px var(--green)}
+.step-num{font-size:72px;font-weight:900;letter-spacing:-4px;line-height:1;color:transparent;-webkit-text-stroke:2px var(--red)}
 .step h3{font-size:clamp(17px,1.8vw,22px);font-weight:800;color:var(--ink);margin-bottom:10px;letter-spacing:-.4px;line-height:1.2}
 .step p{font-size:14px;line-height:1.75;color:var(--sub);max-width:540px}
 @media(max-width:600px){.step{grid-template-columns:70px 1fr;gap:20px}.step-num{font-size:50px}}
 
-/* ── DROPS ── */
-.drops-section{padding:80px 0;background:var(--off)}
-.drops-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px}
-.drop-card{background:var(--white);border-top:3px solid var(--ink);transition:border-top-color .2s;display:flex;flex-direction:column;overflow:hidden}
-.drop-card:hover{border-top-color:var(--green)}
-.drop-img{position:relative;height:230px;overflow:hidden}
-.drop-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
-.drop-card:hover .drop-img img{transform:scale(1.04)}
-.drop-badge{position:absolute;top:12px;left:12px;background:var(--green);color:var(--white);font-size:8px;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:5px 10px;z-index:2}
-.drop-badge.soon{background:var(--ink)}
-.drop-win{position:absolute;bottom:12px;right:12px;background:rgba(22,22,22,.8);color:var(--white);font-size:9px;font-weight:700;letter-spacing:.7px;padding:5px 9px;text-transform:uppercase;z-index:2}
-.drop-ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
-.drop-ph span{font-size:44px;font-weight:900;letter-spacing:-3px;user-select:none}
-.drop-body{padding:18px 18px 22px;flex:1;display:flex;flex-direction:column}
-.drop-flag{font-size:8px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:7px}
-.drop-brand{font-size:17px;font-weight:800;color:var(--ink);margin-bottom:6px;letter-spacing:-.4px}
-.drop-desc{font-size:12px;line-height:1.6;color:var(--sub);margin-bottom:16px;flex:1}
-.drop-link{display:inline-block;background:var(--ink);color:var(--white);font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:10px 18px;text-decoration:none;transition:background .15s;align-self:flex-start}
-.drop-link:hover{background:var(--green)}
-.drops-sub{background:var(--white);padding:28px 32px;margin-top:4px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
-.drops-sub h3{font-size:17px;font-weight:800;color:var(--ink);margin-bottom:3px;letter-spacing:-.3px}
-.drops-sub p{font-size:12.5px;color:var(--sub)}
-.sub-form{display:flex;gap:8px;flex-wrap:wrap}
-.sub-input{padding:11px 16px;width:230px;background:var(--cream);border:1.5px solid var(--border);color:var(--ink);font-family:'Inter',sans-serif;font-size:13px;outline:none;transition:border-color .15s}
-.sub-input:focus{border-color:var(--green)}
-.sub-btn{background:var(--green);color:var(--white);border:none;padding:11px 22px;font-family:'Inter',sans-serif;font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:background .15s}
-.sub-btn:hover{background:var(--green-dark)}
-@media(max-width:1024px){.drops-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.drops-grid{grid-template-columns:1fr}.drops-section{padding:56px 0}.drops-sub{flex-direction:column;align-items:flex-start;padding:20px 18px}.sub-input{width:100%}.sub-form{flex-direction:column;width:100%}.sub-btn{width:100%}}
-
 /* ── SUSTAIN ── */
-.sustain{background:var(--green);padding:64px 0}
+.sustain{background:var(--red);padding:64px 0}
 .sustain .container{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
 .sustain-label{font-size:10px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:12px;display:block}
 .sustain-title{font-size:clamp(24px,2.8vw,36px);font-weight:800;letter-spacing:-1px;line-height:1.15;color:var(--white)}
-.sustain-body p{font-size:14px;line-height:1.78;color:rgba(255,255,255,.72);margin-bottom:14px}
+.sustain-body p{font-size:14px;line-height:1.78;color:rgba(255,255,255,.82);margin-bottom:14px}
 .sustain-body p:last-child{margin-bottom:0}
 @media(max-width:800px){.sustain .container{grid-template-columns:1fr;gap:28px}}
 @media(max-width:600px){.sustain{padding:48px 0}}
 
 /* ── FAQ ── */
-.faq-section{padding:80px 0;background:var(--white)}
+.faq-section{padding:80px 0;background:var(--cream)}
 .faq-list{display:grid;grid-template-columns:1fr 1fr;gap:0 64px;margin-top:8px}
 details{border-top:1px solid var(--border)}
 details:last-child{border-bottom:1px solid var(--border)}
 summary{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:18px 0;cursor:pointer;list-style:none;font-size:14px;font-weight:700;color:var(--ink);line-height:1.3;transition:color .15s}
 summary::-webkit-details-marker{display:none}
-summary::after{content:'+';font-size:20px;font-weight:300;color:var(--green);flex-shrink:0;line-height:1;transition:transform .2s}
-details[open] summary{color:var(--green)}
+summary::after{content:'+';font-size:20px;font-weight:300;color:var(--red);flex-shrink:0;line-height:1;transition:transform .2s}
+details[open] summary{color:var(--red)}
 details[open] summary::after{transform:rotate(45deg)}
 .faq-body{font-size:13.5px;line-height:1.78;color:var(--sub);padding-bottom:20px}
 @media(max-width:768px){.faq-list{grid-template-columns:1fr}}
@@ -135,21 +137,21 @@ details[open] summary::after{transform:rotate(45deg)}
 /* ── CTA ── */
 .cta-section{background:var(--ink);padding:100px 0;text-align:center}
 .cta-section .container{display:flex;flex-direction:column;align-items:center}
-.cta-eye{font-size:10px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--green);margin-bottom:20px}
+.cta-eye{font-size:10px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:20px}
 .cta-title{font-size:clamp(40px,6.5vw,80px);font-weight:900;letter-spacing:-3px;color:var(--white);line-height:.95;margin-bottom:22px}
-.cta-title span{color:var(--green)}
+.cta-title span{color:var(--red)}
 .cta-desc{font-size:16px;line-height:1.65;color:rgba(255,255,255,.5);max-width:380px;margin-bottom:40px}
 .cta-form{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:12px}
 .cta-input{padding:14px 20px;width:270px;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.15);color:var(--white);font-family:'Inter',sans-serif;font-size:14px;outline:none;transition:border-color .15s}
 .cta-input::placeholder{color:rgba(255,255,255,.3)}
-.cta-input:focus{border-color:var(--green)}
+.cta-input:focus{border-color:var(--red)}
 .cta-note{font-size:10px;font-weight:600;letter-spacing:.5px;color:rgba(255,255,255,.22)}
 @media(max-width:600px){.cta-section{padding:72px 0}.cta-input{width:100%}.cta-form{flex-direction:column;align-items:stretch;padding:0 18px}.cta-form .btn-fill{text-align:center}}
 
 /* ── FOOTER ── */
 footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.07);padding:22px 52px;display:flex;justify-content:space-between;align-items:center}
 .foot-logo{font-size:14px;font-weight:900;letter-spacing:-.5px;color:var(--white)}
-.foot-logo .dot{color:var(--green)}
+.foot-logo .dot{color:var(--red)}
 .foot-note{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.2)}
 .foot-nav{display:flex;gap:20px}
 .foot-nav a{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.3);text-decoration:none;transition:color .15s}
@@ -167,9 +169,9 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.07);padding:
 <nav class="nav">
   <a href="https://terraferra.co/adminfiles/" class="nav-logo">SMTHG<span class="dot">.</span></a>
   <div class="nav-links">
-    <a href="smthg_v3.html">Home</a>
     <a href="#drops">Drops</a>
     <a href="#faq">FAQ</a>
+    <a href="smthg_v3_brands.html" class="nav-pill">For Designers →</a>
     <a href="#join" class="nav-cta">Get Early Access</a>
   </div>
 </nav>
@@ -184,6 +186,85 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.07);padding:
     <div class="hero-actions">
       <a href="#join" class="btn btn-fill">Get Early Access</a>
       <a href="#drops" class="btn btn-outline">See Current Drops</a>
+    </div>
+  </div>
+</section>
+
+<!-- DROPS -->
+<section class="drops-section" id="drops">
+  <div class="container">
+    <span class="sec-label">Dropping now</span>
+    <h2 class="sec-h2">Limited drops. Limited windows.<br>Do not miss.</h2>
+    <div class="drops-grid">
+
+      <div class="drop-card">
+        <div class="drop-img" style="background:#F0EDE8">
+          <div class="drop-ph"><span style="color:rgba(0,0,0,.06)">ALÉMAIS</span></div>
+          <img src="https://img.shopmy.us/eyJidWNrZXQiOiJwcm9kdWN0aW9uLXNob3BteXNoZWxmLXVwbG9hZHMiLCJrZXkiOiI1OTBlMDE2Ny1iNzI5LTQxM2YtOTg2YS05ZWFiMTM0YzFkMDRfU29maWFSX1RleHQucG5nIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjo3NjgsImZpdCI6ImNvdmVyIiwid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlfX19" alt="ALÉMAIS" loading="lazy" onerror="this.style.display='none'"/>
+          <div class="drop-badge">Live Now</div>
+          <div class="drop-win">⏱ 48 hrs left</div>
+        </div>
+        <div class="drop-body">
+          <div class="drop-flag">Do Not Miss</div>
+          <div class="drop-brand">ALÉMAIS</div>
+          <p class="drop-desc">Australian contemporary. Resort &amp; ready-to-wear. Pre-order only.</p>
+          <a href="#join" class="drop-link">Notify Me</a>
+        </div>
+      </div>
+
+      <div class="drop-card">
+        <div class="drop-img" style="background:#EDE8E3">
+          <div class="drop-ph"><span style="color:rgba(0,0,0,.06)">EMME</span></div>
+          <img src="https://img.shopmy.us/eyJidWNrZXQiOiJwcm9kdWN0aW9uLXNob3BteXNoZWxmLXVwbG9hZHMiLCJrZXkiOiIxMDhkZjQ1OS1mZTM2LTRlMTItODFlNi0yNGNiNDJjN2FlYTYiLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjc2OCwiZml0IjoiY292ZXIiLCJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWV9fX0=" alt="Emme Parsons" loading="lazy" onerror="this.style.display='none'"/>
+          <div class="drop-badge">Live Now</div>
+          <div class="drop-win">⏱ 3 days left</div>
+        </div>
+        <div class="drop-body">
+          <div class="drop-flag">Do Not Miss</div>
+          <div class="drop-brand">Emme Parsons</div>
+          <p class="drop-desc">NY luxury footwear. Hand-crafted mules, single artisan. Pre-order only.</p>
+          <a href="#join" class="drop-link">Notify Me</a>
+        </div>
+      </div>
+
+      <div class="drop-card">
+        <div class="drop-img" style="background:#E8E3DC">
+          <div class="drop-ph"><span style="color:rgba(0,0,0,.06)">OLIVE</span></div>
+          <div class="drop-badge soon">Coming Soon</div>
+          <div class="drop-win">Opens in 2 days</div>
+        </div>
+        <div class="drop-body">
+          <div class="drop-flag">Subscribe First</div>
+          <div class="drop-brand">Olive Ateliers</div>
+          <p class="drop-desc">Slow fashion jewelry. Made to order. Sustainable materials.</p>
+          <a href="#join" class="drop-link">Subscribe</a>
+        </div>
+      </div>
+
+      <div class="drop-card">
+        <div class="drop-img" style="background:#1C1C1C">
+          <div class="drop-ph"><span style="color:rgba(232,0,45,.15)">LIBRE</span></div>
+          <div class="drop-badge soon">Coming Soon</div>
+          <div class="drop-win">Opens Friday</div>
+        </div>
+        <div class="drop-body">
+          <div class="drop-flag">Subscribe First</div>
+          <div class="drop-brand">Liberowe</div>
+          <p class="drop-desc">NYC sustainable streetwear. Spring drop. Small run, made-to-order.</p>
+          <a href="#join" class="drop-link">Subscribe</a>
+        </div>
+      </div>
+
+    </div>
+    <div class="drops-sub">
+      <div>
+        <h3>Never miss a drop.</h3>
+        <p>Early access — 24 hours before every drop opens.</p>
+      </div>
+      <div class="sub-form">
+        <input class="sub-input" type="email" placeholder="Your email" aria-label="Email"/>
+        <button class="sub-btn" type="button">Subscribe</button>
+      </div>
     </div>
   </div>
 </section>
@@ -239,85 +320,6 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.07);padding:
           <h3>Pre-order — and it gets made for you</h3>
           <p>Order during the drop window. Production starts once orders are confirmed. Your piece is made to order — not pulled from a warehouse shelf.</p>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- DROPS -->
-<section class="drops-section" id="drops">
-  <div class="container">
-    <span class="sec-label">Dropping now</span>
-    <h2 class="sec-h2">Limited drops. Limited windows.<br>Do not miss.</h2>
-    <div class="drops-grid">
-
-      <div class="drop-card">
-        <div class="drop-img" style="background:#F0EDE8">
-          <div class="drop-ph"><span style="color:rgba(0,0,0,.06)">ALÉMAIS</span></div>
-          <img src="https://img.shopmy.us/eyJidWNrZXQiOiJwcm9kdWN0aW9uLXNob3BteXNoZWxmLXVwbG9hZHMiLCJrZXkiOiI1OTBlMDE2Ny1iNzI5LTQxM2YtOTg2YS05ZWFiMTM0YzFkMDRfU29maWFSX1RleHQucG5nIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjo3NjgsImZpdCI6ImNvdmVyIiwid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlfX19" alt="ALÉMAIS" loading="lazy" onerror="this.style.display='none'"/>
-          <div class="drop-badge">Live Now</div>
-          <div class="drop-win">⏱ 48 hrs left</div>
-        </div>
-        <div class="drop-body">
-          <div class="drop-flag">Do Not Miss</div>
-          <div class="drop-brand">ALÉMAIS</div>
-          <p class="drop-desc">Australian contemporary. Resort &amp; ready-to-wear. Pre-order only.</p>
-          <a href="#join" class="drop-link">Notify Me</a>
-        </div>
-      </div>
-
-      <div class="drop-card">
-        <div class="drop-img" style="background:#EDE8E3">
-          <div class="drop-ph"><span style="color:rgba(0,0,0,.06)">EMME</span></div>
-          <img src="https://img.shopmy.us/eyJidWNrZXQiOiJwcm9kdWN0aW9uLXNob3BteXNoZWxmLXVwbG9hZHMiLCJrZXkiOiIxMDhkZjQ1OS1mZTM2LTRlMTItODFlNi0yNGNiNDJjN2FlYTYiLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjc2OCwiZml0IjoiY292ZXIiLCJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWV9fX0=" alt="Emme Parsons" loading="lazy" onerror="this.style.display='none'"/>
-          <div class="drop-badge">Live Now</div>
-          <div class="drop-win">⏱ 3 days left</div>
-        </div>
-        <div class="drop-body">
-          <div class="drop-flag">Do Not Miss</div>
-          <div class="drop-brand">Emme Parsons</div>
-          <p class="drop-desc">NY luxury footwear. Hand-crafted mules, single artisan. Pre-order only.</p>
-          <a href="#join" class="drop-link">Notify Me</a>
-        </div>
-      </div>
-
-      <div class="drop-card">
-        <div class="drop-img" style="background:#2E4D42">
-          <div class="drop-ph"><span style="color:rgba(255,255,255,.08)">OLIVE</span></div>
-          <div class="drop-badge soon">Coming Soon</div>
-          <div class="drop-win">Opens in 2 days</div>
-        </div>
-        <div class="drop-body">
-          <div class="drop-flag">Subscribe First</div>
-          <div class="drop-brand">Olive Ateliers</div>
-          <p class="drop-desc">Slow fashion jewelry. Made to order. Sustainable materials.</p>
-          <a href="#join" class="drop-link">Subscribe</a>
-        </div>
-      </div>
-
-      <div class="drop-card">
-        <div class="drop-img" style="background:#1C1C1C">
-          <div class="drop-ph"><span style="color:rgba(46,77,66,.25)">LIBRE</span></div>
-          <div class="drop-badge soon">Coming Soon</div>
-          <div class="drop-win">Opens Friday</div>
-        </div>
-        <div class="drop-body">
-          <div class="drop-flag">Subscribe First</div>
-          <div class="drop-brand">Liberowe</div>
-          <p class="drop-desc">NYC sustainable streetwear. Spring drop. Small run, made-to-order.</p>
-          <a href="#join" class="drop-link">Subscribe</a>
-        </div>
-      </div>
-
-    </div>
-    <div class="drops-sub">
-      <div>
-        <h3>Never miss a drop.</h3>
-        <p>Early access — 24 hours before every drop opens.</p>
-      </div>
-      <div class="sub-form">
-        <input class="sub-input" type="email" placeholder="Your email" aria-label="Email"/>
-        <button class="sub-btn" type="button">Subscribe</button>
       </div>
     </div>
   </div>
@@ -392,7 +394,6 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.07);padding:
 <footer>
   <div class="foot-logo">SMTHG<span class="dot">.</span></div>
   <div class="foot-nav">
-    <a href="smthg_v3.html">Home</a>
     <a href="smthg_v3_brands.html">For Designers</a>
   </div>
   <div class="foot-note">Fashion Discovery · Coming Soon</div>
