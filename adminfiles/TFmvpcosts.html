@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <meta name="robots" content="noindex, nofollow"/>
-<title>MVP &amp; Costs · Terra Ferra</title>
+<title>MVP &amp; Costs · SMTHG</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
@@ -26,7 +26,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .topnav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
 .topnav-links a{color:var(--sub);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:10px}
 .topnav-links a:hover,.topnav-links a.active{color:var(--tf)}
-.topnav-links a.active{color:var(--orange)}
+.topnav-links a.active{color:var(--tf)}
 .has-dropdown{position:relative;padding-bottom:10px;margin-bottom:-10px}
 .dropdown-trigger{cursor:pointer;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:10px;user-select:none}
 .dropdown-trigger:hover,.has-dropdown:focus-within .dropdown-trigger{color:var(--tf)}
@@ -74,10 +74,10 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 /* VTO VENDORS */
 .vendor-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:20px}
 .vendor-card{background:white;border:1px solid var(--rule);padding:28px 28px 22px}
-.vendor-card.rec{border-top:3px solid var(--orange)}
+.vendor-card.rec{border-top:3px solid var(--tf)}
 .vendor-card.alt{border-top:3px solid var(--tf)}
 .v-badge{display:inline-block;font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;margin-bottom:14px}
-.v-badge.rec{background:var(--orange);color:white}
+.v-badge.rec{background:var(--tf);color:white}
 .v-badge.alt{background:var(--tf-ghost);color:var(--tf)}
 .v-name{font-size:22px;font-weight:800;color:var(--ink);margin-bottom:3px}
 .v-url{font-size:11px;margin-bottom:14px}
@@ -97,7 +97,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 
 .crossover-box{background:var(--tf-ghost);border:1px solid var(--rule);border-left:4px solid var(--tf);padding:16px 20px;font-size:13px;color:var(--ink);line-height:1.6}
 .crossover-box strong{color:var(--tf)}
-#xover{font-weight:800;color:var(--orange)}
+#xover{font-weight:800;color:var(--tf)}
 
 /* GAMIFICATION */
 .gami-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
@@ -113,14 +113,14 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .cost-note{font-size:11px;color:var(--sub);margin-top:2px;display:block}
 .cost-val{font-size:16px;font-weight:800;color:var(--ink);white-space:nowrap}
 .alt-note{margin-top:14px;padding:16px;background:white;border:1px solid var(--rule);font-size:12.5px;color:var(--sub);line-height:1.6}
-.alt-inhouse{background:white;border:1px solid var(--rule);border-left:4px solid var(--orange);padding:24px 28px;margin-top:14px}
+.alt-inhouse{background:white;border:1px solid var(--rule);border-left:4px solid var(--tf);padding:24px 28px;margin-top:14px}
 .alt-inhouse-headline{font-size:22px;font-weight:800;color:var(--ink);margin-bottom:10px}
 .alt-inhouse-body{font-size:13px;color:var(--sub);line-height:1.6;margin-bottom:18px}
 .alt-inhouse-item{padding:14px 0;border-bottom:1px solid var(--rule)}
 .alt-inhouse-item:last-child{border-bottom:none;padding-bottom:0}
 .alt-inhouse-label{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);display:block;margin-bottom:5px}
 .alt-inhouse-value{font-size:16px;font-weight:800;color:var(--ink);display:block;margin-bottom:5px}
-.alt-inhouse-value.no{color:var(--orange)}
+.alt-inhouse-value.no{color:var(--tf)}
 .alt-inhouse-note{font-size:11.5px;color:var(--sub);line-height:1.6;display:block}
 .alt-note strong{color:var(--ink)}
 .gami-sub-label{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding-bottom:10px;margin-bottom:20px;border-bottom:2px solid}
@@ -129,12 +129,12 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .gami-badge{display:inline-block;font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;margin-bottom:12px}
 .gami-badge.mvp{background:var(--green-bg);color:var(--green)}
 .gami-badge.p2{background:var(--tf-ghost);color:var(--tf)}
-.gami-badge.rec{background:var(--orange);color:white}
+.gami-badge.rec{background:var(--tf);color:white}
 .gami-mech-name{font-size:18px;font-weight:800;color:var(--ink);margin-bottom:8px}
 .gami-mech-desc{font-size:13px;color:var(--sub);line-height:1.6;margin-bottom:8px}
 .gami-steps{list-style:none;margin:0 0 14px;counter-reset:gstep}
 .gami-steps li{font-size:12.5px;color:var(--ink);padding:5px 0;border-bottom:1px solid var(--rule);line-height:1.5;display:flex;gap:8px;counter-increment:gstep}
-.gami-steps li::before{content:counter(gstep);font-size:11px;font-weight:800;color:var(--orange);min-width:18px;flex-shrink:0}
+.gami-steps li::before{content:counter(gstep);font-size:11px;font-weight:800;color:var(--tf);min-width:18px;flex-shrink:0}
 .gami-steps li:last-child{border-bottom:none}
 .reward-table{width:100%;border-collapse:collapse;font-size:12.5px;margin:10px 0 14px}
 .reward-table th{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--sub);padding:5px 8px;border-bottom:2px solid var(--rule);text-align:left}
@@ -156,7 +156,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .sl-group:last-child{margin-bottom:0}
 .sl-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px}
 .sl-label{font-size:12.5px;font-weight:700;color:var(--ink)}
-.sl-val{font-size:14px;font-weight:800;color:var(--orange)}
+.sl-val{font-size:14px;font-weight:800;color:var(--tf)}
 input[type=range]{width:100%;height:4px;accent-color:var(--tf);cursor:pointer;display:block}
 .sl-hints{display:flex;justify-content:space-between;font-size:10px;color:var(--sub);opacity:.55;margin-top:4px}
 .sl-note{font-size:11px;color:var(--sub);margin-top:3px}
@@ -186,7 +186,7 @@ input[type=range]{width:100%;height:4px;accent-color:var(--tf);cursor:pointer;di
 .out-sub-val{font-size:15px;font-weight:800;color:white}
 .out-gami-note{margin-top:14px;padding:12px;background:rgba(255,255,255,.07);font-size:13px;font-weight:600;color:white;line-height:1.5}
 .calc-model-title{font-size:20px;font-weight:800;color:var(--ink);margin-bottom:22px;letter-spacing:-0.3px}
-.sold-out-tag{display:inline-block;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;background:var(--orange);color:white;padding:2px 7px;margin-left:8px;vertical-align:middle}
+.sold-out-tag{display:inline-block;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;background:var(--tf);color:white;padding:2px 7px;margin-left:8px;vertical-align:middle}
 .excl-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:6px 32px;margin-top:14px}
 .excl-list li{font-size:12px;color:var(--sub);padding:5px 0;border-bottom:1px solid var(--rule);display:flex;gap:7px;line-height:1.5}
 .excl-list li::before{content:'—';color:var(--rule);flex-shrink:0}
@@ -372,7 +372,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         </div>
         <input type="range" id="sl-ctr" min="1" max="30" step="0.5" value="10" oninput="calc()"/>
         <div class="sl-hints"><span>1%</span><span>30%</span></div>
-        <div class="sl-note">% of post viewers who click through to TF. Applied to viewers only (after organic reach filter). Story swipe-up: 3–15%. Dedicated drop post: 5–20%.</div>
+        <div class="sl-note">% of post viewers who click through to SMTHG. Applied to viewers only (after organic reach filter). Story swipe-up: 3–15%. Dedicated drop post: 5–20%.</div>
       </div>
 
       <div class="sl-group">
@@ -408,12 +408,12 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 
       <div class="sl-group">
         <div class="sl-top">
-          <span class="sl-label">TF platform fee</span>
+          <span class="sl-label">SMTHG platform fee</span>
           <span class="sl-val" id="v-platform">10%</span>
         </div>
         <input type="range" id="sl-platform" min="5" max="15" step="0.5" value="10" oninput="calc()"/>
         <div class="sl-hints"><span>5%</span><span>15%</span></div>
-        <div class="sl-note">TF model: 10% on GMV</div>
+        <div class="sl-note">SMTHG model: 10% on GMV</div>
       </div>
 
       <div class="sl-group">
@@ -478,7 +478,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         </div>
         <input type="range" id="sl-designers" min="1" max="50" step="1" value="5" oninput="calc()"/>
         <div class="sl-hints"><span>1</span><span>50</span></div>
-        <div class="sl-note">Designers actively running drops on TF.</div>
+        <div class="sl-note">Designers actively running drops on SMTHG.</div>
       </div>
       <div class="sl-group">
         <div class="sl-top">
@@ -496,7 +496,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         </div>
         <input type="range" id="sl-designer-fee" min="0" max="1000" step="50" value="250" oninput="calc()"/>
         <div class="sl-hints"><span>$0</span><span>$1,000</span></div>
-        <div class="sl-note">Fixed monthly subscription per designer — TF revenue on top of GMV commission. $0 = commission-only model.</div>
+        <div class="sl-note">Fixed monthly subscription per designer — SMTHG revenue on top of GMV commission. $0 = commission-only model.</div>
       </div>
 
     </div><!-- sliders-box -->
@@ -537,7 +537,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
       </div>
       <div style="font-size:11px;color:var(--sub);margin:-4px 0 6px;line-height:1.4">5 items sent to influencer before each drop — designer absorbs production cost.</div>
       <div class="out-row">
-        <span class="out-row-lbl" id="o-tf-lbl">TF Fee (10%)</span>
+        <span class="out-row-lbl" id="o-tf-lbl">SMTHG Fee (10%)</span>
         <span class="out-row-val neg" id="o-tf">−$2,625</span>
       </div>
       <div class="out-row">
@@ -567,7 +567,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 
       <div class="profit-row">
         <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px">
-          <span style="font-size:12px;font-weight:700;color:white">TF platform fee</span>
+          <span style="font-size:12px;font-weight:700;color:white">SMTHG platform fee</span>
           <span style="font-size:15px;font-weight:800;color:white" id="o-tf-gross">$2,625</span>
         </div>
         <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px" id="o-vto-tf-row">
@@ -582,9 +582,9 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
           <span style="font-size:12px;font-weight:700;color:white">Gamification reserve (<input type="number" id="inp-gami" value="0" min="0" max="500" step="5" oninput="calc()" style="width:46px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);border-radius:3px;color:white;padding:2px 4px;font-size:11px;font-family:inherit;text-align:right"/>$/drop)</span>
           <span style="font-size:15px;font-weight:800;color:#FF8A80" id="o-gami">−$0</span>
         </div>
-        <div style="font-size:11px;color:rgba(255,255,255,.55);margin:-4px 0 10px;line-height:1.4">Points, future discounts and reward credits TF absorbs per drop.</div>
+        <div style="font-size:11px;color:rgba(255,255,255,.55);margin:-4px 0 10px;line-height:1.4">Points, future discounts and reward credits SMTHG absorbs per drop.</div>
         <div style="display:flex;justify-content:space-between;align-items:baseline">
-          <span class="profit-lbl">TF Net this drop</span>
+          <span class="profit-lbl">SMTHG net this drop</span>
           <span class="profit-val pos" id="o-tf-net">$2,531</span>
         </div>
         <div style="margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,.1)">
@@ -597,7 +597,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
             <span style="font-size:15px;font-weight:800;color:white" id="o-monthly-sub">+$2,500</span>
           </div>
           <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px">
-            <span class="profit-lbl">Total monthly TF</span>
+            <span class="profit-lbl">Total monthly SMTHG</span>
             <span class="profit-val pos" id="o-monthly-total">$XX</span>
           </div>
           <div style="display:flex;justify-content:space-between;align-items:baseline" id="o-target-row">
@@ -625,21 +625,21 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 
 
   <!-- CONCLUSION -->
-  <div style="background:white;border:1px solid var(--rule);border-top:3px solid var(--orange);padding:28px 32px;margin-top:32px">
-    <div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:20px">What it takes to reach $10K / month</div>
+  <div style="background:white;border:1px solid var(--rule);border-top:3px solid var(--tf);padding:28px 32px;margin-top:32px">
+    <div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);margin-bottom:20px">What it takes to reach $10K / month</div>
 
     <div style="display:flex;gap:24px;flex-wrap:wrap;margin-bottom:24px">
       <div style="flex:1;min-width:160px;background:var(--tf-ghost);padding:16px 20px">
-        <div style="font-size:11px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px">TF net per drop</div>
+        <div style="font-size:11px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px">SMTHG net per drop</div>
         <div style="font-size:28px;font-weight:800;color:var(--tf)" id="concl-tf-net">—</div>
       </div>
       <div style="flex:1;min-width:160px;background:var(--tf-ghost);padding:16px 20px">
         <div style="font-size:11px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px">Designers needed (1 drop/mo each)</div>
-        <div style="font-size:28px;font-weight:800;color:var(--orange)" id="concl-designers">—</div>
+        <div style="font-size:28px;font-weight:800;color:var(--tf)" id="concl-designers">—</div>
         <div style="font-size:10px;color:var(--sub);margin-top:4px">Fixed at 1 drop/mo — use slider for other cadences</div>
       </div>
       <div style="flex:1;min-width:160px;background:var(--tf-ghost);padding:16px 20px">
-        <div style="font-size:11px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px">VTO cost as % of TF fee</div>
+        <div style="font-size:11px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px">VTO cost as % of SMTHG fee</div>
         <div style="font-size:28px;font-weight:800;color:var(--ink)" id="concl-vto-pct">—</div>
       </div>
     </div>
@@ -651,23 +651,23 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
       <tbody>
         <tr>
           <td class="bold">Active designers</td>
-          <td id="concl-p-designers" class="bold" style="color:var(--orange)">5</td>
-          <td class="note">Primary lever. Every additional designer running one drop/month adds one drop's worth of TF revenue.</td>
+          <td id="concl-p-designers" class="bold" style="color:var(--tf)">5</td>
+          <td class="note">Primary lever. Every additional designer running one drop/month adds one drop's worth of SMTHG revenue.</td>
         </tr>
         <tr>
           <td class="bold">Drop price</td>
           <td id="concl-p-price" class="bold" style="color:var(--tf)">$150</td>
-          <td class="note">TF earns 10% of GMV. Doubling price doubles TF fee — and halves the number of designers needed.</td>
+          <td class="note">SMTHG earns 10% of GMV. Doubling price doubles SMTHG fee — and halves the number of designers needed.</td>
         </tr>
         <tr>
           <td class="bold">VTO cost</td>
           <td id="concl-p-vto" class="bold">$375</td>
-          <td class="note">TF pays Shopify VTO per try ($0.10). Reducing tries per session or the % of visitors who use VTO cuts this cost directly.</td>
+          <td class="note">SMTHG pays Shopify VTO per try ($0.10). Reducing tries per session or the % of visitors who use VTO cuts this cost directly.</td>
         </tr>
         <tr>
           <td class="bold">Click-through rate</td>
           <td id="concl-p-ctr" class="bold" style="color:var(--sub)">10.0%</td>
-          <td class="note">% of followers who click to TF. Higher CTR = more platform visitors. Doesn't help once the drop is sold out.</td>
+          <td class="note">% of followers who click to SMTHG. Higher CTR = more platform visitors. Doesn't help once the drop is sold out.</td>
         </tr>
         <tr>
           <td class="bold">Platform conversion</td>
@@ -677,7 +677,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         <tr>
           <td class="bold">Designer monthly fee</td>
           <td id="concl-p-dsfee" class="bold" style="color:var(--tf)">$250</td>
-          <td class="note">Fixed subscription per designer per month — TF revenue independent of drop performance. Each additional designer adds this directly to monthly TF revenue.</td>
+          <td class="note">Fixed subscription per designer per month — SMTHG revenue independent of drop performance. Each additional designer adds this directly to monthly SMTHG revenue.</td>
         </tr>
         <tr>
           <td class="bold">Drops / designer / mo</td>
@@ -751,6 +751,20 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
           <input class="cost-input" type="number" id="c-framer" value="15" min="0" step="1" oninput="calcCosts()"/>
           <span class="cost-unit">/mo</span>
           <button class="cost-btn" onclick="adjC('framer',1)">+</button>
+        </div>
+      </div>
+
+      <div class="cost-item">
+        <div class="cost-item-label">
+          <div class="cost-item-name">Other platform tools</div>
+          <div class="cost-item-note">Additional SaaS subscriptions for the platform</div>
+        </div>
+        <div class="cost-item-ctrl">
+          <button class="cost-btn" onclick="adjC('platform-other',-10)">−</button>
+          <span class="cost-unit">$</span>
+          <input class="cost-input" type="number" id="c-platform-other" value="0" min="0" step="10" oninput="calcCosts()"/>
+          <span class="cost-unit">/mo</span>
+          <button class="cost-btn" onclick="adjC('platform-other',10)">+</button>
         </div>
       </div>
 
@@ -887,6 +901,20 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         </div>
       </div>
 
+      <div class="cost-item">
+        <div class="cost-item-label">
+          <div class="cost-item-name">Other one-time costs</div>
+          <div class="cost-item-note">Equipment, setup fees, miscellaneous launch expenses</div>
+        </div>
+        <div class="cost-item-ctrl">
+          <button class="cost-btn" onclick="adjC('onetime-other',-100)">−</button>
+          <span class="cost-unit">$</span>
+          <input class="cost-input" type="number" id="c-onetime-other" value="0" min="0" step="100" oninput="calcCosts()"/>
+          <span class="cost-unit">one-time</span>
+          <button class="cost-btn" onclick="adjC('onetime-other',100)">+</button>
+        </div>
+      </div>
+
       <div class="cost-subtotal">
         <span>One-time total</span>
         <span id="cst-onetime">$0</span>
@@ -904,16 +932,16 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         <span class="out-row-val" id="co-platform">—</span>
       </div>
       <div class="out-row" style="padding-top:4px;padding-bottom:4px">
-        <span class="out-row-lbl" style="font-size:11px;padding-left:10px">Shopify Grow</span>
-        <span class="out-row-val" style="font-size:12px" id="co-shopify">$79</span>
+        <span class="out-row-lbl" style="padding-left:12px">Shopify Grow</span>
+        <span class="out-row-val" id="co-shopify">$79</span>
       </div>
       <div class="out-row" style="padding-top:4px;padding-bottom:4px">
-        <span class="out-row-lbl" style="font-size:11px;padding-left:10px">PuppetVendors</span>
-        <span class="out-row-val" style="font-size:12px" id="co-puppet">$49</span>
+        <span class="out-row-lbl" style="padding-left:12px">PuppetVendors</span>
+        <span class="out-row-val" id="co-puppet">$49</span>
       </div>
       <div class="out-row" style="padding-top:4px;padding-bottom:4px">
-        <span class="out-row-lbl" style="font-size:11px;padding-left:10px">Framer</span>
-        <span class="out-row-val" style="font-size:12px" id="co-framer">$15</span>
+        <span class="out-row-lbl" style="padding-left:12px">Framer</span>
+        <span class="out-row-val" id="co-framer">$15</span>
       </div>
 
       <div class="out-divider"></div>
@@ -986,7 +1014,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         <li>Early-buyer badge — awarded to first N orders per drop</li>
         <li>Points per order — redeemable for future discount (basic loyalty)</li>
         <li>Designer dashboard — orders, revenue, per-influencer performance</li>
-        <li>Payout split — auto at checkout: designer / TF fee / influencer share</li>
+        <li>Payout split — auto at checkout: designer / SMTHG fee / influencer share</li>
       </ul>
     </div>
     <div class="scope-card out">
@@ -997,7 +1025,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         <li>Social feed and prosumer upload layer</li>
         <li>Full gamification suite — tiers, quests, tokenization</li>
         <li>Consumer-to-consumer marketplace</li>
-        <li>B2B / brand direct integration — TF acting as white-label infrastructure for established fashion brands to run their own drops and campaigns directly (different use case from serving emerging designers)</li>
+        <li>B2B / brand direct integration — SMTHG acting as white-label infrastructure for established fashion brands to run their own drops and campaigns directly (different use case from serving emerging designers)</li>
       </ul>
     </div>
   </div>
@@ -1062,12 +1090,12 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
     <div class="gami-box" style="border-top:3px solid var(--green)">
       <span class="gami-badge mvp">MVP · Fastest to ship</span>
       <div class="gami-mech-name">Invite-to-Win</div>
-      <p class="gami-mech-desc">Turn each pre-order into a referral loop. After ordering, the buyer creates their own VTO of the product and invites friends via Instagram, Facebook, or TF. Every friend who joins TF and places the pre-order earns the inviter a reward. Both sides receive an incentive — the friend gets a welcome reward too.</p>
+      <p class="gami-mech-desc">Turn each pre-order into a referral loop. After ordering, the buyer creates their own VTO of the product and invites friends via Instagram, Facebook, or SMTHG. Every friend who joins SMTHG and places the pre-order earns the inviter a reward. Both sides receive an incentive — the friend gets a welcome reward too.</p>
       <div class="gami-title" style="margin-top:14px;margin-bottom:10px">How it works</div>
       <ol class="gami-steps">
         <li>Pre-order goes live; influencer publishes it with VTO.</li>
         <li>Buyer creates their own VTO of the product inside TF.</li>
-        <li>They share it to Instagram, Facebook, or a TF referral link.</li>
+        <li>They share it to Instagram, Facebook, or a SMTHG referral link.</li>
         <li>Friend clicks, joins TF, and places the pre-order.</li>
         <li>Inviter earns a reward from the ladder below.</li>
       </ol>
@@ -1089,7 +1117,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
       <div class="gami-box">
         <span class="gami-badge mvp">MVP</span>
         <div class="gami-mech-name">Early Buyer Badge</div>
-        <p class="gami-mech-desc">Awarded to the first N orders on each drop. Permanent visible badge on the buyer's TF profile. Creates urgency and scarcity around each drop window — buyers who move fast get a status marker no one else can earn after the drop closes.</p>
+        <p class="gami-mech-desc">Awarded to the first N orders on each drop. Permanent visible badge on the buyer's SMTHG profile. Creates urgency and scarcity around each drop window — buyers who move fast get a status marker no one else can earn after the drop closes.</p>
       </div>
       <div class="gami-box">
         <span class="gami-badge mvp">MVP · Meta-layer</span>
@@ -1107,15 +1135,15 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
     <div class="gami-box">
       <span class="gami-badge p2">Phase 2</span>
       <div class="gami-mech-name">Co-Design</div>
-      <p class="gami-mech-desc">Designer publishes 3 versions of a product. The community votes and predicts which one wins — time-boxed campaign. Each version has its own VTO, shareable only inside TF (protects unreleased designs from leaking). When the countdown ends, the designer picks the winning version; it moves into the pre-order flow.</p>
-      <p class="gami-mech-desc">Everyone who predicted correctly wins a prize. TF covers a base reward (store credit or points) for every correct guesser. The designer optionally adds a premium "money-can't-buy" prize — a signed piece, exclusive colorway, or 1-of-1 item — for the top winners.</p>
+      <p class="gami-mech-desc">Designer publishes 3 versions of a product. The community votes and predicts which one wins — time-boxed campaign. Each version has its own VTO, shareable only inside SMTHG (protects unreleased designs from leaking). When the countdown ends, the designer picks the winning version; it moves into the pre-order flow.</p>
+      <p class="gami-mech-desc">Everyone who predicted correctly wins a prize. SMTHG covers a base reward (store credit or points) for every correct guesser. The designer optionally adds a premium "money-can't-buy" prize — a signed piece, exclusive colorway, or 1-of-1 item — for the top winners.</p>
       <div class="src" style="margin-top:10px">Source: TerraFerra_Gamification.pdf, p.4–6</div>
     </div>
 
     <div class="gami-box">
-      <span class="gami-badge rec">Phase 2 · TF Recommendation</span>
+      <span class="gami-badge rec">Phase 2 · SMTHG Recommendation</span>
       <div class="gami-mech-name">Style Battle</div>
-      <p class="gami-mech-desc">Weekly UGC styling contest. A featured pre-order item gets a theme (e.g. "Golden Hour"). Users style a look around it using real items from the TF catalog and submit to a public gallery — every item in every look is shoppable.</p>
+      <p class="gami-mech-desc">Weekly UGC styling contest. A featured pre-order item gets a theme (e.g. "Golden Hour"). Users style a look around it using real items from the SMTHG catalog and submit to a public gallery — every item in every look is shoppable.</p>
       <p class="gami-mech-desc">Community votes on a time-boxed leaderboard. Top looks are featured on TF; entrants earn points and voters get a discount. Reuses the voting engine from Co-Design — low additional build cost. UGC creates organic reach and SEO traffic. Shoppable looks convert directly.</p>
       <div class="src" style="margin-top:10px">Source: TerraFerra_Gamification.pdf, p.10–11</div>
     </div>
@@ -1280,7 +1308,7 @@ function calc() {
   document.getElementById('o-cogs').textContent   = fmtNeg(production);
   document.getElementById('o-samples').textContent = fmtNeg(sampleCost);
   document.getElementById('o-tf').textContent     = fmtNeg(tfFee);
-  document.getElementById('o-tf-lbl').textContent = 'TF Fee ('+parseFloat(document.getElementById('sl-platform').value).toFixed(1)+'%)';
+  document.getElementById('o-tf-lbl').textContent = 'SMTHG Fee ('+parseFloat(document.getElementById('sl-platform').value).toFixed(1)+'%)';
   document.getElementById('o-inf').textContent    = fmtNeg(infShare);
   document.getElementById('o-inf-lbl').textContent= 'Influencer ('+parseInt(document.getElementById('sl-inf').value)+'%)';
   document.getElementById('o-post-lbl').textContent = 'Post fee ('+numInfluencers+' × $'+perPostFee+')';
@@ -1334,7 +1362,7 @@ function calc() {
   var barW = Math.max(0, Math.min(100, margin));
   var bar  = document.getElementById('o-bar');
   bar.style.width = barW + '%';
-  bar.style.background = margin < 0 ? '#FF8A80' : margin < 15 ? '#E86820' : '#7AE3B2';
+  bar.style.background = margin < 0 ? '#FF8A80' : margin < 15 ? '#B50023' : '#7AE3B2';
 
   // Crossover: 11,840 total tries/month = breakeven
   var crossoverTries = Math.round(888 / 0.10);
@@ -1360,22 +1388,22 @@ function calc() {
   document.getElementById('concl-tf-net').style.color = tfNet < 0 ? 'var(--red-text)' : 'var(--tf)';
   document.getElementById('concl-designers').textContent = desNeeded1 !== null ? desNeeded1+' designers' : 'N/A';
   document.getElementById('concl-vto-pct').textContent = vtoPct+'%';
-  document.getElementById('concl-vto-pct').style.color = vtoPct > 50 ? 'var(--red-text)' : vtoPct > 25 ? 'var(--orange)' : 'var(--ink)';
+  document.getElementById('concl-vto-pct').style.color = vtoPct > 50 ? 'var(--red-text)' : vtoPct > 25 ? 'var(--tf)' : 'var(--ink)';
   document.getElementById('concl-p-designers').textContent = designers;
   document.getElementById('concl-p-price').textContent = '$'+price;
   document.getElementById('concl-p-ctr').textContent  = parseFloat(document.getElementById('sl-ctr').value).toFixed(1)+'%';
   document.getElementById('concl-p-conv').textContent = parseFloat(document.getElementById('sl-conv').value).toFixed(1)+'%';
-  document.getElementById('concl-p-vto').textContent = '$'+Math.round(vtoCost)+' ('+vtoPct+'% of TF fee)';
+  document.getElementById('concl-p-vto').textContent = '$'+Math.round(vtoCost)+' ('+vtoPct+'% of SMTHG fee)';
   document.getElementById('concl-p-dsfee').textContent = '$'+designerFee+'/mo per designer';
   document.getElementById('concl-p-cadence').textContent = dropsPerDesigner+' drop'+(dropsPerDesigner>1?'s':'')+'/mo';
   document.getElementById('concl-p-followers').textContent = numInfluencers+'×'+fK(followersPerInf)+' = '+fK(totalFollowers)+(totalFollowers < 30000 ? ' ⚠ below 30K min' : '');
   if (revenuePerDes1 > 0) {
     var desAt2 = Math.ceil(10000 / ((tfNet * 2) + designerFee));
     var vtoTip = vtoMode === 'kivisense' ? 'Kivisense $888/mo is split across '+totalDrops+' drops ($'+Math.round(vtoCost)+'/drop).' :
-                 vtoPct > 30 ? 'VTO is eating '+vtoPct+'% of TF fee — reduce tries per session or lower the VTO visitor %.' :
-                 'VTO cost is '+vtoPct+'% of TF fee — manageable at this setting.';
+                 vtoPct > 30 ? 'VTO is eating '+vtoPct+'% of SMTHG fee — reduce tries per session or lower the VTO visitor %.' :
+                 'VTO cost is '+vtoPct+'% of SMTHG fee — manageable at this setting.';
     document.getElementById('concl-summary').textContent =
-      'TF nets $'+Math.round(tfNet).toLocaleString()+'/drop + $'+designerFee+'/designer/month subscription. '
+      'SMTHG nets $'+Math.round(tfNet).toLocaleString()+'/drop + $'+designerFee+'/designer/month subscription. '
       +'At 1 drop/designer: '+desNeeded1+' designers reach $10K/mo. '
       +'At 2 drops/designer: '+desAt2+' designers. '
       +vtoTip;
@@ -1400,10 +1428,11 @@ function fc$(n){ return '$'+Math.round(n).toLocaleString(); }
 function fcMoYr(mo){ return fc$(mo)+' / mo  ·  '+fc$(mo*12)+' / yr'; }
 
 function calcCosts() {
-  var shopify   = +document.getElementById('c-shopify').value || 0;
-  var puppet    = +document.getElementById('c-puppet').value  || 0;
-  var framer    = +document.getElementById('c-framer').value  || 0;
-  var platform  = shopify + puppet + framer;
+  var shopify         = +document.getElementById('c-shopify').value         || 0;
+  var puppet          = +document.getElementById('c-puppet').value          || 0;
+  var framer          = +document.getElementById('c-framer').value          || 0;
+  var platformOther   = +document.getElementById('c-platform-other').value  || 0;
+  var platform        = shopify + puppet + framer + platformOther;
 
   var hosting   = +document.getElementById('c-hosting').value   || 0;
   var insurance = +document.getElementById('c-insurance').value || 0;
@@ -1418,9 +1447,10 @@ function calcCosts() {
   var monthly = platform + ops + marketing;
   var annual  = monthly * 12;
 
-  var bank    = +document.getElementById('c-bank').value  || 0;
-  var legal   = +document.getElementById('c-legal').value || 0;
-  var onetime = bank + legal;
+  var bank         = +document.getElementById('c-bank').value         || 0;
+  var legal        = +document.getElementById('c-legal').value        || 0;
+  var onetimeOther = +document.getElementById('c-onetime-other').value || 0;
+  var onetime      = bank + legal + onetimeOther;
 
   // Subtotals
   document.getElementById('cst-platform').textContent   = fcMoYr(platform);
