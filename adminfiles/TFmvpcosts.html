@@ -433,7 +433,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         </div>
         <input type="range" id="sl-payment" min="1" max="5" step="0.1" value="2.9" oninput="calc()"/>
         <div class="sl-hints"><span>1%</span><span>5%</span></div>
-        <div class="sl-note">Stripe standard: 2.9% (fixed $0.30/order excluded — see exclusions)</div>
+        <div class="sl-note">Stripe: 2.9% variable + $0.30/order flat. Both included in result.</div>
       </div>
 
       <div class="sliders-section-label" style="margin-top:20px">VTO Volume</div>
@@ -623,11 +623,6 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 
   </div><!-- calc-wrap -->
 
-  <div style="background:var(--tf-ghost);border:1px solid var(--rule);border-left:4px solid var(--tf);padding:16px 22px;margin-top:24px;font-size:13.5px;color:var(--ink);line-height:1.8">
-    <strong>Monthly platform costs</strong> — excl. development, tax, shipping, returns:<br>
-    Stripe $0.30/order × <span id="calc-stripe-drops-lbl">5 drops</span> = <strong id="calc-stripe-sum">$150</strong> &nbsp;+&nbsp; LoyaltyLion $199/mo &nbsp;+&nbsp; infrastructure TBD
-    &nbsp;=&nbsp; <strong style="color:var(--tf);font-size:16px" id="calc-total-sum">$349</strong> known + TBD
-  </div>
 
   <!-- CONCLUSION -->
   <div style="background:white;border:1px solid var(--rule);border-top:3px solid var(--orange);padding:28px 32px;margin-top:32px">
@@ -703,7 +698,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 <section class="section">
   <div class="sec-heading"><span class="sec-num">02</span> MVP Costs · Platform Calculator</div>
 
-  <p style="font-size:13px;color:var(--ink);margin-bottom:28px;line-height:1.6">Monthly recurring platform costs on Shopify. All items adjustable — type or use +/− buttons. Operational labor and development costs excluded.</p>
+  <p style="font-size:13px;color:var(--ink);margin-bottom:28px;line-height:1.6">Fixed monthly platform costs — subscriptions, infrastructure, marketing. Variable per-drop costs (VTO, payment processing, influencer commissions) are in section 01. Operational labor and development costs excluded.</p>
 
   <div class="calc-wrap">
 
@@ -756,77 +751,6 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
       <div class="cost-subtotal">
         <span>Core platform</span>
         <span id="cst-platform">—</span>
-      </div>
-
-      <div class="cost-cat-label">Virtual Try-On (VTO)</div>
-
-      <div class="vto-switch" style="margin-bottom:16px">
-        <button class="vto-btn on" id="cbtn-pertry" onclick="setCostVTO('pertry')">Per Try<span>$0.10 / try</span></button>
-        <button class="vto-btn" id="cbtn-package" onclick="setCostVTO('package')">Package<span>$99 / 1,000 tries</span></button>
-      </div>
-
-      <div class="cost-item" id="crow-vto-vol">
-        <div class="cost-item-label">
-          <div class="cost-item-name">Estimated monthly tries</div>
-          <div class="cost-item-note">Adjust based on expected drop volume. See Section 01 VTO sliders for per-drop estimate.</div>
-        </div>
-        <div class="cost-item-ctrl">
-          <button class="cost-btn" onclick="adjC('vtovol',-100)">−</button>
-          <input class="cost-input" type="number" id="c-vtovol" value="900" min="0" step="100" oninput="calcCosts()" style="width:72px"/>
-          <span class="cost-unit">tries</span>
-          <button class="cost-btn" onclick="adjC('vtovol',100)">+</button>
-        </div>
-      </div>
-
-      <div class="cost-subtotal">
-        <span id="cst-vto-lbl">VTO</span>
-        <span id="cst-vto">—</span>
-      </div>
-
-      <div class="cost-cat-label">Influencer Search (Shopify Collabs)</div>
-
-      <div style="background:var(--tf-ghost);border-left:3px solid var(--tf);padding:12px 16px;font-size:12.5px;color:var(--ink);line-height:1.6;margin-bottom:12px">
-        Shopify charges 2.9% on influencer commission payouts processed via Shopify Collabs. Example: item sold at $100 → TF pays influencer 10% = $10 → Shopify takes $0.29.
-        <span style="display:block;color:var(--sub);font-size:11px;margin-top:4px">Search and outreach flow still under research — influencer activation level unclear.</span>
-      </div>
-
-      <div class="cost-item">
-        <div class="cost-item-label">
-          <div class="cost-item-name">Monthly influencer payouts (est.)</div>
-          <div class="cost-item-note">Total commissions paid to influencers per month via Shopify Collabs</div>
-        </div>
-        <div class="cost-item-ctrl">
-          <button class="cost-btn" onclick="adjC('infpay',-100)">−</button>
-          <span class="cost-unit">$</span>
-          <input class="cost-input" type="number" id="c-infpay" value="1000" min="0" step="100" oninput="calcCosts()" style="width:72px"/>
-          <span class="cost-unit">/mo</span>
-          <button class="cost-btn" onclick="adjC('infpay',100)">+</button>
-        </div>
-      </div>
-
-      <div class="cost-subtotal">
-        <span>Shopify Collabs fee (2.9%)</span>
-        <span id="cst-inf">—</span>
-      </div>
-
-      <div class="cost-cat-label">Transaction Fees</div>
-
-      <div class="cost-item">
-        <div class="cost-item-label">
-          <div class="cost-item-name">Stripe — $0.30 per order (fixed fee)</div>
-          <div class="cost-item-note">Per-transaction flat fee on top of the 2.9% rate. The 2.9% is in the drop calculator above; this covers the fixed $0.30/order component.</div>
-        </div>
-        <div class="cost-item-ctrl">
-          <button class="cost-btn" onclick="adjC('stripe-orders',-10)">−</button>
-          <input class="cost-input" type="number" id="c-stripe-orders" value="50" min="0" step="10" oninput="calcCosts()" style="width:60px"/>
-          <span class="cost-unit">orders/mo</span>
-          <button class="cost-btn" onclick="adjC('stripe-orders',10)">+</button>
-        </div>
-      </div>
-
-      <div class="cost-subtotal">
-        <span id="cst-stripe-lbl">50 orders × $0.30</span>
-        <span id="cst-stripe">—</span>
       </div>
 
       <div class="cost-cat-label">Operations</div>
@@ -989,24 +913,6 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
       <div class="out-divider"></div>
 
       <div class="out-row">
-        <span class="out-row-lbl" id="co-vto-lbl">VTO (tries)</span>
-        <span class="out-row-val" id="co-vto">—</span>
-      </div>
-
-      <div class="out-divider"></div>
-
-      <div class="out-row">
-        <span class="out-row-lbl">Shopify Collabs (2.9%)</span>
-        <span class="out-row-val" id="co-inf">—</span>
-      </div>
-      <div class="out-row">
-        <span class="out-row-lbl">Stripe $0.30/order</span>
-        <span class="out-row-val" id="co-stripe-fixed">—</span>
-      </div>
-
-      <div class="out-divider"></div>
-
-      <div class="out-row">
         <span class="out-row-lbl">Operations</span>
         <span class="out-row-val" id="co-ops">—</span>
       </div>
@@ -1044,7 +950,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         <span class="out-row-val" id="co-onetime">$0</span>
       </div>
 
-      <div class="out-gami-note" style="margin-top:14px">Minimum platform baseline: $233/mo (Shopify Grow $79 + PuppetVendors $49 + VTO $90 + Framer $15). Shopify Basic has no staff accounts — Grow plan required for 3 users.</div>
+      <div class="out-gami-note" style="margin-top:14px">Fixed cost baseline: $143/mo (Shopify Grow $79 + PuppetVendors $49 + Framer $15). Variable per-drop costs — VTO, payment fees, influencer commissions — are in section 01.</div>
     </div>
 
   </div><!-- calc-wrap -->
@@ -1059,8 +965,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
     <li>VAT, sales tax, currency conversion</li>
     <li>Customer support labor and all staff labor costs</li>
     <li>App development and in-house build costs</li>
-    <li>App hosting and infrastructure (web hosting included in section 02)</li>
-    <li>Multi-influencer drops — one influencer per drop only in this model</li>
+    <li>App infrastructure — separate from web hosting in section 02</li>
   </ul>
 </section>
 
@@ -1329,7 +1234,7 @@ function calc() {
   var revenue    = orders * price;
   var tfFee      = revenue * platPct;
   var infShare   = revenue * infPct;
-  var payFee     = revenue * payPct;
+  var payFee     = revenue * payPct + orders * 0.30;
   var production = orders * cogs;
 
   // Flat per-post fee — read from slider
@@ -1377,7 +1282,7 @@ function calc() {
   document.getElementById('o-post-lbl').textContent = 'Post fee ('+numInfluencers+' × $'+perPostFee+')';
   document.getElementById('o-post').textContent   = fmtNeg(infPostCost);
   document.getElementById('o-pay').textContent    = fmtNeg(payFee);
-  document.getElementById('o-pay-lbl').textContent= 'Payment Processing ('+parseFloat(document.getElementById('sl-payment').value).toFixed(1)+'%)';
+  document.getElementById('o-pay-lbl').textContent= 'Payment ('+parseFloat(document.getElementById('sl-payment').value).toFixed(1)+'% + $0.30/order)';
 
   if (vtoMode === 'fashn') {
     document.getElementById('o-vto-lbl').textContent = 'VTO · Shopify ('+totalTries.toLocaleString()+' tries)';
@@ -1474,25 +1379,11 @@ function calc() {
     document.getElementById('concl-summary').textContent = 'Revenue per designer is negative at current settings — increase price, reduce VTO tries, or lower influencer commission.';
   }
 
-  // Section 01 summary — monthly Stripe across all drops
-  var stripeFixed = orders * 0.30;
-  var monthlyStripe = stripeFixed * totalDrops;
-  document.getElementById('calc-stripe-drops-lbl').textContent = totalDrops+' drop'+(totalDrops>1?'s':'');
-  document.getElementById('calc-stripe-sum').textContent= '$'+Math.round(monthlyStripe).toLocaleString();
-  document.getElementById('calc-total-sum').textContent = '$'+Math.round(monthlyStripe + 199).toLocaleString();
 }
 
 calc();
 
 /* ——— COST CALCULATOR (Section 02) ——— */
-var costVtoMode = 'pertry';
-
-function setCostVTO(mode) {
-  costVtoMode = mode;
-  document.getElementById('cbtn-pertry').classList.toggle('on', mode === 'pertry');
-  document.getElementById('cbtn-package').classList.toggle('on', mode === 'package');
-  calcCosts();
-}
 
 function adjC(id, delta) {
   var el = document.getElementById('c-'+id);
@@ -1510,24 +1401,6 @@ function calcCosts() {
   var framer    = +document.getElementById('c-framer').value  || 0;
   var platform  = shopify + puppet + framer;
 
-  var vtoVol    = +document.getElementById('c-vtovol').value   || 0;
-  var vtoCost = 0, vtoLbl = '';
-  if (costVtoMode === 'pertry') {
-    vtoCost = vtoVol * 0.10;
-    vtoLbl  = 'VTO · '+vtoVol.toLocaleString()+' tries × $0.10';
-  } else if (costVtoMode === 'package') {
-    var pkgs = Math.ceil(vtoVol / 1000) || 0;
-    vtoCost  = pkgs * 99;
-    vtoLbl   = 'VTO · '+pkgs+' pkg'+(pkgs!==1?'s':'')+' × $99 ('+vtoVol.toLocaleString()+' tries)';
-  }
-  var vtoTotal = vtoCost;
-
-  var infPay  = +document.getElementById('c-infpay').value || 0;
-  var infFee  = infPay * 0.029;
-
-  var stripeOrders = +document.getElementById('c-stripe-orders').value || 0;
-  var stripeFixed  = stripeOrders * 0.30;
-
   var hosting   = +document.getElementById('c-hosting').value   || 0;
   var insurance = +document.getElementById('c-insurance').value || 0;
   var other     = +document.getElementById('c-other').value     || 0;
@@ -1538,7 +1411,7 @@ function calcCosts() {
   var mktgOther = +document.getElementById('c-mktg-other').value || 0;
   var marketing = email + ads + mktgOther;
 
-  var monthly = platform + vtoTotal + infFee + stripeFixed + ops + marketing;
+  var monthly = platform + ops + marketing;
   var annual  = monthly * 12;
 
   var bank    = +document.getElementById('c-bank').value  || 0;
@@ -1547,11 +1420,6 @@ function calcCosts() {
 
   // Subtotals
   document.getElementById('cst-platform').textContent   = fcMoYr(platform);
-  document.getElementById('cst-vto-lbl').textContent    = vtoLbl || 'VTO';
-  document.getElementById('cst-vto').textContent        = fcMoYr(vtoTotal);
-  document.getElementById('cst-inf').textContent        = fcMoYr(infFee);
-  document.getElementById('cst-stripe-lbl').textContent = stripeOrders.toLocaleString()+' orders × $0.30';
-  document.getElementById('cst-stripe').textContent     = fcMoYr(stripeFixed);
   document.getElementById('cst-ops').textContent        = fcMoYr(ops);
   document.getElementById('cst-mktg').textContent       = fcMoYr(marketing);
   document.getElementById('cst-onetime').textContent    = fc$(onetime);
@@ -1561,10 +1429,6 @@ function calcCosts() {
   document.getElementById('co-shopify').textContent     = fc$(shopify);
   document.getElementById('co-puppet').textContent      = fc$(puppet);
   document.getElementById('co-framer').textContent      = fc$(framer);
-  document.getElementById('co-vto-lbl').textContent     = vtoLbl || 'VTO (tries)';
-  document.getElementById('co-vto').textContent         = fc$(vtoCost);
-  document.getElementById('co-inf').textContent         = fc$(infFee);
-  document.getElementById('co-stripe-fixed').textContent= fc$(stripeFixed);
   document.getElementById('co-ops').textContent         = fc$(ops);
   document.getElementById('co-marketing').textContent   = fc$(marketing);
   document.getElementById('co-monthly').textContent     = fc$(monthly);
