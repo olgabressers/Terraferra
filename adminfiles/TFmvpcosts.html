@@ -309,9 +309,6 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         <button class="vto-btn" id="btn-kivisense" onclick="setVTO('kivisense')">
           Kivisense<span>$888 / month flat</span>
         </button>
-        <button class="vto-btn" id="btn-none" onclick="setVTO('none')">
-          No VTO<span>exclude cost</span>
-        </button>
       </div>
 
       <div class="sliders-section-label" style="margin-top:20px">Drop Parameters</div>
@@ -766,7 +763,6 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
       <div class="vto-switch" style="margin-bottom:16px">
         <button class="vto-btn on" id="cbtn-pertry" onclick="setCostVTO('pertry')">Per Try<span>$0.10 / try</span></button>
         <button class="vto-btn" id="cbtn-package" onclick="setCostVTO('package')">Package<span>$99 / 1,000 tries</span></button>
-        <button class="vto-btn" id="cbtn-vtonone" onclick="setCostVTO('none')">No VTO<span>exclude</span></button>
       </div>
 
       <div class="cost-item" id="crow-vto-vol">
@@ -779,6 +775,20 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
           <input class="cost-input" type="number" id="c-vtovol" value="900" min="0" step="100" oninput="calcCosts()" style="width:72px"/>
           <span class="cost-unit">tries</span>
           <button class="cost-btn" onclick="adjC('vtovol',100)">+</button>
+        </div>
+      </div>
+
+      <div class="cost-item">
+        <div class="cost-item-label">
+          <div class="cost-item-name">FASHN.AI base plan (subscription)</div>
+          <div class="cost-item-note">Fixed subscription on top of per-try costs. Basic $19/mo (200 tries incl.), Pro $49/mo (750 tries), Agency $99/mo (1,500 tries). Set $0 for pure pay-per-try. <a href="https://fashn.ai/pricing" target="_blank" rel="noopener" style="color:var(--tf)">fashn.ai/pricing</a></div>
+        </div>
+        <div class="cost-item-ctrl">
+          <button class="cost-btn" onclick="adjC('fashnplan',-1)">−</button>
+          <span class="cost-unit">$</span>
+          <input class="cost-input" type="number" id="c-fashnplan" value="49" min="0" step="1" oninput="calcCosts()"/>
+          <span class="cost-unit">/mo</span>
+          <button class="cost-btn" onclick="adjC('fashnplan',1)">+</button>
         </div>
       </div>
 
@@ -813,19 +823,39 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         <span id="cst-inf">—</span>
       </div>
 
+      <div class="cost-cat-label">Transaction Fees</div>
+
+      <div class="cost-item">
+        <div class="cost-item-label">
+          <div class="cost-item-name">Stripe — $0.30 per order (fixed fee)</div>
+          <div class="cost-item-note">Per-transaction flat fee on top of the 2.9% rate. The 2.9% is in the drop calculator above; this covers the fixed $0.30/order component.</div>
+        </div>
+        <div class="cost-item-ctrl">
+          <button class="cost-btn" onclick="adjC('stripe-orders',-10)">−</button>
+          <input class="cost-input" type="number" id="c-stripe-orders" value="50" min="0" step="10" oninput="calcCosts()" style="width:60px"/>
+          <span class="cost-unit">orders/mo</span>
+          <button class="cost-btn" onclick="adjC('stripe-orders',10)">+</button>
+        </div>
+      </div>
+
+      <div class="cost-subtotal">
+        <span id="cst-stripe-lbl">50 orders × $0.30</span>
+        <span id="cst-stripe">—</span>
+      </div>
+
       <div class="cost-cat-label">Operations</div>
 
       <div class="cost-item">
         <div class="cost-item-label">
-          <div class="cost-item-name">Additional website hosting</div>
-          <div class="cost-item-note">Beyond Shopify + Framer. Set $0 if none needed.</div>
+          <div class="cost-item-name">Web / server infrastructure</div>
+          <div class="cost-item-note">Web hosting beyond Shopify + Framer (CDN, API gateway, serverless functions, staging). Excludes app development. e.g. Vercel Pro $20/mo, Netlify Pro $19/mo.</div>
         </div>
         <div class="cost-item-ctrl">
-          <button class="cost-btn" onclick="adjC('hosting',-10)">−</button>
+          <button class="cost-btn" onclick="adjC('hosting',-5)">−</button>
           <span class="cost-unit">$</span>
-          <input class="cost-input" type="number" id="c-hosting" value="0" min="0" step="10" oninput="calcCosts()"/>
+          <input class="cost-input" type="number" id="c-hosting" value="20" min="0" step="5" oninput="calcCosts()"/>
           <span class="cost-unit">/mo</span>
-          <button class="cost-btn" onclick="adjC('hosting',10)">+</button>
+          <button class="cost-btn" onclick="adjC('hosting',5)">+</button>
         </div>
       </div>
 
@@ -860,6 +890,55 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
       <div class="cost-subtotal">
         <span>Operations</span>
         <span id="cst-ops">—</span>
+      </div>
+
+      <div class="cost-cat-label">Marketing (MVP)</div>
+
+      <div class="cost-item">
+        <div class="cost-item-label">
+          <div class="cost-item-name">Email marketing tool</div>
+          <div class="cost-item-note">Klaviyo starter ~$30/mo (up to 1,000 contacts). Free tier available up to 250 contacts.</div>
+        </div>
+        <div class="cost-item-ctrl">
+          <button class="cost-btn" onclick="adjC('email',-5)">−</button>
+          <span class="cost-unit">$</span>
+          <input class="cost-input" type="number" id="c-email" value="30" min="0" step="5" oninput="calcCosts()"/>
+          <span class="cost-unit">/mo</span>
+          <button class="cost-btn" onclick="adjC('email',5)">+</button>
+        </div>
+      </div>
+
+      <div class="cost-item">
+        <div class="cost-item-label">
+          <div class="cost-item-name">Paid social / ads budget</div>
+          <div class="cost-item-note">Instagram, TikTok ads to drive initial designer sign-ups and consumer awareness. MVP-level spend.</div>
+        </div>
+        <div class="cost-item-ctrl">
+          <button class="cost-btn" onclick="adjC('ads',-50)">−</button>
+          <span class="cost-unit">$</span>
+          <input class="cost-input" type="number" id="c-ads" value="300" min="0" step="50" oninput="calcCosts()"/>
+          <span class="cost-unit">/mo</span>
+          <button class="cost-btn" onclick="adjC('ads',50)">+</button>
+        </div>
+      </div>
+
+      <div class="cost-item">
+        <div class="cost-item-label">
+          <div class="cost-item-name">Other marketing tools</div>
+          <div class="cost-item-note">Design, scheduling, analytics, PR outreach, content creation tools.</div>
+        </div>
+        <div class="cost-item-ctrl">
+          <button class="cost-btn" onclick="adjC('mktg-other',-10)">−</button>
+          <span class="cost-unit">$</span>
+          <input class="cost-input" type="number" id="c-mktg-other" value="0" min="0" step="10" oninput="calcCosts()"/>
+          <span class="cost-unit">/mo</span>
+          <button class="cost-btn" onclick="adjC('mktg-other',10)">+</button>
+        </div>
+      </div>
+
+      <div class="cost-subtotal">
+        <span>Marketing</span>
+        <span id="cst-mktg">—</span>
       </div>
 
       <div class="cost-cat-label">One-Time Setup Costs</div>
@@ -924,8 +1003,12 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
       <div class="out-divider"></div>
 
       <div class="out-row">
-        <span class="out-row-lbl" id="co-vto-lbl">VTO</span>
+        <span class="out-row-lbl" id="co-vto-lbl">VTO (tries)</span>
         <span class="out-row-val" id="co-vto">—</span>
+      </div>
+      <div class="out-row" style="padding-top:4px;padding-bottom:4px">
+        <span class="out-row-lbl" style="font-size:11px;padding-left:10px">FASHN.AI plan</span>
+        <span class="out-row-val" style="font-size:12px" id="co-fashn">$49</span>
       </div>
 
       <div class="out-divider"></div>
@@ -934,12 +1017,20 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         <span class="out-row-lbl">Shopify Collabs (2.9%)</span>
         <span class="out-row-val" id="co-inf">—</span>
       </div>
+      <div class="out-row">
+        <span class="out-row-lbl">Stripe $0.30/order</span>
+        <span class="out-row-val" id="co-stripe-fixed">—</span>
+      </div>
 
       <div class="out-divider"></div>
 
       <div class="out-row">
         <span class="out-row-lbl">Operations</span>
         <span class="out-row-val" id="co-ops">—</span>
+      </div>
+      <div class="out-row">
+        <span class="out-row-lbl">Marketing</span>
+        <span class="out-row-val" id="co-marketing">—</span>
       </div>
 
       <div class="out-divider"></div>
@@ -981,15 +1072,13 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 <section class="section">
   <div class="sec-heading"><span class="sec-num">03</span> What this calculator excludes</div>
   <ul class="excl-list">
-    <li>Stripe fixed fee: $0.30 per transaction (% rate is included; flat fee shown in section 02)</li>
-    <li>FASHN.AI monthly subscription plan fees — calculator uses per-try overage rate only</li>
-    <li>App hosting and infrastructure</li>
     <li>Shipping and fulfillment — designer responsibility</li>
     <li>Returns, refunds, chargebacks</li>
     <li>VAT, sales tax, currency conversion</li>
-    <li>Customer support labor</li>
+    <li>Customer support labor and all staff labor costs</li>
     <li>App development and in-house build costs</li>
-    <li>Multi-influencer drops — one influencer per drop only</li>
+    <li>App hosting and infrastructure (web hosting included in section 02)</li>
+    <li>Multi-influencer drops — one influencer per drop only in this model</li>
   </ul>
 </section>
 
@@ -1196,12 +1285,6 @@ function setVTO(m) {
   vtoMode = m;
   document.getElementById('btn-fashn').classList.toggle('on', m==='fashn');
   document.getElementById('btn-kivisense').classList.toggle('on', m==='kivisense');
-  document.getElementById('btn-none').classList.toggle('on', m==='none');
-  var showVTO = m !== 'none';
-  document.getElementById('row-browse').style.display = showVTO ? 'block' : 'none';
-  document.getElementById('row-tries').style.display  = showVTO ? 'block' : 'none';
-  document.getElementById('row-limit').style.display  = showVTO ? 'block' : 'none';
-  document.getElementById('o-vto-tf-row').style.display = showVTO ? 'flex' : 'none';
   calc();
 }
 
@@ -1367,21 +1450,15 @@ function calc() {
   var monthlyTries = totalTries * totalDrops;
   var pct = Math.round(monthlyTries / crossoverTries * 100);
   var xoverEl = document.getElementById('xover');
-  if (vtoMode === 'none') {
-    xoverEl.textContent = 'N/A — VTO off';
-  } else {
-    var direction = monthlyTries >= crossoverTries ? '→ Kivisense cheaper' : '→ FASHN.AI cheaper';
-    xoverEl.textContent = monthlyTries.toLocaleString()+' tries/month — '+pct+'% of crossover '+direction;
-  }
+  var direction = monthlyTries >= crossoverTries ? '→ Kivisense cheaper' : '→ FASHN.AI cheaper';
+  xoverEl.textContent = monthlyTries.toLocaleString()+' tries/month — '+pct+'% of crossover '+direction;
 
   // Try-limit note
-  if (vtoMode !== 'none') {
-    var ln = document.getElementById('limit-note');
-    if (limitEnabled) {
-      ln.textContent = '3-try cap applied. Total tries: '+totalTries.toLocaleString()+'. Without cap: '+(vtoUsers*tries).toLocaleString()+'.';
-    } else {
-      ln.textContent = 'No cap — each VTO user runs up to '+tries+'× tries. Total tries: '+totalTries.toLocaleString()+'.';
-    }
+  var ln = document.getElementById('limit-note');
+  if (limitEnabled) {
+    ln.textContent = '3-try cap applied. Total tries: '+totalTries.toLocaleString()+'. Without cap: '+(vtoUsers*tries).toLocaleString()+'.';
+  } else {
+    ln.textContent = 'No cap — each VTO user runs up to '+tries+'× tries. Total tries: '+totalTries.toLocaleString()+'.';
   }
 
   // Conclusion block
@@ -1391,20 +1468,19 @@ function calc() {
   document.getElementById('concl-tf-net').textContent = fmtPos(tfNet);
   document.getElementById('concl-tf-net').style.color = tfNet < 0 ? 'var(--red-text)' : 'var(--tf)';
   document.getElementById('concl-designers').textContent = desNeeded1 !== null ? desNeeded1+' designers' : 'N/A';
-  document.getElementById('concl-vto-pct').textContent = vtoMode === 'none' ? '0% (VTO off)' : vtoPct+'%';
+  document.getElementById('concl-vto-pct').textContent = vtoPct+'%';
   document.getElementById('concl-vto-pct').style.color = vtoPct > 50 ? 'var(--red-text)' : vtoPct > 25 ? 'var(--orange)' : 'var(--ink)';
   document.getElementById('concl-p-designers').textContent = designers;
   document.getElementById('concl-p-price').textContent = '$'+price;
   document.getElementById('concl-p-ctr').textContent  = parseFloat(document.getElementById('sl-ctr').value).toFixed(1)+'%';
   document.getElementById('concl-p-conv').textContent = parseFloat(document.getElementById('sl-conv').value).toFixed(1)+'%';
-  document.getElementById('concl-p-vto').textContent = vtoMode === 'none' ? 'Off' : '$'+Math.round(vtoCost)+' ('+vtoPct+'% of TF fee)';
+  document.getElementById('concl-p-vto').textContent = '$'+Math.round(vtoCost)+' ('+vtoPct+'% of TF fee)';
   document.getElementById('concl-p-dsfee').textContent = '$'+designerFee+'/mo per designer';
   document.getElementById('concl-p-cadence').textContent = dropsPerDesigner+' drop'+(dropsPerDesigner>1?'s':'')+'/mo';
   document.getElementById('concl-p-followers').textContent = numInfluencers+'×'+fK(followersPerInf)+' = '+fK(totalFollowers)+(totalFollowers < 30000 ? ' ⚠ below 30K min' : '');
   if (revenuePerDes1 > 0) {
     var desAt2 = Math.ceil(10000 / ((tfNet * 2) + designerFee));
-    var vtoTip = vtoMode === 'none' ? 'VTO is off — no try-on costs.' :
-                 vtoMode === 'kivisense' ? 'Kivisense $888/mo is split across '+totalDrops+' drops ($'+Math.round(vtoCost)+'/drop).' :
+    var vtoTip = vtoMode === 'kivisense' ? 'Kivisense $888/mo is split across '+totalDrops+' drops ($'+Math.round(vtoCost)+'/drop).' :
                  vtoPct > 30 ? 'VTO is eating '+vtoPct+'% of TF fee — reducing tries per session lowers this directly.' :
                  'VTO cost is '+vtoPct+'% of TF fee — manageable at this setting.';
     document.getElementById('concl-summary').textContent =
@@ -1433,8 +1509,6 @@ function setCostVTO(mode) {
   costVtoMode = mode;
   document.getElementById('cbtn-pertry').classList.toggle('on', mode === 'pertry');
   document.getElementById('cbtn-package').classList.toggle('on', mode === 'package');
-  document.getElementById('cbtn-vtonone').classList.toggle('on', mode === 'none');
-  document.getElementById('crow-vto-vol').style.display = mode === 'none' ? 'none' : 'flex';
   calcCosts();
 }
 
@@ -1454,7 +1528,8 @@ function calcCosts() {
   var framer    = +document.getElementById('c-framer').value  || 0;
   var platform  = shopify + puppet + framer;
 
-  var vtoVol  = +document.getElementById('c-vtovol').value || 0;
+  var vtoVol    = +document.getElementById('c-vtovol').value   || 0;
+  var fashnPlan = +document.getElementById('c-fashnplan').value || 0;
   var vtoCost = 0, vtoLbl = '';
   if (costVtoMode === 'pertry') {
     vtoCost = vtoVol * 0.10;
@@ -1463,19 +1538,26 @@ function calcCosts() {
     var pkgs = Math.ceil(vtoVol / 1000) || 0;
     vtoCost  = pkgs * 99;
     vtoLbl   = 'VTO · '+pkgs+' pkg'+(pkgs!==1?'s':'')+' × $99 ('+vtoVol.toLocaleString()+' tries)';
-  } else {
-    vtoLbl = 'VTO · excluded';
   }
+  var vtoTotal = vtoCost + fashnPlan;
 
-  var infPay  = +document.getElementById('c-infpay').value   || 0;
+  var infPay  = +document.getElementById('c-infpay').value || 0;
   var infFee  = infPay * 0.029;
+
+  var stripeOrders = +document.getElementById('c-stripe-orders').value || 0;
+  var stripeFixed  = stripeOrders * 0.30;
 
   var hosting   = +document.getElementById('c-hosting').value   || 0;
   var insurance = +document.getElementById('c-insurance').value || 0;
   var other     = +document.getElementById('c-other').value     || 0;
   var ops       = hosting + insurance + other;
 
-  var monthly = platform + vtoCost + infFee + ops;
+  var email     = +document.getElementById('c-email').value      || 0;
+  var ads       = +document.getElementById('c-ads').value        || 0;
+  var mktgOther = +document.getElementById('c-mktg-other').value || 0;
+  var marketing = email + ads + mktgOther;
+
+  var monthly = platform + vtoTotal + infFee + stripeFixed + ops + marketing;
   var annual  = monthly * 12;
 
   var bank    = +document.getElementById('c-bank').value  || 0;
@@ -1483,27 +1565,33 @@ function calcCosts() {
   var onetime = bank + legal;
 
   // Subtotals
-  document.getElementById('cst-platform').textContent = fcMoYr(platform);
-  document.getElementById('cst-vto-lbl').textContent  = vtoLbl || 'VTO';
-  document.getElementById('cst-vto').textContent      = costVtoMode === 'none' ? '$0 / mo · excluded' : fcMoYr(vtoCost);
-  document.getElementById('cst-inf').textContent      = fcMoYr(infFee);
-  document.getElementById('cst-ops').textContent      = fcMoYr(ops);
-  document.getElementById('cst-onetime').textContent  = fc$(onetime);
+  document.getElementById('cst-platform').textContent   = fcMoYr(platform);
+  document.getElementById('cst-vto-lbl').textContent    = vtoLbl || 'VTO';
+  document.getElementById('cst-vto').textContent        = fcMoYr(vtoTotal);
+  document.getElementById('cst-inf').textContent        = fcMoYr(infFee);
+  document.getElementById('cst-stripe-lbl').textContent = stripeOrders.toLocaleString()+' orders × $0.30';
+  document.getElementById('cst-stripe').textContent     = fcMoYr(stripeFixed);
+  document.getElementById('cst-ops').textContent        = fcMoYr(ops);
+  document.getElementById('cst-mktg').textContent       = fcMoYr(marketing);
+  document.getElementById('cst-onetime').textContent    = fc$(onetime);
 
   // Output box
-  document.getElementById('co-platform').textContent = fc$(platform);
-  document.getElementById('co-shopify').textContent  = fc$(shopify);
-  document.getElementById('co-puppet').textContent   = fc$(puppet);
-  document.getElementById('co-framer').textContent   = fc$(framer);
-  document.getElementById('co-vto-lbl').textContent  = vtoLbl || 'VTO';
-  document.getElementById('co-vto').textContent      = costVtoMode === 'none' ? '$0' : fc$(vtoCost);
-  document.getElementById('co-inf').textContent      = fc$(infFee);
-  document.getElementById('co-ops').textContent      = fc$(ops);
-  document.getElementById('co-monthly').textContent  = fc$(monthly);
-  document.getElementById('co-annual').textContent   = fc$(annual);
-  document.getElementById('co-bank').textContent     = fc$(bank);
-  document.getElementById('co-legal').textContent    = legal > 0 ? fc$(legal) : 'TBD';
-  document.getElementById('co-onetime').textContent  = fc$(onetime);
+  document.getElementById('co-platform').textContent    = fc$(platform);
+  document.getElementById('co-shopify').textContent     = fc$(shopify);
+  document.getElementById('co-puppet').textContent      = fc$(puppet);
+  document.getElementById('co-framer').textContent      = fc$(framer);
+  document.getElementById('co-vto-lbl').textContent     = vtoLbl || 'VTO (tries)';
+  document.getElementById('co-vto').textContent         = fc$(vtoCost);
+  document.getElementById('co-fashn').textContent       = fc$(fashnPlan);
+  document.getElementById('co-inf').textContent         = fc$(infFee);
+  document.getElementById('co-stripe-fixed').textContent= fc$(stripeFixed);
+  document.getElementById('co-ops').textContent         = fc$(ops);
+  document.getElementById('co-marketing').textContent   = fc$(marketing);
+  document.getElementById('co-monthly').textContent     = fc$(monthly);
+  document.getElementById('co-annual').textContent      = fc$(annual);
+  document.getElementById('co-bank').textContent        = fc$(bank);
+  document.getElementById('co-legal').textContent       = legal > 0 ? fc$(legal) : 'TBD';
+  document.getElementById('co-onetime').textContent     = fc$(onetime);
 }
 
 calcCosts();
