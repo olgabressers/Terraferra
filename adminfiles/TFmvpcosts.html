@@ -191,6 +191,21 @@ input[type=range]{width:100%;height:4px;accent-color:var(--tf);cursor:pointer;di
 .excl-list li::before{content:'—';color:var(--rule);flex-shrink:0}
 @media(max-width:700px){.excl-list{grid-template-columns:1fr}}
 
+/* COST ITEMS */
+.cost-item{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--rule)}
+.cost-item-label{flex:1;min-width:0}
+.cost-item-name{font-size:13.5px;font-weight:600;color:var(--ink)}
+.cost-item-note{font-size:11px;color:var(--sub);margin-top:2px;line-height:1.4}
+.cost-item-ctrl{display:flex;align-items:center;gap:6px;flex-shrink:0}
+.cost-btn{width:28px;height:28px;border:1px solid var(--rule);background:white;cursor:pointer;font-size:18px;font-weight:700;color:var(--tf);display:flex;align-items:center;justify-content:center;transition:background .15s;flex-shrink:0;padding:0;line-height:1}
+.cost-btn:hover{background:var(--tf-ghost)}
+.cost-input{width:64px;text-align:right;border:1px solid var(--rule);padding:4px 8px;font-size:13px;font-weight:700;font-family:'Inter',sans-serif;color:var(--ink);background:white;-moz-appearance:textfield}
+.cost-input::-webkit-inner-spin-button,.cost-input::-webkit-outer-spin-button{-webkit-appearance:none}
+.cost-unit{font-size:11px;color:var(--sub);white-space:nowrap}
+.cost-cat-label{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);margin:28px 0 4px;padding-bottom:8px;border-bottom:2px solid var(--rule)}
+.cost-cat-label:first-child{margin-top:0}
+.cost-subtotal{display:flex;justify-content:space-between;align-items:baseline;padding:8px 0 4px;font-size:11.5px;font-weight:700;color:var(--sub);border-top:1px solid var(--rule);margin-top:4px}
+
 /* FOOTER */
 footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margin-top:0}
 .footer-inner{max-width:1140px;margin:0 auto;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);opacity:.5}
@@ -279,7 +294,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 <!-- 01 CALCULATOR -->
 <section class="section">
   <div class="sec-heading"><span class="sec-num">01</span> Unit Economics · Drop Calculator</div>
-  <p style="font-size:13px;color:var(--sub);margin-bottom:28px;line-height:1.6">Per-drop economics for one or more influencers promoting one drop. Funnel: total follower reach → click-through to TF → order on platform. VTO cost reflects all visitors who try VTO — not just buyers. Orders are capped by items in the drop (defaults: 5 influencers × 10K followers = 50K reach × 10% click-through = 5,000 platform visitors × 5% platform conversion = 250 orders). Monthly fixed costs excluded; see section 03.</p>
+  <p style="font-size:13px;color:var(--ink);margin-bottom:28px;line-height:1.6">Per-drop economics for one or more influencers promoting one drop. Funnel: total followers → post viewers (Instagram organic reach %) → click-through to TF → order on platform. Not all followers see a given post — organic reach filters them first, then CTR applies to viewers only. VTO cost reflects all visitors who try VTO. Orders are capped by items in the drop. Monthly fixed costs excluded — see section 02.</p>
 
   <div class="calc-wrap">
 
@@ -330,7 +345,17 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
             <div class="sl-hints"><span>1</span><span>20</span></div>
           </div>
         </div>
-        <div class="sl-note" style="margin-top:8px">Total reach: <strong id="v-total-reach">50K</strong> &nbsp;·&nbsp; 1 × 50K = same reach as 10 × 5K</div>
+        <div class="sl-note" style="margin-top:8px">Total followers: <strong id="v-total-reach">50K</strong> &nbsp;·&nbsp; 1 × 50K = same reach as 10 × 5K</div>
+      </div>
+
+      <div class="sl-group">
+        <div class="sl-top">
+          <span class="sl-label">Instagram post reach (% of followers who see the post)</span>
+          <span class="sl-val" id="v-reach">10.0%</span>
+        </div>
+        <input type="range" id="sl-reach" min="1" max="50" step="0.5" value="10" oninput="calc()"/>
+        <div class="sl-hints"><span>1%</span><span>50%</span></div>
+        <div class="sl-note">Average Instagram organic reach: 5–15% of followers per post. Micro-influencers (10K–100K): 8–15%. Reels can reach 20%+. Source: Socialinsider 2023 Instagram benchmarks.</div>
       </div>
 
       <div class="sl-group">
@@ -345,12 +370,12 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 
       <div class="sl-group">
         <div class="sl-top">
-          <span class="sl-label">Click-through rate — post → platform</span>
+          <span class="sl-label">Click-through rate — post viewer → platform</span>
           <span class="sl-val" id="v-ctr">10.0%</span>
         </div>
         <input type="range" id="sl-ctr" min="1" max="30" step="0.5" value="10" oninput="calc()"/>
         <div class="sl-hints"><span>1%</span><span>30%</span></div>
-        <div class="sl-note">% of followers who click from the influencer post to TF. Story swipe-up: 3–15%. Dedicated drop post: 5–20%.</div>
+        <div class="sl-note">% of post viewers who click through to TF. Applied to viewers only (after organic reach filter). Story swipe-up: 3–15%. Dedicated drop post: 5–20%.</div>
       </div>
 
       <div class="sl-group">
@@ -483,16 +508,20 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
       <div class="out-eyebrow">Per-Drop Result</div>
 
       <div class="out-row">
-        <span class="out-row-lbl">Total reach</span>
+        <span class="out-row-lbl">Total followers</span>
         <span class="out-row-val" id="o-total-reach">50K</span>
       </div>
-      <div class="out-row" style="padding-top:5px;padding-bottom:5px">
-        <span class="out-row-lbl" style="font-size:11px;padding-left:10px">↳ Platform visitors</span>
-        <span class="out-row-val" style="font-size:13px" id="o-visitors">5,000</span>
+      <div class="out-row" style="padding-top:4px;padding-bottom:4px">
+        <span class="out-row-lbl" style="font-size:11px;padding-left:10px">↳ Post viewers (<span id="o-reach-pct">10%</span> reach)</span>
+        <span class="out-row-val" style="font-size:12px" id="o-post-viewers">5,000</span>
+      </div>
+      <div class="out-row" style="padding-top:4px;padding-bottom:4px">
+        <span class="out-row-lbl" style="font-size:11px;padding-left:20px">↳ Platform visitors (CTR)</span>
+        <span class="out-row-val" style="font-size:12px" id="o-visitors">500</span>
       </div>
       <div class="out-row">
-        <span class="out-row-lbl" style="font-size:11px;padding-left:20px">↳ Orders</span>
-        <span class="out-row-val" id="o-orders">250</span><span class="sold-out-tag" id="sold-out-tag" style="display:none">Sold out</span>
+        <span class="out-row-lbl" style="font-size:11px;padding-left:30px">↳ Orders</span>
+        <span class="out-row-val" id="o-orders">25</span><span class="sold-out-tag" id="sold-out-tag" style="display:none">Sold out</span>
       </div>
       <div class="out-row">
         <span class="out-row-lbl">Gross Revenue</span>
@@ -675,94 +704,277 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 
 <!-- 02 MVP COSTS -->
 <section class="section">
-  <div class="sec-heading"><span class="sec-num">02</span> MVP Costs</div>
+  <div class="sec-heading"><span class="sec-num">02</span> MVP Costs · Platform Calculator</div>
 
-  <div class="sliders-section-label" style="margin-bottom:16px">One-time build cost</div>
-  <p style="font-size:13px;color:var(--sub);margin-bottom:20px;line-height:1.6">Effort estimates by component only. Development costs in dollars are out of scope for this page — confirm with tech lead. All figures are directional.</p>
-  <table class="ptable" style="max-width:860px;margin-bottom:36px">
-    <thead>
-      <tr>
-        <th style="width:32%">Component</th>
-        <th style="width:20%">Effort</th>
-        <th>Notes</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="bold">Pre-order drop flow</td>
-        <td class="bold">4–6 weeks</td>
-        <td class="note">Drop listing, quantity cap, countdown timer, checkout</td>
-      </tr>
-      <tr>
-        <td class="bold">Influencer referral tracking</td>
-        <td class="bold">2–3 weeks</td>
-        <td class="note">Unique links, click attribution, auto payout split at checkout</td>
-      </tr>
-      <tr>
-        <td class="bold">Virtual try-on (FASHN.AI API)</td>
-        <td class="bold">1–2 weeks</td>
-        <td class="note">REST API integration — no 3D models required</td>
-      </tr>
-      <tr>
-        <td class="bold">Gamification — points &amp; badges</td>
-        <td class="bold">3–5 weeks <em style="color:var(--orange);font-weight:400;font-size:11px">OR skip: use LoyaltyLion $199/mo</em></td>
-        <td class="note">LoyaltyLion eliminates this build entirely — recommended for MVP</td>
-      </tr>
-      <tr>
-        <td class="bold">Designer dashboard</td>
-        <td class="bold">3–4 weeks</td>
-        <td class="note">Orders, revenue, per-influencer performance</td>
-      </tr>
-      <tr>
-        <td class="bold">App infrastructure &amp; setup</td>
-        <td class="bold">1–2 weeks</td>
-        <td class="note">Hosting, CI/CD, staging environment</td>
-      </tr>
-      <tr style="background:var(--tf-ghost)">
-        <td class="bold">Total — with LoyaltyLion</td>
-        <td class="bold" style="color:var(--tf)">11–17 weeks</td>
-        <td class="note">Development costs (dollars) are out of scope for this page — confirm with tech lead.</td>
-      </tr>
-      <tr style="background:var(--off-white)">
-        <td class="bold">Total — in-house gamification</td>
-        <td class="bold" style="color:var(--sub)">14–22 weeks</td>
-        <td class="note">+3–5 weeks vs. LoyaltyLion. Not recommended for MVP.</td>
-      </tr>
-    </tbody>
-  </table>
+  <p style="font-size:13px;color:var(--ink);margin-bottom:28px;line-height:1.6">Monthly recurring costs to run the platform on Shopify. Defaults from Alex. All items adjustable — type or use +/− buttons. Development costs excluded.</p>
 
-  <div class="sliders-section-label" style="margin-bottom:16px">Monthly running costs</div>
-  <p style="font-size:13px;color:var(--sub);margin-bottom:20px;line-height:1.6">Recurring costs per month once live. Stripe per-order fee updates automatically from the drop calculator above.</p>
-  <div class="cost-block" style="max-width:640px">
-    <div class="cost-row">
-      <div>
-        <div class="cost-lbl">Stripe — $0.30 per order (fixed fee)</div>
-        <span class="cost-note">Per-transaction flat fee, excluded from calculator % above. At <span id="fc-orders">100</span> orders this drop.</span>
+  <div class="calc-wrap">
+
+    <div class="sliders-box">
+
+      <div class="cost-cat-label">Core Platform</div>
+
+      <div class="cost-item">
+        <div class="cost-item-label">
+          <div class="cost-item-name">Shopify Basic</div>
+          <div class="cost-item-note">E-commerce platform — checkout, orders, inventory, hosting</div>
+        </div>
+        <div class="cost-item-ctrl">
+          <button class="cost-btn" onclick="adjC('shopify',-1)">−</button>
+          <span class="cost-unit">$</span>
+          <input class="cost-input" type="number" id="c-shopify" value="49" min="0" step="1" oninput="calcCosts()"/>
+          <span class="cost-unit">/mo</span>
+          <button class="cost-btn" onclick="adjC('shopify',1)">+</button>
+        </div>
       </div>
-      <div class="cost-val" id="fc-stripe">$30</div>
-    </div>
-    <div class="cost-row">
-      <div>
-        <div class="cost-lbl">LoyaltyLion · Classic (gamification platform)</div>
-        <span class="cost-note">Points, badges, tiers, referrals. Up to 500 orders/month.</span>
+
+      <div class="cost-item">
+        <div class="cost-item-label">
+          <div class="cost-item-name">PuppetVendors</div>
+          <div class="cost-item-note">Shopify app — multi-vendor marketplace and payout management</div>
+        </div>
+        <div class="cost-item-ctrl">
+          <button class="cost-btn" onclick="adjC('puppet',-1)">−</button>
+          <span class="cost-unit">$</span>
+          <input class="cost-input" type="number" id="c-puppet" value="49" min="0" step="1" oninput="calcCosts()"/>
+          <span class="cost-unit">/mo</span>
+          <button class="cost-btn" onclick="adjC('puppet',1)">+</button>
+        </div>
       </div>
-      <div class="cost-val">$199 / mo</div>
-    </div>
-    <div class="cost-row">
-      <div>
-        <div class="cost-lbl">App infrastructure &amp; hosting</div>
-        <span class="cost-note">Needs tech lead input.</span>
+
+      <div class="cost-item">
+        <div class="cost-item-label">
+          <div class="cost-item-name">Framer</div>
+          <div class="cost-item-note">Marketing website and landing pages</div>
+        </div>
+        <div class="cost-item-ctrl">
+          <button class="cost-btn" onclick="adjC('framer',-1)">−</button>
+          <span class="cost-unit">$</span>
+          <input class="cost-input" type="number" id="c-framer" value="15" min="0" step="1" oninput="calcCosts()"/>
+          <span class="cost-unit">/mo</span>
+          <button class="cost-btn" onclick="adjC('framer',1)">+</button>
+        </div>
       </div>
-      <div class="cost-val" style="color:var(--sub);font-size:14px">TBD</div>
-    </div>
-    <div class="cost-row">
-      <div>
-        <div class="cost-lbl" style="font-size:15px;font-weight:800">Total known monthly · excl. infrastructure</div>
-        <span class="cost-note">Stripe per drop + LoyaltyLion/month. Infrastructure excluded.</span>
+
+      <div class="cost-subtotal">
+        <span>Core platform</span>
+        <span id="cst-platform">—</span>
       </div>
-      <div class="cost-val" id="fc-total" style="color:var(--tf);font-size:20px">$229</div>
+
+      <div class="cost-cat-label">Virtual Try-On (VTO)</div>
+
+      <div class="vto-switch" style="margin-bottom:16px">
+        <button class="vto-btn on" id="cbtn-pertry" onclick="setCostVTO('pertry')">Per Try<span>$0.10 / try</span></button>
+        <button class="vto-btn" id="cbtn-package" onclick="setCostVTO('package')">Package<span>$99 / 1,000 tries</span></button>
+        <button class="vto-btn" id="cbtn-vtonone" onclick="setCostVTO('none')">No VTO<span>exclude</span></button>
+      </div>
+
+      <div class="cost-item" id="crow-vto-vol">
+        <div class="cost-item-label">
+          <div class="cost-item-name">Estimated monthly tries</div>
+          <div class="cost-item-note">Adjust based on expected drop volume. See Section 01 VTO sliders for per-drop estimate.</div>
+        </div>
+        <div class="cost-item-ctrl">
+          <button class="cost-btn" onclick="adjC('vtovol',-100)">−</button>
+          <input class="cost-input" type="number" id="c-vtovol" value="900" min="0" step="100" oninput="calcCosts()" style="width:72px"/>
+          <span class="cost-unit">tries</span>
+          <button class="cost-btn" onclick="adjC('vtovol',100)">+</button>
+        </div>
+      </div>
+
+      <div class="cost-subtotal">
+        <span id="cst-vto-lbl">VTO</span>
+        <span id="cst-vto">—</span>
+      </div>
+
+      <div class="cost-cat-label">Influencer Search (Shopify Collabs)</div>
+
+      <div style="background:var(--tf-ghost);border-left:3px solid var(--tf);padding:12px 16px;font-size:12.5px;color:var(--ink);line-height:1.6;margin-bottom:12px">
+        Shopify charges 2.9% on influencer commission payouts processed via Shopify Collabs. Example: item sold at $100 → TF pays influencer 10% = $10 → Shopify takes $0.29.
+        <span style="display:block;color:var(--sub);font-size:11px;margin-top:4px">Search and outreach flow still under research — influencer activation level unclear.</span>
+      </div>
+
+      <div class="cost-item">
+        <div class="cost-item-label">
+          <div class="cost-item-name">Monthly influencer payouts (est.)</div>
+          <div class="cost-item-note">Total commissions paid to influencers per month via Shopify Collabs</div>
+        </div>
+        <div class="cost-item-ctrl">
+          <button class="cost-btn" onclick="adjC('infpay',-100)">−</button>
+          <span class="cost-unit">$</span>
+          <input class="cost-input" type="number" id="c-infpay" value="1000" min="0" step="100" oninput="calcCosts()" style="width:72px"/>
+          <span class="cost-unit">/mo</span>
+          <button class="cost-btn" onclick="adjC('infpay',100)">+</button>
+        </div>
+      </div>
+
+      <div class="cost-subtotal">
+        <span>Shopify Collabs fee (2.9%)</span>
+        <span id="cst-inf">—</span>
+      </div>
+
+      <div class="cost-cat-label">Operations</div>
+
+      <div class="cost-item">
+        <div class="cost-item-label">
+          <div class="cost-item-name">Additional website hosting</div>
+          <div class="cost-item-note">Beyond Shopify + Framer. Set $0 if none needed.</div>
+        </div>
+        <div class="cost-item-ctrl">
+          <button class="cost-btn" onclick="adjC('hosting',-10)">−</button>
+          <span class="cost-unit">$</span>
+          <input class="cost-input" type="number" id="c-hosting" value="0" min="0" step="10" oninput="calcCosts()"/>
+          <span class="cost-unit">/mo</span>
+          <button class="cost-btn" onclick="adjC('hosting',10)">+</button>
+        </div>
+      </div>
+
+      <div class="cost-item">
+        <div class="cost-item-label">
+          <div class="cost-item-name">Business insurance</div>
+          <div class="cost-item-note">General liability + E&amp;O. Typical range $50–$200/mo. Confirm with broker.</div>
+        </div>
+        <div class="cost-item-ctrl">
+          <button class="cost-btn" onclick="adjC('insurance',-10)">−</button>
+          <span class="cost-unit">$</span>
+          <input class="cost-input" type="number" id="c-insurance" value="75" min="0" step="10" oninput="calcCosts()"/>
+          <span class="cost-unit">/mo</span>
+          <button class="cost-btn" onclick="adjC('insurance',10)">+</button>
+        </div>
+      </div>
+
+      <div class="cost-item">
+        <div class="cost-item-label">
+          <div class="cost-item-name">Other recurring</div>
+          <div class="cost-item-note">Tools, subscriptions, misc ops</div>
+        </div>
+        <div class="cost-item-ctrl">
+          <button class="cost-btn" onclick="adjC('other',-10)">−</button>
+          <span class="cost-unit">$</span>
+          <input class="cost-input" type="number" id="c-other" value="0" min="0" step="10" oninput="calcCosts()"/>
+          <span class="cost-unit">/mo</span>
+          <button class="cost-btn" onclick="adjC('other',10)">+</button>
+        </div>
+      </div>
+
+      <div class="cost-subtotal">
+        <span>Operations</span>
+        <span id="cst-ops">—</span>
+      </div>
+
+      <div class="cost-cat-label">One-Time Setup Costs</div>
+
+      <div class="cost-item">
+        <div class="cost-item-label">
+          <div class="cost-item-name">Bank account opening</div>
+          <div class="cost-item-note">Mercury / Brex (US startup bank): free. Traditional banks: $0–500.</div>
+        </div>
+        <div class="cost-item-ctrl">
+          <button class="cost-btn" onclick="adjC('bank',-50)">−</button>
+          <span class="cost-unit">$</span>
+          <input class="cost-input" type="number" id="c-bank" value="0" min="0" step="50" oninput="calcCosts()"/>
+          <span class="cost-unit">one-time</span>
+          <button class="cost-btn" onclick="adjC('bank',50)">+</button>
+        </div>
+      </div>
+
+      <div class="cost-item">
+        <div class="cost-item-label">
+          <div class="cost-item-name">Legal / incorporation</div>
+          <div class="cost-item-note">Delaware C-corp formation. Confirm with counsel — TBD.</div>
+        </div>
+        <div class="cost-item-ctrl">
+          <button class="cost-btn" onclick="adjC('legal',-100)">−</button>
+          <span class="cost-unit">$</span>
+          <input class="cost-input" type="number" id="c-legal" value="0" min="0" step="100" oninput="calcCosts()"/>
+          <span class="cost-unit">one-time</span>
+          <button class="cost-btn" onclick="adjC('legal',100)">+</button>
+        </div>
+      </div>
+
+      <div class="cost-subtotal">
+        <span>One-time total</span>
+        <span id="cst-onetime">$0</span>
+      </div>
+
+    </div><!-- sliders-box -->
+
+    <div class="out-box">
+      <div class="out-eyebrow">Cost Summary</div>
+
+      <div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:10px">Monthly recurring</div>
+
+      <div class="out-row">
+        <span class="out-row-lbl">Core platform</span>
+        <span class="out-row-val" id="co-platform">—</span>
+      </div>
+      <div class="out-row" style="padding-top:4px;padding-bottom:4px">
+        <span class="out-row-lbl" style="font-size:11px;padding-left:10px">Shopify</span>
+        <span class="out-row-val" style="font-size:12px" id="co-shopify">$49</span>
+      </div>
+      <div class="out-row" style="padding-top:4px;padding-bottom:4px">
+        <span class="out-row-lbl" style="font-size:11px;padding-left:10px">PuppetVendors</span>
+        <span class="out-row-val" style="font-size:12px" id="co-puppet">$49</span>
+      </div>
+      <div class="out-row" style="padding-top:4px;padding-bottom:4px">
+        <span class="out-row-lbl" style="font-size:11px;padding-left:10px">Framer</span>
+        <span class="out-row-val" style="font-size:12px" id="co-framer">$15</span>
+      </div>
+
+      <div class="out-divider"></div>
+
+      <div class="out-row">
+        <span class="out-row-lbl" id="co-vto-lbl">VTO</span>
+        <span class="out-row-val" id="co-vto">—</span>
+      </div>
+
+      <div class="out-divider"></div>
+
+      <div class="out-row">
+        <span class="out-row-lbl">Shopify Collabs (2.9%)</span>
+        <span class="out-row-val" id="co-inf">—</span>
+      </div>
+
+      <div class="out-divider"></div>
+
+      <div class="out-row">
+        <span class="out-row-lbl">Operations</span>
+        <span class="out-row-val" id="co-ops">—</span>
+      </div>
+
+      <div class="out-divider"></div>
+
+      <div class="profit-row">
+        <div style="display:flex;justify-content:space-between;align-items:baseline">
+          <span class="profit-lbl">Monthly total</span>
+          <span class="profit-val pos" id="co-monthly">—</span>
+        </div>
+        <div style="margin-top:6px;display:flex;justify-content:space-between;align-items:baseline">
+          <span style="font-size:12px;color:rgba(255,255,255,.65)">Annual (×12)</span>
+          <span style="font-size:16px;font-weight:800;color:white" id="co-annual">—</span>
+        </div>
+      </div>
+
+      <div class="out-divider"></div>
+
+      <div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:10px;margin-top:4px">One-time setup</div>
+      <div class="out-row">
+        <span class="out-row-lbl">Bank account</span>
+        <span class="out-row-val" id="co-bank">$0</span>
+      </div>
+      <div class="out-row">
+        <span class="out-row-lbl">Legal / incorporation</span>
+        <span class="out-row-val" id="co-legal">TBD</span>
+      </div>
+      <div class="out-row">
+        <span style="font-size:12px;font-weight:700;color:white">One-time total</span>
+        <span class="out-row-val" id="co-onetime">$0</span>
+      </div>
+
+      <div class="out-gami-note" style="margin-top:14px">Alex's baseline: Shopify $49 + PuppetVendors $49 + VTO (900 tries × $0.10 = $90) + Framer $15 = $203/mo</div>
     </div>
-  </div>
+
+  </div><!-- calc-wrap -->
 </section>
 
 <!-- 03 EXCLUSIONS -->
@@ -1029,6 +1241,7 @@ function calc() {
   document.getElementById('v-followers').textContent   = fK(followersPerInf);
   document.getElementById('v-influencers').textContent = numInfluencers;
   document.getElementById('v-total-reach').textContent = fK(totalFollowers);
+  document.getElementById('v-reach').textContent       = parseFloat(document.getElementById('sl-reach').value).toFixed(1)+'%';
   document.getElementById('v-ctr').textContent         = parseFloat(document.getElementById('sl-ctr').value).toFixed(1)+'%';
   document.getElementById('v-conv').textContent        = parseFloat(document.getElementById('sl-conv').value).toFixed(1)+'%';
   document.getElementById('v-price').textContent    = '$'+price;
@@ -1040,8 +1253,10 @@ function calc() {
   document.getElementById('v-browse').textContent   = browseMultiplier+'×';
   document.getElementById('v-tries').textContent    = tries+'×';
 
-  // Two-step funnel: total reach → platform visitors → orders
-  var platformVisitors = Math.round(totalFollowers * ctr);
+  // Three-step funnel: total followers → post viewers (reach) → platform visitors (CTR) → orders
+  var reachRate        = +document.getElementById('sl-reach').value / 100;
+  var postViewers      = Math.round(totalFollowers * reachRate);
+  var platformVisitors = Math.round(postViewers * ctr);
   var rawOrders        = Math.round(platformVisitors * conv);
   var orders           = Math.min(rawOrders, items);
   var soldOut          = rawOrders >= items;
@@ -1080,9 +1295,11 @@ function calc() {
   var margin = revenue > 0 ? (profit / revenue * 100) : 0;
 
   // Funnel output
-  document.getElementById('o-total-reach').textContent = fK(totalFollowers);
-  document.getElementById('o-visitors').textContent    = platformVisitors.toLocaleString();
-  document.getElementById('o-orders').textContent      = orders.toLocaleString();
+  document.getElementById('o-total-reach').textContent  = fK(totalFollowers);
+  document.getElementById('o-reach-pct').textContent    = parseFloat(document.getElementById('sl-reach').value).toFixed(0)+'%';
+  document.getElementById('o-post-viewers').textContent = postViewers.toLocaleString();
+  document.getElementById('o-visitors').textContent     = platformVisitors.toLocaleString();
+  document.getElementById('o-orders').textContent       = orders.toLocaleString();
   document.getElementById('sold-out-tag').style.display = soldOut ? 'inline' : 'none';
 
   document.getElementById('o-rev').textContent    = '$'+Math.round(revenue).toLocaleString();
@@ -1199,18 +1416,97 @@ function calc() {
     document.getElementById('concl-summary').textContent = 'Revenue per designer is negative at current settings — increase price, reduce VTO tries, or lower influencer commission.';
   }
 
-  // Section 02 (per-drop Stripe) + section 01 summary (monthly Stripe across all drops)
+  // Section 01 summary — monthly Stripe across all drops
   var stripeFixed = orders * 0.30;
   var monthlyStripe = stripeFixed * totalDrops;
-  document.getElementById('fc-orders').textContent      = orders.toLocaleString();
-  document.getElementById('fc-stripe').textContent      = '$'+Math.round(stripeFixed).toLocaleString();
-  document.getElementById('fc-total').textContent       = '$'+Math.round(stripeFixed + 199).toLocaleString();
   document.getElementById('calc-stripe-drops-lbl').textContent = totalDrops+' drop'+(totalDrops>1?'s':'');
   document.getElementById('calc-stripe-sum').textContent= '$'+Math.round(monthlyStripe).toLocaleString();
   document.getElementById('calc-total-sum').textContent = '$'+Math.round(monthlyStripe + 199).toLocaleString();
 }
 
 calc();
+
+/* ——— COST CALCULATOR (Section 02) ——— */
+var costVtoMode = 'pertry';
+
+function setCostVTO(mode) {
+  costVtoMode = mode;
+  document.getElementById('cbtn-pertry').classList.toggle('on', mode === 'pertry');
+  document.getElementById('cbtn-package').classList.toggle('on', mode === 'package');
+  document.getElementById('cbtn-vtonone').classList.toggle('on', mode === 'none');
+  document.getElementById('crow-vto-vol').style.display = mode === 'none' ? 'none' : 'flex';
+  calcCosts();
+}
+
+function adjC(id, delta) {
+  var el = document.getElementById('c-'+id);
+  if (!el) return;
+  el.value = Math.max(0, (+el.value || 0) + delta);
+  calcCosts();
+}
+
+function fc$(n){ return '$'+Math.round(n).toLocaleString(); }
+function fcMoYr(mo){ return fc$(mo)+' / mo  ·  '+fc$(mo*12)+' / yr'; }
+
+function calcCosts() {
+  var shopify   = +document.getElementById('c-shopify').value || 0;
+  var puppet    = +document.getElementById('c-puppet').value  || 0;
+  var framer    = +document.getElementById('c-framer').value  || 0;
+  var platform  = shopify + puppet + framer;
+
+  var vtoVol  = +document.getElementById('c-vtovol').value || 0;
+  var vtoCost = 0, vtoLbl = '';
+  if (costVtoMode === 'pertry') {
+    vtoCost = vtoVol * 0.10;
+    vtoLbl  = 'VTO · '+vtoVol.toLocaleString()+' tries × $0.10';
+  } else if (costVtoMode === 'package') {
+    var pkgs = Math.ceil(vtoVol / 1000) || 0;
+    vtoCost  = pkgs * 99;
+    vtoLbl   = 'VTO · '+pkgs+' pkg'+(pkgs!==1?'s':'')+' × $99 ('+vtoVol.toLocaleString()+' tries)';
+  } else {
+    vtoLbl = 'VTO · excluded';
+  }
+
+  var infPay  = +document.getElementById('c-infpay').value   || 0;
+  var infFee  = infPay * 0.029;
+
+  var hosting   = +document.getElementById('c-hosting').value   || 0;
+  var insurance = +document.getElementById('c-insurance').value || 0;
+  var other     = +document.getElementById('c-other').value     || 0;
+  var ops       = hosting + insurance + other;
+
+  var monthly = platform + vtoCost + infFee + ops;
+  var annual  = monthly * 12;
+
+  var bank    = +document.getElementById('c-bank').value  || 0;
+  var legal   = +document.getElementById('c-legal').value || 0;
+  var onetime = bank + legal;
+
+  // Subtotals
+  document.getElementById('cst-platform').textContent = fcMoYr(platform);
+  document.getElementById('cst-vto-lbl').textContent  = vtoLbl || 'VTO';
+  document.getElementById('cst-vto').textContent      = costVtoMode === 'none' ? '$0 / mo · excluded' : fcMoYr(vtoCost);
+  document.getElementById('cst-inf').textContent      = fcMoYr(infFee);
+  document.getElementById('cst-ops').textContent      = fcMoYr(ops);
+  document.getElementById('cst-onetime').textContent  = fc$(onetime);
+
+  // Output box
+  document.getElementById('co-platform').textContent = fc$(platform);
+  document.getElementById('co-shopify').textContent  = fc$(shopify);
+  document.getElementById('co-puppet').textContent   = fc$(puppet);
+  document.getElementById('co-framer').textContent   = fc$(framer);
+  document.getElementById('co-vto-lbl').textContent  = vtoLbl || 'VTO';
+  document.getElementById('co-vto').textContent      = costVtoMode === 'none' ? '$0' : fc$(vtoCost);
+  document.getElementById('co-inf').textContent      = fc$(infFee);
+  document.getElementById('co-ops').textContent      = fc$(ops);
+  document.getElementById('co-monthly').textContent  = fc$(monthly);
+  document.getElementById('co-annual').textContent   = fc$(annual);
+  document.getElementById('co-bank').textContent     = fc$(bank);
+  document.getElementById('co-legal').textContent    = legal > 0 ? fc$(legal) : 'TBD';
+  document.getElementById('co-onetime').textContent  = fc$(onetime);
+}
+
+calcCosts();
 </script>
 </body>
 </html>
