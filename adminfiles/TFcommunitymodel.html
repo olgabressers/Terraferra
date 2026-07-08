@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>SMTHG Community Model · SMTHG</title>
+<link rel="icon" type="image/svg+xml" href="smthg_favicon.svg"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --tf:#E8002D;--tf-dark:#B50023;--tf-ghost:#F1EEE9;
+  --orange:#E8002D;--off-white:#F8F6F2;--ink:#161616;
+  --sub:#5C5A56;--rule:#E6E2DA;--green:#1A7A4A;--green-bg:#EDFAF3;
+  --red:#C0392B;--red-bg:#FEE2E2;--amber:#B45309;--amber-bg:#FEF3C7;
+}
+body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)}
+
+.topnav{background:white;border-bottom:1px solid var(--rule);padding:12px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
+.topnav-home{font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);text-decoration:none;font-size:11px}
+.topnav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:var(--sub);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:10px}
+.topnav-links a:hover{color:var(--tf)}
+.has-dropdown{position:relative;padding-bottom:10px;margin-bottom:-10px}
+.dropdown-trigger{cursor:pointer;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:10px;user-select:none}
+.dropdown{display:none;position:absolute;top:100%;right:0;background:white;border:1px solid var(--rule);min-width:210px;box-shadow:0 6px 14px rgba(0,0,0,.08);padding:6px 0;z-index:60}
+.has-dropdown:hover .dropdown,.has-dropdown:focus-within .dropdown{display:block}
+.dropdown a{display:block;padding:9px 16px;font-size:10px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:1px;text-decoration:none}
+.dropdown a:hover{background:var(--tf-ghost);color:var(--tf)}
+@media(max-width:700px){
+  .topnav{position:static;padding:10px 14px}
+  .topnav-links{gap:8px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:2px;width:100%}
+  .topnav-links a{font-size:9.5px;white-space:nowrap}
+  .dropdown-trigger{font-size:9.5px;white-space:nowrap}
+  .has-dropdown{padding-bottom:0;margin-bottom:0}
+  .dropdown{display:none!important}
+}
+
+.pg-wrap{max-width:1240px;margin:0 auto;padding:40px 48px 80px}
+.pg-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--sub)}
+.pg-title{font-size:40px;font-weight:800;letter-spacing:-1.5px;color:var(--ink);margin-top:14px;line-height:1.1}
+.pg-sub{font-size:13.5px;color:var(--ink);margin-top:10px;line-height:1.6;max-width:820px}
+
+.section{padding:44px 0}
+.section+.section{border-top:1px solid var(--rule)}
+.sec-heading{font-size:20px;font-weight:800;color:var(--ink);margin-bottom:8px;line-height:1.2}
+.sec-num{font-size:20px;font-weight:800;color:var(--orange);margin-right:8px}
+.sec-sub{font-size:13px;color:var(--ink);margin-bottom:20px;line-height:1.55;max-width:820px}
+
+.concl{padding:16px 20px;margin-bottom:22px;font-size:13px;line-height:1.6;color:var(--ink)}
+.concl-green{background:var(--green-bg);border-left:4px solid var(--green)}
+.concl-amber{background:var(--amber-bg);border-left:4px solid var(--amber)}
+.concl strong{font-weight:800}
+
+.src{font-size:11px;color:var(--sub);line-height:1.5}
+.src a{color:var(--tf);text-decoration:none}
+.src a:hover{text-decoration:underline}
+
+/* ===== ECOSYSTEM MAP ===== */
+.map-outer{border:2px dashed var(--amber);background:#FFFDF5;padding:26px;margin-top:8px}
+.map-outer-label{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.map-outer-title{font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--amber)}
+.badge{display:inline-block;padding:3px 10px;border-radius:2px;font-size:10px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;white-space:nowrap}
+.badge-amber{background:var(--amber-bg);color:var(--amber)}
+.badge-deck{background:var(--tf-ghost);color:var(--tf)}
+.badge-green{background:var(--green-bg);color:var(--green)}
+
+.map-core-frame{background:white;border:1px solid var(--rule);padding:24px}
+.map-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;align-items:stretch}
+.actor{background:white;border:1px solid var(--rule);border-top:4px solid var(--tf);padding:22px 22px 18px;display:flex;flex-direction:column}
+.actor-name{font-size:16px;font-weight:800;color:var(--ink)}
+.actor-tag{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--tf);margin-top:4px;margin-bottom:14px}
+.el{border:1px solid var(--rule);background:var(--off-white);padding:10px 12px;margin-bottom:8px}
+.el-name{font-size:12.5px;font-weight:800;color:var(--ink)}
+.el-desc{font-size:12px;color:var(--ink);line-height:1.5;margin-top:2px}
+.el-src{font-size:10px;color:var(--sub);margin-top:4px}
+.core{grid-column:1 / -1;background:var(--ink);color:white;padding:26px 28px;margin-top:18px}
+.core-name{font-size:16px;font-weight:800;letter-spacing:1px;text-transform:uppercase}
+.core-tag{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#F5B8C4;margin-top:4px;margin-bottom:16px}
+.core-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.core-el{border:1px solid rgba(255,255,255,.25);padding:12px 14px}
+.core-el-name{font-size:12.5px;font-weight:800;color:white}
+.core-el-desc{font-size:11.5px;color:#E8E6E1;line-height:1.5;margin-top:3px}
+.core-el-src{font-size:10px;color:#B8B5AF;margin-top:5px}
+.core-note{font-size:11.5px;color:#E8E6E1;margin-top:14px;line-height:1.5}
+.exchange{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.ex-chip{background:var(--tf-ghost);color:var(--ink);font-size:11px;font-weight:700;padding:5px 10px;border-radius:2px}
+.ex-chip b{color:var(--tf)}
+
+/* suggested layer chips inside outer dashed frame */
+.layer-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+.layer-el{border:1.5px dashed var(--amber);background:white;padding:14px 16px}
+.layer-el-name{font-size:12.5px;font-weight:800;color:var(--ink)}
+.layer-el-desc{font-size:12px;color:var(--ink);line-height:1.5;margin-top:3px}
+.layer-el-src{font-size:10px;color:var(--sub);margin-top:5px}
+.layer-el-src a{color:var(--tf);text-decoration:none}
+.layer-el-src a:hover{text-decoration:underline}
+
+/* detail cards */
+.det-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.det{background:white;border:1px solid var(--rule);border-top:4px solid var(--amber);padding:22px}
+.det-name{font-size:14px;font-weight:800;color:var(--ink);margin-bottom:4px}
+.det-body{font-size:12.5px;color:var(--ink);line-height:1.6;margin-top:8px}
+.det-body strong{font-weight:800}
+
+footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margin-top:60px}
+.footer-inner{max-width:1240px;margin:0 auto;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub)}
+#back-to-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--tf);color:white;border:none;border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900}
+#back-to-top:hover{background:var(--tf-dark)}
+
+@media(max-width:1000px){
+  .map-grid{grid-template-columns:1fr 1fr}
+  .core-grid{grid-template-columns:repeat(2,1fr)}
+  .layer-row{grid-template-columns:repeat(2,1fr)}
+  .det-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:700px){
+  .pg-wrap{padding:20px 16px 60px}
+  .pg-title{font-size:28px}
+  .section{padding:32px 0}
+  .map-outer{padding:14px}
+  .map-core-frame{padding:14px}
+  .map-grid{grid-template-columns:1fr}
+  .core-grid{grid-template-columns:1fr}
+  .layer-row{grid-template-columns:1fr}
+  .det-grid{grid-template-columns:1fr}
+  footer{padding:18px 20px}
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="index.html" class="topnav-home">SMTHG<span style="color:var(--tf)">.</span></a>
+  <div class="topnav-links">
+    <a href="index.html">Files</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Budget ▾</span>
+      <div class="dropdown">
+        <a href="TFmarketsize.html">Market Size &amp; Opportunity</a>
+        <a href="budget.html">Budget &amp; Sales Scenarios</a>
+      </div>
+    </div>
+    <a href="roles.html">Roles</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Business Model ▾</span>
+      <div class="dropdown">
+        <a href="TFcommunitymodel.html">Community Model</a>
+        <a href="TFbusinessmodel.html">Comparison Matrix</a>
+        <a href="TFaltmodel.html">Alternative Model</a>
+        <a href="TFmvpcosts.html">MVP Scope &amp; Costs</a>
+        <a href="TFgtm.html">GTM</a>
+        <a href="TFwhynow.html">Why Now</a>
+        <a href="TFdropsmarket.html">Drop Market Research</a>
+        <a href="TFunservedmarket.html">Unserved Market</a>
+        <a href="TFreferral.html">Referral &amp; Viral</a>
+        <a href="TFcreatortoken.html">Creator Payments</a>
+        <a href="TFstylists.html">Stylist Layer</a>
+        <a href="/psychology-fashion.html">Psychology + Fashion</a>
+        <a href="TFvisualdiscovery.html">Visual Discovery</a>
+      </div>
+    </div>
+    <a href="TFmarketplaces.html">Operations</a>
+    <a href="architecture.html">Architecture</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Ideas ▾</span>
+      <div class="dropdown">
+        <a href="gamification.html">Gamification</a>
+        <a href="ideas.html">Ideas &amp; AI Research</a>
+        <a href="influencer.html">Influencer Selling</a>
+        <a href="strategic-brief.html">Strategic Brief</a>
+      </div>
+    </div>
+    <a href="TFrussia.html">Legal / Tax</a>
+    <a href="task-tracker.html">Planning</a>
+  </div>
+</nav>
+
+<div class="pg-wrap">
+
+  <div class="pg-eyebrow">Business Model · Internal</div>
+  <div class="pg-title">SMTHG Community Model</div>
+  <div class="pg-sub">All concept elements of the SMTHG ecosystem on one visual map — Designers/Brands, Influencers, Consumers and the platform core, per Investor Deck v18. The outer layer shows the community &amp; viral elements the deck names but does not specify — suggested additions, drawn from the internal research pages, marked Under Research.</div>
+
+  <!-- ===== 01 · THE MAP ===== -->
+  <div class="section">
+    <div class="sec-heading"><span class="sec-num">01</span>Ecosystem Map</div>
+    <div class="sec-sub">Elements of the ecosystem — not a flow. Every element connects through the platform core. Solid cards come from Investor Deck v18. Dashed cards are suggested additions, not part of the deck concept.</div>
+
+    <div class="map-outer">
+      <div class="map-outer-label">
+        <span class="map-outer-title">Community &amp; Viral Layer</span>
+        <span class="badge badge-amber">Suggested · Under Research — not in Deck v18</span>
+      </div>
+
+      <div class="map-core-frame">
+        <div class="map-outer-label" style="margin-bottom:16px">
+          <span class="map-outer-title" style="color:var(--tf)">SMTHG Ecosystem</span>
+          <span class="badge badge-deck">Source: Investor Deck v18</span>
+        </div>
+
+        <div class="map-grid">
+
+          <!-- BRANDS -->
+          <div class="actor">
+            <div class="actor-name">Designers / Brands</div>
+            <div class="actor-tag">Emerging · Affordable Luxury</div>
+            <div class="el">
+              <div class="el-name">Pre-order drops</div>
+              <div class="el-desc">Sell before producing — no inventory risk, no upfront stock. Brands fulfil; the platform provides the tools.</div>
+              <div class="el-src">Deck v18, slides 3 &amp; 5</div>
+            </div>
+            <div class="el">
+              <div class="el-name">Regular-collection up-sale</div>
+              <div class="el-desc">After the drop, brands sell their standing collection on the platform.</div>
+              <div class="el-src">Deck v18, slide 5</div>
+            </div>
+            <div class="el">
+              <div class="el-name">Tailored storefront</div>
+              <div class="el-desc">Own-brand storefront on the platform.</div>
+              <div class="el-src">Deck v18, slide 9</div>
+            </div>
+            <div class="el">
+              <div class="el-name">Unserved segment</div>
+              <div class="el-desc">US counts 32K and EU 50–70K fashion brands; listed platforms accommodate under 20%.</div>
+              <div class="el-src">Deck v18, slide 8</div>
+            </div>
+            <div class="exchange">
+              <span class="ex-chip">Pays <b>$500/mo</b></span>
+              <span class="ex-chip">Onboarding <b>$250</b></span>
+              <span class="ex-chip">Commission <b>10%</b></span>
+            </div>
+            <div class="src" style="margin-top:6px">Rates: Deck v18, slide 8</div>
+          </div>
+
+          <!-- INFLUENCERS -->
+          <div class="actor">
+            <div class="actor-name">Influencers</div>
+            <div class="actor-tag">Nano &amp; Micro · No Minimum</div>
+            <div class="el">
+              <div class="el-name">Open access — no follower minimum</div>
+              <div class="el-desc">89.5% of influencers — the nano and micro tiers under 50K whose communities actually buy — don't fit existing platforms.</div>
+              <div class="el-src">Deck v18, slides 2 &amp; 9</div>
+            </div>
+            <div class="el">
+              <div class="el-name">Promote &amp; earn</div>
+              <div class="el-desc">Promote drops to their own audience and earn a cut of revenue.</div>
+              <div class="el-src">Deck v18, slide 5</div>
+            </div>
+            <div class="el">
+              <div class="el-name">Virtual try-on to share</div>
+              <div class="el-desc">Try the look on virtually — just like consumers — then share. Every share spreads the drop.</div>
+              <div class="el-src">Deck v18, slide 3</div>
+            </div>
+            <div class="el">
+              <div class="el-name">Matched by AI</div>
+              <div class="el-desc">Creator Match pairs each drop with the influencers whose audience will actually buy it.</div>
+              <div class="el-src">Deck v18, slide 6</div>
+            </div>
+            <div class="exchange">
+              <span class="ex-chip">Earns <b>10–20%</b> of revenue</span>
+            </div>
+            <div class="src" style="margin-top:6px">Rate: Deck v18, slide 8</div>
+          </div>
+
+          <!-- CONSUMERS -->
+          <div class="actor">
+            <div class="actor-name">Consumers</div>
+            <div class="actor-tag">Niche Style · Gen Z Weighted</div>
+            <div class="el">
+              <div class="el-name">Niche-style discovery</div>
+              <div class="el-desc">Find their own niche style and discover new emerging brands — not the most-hyped or mass-market item.</div>
+              <div class="el-src">Deck v18, slides 3 &amp; 6</div>
+            </div>
+            <div class="el">
+              <div class="el-name">Virtual try-on</div>
+              <div class="el-desc">See any piece on themselves — and on the influencer sharing it — before pre-ordering.</div>
+              <div class="el-src">Deck v18, slide 6</div>
+            </div>
+            <div class="el">
+              <div class="el-name">Pre-order, on-platform checkout</div>
+              <div class="el-desc">Pre-order the drop in a checkout that stays on the platform.</div>
+              <div class="el-src">Deck v18, slide 9</div>
+            </div>
+            <div class="el">
+              <div class="el-name">Share for identity &amp; access</div>
+              <div class="el-desc">Early access, sold-out moments, founding-member status turn consumers into superfans.</div>
+              <div class="el-src">Deck v18, slide 3</div>
+            </div>
+            <div class="exchange">
+              <span class="ex-chip">Pays <b>drop price</b> at pre-order</span>
+            </div>
+          </div>
+
+          <!-- PLATFORM CORE -->
+          <div class="core">
+            <div class="core-name">Platform Core — AI-Native Drops Marketplace</div>
+            <div class="core-tag">Every element above connects through this core</div>
+            <div class="core-grid">
+              <div class="core-el">
+                <div class="core-el-name">AI Virtual Try-On</div>
+                <div class="core-el-desc">Any piece, on any user, before pre-order.</div>
+                <div class="core-el-src">Deck v18, slide 6</div>
+              </div>
+              <div class="core-el">
+                <div class="core-el-name">Niche-Style Discovery</div>
+                <div class="core-el-desc">Surfaces emerging brands matched to individual taste.</div>
+                <div class="core-el-src">Deck v18, slide 6</div>
+              </div>
+              <div class="core-el">
+                <div class="core-el-name">Creator Match</div>
+                <div class="core-el-desc">AI-native matching of drops to nano &amp; micro influencers.</div>
+                <div class="core-el-src">Deck v18, slide 6</div>
+              </div>
+              <div class="core-el">
+                <div class="core-el-name">AI Outreach Agent — Moat</div>
+                <div class="core-el-desc">Runs brand &amp; influencer outreach and closes the deals.</div>
+                <div class="core-el-src">Deck v18, slide 6</div>
+              </div>
+            </div>
+            <div class="core-note">Revenue: 10% commission on drops · $500/mo brand fee · $250 onboarding (Deck v18, slide 8).</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- SUGGESTED LAYER ELEMENTS -->
+      <div class="layer-row">
+        <div class="layer-el">
+          <div class="layer-el-name">Scarcity &amp; FOMO mechanics</div>
+          <div class="layer-el-desc">Live stock counter, drop countdown timer, community pull counter, auto-generated sold-out social card.</div>
+          <div class="layer-el-src">Suggested · <a href="TFreferral.html">Referral &amp; Viral Mechanics, §04 →</a></div>
+        </div>
+        <div class="layer-el">
+          <div class="layer-el-name">Identity &amp; status mechanics</div>
+          <div class="layer-el-desc">Early access gate, "one of 150 owners" card, early-supporter badge, designer debut framing.</div>
+          <div class="layer-el-src">Suggested · <a href="TFreferral.html">Referral &amp; Viral Mechanics, §04 →</a></div>
+        </div>
+        <div class="layer-el">
+          <div class="layer-el-name">Cold discovery</div>
+          <div class="layer-el-desc">Drops-open-now feed, style-tag browse, save-to-board with public save counts, trending sort — discovery for consumers who follow no one yet.</div>
+          <div class="layer-el-src">Suggested · <a href="TFreferral.html">Referral &amp; Viral Mechanics, §04 →</a></div>
+        </div>
+        <div class="layer-el">
+          <div class="layer-el-name">Super Fan loop</div>
+          <div class="layer-el-desc">Designer drop → themed super-fan content (AI-generated try-on video or raw UGC) → bonus paid. Style names accumulate as a discovery tag library.</div>
+          <div class="layer-el-src">Suggested · <a href="gamification.html">Gamification research, §01 →</a></div>
+        </div>
+        <div class="layer-el">
+          <div class="layer-el-name">Creator points &amp; tiers</div>
+          <div class="layer-el-desc">Points for drops completed, sales, recruiting creators, content. Tier progression Creator → Rising Creator → Founding Creator with unlocked perks.</div>
+          <div class="layer-el-src">Suggested · <a href="TFreferral.html">Referral &amp; Viral Mechanics, §04 →</a></div>
+        </div>
+        <div class="layer-el">
+          <div class="layer-el-name">Community marketing</div>
+          <div class="layer-el-desc">Zero-budget community channels ranked by impact, plus a $500–2K/month paid digital layer.</div>
+          <div class="layer-el-src">Suggested · <a href="community-mktg.html">Community Marketing research →</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 02 · THE GAP ===== -->
+  <div class="section">
+    <div class="sec-heading"><span class="sec-num">02</span>What the Deck Concept Does Not Cover</div>
+    <div class="concl concl-amber"><strong>The deck names viral growth but defines no mechanics, and contains no community layer.</strong> Slide 5 states "every share pulls in new consumers, influencers and brands" and slide 3 lists "built to share" outcomes — but no concept element specifies how a share happens, what a consumer gets for sharing, or how users interact with each other outside a purchase. The six dashed elements on the map fill that gap; each links to the internal research page it comes from.</div>
+
+    <div class="det-grid">
+      <div class="det">
+        <div class="det-name">Viral gap</div>
+        <span class="badge badge-amber">Suggested fill</span>
+        <div class="det-body">The deck's loop (slide 5) depends on shares, but sharing is asserted, not designed. The scarcity, identity and status mechanics give each share a concrete trigger: a stock counter to beat, a countdown to act on, a badge or owner card to show. <strong>Full detail: <a href="TFreferral.html" style="color:var(--tf)">Referral &amp; Viral Mechanics, §01–04</a>.</strong></div>
+      </div>
+      <div class="det">
+        <div class="det-name">Community gap</div>
+        <span class="badge badge-amber">Suggested fill</span>
+        <div class="det-body">In the deck, consumers relate only to drops — there is no element where users relate to each other. The Super Fan loop (themed content per drop, style-name library) and creator points &amp; tiers create member-to-member activity between drops. <strong>Full detail: <a href="gamification.html" style="color:var(--tf)">Gamification research, §01</a>.</strong></div>
+      </div>
+      <div class="det">
+        <div class="det-name">Cold-start gap</div>
+        <span class="badge badge-amber">Suggested fill</span>
+        <div class="det-body">Every deck element assumes the consumer arrives via an influencer. Cold discovery — a browsable drops feed, style tags, save-to-board, trending sort — serves consumers with no prior connection, at MVP with manual curation and no ML. <strong>Full detail: <a href="TFreferral.html" style="color:var(--tf)">Referral &amp; Viral Mechanics, §04</a>.</strong></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">Private · noindex · Ecosystem elements sourced from Investor Deck v18 (terrapresa10_2026_v18.pptx) · Suggested layer sourced from internal research: Referral &amp; Viral Mechanics, Gamification, Community Marketing</div>
+</footer>
+
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">&#8593;</button>
+<script>window.addEventListener('scroll',function(){var b=document.getElementById('back-to-top');b.style.display=window.scrollY>300?'flex':'none';})</script>
+
+</body>
+</html>
