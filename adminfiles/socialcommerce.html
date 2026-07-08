@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <meta name="robots" content="noindex, nofollow"/>
-<title>Social Commerce — Community Elements · SMTHG</title>
+<title>Social Commerce — Platform Map · SMTHG</title>
 <link rel="icon" type="image/svg+xml" href="smthg_favicon.svg"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
@@ -40,49 +40,45 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .pg-wrap{max-width:1240px;margin:0 auto;padding:40px 48px 80px}
 
 /* ===== HERO ===== */
-.hero{padding:32px 0 8px}
+.hero{padding:28px 0 6px}
 .pg-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--sub)}
 .pg-title{font-size:clamp(30px,4.2vw,46px);font-weight:800;letter-spacing:-1.5px;color:var(--ink);margin-top:14px;line-height:1.08}
-.pg-sub{font-size:14px;color:var(--ink);margin-top:14px;line-height:1.65;max-width:780px}
-.pg-sub a{color:var(--tf);font-weight:600;text-decoration:none}
-.pg-sub a:hover{text-decoration:underline}
 
-/* ===== PILLARS ===== */
-.pillars{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:30px}
-.pillar{background:white;border:1px solid var(--rule);border-radius:12px;padding:22px 24px}
-.pillar-com{border-top:3px solid var(--tf)}
-.pillar-tag{font-size:9.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);margin-bottom:8px}
-.pillar-t{font-size:18px;font-weight:800;letter-spacing:-.5px;line-height:1.15;color:var(--ink)}
-.pillar-d{font-size:12.5px;line-height:1.55;margin-top:6px;color:var(--ink)}
-.pillar-s{font-size:11px;color:var(--sub);margin-top:8px}
+/* ===== MAP ===== */
+.map{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px;margin-top:44px}
+.zone{position:relative;background:white;border:2px solid var(--ink);border-radius:20px;padding:30px 22px 18px}
+.zone-tab{position:absolute;top:-16px;left:20px;background:var(--ink);color:white;border-radius:30px;padding:7px 20px;font-size:13px;font-weight:800;letter-spacing:1px;text-transform:uppercase}
+.zone-sub{font-size:11px;color:var(--sub);margin:0 0 14px 2px}
+.el{background:var(--off-white);border:1px solid var(--rule);border-radius:10px;padding:13px 15px;margin-bottom:10px}
+.el:last-child{margin-bottom:4px}
+.el-t{font-size:13.5px;font-weight:800;color:var(--ink);line-height:1.25}
+.el-d{font-size:12px;color:var(--ink);line-height:1.55;margin-top:4px}
+.el-s{font-size:10.5px;color:var(--sub);margin-top:5px}
+.el-s a{color:var(--tf);text-decoration:none}
+.el-s a:hover{text-decoration:underline}
 
-/* ===== BANDS ===== */
-.band{margin-top:44px;border:1px solid var(--rule);border-radius:14px;background:white;padding:30px 32px 26px}
-.band-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
-.band-num{font-size:22px;font-weight:800;color:var(--tf)}
-.band-title{font-size:22px;font-weight:800;letter-spacing:-.5px;color:var(--ink)}
-.band-q{font-size:13px;color:var(--ink);margin:10px 0 22px;max-width:780px;line-height:1.6}
-.el-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
-.el{background:var(--off-white);border:1px solid var(--rule);border-radius:10px;padding:18px 20px;display:flex;flex-direction:column}
-.el-t{font-size:15.5px;font-weight:800;color:var(--ink);line-height:1.25}
-.el-d{font-size:12.5px;color:var(--ink);line-height:1.6;margin-top:7px}
-.el-in{margin-top:10px;padding:10px 12px;background:white;border:1px solid var(--rule);border-radius:8px;font-size:12px;line-height:1.6;color:var(--ink)}
-.el-in b{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);display:block;margin-bottom:3px}
-.el-meta{margin-top:auto;padding-top:12px;font-size:11px;color:var(--sub);line-height:1.6}
-.el-meta a{color:var(--tf);text-decoration:none}
-.el-meta a:hover{text-decoration:underline}
+/* ===== REFERENCE STRIP ===== */
+.refs{margin-top:44px;border:1px solid var(--rule);border-radius:14px;background:white;padding:26px 28px}
+.refs-title{font-size:18px;font-weight:800;letter-spacing:-.5px;color:var(--ink)}
+.refs-sub{font-size:12.5px;color:var(--ink);margin-top:6px;line-height:1.6;max-width:820px}
+.refs-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:18px}
+.ref{background:var(--off-white);border:1px solid var(--rule);border-radius:10px;padding:14px 16px}
+.ref-t{font-size:13.5px;font-weight:800;color:var(--ink)}
+.ref-t a{color:var(--ink);text-decoration:none}
+.ref-t a:hover{color:var(--tf)}
+.ref-d{font-size:12px;color:var(--ink);line-height:1.55;margin-top:4px}
 
 #back-to-top{position:fixed;bottom:28px;right:28px;width:42px;height:42px;background:white;color:var(--ink);border:1px solid var(--rule);border-radius:50%;font-size:18px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900}
 #back-to-top:hover{color:var(--tf)}
 
 @media(max-width:1000px){
-  .pillars{grid-template-columns:1fr}
-  .el-grid{grid-template-columns:1fr 1fr}
+  .map{grid-template-columns:1fr 1fr}
+  .refs-grid{grid-template-columns:1fr}
 }
 @media(max-width:700px){
   .pg-wrap{padding:20px 16px 70px}
-  .band{padding:22px 16px 18px}
-  .el-grid{grid-template-columns:1fr}
+  .map{grid-template-columns:1fr;gap:26px}
+  .refs{padding:20px 16px}
 }
 </style>
 </head>
@@ -139,120 +135,183 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 
   <!-- HERO -->
   <div class="hero">
-    <div class="pg-eyebrow">Social Commerce · Community Elements · All elements suggested · under research</div>
-    <div class="pg-title">Come. Stay. Come back.</div>
-    <div class="pg-sub">Drop shopping and style discovery carry the transaction. This map holds the community elements next to them — each element answers one of three questions: why a person comes, why they stay in the session, and why they come back. Each is tied to the pains on <a href="closethepain.html">Close the Pain</a>.</div>
+    <div class="pg-eyebrow">Social Commerce · All Elements of the Platform · New elements suggested · under research</div>
+    <div class="pg-title">The platform, mapped.</div>
   </div>
 
-  <!-- PILLARS -->
-  <div class="pillars">
-    <div class="pillar">
-      <div class="pillar-tag">Anchor 1 · In concept</div>
-      <div class="pillar-t">Drop shopping</div>
-      <div class="pillar-d">Pre-order drops in limited windows — brands sell before they produce.</div>
-      <div class="pillar-s">Deck v18, slides 3, 5</div>
-    </div>
-    <div class="pillar">
-      <div class="pillar-tag">Anchor 2 · In concept</div>
-      <div class="pillar-t">Style discovery</div>
-      <div class="pillar-d">Niche-style matching and virtual try-on — emerging brands matched to personal taste.</div>
-      <div class="pillar-s">Deck v18, slide 6</div>
-    </div>
-    <div class="pillar pillar-com">
-      <div class="pillar-tag">The layer this page maps · Suggested</div>
-      <div class="pillar-t">Community</div>
-      <div class="pillar-d">The nine elements below, organised by the retention question each one answers.</div>
-      <div class="pillar-s">Grounded in Deck v18 slide 3 ("built to share") + internal research pages</div>
-    </div>
-  </div>
+  <!-- MAP -->
+  <div class="map">
 
-  <!-- BAND: COME -->
-  <div class="band">
-    <div class="band-head"><span class="band-num">1</span><span class="band-title">Come — the first visit</span></div>
-    <div class="band-q">A stranger has no brand to follow and no creator connection yet. What makes the platform worth a first visit — beyond a product to buy?</div>
-    <div class="el-grid">
-
+    <!-- BRANDS -->
+    <div class="zone">
+      <div class="zone-tab">Designers / Brands</div>
+      <div class="zone-sub">Emerging · affordable luxury</div>
       <div class="el">
-        <div class="el-t">Style tribes</div>
-        <div class="el-d">Communities built around aesthetics, not brands — minimalist, streetwear, quiet luxury. A member joins the tribe that dresses like them.</div>
-        <div class="el-in"><b>Inside</b>The tribe's own drop feed · member looks · a style-tag library grown from names members coin for looks.</div>
-        <div class="el-meta">Serves Consumer P1 · P4 (<a href="closethepain.html">Close the Pain</a>) · Sources: <a href="TFreferral.html">Referral &amp; Viral §04</a>, <a href="gamification.html">Gamification §01</a></div>
+        <div class="el-t">Brand space</div>
+        <div class="el-d">The designer introduces themself — a video and the story of the brand. The face behind the label, before the first piece is sold.</div>
+        <div class="el-s">Suggested</div>
       </div>
-
       <div class="el">
-        <div class="el-t">Designer debuts</div>
-        <div class="el-d">A designer's first drop framed as a founding event. Early buyers enter the designer's circle as founding members — a role, not a receipt.</div>
-        <div class="el-in"><b>Inside</b>Debut announcement · founding-member enrolment · the designer's story before the first piece ships.</div>
-        <div class="el-meta">Serves Consumer P4 · Brand P3 · Sources: <a href="TFreferral.html">Referral &amp; Viral §04</a>, Deck v18 slide 3</div>
+        <div class="el-t">Drops</div>
+        <div class="el-d">Pre-order launches in limited windows — the brand sells before it produces. No inventory, no upfront stock.</div>
+        <div class="el-s">Deck v18, slides 3, 5</div>
       </div>
-
       <div class="el">
-        <div class="el-t">Drops as events</div>
-        <div class="el-d">A drop is an appointment, not a listing: countdown, live stock counter, one window. People arrive for a moment shared with others.</div>
-        <div class="el-in"><b>Inside</b>Countdown &amp; live counters · "join 47 others in this drop" · sold-out cards that circulate outside the platform.</div>
-        <div class="el-meta">Serves Consumer P2 · Brand P4 · Source: <a href="TFreferral.html">Referral &amp; Viral §04</a></div>
+        <div class="el-t">Storefront &amp; collection</div>
+        <div class="el-d">A tailored storefront; after the drop, the regular collection sells on.</div>
+        <div class="el-s">Deck v18, slides 5, 9</div>
       </div>
-
+      <div class="el">
+        <div class="el-t">Matched creators</div>
+        <div class="el-d">The AI agent finds the creators whose audience will buy the drop, and closes the terms.</div>
+        <div class="el-s">Deck v18, slide 6</div>
+      </div>
     </div>
-  </div>
 
-  <!-- BAND: STAY -->
-  <div class="band">
-    <div class="band-head"><span class="band-num">2</span><span class="band-title">Stay — the session</span></div>
-    <div class="band-q">The visitor is in. What is there to do between buying — the activity that makes a session longer than a checkout?</div>
-    <div class="el-grid">
+    <!-- INFLUENCERS -->
+    <div class="zone">
+      <div class="zone-tab">Influencers</div>
+      <div class="zone-sub">Nano &amp; micro · no minimum</div>
+      <div class="el">
+        <div class="el-t">Promote &amp; earn</div>
+        <div class="el-d">Matched drops arrive with terms set — promote in the drop window, earn 10–20% of revenue. No pitching, no chasing invoices.</div>
+        <div class="el-s">Deck v18, slides 5, 8</div>
+      </div>
+      <div class="el">
+        <div class="el-t">Try-on &amp; share</div>
+        <div class="el-d">The look on themselves, virtually — then shared to their own audience. Every share carries the drop further.</div>
+        <div class="el-s">Deck v18, slide 3</div>
+      </div>
+      <div class="el">
+        <div class="el-t">Points &amp; tiers</div>
+        <div class="el-d">Points for completed drops, sales, recruiting, stories. Creator → Rising Creator → Founding Creator — earlier access and visibility. Fills the gap between campaigns.</div>
+        <div class="el-s">Suggested · <a href="TFreferral.html">Referral &amp; Viral §04</a></div>
+      </div>
+    </div>
 
+    <!-- CONSUMERS -->
+    <div class="zone">
+      <div class="zone-tab">Consumers</div>
+      <div class="zone-sub">Niche style · Gen Z weighted</div>
+      <div class="el">
+        <div class="el-t">Style discovery</div>
+        <div class="el-d">Niche-style matching — emerging brands matched to personal taste, not the most-hyped item.</div>
+        <div class="el-s">Deck v18, slide 6</div>
+      </div>
+      <div class="el">
+        <div class="el-t">Drop shopping</div>
+        <div class="el-d">Pre-order in a limited window, tried on virtually before paying. The drop ends — a closed drop stays limited.</div>
+        <div class="el-s">Deck v18, slides 3, 6</div>
+      </div>
+      <div class="el">
+        <div class="el-t">Boards &amp; saves</div>
+        <div class="el-d">Save drops to public boards; save counts visible to everyone; trending per style tag.</div>
+        <div class="el-s">Suggested · <a href="TFreferral.html">Referral &amp; Viral §04</a></div>
+      </div>
+      <div class="el">
+        <div class="el-t">Status</div>
+        <div class="el-d">Owner cards ("one of 150"), early-supporter badges, founding-member roles — a profile that becomes proof of taste.</div>
+        <div class="el-s">Suggested · <a href="TFreferral.html">Referral &amp; Viral §04</a> · Deck v18, slide 3</div>
+      </div>
+    </div>
+
+    <!-- COMMUNITY -->
+    <div class="zone">
+      <div class="zone-tab">Community</div>
+      <div class="zone-sub">Chat · learning · exchange — the reasons to come back</div>
+      <div class="el">
+        <div class="el-t">Style tribes — chat &amp; feed</div>
+        <div class="el-d">A feed and chat per aesthetic — minimalist, streetwear, quiet luxury. Members exchange looks, advice and the names they coin for styles.</div>
+        <div class="el-s">Suggested · feed/discussion pattern per <a href="https://circle.so/" target="_blank" rel="noopener">circle.so</a></div>
+      </div>
+      <div class="el">
+        <div class="el-t">Learning — the classroom</div>
+        <div class="el-d">Courses inside the community: styling for members, brand-building for designers, creator school for influencers. Progress tracked, some levels gated.</div>
+        <div class="el-s">Suggested · classroom pattern per <a href="https://www.skool.com/features" target="_blank" rel="noopener">skool.com</a></div>
+      </div>
+      <div class="el">
+        <div class="el-t">Events &amp; calendar</div>
+        <div class="el-d">The drop calendar, live sessions, meetups — set moments the member returns for.</div>
+        <div class="el-s">Suggested · calendar pattern per <a href="https://www.skool.com/features" target="_blank" rel="noopener">skool.com</a></div>
+      </div>
+      <div class="el">
+        <div class="el-t">Points, levels, leaderboards</div>
+        <div class="el-d">Likes earn points, points earn levels, levels open content and access. The Skool loop: 1 like = 1 point.</div>
+        <div class="el-s">Suggested · per <a href="https://help.skool.com/article/31-how-do-points-and-levels-work" target="_blank" rel="noopener">Skool help centre</a> · <a href="TFreferral.html">Referral &amp; Viral §04</a></div>
+      </div>
       <div class="el">
         <div class="el-t">Super-fan studio</div>
-        <div class="el-d">Members make the look their own: one selfie → an AI video of them in the piece, or raw self-filmed content. They name the style; the best get featured and paid a bonus.</div>
-        <div class="el-in"><b>Inside</b>Themed creation per drop · AI try-on video or amateur UGC · style naming that feeds the discovery tags.</div>
-        <div class="el-meta">Serves Consumer P4 · Source: <a href="gamification.html">Gamification §01</a></div>
+        <div class="el-d">Themed creation per drop: one selfie → an AI video in the piece, or own footage. Members name the style; the best get featured and paid.</div>
+        <div class="el-s">Suggested · <a href="gamification.html">Gamification §01</a></div>
       </div>
-
-      <div class="el">
-        <div class="el-t">Styling rooms</div>
-        <div class="el-d">Style advice inside the tribe: build a look from drop pieces and a member's own wardrobe, with stylist input and AI wardrobe tooling.</div>
-        <div class="el-in"><b>Inside</b>Look-building on a virtual model · stylist sessions · outfit advice as community content, not private service.</div>
-        <div class="el-meta">Serves Consumer P1 · P3 · Sources: <a href="TFstylists.html">Stylist Layer research</a>, <a href="TFvisualdiscovery.html">Visual Discovery</a></div>
-      </div>
-
-      <div class="el">
-        <div class="el-t">Boards &amp; trending</div>
-        <div class="el-d">Members curate: save drops to public boards, follow other members' taste, watch what their tribe saves. "Saved by 340 people" is social proof no ad can buy.</div>
-        <div class="el-in"><b>Inside</b>Save-to-board · public save counts · trending sort per style tag over the last 24h.</div>
-        <div class="el-meta">Serves Consumer P1 · P2 · Source: <a href="TFreferral.html">Referral &amp; Viral §04</a></div>
-      </div>
-
     </div>
+
+    <!-- SERVICES -->
+    <div class="zone">
+      <div class="zone-tab">Services</div>
+      <div class="zone-sub">Advice, person to person</div>
+      <div class="el">
+        <div class="el-t">Stylist advice</div>
+        <div class="el-d">Sessions with stylists: build a look from drop pieces and the member's own wardrobe, with AI wardrobe tooling behind it.</div>
+        <div class="el-s">Suggested · <a href="TFstylists.html">Stylist Layer research</a></div>
+      </div>
+      <div class="el">
+        <div class="el-t">Psychologist advice</div>
+        <div class="el-d">Fashion-psychology consultations — style, identity, confidence. Advice as a service inside the platform, next to the clothes it relates to.</div>
+        <div class="el-s">Suggested · internal research: Psychology + Fashion</div>
+      </div>
+      <div class="el">
+        <div class="el-t">Look-building on a virtual model</div>
+        <div class="el-d">Compose full looks on a virtual model — pieces layered together before any purchase.</div>
+        <div class="el-s">Suggested · <a href="TFvisualdiscovery.html">Visual Discovery research</a></div>
+      </div>
+    </div>
+
+    <!-- LIBRARY -->
+    <div class="zone">
+      <div class="zone-tab">Library</div>
+      <div class="zone-sub">What the platform accumulates</div>
+      <div class="el">
+        <div class="el-t">Style-tag library</div>
+        <div class="el-d">The names members coin for looks accumulate into a discovery vocabulary that belongs to the platform.</div>
+        <div class="el-s">Suggested · <a href="gamification.html">Gamification §01</a></div>
+      </div>
+      <div class="el">
+        <div class="el-t">Look archive</div>
+        <div class="el-d">Member looks and closed drops — a growing record of what the platform's people wear and what sold out.</div>
+        <div class="el-s">Suggested</div>
+      </div>
+      <div class="el">
+        <div class="el-t">Brand stories</div>
+        <div class="el-d">The designers' intro videos and brand stories, collected — a place to meet every label on the platform.</div>
+        <div class="el-s">Suggested · follows the brand space</div>
+      </div>
+      <div class="el">
+        <div class="el-t">Course library</div>
+        <div class="el-d">Recorded classes and sessions from the learning space, searchable and kept.</div>
+        <div class="el-s">Suggested · classroom pattern per <a href="https://www.skool.com/features" target="_blank" rel="noopener">skool.com</a></div>
+      </div>
+    </div>
+
   </div>
 
-  <!-- BAND: COME BACK -->
-  <div class="band">
-    <div class="band-head"><span class="band-num">3</span><span class="band-title">Come back — the return trigger</span></div>
-    <div class="band-q">The session ends. What is scheduled, accruing, or unfinished — the reason tomorrow's notification gets opened instead of swiped away?</div>
-    <div class="el-grid">
-
-      <div class="el">
-        <div class="el-t">The drop calendar</div>
-        <div class="el-d">A fixed rhythm: the tribe's next drops land at set moments — the Breeze 19:00 pattern applied to fashion. The platform has an appointment with the member, not the other way round.</div>
-        <div class="el-in"><b>Inside</b>Set drop moments per tribe · waitlists for announced drops · cadence and batch size TBD.</div>
-        <div class="el-meta">Serves Consumer P2 · Sources: <a href="https://breeze.social/nl" target="_blank" rel="noopener">breeze.social</a>, <a href="TFreferral.html">Referral &amp; Viral §04</a></div>
+  <!-- REFERENCES -->
+  <div class="refs">
+    <div class="refs-title">The integration principle</div>
+    <div class="refs-sub">Community, classroom, calendar and points do not need to be invented — the pattern runs on existing platforms and can be integrated into SMTHG so the platform gives members reasons to come back.</div>
+    <div class="refs-grid">
+      <div class="ref">
+        <div class="ref-t"><a href="https://www.skool.com/features" target="_blank" rel="noopener">Skool →</a></div>
+        <div class="ref-d">Community feed + classroom + calendar + gamification: likes earn points, points earn levels, levels open courses and access. Leaderboards rank the most engaged members.</div>
       </div>
-
-      <div class="el">
-        <div class="el-t">Status that accrues</div>
-        <div class="el-d">A profile that becomes proof of taste: owner cards ("one of 150"), early-supporter badges from designer debuts, founding-member roles. Leaving the platform means abandoning it.</div>
-        <div class="el-in"><b>Inside</b>Owner gallery of pieces bought in windows that closed · permanent badges · visible member history per tribe.</div>
-        <div class="el-meta">Serves Consumer P4 · Sources: <a href="TFreferral.html">Referral &amp; Viral §04</a>, Deck v18 slide 3</div>
+      <div class="ref">
+        <div class="ref-t"><a href="https://circle.so/" target="_blank" rel="noopener">Circle →</a></div>
+        <div class="ref-d">Discussions, messaging, courses, events, live streams, member directory and gamification in one branded community, with payments built in.</div>
       </div>
-
-      <div class="el">
-        <div class="el-t">Creator points &amp; tiers</div>
-        <div class="el-d">For influencers, the element that fills the gap between campaigns: points for completed drops, sales, recruiting creators, behind-the-drop stories — tiers that add earlier access and visibility.</div>
-        <div class="el-in"><b>Inside</b>Points per action · Creator → Rising Creator → Founding Creator · perks tied to the next drop cycle.</div>
-        <div class="el-meta">Serves Influencer P3 · Source: <a href="TFreferral.html">Referral &amp; Viral §04</a></div>
+      <div class="ref">
+        <div class="ref-t"><a href="https://a-mates.com/" target="_blank" rel="noopener">A-Mates →</a></div>
+        <div class="ref-d">An SDK that embeds a community section directly inside an existing mobile app — the integration route: community inside the platform, not a separate destination.</div>
       </div>
-
     </div>
   </div>
 
