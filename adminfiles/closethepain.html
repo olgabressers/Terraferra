@@ -82,18 +82,6 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .bz-stat span{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#B8B5AF;line-height:1.4;display:block;margin-top:3px}
 .bz-stat a{color:#F5B8C4;text-decoration:none}
 
-/* ===== CREAKS ===== */
-.creaks{margin-top:26px}
-.creaks-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:10px}
-.creaks-title{font-size:clamp(18px,2.4vw,26px);font-weight:900;letter-spacing:-.5px;color:var(--ink)}
-.creaks-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:18px}
-.creak{background:white;border:2px solid var(--amber);border-radius:14px;padding:16px 18px}
-.creak-t{font-size:14px;font-weight:900;color:var(--ink);line-height:1.3}
-.creak-d{font-size:12.5px;color:var(--ink);line-height:1.55;margin-top:5px}
-.creak-lesson{background:var(--amber-bg);border-radius:8px;padding:9px 12px;margin-top:10px;font-size:12px;line-height:1.5;color:var(--ink)}
-.creak-lesson b{color:var(--amber);font-size:9.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;display:block;margin-bottom:2px}
-.creak-s{font-size:10px;color:var(--sub);margin-top:8px}
-.creak-s a{color:var(--tf);text-decoration:none}
 
 /* ===== PRINCIPLE ===== */
 .principle{margin:54px auto 10px;max-width:900px;text-align:center;position:relative}
@@ -136,16 +124,6 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .close-s a{color:var(--tf);text-decoration:none}
 .close-s a:hover{text-decoration:underline}
 
-/* ===== RESULT ===== */
-.result{background:var(--green);border-radius:24px;padding:40px 44px;margin-top:56px;color:white;position:relative;overflow:hidden}
-.result::after{content:"→";position:absolute;right:16px;bottom:-46px;font-size:170px;font-weight:900;color:rgba(255,255,255,.09);pointer-events:none}
-.result-label{font-size:10px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:#BFEED2}
-.result-big{font-size:clamp(22px,3.4vw,36px);font-weight:900;letter-spacing:-1px;line-height:1.15;margin-top:10px;max-width:860px}
-.result-sub{font-size:13px;color:#E7F8EE;margin-top:14px;line-height:1.65;max-width:820px}
-.result-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
-.result-links a{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.4);color:white;border-radius:20px;padding:7px 16px;font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;text-decoration:none}
-.result-links a:hover{background:white;color:var(--green)}
-
 footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margin-top:70px}
 .footer-inner{max-width:1240px;margin:0 auto;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub)}
 #back-to-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--tf);color:white;border:none;border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900}
@@ -154,7 +132,6 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
 @media(max-width:1000px){
   .breeze-cols{grid-template-columns:1fr}
   .bz-stats{grid-template-columns:repeat(3,1fr)}
-  .creaks-grid{grid-template-columns:1fr}
   .zone-grid{grid-template-columns:1fr}
   .zone-brands,.zone-influencers,.zone-consumers{margin-left:0;margin-right:0}
 }
@@ -164,7 +141,6 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
   .bz-stats{grid-template-columns:repeat(2,1fr)}
   .zone{padding:26px 18px 22px;border-radius:18px}
   .zone-tab{left:16px;font-size:12px;padding:8px 16px}
-  .result{padding:26px 20px;border-radius:18px}
   .pain-box,.close-box{transform:none!important}
   .thesis-arrow{display:none}
   .thesis-step{width:100%}
@@ -239,19 +215,22 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
   <div class="breeze">
     <div class="breeze-eyebrow">The pattern · dating market</div>
     <div class="breeze-title">How <a href="https://breeze.social/nl" target="_blank" rel="noopener">Breeze</a> did it — with constraints, not features</div>
-    <div class="breeze-sub">Built by seven TU Delft students who watched friends swipe and chat with no real result; the app launched in January 2020 with the product's core function — chat — removed. Every mechanic below is a restriction, and each restriction closes a pain. Story: <a href="https://yesdelft.com/stories/breeze-social-your-atypical-dating-app/" target="_blank" rel="noopener" style="color:#F5B8C4">YES!Delft</a> · <a href="https://siliconcanals.com/dutch-dating-app-breeze-bags-1-3m/" target="_blank" rel="noopener" style="color:#F5B8C4">Silicon Canals</a>.</div>
+    <div class="breeze-sub">Built by seven TU Delft students who watched friends swipe and chat without ever meeting anyone; the app launched in January 2020 with the product's core function — chat — removed. Every mechanic below is a restriction, and each restriction closes a pain. Story: <a href="https://yesdelft.com/stories/breeze-social-your-atypical-dating-app/" target="_blank" rel="noopener" style="color:#F5B8C4">YES!Delft</a> · <a href="https://siliconcanals.com/dutch-dating-app-breeze-bags-1-3m/" target="_blank" rel="noopener" style="color:#F5B8C4">Silicon Canals</a>.</div>
     <div class="breeze-cols">
       <div>
         <div class="bz-col-label bz-pain-label">✕ The pains</div>
         <div class="bz-box bz-pain"><b><s>Endless chat</s> that leads nowhere</b>Weeks of messaging, no date.</div>
         <div class="bz-box bz-pain"><b><s>Infinite choice</s> of partners</b>Always one more profile — so nobody commits to anyone.</div>
         <div class="bz-box bz-pain"><b><s>Safety</s> fear on first dates</b>Meeting a stranger from an app.</div>
+        <div class="bz-box bz-pain"><b><s>Apps that profit from keeping you single</s></b>Subscription and ad models earn from screen time — "all the other apps earn money by making you addicted to the screen" (founding team, per YES!Delft).</div>
+        <div class="bz-box bz-pain"><b><s>Ghosting</s> and no-shows</b>Matches that die before anyone meets — or at the bar, alone.</div>
       </div>
       <div>
         <div class="bz-col-label bz-fix-label">⊘ The constraints that close them</div>
-        <div class="bz-box bz-fix"><b>No chat. A match = a real date.</b>Pick who to meet, pick the city — the platform organises everything. You only show up.</div>
-        <div class="bz-box bz-fix"><b>Paid per date — both sides, first drink included.</b>€7.50 each, only when a date happens. Skin in the game before you click: no-shows stay under 1%, and both sides arrive pre-filtered.</div>
+        <div class="bz-box bz-fix"><b>No chat. A match = a date.</b>Pick who to meet, pick the city — the platform organises everything. You only show up.</div>
+        <div class="bz-box bz-fix"><b>Paid per date — both sides, first drink included.</b>€7.50 each, only when a date happens. Skin in the game before you click, and the platform earns from the outcome, not from screen time — its incentive points at the date.</div>
         <div class="bz-box bz-fix"><b>A small daily selection — not an endless feed.</b>"Every day at 7PM we'll send you a handful of people we think you will like." Plus 1,500+ partner bars where staff keep an eye out.</div>
+        <div class="bz-box bz-fix"><b>Attendance is enforced.</b>Attendance is double-checked — no-shows stay under 1% — and accounts of ghosters are frozen.</div>
       </div>
       <div>
         <div class="bz-col-label bz-win-label">✓ The result</div>
@@ -266,34 +245,6 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
       <div class="bz-stat"><b>75.4%</b><span>exchange phone numbers after the date (breeze.social)</span></div>
       <div class="bz-stat"><b>4.5</b><span>average date rating (breeze.social)</span></div>
       <div class="bz-stat"><b>19</b><span>babies — that they know of (breeze.social)</span></div>
-    </div>
-  </div>
-
-  <!-- CREAKS -->
-  <div class="creaks">
-    <div class="creaks-head">
-      <div class="creaks-title">Where the model creaks — the user feedback</div>
-      <span class="badge badge-sug">Recurring themes · Trustpilot &amp; app-store reviews</span>
-    </div>
-    <div class="creaks-grid">
-      <div class="creak">
-        <div class="creak-t">The platform chooses, so the platform owns every bad choice</div>
-        <div class="creak-d">Recurring complaints: dates booked at venues users didn't pick — sometimes a long trip away, sometimes the wrong kind of place — and venues changed hours before the date.</div>
-        <div class="creak-lesson"><b>Note for SMTHG</b>When a constraint removes the user's choice, curation quality becomes the entire product. A limited drop selection is only as good as the matching behind it.</div>
-        <div class="creak-s"><a href="https://www.trustpilot.com/review/breeze.social" target="_blank" rel="noopener">Trustpilot reviews →</a></div>
-      </div>
-      <div class="creak">
-        <div class="creak-t">Pay-per-event lives or dies on refunds</div>
-        <div class="creak-d">Users report losing their date fee when the other side cancelled late, and fighting to get tokens refunded. Each unresolved case turns a paying believer into a public detractor.</div>
-        <div class="creak-lesson"><b>Note for SMTHG</b>Pre-order money is the same trust contract. A cancelled or failed drop needs instant, automatic refunds — before anyone has to ask.</div>
-        <div class="creak-s"><a href="https://www.trustpilot.com/review/breeze.social" target="_blank" rel="noopener">Trustpilot reviews →</a></div>
-      </div>
-      <div class="creak">
-        <div class="creak-t">Scarcity without liquidity is an empty room</div>
-        <div class="creak-d">In thin markets, reviewers describe a "ghost town": a small daily selection is a feature when supply is deep, and a dead end when it isn't.</div>
-        <div class="creak-lesson"><b>Note for SMTHG</b>A limited matched drop feed needs enough live drops and creators per style and region before the constraint helps. Density first, then scarcity.</div>
-        <div class="creak-s"><a href="https://www.trustpilot.com/review/breeze.social" target="_blank" rel="noopener">Trustpilot</a> · <a href="https://apps.apple.com/us/app/breeze-no-chat-just-dates/id1478108023" target="_blank" rel="noopener">App Store reviews →</a></div>
-      </div>
     </div>
   </div>
 
@@ -339,13 +290,19 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
           <div class="pain-d">Finding, DM-ing and negotiating with creators one by one — slow, expensive, mostly dead ends. The brand version of endless chat.</div>
           <div class="pain-s">Deck v18, slide 6 — "slow and expensive to do by hand"</div>
         </div>
+        <div class="pain-box">
+          <span class="pain-num">P4</span>
+          <div class="pain-t">The markdown spiral</div>
+          <div class="pain-d">Stock produced ahead of demand ends in forced discounts — on marketplace terms the effective take reaches 52% after forced markdown. The margin and the brand's price level both erode.</div>
+          <div class="pain-s">Deck v18, slide 8 — "25% (up to 52% after forced markdown)"</div>
+        </div>
       </div>
       <div>
         <div class="zone-col-label zcl-close">⊘ How the platform closes them</div>
         <div class="close-box">
-          <div class="close-head"><span class="close-num">C1 → P1, P2</span><span class="badge badge-deck">In concept · Deck v18</span></div>
+          <div class="close-head"><span class="close-num">C1 → P1, P2, P4</span><span class="badge badge-deck">In concept · Deck v18</span></div>
           <div class="close-t">No stock. Pre-order only.</div>
-          <div class="close-d">A brand can only launch a drop — it sells before it produces. Zero inventory risk, no upfront stock, one flat fee instead of 25–52% commissions.</div>
+          <div class="close-d">A brand can only launch a drop — it sells before it produces. Zero inventory risk, no upfront stock, one flat fee instead of 25–52% commissions. Production matches demand, so there is nothing left to mark down.</div>
           <div class="close-s">Deck v18, slides 3, 5, 8</div>
         </div>
         <div class="close-box sug">
@@ -355,9 +312,9 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
           <div class="close-s">Builds on the AI outreach agent — Deck v18, slide 6 · constraint framing suggested</div>
         </div>
         <div class="close-box sug">
-          <div class="close-head"><span class="close-num">C3 → P1</span><span class="badge badge-sug">Suggested</span></div>
+          <div class="close-head"><span class="close-num">C3 → P1, P4</span><span class="badge badge-sug">Suggested</span></div>
           <div class="close-t">The drop closes. Always.</div>
-          <div class="close-d">A drop runs 48–72 hours and ends regardless of stock. Limited launch slots keep every live drop an event, not a listing.</div>
+          <div class="close-d">A drop runs 48–72 hours and ends regardless of stock. Limited launch slots keep every live drop an event, not a listing — a window that closes cannot go on sale.</div>
           <div class="close-s"><a href="TFreferral.html">Referral &amp; Viral research, §04 →</a></div>
         </div>
       </div>
@@ -382,13 +339,19 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
           <div class="pain-d">Cold-emailing brands, negotiating gifting, chasing payment — endless conversations that mostly convert to nothing.</div>
           <div class="pain-s">Mirror of the brand-side pain — Deck v18, slide 6 · framing suggested</div>
         </div>
+        <div class="pain-box">
+          <span class="pain-num">P3</span>
+          <div class="pain-t">Nothing between campaigns</div>
+          <div class="pain-d">Creator work is one-off deals — after a campaign ends, nothing brings the creator back until the next negotiation starts from zero.</div>
+          <div class="pain-s"><a href="TFreferral.html" style="color:var(--tf)">Referral &amp; Viral research, §04</a> — "a reason to stay on the platform between drops"</div>
+        </div>
       </div>
       <div>
         <div class="zone-col-label zcl-close">⊘ How the platform closes them</div>
         <div class="close-box">
           <div class="close-head"><span class="close-num">C1 → P1</span><span class="badge badge-deck">In concept · Deck v18</span></div>
           <div class="close-t">No minimum. Any audience size.</div>
-          <div class="close-d">Open access for nano &amp; micro creators, with a real cut — 10–20% of drop revenue.</div>
+          <div class="close-d">Open access for nano &amp; micro creators, with a set cut — 10–20% of drop revenue.</div>
           <div class="close-s">Deck v18, slides 8, 9</div>
         </div>
         <div class="close-box sug">
@@ -398,9 +361,9 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
           <div class="close-s">Builds on Creator Match — Deck v18, slide 6 · constraint framing suggested</div>
         </div>
         <div class="close-box sug">
-          <div class="close-head"><span class="close-num">C3 → P2</span><span class="badge badge-sug">Suggested</span></div>
+          <div class="close-head"><span class="close-num">C3 → P2, P3</span><span class="badge badge-sug">Suggested</span></div>
           <div class="close-t">A few matched drops per window — not a marketplace to trawl.</div>
-          <div class="close-d">Creators receive a small batch of matched drops per cycle. Scarcity of invites makes each one worth considering — and declining has a cost.</div>
+          <div class="close-d">Creators receive a small batch of matched drops per cycle. Scarcity of invites makes each one worth considering — and the fixed rhythm gives the creator a reason to come back between campaigns.</div>
           <div class="close-s">Breeze's limited-selection pattern applied to the creator side · cadence and batch size TBD</div>
         </div>
       </div>
@@ -431,6 +394,12 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
           <div class="pain-d">Will it fit, will it look like the photo, will it arrive — the trust barrier of buying from an emerging designer.</div>
           <div class="pain-s">Fit risk addressed by try-on — Deck v18, slides 3, 6</div>
         </div>
+        <div class="pain-box">
+          <span class="pain-num">P4</span>
+          <div class="pain-t">Wearing what everyone wears</div>
+          <div class="pain-d">Mass-market supply means nothing bought is theirs alone — while Gen Z prizes unique over mass-market.</div>
+          <div class="pain-s">Deck v18, slides 2, 4 — "prizing unique over mass-market"</div>
+        </div>
       </div>
       <div>
         <div class="zone-col-label zcl-close">⊘ How the platform closes them</div>
@@ -441,9 +410,9 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
           <div class="close-s">Pattern per <a href="https://breeze.social/nl" target="_blank" rel="noopener">breeze.social</a> · batch size and cadence TBD · discovery engine in concept, Deck v18, slide 6</div>
         </div>
         <div class="close-box sug">
-          <div class="close-head"><span class="close-num">C2 → P2</span><span class="badge badge-sug">Suggested</span></div>
-          <div class="close-t">The drop ends — missing it is real.</div>
-          <div class="close-d">48–72 hour windows with live stock counters. A decision has a deadline, and a sold-out drop is proof the decision mattered.</div>
+          <div class="close-head"><span class="close-num">C2 → P2, P4</span><span class="badge badge-sug">Suggested</span></div>
+          <div class="close-t">The drop ends — and does not come back.</div>
+          <div class="close-d">48–72 hour windows with live stock counters. A decision has a deadline, and a closed drop stays limited — the buyer owns a piece produced once, in one window.</div>
           <div class="close-s"><a href="TFreferral.html">Referral &amp; Viral research, §04 →</a></div>
         </div>
         <div class="close-box">
@@ -462,22 +431,11 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
     </div>
   </div>
 
-  <!-- RESULT -->
-  <div class="result">
-    <div class="result-label">If it works</div>
-    <div class="result-big">Three closed pains → a story people tell without being paid to tell it.</div>
-    <div class="result-sub">That is Breeze's growth engine mapped to fashion: constraints filter both sides, drops actually happen, and every sold-out drop is its own recommendation. Bolt-on viral mechanics remain a separate, additional layer — researched here:</div>
-    <div class="result-links">
-      <a href="TFreferral.html">Referral &amp; Viral mechanics →</a>
-      <a href="gamification.html">Gamification &amp; Super Fan loop →</a>
-      <a href="community-mktg.html">Community marketing →</a>
-    </div>
-  </div>
 
 </div>
 
 <footer>
-  <div class="footer-inner">Private · noindex · Player pains sourced from Investor Deck v18 (terrapresa10_2026_v18.pptx) · Breeze facts per breeze.social, Silicon Canals (Nov 2022), YES!Delft, Pulse2 founder interview, Trustpilot &amp; App Store reviews — July 2026 · Suggested closures marked Under Research</div>
+  <div class="footer-inner">Private · noindex · Player pains sourced from Investor Deck v18 (terrapresa10_2026_v18.pptx) and internal research pages · Breeze facts per breeze.social, Silicon Canals (Nov 2022), YES!Delft, Pulse2 founder interview — July 2026 · Suggested closures marked Under Research</div>
 </footer>
 
 <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">&#8593;</button>
