@@ -77,6 +77,23 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .bz-win b{color:#7EE8A8;display:block;margin-bottom:6px;font-size:15px}
 .bz-src{font-size:10px;color:#8E8B85;margin-top:10px}
 .bz-src a{color:#F5B8C4;text-decoration:none}
+.bz-stats{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:26px;padding-top:22px;border-top:1px solid rgba(255,255,255,.15)}
+.bz-stat b{display:block;font-size:clamp(18px,2.2vw,26px);font-weight:900;color:white;letter-spacing:-.5px}
+.bz-stat span{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#B8B5AF;line-height:1.4;display:block;margin-top:3px}
+.bz-stat a{color:#F5B8C4;text-decoration:none}
+
+/* ===== CREAKS ===== */
+.creaks{margin-top:26px}
+.creaks-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:10px}
+.creaks-title{font-size:clamp(18px,2.4vw,26px);font-weight:900;letter-spacing:-.5px;color:var(--ink)}
+.creaks-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:18px}
+.creak{background:white;border:2px solid var(--amber);border-radius:14px;padding:16px 18px}
+.creak-t{font-size:14px;font-weight:900;color:var(--ink);line-height:1.3}
+.creak-d{font-size:12.5px;color:var(--ink);line-height:1.55;margin-top:5px}
+.creak-lesson{background:var(--amber-bg);border-radius:8px;padding:9px 12px;margin-top:10px;font-size:12px;line-height:1.5;color:var(--ink)}
+.creak-lesson b{color:var(--amber);font-size:9.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;display:block;margin-bottom:2px}
+.creak-s{font-size:10px;color:var(--sub);margin-top:8px}
+.creak-s a{color:var(--tf);text-decoration:none}
 
 /* ===== PRINCIPLE ===== */
 .principle{margin:54px auto 10px;max-width:900px;text-align:center;position:relative}
@@ -136,12 +153,15 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
 
 @media(max-width:1000px){
   .breeze-cols{grid-template-columns:1fr}
+  .bz-stats{grid-template-columns:repeat(3,1fr)}
+  .creaks-grid{grid-template-columns:1fr}
   .zone-grid{grid-template-columns:1fr}
   .zone-brands,.zone-influencers,.zone-consumers{margin-left:0;margin-right:0}
 }
 @media(max-width:700px){
   .pg-wrap{padding:20px 16px 60px}
   .breeze{padding:26px 20px;border-radius:18px}
+  .bz-stats{grid-template-columns:repeat(2,1fr)}
   .zone{padding:26px 18px 22px;border-radius:18px}
   .zone-tab{left:16px;font-size:12px;padding:8px 16px}
   .result{padding:26px 20px;border-radius:18px}
@@ -169,7 +189,7 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
     <div class="has-dropdown">
       <span class="dropdown-trigger" tabindex="0">Business Model ▾</span>
       <div class="dropdown">
-        <a href="TFcommunitymodel.html">Community Model</a>
+        <a href="closethepain.html">Community Model</a>
         <a href="TFbusinessmodel.html">Comparison Matrix</a>
         <a href="TFaltmodel.html">Alternative Model</a>
         <a href="TFmvpcosts.html">MVP Scope &amp; Costs</a>
@@ -219,7 +239,7 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
   <div class="breeze">
     <div class="breeze-eyebrow">The pattern · dating market</div>
     <div class="breeze-title">How <a href="https://breeze.social/nl" target="_blank" rel="noopener">Breeze</a> did it — with constraints, not features</div>
-    <div class="breeze-sub">A Dutch dating app that removed the product's core function — chat — and grew on word of mouth. Every mechanic below is a restriction, and each restriction closes a pain.</div>
+    <div class="breeze-sub">Built by seven TU Delft students who watched friends swipe and chat with no real result; the app launched in January 2020 with the product's core function — chat — removed. Every mechanic below is a restriction, and each restriction closes a pain. Story: <a href="https://yesdelft.com/stories/breeze-social-your-atypical-dating-app/" target="_blank" rel="noopener" style="color:#F5B8C4">YES!Delft</a> · <a href="https://siliconcanals.com/dutch-dating-app-breeze-bags-1-3m/" target="_blank" rel="noopener" style="color:#F5B8C4">Silicon Canals</a>.</div>
     <div class="breeze-cols">
       <div>
         <div class="bz-col-label bz-pain-label">✕ The pains</div>
@@ -230,12 +250,49 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
       <div>
         <div class="bz-col-label bz-fix-label">⊘ The constraints that close them</div>
         <div class="bz-box bz-fix"><b>No chat. A match = a real date.</b>Pick who to meet, pick the city — the platform organises everything. You only show up.</div>
-        <div class="bz-box bz-fix"><b>Paid upfront, per date.</b>Skin in the game before you click. Cancellations stay under 1%. Both sides arrive pre-filtered.</div>
-        <div class="bz-box bz-fix"><b>A limited selection at 07:00 &amp; 19:00.</b>A small daily batch of matched profiles — not an endless feed. Plus 1,500+ partner venues where staff keep an eye out.</div>
+        <div class="bz-box bz-fix"><b>Paid per date — both sides, first drink included.</b>€7.50 each, only when a date happens. Skin in the game before you click: no-shows stay under 1%, and both sides arrive pre-filtered.</div>
+        <div class="bz-box bz-fix"><b>A small daily selection — not an endless feed.</b>"Every day at 7PM we'll send you a handful of people we think you will like." Plus 1,500+ partner bars where staff keep an eye out.</div>
       </div>
       <div>
         <div class="bz-col-label bz-win-label">✓ The result</div>
-        <div class="bz-box bz-win"><b>Word of mouth did the marketing.</b>The constraints filtered both sides, dates actually happened, and users recommended the app to friends. Breeze grew from the Netherlands into new markets — the viral loop came from the closed pain, not from referral gimmicks.<div class="bz-src">Mechanics per <a href="https://breeze.social/nl" target="_blank" rel="noopener">breeze.social</a>, July 2026</div></div>
+        <div class="bz-box bz-win"><b>The constraints did the marketing.</b>By its €1.3M seed round (Nov 2022) Breeze had organised 50,000 dates and was the 3rd most-downloaded dating app in the Netherlands — on a pay-per-date model, against ad- and subscription-funded giants. It then expanded: Belgium (Sep 2023), England — its fastest-growing market — and New York, with Washington DC, Boston, Dallas, Chicago and LA planned next.<div class="bz-src">Per <a href="https://siliconcanals.com/dutch-dating-app-breeze-bags-1-3m/" target="_blank" rel="noopener">Silicon Canals, Nov 2022</a> · <a href="https://pulse2.com/breeze-profile-marco-van-der-woude-interview/" target="_blank" rel="noopener">founder interview, Pulse2</a> · <a href="https://breeze.social/nl" target="_blank" rel="noopener">breeze.social</a>, July 2026</div></div>
+      </div>
+    </div>
+
+    <div class="bz-stats">
+      <div class="bz-stat"><b>400,000+</b><span>dates organised · ~25,000/month (<a href="https://pulse2.com/breeze-profile-marco-van-der-woude-interview/" target="_blank" rel="noopener">Pulse2</a>)</span></div>
+      <div class="bz-stat"><b>1,500+</b><span>partner bars (<a href="https://breeze.social/nl" target="_blank" rel="noopener">breeze.social</a>)</span></div>
+      <div class="bz-stat"><b>&lt;1%</b><span>no-shows, attendance double-checked (breeze.social)</span></div>
+      <div class="bz-stat"><b>75.4%</b><span>exchange phone numbers after the date (breeze.social)</span></div>
+      <div class="bz-stat"><b>4.5</b><span>average date rating (breeze.social)</span></div>
+      <div class="bz-stat"><b>19</b><span>babies — that they know of (breeze.social)</span></div>
+    </div>
+  </div>
+
+  <!-- CREAKS -->
+  <div class="creaks">
+    <div class="creaks-head">
+      <div class="creaks-title">Where the model creaks — the user feedback</div>
+      <span class="badge badge-sug">Recurring themes · Trustpilot &amp; app-store reviews</span>
+    </div>
+    <div class="creaks-grid">
+      <div class="creak">
+        <div class="creak-t">The platform chooses, so the platform owns every bad choice</div>
+        <div class="creak-d">Recurring complaints: dates booked at venues users didn't pick — sometimes a long trip away, sometimes the wrong kind of place — and venues changed hours before the date.</div>
+        <div class="creak-lesson"><b>Note for SMTHG</b>When a constraint removes the user's choice, curation quality becomes the entire product. A limited drop selection is only as good as the matching behind it.</div>
+        <div class="creak-s"><a href="https://www.trustpilot.com/review/breeze.social" target="_blank" rel="noopener">Trustpilot reviews →</a></div>
+      </div>
+      <div class="creak">
+        <div class="creak-t">Pay-per-event lives or dies on refunds</div>
+        <div class="creak-d">Users report losing their date fee when the other side cancelled late, and fighting to get tokens refunded. Each unresolved case turns a paying believer into a public detractor.</div>
+        <div class="creak-lesson"><b>Note for SMTHG</b>Pre-order money is the same trust contract. A cancelled or failed drop needs instant, automatic refunds — before anyone has to ask.</div>
+        <div class="creak-s"><a href="https://www.trustpilot.com/review/breeze.social" target="_blank" rel="noopener">Trustpilot reviews →</a></div>
+      </div>
+      <div class="creak">
+        <div class="creak-t">Scarcity without liquidity is an empty room</div>
+        <div class="creak-d">In thin markets, reviewers describe a "ghost town": a small daily selection is a feature when supply is deep, and a dead end when it isn't.</div>
+        <div class="creak-lesson"><b>Note for SMTHG</b>A limited matched drop feed needs enough live drops and creators per style and region before the constraint helps. Density first, then scarcity.</div>
+        <div class="creak-s"><a href="https://www.trustpilot.com/review/breeze.social" target="_blank" rel="noopener">Trustpilot</a> · <a href="https://apps.apple.com/us/app/breeze-no-chat-just-dates/id1478108023" target="_blank" rel="noopener">App Store reviews →</a></div>
       </div>
     </div>
   </div>
@@ -420,7 +477,7 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
 </div>
 
 <footer>
-  <div class="footer-inner">Private · noindex · Player pains sourced from Investor Deck v18 (terrapresa10_2026_v18.pptx) · Breeze mechanics per breeze.social, July 2026 · Suggested closures marked Under Research</div>
+  <div class="footer-inner">Private · noindex · Player pains sourced from Investor Deck v18 (terrapresa10_2026_v18.pptx) · Breeze facts per breeze.social, Silicon Canals (Nov 2022), YES!Delft, Pulse2 founder interview, Trustpilot &amp; App Store reviews — July 2026 · Suggested closures marked Under Research</div>
 </footer>
 
 <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">&#8593;</button>
