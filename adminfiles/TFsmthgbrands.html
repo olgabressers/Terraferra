@@ -404,6 +404,10 @@ function focusedId(){
   return (document.activeElement && document.activeElement.id) ? document.activeElement.id : null;
 }
 
+function resizeAllTextareas(){
+  document.querySelectorAll('#brands-tbody .cell-inp').forEach(function(ta){ autoResize(ta); });
+}
+
 function renderAll(fid){
   var tbody = document.getElementById('brands-tbody');
   if(!tbody) return;
@@ -412,6 +416,7 @@ function renderAll(fid){
     if(fbData[id] !== undefined) tbody.appendChild(buildRow(id, i+1));
   });
   updateCount();
+  requestAnimationFrame(resizeAllTextareas);
   if(fid){
     var el = document.getElementById(fid);
     if(el){ el.focus(); if(el.setSelectionRange) el.setSelectionRange(el.value.length, el.value.length); }
@@ -521,7 +526,6 @@ function makeInput(id, field, value, placeholder){
   inp.placeholder = placeholder;
   inp.autocomplete = 'off';
   inp.spellcheck = false;
-  setTimeout(function(){ autoResize(inp); }, 0);
   (function(cId, cField){
     inp.addEventListener('input', function(){ autoResize(inp); updateField(cId, cField, inp.value); });
   })(id, field);
