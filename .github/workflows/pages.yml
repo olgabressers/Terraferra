@@ -5,16 +5,20 @@ on:
     branches: [main]
   workflow_dispatch:
 
-# GitHub's legacy branch builder ("pages build and deployment")
-# fails the deploy step on most pushes (fast ~10s rejection, build always OK).
-# This workflow is the reliable fix. Requires:
-# Repo → Settings → Pages → Source = "GitHub Actions"
+# Official GitHub Actions Pages pipeline — the reliable deploy path for
+# this repo. GitHub's legacy branch builder ("pages build and deployment")
+# fails the deploy step ~most pushes (fast 8s rejection, build always OK).
+# Requires: Repo -> Settings -> Pages -> Source = "GitHub Actions".
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
+# One deployment at a time. Do NOT cancel an in-progress deploy — cancelling a
+# live Pages deployment leaves the github-pages environment in a failed state,
+# which fails the deploy step on nearly every subsequent push. This matches
+# GitHub's official Pages workflow (cancel-in-progress: false).
 concurrency:
   group: pages
   cancel-in-progress: false
@@ -22,12 +26,13 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 8
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Configure Pages
         uses: actions/configure-pages@v5
-      - name: Upload artifact
+      - name: Upload artifact (repo root, incl. CNAME)
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
@@ -35,9 +40,7 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
+    timeout-minutes: 8
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -45,3 +48,6 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          timeout: 300000
+          error_count: 15
