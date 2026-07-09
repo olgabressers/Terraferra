@@ -76,10 +76,12 @@ td{padding:3px 6px;vertical-align:middle;white-space:normal}
   border:1px solid transparent;background:transparent;
   font-family:'Inter',sans-serif;font-size:12.5px;font-weight:500;color:var(--ink);
   padding:6px 8px;outline:none;width:100%;
+  resize:none;overflow:hidden;min-height:32px;line-height:1.45;display:block;
 }
 .cell-inp:focus{border-color:var(--tf);background:var(--tf-ghost);border-radius:2px}
 .cell-inp::placeholder{color:#D0CCC5;font-weight:400}
 .cell-inp.has-text{font-weight:600}
+td{white-space:normal;vertical-align:top;padding-top:6px}
 
 /* URL cell */
 .url-cell{display:flex;align-items:center;gap:3px}
@@ -424,6 +426,7 @@ function renderRow(id, fid){
     if(inp && document.activeElement !== inp){
       inp.value = item[fc.key] || '';
       inp.classList.toggle('has-text', !!(item[fc.key] && item[fc.key].length > 0));
+      autoResize(inp);
     }
     if(fc.key === 'url'){
       var link = document.getElementById('url-link-'+id);
@@ -504,17 +507,23 @@ function buildRow(id, num){
   return tr;
 }
 
+function autoResize(ta){
+  ta.style.height = 'auto';
+  ta.style.height = ta.scrollHeight + 'px';
+}
+
 function makeInput(id, field, value, placeholder){
-  var inp = document.createElement('input');
-  inp.type = 'text';
+  var inp = document.createElement('textarea');
+  inp.rows = 1;
   inp.className = 'cell-inp'+(value ? ' has-text' : '');
   inp.id = 'inp-'+field+'-'+id;
   inp.value = value || '';
   inp.placeholder = placeholder;
   inp.autocomplete = 'off';
   inp.spellcheck = false;
+  setTimeout(function(){ autoResize(inp); }, 0);
   (function(cId, cField){
-    inp.addEventListener('input', function(){ updateField(cId, cField, inp.value); });
+    inp.addEventListener('input', function(){ autoResize(inp); updateField(cId, cField, inp.value); });
   })(id, field);
   return inp;
 }
