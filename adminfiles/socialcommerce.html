@@ -57,17 +57,6 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .mel-s a{color:var(--tf);text-decoration:none}
 .mel-s a:hover{text-decoration:underline}
 
-/* ===== REFERENCE STRIP ===== */
-.refs{margin-top:44px;border:1px solid var(--rule);border-radius:14px;background:white;padding:26px 28px}
-.refs-title{font-size:18px;font-weight:800;letter-spacing:-.5px;color:var(--ink)}
-.refs-sub{font-size:12.5px;color:var(--ink);margin-top:6px;line-height:1.6;max-width:820px}
-.refs-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:18px}
-.ref{background:var(--off-white);border:1px solid var(--rule);border-radius:10px;padding:14px 16px}
-.ref-t{font-size:13.5px;font-weight:800;color:var(--ink)}
-.ref-t a{color:var(--ink);text-decoration:none}
-.ref-t a:hover{color:var(--tf)}
-.ref-d{font-size:12px;color:var(--ink);line-height:1.55;margin-top:4px}
-
 /* ===== SECTION 2 HEADING ===== */
 .sec2{margin-top:64px}
 .sec2-title{font-size:clamp(26px,3.6vw,38px);font-weight:800;letter-spacing:-1.2px;color:var(--ink)}
@@ -102,14 +91,12 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 
 @media(max-width:1000px){
   .map{grid-template-columns:1fr 1fr}
-  .refs-grid{grid-template-columns:1fr}
   .pillars{grid-template-columns:1fr}
   .el-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:700px){
   .pg-wrap{padding:20px 16px 70px}
   .map{grid-template-columns:1fr;gap:26px}
-  .refs{padding:20px 16px}
   .band{padding:22px 16px 18px}
   .el-grid{grid-template-columns:1fr}
 }
@@ -187,17 +174,14 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
       <div class="mel">
         <div class="mel-t">Drops</div>
         <div class="mel-d">Pre-order launches in limited windows — the brand sells before it produces. No inventory, no upfront stock.</div>
-        <div class="mel-s">Deck v18, slides 3, 5</div>
       </div>
       <div class="mel">
         <div class="mel-t">Storefront &amp; collection</div>
         <div class="mel-d">A tailored storefront; after the drop, the regular collection sells on.</div>
-        <div class="mel-s">Deck v18, slides 5, 9</div>
       </div>
       <div class="mel">
         <div class="mel-t">Matched creators</div>
         <div class="mel-d">The AI agent finds the creators whose audience will buy the drop, and closes the terms.</div>
-        <div class="mel-s">Deck v18, slide 6</div>
       </div>
     </div>
 
@@ -208,12 +192,10 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
       <div class="mel">
         <div class="mel-t">Promote &amp; earn</div>
         <div class="mel-d">Matched drops arrive with terms set — promote in the drop window, earn 10–20% of revenue. No pitching, no chasing invoices.</div>
-        <div class="mel-s">Deck v18, slides 5, 8</div>
       </div>
       <div class="mel">
         <div class="mel-t">Try-on &amp; share</div>
         <div class="mel-d">The look on themselves, virtually — then shared to their own audience. Every share carries the drop further.</div>
-        <div class="mel-s">Deck v18, slide 3</div>
       </div>
       <div class="mel">
         <div class="mel-t">Points &amp; tiers</div>
@@ -229,12 +211,10 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
       <div class="mel">
         <div class="mel-t">Style discovery</div>
         <div class="mel-d">Niche-style matching — emerging brands matched to personal taste, not the most-hyped item.</div>
-        <div class="mel-s">Deck v18, slide 6</div>
       </div>
       <div class="mel">
         <div class="mel-t">Drop shopping</div>
         <div class="mel-d">Pre-order in a limited window, tried on virtually before paying. The drop ends — a closed drop stays limited.</div>
-        <div class="mel-s">Deck v18, slides 3, 6</div>
       </div>
       <div class="mel">
         <div class="mel-t">Boards &amp; saves</div>
@@ -244,7 +224,12 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
       <div class="mel">
         <div class="mel-t">Status</div>
         <div class="mel-d">Owner cards ("one of 150"), early-supporter badges, founding-member roles — a profile that becomes proof of taste.</div>
-        <div class="mel-s">Suggested · <a href="TFreferral.html">Referral &amp; Viral §04</a> · Deck v18, slide 3</div>
+        <div class="mel-s">Suggested · <a href="TFreferral.html">Referral &amp; Viral §04</a></div>
+      </div>
+      <div class="mel">
+        <div class="mel-t">Personal space</div>
+        <div class="mel-d">A private area for each member's own curation: mood boards, saved looks, style ideas, outfit plans, notes from stylist sessions. A personal record of their style journey on the platform.</div>
+        <div class="mel-s">Suggested</div>
       </div>
     </div>
 
@@ -256,6 +241,11 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
         <div class="mel-t">Style tribes — chat &amp; feed</div>
         <div class="mel-d">A feed and chat per aesthetic — minimalist, streetwear, quiet luxury. Members exchange looks, advice and the names they coin for styles.</div>
         <div class="mel-s">Suggested · feed/discussion pattern per <a href="https://circle.so/" target="_blank" rel="noopener">circle.so</a></div>
+      </div>
+      <div class="mel">
+        <div class="mel-t">Brand space</div>
+        <div class="mel-d">Each brand has a permanent home in the community: a video introduction, live sessions the designer holds, and a growing recording library. A session starts — any community member can join and ask questions. Recordings stay available.</div>
+        <div class="mel-s">Suggested</div>
       </div>
       <div class="mel">
         <div class="mel-t">Learning — the classroom</div>
@@ -328,26 +318,6 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 
   </div>
 
-  <!-- REFERENCES -->
-  <div class="refs">
-    <div class="refs-title">The integration principle</div>
-    <div class="refs-sub">Community, classroom, calendar and points do not need to be invented — the pattern runs on existing platforms and can be integrated into SMTHG so the platform gives members reasons to come back.</div>
-    <div class="refs-grid">
-      <div class="ref">
-        <div class="ref-t"><a href="https://www.skool.com/features" target="_blank" rel="noopener">Skool →</a></div>
-        <div class="ref-d">Community feed + classroom + calendar + gamification: likes earn points, points earn levels, levels open courses and access. Leaderboards rank the most engaged members.</div>
-      </div>
-      <div class="ref">
-        <div class="ref-t"><a href="https://circle.so/" target="_blank" rel="noopener">Circle →</a></div>
-        <div class="ref-d">Discussions, messaging, courses, events, live streams, member directory and gamification in one branded community, with payments built in.</div>
-      </div>
-      <div class="ref">
-        <div class="ref-t"><a href="https://a-mates.com/" target="_blank" rel="noopener">A-Mates →</a></div>
-        <div class="ref-d">An SDK that embeds a community section directly inside an existing mobile app — the integration route: community inside the platform, not a separate destination.</div>
-      </div>
-    </div>
-  </div>
-
   <!-- SECTION 2: COME / STAY / COME BACK -->
   <div class="sec2">
     <div class="sec2-title">Come. Stay. Come back.</div>
@@ -359,19 +329,17 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
       <div class="pillar-tag">Anchor 1 · In concept</div>
       <div class="pillar-t">Drop shopping</div>
       <div class="pillar-d">Pre-order drops in limited windows — brands sell before they produce.</div>
-      <div class="pillar-s">Deck v18, slides 3, 5</div>
     </div>
     <div class="pillar">
       <div class="pillar-tag">Anchor 2 · In concept</div>
       <div class="pillar-t">Style discovery</div>
       <div class="pillar-d">Niche-style matching and virtual try-on — emerging brands matched to personal taste.</div>
-      <div class="pillar-s">Deck v18, slide 6</div>
     </div>
     <div class="pillar pillar-com">
       <div class="pillar-tag">The layer this page maps · Suggested</div>
       <div class="pillar-t">Community</div>
-      <div class="pillar-d">The nine elements below, organised by the retention question each one answers.</div>
-      <div class="pillar-s">Grounded in Deck v18 slide 3 ("built to share") + internal research pages</div>
+      <div class="pillar-d">The elements below, organised by the retention question each one answers.</div>
+      <div class="pillar-s">Grounded in internal research pages</div>
     </div>
   </div>
 
@@ -389,10 +357,10 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
       </div>
 
       <div class="el">
-        <div class="el-t">Designer debuts</div>
-        <div class="el-d">A designer's first drop framed as a founding event. Early buyers enter the designer's circle as founding members — a role, not a receipt.</div>
-        <div class="el-in"><b>Inside</b>Debut announcement · founding-member enrolment · the designer's story before the first piece ships.</div>
-        <div class="el-meta">Serves Consumer P4 · Brand P3 · Sources: <a href="TFreferral.html">Referral &amp; Viral §04</a>, Deck v18 slide 3</div>
+        <div class="el-t">Brand space</div>
+        <div class="el-d">Every brand has a permanent home on the platform: a video story, live sessions the designer holds, and a recording library. A consumer arrives through a creator's post — the brand space is the deeper pull that converts browse to follow.</div>
+        <div class="el-in"><b>Inside</b>Brand intro video · upcoming live sessions · session recordings for community members · the brand's drop history.</div>
+        <div class="el-meta">Serves Consumer P1 · Brand P3 · Source: suggested</div>
       </div>
 
       <div class="el">
@@ -410,6 +378,13 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
     <div class="band-head"><span class="band-num">2</span><span class="band-title">Stay — the session</span></div>
     <div class="band-q">The visitor is in. What is there to do between buying — the activity that makes a session longer than a checkout?</div>
     <div class="el-grid">
+
+      <div class="el">
+        <div class="el-t">Personal space</div>
+        <div class="el-d">A private area for each member's own curation: mood boards, saved looks, style ideas, outfit plans, notes from stylist sessions. The platform becomes a home for their style thinking, not just a shop.</div>
+        <div class="el-in"><b>Inside</b>Private mood boards · saved drops and looks · style notes · stylist session notes stored in one place.</div>
+        <div class="el-meta">Serves Consumer P1 · P3 · Source: suggested</div>
+      </div>
 
       <div class="el">
         <div class="el-t">Super-fan studio</div>
@@ -452,7 +427,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
         <div class="el-t">Status that accrues</div>
         <div class="el-d">A profile that becomes proof of taste: owner cards ("one of 150"), early-supporter badges from designer debuts, founding-member roles. Leaving the platform means abandoning it.</div>
         <div class="el-in"><b>Inside</b>Owner gallery of pieces bought in windows that closed · permanent badges · visible member history per tribe.</div>
-        <div class="el-meta">Serves Consumer P4 · Sources: <a href="TFreferral.html">Referral &amp; Viral §04</a>, Deck v18 slide 3</div>
+        <div class="el-meta">Serves Consumer P4 · Source: <a href="TFreferral.html">Referral &amp; Viral §04</a></div>
       </div>
 
       <div class="el">
