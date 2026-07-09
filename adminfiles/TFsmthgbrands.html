@@ -53,7 +53,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .count-bar{font-size:11px;font-weight:700;color:var(--sub);margin-bottom:10px;letter-spacing:.5px}
 
 /* ── TABLE ── */
-.tbl-wrap{background:white;border:1px solid var(--rule);border-top:3px solid var(--tf);overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap}
+.tbl-wrap{background:white;border:1px solid var(--rule);border-top:3px solid var(--tf);overflow-x:auto;-webkit-overflow-scrolling:touch}
 .brands-tbl{width:100%;border-collapse:collapse;min-width:1080px}
 .brands-tbl thead th{
   padding:10px 10px 10px 12px;font-size:10px;font-weight:800;letter-spacing:1.5px;
@@ -76,12 +76,14 @@ td{padding:3px 6px;vertical-align:middle;white-space:normal}
   border:1px solid transparent;background:transparent;
   font-family:'Inter',sans-serif;font-size:12.5px;font-weight:500;color:var(--ink);
   padding:6px 8px;outline:none;width:100%;
-  resize:none;overflow:hidden;min-height:32px;line-height:1.45;display:block;
+  resize:vertical;overflow-y:auto;min-height:36px;height:36px;line-height:1.45;display:block;
+  white-space:pre-wrap;word-wrap:break-word;
 }
-.cell-inp:focus{border-color:var(--tf);background:var(--tf-ghost);border-radius:2px}
+.cell-inp:focus{border-color:var(--tf);background:var(--tf-ghost);border-radius:2px;height:auto;min-height:60px}
 .cell-inp::placeholder{color:#D0CCC5;font-weight:400}
-.cell-inp.has-text{font-weight:600}
-td{white-space:normal;vertical-align:top;padding-top:6px}
+.cell-inp.has-text{height:auto;min-height:36px;font-weight:600}
+td{white-space:normal;vertical-align:top;padding-top:4px}
+.tbl-wrap{background:white;border:1px solid var(--rule);border-top:3px solid var(--tf);overflow-x:auto;-webkit-overflow-scrolling:touch}
 
 /* URL cell */
 .url-cell{display:flex;align-items:center;gap:3px}
