@@ -141,6 +141,13 @@ tr:hover .url-open,.url-open:focus{opacity:1}
 tr:hover .del-btn{opacity:1}
 .del-btn:hover{border-color:#dc2626;color:#dc2626;background:#FEF2F2}
 
+/* Filter bar */
+.filter-bar{display:flex;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.filter-label{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub)}
+.filter-btn{padding:4px 12px;border:1.5px solid var(--rule);background:white;color:var(--sub);font-family:'Inter',sans-serif;font-size:11px;font-weight:700;cursor:pointer;transition:all .12s;border-radius:3px}
+.filter-btn:hover{border-color:var(--tf);color:var(--tf)}
+.filter-btn.active{background:var(--tf);border-color:var(--tf);color:white}
+
 /* Add button */
 .add-btn{
   display:block;width:100%;padding:11px;background:transparent;border:none;border-top:1px solid var(--rule);
@@ -221,6 +228,11 @@ tr:hover .del-btn{opacity:1}
 
   <div class="count-bar" id="count-bar">Loading…</div>
 
+  <div class="filter-bar" id="filter-bar">
+    <span class="filter-label">Origin:</span>
+    <button class="filter-btn active" data-country="" onclick="setFilter('')">All</button>
+  </div>
+
   <div class="tbl-wrap">
     <table class="brands-tbl">
       <thead>
@@ -228,6 +240,7 @@ tr:hover .del-btn{opacity:1}
           <th class="th-num">#</th>
           <th style="min-width:150px">Brand</th>
           <th style="min-width:140px">URL</th>
+          <th style="min-width:110px">Annual Revenue</th>
           <th style="min-width:190px">Positioning</th>
           <th style="min-width:100px">Country origin</th>
           <th style="min-width:120px">Sells to</th>
@@ -252,6 +265,7 @@ var fbData  = {};
 var fbOrder = [];
 var textTimers = {};
 var currentVoter = null;
+var filterCountry = '';
 var VOTER_KEYS = {alena:'va', chris:'vc', maxim:'vm', alex:'vx'};
 
 // Vollebak pre-populated as example.
@@ -273,7 +287,7 @@ var DEFAULTS = [
 ];
 
 function blankItem(src){
-  var base = {name:'',url:'',positioning:'',origin:'',sellsTo:'',whyRelevant:'',comments:'',isExample:false,va:false,vc:false,vm:false,vx:false};
+  var base = {name:'',url:'',revenue:'',positioning:'',origin:'',sellsTo:'',whyRelevant:'',comments:'',isExample:false,va:false,vc:false,vm:false,vx:false};
   if(src){ Object.keys(src).forEach(function(k){ base[k]=src[k]; }); }
   return base;
 }
@@ -281,6 +295,7 @@ function blankItem(src){
 var FIELDS = [
   {key:'name',        ph:'Brand name…',          w:'150px'},
   {key:'url',         ph:'https://…',             w:'140px'},
+  {key:'revenue',     ph:'e.g. $2M…',            w:'110px'},
   {key:'positioning', ph:'What they make…',       w:'190px'},
   {key:'origin',      ph:'UK, US…',              w:'100px'},
   {key:'sellsTo',     ph:'Global, US, EU…',      w:'120px'},
@@ -476,14 +491,62 @@ function resizeAllTextareas(){
   document.querySelectorAll('#brands-tbody .cell-inp').forEach(function(ta){ autoResize(ta); });
 }
 
+function setFilter(country){
+  filterCountry = country;
+  document.querySelectorAll('.filter-btn').forEach(function(b){
+    b.classList.toggle('active', b.dataset.country === country);
+  });
+  applyFilter();
+}
+
+function applyFilter(){
+  document.querySelectorAll('#brands-tbody tr').forEach(function(tr){
+    var id = tr.id.replace('brow-','');
+    var item = fbData[id];
+    if(!filterCountry || !item){
+      tr.style.display = '';
+    } else {
+      tr.style.display = (item.origin||'').trim() === filterCountry.trim() ? '' : 'none';
+    }
+  });
+  renumberRows();
+}
+
+function renderFilter(){
+  var bar = document.getElementById('filter-bar');
+  if(!bar) return;
+  var origins = {};
+  Object.keys(fbData).forEach(function(id){
+    var o = (fbData[id].origin||'').trim();
+    if(o) origins[o] = true;
+  });
+  bar.querySelectorAll('[data-country]:not([data-country=""])').forEach(function(b){ b.remove(); });
+  Object.keys(origins).sort().forEach(function(o){
+    var btn = document.createElement('button');
+    btn.className = 'filter-btn'+(filterCountry===o?' active':'');
+    btn.dataset.country = o;
+    btn.textContent = o;
+    (function(c){ btn.onclick = function(){ setFilter(c); }; })(o);
+    bar.appendChild(btn);
+  });
+}
+
 function renderAll(fid){
   var tbody = document.getElementById('brands-tbody');
   if(!tbody) return;
   tbody.innerHTML = '';
-  fbOrder.forEach(function(id, i){
+  // Examples always first, then rest in fbOrder
+  var sorted = fbOrder.slice().sort(function(a,b){
+    var ae = fbData[a] && fbData[a].isExample ? 1 : 0;
+    var be = fbData[b] && fbData[b].isExample ? 1 : 0;
+    return be - ae;
+  });
+  sorted.forEach(function(id, i){
     if(fbData[id] !== undefined) tbody.appendChild(buildRow(id, i+1));
   });
   updateCount();
+  renderFilter();
+  applyFilter();
   requestAnimationFrame(resizeAllTextareas);
   if(fid){
     var el = document.getElementById(fid);
@@ -507,6 +570,8 @@ function renderRow(id, fid){
     }
   });
   updateVoteButtons(id);
+  renderFilter();
+  applyFilter();
   if(fid){
     var el = document.getElementById(fid);
     if(el){ el.focus(); if(el.setSelectionRange) el.setSelectionRange(el.value.length, el.value.length); }
