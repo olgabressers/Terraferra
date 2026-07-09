@@ -21,7 +21,7 @@ permissions:
 # GitHub's official Pages workflow (cancel-in-progress: false).
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
