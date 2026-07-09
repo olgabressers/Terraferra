@@ -81,7 +81,8 @@ td{padding:3px 6px;vertical-align:middle;white-space:normal}
 }
 .cell-inp:focus{border-color:var(--tf);background:var(--tf-ghost);border-radius:2px;height:auto;min-height:60px}
 .cell-inp::placeholder{color:#D0CCC5;font-weight:400}
-.cell-inp.has-text{height:auto;min-height:36px;font-weight:600}
+.cell-inp.has-text{height:auto;min-height:36px;font-weight:400}
+.cell-inp.brand-field{font-weight:700}
 td{white-space:normal;vertical-align:top;padding-top:4px}
 .tbl-wrap{background:white;border:1px solid var(--rule);border-top:3px solid var(--tf);overflow-x:auto;-webkit-overflow-scrolling:touch}
 
@@ -224,7 +225,7 @@ var DEFAULTS = [
     url: 'https://vollebak.com',
     positioning: 'High-tech adventure and sportswear. Clothing built with graphene, copper, and solar-reactive fabrics for extreme environments.',
     origin: 'UK',
-    sellsTo: 'International (D2C online)',
+    sellsTo: 'Worldwide: US, UK, EU, APAC, Middle East (D2C online)',
     whyRelevant: '',
     comments: '',
     isExample: true
@@ -522,7 +523,7 @@ function autoResize(ta){
 function makeInput(id, field, value, placeholder){
   var inp = document.createElement('textarea');
   inp.rows = 1;
-  inp.className = 'cell-inp'+(value ? ' has-text' : '');
+  inp.className = 'cell-inp'+(field==='name' ? ' brand-field' : '')+(value ? ' has-text' : '');
   inp.id = 'inp-'+field+'-'+id;
   inp.value = value || '';
   inp.placeholder = placeholder;
