@@ -219,6 +219,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 @media(max-width:1000px){
   .vendor-grid,.gami-grid,.scope-grid{grid-template-columns:1fr}
   .calc-wrap{grid-template-columns:1fr}
+  .inf-options-grid{grid-template-columns:1fr!important}
 }
 @media(max-width:700px){
   .pg-wrap{padding:0 20px}
@@ -805,15 +806,15 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 
       <div class="cost-item">
         <div class="cost-item-label">
-          <div class="cost-item-name">Business insurance</div>
-          <div class="cost-item-note">Estimate — no primary source verified. US startup range: $50–150/mo (general liability + E&amp;O). Get quotes from Next Insurance or Hiscox before launch.</div>
+          <div class="cost-item-name">Influencer search</div>
+          <div class="cost-item-note">Per <a href="https://insense.pro/platform/creator-marketplace" target="_blank" rel="noopener" style="color:var(--tf)">insense.pro</a>: UGC from <strong>$100/video</strong>; sponsored posts from <strong>$125/post</strong> (nano-influencers), scaling with following. Platform subscription + per-campaign budget. Set monthly creator budget here. See plan comparison below.</div>
         </div>
         <div class="cost-item-ctrl">
-          <button class="cost-btn" onclick="adjC('insurance',-10)">−</button>
+          <button class="cost-btn" onclick="adjC('inf-search',-50)">−</button>
           <span class="cost-unit">$</span>
-          <input class="cost-input" type="number" id="c-insurance" value="75" min="0" step="10" oninput="calcCosts()"/>
+          <input class="cost-input" type="number" id="c-inf-search" value="0" min="0" step="50" oninput="calcCosts()"/>
           <span class="cost-unit">/mo</span>
-          <button class="cost-btn" onclick="adjC('insurance',10)">+</button>
+          <button class="cost-btn" onclick="adjC('inf-search',50)">+</button>
         </div>
       </div>
 
@@ -1010,6 +1011,66 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
     </div>
 
   </div><!-- calc-wrap -->
+
+  <!-- Influencer search options -->
+  <div style="margin-top:36px">
+    <div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);margin-bottom:18px;padding-bottom:8px;border-bottom:2px solid var(--rule)">Influencer Search · Platform Options</div>
+    <div class="inf-options-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px">
+
+      <div class="vendor-card rec">
+        <span class="v-badge rec">MVP Recommended</span>
+        <div class="v-name">JoinBrands</div>
+        <div class="v-url"><a href="https://joinbrands.com" target="_blank" rel="noopener">joinbrands.com</a></div>
+        <p class="v-desc">Self-apply + brand-invite flow. Creators come to the brief — escrow and agreements built in. Only option with zero fixed monthly cost: pay the platform fee only when you pay a creator.</p>
+        <table class="ptable">
+          <thead><tr><th>Plan</th><th>Monthly fee</th><th>Platform fee</th></tr></thead>
+          <tbody>
+            <tr><td>Free / Pay-as-you-go</td><td class="bold">$0</td><td>15% on each creator payment</td></tr>
+            <tr><td>Start-up</td><td class="bold">$99 / mo</td><td>12%</td></tr>
+            <tr><td>Pro</td><td class="bold">$299 / mo</td><td>10%</td></tr>
+            <tr><td>Max</td><td class="bold">$499 / mo</td><td>8%</td></tr>
+          </tbody>
+        </table>
+        <div class="src">Source: <a href="https://joinbrands.com/pricing/" target="_blank" rel="noopener">joinbrands.com/pricing</a></div>
+      </div>
+
+      <div class="vendor-card alt">
+        <span class="v-badge alt">Fastest Fashion UGC</span>
+        <div class="v-name">Collabstr</div>
+        <div class="v-url"><a href="https://collabstr.com" target="_blank" rel="noopener">collabstr.com</a></div>
+        <p class="v-desc">Instant, fixed-price fashion creator packages. Browse the directory free before committing to a paid plan. Campaign-based workflow with creator packages set upfront.</p>
+        <table class="ptable">
+          <thead><tr><th>Plan</th><th>Monthly fee</th><th>Platform fee</th></tr></thead>
+          <tbody>
+            <tr><td>Free</td><td class="bold">$0</td><td>10% order fee</td></tr>
+            <tr><td>Pro</td><td class="bold">$249 / mo</td><td>10% · 1 campaign/mo</td></tr>
+            <tr><td>Premium</td><td class="bold">≈ $333 / mo</td><td>5% · unlimited campaigns</td></tr>
+            <tr><td class="note" colspan="3">Annual billing ≈ 50% cheaper</td></tr>
+          </tbody>
+        </table>
+        <div class="src">Source: <a href="https://collabstr.com/pricing" target="_blank" rel="noopener">collabstr.com/pricing</a></div>
+      </div>
+
+      <div class="vendor-card alt">
+        <span class="v-badge alt">Free Second Funnel</span>
+        <div class="v-name">Afluencer</div>
+        <div class="v-url"><a href="https://afluencer.com" target="_blank" rel="noopener">afluencer.com</a></div>
+        <p class="v-desc">Post unlimited collabs free — no card required. Directory-based matching is slower than Collabstr or JoinBrands, but useful as a no-cost parallel channel.</p>
+        <table class="ptable">
+          <thead><tr><th>Plan</th><th>Monthly fee</th><th>Included</th></tr></thead>
+          <tbody>
+            <tr><td>Free</td><td class="bold">$0</td><td>Unlimited collab posts + directory search</td></tr>
+            <tr><td>Marketplace</td><td class="bold">$49 / mo</td><td>60 invite credits/mo</td></tr>
+            <tr><td>Standard</td><td class="bold">$649 / mo</td><td>Higher volume</td></tr>
+          </tbody>
+        </table>
+        <div class="src">Source: <a href="https://afluencer.com/pricing" target="_blank" rel="noopener">afluencer.com/pricing</a></div>
+      </div>
+
+    </div>
+    <div class="ptable-note" style="margin-top:12px"><strong>Insense</strong> (best fashion fit when budget allows) — explicitly fashion-category, 80K+ vetted creators. UGC from $100/video; sponsored posts from $125 (nano-influencers), scaling with following. Subscription + per-campaign budget required. <a href="https://insense.pro/pricing" target="_blank" rel="noopener" style="color:var(--tf)">insense.pro/pricing</a> · <span class="src" style="display:inline">Source: <a href="https://insense.pro/platform/creator-marketplace" target="_blank" rel="noopener">insense.pro/platform/creator-marketplace</a></span></div>
+  </div>
+
 </section>
 
 <!-- 03 EXCLUSIONS -->
@@ -1467,10 +1528,10 @@ function calcCosts() {
   var platformOther   = +document.getElementById('c-platform-other').value  || 0;
   var platform        = shopify + puppet + framer + platformOther + dynSum('platform');
 
-  var hosting   = +document.getElementById('c-hosting').value   || 0;
-  var insurance = +document.getElementById('c-insurance').value || 0;
-  var other     = +document.getElementById('c-other').value     || 0;
-  var ops       = hosting + insurance + other + dynSum('ops');
+  var hosting   = +document.getElementById('c-hosting').value      || 0;
+  var infSearch = +document.getElementById('c-inf-search').value   || 0;
+  var other     = +document.getElementById('c-other').value        || 0;
+  var ops       = hosting + infSearch + other + dynSum('ops');
 
   var email     = +document.getElementById('c-email').value      || 0;
   var ads       = +document.getElementById('c-ads').value        || 0;
@@ -1510,7 +1571,7 @@ calcCosts();
 /* ——— FIREBASE COST SYNC (Section 02) ——— */
 var CDB   = 'https://terra-ferra-1ac34-default-rtdb.firebaseio.com';
 var CROOT = '/tf-mvpcosts/v1';
-var FIXED_IDS = ['shopify','puppet','framer','platform-other','hosting','insurance','other','email','ads','mktg-other','bank','legal','onetime-other'];
+var FIXED_IDS = ['shopify','puppet','framer','platform-other','hosting','inf-search','other','email','ads','mktg-other','bank','legal','onetime-other'];
 var CAT_LABEL = {platform:'Platform tool',ops:'Operations cost',marketing:'Marketing cost',onetime:'One-time cost'};
 var CAT_UNIT  = {platform:'/mo',ops:'/mo',marketing:'/mo',onetime:'one-time'};
 
