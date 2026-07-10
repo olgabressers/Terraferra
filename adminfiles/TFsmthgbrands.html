@@ -240,6 +240,7 @@ tr:hover .del-btn{opacity:1}
           <th class="th-num">#</th>
           <th style="min-width:150px">Brand</th>
           <th style="min-width:140px">URL</th>
+          <th style="min-width:130px">Instagram</th>
           <th style="min-width:110px">Annual Revenue</th>
           <th style="min-width:190px">Positioning</th>
           <th style="min-width:100px">Country origin</th>
@@ -287,7 +288,7 @@ var DEFAULTS = [
 ];
 
 function blankItem(src){
-  var base = {name:'',url:'',revenue:'',positioning:'',origin:'',sellsTo:'',whyRelevant:'',comments:'',isExample:false,va:false,vc:false,vm:false,vx:false};
+  var base = {name:'',url:'',instagram:'',revenue:'',positioning:'',origin:'',sellsTo:'',whyRelevant:'',comments:'',isExample:false,va:false,vc:false,vm:false,vx:false};
   if(src){ Object.keys(src).forEach(function(k){ base[k]=src[k]; }); }
   return base;
 }
@@ -295,6 +296,7 @@ function blankItem(src){
 var FIELDS = [
   {key:'name',        ph:'Brand name…',          w:'150px'},
   {key:'url',         ph:'https://…',             w:'140px'},
+  {key:'instagram',   ph:'https://instagram.com/…', w:'130px'},
   {key:'revenue',     ph:'e.g. $2M…',            w:'110px'},
   {key:'positioning', ph:'What they make…',       w:'190px'},
   {key:'origin',      ph:'UK, US…',              w:'100px'},
@@ -447,6 +449,10 @@ function updateField(id, field, value){
     var link = document.getElementById('url-link-'+id);
     if(link){ link.href = value||'#'; link.style.display = value ? 'inline' : 'none'; }
   }
+  if(field === 'instagram'){
+    var iglink = document.getElementById('ig-link-'+id);
+    if(iglink){ iglink.href = value||'#'; iglink.style.display = value ? 'inline' : 'none'; }
+  }
   clearTimeout(textTimers[id+'_'+field]);
   textTimers[id+'_'+field] = setTimeout(function(){
     fput('/items/'+id+'/'+field, value).catch(function(){});
@@ -568,6 +574,10 @@ function renderRow(id, fid){
       var link = document.getElementById('url-link-'+id);
       if(link){ link.href = item.url||'#'; link.style.display = item.url ? 'inline' : 'none'; }
     }
+    if(fc.key === 'instagram'){
+      var iglink = document.getElementById('ig-link-'+id);
+      if(iglink){ iglink.href = item.instagram||'#'; iglink.style.display = item.instagram ? 'inline' : 'none'; }
+    }
   });
   updateVoteButtons(id);
   renderFilter();
@@ -635,6 +645,21 @@ function buildRow(id, num){
       link.title = 'Open URL';
       link.style.display = item.url ? 'inline' : 'none';
       wrap.appendChild(link);
+      td.appendChild(wrap);
+    } else if(fc.key === 'instagram'){
+      var wrap = document.createElement('div');
+      wrap.className = 'url-cell';
+      wrap.appendChild(makeInput(id, fc.key, item[fc.key], fc.ph));
+      var iglink = document.createElement('a');
+      iglink.id = 'ig-link-'+id;
+      iglink.className = 'url-open';
+      iglink.href = item.instagram || '#';
+      iglink.target = '_blank';
+      iglink.rel = 'noopener';
+      iglink.textContent = '↗';
+      iglink.title = 'Open Instagram';
+      iglink.style.display = item.instagram ? 'inline' : 'none';
+      wrap.appendChild(iglink);
       td.appendChild(wrap);
     } else {
       td.appendChild(makeInput(id, fc.key, item[fc.key], fc.ph));
