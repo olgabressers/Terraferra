@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Fashion Communities by Audience · SMTHG</title>
+<link rel="icon" type="image/svg+xml" href="smthg_favicon.svg"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --tf:#E8002D;--tf-dark:#B50023;--tf-light:#FEF5F6;--tf-ghost:#F1EEE9;
+  --orange:#E8002D;--off-white:#F8F6F2;--ink:#161616;--sub:#5C5A56;--rule:#E6E2DA;
+}
+body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink);line-height:1.6}
+
+/* Nav */
+.topnav{background:white;border-bottom:1px solid var(--rule);padding:12px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
+.topnav-home{font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);text-decoration:none;font-size:11px}
+.topnav-home:hover{color:var(--tf-dark)}
+.topnav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:var(--sub);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:10px}
+.topnav-links a:hover{color:var(--tf)}
+.topnav-links a.active{color:var(--orange)}
+.has-dropdown{position:relative;padding-bottom:10px;margin-bottom:-10px}
+.dropdown-trigger{cursor:pointer;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:10px;user-select:none}
+.dropdown-trigger:hover,.has-dropdown:focus-within .dropdown-trigger{color:var(--tf)}
+.dropdown{display:none;position:absolute;top:100%;right:0;background:white;border:1px solid var(--rule);min-width:220px;box-shadow:0 6px 14px rgba(0,0,0,.08);padding:6px 0;z-index:60}
+.has-dropdown:hover .dropdown,.has-dropdown:focus-within .dropdown{display:block}
+.dropdown a{display:block;padding:9px 16px;font-size:10px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:1px;text-decoration:none}
+.dropdown a:hover{background:var(--tf-ghost);color:var(--tf)}
+@media(max-width:700px){
+  .topnav{position:static;padding:10px 14px}
+  .topnav-links{gap:8px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:2px;width:100%}
+  .topnav-links a{font-size:9.5px;white-space:nowrap}
+  .dropdown-trigger{font-size:9.5px;white-space:nowrap}
+  .has-dropdown{padding-bottom:0;margin-bottom:0}
+  .dropdown{display:none!important}
+}
+
+/* Header */
+header{padding:48px 60px 0}
+.header-inner{max-width:1240px;margin:0 auto}
+.pg-eyebrow{font-size:10px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--sub);opacity:.6}
+.pg-title{font-size:38px;font-weight:800;letter-spacing:-1.5px;color:var(--ink);margin-top:14px;line-height:1.1}
+.pg-sub{font-size:15px;color:var(--ink);margin-top:12px;max-width:720px;line-height:1.5}
+@media(max-width:700px){header{padding:28px 20px 0}.pg-title{font-size:26px}}
+
+main{padding:40px 60px 80px;max-width:1240px;margin:0 auto}
+@media(max-width:700px){main{padding:28px 16px 60px}}
+
+/* Top recommendation box */
+.tf-offer{background:white;border:1px solid var(--rule);border-left:4px solid var(--orange);padding:24px 28px;margin-bottom:44px}
+@media(max-width:700px){.tf-offer{padding:18px 16px}}
+.tf-offer-eyebrow{font-size:20px;font-weight:800;color:var(--orange);margin-bottom:16px}
+
+/* Section */
+.sec{margin-bottom:44px}
+.sec-heading{font-size:22px;font-weight:800;color:var(--orange);margin-bottom:6px}
+.sec-heading .num{color:var(--orange)}
+.sec-note{font-size:14px;color:var(--ink);margin-bottom:16px;max-width:760px}
+
+/* Comparison table */
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table.ctable{width:100%;border-collapse:collapse;font-size:13px}
+table.ctable th{text-align:left;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);border-bottom:2px solid var(--rule);padding:10px 14px;white-space:nowrap}
+table.ctable td{padding:11px 14px;border-bottom:1px solid var(--rule);vertical-align:top;color:var(--ink);line-height:1.45}
+table.ctable tr:last-child td{border-bottom:none}
+table.ctable td:first-child{font-weight:700;font-size:12.5px;color:var(--ink)}
+table.ctable td.bad{color:var(--orange);font-weight:600}
+table.ctable td.good{color:var(--tf);font-weight:600}
+table.ctable a{color:var(--tf);text-decoration:none;font-weight:600}
+table.ctable a:hover{text-decoration:underline}
+@media(max-width:700px){table.ctable{font-size:12px}table.ctable th,table.ctable td{padding:8px 10px}}
+
+footer{padding:24px 60px;border-top:1px solid var(--rule);background:white}
+.footer-inner{max-width:1240px;margin:0 auto;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);opacity:.5}
+@media(max-width:700px){footer{padding:16px 20px}}
+
+#back-to-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--tf);color:white;border:1px solid rgba(113,105,212,.5);border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900;transition:background .2s}
+#back-to-top:hover{background:var(--tf-dark)}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="index.html" class="topnav-home">SMTHG<span style="color:var(--tf)">.</span></a>
+  <div class="topnav-links">
+    <a href="index.html">Files</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Budget ▾</span>
+      <div class="dropdown">
+        <a href="TFmarketsize.html">Market Size &amp; Opportunity</a>
+        <a href="budget.html">Budget &amp; Sales Scenarios</a>
+      </div>
+    </div>
+    <a href="roles.html">Roles</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Business Model ▾</span>
+      <div class="dropdown">
+        <a href="TFbusinessmodel.html">Comparison Matrix</a>
+        <a href="TFaltmodel.html">Alternative Model</a>
+        <a href="TFmvpcosts.html">MVP Scope &amp; Costs</a>
+        <a href="TFgtm.html">GTM</a>
+        <a href="TFwhynow.html">Why Now</a>
+        <a href="TFdropsmarket.html">Drop Market Research</a>
+        <a href="TFunservedmarket.html">Unserved Market</a>
+        <a href="TFreferral.html">Referral &amp; Viral</a>
+        <a href="TFcreatortoken.html">Creator Payments</a>
+        <a href="TFstylists.html">Stylist Layer</a>
+        <a href="TFvisualdiscovery.html">Visual Discovery</a>
+        <a href="TFbrandsworldwide.html">Fashion Brands Worldwide</a>
+        <a href="TFcommunities.html" class="active">Fashion Communities</a>
+      </div>
+    </div>
+    <a href="architecture.html">Architecture &amp; Tools</a>
+    <a href="TFmarketplaces.html">Operations</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Ideas ▾</span>
+      <div class="dropdown">
+        <a href="gamification.html">Gamification</a>
+        <a href="ideas.html">Ideas &amp; AI Research</a>
+        <a href="influencer.html">Influencer Selling</a>
+        <a href="strategic-brief.html">Strategic Brief</a>
+      </div>
+    </div>
+    <a href="TFsmthgbrands.html">Brands</a>
+    <a href="TFnewname.html">Design</a>
+    <a href="TFrussia.html">Legal / Tax</a>
+    <a href="task-tracker.html">Planning</a>
+  </div>
+</nav>
+
+<header>
+  <div class="header-inner">
+    <div class="pg-eyebrow">SMTHG Business Model &amp; GTM · Research</div>
+    <div class="pg-title">Fashion Communities by Audience</div>
+    <div class="pg-sub">Existing communities and programs serving designers, creators, shoppers, brand fans, and ambassadors — with what a single cross-designer platform can offer each group that single-brand and single-purpose platforms cannot.</div>
+  </div>
+</header>
+
+<main>
+
+  <div class="tf-offer">
+    <div class="tf-offer-eyebrow">SMTHG Platform — Relevant to Every Group</div>
+    <div class="tbl-wrap">
+      <table class="ctable">
+        <thead>
+          <tr>
+            <th>Audience</th>
+            <th>What existing communities are built around</th>
+            <th>SMTHG platform</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Designers / Brands</td>
+            <td>Trade associations (CFDA, BFC NEWGEN) and marketplaces (Garmentory) — membership fees, election criteria, or a marketplace cut, with no built-in ambassador layer.</td>
+            <td class="good">Commission-based entry (7% GMV), no membership fee, pre-order drops, built-in ambassador revenue share.</td>
+          </tr>
+          <tr>
+            <td>Influencers / Creators</td>
+            <td>Creator marketplaces (Aspire, Fohr, GRIN) match brands and creators through applications, self-serve search, or paid brand-side platform fees.</td>
+            <td class="good">AI designer-creator matching per drop; commission from every designer on the platform, not a subset.</td>
+          </tr>
+          <tr>
+            <td>Consumers / Shoppers</td>
+            <td>Resale marketplaces (Depop, Poshmark, Vinted, StockX) trade secondhand and resale inventory, not new emerging-designer drops.</td>
+            <td class="good">Pre-order access to emerging-designer drops, with virtual try-on before purchase.</td>
+          </tr>
+          <tr>
+            <td>Fans / Loyalty</td>
+            <td>Loyalty programs (Nike Membership, Levi's Red Tab, Vans Family, Foot Locker FLX) are single-brand, points-and-perks only.</td>
+            <td class="good">Community mechanics — challenges, leaderboards, badges — spanning every designer on the platform, not one brand.</td>
+          </tr>
+          <tr>
+            <td>Ambassador Programs</td>
+            <td>Ambassador programs (REVOLVE, Aerie Realmakers, PrettyLittleThing, Princess Polly) are single-retailer, each with its own follower gate and commission rate.</td>
+            <td class="good">Every designer on the platform commissionable by every ambassador from day one, on a standardized revenue share.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-heading"><span class="num">01</span> Designers / Brands</div>
+    <div class="sec-note">Trade associations gate entry by election or track record; marketplaces charge a listing cut. Both connect brands to buyers, not to a paid ambassador layer.</div>
+    <div class="tbl-wrap">
+      <table class="ctable">
+        <thead><tr><th>Community</th><th>What it is</th><th>Cost / Model</th><th>Scale</th><th>Source</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>CFDA</td>
+            <td>Trade association for American designers — business development, grants, scholarships. Election-based membership, 5+ years active required.</td>
+            <td>Sliding-scale annual dues (amount not published)</td>
+            <td>300–325+ members · US · founded 1962</td>
+            <td><a href="https://cfda.com/about/" target="_blank" rel="noopener">cfda.com →</a></td>
+          </tr>
+          <tr>
+            <td>BFC NEWGEN</td>
+            <td>British Fashion Council initiative — funding, mentoring, and London Fashion Week showcasing for emerging talent.</td>
+            <td>Bursary-funded (no designer fee stated)</td>
+            <td>UK · London Fashion Week</td>
+            <td><a href="https://www.britishfashioncouncil.co.uk/BFC-Initiatives/BFC-NEWGEN" target="_blank" rel="noopener">britishfashioncouncil.co.uk →</a></td>
+          </tr>
+          <tr>
+            <td>Garmentory</td>
+            <td>Curated marketplace connecting independent designers and boutiques with shoppers via single checkout.</td>
+            <td>Marketplace commission (rate not published)</td>
+            <td>3,000+ designers · 1,000+ boutiques · founded 2014</td>
+            <td><a href="https://www.garmentory.com/" target="_blank" rel="noopener">garmentory.com →</a></td>
+          </tr>
+          <tr>
+            <td>Design Collective NY</td>
+            <td>Curated runway events, PR/media strategy, and wholesale buyer connections for independent designers.</td>
+            <td>Not published</td>
+            <td>NYC / US · founded 2002</td>
+            <td><a href="https://designcollectiveny.com/about/" target="_blank" rel="noopener">designcollectiveny.com →</a></td>
+          </tr>
+          <tr>
+            <td>World Collective</td>
+            <td>Digital sourcing platform pooling material/supplier access so smaller brands can meet higher minimum order quantities.</td>
+            <td>Not published</td>
+            <td>500+ material items · Europe, Colombia, Asia, Turkey</td>
+            <td><a href="https://world-collective.com/" target="_blank" rel="noopener">world-collective.com →</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-heading"><span class="num">02</span> Influencers / Creators</div>
+    <div class="sec-note">Excludes LTK and ShopMy — already covered in <a href="TFunservedmarket.html" style="color:var(--tf);font-weight:600">Unserved Market Segments</a> and <a href="TFwhynow.html" style="color:var(--tf);font-weight:600">Why Now</a>.</div>
+    <div class="tbl-wrap">
+      <table class="ctable">
+        <thead><tr><th>Community</th><th>What it is</th><th>Cost / Model</th><th>Scale</th><th>Source</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Fohr</td>
+            <td>Creator marketing platform connecting brands with vetted creators; free press-kit and campaign tools for creators.</td>
+            <td>Free to creators</td>
+            <td>300,000 creators · $250M paid out to date · founded ~2013</td>
+            <td><a href="https://www.fohr.co/for-creators" target="_blank" rel="noopener">fohr.co →</a></td>
+          </tr>
+          <tr>
+            <td>Aspire</td>
+            <td>Creator Marketplace — brands post opportunities, creators apply inbound without manual brand sourcing.</td>
+            <td>Free to creators, no commission taken</td>
+            <td>1M+ creators · clients incl. Samsung, Dyson, Walmart, HelloFresh</td>
+            <td><a href="https://www.aspire.io/platform/creator-marketplace" target="_blank" rel="noopener">aspire.io →</a></td>
+          </tr>
+          <tr>
+            <td>Instagram Creator Marketplace (Meta)</td>
+            <td>Meta's own brand-creator matchmaking tool inside Instagram/Meta Business Suite, ML-based recommendations.</td>
+            <td>Free (Meta platform feature)</td>
+            <td>Launched US 2022 · expanded to Canada, Australia, NZ, UK, Japan, India, Brazil, Feb 2024</td>
+            <td><a href="https://about.fb.com/news/2024/02/creator-marketplace-for-brands-and-creators-to-collaborate-on-instagram/" target="_blank" rel="noopener">about.fb.com →</a></td>
+          </tr>
+          <tr>
+            <td>Creator.co</td>
+            <td>Discovery/collaboration platform with a "Circle" creator community and a Creator Ambassadors program.</td>
+            <td>Not published</td>
+            <td>Creator Ambassadors: 150+ members</td>
+            <td><a href="https://www.creator.co/use-cases/for-influencers" target="_blank" rel="noopener">creator.co →</a></td>
+          </tr>
+          <tr>
+            <td>GRIN</td>
+            <td>Creator management platform for brands to discover, manage and pay creators; fashion clients include SKIMS, Vera Bradley, ABLE.</td>
+            <td>Free to start (brand pricing not published)</td>
+            <td>AI tool trained on $1B+ in brand-creator partnerships</td>
+            <td><a href="https://grin.co/" target="_blank" rel="noopener">grin.co →</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-heading"><span class="num">03</span> Consumers / Shoppers</div>
+    <div class="sec-note">The largest fashion-shopper communities are resale-first — built around secondhand inventory, not new emerging-designer drops.</div>
+    <div class="tbl-wrap">
+      <table class="ctable">
+        <thead><tr><th>Community</th><th>What it is</th><th>Cost / Model</th><th>Scale</th><th>Source</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Depop</td>
+            <td>Peer-to-peer circular fashion marketplace — buy, sell, and discover secondhand fashion.</td>
+            <td>Seller fee applies (rate not on fetched page)</td>
+            <td>56.3M registered users · $6B+ goods sold · founded 2011</td>
+            <td><a href="https://news.depop.com/who-we-are/facts-and-figures/" target="_blank" rel="noopener">news.depop.com →</a></td>
+          </tr>
+          <tr>
+            <td>Poshmark</td>
+            <td>Resale marketplace with social-commerce features — live "Posh Shows" and in-app "Parties."</td>
+            <td>20% app selling fee (per PoshFest vendor page)</td>
+            <td>130M+ community members · $8B total seller earnings · founded 2011</td>
+            <td><a href="https://www.poshmark.com/about" target="_blank" rel="noopener">poshmark.com →</a></td>
+          </tr>
+          <tr>
+            <td>PoshFest</td>
+            <td>Poshmark's annual in-person seller/shopper conference and shoppable marketplace.</td>
+            <td>Vendor booth from $350</td>
+            <td>Peak attendance 1,500 (2019) · 2026 edition Oct 2–3, LA</td>
+            <td><a href="https://poshfest.poshmark.com/" target="_blank" rel="noopener">poshfest.poshmark.com →</a></td>
+          </tr>
+          <tr>
+            <td>StockX</td>
+            <td>Bid/ask resale marketplace for sneakers, streetwear, apparel and accessories.</td>
+            <td>Transaction fee (standard rate not on fetched page)</td>
+            <td>200,000+ products · 65M+ lifetime trades · founded 2016</td>
+            <td><a href="https://stockx.com/about/company/" target="_blank" rel="noopener">stockx.com →</a></td>
+          </tr>
+          <tr>
+            <td>Vinted</td>
+            <td>Second-hand marketplace for clothing, kids' items and luxury goods.</td>
+            <td class="good">0% selling fee</td>
+            <td>2,000+ employees · founded 2008 (Lithuania)</td>
+            <td><a href="https://www.vinted.com/about" target="_blank" rel="noopener">vinted.com →</a></td>
+          </tr>
+          <tr>
+            <td>Reddit r/femalefashionadvice, r/malefashionadvice</td>
+            <td>Long-running discussion communities for style advice, active and currently operating.</td>
+            <td>Free</td>
+            <td>Subscriber counts not independently verified this session (source blocked automated access)</td>
+            <td><a href="https://www.reddit.com/r/femalefashionadvice/" target="_blank" rel="noopener">reddit.com →</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-heading"><span class="num">04</span> Fans / Loyalty</div>
+    <div class="sec-note">Every major fan-loyalty program is single-brand — points and perks tied to one company's own catalog.</div>
+    <div class="tbl-wrap">
+      <table class="ctable">
+        <thead><tr><th>Community</th><th>What it is</th><th>Cost / Model</th><th>Scale</th><th>Source</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Nike Membership</td>
+            <td>Member-exclusive products, events, and birthday rewards across Nike's apps and site.</td>
+            <td class="good">Free</td>
+            <td>Member count not published</td>
+            <td><a href="https://www.nike.com/membership" target="_blank" rel="noopener">nike.com →</a></td>
+          </tr>
+          <tr>
+            <td>Glossier G Membership</td>
+            <td>Early access to sales/launches, birthday gifts, exclusive event invitations.</td>
+            <td class="good">Free</td>
+            <td>US only</td>
+            <td><a href="https://www.glossier.com/pages/membership" target="_blank" rel="noopener">glossier.com →</a></td>
+          </tr>
+          <tr>
+            <td>Levi's Red Tab</td>
+            <td>Loyalty points, free shipping/returns over $75, complimentary in-store hemming.</td>
+            <td class="good">Free</td>
+            <td>38M+ members worldwide · launched 2020, US/Canada relaunch 2025</td>
+            <td><a href="https://www.levistrauss.com/2025/03/31/levis-red-tab-europe/" target="_blank" rel="noopener">levistrauss.com →</a></td>
+          </tr>
+          <tr>
+            <td>Vans Family</td>
+            <td>Points for purchases and brand engagement, exclusive contests, custom footwear options.</td>
+            <td>Not published</td>
+            <td>US · launched Feb 2018</td>
+            <td><a href="https://www.prnewswire.com/news-releases/vans-launches-vans-family-loyalty-program-to-deliver-a-brand-new-off-the-wall-customer-experience-300603463.html" target="_blank" rel="noopener">PR Newswire (Vans) →</a></td>
+          </tr>
+          <tr>
+            <td>Foot Locker FLX Rewards</td>
+            <td>Points redeemable as cash, priority sneaker-launch access, exclusive sales/events.</td>
+            <td class="good">Free, no purchase required to join</td>
+            <td>Relaunched US June 2024 · targeting 50% loyalty penetration by 2026</td>
+            <td><a href="https://www.prnewswire.com/news-releases/foot-locker-reimagines-sneaker-shopping-experience-with-flx-rewards-program-relaunch-302180920.html" target="_blank" rel="noopener">PR Newswire (Foot Locker) →</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-heading"><span class="num">05</span> Ambassador Programs</div>
+    <div class="sec-note">Every ambassador program below runs on one retailer's own products, follower gate, and commission rate.</div>
+    <div class="tbl-wrap">
+      <table class="ctable">
+        <thead><tr><th>Community</th><th>What it is</th><th>Cost / Model</th><th>Scale</th><th>Source</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>REVOLVE + FWRD Ambassador</td>
+            <td>Personalized storefronts linking to ambassadors' social channels; tiered incentives by follower count.</td>
+            <td>Cash or shopping credit</td>
+            <td>3,000 initial members, 10,000-person waitlist · launched Nov 2021</td>
+            <td><a href="https://investors.revolve.com/news/news-details/2021/REVOLVE-Launches-Brand-Ambassador-Program-Leveraging-in-House-Proprietary-Technology/default.aspx" target="_blank" rel="noopener">investors.revolve.com →</a></td>
+          </tr>
+          <tr>
+            <td>Aerie Realmakers</td>
+            <td>Creator community for content/storytelling tied to Aerie's brand positioning.</td>
+            <td>Affiliate commission + gifted product</td>
+            <td>Requires 1,500+ followers, 18+, US resident</td>
+            <td><a href="https://www.ae.com/us/en/content/aerie-realmakers-community" target="_blank" rel="noopener">ae.com →</a></td>
+          </tr>
+          <tr>
+            <td>PrettyLittleThing #ClassOfPLT</td>
+            <td>University-student ambassador program — represent PLT on campus.</td>
+            <td>Monthly gifted clothing + student discount</td>
+            <td>Requires 3,000+ followers · UK-focused</td>
+            <td><a href="https://blog.prettylittlething.com/how-to-be-a-plt-student-ambassador/" target="_blank" rel="noopener">blog.prettylittlething.com →</a></td>
+          </tr>
+          <tr>
+            <td>Fashion Nova Novababe</td>
+            <td>Content-creator collaboration program for posts tagged #Novababe.</td>
+            <td>Not published on primary page</td>
+            <td>Not published on primary page</td>
+            <td><a href="https://www.fashionnova.com/pages/collab" target="_blank" rel="noopener">fashionnova.com →</a></td>
+          </tr>
+          <tr>
+            <td>Princess Polly College Ambassador</td>
+            <td>College-student ambassador program — content plus a unique discount code.</td>
+            <td class="good">5% commission, no follower requirement</td>
+            <td>US/Canada, full-time college students</td>
+            <td><a href="https://us.princesspolly.com/pages/college-ambassador" target="_blank" rel="noopener">princesspolly.com →</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-inner">Private · noindex · SMTHG Business Model &amp; GTM · Research</div>
+</footer>
+
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">&#8593;</button>
+<script>window.addEventListener('scroll',function(){var b=document.getElementById('back-to-top');b.style.display=window.scrollY>400?'flex':'none';});</script>
+</body>
+</html>
