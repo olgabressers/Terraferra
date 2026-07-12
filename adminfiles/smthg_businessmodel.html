@@ -59,6 +59,7 @@ h1{font-size:clamp(30px,4.4vw,48px);font-weight:900;letter-spacing:-1.5px;margin
 /* component cards */
 .sec-h2{font-size:clamp(20px,2.6vw,27px);font-weight:900;letter-spacing:-.8px;margin:52px 0 18px}
 .grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .comp{background:white;border:1px solid var(--rule);border-top:3px solid var(--ink);border-radius:10px;padding:18px 16px;display:flex;flex-direction:column}
 .comp .cnum{font-size:13px;font-weight:800;color:var(--tf);letter-spacing:1px;margin-bottom:8px}
 .comp h4{font-size:15px;font-weight:800;line-height:1.25;margin-bottom:8px}
@@ -137,8 +138,8 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
 .footer-inner{max-width:1240px;margin:0 auto;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub)}
 @media(max-width:700px){.pain-roles{grid-template-columns:1fr}}
 
-@media(max-width:1000px){.grid5{grid-template-columns:repeat(2,1fr)}.compare{grid-template-columns:1fr}}
-@media(max-width:700px){.wrap{padding:20px 16px 60px}.grid5{grid-template-columns:1fr}}
+@media(max-width:1000px){.grid5{grid-template-columns:repeat(2,1fr)}.grid4{grid-template-columns:repeat(2,1fr)}.compare{grid-template-columns:1fr}}
+@media(max-width:700px){.wrap{padding:20px 16px 60px}.grid5{grid-template-columns:1fr}.grid4{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -176,8 +177,8 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
     <div class="comp">
       <div class="cnum">01</div>
       <h4>Circle (community layer)</h4>
-      <p>Per-designer group: chat &amp; feed, a content library, live designer sessions, and a drop calendar. Points and status (badges, founding-member roles) carry across drops. Free to join — community forms before any purchase.</p>
-      <div class="src">Structural pattern: cohort/community platforms (e.g. Skool) · full element map: <a href="socialcommerce.html">Social Commerce — Platform Map</a></div>
+      <p>Per-designer group, free to join — community forms before any purchase, not just at checkout. What's inside, below.</p>
+      <div class="src">Structural pattern: cohort/community platforms (e.g. Skool)</div>
     </div>
 
     <div class="comp">
@@ -206,6 +207,39 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
       <h4>Influencer = Circle host</h4>
       <p>Influencers run their own Circle and host events rather than just posting a link. Revenue share pays out on what their Circle actually converts.</p>
       <div class="src">Existing economics: 10% GMV commission, 10–20% influencer reward (tiered)</div>
+    </div>
+
+  </div>
+
+  <h2 class="sec-h2">Inside a Circle</h2>
+  <div class="grid4">
+
+    <div class="comp">
+      <div class="cnum">A</div>
+      <h4>Brand live sessions &amp; library</h4>
+      <p>Designers hold live sessions inside their Circle — Q&amp;A, styling, behind-the-scenes. Recordings stay in a permanent library members can revisit anytime.</p>
+      <div class="src">Element per <a href="socialcommerce.html">Social Commerce — Platform Map</a></div>
+    </div>
+
+    <div class="comp">
+      <div class="cnum">B</div>
+      <h4>Interest groups &amp; chat</h4>
+      <p>Members also group by aesthetic, not just by brand — minimalist, streetwear, quiet luxury — and exchange looks, advice and style names with each other.</p>
+      <div class="src">Element per <a href="socialcommerce.html">Social Commerce — Platform Map</a></div>
+    </div>
+
+    <div class="comp">
+      <div class="cnum">C</div>
+      <h4>Events &amp; drop calendar</h4>
+      <p>Live sessions and drops land at set moments — a fixed rhythm the member has an appointment with, not the other way round.</p>
+      <div class="src">Element per <a href="socialcommerce.html">Social Commerce — Platform Map</a></div>
+    </div>
+
+    <div class="comp">
+      <div class="cnum">D</div>
+      <h4>Points, status &amp; badges</h4>
+      <p>Points for participation build into levels; badges and founding-member roles accrue across drops and carry visibly on a member's profile.</p>
+      <div class="src">Element per <a href="socialcommerce.html">Social Commerce — Platform Map</a></div>
     </div>
 
   </div>
