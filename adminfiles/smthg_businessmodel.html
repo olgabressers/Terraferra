@@ -32,15 +32,15 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .badge-sug{background:var(--amber-bg);color:var(--amber);border:1px dashed var(--amber)}
 .badge-proven{background:var(--green-bg);color:var(--green);border:1px solid var(--green)}
 
-h1{font-size:clamp(34px,4.8vw,54px);font-weight:900;letter-spacing:-1.5px;margin-top:12px;line-height:1.08}
-.lede{font-size:19px;color:var(--ink);margin-top:14px;max-width:820px;line-height:1.65}
+h1{font-size:clamp(30px,4.4vw,48px);font-weight:900;letter-spacing:-1.5px;margin-top:12px;line-height:1.08}
+.lede{font-size:17px;color:var(--ink);margin-top:14px;max-width:820px;line-height:1.65}
 
 /* the pain */
 .pain-box{margin-top:30px;background:white;border:1px solid var(--rule);border-left:4px solid var(--tf);border-radius:10px;padding:24px 26px}
 .pain-box h3{font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);margin-bottom:14px}
 .pain-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 28px}
-.pain-item b{font-size:16px;color:var(--ink);display:block;margin-bottom:4px}
-.pain-item p{font-size:15px;color:var(--ink);line-height:1.55}
+.pain-item b{font-size:15px;color:var(--ink);display:block;margin-bottom:4px}
+.pain-item p{font-size:14px;color:var(--ink);line-height:1.55}
 .pain-src{font-size:13px;color:var(--sub);margin-top:16px}
 
 /* pipe vs loop compare */
@@ -51,16 +51,16 @@ h1{font-size:clamp(34px,4.8vw,54px);font-weight:900;letter-spacing:-1.5px;margin
 .cbox h3{font-size:14px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
 .cbox.bad h3{color:var(--sub)}
 .cbox.good h3{color:var(--green)}
-.flow{font-size:17px;font-weight:700;line-height:1.9}
-.cbox p.note{font-size:15px;color:var(--ink);margin-top:12px;line-height:1.6}
+.flow{font-size:16px;font-weight:700;line-height:1.9}
+.cbox p.note{font-size:14px;color:var(--ink);margin-top:12px;line-height:1.6}
 
 /* component cards */
-.sec-h2{font-size:clamp(22px,2.8vw,30px);font-weight:900;letter-spacing:-.8px;margin:52px 0 18px}
+.sec-h2{font-size:clamp(20px,2.6vw,27px);font-weight:900;letter-spacing:-.8px;margin:52px 0 18px}
 .grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
 .comp{background:white;border:1px solid var(--rule);border-top:3px solid var(--ink);border-radius:10px;padding:18px 16px;display:flex;flex-direction:column}
 .comp .cnum{font-size:13px;font-weight:800;color:var(--tf);letter-spacing:1px;margin-bottom:8px}
-.comp h4{font-size:16px;font-weight:800;line-height:1.25;margin-bottom:8px}
-.comp p{font-size:14px;color:var(--ink);line-height:1.55;flex:1}
+.comp h4{font-size:15px;font-weight:800;line-height:1.25;margin-bottom:8px}
+.comp p{font-size:13.5px;color:var(--ink);line-height:1.55;flex:1}
 .comp .src{font-size:12.5px;color:var(--sub);margin-top:10px;line-height:1.45}
 .comp .src a{color:var(--tf);text-decoration:none}
 .comp .src a:hover{text-decoration:underline}
@@ -68,21 +68,21 @@ h1{font-size:clamp(34px,4.8vw,54px);font-weight:900;letter-spacing:-1.5px;margin
 /* loop diagram */
 .loop{margin-top:20px;background:var(--navy-bg);border:1px solid var(--rule);border-radius:16px;padding:28px 30px}
 .loop-steps{display:flex;align-items:center;flex-wrap:wrap;gap:10px}
-.lstep{background:white;border:1.5px solid var(--navy);border-radius:20px;padding:10px 16px;font-size:15px;font-weight:700;color:var(--navy)}
+.lstep{background:white;border:1.5px solid var(--navy);border-radius:20px;padding:9px 14px;font-size:14px;font-weight:700;color:var(--navy)}
 .larrow{font-size:20px;font-weight:900;color:var(--navy)}
-.loop-back{margin-top:14px;font-size:14px;color:var(--sub);font-weight:700}
+.loop-back{margin-top:14px;font-size:13px;color:var(--sub);font-weight:700}
 
 /* economics */
-table{width:100%;border-collapse:collapse;background:white;border:1px solid var(--rule);margin-top:14px;font-size:15px}
+table{width:100%;border-collapse:collapse;background:white;border:1px solid var(--rule);margin-top:14px;font-size:14px}
 th{background:var(--ink);color:white;text-align:left;padding:11px 14px;font-size:12.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase}
 td{padding:11px 14px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.5;color:var(--ink)}
 tr:last-child td{border-bottom:none}
 .twrap{overflow-x:auto}
 
 /* reference cases — compact */
-.rtable{width:100%;border-collapse:collapse;background:white;border:1px solid var(--rule);margin-top:14px;font-size:14px}
-.rtable th{background:var(--ink);color:white;text-align:left;padding:8px 11px;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;white-space:nowrap}
-.rtable td{padding:8px 11px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.45;color:var(--ink)}
+.rtable{width:100%;border-collapse:collapse;background:white;border:1px solid var(--rule);margin-top:14px;font-size:12.5px}
+.rtable th{background:var(--ink);color:white;text-align:left;padding:7px 9px;font-size:10.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;white-space:nowrap}
+.rtable td{padding:7px 9px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.45;color:var(--ink)}
 .rtable tr:last-child td{border-bottom:none}
 .rtable td.yes{color:var(--green);font-weight:800;white-space:nowrap}
 .rtable td.no{color:var(--tf);font-weight:800;white-space:nowrap}
@@ -92,21 +92,26 @@ tr:last-child td{border-bottom:none}
 .rtable td.tick.x{color:var(--rule)}
 .rtable a{color:var(--tf);text-decoration:none;font-weight:700}
 .rtable a:hover{text-decoration:underline}
-.rlegend{font-size:13.5px;color:var(--ink);line-height:1.75;margin-top:10px;padding:12px 16px;background:var(--tf-ghost);border-radius:6px}
+.rlegend{font-size:13px;color:var(--ink);line-height:1.75;margin-top:10px;padding:12px 16px;background:var(--tf-ghost);border-radius:6px}
 .rlegend b{color:var(--ink)}
+
+/* section conclusion box */
+.concl{font-size:14px;color:var(--ink);margin:14px 0 18px;line-height:1.6;border-radius:8px;padding:16px 20px;border-left:4px solid}
+.concl.green{background:var(--green-bg);border-left-color:var(--green)}
+.concl.amber{background:var(--amber-bg);border-left-color:var(--amber)}
 
 /* growth charts */
 .growth-note{font-size:15px;color:var(--ink);margin:14px 0 18px;line-height:1.6;max-width:820px}
 .growth-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .gcard{background:white;border:1px solid var(--rule);border-top:3px solid var(--green);border-radius:8px;padding:18px 20px}
-.gc-name{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:2px}
+.gc-name{font-size:15px;font-weight:800;color:var(--ink);margin-bottom:2px}
 .gc-unit{font-size:13px;font-weight:600;color:var(--sub)}
 .gc-bars{margin-top:12px;display:flex;flex-direction:column;gap:7px}
 .gc-row{display:grid;grid-template-columns:62px 1fr 84px;align-items:center;gap:8px}
-.gc-label{font-size:13px;color:var(--sub);font-weight:700;text-align:right}
+.gc-label{font-size:12.5px;color:var(--sub);font-weight:700;text-align:right}
 .gc-track{background:var(--tf-ghost);border-radius:3px;height:14px;overflow:hidden}
 .gc-fill{background:var(--green);height:100%;border-radius:3px;min-width:3px}
-.gc-val{font-size:13px;font-weight:800;color:var(--ink)}
+.gc-val{font-size:12.5px;font-weight:800;color:var(--ink)}
 .gc-src{font-size:12.5px;color:var(--sub);margin-top:10px;line-height:1.5}
 .gc-src a{color:var(--tf);text-decoration:none}
 .gc-src a:hover{text-decoration:underline}
@@ -169,8 +174,12 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
         <b>Consumers can't discover</b>
         <p>No fashion-native place to find emerging brands or their own look — just the same mass-market trends.</p>
       </div>
+      <div class="pain-item">
+        <b>Nobody comes back between drops</b>
+        <p>Creator deals and consumer visits are one-off — once a drop ends, nothing brings people back until the next one starts from zero. There's no place to belong to in between.</p>
+      </div>
     </div>
-    <div class="pain-src">Source: terrapresa10_2026_v18 deck, p.2 (Problem)</div>
+    <div class="pain-src">Sources: terrapresa10_2026_v18 deck, p.2 (Problem) · community gap per Referral &amp; Viral research, §04</div>
   </div>
 
   <div class="compare">
@@ -257,51 +266,56 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
 
   <h2 class="sec-h2">Reference cases</h2>
   <div class="rlegend">
-    <b>Scarcity</b> — real limited supply · <b>Urgency</b> — a closing window that forces action now · <b>Pain closed</b> — solves a real, permanent customer problem · <b>Network loop</b> — one user's action recruits the next user.
+    <b>Scarcity</b> — real limited supply · <b>Urgency</b> — a closing window that forces action now · <b>Network loop</b> — one user's action recruits the next user.
   </div>
   <div class="twrap">
   <table class="rtable">
-    <tr><th>Company</th><th>Country</th><th>Founded</th><th>Key mechanism</th><th>Scarcity</th><th>Urgency</th><th>Pain closed</th><th>Network loop</th><th>Sustained</th><th>Risk / why not</th></tr>
+    <tr><th>Company</th><th>Country</th><th>Founded</th><th>What it offers</th><th>Key mechanism</th><th>Scarcity</th><th>Urgency</th><th>Pain it closes</th><th>Network loop</th><th>Sustained</th><th>Risk / why not</th></tr>
 
-    <tr class="grp"><td colspan="10">Fashion &amp; Retail</td></tr>
-    <tr><td><a href="https://patta.nl/" target="_blank" rel="noopener">Patta</a></td><td>Netherlands</td><td>2004</td><td>Real drop scarcity + community</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick x">—</td><td class="yes">Yes</td><td>—</td></tr>
-    <tr><td><a href="https://www.otrium.com/" target="_blank" rel="noopener">Otrium</a></td><td>Netherlands</td><td>2017</td><td>Time-limited access to designer overstock</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick x">—</td><td class="yes">Yes</td><td>—</td></tr>
-    <tr><td><a href="https://company.shopltk.com/" target="_blank" rel="noopener">LTK</a></td><td>USA</td><td>2011</td><td>Creator commission, no scarcity mechanic</td><td class="tick x">—</td><td class="tick x">—</td><td class="tick">✓</td><td class="tick x">—</td><td class="yes">Yes</td><td>No urgency/loop — structurally exposed to being out-innovated</td></tr>
-    <tr><td><a href="https://shopmy.us/" target="_blank" rel="noopener">ShopMy</a></td><td>USA</td><td>2020</td><td>Brand-led referral flywheel, no scarcity mechanic</td><td class="tick x">—</td><td class="tick x">—</td><td class="tick">✓</td><td class="tick">✓</td><td class="yes">Yes</td><td>Same gap as LTK — no scarcity or urgency layer</td></tr>
+    <tr class="grp"><td colspan="11">Fashion &amp; Retail</td></tr>
+    <tr><td><a href="https://patta.nl/" target="_blank" rel="noopener">Patta</a></td><td>Netherlands</td><td>2004</td><td>Streetwear brand + sneaker boutique, known for limited drops</td><td>Real drop scarcity + community</td><td class="tick">✓</td><td class="tick">✓</td><td>No authentic place to buy true limited-run streetwear</td><td class="tick x">—</td><td class="yes">Yes</td><td>—</td></tr>
+    <tr><td><a href="https://www.otrium.com/" target="_blank" rel="noopener">Otrium</a></td><td>Netherlands</td><td>2017</td><td>Off-price marketplace for unsold designer-brand stock</td><td>Time-limited access to designer overstock</td><td class="tick">✓</td><td class="tick">✓</td><td>Designer overstock had no trusted place to sell, at a discount, without the brand's price level collapsing</td><td class="tick x">—</td><td class="yes">Yes</td><td>—</td></tr>
+    <tr><td><a href="https://company.shopltk.com/" target="_blank" rel="noopener">LTK</a></td><td>USA</td><td>2011</td><td>Shoppable-link app for influencer product recommendations</td><td>Creator commission, no scarcity mechanic</td><td class="tick x">—</td><td class="tick x">—</td><td>Creators had no way to earn commission on what their audience bought from their posts</td><td class="tick x">—</td><td class="yes">Yes</td><td>No urgency/loop — structurally exposed to being out-innovated</td></tr>
+    <tr><td><a href="https://shopmy.us/" target="_blank" rel="noopener">ShopMy</a></td><td>USA</td><td>2020</td><td>Creator storefront + brand discovery tool, commission-based</td><td>Brand-led referral flywheel, no scarcity mechanic</td><td class="tick x">—</td><td class="tick x">—</td><td>Same gap as LTK — creators need an easy way to monetize recommendations</td><td class="tick">✓</td><td class="yes">Yes</td><td>Same gap as LTK — no scarcity or urgency layer</td></tr>
 
-    <tr class="grp"><td colspan="10">Community Platforms</td></tr>
-    <tr><td><a href="https://www.skool.com/" target="_blank" rel="noopener">Skool</a></td><td>USA</td><td>2019</td><td>Paid community + course platform, points/levels progression</td><td class="tick x">—</td><td class="tick x">—</td><td class="tick">✓</td><td class="tick">✓</td><td class="yes">Yes</td><td>Bootstrapped, cashflow-positive, ~$26.6M ARR (2025)</td></tr>
-    <tr><td><a href="https://discord.com/" target="_blank" rel="noopener">Discord</a></td><td>USA</td><td>2015</td><td>Per-server invite links — virality built into the product itself</td><td class="tick x">—</td><td class="tick x">—</td><td class="tick">✓</td><td class="tick">✓</td><td class="yes">Yes</td><td>—</td></tr>
+    <tr class="grp"><td colspan="11">Community Platforms</td></tr>
+    <tr><td><a href="https://www.skool.com/" target="_blank" rel="noopener">Skool</a></td><td>USA</td><td>2019</td><td>Paid community + course-hosting platform</td><td>Paid community + course platform, points/levels progression</td><td class="tick x">—</td><td class="tick x">—</td><td>Creators had no single tool to run a paid community — replacing Discord + Teachable + Facebook Groups</td><td class="tick">✓</td><td class="yes">Yes</td><td>Bootstrapped, cashflow-positive, ~$26.6M ARR (2025)</td></tr>
+    <tr><td><a href="https://discord.com/" target="_blank" rel="noopener">Discord</a></td><td>USA</td><td>2015</td><td>Group chat &amp; voice platform, organized into servers</td><td>Per-server invite links — virality built into the product itself</td><td class="tick x">—</td><td class="tick x">—</td><td>No purpose-built home for topic- or interest-based group chat</td><td class="tick">✓</td><td class="yes">Yes</td><td>—</td></tr>
 
-    <tr class="grp"><td colspan="10">Travel</td></tr>
-    <tr><td><a href="https://www.booking.com/" target="_blank" rel="noopener">Booking.com</a></td><td>Netherlands</td><td>1996</td><td>Real-time "rooms left" urgency</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick x">—</td><td class="early">Partial</td><td>CMA found claims false in spot-checks; faces an €8B class action</td></tr>
+    <tr class="grp"><td colspan="11">Travel</td></tr>
+    <tr><td><a href="https://www.booking.com/" target="_blank" rel="noopener">Booking.com</a></td><td>Netherlands</td><td>1996</td><td>Online hotel &amp; travel booking marketplace</td><td>Real-time "rooms left" urgency</td><td class="tick">✓</td><td class="tick">✓</td><td>Booking a hotel abroad meant calling or a travel agent — no direct online booking with confidence</td><td class="tick x">—</td><td class="early">Partial</td><td>CMA found claims false in spot-checks; faces an €8B class action</td></tr>
 
-    <tr class="grp"><td colspan="10">Transport</td></tr>
-    <tr><td><a href="https://www.uber.com/" target="_blank" rel="noopener">Uber</a></td><td>USA</td><td>2009</td><td>Surge pricing — real scarcity, not staged</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick x">—</td><td class="yes">Yes</td><td>Copied industry-wide (airlines, hotels, ticketing) — no reputational risk</td></tr>
+    <tr class="grp"><td colspan="11">Transport</td></tr>
+    <tr><td><a href="https://www.uber.com/" target="_blank" rel="noopener">Uber</a></td><td>USA</td><td>2009</td><td>On-demand ride-hailing app</td><td>Surge pricing — real scarcity, not staged</td><td class="tick">✓</td><td class="tick">✓</td><td>Hailing a taxi was slow, unreliable and cash-only in most cities</td><td class="tick x">—</td><td class="yes">Yes</td><td>Copied industry-wide (airlines, hotels, ticketing) — no reputational risk</td></tr>
 
-    <tr class="grp"><td colspan="10">Fintech</td></tr>
-    <tr><td><a href="https://robinhood.com/" target="_blank" rel="noopener">Robinhood</a></td><td>USA</td><td>2013</td><td>Referral-gated waitlist, no cash reward</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="yes">Yes</td><td>—</td></tr>
+    <tr class="grp"><td colspan="11">Fintech</td></tr>
+    <tr><td><a href="https://robinhood.com/" target="_blank" rel="noopener">Robinhood</a></td><td>USA</td><td>2013</td><td>Commission-free stock &amp; crypto trading app</td><td>Referral-gated waitlist, no cash reward</td><td class="tick">✓</td><td class="tick">✓</td><td>Traditional brokerages charged per-trade fees and required high minimums, locking out small investors</td><td class="tick">✓</td><td class="yes">Yes</td><td>—</td></tr>
 
-    <tr class="grp"><td colspan="10">Dating</td></tr>
-    <tr><td><a href="https://tinder.com/" target="_blank" rel="noopener">Tinder</a></td><td>USA</td><td>2012</td><td>Freemium swipe limits, gamified friction</td><td class="tick">✓</td><td class="tick x">—</td><td class="tick">✓</td><td class="tick x">—</td><td class="yes">Yes</td><td>—</td></tr>
-    <tr><td><a href="https://breeze.social/" target="_blank" rel="noopener">Breeze</a></td><td>Netherlands</td><td>2019</td><td>Daily curated batch + pay-per-date deposit</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick x">—</td><td class="early">Too early</td><td>600,000+ dates organized, still early-stage — not yet proven long-term</td></tr>
+    <tr class="grp"><td colspan="11">Dating</td></tr>
+    <tr><td><a href="https://tinder.com/" target="_blank" rel="noopener">Tinder</a></td><td>USA</td><td>2012</td><td>Swipe-based dating app</td><td>Freemium swipe limits, gamified friction</td><td class="tick">✓</td><td class="tick x">—</td><td>Meeting new people outside existing social circles was slow and awkward</td><td class="tick x">—</td><td class="yes">Yes</td><td>—</td></tr>
+    <tr><td><a href="https://breeze.social/" target="_blank" rel="noopener">Breeze</a></td><td>Netherlands</td><td>2019</td><td>Curated daily-batch dating app, chat removed</td><td>Daily curated batch + pay-per-date deposit</td><td class="tick">✓</td><td class="tick">✓</td><td>Endless swiping and chat led nowhere — no actual dates happened</td><td class="tick x">—</td><td class="early">Too early</td><td>600,000+ dates organized, still early-stage — not yet proven long-term</td></tr>
 
-    <tr class="grp"><td colspan="10">Deals / E-commerce</td></tr>
-    <tr><td><a href="https://www.groupon.com/" target="_blank" rel="noopener">Groupon</a></td><td>USA</td><td>2008</td><td>Time-limited local deals</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick x">—</td><td class="no">No</td><td>Couldn't sustain past novelty phase; pivoted away from the model in 2014</td></tr>
+    <tr class="grp"><td colspan="11">Deals / E-commerce</td></tr>
+    <tr><td><a href="https://www.groupon.com/" target="_blank" rel="noopener">Groupon</a></td><td>USA</td><td>2008</td><td>Daily local-deals marketplace</td><td>Time-limited local deals</td><td class="tick">✓</td><td class="tick">✓</td><td>Small local businesses had no easy way to reach new customers with a promotion</td><td class="tick x">—</td><td class="no">No</td><td>Couldn't sustain past novelty phase; pivoted away from the model in 2014</td></tr>
 
-    <tr class="grp"><td colspan="10">Social Audio</td></tr>
-    <tr><td><a href="https://www.clubhouse.com/" target="_blank" rel="noopener">Clubhouse</a></td><td>USA</td><td>2020</td><td>Invite-only scarcity + celebrity FOMO</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="no">No</td><td>Grew to $4B valuation in ~1 year, then collapsed once the novelty faded and Twitter Spaces copied the format</td></tr>
+    <tr class="grp"><td colspan="11">Social Audio</td></tr>
+    <tr><td><a href="https://www.clubhouse.com/" target="_blank" rel="noopener">Clubhouse</a></td><td>USA</td><td>2020</td><td>Live audio drop-in chat rooms</td><td>Invite-only scarcity + celebrity FOMO</td><td class="tick">✓</td><td class="tick">✓</td><td>No live, low-effort way to have a group conversation without video</td><td class="tick">✓</td><td class="no">No</td><td>Grew to $4B valuation in ~1 year, then collapsed once the novelty faded and Twitter Spaces copied the format</td></tr>
 
-    <tr class="grp"><td colspan="10">Fitness</td></tr>
-    <tr><td><a href="https://www.onepeloton.com/" target="_blank" rel="noopener">Peloton</a></td><td>USA</td><td>2012</td><td>Premium price + community leaderboard</td><td class="tick">✓</td><td class="tick x">—</td><td class="tick">✓</td><td class="tick">✓</td><td class="no">No</td><td>Revenue nearly quadrupled in 2 years (2019–2021), then growth reversed once demand normalized</td></tr>
+    <tr class="grp"><td colspan="11">Fitness</td></tr>
+    <tr><td><a href="https://www.onepeloton.com/" target="_blank" rel="noopener">Peloton</a></td><td>USA</td><td>2012</td><td>Connected fitness bike/treadmill + live classes</td><td>Premium price + community leaderboard</td><td class="tick">✓</td><td class="tick x">—</td><td>Studio classes are expensive and inconvenient; home workouts feel isolating and unmotivating</td><td class="tick">✓</td><td class="no">No</td><td>Revenue nearly quadrupled in 2 years (2019–2021), then growth reversed once demand normalized</td></tr>
 
-    <tr class="grp"><td colspan="10">Edtech</td></tr>
-    <tr><td><a href="https://www.duolingo.com/" target="_blank" rel="noopener">Duolingo</a></td><td>USA</td><td>2011</td><td>Hearts (scarcity) + streak (loss aversion)</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick x">—</td><td class="early">At risk</td><td>Stock fell ~46% in 2025 after an "AI-first" strategy backlash slowed user growth — included because its scarcity/urgency mechanic (hearts + streak) is one of the most durable on record, but it shows even a decade-proven mechanic isn't immune to a new disruption</td></tr>
+    <tr class="grp"><td colspan="11">Edtech</td></tr>
+    <tr><td><a href="https://www.duolingo.com/" target="_blank" rel="noopener">Duolingo</a></td><td>USA</td><td>2011</td><td>Free gamified language-learning app</td><td>Hearts (scarcity) + streak (loss aversion)</td><td class="tick">✓</td><td class="tick">✓</td><td>Language apps had poor completion — people start, then quit within weeks</td><td class="tick x">—</td><td class="early">At risk</td><td>Stock fell ~46% in 2025 after an "AI-first" strategy backlash slowed user growth — included because its scarcity/urgency mechanic (hearts + streak) is one of the most durable on record, but it shows even a decade-proven mechanic isn't immune to a new disruption</td></tr>
   </table>
   </div>
 
+  <div class="pain-box" style="border-left-color:var(--green);margin-top:16px">
+    <h3 style="color:var(--green)">Which pain SMTHG should close</h3>
+    <p style="font-size:15px;color:var(--ink);line-height:1.6">The durable cases above closed a structural, permanent pain — access, trust, cost, or isolation — not just a novelty mechanic. The ones that faded (Groupon, Peloton, Clubhouse) had scarcity or urgency without a permanent pain underneath. SMTHG's version of that structural pain is the combined set in "The pain this closes" above: brand launch risk, affiliate-only lock-out, influencer exclusion, discovery, and — like Discord and Skool — nowhere for people to return to between drops. The Circles model is built to close that full set together, not any single piece alone.</p>
+  </div>
+
   <h2 class="sec-h2">Revenue by year</h2>
-  <div class="growth-note">Actual disclosed company revenue, sourced to SEC filings, investor letters, or named financial press — not GMV, not funding raised, not valuation. Where a company was private for part of its life, those years are simply not public (most startups don't disclose financials pre-IPO) — marked below rather than filled in. Each chart is scaled to that company's own maximum; not comparable company to company.</div>
+  <div class="concl green">Revenue confirms the mechanic drove a real business effect everywhere disclosed data exists — not just attention or press coverage. Uber, Robinhood, Duolingo, Tinder and Otrium show sustained multi-year growth. Groupon, Peloton and Clubhouse show the same thing in reverse: revenue rose sharply on the mechanic, then declined once the novelty faded rather than a permanent pain — the data-backed version of the guardrail above.</div>
   <div class="growth-grid">
 
     <div class="gcard wide">
