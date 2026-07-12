@@ -38,10 +38,12 @@ h1{font-size:clamp(30px,4.4vw,48px);font-weight:900;letter-spacing:-1.5px;margin
 /* the pain */
 .pain-box{margin-top:30px;background:white;border:1px solid var(--rule);border-left:4px solid var(--tf);border-radius:10px;padding:24px 26px}
 .pain-box h3{font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);margin-bottom:14px}
-.pain-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 28px}
+.pain-roles{display:grid;grid-template-columns:repeat(2,1fr);gap:20px 28px}
+.pain-role-label{font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--tf);margin-bottom:8px}
+.pain-role .pain-item{margin-bottom:10px}
+.pain-role .pain-item:last-child{margin-bottom:0}
 .pain-item b{font-size:15px;color:var(--ink);display:block;margin-bottom:4px}
 .pain-item p{font-size:14px;color:var(--ink);line-height:1.55}
-.pain-src{font-size:13px;color:var(--sub);margin-top:16px}
 
 /* pipe vs loop compare */
 .compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:36px}
@@ -133,7 +135,7 @@ tr:last-child td{border-bottom:none}
 
 footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margin-top:60px}
 .footer-inner{max-width:1240px;margin:0 auto;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub)}
-@media(max-width:700px){.pain-grid{grid-template-columns:1fr}}
+@media(max-width:700px){.pain-roles{grid-template-columns:1fr}}
 
 @media(max-width:1000px){.grid5{grid-template-columns:repeat(2,1fr)}.compare{grid-template-columns:1fr}}
 @media(max-width:700px){.wrap{padding:20px 16px 60px}.grid5{grid-template-columns:1fr}}
@@ -155,33 +157,6 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
   <div class="eyebrow">SMTHG Business Model <span class="badge badge-sug">Direction · Not Decided</span></div>
   <h1>The Circles Model</h1>
   <p class="lede">Community-gated drops, not a distribution pipe. Access is gated by referrals, not by follower count — that is the difference between a drop that sells once and a drop that spreads.</p>
-
-  <div class="pain-box">
-    <h3>The pain this closes</h3>
-    <div class="pain-grid">
-      <div class="pain-item">
-        <b>Brands can't launch without risk</b>
-        <p>Producing inventory upfront is expensive, and marketplaces take 25–52% of every sale.</p>
-      </div>
-      <div class="pain-item">
-        <b>Today's platforms are affiliate-only</b>
-        <p>They need product already in stock and charge brands thousands a year upfront — no pre-order, no try-on.</p>
-      </div>
-      <div class="pain-item">
-        <b>The influencers who sell are shut out</b>
-        <p>89.5% of influencers — the nano and micro tiers under 50K whose communities actually buy — don't fit those platforms.</p>
-      </div>
-      <div class="pain-item">
-        <b>Consumers can't discover</b>
-        <p>No fashion-native place to find emerging brands or their own look — just the same mass-market trends.</p>
-      </div>
-      <div class="pain-item">
-        <b>Nobody comes back between drops</b>
-        <p>Creator deals and consumer visits are one-off — once a drop ends, nothing brings people back until the next one starts from zero. There's no place to belong to in between.</p>
-      </div>
-    </div>
-    <div class="pain-src">Sources: terrapresa10_2026_v18 deck, p.2 (Problem) · community gap per Referral &amp; Viral research, §04</div>
-  </div>
 
   <div class="compare">
     <div class="cbox bad">
@@ -229,9 +204,9 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
 
     <div class="comp">
       <div class="cnum">05</div>
-      <h4>Ambassador = Circle host</h4>
-      <p>Ambassadors run their own Circle and host events rather than just posting a link. Revenue share pays out on what their Circle actually converts.</p>
-      <div class="src">Existing economics: 10% GMV commission, 10–20% ambassador reward (tiered)</div>
+      <h4>Influencer = Circle host</h4>
+      <p>Influencers run their own Circle and host events rather than just posting a link. Revenue share pays out on what their Circle actually converts.</p>
+      <div class="src">Existing economics: 10% GMV commission, 10–20% influencer reward (tiered)</div>
     </div>
 
   </div>
@@ -248,21 +223,41 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
     <div class="loop-back">Loop repeats at the next drop — each cycle recruits the next member instead of just selling to the last one.</div>
   </div>
 
+  <div class="pain-box">
+    <h3>The pain this closes — per role</h3>
+    <div class="pain-roles">
+      <div class="pain-role">
+        <div class="pain-role-label">Designers</div>
+        <div class="pain-item"><b>Inventory before demand</b><p>Producing stock upfront is expensive, and marketplaces then take 25–52% of every sale.</p></div>
+        <div class="pain-item"><b>Pay thousands before selling anything</b><p>Existing platforms charge thousands a year upfront and require stock already in place.</p></div>
+      </div>
+      <div class="pain-role">
+        <div class="pain-role-label">Influencers</div>
+        <div class="pain-item"><b>Locked out by minimums</b><p>89.5% of influencers — the nano and micro tiers under 50K whose communities actually buy — don't fit existing platforms.</p></div>
+        <div class="pain-item"><b>Nothing between campaigns</b><p>Creator work is one-off deals — after a campaign ends, nothing brings them back until the next negotiation starts from zero.</p></div>
+      </div>
+      <div class="pain-role">
+        <div class="pain-role-label">Consumers</div>
+        <div class="pain-item"><b>Can't find their own style</b><p>No fashion-native place to discover emerging brands or a personal look — just the same mass-market trends.</p></div>
+        <div class="pain-item"><b>Wearing what everyone wears</b><p>Mass-market supply means nothing bought is theirs alone.</p></div>
+      </div>
+      <div class="pain-role">
+        <div class="pain-role-label">Superfans <span class="badge badge-sug" style="font-size:10.5px;padding:2px 8px;margin-left:4px">Direction · Not decided</span></div>
+        <div class="pain-item"><b>Nowhere to belong between drops</b><p>Once a drop ends, nothing brings the most engaged consumers back until the next one starts from zero — a potential role for consumers the community turns into repeat, higher-status members.</p></div>
+      </div>
+    </div>
+  </div>
+
   <h2 class="sec-h2">Economics carried over</h2>
   <div class="twrap">
   <table>
     <tr><th>Flow</th><th>Rate</th><th>Trigger</th></tr>
     <tr><td>Designer sale (GMV commission)</td><td>10%</td><td>Confirmed pre-order</td></tr>
-    <tr><td>Ambassador reward (Circle host)</td><td>10% standard · 20% Founding Creator</td><td>Sale attributed to their Circle</td></tr>
+    <tr><td>Influencer reward (Circle host)</td><td>10% standard · 20% Founding Creator</td><td>Sale attributed to their Circle</td></tr>
+    <tr><td>Brand platform fee</td><td>$250 onboarding + $500/month</td><td>Per brand joining the platform</td></tr>
+    <tr><td>Consumer community fee <span class="badge badge-sug" style="font-size:10.5px;padding:2px 8px;margin-left:4px">Direction · Not decided</span></td><td>TBD</td><td>Future option — free while active in a Circle, paid if not</td></tr>
   </table>
-  <div style="font-size:13px;color:var(--sub);margin-top:8px">Ambassador = the Circle host from component 05 above. Same person, same existing TF influencer commission — no new role.</div>
-  </div>
-
-  <div class="concl green">What worked across the durable cases: real scarcity or urgency tied to a permanent pain, paired with a loop that recruited the next user — and, where the model was community-based (Skool, Discord), a reason for people to stay between transactions.</div>
-
-  <div class="guard">
-    <h4>What breaks it</h4>
-    <p>Fabricating the scarcity breaks trust the moment it's caught, and tying the mechanic to novelty instead of a permanent pain makes growth reverse once it's copied or the trend fades.</p>
+  <div style="font-size:13px;color:var(--sub);margin-top:8px">Influencer = the Circle host from component 05 above — same person, same existing commission, different job.</div>
   </div>
 
   <h2 class="sec-h2">Reference cases</h2>
@@ -308,11 +303,6 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
     <tr class="grp"><td colspan="11">Edtech</td></tr>
     <tr><td><a href="https://www.duolingo.com/" target="_blank" rel="noopener">Duolingo</a></td><td>USA</td><td>2011</td><td>Free gamified language-learning app</td><td>Hearts (scarcity) + streak (loss aversion)</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick x">—</td><td>Language apps had poor completion — people start, then quit within weeks</td><td class="early">At risk</td><td>Stock fell ~46% in 2025 after an "AI-first" strategy backlash slowed user growth — included because its scarcity/urgency mechanic (hearts + streak) is one of the most durable on record, but it shows even a decade-proven mechanic isn't immune to a new disruption</td></tr>
   </table>
-  </div>
-
-  <div class="pain-box" style="border-left-color:var(--green);margin-top:16px">
-    <h3 style="color:var(--green)">Which pain SMTHG should close</h3>
-    <p style="font-size:15px;color:var(--ink);line-height:1.6">The durable cases above closed a structural, permanent pain — access, trust, cost, or isolation — not just a novelty mechanic. The ones that faded (Groupon, Peloton, Clubhouse) had scarcity or urgency without a permanent pain underneath. SMTHG's version of that structural pain is the combined set in "The pain this closes" above: brand launch risk, affiliate-only lock-out, influencer exclusion, discovery, and — like Discord and Skool — nowhere for people to return to between drops. The Circles model is built to close that full set together, not any single piece alone.</p>
   </div>
 
   <h2 class="sec-h2">Revenue by year</h2>
