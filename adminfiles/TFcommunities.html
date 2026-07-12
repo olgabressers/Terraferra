@@ -6,23 +6,24 @@
 <meta name="robots" content="noindex, nofollow"/>
 <title>Fashion Communities by Audience · SMTHG</title>
 <link rel="icon" type="image/svg+xml" href="smthg_favicon.svg"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --tf:#E8002D;--tf-dark:#B50023;--tf-light:#FEF5F6;--tf-ghost:#F1EEE9;
-  --orange:#E8002D;--off-white:#F8F6F2;--ink:#161616;--sub:#5C5A56;--rule:#E6E2DA;
+  --tf:#E8002D;--tf-ghost:#F1EEE9;
+  --off-white:#F8F6F2;--ink:#161616;--sub:#5C5A56;--rule:#E6E2DA;
+  --green:#1A7A4A;--green-bg:#EDFAF3;
+  --amber:#B45309;--amber-bg:#FEF3C7;
 }
-body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink);line-height:1.6}
+body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink);line-height:1.6;overflow-x:hidden}
 
 /* Nav */
 .topnav{background:white;border-bottom:1px solid var(--rule);padding:12px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
 .topnav-home{font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);text-decoration:none;font-size:11px}
-.topnav-home:hover{color:var(--tf-dark)}
 .topnav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
 .topnav-links a{color:var(--sub);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:10px}
 .topnav-links a:hover{color:var(--tf)}
-.topnav-links a.active{color:var(--orange)}
+.topnav-links a.active{color:var(--tf)}
 .has-dropdown{position:relative;padding-bottom:10px;margin-bottom:-10px}
 .dropdown-trigger{cursor:pointer;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:10px;user-select:none}
 .dropdown-trigger:hover,.has-dropdown:focus-within .dropdown-trigger{color:var(--tf)}
@@ -39,48 +40,39 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
   .dropdown{display:none!important}
 }
 
-/* Header */
-header{padding:48px 60px 0}
-.header-inner{max-width:1240px;margin:0 auto}
-.pg-eyebrow{font-size:10px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--sub);opacity:.6}
-.pg-title{font-size:38px;font-weight:800;letter-spacing:-1.5px;color:var(--tf);margin-top:14px;line-height:1.1}
-.pg-sub{font-size:15px;color:var(--ink);margin-top:12px;max-width:760px;line-height:1.5}
-@media(max-width:700px){header{padding:28px 20px 0}.pg-title{font-size:26px}}
+.wrap{max-width:1240px;margin:0 auto;padding:40px 48px 80px}
+@media(max-width:700px){.wrap{padding:20px 16px 60px}}
 
-main{padding:40px 60px 80px;max-width:1240px;margin:0 auto}
-@media(max-width:700px){main{padding:28px 16px 60px}}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--sub)}
+h1{font-size:clamp(28px,4.2vw,44px);font-weight:900;letter-spacing:-1.5px;margin-top:10px;line-height:1.08;color:var(--ink)}
+.lede{font-size:16px;color:var(--ink);margin-top:14px;max-width:840px;line-height:1.65}
 
-/* Top recommendation box */
-.tf-offer{background:white;border:1px solid var(--rule);border-left:4px solid var(--orange);padding:24px 28px;margin-bottom:44px}
-@media(max-width:700px){.tf-offer{padding:18px 16px}}
-.tf-offer-eyebrow{font-size:20px;font-weight:800;color:var(--tf);margin-bottom:16px}
+.sec-h2{font-size:clamp(19px,2.4vw,24px);font-weight:900;letter-spacing:-.6px;margin:44px 0 14px;color:var(--ink)}
+.sec-note{font-size:14px;color:var(--ink);margin-bottom:14px;max-width:840px;line-height:1.6}
 
-/* Section */
-.sec{margin-bottom:44px}
-.sec-heading{font-size:22px;font-weight:800;color:var(--tf);margin-bottom:6px}
-.sec-heading .num{color:var(--tf)}
-.sec-note{font-size:14px;color:var(--ink);margin-bottom:16px;max-width:800px}
-.conf{font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--sub)}
-.conf.hi{color:var(--ink)}
+.concl{font-size:15px;color:var(--ink);margin:22px 0 8px;line-height:1.65;border-radius:8px;padding:18px 22px;border-left:4px solid}
+.concl.green{background:var(--green-bg);border-left-color:var(--green)}
+.concl.amber{background:var(--amber-bg);border-left-color:var(--amber)}
 
-/* Comparison table */
-.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
-table.ctable{width:100%;border-collapse:collapse;font-size:13px}
-table.ctable th{text-align:left;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);border-bottom:2px solid var(--rule);padding:10px 14px;white-space:nowrap}
-table.ctable td{padding:11px 14px;border-bottom:1px solid var(--rule);vertical-align:top;color:var(--ink);line-height:1.45}
-table.ctable tr:last-child td{border-bottom:none}
-table.ctable td:first-child{font-weight:700;font-size:12.5px;color:var(--ink)}
-table.ctable td.good{color:var(--ink);font-weight:700}
-table.ctable a{color:var(--ink);text-decoration:underline;font-weight:600}
-table.ctable a:hover{color:var(--tf)}
-@media(max-width:700px){table.ctable{font-size:12px}table.ctable th,table.ctable td{padding:8px 10px}}
+/* tables */
+.twrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.rtable{width:100%;border-collapse:collapse;background:white;border:1px solid var(--rule);margin-top:10px;font-size:12.5px}
+.rtable th{background:var(--ink);color:white;text-align:left;padding:9px 12px;font-size:10.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;white-space:nowrap}
+.rtable td{padding:9px 12px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.5;color:var(--ink)}
+.rtable tr:last-child td{border-bottom:none}
+.rtable tr.grp td{background:#EDEAE3;color:var(--ink);font-size:10.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:8px 12px}
+.rtable td.tick{text-align:center;font-weight:800;color:var(--green)}
+.rtable td.tick.x{color:var(--rule)}
+.rtable a{color:var(--ink);text-decoration:underline;font-weight:700}
+.rtable a:hover{color:var(--tf)}
+.rtable td:first-child{font-weight:700}
+@media(max-width:700px){.rtable{font-size:11.5px}.rtable th,.rtable td{padding:7px 9px}}
 
-footer{padding:24px 60px;border-top:1px solid var(--rule);background:white}
+footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margin-top:50px}
 .footer-inner{max-width:1240px;margin:0 auto;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);opacity:.5}
 @media(max-width:700px){footer{padding:16px 20px}}
 
-#back-to-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--tf);color:white;border:1px solid rgba(113,105,212,.5);border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900;transition:background .2s}
-#back-to-top:hover{background:var(--tf-dark)}
+#back-to-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--tf);color:white;border:none;border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900}
 </style>
 </head>
 <body>
@@ -133,198 +125,125 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white}
   </div>
 </nav>
 
-<header>
-  <div class="header-inner">
-    <div class="pg-eyebrow">SMTHG Business Model Research</div>
-    <div class="pg-title">Fashion Communities by Audience</div>
-    <div class="pg-sub">Real fashion communities hosted on general community platforms — Skool, Circle, Mighty Networks, Discord — with what a shared, commerce-connected community can offer that a standalone paid community cannot.</div>
-  </div>
-</header>
+<div class="wrap">
 
-<main>
+  <div class="eyebrow">SMTHG Business Model &amp; GTM · Research</div>
+  <h1>Fashion Communities</h1>
+  <div class="lede">54 real communities and programs across marketplaces, trade bodies, creator/ambassador platforms, loyalty programs, and general community software (Skool, Circle, Mighty Networks, Discord, Patreon, Facebook) — with country, founding year, and disclosed revenue where public.</div>
 
-  <div class="tf-offer">
-    <div class="tf-offer-eyebrow">SMTHG Platform — What's Missing on These Platforms</div>
-    <div class="tbl-wrap">
-      <table class="ctable">
-        <thead>
-          <tr>
-            <th>Platform type</th>
-            <th>What it's built around</th>
-            <th>SMTHG platform</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Paid course/community software (Skool)</td>
-            <td>Small, fragmented communities (1–125 members found), free to $99/month, no built-in commerce or ambassador payouts.</td>
-            <td class="good">Community tied directly to shoppable designer drops, with ambassador revenue share built in.</td>
-          </tr>
-          <tr>
-            <td>Brand-hosted community software (Circle, Mighty Networks)</td>
-            <td>Each brand builds and hosts its own separate community; fashion presence on both is thin.</td>
-            <td class="good">One shared cross-designer community — no per-brand build required.</td>
-          </tr>
-          <tr>
-            <td>Discord</td>
-            <td>Large organic fan communities (one found at ~31,800 members) with no native commerce or ambassador structure.</td>
-            <td class="good">Same scale of community engagement, plus native pre-order and ambassador commission.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  <div class="concl green">The largest fashion communities found on general community platforms are on Discord (up to ~61,000 members) and Facebook (~75,000, press-reported) — both free, both with no commerce or ambassador structure. The paid, purpose-built communities on Skool, Circle and Mighty Networks are small (1–1,200 members) and none connect to a marketplace or span more than one host.</div>
+
+  <h2 class="sec-h2">Criteria comparison — platform types</h2>
+  <div class="sec-note">Assessed against three criteria, not individually sourced facts: whether joining costs nothing, whether buying/selling happens inside the platform, and whether the community spans more than one brand or designer.</div>
+  <div class="twrap">
+    <table class="rtable">
+      <tr><th>Platform type</th><th>Free to join</th><th>Commerce built in</th><th>Spans multiple designers</th><th>Typical scale found</th></tr>
+      <tr><td>Resale marketplaces</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td>2,000 employees–130M+ users</td></tr>
+      <tr><td>Trade / designer support</td><td class="tick x">—</td><td class="tick x">—</td><td class="tick">✓</td><td>Hundreds of members</td></tr>
+      <tr><td>Creator &amp; ambassador platforms</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td>150–1M+ creators</td></tr>
+      <tr><td>Brand ambassador programs</td><td class="tick">✓ (follower-gated)</td><td class="tick">✓</td><td class="tick x">—</td><td>Thousands per program</td></tr>
+      <tr><td>Brand loyalty programs</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick x">—</td><td>Millions per program</td></tr>
+      <tr><td>Skool communities</td><td class="tick x">Free–$99/mo</td><td class="tick x">—</td><td class="tick x">—</td><td>1–1,200 members found</td></tr>
+      <tr><td>Circle communities</td><td class="tick x">Trial–$147/qtr</td><td class="tick x">—</td><td class="tick x">—</td><td>Not disclosed</td></tr>
+      <tr><td>Mighty Networks communities</td><td class="tick x">Free–$29/mo</td><td class="tick x">—</td><td class="tick x">—</td><td>160–500+ members found</td></tr>
+      <tr><td>Discord servers</td><td class="tick">✓</td><td class="tick x">—</td><td class="tick">✓</td><td>Up to ~61,000 members found</td></tr>
+      <tr><td>Patreon fashion creators</td><td class="tick x">From €3/mo</td><td class="tick x">—</td><td class="tick x">—</td><td>200–14,000 members found</td></tr>
+      <tr><td>Facebook groups</td><td class="tick">✓</td><td class="tick x">—</td><td class="tick">✓</td><td>~75,000 (press-reported)</td></tr>
+      <tr style="background:var(--green-bg)"><td><b>SMTHG platform</b></td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td>Pre-launch</td></tr>
+    </table>
   </div>
 
-  <div class="sec">
-    <div class="sec-heading"><span class="num">01</span> Skool</div>
-    <div class="sec-note">Skool hosts many small, cheap-to-free fashion communities — none found above 125 members. One additional listing ("Fashion Growth Circle") could not be verified — its page returned a 404 — and is omitted.</div>
-    <div class="tbl-wrap">
-      <table class="ctable">
-        <thead><tr><th>Community</th><th>Focus</th><th>Price</th><th>Members</th><th>Source</th></tr></thead>
-        <tbody>
-          <tr>
-            <td>The CLO3D System</td>
-            <td>Digital fashion design (CLO3D software) — brief-to-final-render workflow</td>
-            <td>$9/month</td>
-            <td>125</td>
-            <td><a href="https://www.skool.com/digital-fashion-clo3d-6244/about" target="_blank" rel="noopener">skool.com →</a></td>
-          </tr>
-          <tr>
-            <td>Opus Fashion Academy</td>
-            <td>Building and scaling a clothing brand</td>
-            <td>$19/month</td>
-            <td>14</td>
-            <td><a href="https://www.skool.com/opusfashionacademy/about" target="_blank" rel="noopener">skool.com →</a></td>
-          </tr>
-          <tr>
-            <td>The Style Hub</td>
-            <td>Style/fashion self-expression (also covers interior design, travel)</td>
-            <td class="good">Free</td>
-            <td>13</td>
-            <td><a href="https://www.skool.com/the-style-hub-9577/about" target="_blank" rel="noopener">skool.com →</a></td>
-          </tr>
-          <tr>
-            <td>Sustainable Fashion Community</td>
-            <td>Sustainable and secondhand fashion enthusiasts</td>
-            <td class="good">Free</td>
-            <td>11</td>
-            <td><a href="https://www.skool.com/sustainable-fashion-community-7343/about" target="_blank" rel="noopener">skool.com →</a></td>
-          </tr>
-          <tr>
-            <td>The Style Lounge</td>
-            <td>Women's style as self-expression</td>
-            <td>Not shown</td>
-            <td>6</td>
-            <td><a href="https://www.skool.com/the-style-lounge-2345" target="_blank" rel="noopener">skool.com →</a></td>
-          </tr>
-          <tr>
-            <td>Fashion Boutique University</td>
-            <td>Boutique-owner business training (bilingual EN/ES)</td>
-            <td>$99/month</td>
-            <td>4</td>
-            <td><a href="https://www.skool.com/fashion-boutique-university/about" target="_blank" rel="noopener">skool.com →</a></td>
-          </tr>
-          <tr>
-            <td>Elegance Universe.com</td>
-            <td>Fashion enthusiasts plus dropshipping/e-commerce mentorship</td>
-            <td class="good">Free</td>
-            <td>3</td>
-            <td><a href="https://www.skool.com/88-dollars-9922/about" target="_blank" rel="noopener">skool.com →</a></td>
-          </tr>
-          <tr>
-            <td>A Year In Style</td>
-            <td>Midlife women's style, styling tutorials</td>
-            <td>$67/month</td>
-            <td>2</td>
-            <td><a href="https://www.skool.com/a-year-in-style-1121/about" target="_blank" rel="noopener">skool.com →</a></td>
-          </tr>
-          <tr>
-            <td>The Sartorial Society</td>
-            <td>Men's fashion and sartorial confidence coaching</td>
-            <td>$10/month</td>
-            <td>1</td>
-            <td><a href="https://www.skool.com/the-sartorial-society-6444/about" target="_blank" rel="noopener">skool.com →</a></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  <h2 class="sec-h2">Full directory — 54 communities</h2>
+  <div class="sec-note">Country, founding year and revenue apply to companies/platforms — individual creator-run communities (Skool, Discord, Patreon, Circle, Mighty Networks entries) are marked "—" where not applicable. Every name links to its source.</div>
+  <div class="twrap">
+    <table class="rtable">
+      <tr><th>Community</th><th>Country</th><th>Founded</th><th>What it offers</th><th>Price / model</th><th>Scale</th><th>Revenue (disclosed)</th></tr>
+
+      <tr class="grp"><td colspan="7">Resale Marketplaces</td></tr>
+      <tr><td><a href="https://news.depop.com/who-we-are/facts-and-figures/" target="_blank" rel="noopener">Depop</a></td><td>UK</td><td>2011</td><td>Peer-to-peer secondhand fashion marketplace</td><td>Seller fee (rate undisclosed)</td><td>56.3M registered users</td><td>Not disclosed — Etsy reports Depop GMS $788.9M (2024), not revenue</td></tr>
+      <tr><td><a href="https://www.poshmark.com/about" target="_blank" rel="noopener">Poshmark</a></td><td>USA</td><td>2011</td><td>Resale marketplace, social-commerce features</td><td>20% app selling fee</td><td>130M+ members</td><td>$326.0M net revenue (FY2021)</td></tr>
+      <tr><td><a href="https://stockx.com/about/company/" target="_blank" rel="noopener">StockX</a></td><td>USA</td><td>2015</td><td>Bid/ask resale, sneakers/streetwear</td><td>Transaction fee (rate undisclosed)</td><td>200,000+ products, 65M+ lifetime trades</td><td>Not disclosed (&gt;$400M FY2020 est. on $1.8B GMV)</td></tr>
+      <tr><td><a href="https://www.vinted.com/about" target="_blank" rel="noopener">Vinted</a></td><td>Lithuania</td><td>2008</td><td>Second-hand marketplace — clothing, kids, luxury</td><td>0% selling fee</td><td>2,000+ employees</td><td>€596.3M revenue (FY2023, +61%)</td></tr>
+      <tr><td><a href="https://www.garmentory.com/" target="_blank" rel="noopener">Garmentory</a></td><td>USA</td><td>2013</td><td>Curated marketplace, independent designers + boutiques</td><td>Marketplace commission (rate undisclosed)</td><td>3,000+ designers, 1,000+ boutiques</td><td>Not disclosed</td></tr>
+
+      <tr class="grp"><td colspan="7">Trade &amp; Designer Support</td></tr>
+      <tr><td><a href="https://cfda.com/about/" target="_blank" rel="noopener">CFDA</a></td><td>USA</td><td>1962</td><td>Trade association — business development, grants</td><td>Sliding-scale dues (undisclosed)</td><td>300–325+ members</td><td>$1.8M total revenue (IRS Form 990)</td></tr>
+      <tr><td><a href="https://www.britishfashioncouncil.co.uk/BFC-Initiatives/BFC-NEWGEN" target="_blank" rel="noopener">BFC NEWGEN</a></td><td>UK</td><td>1993</td><td>Funding, mentoring, LFW showcasing for emerging talent</td><td>Bursary-funded</td><td>UK · London Fashion Week</td><td>Nonprofit initiative, no revenue</td></tr>
+      <tr><td><a href="https://designcollectiveny.com/about/" target="_blank" rel="noopener">Design Collective NY</a></td><td>USA</td><td>2002</td><td>Curated runway events, PR, wholesale buyer connections</td><td>Not disclosed</td><td>NYC / US market</td><td>Not disclosed</td></tr>
+      <tr><td><a href="https://world-collective.com/" target="_blank" rel="noopener">World Collective</a></td><td>Ireland / USA</td><td>Not stated</td><td>Sourcing platform pooling material/supplier access</td><td>Not disclosed</td><td>500+ material items</td><td>Not disclosed</td></tr>
+
+      <tr class="grp"><td colspan="7">Creator &amp; Ambassador Platforms</td></tr>
+      <tr><td><a href="https://www.fohr.co/for-creators" target="_blank" rel="noopener">Fohr</a></td><td>USA</td><td>2013</td><td>Creator marketing platform, brand-creator matching</td><td>Free to creators</td><td>300,000 creators, $250M paid out</td><td>Not disclosed</td></tr>
+      <tr><td><a href="https://www.aspire.io/platform/creator-marketplace" target="_blank" rel="noopener">Aspire</a></td><td>USA</td><td>2013</td><td>Creator Marketplace, inbound brand-creator matching</td><td>Free, no creator commission</td><td>1M+ creators</td><td>Not disclosed ($24M raised)</td></tr>
+      <tr><td><a href="https://grin.co/" target="_blank" rel="noopener">GRIN</a></td><td>USA</td><td>2014</td><td>Creator management platform for brands</td><td>Free to start</td><td>AI trained on $1B+ partnerships</td><td>Not disclosed ($120M raised)</td></tr>
+      <tr><td><a href="https://www.creator.co/use-cases/for-influencers" target="_blank" rel="noopener">Creator.co</a></td><td>Canada</td><td>2016</td><td>Creator discovery/collaboration, "Circle" community</td><td>Not disclosed</td><td>Creator Ambassadors: 150+</td><td>Not disclosed</td></tr>
+      <tr><td><a href="https://about.fb.com/news/2024/02/creator-marketplace-for-brands-and-creators-to-collaborate-on-instagram/" target="_blank" rel="noopener">Instagram Creator Marketplace</a></td><td>USA (Meta)</td><td>2022 (test)</td><td>Meta's brand-creator matchmaking inside Instagram</td><td>Free (platform feature)</td><td>Expanded to 7+ countries by Feb 2024</td><td>Not broken out from Meta total</td></tr>
+
+      <tr class="grp"><td colspan="7">Brand Ambassador Programs</td></tr>
+      <tr><td><a href="https://investors.revolve.com/news/news-details/2021/REVOLVE-Launches-Brand-Ambassador-Program-Leveraging-in-House-Proprietary-Technology/default.aspx" target="_blank" rel="noopener">REVOLVE + FWRD Ambassador</a></td><td>USA</td><td>2003 (REVOLVE Group); program launched 2021</td><td>Personalized storefronts, follower-tiered incentives</td><td>Cash or shopping credit</td><td>3,000 initial members, 10,000 waitlist</td><td>REVOLVE Group: $1,225.7M net sales (FY2025)</td></tr>
+      <tr><td><a href="https://www.ae.com/us/en/content/aerie-realmakers-community" target="_blank" rel="noopener">Aerie Realmakers</a></td><td>USA</td><td>1977 (American Eagle Outfitters)</td><td>Creator community, content/storytelling</td><td>Affiliate commission + gifted product</td><td>Requires 1,500+ followers</td><td>AEO: $5,496.8M revenue (FY2025)</td></tr>
+      <tr><td><a href="https://blog.prettylittlething.com/how-to-be-a-plt-student-ambassador/" target="_blank" rel="noopener">PrettyLittleThing #ClassOfPLT</a></td><td>UK</td><td>2006 (Boohoo Group)</td><td>University-student ambassador program</td><td>Monthly gifted clothing</td><td>Requires 3,000+ followers, UK-focused</td><td>Boohoo Group: £790.3M revenue (FY25)</td></tr>
+      <tr><td><a href="https://www.fashionnova.com/pages/collab" target="_blank" rel="noopener">Fashion Nova Novababe</a></td><td>USA</td><td>2006</td><td>Content-creator collaboration, #Novababe tag</td><td>Not published</td><td>Not published</td><td>Not disclosed</td></tr>
+      <tr><td><a href="https://us.princesspolly.com/pages/college-ambassador" target="_blank" rel="noopener">Princess Polly College Ambassador</a></td><td>Australia / USA</td><td>2010</td><td>College-student ambassador program</td><td>5% commission, no follower requirement</td><td>US/Canada college students</td><td>Not broken out (A.K.A. Brands: $600.2M FY2025)</td></tr>
+
+      <tr class="grp"><td colspan="7">Brand Loyalty Programs</td></tr>
+      <tr><td><a href="https://www.nike.com/membership" target="_blank" rel="noopener">Nike Membership</a></td><td>USA</td><td>1964</td><td>Member-exclusive products, events, rewards</td><td>Free</td><td>Not published</td><td>Nike Inc: $51.4B revenue (FY2024)</td></tr>
+      <tr><td><a href="https://www.glossier.com/pages/membership" target="_blank" rel="noopener">Glossier G Membership</a></td><td>USA</td><td>2014</td><td>Early access, birthday gifts, event invites</td><td>Free</td><td>US only</td><td>Not disclosed</td></tr>
+      <tr><td><a href="https://www.levistrauss.com/2025/03/31/levis-red-tab-europe/" target="_blank" rel="noopener">Levi's Red Tab</a></td><td>USA</td><td>1853</td><td>Loyalty points, free shipping/returns</td><td>Free</td><td>38M+ members worldwide</td><td>Levi Strauss &amp; Co: $6.4B revenue (FY2024)</td></tr>
+      <tr><td><a href="https://www.prnewswire.com/news-releases/vans-launches-vans-family-loyalty-program-to-deliver-a-brand-new-off-the-wall-customer-experience-300603463.html" target="_blank" rel="noopener">Vans Family</a></td><td>USA</td><td>1966</td><td>Points, contests, custom footwear</td><td>Not published</td><td>Launched Feb 2018</td><td>VF Corp Active segment: $4,061.7M (FY2024, not Vans-specific)</td></tr>
+      <tr><td><a href="https://www.prnewswire.com/news-releases/foot-locker-reimagines-sneaker-shopping-experience-with-flx-rewards-program-relaunch-302180920.html" target="_blank" rel="noopener">Foot Locker FLX Rewards</a></td><td>USA</td><td>1974</td><td>Points, priority sneaker-launch access</td><td>Free, no purchase required</td><td>Relaunched US June 2024</td><td>Foot Locker: $7.98B revenue (FY2024)</td></tr>
+
+      <tr class="grp"><td colspan="7">Skool Communities</td></tr>
+      <tr><td><a href="https://www.skool.com/digital-fashion-clo3d-6244/about" target="_blank" rel="noopener">The CLO3D System</a></td><td>—</td><td>—</td><td>Digital fashion design (CLO3D software)</td><td>$9/month</td><td>125 members</td><td>—</td></tr>
+      <tr><td><a href="https://www.skool.com/sniper-society/about" target="_blank" rel="noopener">Snipe University</a></td><td>—</td><td>—</td><td>Sneaker reselling training/coaching</td><td>$97/mo or $497/yr</td><td>499 members</td><td>—</td></tr>
+      <tr><td><a href="https://www.skool.com/opusfashionacademy/about" target="_blank" rel="noopener">Opus Fashion Academy</a></td><td>—</td><td>—</td><td>Building/scaling a clothing brand</td><td>$19/month</td><td>14 members</td><td>—</td></tr>
+      <tr><td><a href="https://www.skool.com/the-thrift-insider-5093" target="_blank" rel="noopener">The Thrift Insider</a></td><td>—</td><td>—</td><td>Thrifting/secondhand community, hauls, ID help</td><td>Not shown</td><td>~1,200 members</td><td>—</td></tr>
+      <tr><td><a href="https://www.skool.com/the-style-hub-9577/about" target="_blank" rel="noopener">The Style Hub</a></td><td>—</td><td>—</td><td>Style/fashion self-expression</td><td>Free</td><td>13 members</td><td>—</td></tr>
+      <tr><td><a href="https://www.skool.com/sustainable-fashion-community-7343/about" target="_blank" rel="noopener">Sustainable Fashion Community</a></td><td>—</td><td>—</td><td>Sustainable and secondhand fashion enthusiasts</td><td>Free</td><td>11 members</td><td>—</td></tr>
+      <tr><td><a href="https://www.skool.com/clothing-brand-academy-6823/about" target="_blank" rel="noopener">Clothing Brand Academy</a></td><td>—</td><td>—</td><td>Apparel/merch brand-building</td><td>Free</td><td>83 members</td><td>—</td></tr>
+      <tr><td><a href="https://www.skool.com/the-style-lounge-2345" target="_blank" rel="noopener">The Style Lounge</a></td><td>—</td><td>—</td><td>Women's style as self-expression</td><td>Not shown</td><td>6 members</td><td>—</td></tr>
+      <tr><td><a href="https://www.skool.com/fashion-boutique-university/about" target="_blank" rel="noopener">Fashion Boutique University</a></td><td>—</td><td>—</td><td>Boutique-owner business training (EN/ES)</td><td>$99/month</td><td>4 members</td><td>—</td></tr>
+      <tr><td><a href="https://www.skool.com/88-dollars-9922/about" target="_blank" rel="noopener">Elegance Universe.com</a></td><td>—</td><td>—</td><td>Fashion enthusiasts + dropshipping mentorship</td><td>Free</td><td>3 members</td><td>—</td></tr>
+      <tr><td><a href="https://www.skool.com/a-year-in-style-1121/about" target="_blank" rel="noopener">A Year In Style</a></td><td>—</td><td>—</td><td>Midlife women's style, styling tutorials</td><td>$67/month</td><td>2 members</td><td>—</td></tr>
+      <tr><td><a href="https://www.skool.com/the-sartorial-society-6444/about" target="_blank" rel="noopener">The Sartorial Society</a></td><td>—</td><td>—</td><td>Men's fashion, sartorial confidence coaching</td><td>$10/month</td><td>1 member</td><td>—</td></tr>
+      <tr><td><a href="https://www.skool.com/urban-unity-9998/about" target="_blank" rel="noopener">Urban Unity</a></td><td>—</td><td>—</td><td>Clothing brand owners community</td><td>$497/yr</td><td>15 members</td><td>—</td></tr>
+
+      <tr class="grp"><td colspan="7">Discord Servers</td></tr>
+      <tr><td><a href="https://discord.com/servers/fashion-933135815272431677" target="_blank" rel="noopener">FASHION</a></td><td>—</td><td>Jan 2022</td><td>Fashion advice, outfit battles, marketplace, legit checks</td><td>Free</td><td>31,844 members</td><td>—</td></tr>
+      <tr><td><a href="https://discord.com/invite/sneakers" target="_blank" rel="noopener">Sneakers</a></td><td>—</td><td>—</td><td>Sneakerhead release guides, drop discussion</td><td>Free</td><td>61,221 members</td><td>—</td></tr>
+      <tr><td><a href="https://discord.com/invite/hypebeast" target="_blank" rel="noopener">HYPEBEAST</a></td><td>—</td><td>—</td><td>Fashion, streetwear, sneakers, culture</td><td>Free</td><td>28,616 members</td><td>—</td></tr>
+      <tr><td><a href="https://discord.com/invite/sneakernews" target="_blank" rel="noopener">Sneaker News</a></td><td>—</td><td>—</td><td>Official Sneaker News server</td><td>Free</td><td>17,574 members</td><td>—</td></tr>
+      <tr><td><a href="https://discord.com/invite/boxedup" target="_blank" rel="noopener">Boxed Up Sneakers</a></td><td>—</td><td>—</td><td>Sneaker collecting/trading, giveaways</td><td>Free</td><td>16,010 members</td><td>—</td></tr>
+      <tr><td><a href="https://discord.com/invite/streetwearstartup" target="_blank" rel="noopener">Streetwear Startup</a></td><td>—</td><td>—</td><td>Streetwear culture/brand community</td><td>Free</td><td>11,508 members</td><td>—</td></tr>
+      <tr><td><a href="https://discord.com/invite/streetwear" target="_blank" rel="noopener">Streetwear</a></td><td>—</td><td>—</td><td>Runway/streetwear trend chat, fit sharing</td><td>Free</td><td>7,195 members</td><td>—</td></tr>
+      <tr><td><a href="https://discord.com/invite/fashion-npc-982756683250024498" target="_blank" rel="noopener">Fashion Elitists</a></td><td>—</td><td>—</td><td>General fashion community, events</td><td>Free</td><td>4,328 members</td><td>—</td></tr>
+      <tr><td><a href="https://discord.com/invite/eyes-of-fashion-group-902175099690549249" target="_blank" rel="noopener">Eyes of Fashion Group</a></td><td>—</td><td>—</td><td>Art, fashion, technology</td><td>Free</td><td>3,974 members</td><td>—</td></tr>
+      <tr><td><a href="https://discord.com/invite/thrift-store-hauls-933196198716801064" target="_blank" rel="noopener">Thrift Store Hauls</a></td><td>—</td><td>—</td><td>Thrift/garage-sale/flea-market haul showcase</td><td>Free</td><td>1,791 members</td><td>—</td></tr>
+
+      <tr class="grp"><td colspan="7">Circle Communities</td></tr>
+      <tr><td><a href="https://discover.circle.so/products/conscious-fashion-collective" target="_blank" rel="noopener">Conscious Fashion Collective</a></td><td>—</td><td>—</td><td>Sustainable-fashion founder/freelancer mentorship</td><td>$147/quarter</td><td>Not disclosed</td><td>—</td></tr>
+      <tr><td><a href="https://the-style-society.circle.so/" target="_blank" rel="noopener">The Style Society</a></td><td>—</td><td>—</td><td>Personal styling/capsule wardrobe membership</td><td>Free trial; paid tier undisclosed</td><td>Not shown</td><td>—</td></tr>
+
+      <tr class="grp"><td colspan="7">Mighty Networks Communities</td></tr>
+      <tr><td><a href="https://www.mightynetworks.com/case-studies/topstitch-makers" target="_blank" rel="noopener">Topstitch Makers</a></td><td>—</td><td>—</td><td>Garment-sewing community, sewalongs and courses</td><td>$4.99–$29/month</td><td>500+ (search-snippet confidence)</td><td>—</td></tr>
+      <tr><td><a href="https://www.mightynetworks.com/case-studies/leave-your-mark" target="_blank" rel="noopener">Leave Your Mark</a></td><td>—</td><td>—</td><td>Fashion-industry career mentorship</td><td>Free, vetted application</td><td>160 at launch (search-snippet confidence)</td><td>—</td></tr>
+
+      <tr class="grp"><td colspan="7">Patreon Creator Communities</td></tr>
+      <tr><td><a href="https://www.patreon.com/gunnardeatherage" target="_blank" rel="noopener">Gunnar Deatherage</a></td><td>—</td><td>—</td><td>Sewing patterns, fashion, DIY garment content</td><td>From €3/month</td><td>14,057 members</td><td>—</td></tr>
+      <tr><td><a href="https://www.patreon.com/stylingwithkenzie" target="_blank" rel="noopener">stylingwithkenzie</a></td><td>—</td><td>—</td><td>Fashion stylist and wardrobe consultant</td><td>From €9/month</td><td>204 paid members</td><td>—</td></tr>
+
+      <tr class="grp"><td colspan="7">Facebook Groups</td></tr>
+      <tr><td>The Basement</td><td>—</td><td>—</td><td>Streetwear community</td><td>Free</td><td>~75,000 members (press-reported — Facebook blocks direct verification)</td><td>—</td></tr>
+
+    </table>
   </div>
 
-  <div class="sec">
-    <div class="sec-heading"><span class="num">02</span> Circle</div>
-    <div class="sec-note">Circle's own customer-story index lists six featured communities — none fashion-related. One fashion community was found via its public Circle-hosted discovery page.</div>
-    <div class="tbl-wrap">
-      <table class="ctable">
-        <thead><tr><th>Community</th><th>Focus</th><th>Price</th><th>Members</th><th>Source</th></tr></thead>
-        <tbody>
-          <tr>
-            <td>Conscious Fashion Collective</td>
-            <td>Sustainable-fashion founders and freelancers — sourcing/pricing training, directory, networking</td>
-            <td>$147/quarter</td>
-            <td>Not published</td>
-            <td><a href="https://discover.circle.so/products/conscious-fashion-collective" target="_blank" rel="noopener">circle.so →</a></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+  <div class="concl amber">Facebook blocks automated verification of its own pages, so The Basement's member count is sourced from press coverage (Highsnobiety, WWD, Hypebeast, Complex, Dazed), not a fetched page. Two Mighty Networks entries carry the same caveat — their case-study pages redirected on fetch, so the figures shown are corroborated search-result snippets, not directly confirmed.</div>
 
-  <div class="sec">
-    <div class="sec-heading"><span class="num">03</span> Mighty Networks</div>
-    <div class="sec-note">Both cases below are cited only from consistent search-result snippets — the direct case-study pages redirected on fetch, so figures carry lower confidence than the fetched entries above.</div>
-    <div class="tbl-wrap">
-      <table class="ctable">
-        <thead><tr><th>Community</th><th>Focus</th><th>Price</th><th>Members</th><th>Confidence</th><th>Source</th></tr></thead>
-        <tbody>
-          <tr>
-            <td>Topstitch Makers</td>
-            <td>Garment-sewing community — live sewalongs, courses</td>
-            <td>$4.99/month base, $29/month sewalong tier</td>
-            <td>500+</td>
-            <td><span class="conf">Search snippet</span></td>
-            <td><a href="https://www.mightynetworks.com/case-studies/topstitch-makers" target="_blank" rel="noopener">mightynetworks.com →</a></td>
-          </tr>
-          <tr>
-            <td>Leave Your Mark</td>
-            <td>Fashion-industry career mentorship for students/young professionals</td>
-            <td>Free, vetted application</td>
-            <td>160 at launch</td>
-            <td><span class="conf">Search snippet</span></td>
-            <td><a href="https://www.mightynetworks.com/case-studies/leave-your-mark" target="_blank" rel="noopener">mightynetworks.com →</a></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <div class="sec">
-    <div class="sec-heading"><span class="num">04</span> Discord</div>
-    <div class="sec-note">The only platform in this research where a fashion community reached large scale. Two additional servers ("S1N Studios," "Goodnewsdept") surfaced in search results but could not be independently verified — omitted.</div>
-    <div class="tbl-wrap">
-      <table class="ctable">
-        <thead><tr><th>Community</th><th>Focus</th><th>Price</th><th>Members</th><th>Source</th></tr></thead>
-        <tbody>
-          <tr>
-            <td>FASHION</td>
-            <td>Fashion advice, outfit battles, buy/sell marketplace, legit checks. Created Jan 2022.</td>
-            <td class="good">Free</td>
-            <td>31,844 members</td>
-            <td><a href="https://discord.com/servers/fashion-933135815272431677" target="_blank" rel="noopener">discord.com →</a></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <div class="sec">
-    <div class="sec-heading"><span class="num">05</span> Geneva &amp; Discourse</div>
-    <div class="sec-note">No fashion community was independently confirmed on either platform. A claim that several beauty/fashion brands run "homes" on Geneva traces only to a paywalled trade-press article that could not be fetched directly — not reported as fact. No standalone fashion forum built on Discourse was found.</div>
-  </div>
-
-</main>
+</div>
 
 <footer>
-  <div class="footer-inner">Private · noindex · SMTHG Business Model Research</div>
+  <div class="footer-inner">Private · noindex · SMTHG Business Model &amp; GTM · Research</div>
 </footer>
 
 <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">&#8593;</button>
