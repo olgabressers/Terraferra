@@ -18,26 +18,15 @@
 body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink);line-height:1.6;overflow-x:hidden}
 
 /* Nav */
-.topnav{background:white;border-bottom:1px solid var(--rule);padding:12px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
-.topnav-home{font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);text-decoration:none;font-size:11px}
-.topnav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
-.topnav-links a{color:var(--sub);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:10px}
+.topnav{background:white;border-bottom:1px solid var(--rule);padding:14px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
+.topnav-home{font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);text-decoration:none;font-size:13px}
+.topnav-links{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:var(--sub);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:12px}
 .topnav-links a:hover{color:var(--tf)}
-.topnav-links a.active{color:var(--tf)}
-.has-dropdown{position:relative;padding-bottom:10px;margin-bottom:-10px}
-.dropdown-trigger{cursor:pointer;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:10px;user-select:none}
-.dropdown-trigger:hover,.has-dropdown:focus-within .dropdown-trigger{color:var(--tf)}
-.dropdown{display:none;position:absolute;top:100%;right:0;background:white;border:1px solid var(--rule);min-width:220px;box-shadow:0 6px 14px rgba(0,0,0,.08);padding:6px 0;z-index:60}
-.has-dropdown:hover .dropdown,.has-dropdown:focus-within .dropdown{display:block}
-.dropdown a{display:block;padding:9px 16px;font-size:10px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:1px;text-decoration:none}
-.dropdown a:hover{background:var(--tf-ghost);color:var(--tf)}
 @media(max-width:700px){
   .topnav{position:static;padding:10px 14px}
   .topnav-links{gap:8px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:2px;width:100%}
-  .topnav-links a{font-size:9.5px;white-space:nowrap}
-  .dropdown-trigger{font-size:9.5px;white-space:nowrap}
-  .has-dropdown{padding-bottom:0;margin-bottom:0}
-  .dropdown{display:none!important}
+  .topnav-links a{font-size:11px;white-space:nowrap}
 }
 
 .wrap{max-width:1240px;margin:0 auto;padding:40px 48px 80px}
@@ -62,7 +51,6 @@ h1{font-size:clamp(32px,4.6vw,52px);font-weight:900;letter-spacing:-1.5px;margin
 .rtable tr:last-child td{border-bottom:none}
 .rtable tr.grp td{background:#EDEAE3;color:var(--ink);font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:9px 14px}
 .rtable td.tick{text-align:center;font-weight:800;color:var(--green)}
-.rtable td.tick.x{color:var(--sub)}
 .rtable a{color:var(--tf);text-decoration:none;font-weight:700}
 .rtable a:hover{text-decoration:underline}
 .rtable td:first-child{font-weight:700}
@@ -78,50 +66,11 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
 <body>
 
 <nav class="topnav">
-  <a href="index.html" class="topnav-home">SMTHG<span style="color:var(--tf)">.</span></a>
+  <a href="index.html" class="topnav-home">← Admin Hub</a>
   <div class="topnav-links">
-    <a href="index.html">Files</a>
-    <div class="has-dropdown">
-      <span class="dropdown-trigger" tabindex="0">Budget ▾</span>
-      <div class="dropdown">
-        <a href="TFmarketsize.html">Market Size &amp; Opportunity</a>
-        <a href="budget.html">Budget &amp; Sales Scenarios</a>
-      </div>
-    </div>
-    <a href="roles.html">Roles</a>
-    <div class="has-dropdown">
-      <span class="dropdown-trigger" tabindex="0">Business Model ▾</span>
-      <div class="dropdown">
-        <a href="TFbusinessmodel.html">Comparison Matrix</a>
-        <a href="TFaltmodel.html">Alternative Model</a>
-        <a href="TFmvpcosts.html">MVP Scope &amp; Costs</a>
-        <a href="TFgtm.html">GTM</a>
-        <a href="TFwhynow.html">Why Now</a>
-        <a href="TFdropsmarket.html">Drop Market Research</a>
-        <a href="TFunservedmarket.html">Unserved Market</a>
-        <a href="TFreferral.html">Referral &amp; Viral</a>
-        <a href="TFcreatortoken.html">Creator Payments</a>
-        <a href="TFstylists.html">Stylist Layer</a>
-        <a href="TFvisualdiscovery.html">Visual Discovery</a>
-        <a href="TFbrandsworldwide.html">Fashion Brands Worldwide</a>
-        <a href="TFcommunities.html" class="active">Fashion Communities</a>
-      </div>
-    </div>
-    <a href="architecture.html">Architecture &amp; Tools</a>
-    <a href="TFmarketplaces.html">Operations</a>
-    <div class="has-dropdown">
-      <span class="dropdown-trigger" tabindex="0">Ideas ▾</span>
-      <div class="dropdown">
-        <a href="gamification.html">Gamification</a>
-        <a href="ideas.html">Ideas &amp; AI Research</a>
-        <a href="influencer.html">Influencer Selling</a>
-        <a href="strategic-brief.html">Strategic Brief</a>
-      </div>
-    </div>
-    <a href="TFsmthgbrands.html">Brands</a>
-    <a href="TFnewname.html">Design</a>
-    <a href="TFrussia.html">Legal / Tax</a>
-    <a href="task-tracker.html">Planning</a>
+    <a href="TFbusinessmodel.html">Comparison Matrix</a>
+    <a href="TFunservedmarket.html">Unserved Market</a>
+    <a href="TFbrandsworldwide.html">Fashion Brands Worldwide</a>
   </div>
 </nav>
 
@@ -136,22 +85,21 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
   </div>
 
   <h2 class="sec-h2">Criteria comparison — platform types</h2>
-  <div class="sec-note">Assessed against three criteria, not individually sourced facts: whether joining costs nothing, whether buying/selling happens inside the platform, and whether the community spans more than one brand or designer.</div>
   <div class="twrap">
     <table class="rtable">
       <tr><th>Platform type</th><th>Free to join</th><th>Commerce built in</th><th>Spans multiple designers</th><th>Typical scale found</th></tr>
-      <tr><td>Resale marketplaces</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td>2,000 employees–130M+ users</td></tr>
-      <tr><td>Trade / designer support</td><td class="tick x">—</td><td class="tick x">—</td><td class="tick">✓</td><td>Hundreds of members</td></tr>
-      <tr><td>Creator &amp; ambassador platforms</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td>150–1M+ creators</td></tr>
-      <tr><td>Brand ambassador programs</td><td class="tick">✓ (follower-gated)</td><td class="tick">✓</td><td class="tick x">—</td><td>Thousands per program</td></tr>
-      <tr><td>Brand loyalty programs</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick x">—</td><td>Millions per program</td></tr>
-      <tr><td>Skool communities</td><td class="tick x">Free–$99/mo</td><td class="tick x">—</td><td class="tick x">—</td><td>1–1,200 members found</td></tr>
-      <tr><td>Circle communities</td><td class="tick x">Trial–$147/qtr</td><td class="tick x">—</td><td class="tick x">—</td><td>Not disclosed</td></tr>
-      <tr><td>Mighty Networks communities</td><td class="tick x">Free–$29/mo</td><td class="tick x">—</td><td class="tick x">—</td><td>160–500+ members found</td></tr>
-      <tr><td>Discord servers</td><td class="tick">✓</td><td class="tick x">—</td><td class="tick">✓</td><td>Up to ~61,000 members found</td></tr>
-      <tr><td>Patreon fashion creators</td><td class="tick x">From €3/mo</td><td class="tick x">—</td><td class="tick x">—</td><td>200–14,000 members found</td></tr>
-      <tr><td>Facebook groups</td><td class="tick">✓</td><td class="tick x">—</td><td class="tick">✓</td><td>~75,000 (press-reported)</td></tr>
-      <tr style="background:var(--green-bg)"><td><b>SMTHG platform</b></td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td>Pre-launch</td></tr>
+      <tr><td>Skool communities</td><td>Free–$99/month</td><td>No</td><td>No</td><td>1–1,200 members found</td></tr>
+      <tr><td>Discord servers</td><td class="tick">✓ Free</td><td>No</td><td class="tick">✓</td><td>Up to ~61,000 members found</td></tr>
+      <tr><td>Circle communities</td><td>Free trial–$147/quarter</td><td>No</td><td>No</td><td>Not disclosed</td></tr>
+      <tr><td>Mighty Networks communities</td><td>Free–$29/month</td><td>No</td><td>No</td><td>160–500+ members found</td></tr>
+      <tr><td>Patreon fashion creators</td><td>From €3/month</td><td>No</td><td>No</td><td>200–14,000 members found</td></tr>
+      <tr><td>Facebook groups</td><td class="tick">✓ Free</td><td>No</td><td class="tick">✓</td><td>~75,000 (press-reported)</td></tr>
+      <tr><td>Trade / designer support</td><td>Dues or election</td><td>No</td><td class="tick">✓</td><td>Hundreds of members</td></tr>
+      <tr><td>Creator &amp; ambassador platforms</td><td class="tick">✓ Free</td><td class="tick">✓</td><td class="tick">✓</td><td>150–1M+ creators</td></tr>
+      <tr><td>Brand ambassador programs</td><td>Follower-gated</td><td class="tick">✓</td><td>No</td><td>Thousands per program</td></tr>
+      <tr><td>Brand loyalty programs</td><td class="tick">✓ Free</td><td class="tick">✓</td><td>No</td><td>Millions per program</td></tr>
+      <tr><td>Resale marketplaces</td><td class="tick">✓ Free</td><td class="tick">✓</td><td class="tick">✓</td><td>2,000 employees–130M+ users</td></tr>
+      <tr style="background:var(--green-bg)"><td><b>SMTHG platform</b></td><td class="tick">✓ Free</td><td class="tick">✓</td><td class="tick">✓</td><td>Pre-launch</td></tr>
     </table>
   </div>
 
@@ -160,13 +108,6 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
   <div class="twrap">
     <table class="rtable">
       <tr><th>Community</th><th>Country</th><th>Founded</th><th>What it offers</th><th>Price / model</th><th>Scale</th><th>Revenue (disclosed)</th></tr>
-
-      <tr class="grp"><td colspan="7">Resale Marketplaces</td></tr>
-      <tr><td><a href="https://news.depop.com/who-we-are/facts-and-figures/" target="_blank" rel="noopener">Depop</a></td><td>UK</td><td>2011</td><td>Peer-to-peer secondhand fashion marketplace</td><td>Seller fee (rate undisclosed)</td><td>56.3M registered users</td><td>Not disclosed — Etsy reports Depop GMS $788.9M (2024), not revenue</td></tr>
-      <tr><td><a href="https://www.poshmark.com/about" target="_blank" rel="noopener">Poshmark</a></td><td>USA</td><td>2011</td><td>Resale marketplace, social-commerce features</td><td>20% app selling fee</td><td>130M+ members</td><td>$326.0M net revenue (FY2021)</td></tr>
-      <tr><td><a href="https://stockx.com/about/company/" target="_blank" rel="noopener">StockX</a></td><td>USA</td><td>2015</td><td>Bid/ask resale, sneakers/streetwear</td><td>Transaction fee (rate undisclosed)</td><td>200,000+ products, 65M+ lifetime trades</td><td>Not disclosed (&gt;$400M FY2020 est. on $1.8B GMV)</td></tr>
-      <tr><td><a href="https://www.vinted.com/about" target="_blank" rel="noopener">Vinted</a></td><td>Lithuania</td><td>2008</td><td>Second-hand marketplace — clothing, kids, luxury</td><td>0% selling fee</td><td>2,000+ employees</td><td>€596.3M revenue (FY2023, +61%)</td></tr>
-      <tr><td><a href="https://www.garmentory.com/" target="_blank" rel="noopener">Garmentory</a></td><td>USA</td><td>2013</td><td>Curated marketplace, independent designers + boutiques</td><td>Marketplace commission (rate undisclosed)</td><td>3,000+ designers, 1,000+ boutiques</td><td>Not disclosed</td></tr>
 
       <tr class="grp"><td colspan="7">Trade &amp; Designer Support</td></tr>
       <tr><td><a href="https://cfda.com/about/" target="_blank" rel="noopener">CFDA</a></td><td>USA</td><td>1962</td><td>Trade association — business development, grants</td><td>Sliding-scale dues (undisclosed)</td><td>300–325+ members</td><td>$1.8M total revenue (IRS Form 990)</td></tr>
@@ -235,14 +176,16 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
       <tr><td><a href="https://www.patreon.com/stylingwithkenzie" target="_blank" rel="noopener">stylingwithkenzie</a></td><td>—</td><td>—</td><td>Fashion stylist and wardrobe consultant</td><td>From €9/month</td><td>204 paid members</td><td>—</td></tr>
 
       <tr class="grp"><td colspan="7">Facebook Groups</td></tr>
-      <tr><td>The Basement</td><td>—</td><td>—</td><td>Streetwear community</td><td>Free</td><td>~75,000 members (press-reported — Facebook blocks direct verification)</td><td>—</td></tr>
+      <tr><td>The Basement</td><td>—</td><td>—</td><td>Streetwear community</td><td>Free</td><td>~75,000 members (press-reported)</td><td>—</td></tr>
+
+      <tr class="grp"><td colspan="7">Resale Marketplaces</td></tr>
+      <tr><td><a href="https://news.depop.com/who-we-are/facts-and-figures/" target="_blank" rel="noopener">Depop</a></td><td>UK</td><td>2011</td><td>Peer-to-peer secondhand fashion marketplace</td><td>Seller fee (rate undisclosed)</td><td>56.3M registered users</td><td>Not disclosed — Etsy reports Depop GMS $788.9M (2024), not revenue</td></tr>
+      <tr><td><a href="https://www.poshmark.com/about" target="_blank" rel="noopener">Poshmark</a></td><td>USA</td><td>2011</td><td>Resale marketplace, social-commerce features</td><td>20% app selling fee</td><td>130M+ members</td><td>$326.0M net revenue (FY2021)</td></tr>
+      <tr><td><a href="https://stockx.com/about/company/" target="_blank" rel="noopener">StockX</a></td><td>USA</td><td>2015</td><td>Bid/ask resale, sneakers/streetwear</td><td>Transaction fee (rate undisclosed)</td><td>200,000+ products, 65M+ lifetime trades</td><td>Not disclosed (&gt;$400M FY2020 est. on $1.8B GMV)</td></tr>
+      <tr><td><a href="https://www.vinted.com/about" target="_blank" rel="noopener">Vinted</a></td><td>Lithuania</td><td>2008</td><td>Second-hand marketplace — clothing, kids, luxury</td><td>0% selling fee</td><td>2,000+ employees</td><td>€596.3M revenue (FY2023, +61%)</td></tr>
+      <tr><td><a href="https://www.garmentory.com/" target="_blank" rel="noopener">Garmentory</a></td><td>USA</td><td>2013</td><td>Curated marketplace, independent designers + boutiques</td><td>Marketplace commission (rate undisclosed)</td><td>3,000+ designers, 1,000+ boutiques</td><td>Not disclosed</td></tr>
 
     </table>
-  </div>
-
-  <div class="concl amber">
-    <div class="concl-label" style="color:var(--amber)">Sourcing note</div>
-    Facebook blocks automated verification of its own pages, so The Basement's member count is sourced from press coverage (Highsnobiety, WWD, Hypebeast, Complex, Dazed), not a fetched page. Two Mighty Networks entries carry the same caveat — their case-study pages redirected on fetch, so the figures shown are corroborated search-result snippets, not directly confirmed.
   </div>
 
 </div>
