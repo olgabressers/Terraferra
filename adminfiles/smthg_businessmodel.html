@@ -104,6 +104,16 @@ tr:last-child td{border-bottom:none}
 .gc-src a:hover{text-decoration:underline}
 @media(max-width:1000px){.growth-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:700px){.growth-grid{grid-template-columns:1fr}}
+.gcard.wide{grid-column:1/-1}
+.vchart{display:flex;align-items:flex-end;gap:5px;height:110px;margin-top:14px;overflow-x:auto}
+.vcol{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;flex:1;height:100%;min-width:30px}
+.vval{font-size:8px;font-weight:800;color:var(--ink);margin-bottom:3px;white-space:nowrap}
+.vbar{width:100%;max-width:26px;background:var(--green);border-radius:2px 2px 0 0;min-height:2px}
+.vyr{font-size:7.5px;color:var(--sub);margin-top:4px;white-space:nowrap;font-weight:700}
+.gap-note{font-size:10.5px;color:var(--sub);margin-top:10px;font-style:italic}
+.nodata-box{background:white;border:1px solid var(--rule);border-radius:8px;padding:16px 20px;font-size:12.5px;color:var(--ink);line-height:1.8}
+.nodata-box b{color:var(--ink)}
+.nodata-box .flag{color:var(--tf);font-weight:700}
 
 /* guardrail */
 .guard{margin-top:40px;background:var(--amber-bg);border-left:4px solid var(--amber);border-radius:8px;padding:18px 22px}
@@ -263,68 +273,154 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
   </table>
   </div>
 
-  <h2 class="sec-h2">Early growth — how fast each one went viral</h2>
-  <div class="growth-note">Revenue in the first 1–2 years isn't public for most of these — many were private and didn't disclose it. Shown is each company's own earliest disclosed adoption metric (users, downloads, waitlist, or revenue where that's what's available), on its own scale — not comparable company to company, only within each company's own timeline. Booking.com, Patta, Otrium, LTK, ShopMy, Skool, Peloton and Breeze are excluded here — no comparable early-growth curve was found in sourcing.</div>
+  <h2 class="sec-h2">Revenue by year</h2>
+  <div class="growth-note">Actual disclosed company revenue, sourced to SEC filings, investor letters, or named financial press — not GMV, not funding raised, not valuation. Where a company was private for part of its life, those years are simply not public (most startups don't disclose financials pre-IPO) — marked below rather than filled in. Each chart is scaled to that company's own maximum; not comparable company to company.</div>
   <div class="growth-grid">
 
-    <div class="gcard">
-      <div class="gc-name">Duolingo <span class="gc-unit">— registered users</span></div>
-      <div class="gc-bars">
-        <div class="gc-row"><span class="gc-label">2012</span><div class="gc-track"><div class="gc-fill" style="width:4%"></div></div><span class="gc-val">1M</span></div>
-        <div class="gc-row"><span class="gc-label">Jul '13</span><div class="gc-track"><div class="gc-fill" style="width:20%"></div></div><span class="gc-val">5M</span></div>
-        <div class="gc-row"><span class="gc-label">Late '13</span><div class="gc-track"><div class="gc-fill" style="width:60%"></div></div><span class="gc-val">15M</span></div>
-        <div class="gc-row"><span class="gc-label">Feb '14</span><div class="gc-track"><div class="gc-fill" style="width:100%"></div></div><span class="gc-val">25M</span></div>
+    <div class="gcard wide">
+      <div class="gc-name">Uber <span class="gc-unit">— annual revenue, $B</span></div>
+      <div class="vchart">
+        <div class="vcol"><span class="vval">$0.5</span><div class="vbar" style="height:2%"></div><span class="vyr">'14</span></div>
+        <div class="vcol"><span class="vval">$2.0</span><div class="vbar" style="height:4%"></div><span class="vyr">'15</span></div>
+        <div class="vcol"><span class="vval">$3.8</span><div class="vbar" style="height:7%"></div><span class="vyr">'16</span></div>
+        <div class="vcol"><span class="vval">$7.9</span><div class="vbar" style="height:15%"></div><span class="vyr">'17</span></div>
+        <div class="vcol"><span class="vval">$11.3</span><div class="vbar" style="height:22%"></div><span class="vyr">'18</span></div>
+        <div class="vcol"><span class="vval">$14.1</span><div class="vbar" style="height:27%"></div><span class="vyr">'19</span></div>
+        <div class="vcol"><span class="vval">$11.1</span><div class="vbar" style="height:21%"></div><span class="vyr">'20</span></div>
+        <div class="vcol"><span class="vval">$17.5</span><div class="vbar" style="height:34%"></div><span class="vyr">'21</span></div>
+        <div class="vcol"><span class="vval">$31.9</span><div class="vbar" style="height:61%"></div><span class="vyr">'22</span></div>
+        <div class="vcol"><span class="vval">$37.3</span><div class="vbar" style="height:72%"></div><span class="vyr">'23</span></div>
+        <div class="vcol"><span class="vval">$44.0</span><div class="vbar" style="height:85%"></div><span class="vyr">'24</span></div>
+        <div class="vcol"><span class="vval">$52.0</span><div class="vbar" style="height:100%"></div><span class="vyr">'25</span></div>
       </div>
-      <div class="gc-src">1M users in year 1 to 25M registered in ~2 years</div>
+      <div class="gc-src">Founded 2009; 2009–2013 never disclosed (2019 S-1 begins at FY2014). 2019 later restated to $13.0B for comparability. — <a href="https://www.sec.gov/Archives/edgar/data/1543151/000119312519103850/d647752ds1.htm" target="_blank" rel="noopener">Uber S-1</a>, <a href="https://investor.uber.com/news-events/news/press-release-details/2026/Uber-Announces-Results-for-Fourth-Quarter-and-Full-Year-2025/default.aspx" target="_blank" rel="noopener">FY2025 release</a></div>
+    </div>
+
+    <div class="gcard wide">
+      <div class="gc-name">Groupon <span class="gc-unit">— annual revenue, $B</span></div>
+      <div class="vchart">
+        <div class="vcol"><span class="vval">$0.01</span><div class="vbar" style="height:1%"></div><span class="vyr">'09</span></div>
+        <div class="vcol"><span class="vval">$0.31</span><div class="vbar" style="height:10%"></div><span class="vyr">'10</span></div>
+        <div class="vcol"><span class="vval">$1.61</span><div class="vbar" style="height:51%"></div><span class="vyr">'11</span></div>
+        <div class="vcol"><span class="vval">$2.33</span><div class="vbar" style="height:73%"></div><span class="vyr">'12</span></div>
+        <div class="vcol"><span class="vval">$2.57</span><div class="vbar" style="height:81%"></div><span class="vyr">'13</span></div>
+        <div class="vcol"><span class="vval">$3.19</span><div class="vbar" style="height:100%"></div><span class="vyr">'14</span></div>
+        <div class="vcol"><span class="vval">$3.12</span><div class="vbar" style="height:98%"></div><span class="vyr">'15</span></div>
+        <div class="vcol"><span class="vval">$3.01</span><div class="vbar" style="height:94%"></div><span class="vyr">'16</span></div>
+        <div class="vcol"><span class="vval">$2.84</span><div class="vbar" style="height:89%"></div><span class="vyr">'17</span></div>
+        <div class="vcol"><span class="vval">$2.64</span><div class="vbar" style="height:83%"></div><span class="vyr">'18</span></div>
+        <div class="vcol"><span class="vval">$2.20</span><div class="vbar" style="height:69%"></div><span class="vyr">'19</span></div>
+        <div class="vcol"><span class="vval">$1.40</span><div class="vbar" style="height:44%"></div><span class="vyr">'20</span></div>
+        <div class="vcol"><span class="vval">$0.97</span><div class="vbar" style="height:30%"></div><span class="vyr">'21</span></div>
+        <div class="vcol"><span class="vval">$0.60</span><div class="vbar" style="height:19%"></div><span class="vyr">'22</span></div>
+        <div class="vcol"><span class="vval">$0.51</span><div class="vbar" style="height:16%"></div><span class="vyr">'23</span></div>
+        <div class="vcol"><span class="vval">$0.49</span><div class="vbar" style="height:15%"></div><span class="vyr">'24</span></div>
+        <div class="vcol"><span class="vval">$0.50</span><div class="vbar" style="height:16%"></div><span class="vyr">'25</span></div>
+      </div>
+      <div class="gc-src">Founded 2008. Peaked at $3.19B in 2014, six years post-launch, then declined every year since — the clearest "didn't sustain" curve in this set. — <a href="https://www.sec.gov/Archives/edgar/data/0001490281/000149028115000014/groupon201410-k.htm" target="_blank" rel="noopener">FY2014 10-K</a>, <a href="https://investor.groupon.com/press-releases/press-release-details/2026/Groupon-Reports-Fourth-Quarter-and-Fiscal-Year-2025-Results/default.aspx" target="_blank" rel="noopener">FY2025 results</a></div>
+    </div>
+
+    <div class="gcard wide">
+      <div class="gc-name">Peloton <span class="gc-unit">— annual revenue, $B (fiscal year)</span></div>
+      <div class="vchart">
+        <div class="vcol"><span class="vval">$0.22</span><div class="vbar" style="height:5%"></div><span class="vyr">FY17</span></div>
+        <div class="vcol"><span class="vval">$0.44</span><div class="vbar" style="height:11%"></div><span class="vyr">FY18</span></div>
+        <div class="vcol"><span class="vval">$0.92</span><div class="vbar" style="height:23%"></div><span class="vyr">FY19</span></div>
+        <div class="vcol"><span class="vval">$1.83</span><div class="vbar" style="height:45%"></div><span class="vyr">FY20</span></div>
+        <div class="vcol"><span class="vval">$4.02</span><div class="vbar" style="height:100%"></div><span class="vyr">FY21</span></div>
+        <div class="vcol"><span class="vval">$3.58</span><div class="vbar" style="height:89%"></div><span class="vyr">FY22</span></div>
+        <div class="vcol"><span class="vval">$2.80</span><div class="vbar" style="height:70%"></div><span class="vyr">FY23</span></div>
+        <div class="vcol"><span class="vval">$2.70</span><div class="vbar" style="height:67%"></div><span class="vyr">FY24</span></div>
+        <div class="vcol"><span class="vval">$2.49</span><div class="vbar" style="height:62%"></div><span class="vyr">FY25</span></div>
+      </div>
+      <div class="gc-src">Founded 2012; FY2012–2016 never disclosed (2019 S-1 begins at FY2017). Peaked FY2021, declined every year since. — <a href="https://www.cnbc.com/2019/08/27/peloton-reveals-its-financials-for-the-first-time-in-filing-to-go-public.html" target="_blank" rel="noopener">Peloton S-1 coverage</a></div>
     </div>
 
     <div class="gcard">
-      <div class="gc-name">Discord <span class="gc-unit">— monthly active users</span></div>
-      <div class="gc-bars">
-        <div class="gc-row"><span class="gc-label">Dec '15</span><div class="gc-track"><div class="gc-fill" style="width:1%"></div></div><span class="gc-val">2K</span></div>
-        <div class="gc-row"><span class="gc-label">Jan '16</span><div class="gc-track"><div class="gc-fill" style="width:1%"></div></div><span class="gc-val">20K</span></div>
-        <div class="gc-row"><span class="gc-label">2017</span><div class="gc-track"><div class="gc-fill" style="width:19%"></div></div><span class="gc-val">25M</span></div>
-        <div class="gc-row"><span class="gc-label">2018</span><div class="gc-track"><div class="gc-fill" style="width:100%"></div></div><span class="gc-val">130M</span></div>
+      <div class="gc-name">Duolingo <span class="gc-unit">— annual revenue, $M</span></div>
+      <div class="vchart">
+        <div class="vcol"><span class="vval">$71</span><div class="vbar" style="height:7%"></div><span class="vyr">'19</span></div>
+        <div class="vcol"><span class="vval">$162</span><div class="vbar" style="height:16%"></div><span class="vyr">'20</span></div>
+        <div class="vcol"><span class="vval">$251</span><div class="vbar" style="height:24%"></div><span class="vyr">'21</span></div>
+        <div class="vcol"><span class="vval">$370</span><div class="vbar" style="height:36%"></div><span class="vyr">'22</span></div>
+        <div class="vcol"><span class="vval">$531</span><div class="vbar" style="height:51%"></div><span class="vyr">'23</span></div>
+        <div class="vcol"><span class="vval">$748</span><div class="vbar" style="height:72%"></div><span class="vyr">'24</span></div>
+        <div class="vcol"><span class="vval">~$1,040</span><div class="vbar" style="height:100%"></div><span class="vyr">'25</span></div>
       </div>
-      <div class="gc-src">2,000 users after a single viral Reddit post to 130M MAU in 3 years</div>
+      <div class="gc-src">Founded 2011; 2011–2018 never disclosed. Revenue is still growing every year — the "at risk" note in the table above is about 2025 user-growth deceleration and stock price, not revenue. — <a href="https://www.sec.gov/Archives/edgar/data/1562088/000162828021013065/duolingos-1.htm" target="_blank" rel="noopener">Duolingo S-1</a></div>
     </div>
 
     <div class="gcard">
-      <div class="gc-name">Tinder <span class="gc-unit">— downloads</span></div>
-      <div class="gc-bars">
-        <div class="gc-row"><span class="gc-label">Sep '12</span><div class="gc-track"><div class="gc-fill" style="width:2%"></div></div><span class="gc-val">Launch</span></div>
-        <div class="gc-row"><span class="gc-label">Early '13</span><div class="gc-track"><div class="gc-fill" style="width:100%"></div></div><span class="gc-val">10M</span></div>
+      <div class="gc-name">Robinhood <span class="gc-unit">— annual revenue, $M</span></div>
+      <div class="vchart">
+        <div class="vcol"><span class="vval">$278</span><div class="vbar" style="height:6%"></div><span class="vyr">'19</span></div>
+        <div class="vcol"><span class="vval">$959</span><div class="vbar" style="height:21%"></div><span class="vyr">'20</span></div>
+        <div class="vcol"><span class="vval">$1,815</span><div class="vbar" style="height:41%"></div><span class="vyr">'21</span></div>
+        <div class="vcol"><span class="vval">$1,358</span><div class="vbar" style="height:30%"></div><span class="vyr">'22</span></div>
+        <div class="vcol"><span class="vval">$1,865</span><div class="vbar" style="height:42%"></div><span class="vyr">'23</span></div>
+        <div class="vcol"><span class="vval">$2,951</span><div class="vbar" style="height:66%"></div><span class="vyr">'24</span></div>
+        <div class="vcol"><span class="vval">$4,473</span><div class="vbar" style="height:100%"></div><span class="vyr">'25</span></div>
       </div>
-      <div class="gc-src">10M downloads within months, via campus-party growth hack</div>
+      <div class="gc-src">Founded 2013, app live 2015; 2015–2018 never disclosed (S-1 begins at FY2019). — <a href="https://www.sec.gov/Archives/edgar/data/1783879/000162828021015656/robinhoodresales-1.htm" target="_blank" rel="noopener">Robinhood S-1/A</a></div>
     </div>
 
     <div class="gcard">
-      <div class="gc-name">Groupon <span class="gc-unit">— monthly US revenue</span></div>
-      <div class="gc-bars">
-        <div class="gc-row"><span class="gc-label">Jan '10</span><div class="gc-track"><div class="gc-fill" style="width:12%"></div></div><span class="gc-val">$11M</span></div>
-        <div class="gc-row"><span class="gc-label">Jan '11</span><div class="gc-track"><div class="gc-fill" style="width:100%"></div></div><span class="gc-val">$89M</span></div>
+      <div class="gc-name">Tinder <span class="gc-unit">— annual revenue, $M</span></div>
+      <div class="vchart">
+        <div class="vcol"><span class="vval">$403</span><div class="vbar" style="height:21%"></div><span class="vyr">'17</span></div>
+        <div class="vcol"><span class="vval">$805</span><div class="vbar" style="height:41%"></div><span class="vyr">'18</span></div>
+        <div class="vcol"><span class="vval">~$1,175</span><div class="vbar" style="height:61%"></div><span class="vyr">'19</span></div>
+        <div class="vcol"><span class="vval">~$1,350</span><div class="vbar" style="height:70%"></div><span class="vyr">'20</span></div>
+        <div class="vcol"><span class="vval">$1,650</span><div class="vbar" style="height:85%"></div><span class="vyr">'21</span></div>
+        <div class="vcol"><span class="vval">$1,795</span><div class="vbar" style="height:92%"></div><span class="vyr">'22</span></div>
+        <div class="vcol"><span class="vval">$1,918</span><div class="vbar" style="height:99%"></div><span class="vyr">'23</span></div>
+        <div class="vcol"><span class="vval">$1,941</span><div class="vbar" style="height:100%"></div><span class="vyr">'24</span></div>
       </div>
-      <div class="gc-src">8x monthly revenue in 13 months — fastest company to $1B valuation at the time</div>
+      <div class="gc-src">Launched 2012; owner Match Group only began disclosing Tinder as its own segment from 2017. Growth has nearly flattened since 2022. — <a href="https://www.prnewswire.com/news-releases/match-group-announces-fourth-quarter-and-full-year-results-302368094.html" target="_blank" rel="noopener">Match Group FY2024 release</a></div>
     </div>
 
     <div class="gcard">
-      <div class="gc-name">Robinhood <span class="gc-unit">— users</span></div>
-      <div class="gc-bars">
-        <div class="gc-row"><span class="gc-label">Pre-launch</span><div class="gc-track"><div class="gc-fill" style="width:17%"></div></div><span class="gc-val">1M waitlist</span></div>
-        <div class="gc-row"><span class="gc-label">+2 yrs</span><div class="gc-track"><div class="gc-fill" style="width:100%"></div></div><span class="gc-val">6M</span></div>
+      <div class="gc-name">Discord <span class="gc-unit">— annual revenue, $M</span></div>
+      <div class="vchart">
+        <div class="vcol"><span class="vval">$45</span><div class="vbar" style="height:10%"></div><span class="vyr">'19</span></div>
+        <div class="vcol"><span class="vval">$130</span><div class="vbar" style="height:29%"></div><span class="vyr">'20</span></div>
+        <div class="vcol"><span class="vval">~$310</span><div class="vbar" style="height:70%"></div><span class="vyr">'21</span></div>
+        <div class="vcol"><span class="vval">$445</span><div class="vbar" style="height:100%"></div><span class="vyr">'22</span></div>
       </div>
-      <div class="gc-src">1M-person waitlist before launch, referral-driven, $0 ad spend</div>
+      <div class="gap-note">Founded 2015; 2015–2018 not disclosed. 2023–2025 excluded — only conflicting, unattributed aggregator estimates exist ($561M–$1.1B, no primary source). Discord confidentially filed for a possible IPO in Jan 2026 — real 2023–2025 figures should become public then.</div>
     </div>
 
     <div class="gcard">
-      <div class="gc-name">Clubhouse <span class="gc-unit">— users</span></div>
-      <div class="gc-bars">
-        <div class="gc-row"><span class="gc-label">Dec '20</span><div class="gc-track"><div class="gc-fill" style="width:6%"></div></div><span class="gc-val">600K</span></div>
-        <div class="gc-row"><span class="gc-label">Feb '21</span><div class="gc-track"><div class="gc-fill" style="width:100%"></div></div><span class="gc-val">10M/wk</span></div>
+      <div class="gc-name">Otrium <span class="gc-unit">— annual revenue, €M</span></div>
+      <div class="vchart">
+        <div class="vcol"><span class="vval">€34.1</span><div class="vbar" style="height:69%"></div><span class="vyr">'22</span></div>
+        <div class="vcol"><span class="vval">€49.1</span><div class="vbar" style="height:100%"></div><span class="vyr">'23</span></div>
+        <div class="vcol"><span class="vval">~€44</span><div class="vbar" style="height:90%"></div><span class="vyr">'24</span></div>
+        <div class="vcol"><span class="vval">€43</span><div class="vbar" style="height:88%"></div><span class="vyr">'25</span></div>
       </div>
-      <div class="gc-src">600K → 10M weekly users in 2 months — then collapsed once scarcity lifted (see table)</div>
+      <div class="gap-note">Founded 2017; 2017–2021 not disclosed (press cited growth rates without a euro base figure). Revenue peaked 2023 and has declined since.</div>
     </div>
 
+    <div class="gcard">
+      <div class="gc-name">ShopMy <span class="gc-unit">— annual revenue</span></div>
+      <div class="vchart">
+        <div class="vcol"><span class="vval">$4M</span><div class="vbar" style="height:100%"></div><span class="vyr">'23</span></div>
+      </div>
+      <div class="gap-note">Founded 2020; 2020–2022 not disclosed. 2024 reported "+650% YoY," 2025 "+~200% YoY" (both company-confirmed growth rates, but no dollar figure given — not converting a rate to a dollar figure ourselves, that would be estimating, not reporting).</div>
+    </div>
+
+  </div>
+
+  <h3 style="font-size:15px;font-weight:800;margin:26px 0 10px;color:var(--ink)">Booking.com — earliest years, not a revenue chart</h3>
+  <div class="nodata-box">No dollar figures are publicly available for 1996–2008 (Booking.com/Bookings.nl was private, then part of Priceline's international segment without a clean standalone breakout) — so this is a timeline, not a bar chart, to avoid implying precision that doesn't exist. Launched Nov 1996 as Bookings.nl, Amsterdam, grew slowly through hotel partnerships. <span class="flag">2003</span> — Google AdWords launches; Bookings.nl becomes one of Google's largest advertisers almost overnight, "the moment the business really started flying." 2005 — acquired by Priceline for $133M (acquisition price, not revenue). Priceline Group's international segment (largely Booking.com) then grew into the multi-billion-dollar business it is today.</div>
+
+  <h3 style="font-size:15px;font-weight:800;margin:26px 0 10px;color:var(--ink)">No public revenue disclosed at all</h3>
+  <div class="nodata-box">
+    <b>Patta</b> (2004) — never published financials; third-party estimator sites disagree by 5–6x on the same year, so excluded rather than picked.<br/>
+    <b>LTK</b> (2011) — privately held; only platform GMV (~$6B) is disclosed, not LTK's own revenue.<br/>
+    <b>Skool</b> (2019) — the widely-repeated "$26.6M ARR (2025)" figure is GetLatka's own unverified estimate, not a company disclosure — GetLatka's page states this explicitly.<br/>
+    <b>Breeze</b> (2019) — privately held; only one seed round (€1.3M, Nov 2022) is disclosed, no revenue.<br/>
+    <b>Clubhouse</b> (2020) — never filed for an IPO, never disclosed revenue. <span class="flag">Note:</span> a "$4.2M (2021)" figure circulating online belongs to an unrelated SEC-listed company, "Clubhouse Media Group, Inc." — not this app. Excluded to avoid the mix-up.
   </div>
 
 </div>
