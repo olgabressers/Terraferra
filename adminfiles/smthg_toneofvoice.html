@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Tone of Voice · SMTHG</title>
+<link rel="icon" type="image/svg+xml" href="smthg_favicon.svg"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --tf:#E8002D;--tf-ghost:#F1EEE9;
+  --off-white:#F8F6F2;--ink:#161616;--sub:#5C5A56;--rule:#E6E2DA;
+  --green:#1A7A4A;--green-bg:#EDFAF3;
+  --amber:#B45309;--amber-bg:#FEF3C7;
+  --navy:#1D2B3A;--navy-bg:#EAF0F6;
+}
+body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink);overflow-x:hidden}
+
+.topnav{background:white;border-bottom:1px solid var(--rule);padding:14px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
+.topnav-home{font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);text-decoration:none;font-size:13px}
+.topnav-links{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:var(--sub);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:12px}
+.topnav-links a:hover{color:var(--tf)}
+@media(max-width:700px){.topnav{position:static;padding:10px 14px}.topnav-links{gap:8px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%}.topnav-links a{font-size:11px;white-space:nowrap}}
+
+.wrap{max-width:1240px;margin:0 auto;padding:40px 48px 80px}
+
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--sub);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.badge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:11.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;white-space:nowrap}
+.badge-sug{background:var(--amber-bg);color:var(--amber);border:1px dashed var(--amber)}
+
+h1{font-size:clamp(30px,4.4vw,48px);font-weight:900;letter-spacing:-1.5px;margin-top:12px;line-height:1.08}
+.lede{font-size:17px;color:var(--ink);margin-top:14px;max-width:820px;line-height:1.65}
+
+.sec-h2{font-size:clamp(20px,2.6vw,27px);font-weight:900;letter-spacing:-.8px;margin:52px 0 18px}
+
+/* section conclusion box */
+.concl{font-size:15px;color:var(--ink);margin:14px 0 18px;line-height:1.65;border-radius:8px;padding:18px 22px;border-left:4px solid}
+.concl.green{background:var(--green-bg);border-left-color:var(--green)}
+.concl.amber{background:var(--amber-bg);border-left-color:var(--amber)}
+.concl .src{display:block;margin-top:8px;font-size:12.5px;color:var(--sub)}
+.concl .src a{color:var(--tf);text-decoration:none}
+.concl .src a:hover{text-decoration:underline}
+
+/* dimension cards */
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.comp{background:white;border:1px solid var(--rule);border-top:3px solid var(--ink);border-radius:10px;padding:18px 16px;display:flex;flex-direction:column}
+.comp h4{font-size:15px;font-weight:800;line-height:1.25;margin-bottom:10px}
+.comp p{font-size:13.5px;color:var(--ink);line-height:1.55;flex:1}
+.comp .src{font-size:12.5px;color:var(--sub);margin-top:10px;line-height:1.45}
+.comp .src a{color:var(--tf);text-decoration:none}
+.comp .src a:hover{text-decoration:underline}
+
+/* slider */
+.sliders{margin-top:16px;display:flex;flex-direction:column;gap:16px}
+.slider-row{display:grid;grid-template-columns:130px 1fr 130px;align-items:center;gap:12px}
+.slider-end{font-size:12.5px;font-weight:800;color:var(--ink);text-transform:uppercase;letter-spacing:.5px}
+.slider-end.right{text-align:right}
+.slider-track{position:relative;height:8px;background:var(--tf-ghost);border-radius:4px}
+.slider-dot{position:absolute;top:50%;width:18px;height:18px;background:var(--tf);border:3px solid white;border-radius:50%;transform:translate(-50%,-50%);box-shadow:0 0 0 1px var(--rule)}
+.slider-note{grid-column:1/-1;font-size:13px;color:var(--ink);line-height:1.5;margin-top:-4px}
+
+/* pipe vs loop style compare, reused for do/dont */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px}
+.cbox{border-radius:16px;padding:20px 22px;border:2px solid var(--ink)}
+.cbox.bad{background:white}
+.cbox.good{background:var(--green-bg);border-color:var(--green)}
+.cbox h3{font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.cbox.bad h3{color:var(--sub)}
+.cbox.good h3{color:var(--green)}
+.cbox .line{font-size:16px;font-weight:700;line-height:1.5;font-style:italic}
+.cbox p.note{font-size:13.5px;color:var(--ink);margin-top:12px;line-height:1.6;font-style:normal}
+
+/* tables */
+table{width:100%;border-collapse:collapse;background:white;border:1px solid var(--rule);margin-top:14px;font-size:14px}
+th{background:var(--ink);color:white;text-align:left;padding:11px 14px;font-size:12.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase}
+td{padding:11px 14px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.5;color:var(--ink)}
+tr:last-child td{border-bottom:none}
+.twrap{overflow-x:auto}
+table a{color:var(--tf);text-decoration:none;font-weight:600}
+table a:hover{text-decoration:underline}
+
+/* guardrail */
+.guard{margin-top:16px;background:var(--amber-bg);border-left:4px solid var(--amber);border-radius:8px;padding:20px 24px}
+.guard h4{font-size:14px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--amber);margin-bottom:10px}
+.guard ul{padding-left:20px;font-size:15px;line-height:1.7;color:var(--ink)}
+.guard p{font-size:15px;line-height:1.7;color:var(--ink)}
+.guard a{color:var(--tf);text-decoration:none}
+.guard a:hover{text-decoration:underline}
+
+footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margin-top:60px}
+.footer-inner{max-width:1240px;margin:0 auto;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub)}
+
+@media(max-width:1000px){.grid4{grid-template-columns:repeat(2,1fr)}.compare{grid-template-columns:1fr}}
+@media(max-width:700px){.wrap{padding:20px 16px 60px}.grid4{grid-template-columns:1fr}.slider-row{grid-template-columns:1fr}.slider-end.right{text-align:left}}
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <a href="https://terraferra.co/adminfiles/" class="topnav-home">← Admin Hub</a>
+  <div class="topnav-links">
+    <a href="smthg_businessmodel.html">Business Model — Circles</a>
+    <a href="TFmvpcosts.html">MVP Scope &amp; Costs</a>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="eyebrow">SMTHG Business Model &amp; GTM Final <span class="badge badge-sug">Research · Direction, Not Decided</span></div>
+  <h1>Tone of Voice</h1>
+  <p class="lede">Voice and language principles for consumer-facing copy — app, drop pages, ambassador messaging, community and social captions. Audience: Gen Z and young Millennial fashion shoppers in the US and Europe, the demographic the platform's target designers already sell to.</p>
+
+  <div class="sec-h2">01 — Framework: four independent dimensions, not one adjective</div>
+  <div class="concl green">
+    Tone is not a single style choice. It is four separate sliders — funny↔serious, formal↔casual, respectful↔irreverent, enthusiastic↔matter-of-fact — that can each sit anywhere on their own scale.
+    <span class="src">Source: <a href="https://www.nngroup.com/articles/tone-of-voice-dimensions/" target="_blank" rel="noopener">Nielsen Norman Group, "The Four Dimensions of Tone of Voice"</a></span>
+  </div>
+
+  <div class="grid4">
+    <div class="comp">
+      <h4>Funny ↔ Serious</h4>
+      <p>Whether the copy is trying to be humorous or approaches the subject plainly.</p>
+    </div>
+    <div class="comp">
+      <h4>Formal ↔ Casual</h4>
+      <p>Sentence structure, contractions, and how close the writing is to spoken language.</p>
+    </div>
+    <div class="comp">
+      <h4>Respectful ↔ Irreverent</h4>
+      <p>Whether the brand treats the reader and the subject with deference or takes liberties.</p>
+    </div>
+    <div class="comp">
+      <h4>Enthusiastic ↔ Matter-of-fact</h4>
+      <p>Energy level and emotional intensity — exclamation vs. plain statement.</p>
+      <div class="src">Nielsen Norman Group, <a href="https://www.nngroup.com/articles/tone-of-voice-dimensions/" target="_blank" rel="noopener">nngroup.com</a></div>
+    </div>
+  </div>
+
+  <div class="sec-h2">02 — What the data says this audience actually rewards</div>
+  <div class="concl green">
+    US Gen Z ranks honesty (62%), trustworthiness (61%) and consistency between words and actions (56%) as the traits that matter most in a brand. Humor and cleverness rank lowest — 22% and 14%.
+    <span class="src">Source: <a href="https://yougov.com/en-us/articles/53409-gen-z-wants-from-brands-values-ethics-authenticity" target="_blank" rel="noopener">YouGov Profiles, "What America's Gen Z really wants from brands"</a>, published 17 Nov 2025, US nationally representative panel</span>
+  </div>
+
+  <div class="twrap">
+  <table>
+    <tr><th>Trait</th><th>Share rating it "very important"</th></tr>
+    <tr><td>Honesty</td><td>62%</td></tr>
+    <tr><td>Trustworthiness</td><td>61%</td></tr>
+    <tr><td>Consistency between words and actions</td><td>56%</td></tr>
+    <tr><td>Genuine behavior</td><td>53%</td></tr>
+    <tr><td>Understanding everyday challenges</td><td>53%</td></tr>
+    <tr><td>Authenticity</td><td>49%</td></tr>
+    <tr><td>Humor / cleverness</td><td>22%</td></tr>
+    <tr><td>Not taking life too seriously</td><td>14%</td></tr>
+  </table>
+  </div>
+  <p class="lede" style="font-size:14px;margin-top:10px">Only 31% say it is "very important" that a brand stand for something, and 22% want a brand to reflect their personal views — the audience is judging demonstrated behavior over stated positioning or jokes. Source: <a href="https://yougov.com/en-us/articles/53409-gen-z-wants-from-brands-values-ethics-authenticity" target="_blank" rel="noopener">YouGov, Nov 2025</a>, as above.</p>
+
+  <div class="sec-h2">03 — Where borrowed slang backfires</div>
+  <div class="concl amber">
+    Forced use of Gen Z slang, memes, or in-group language by a brand that does not own that culture is a repeated, documented failure mode — it reads as try-hard rather than relatable, and can misfire badly when the slang originates in a specific subculture the brand has no connection to.
+    <span class="src">Source: <a href="https://www.zinzin.com/press/articles/brands-dont-have-the-rizz-gen-z-slang-is-falling-flat-in-marketing/" target="_blank" rel="noopener">Zinzin, "Brands Don't Have the Rizz: Gen Z Slang Is Falling Flat in Marketing"</a></span>
+  </div>
+  <p class="lede" style="font-size:15px">The counter-example is Duolingo, whose "unhinged" owl persona works specifically because one dedicated team member owns the voice, the character is narrow and consistent (obsessed with language learning, "threatening but not mean"), and the tone was built from real user memes rather than copied from them. Duolingo's own brand guidelines document the tone deliberately, rather than leaving it to improvisation. Source: <a href="https://design.duolingo.com/writing/tone" target="_blank" rel="noopener">Duolingo Brand Guidelines — Tone</a>.</p>
+  <div class="guard">
+    <h4>Practical read for SMTHG</h4>
+    <p>A meme-driven, slang-heavy voice is only defensible with a named owner and daily attention — it is a full-time craft, not a copy style anyone can apply occasionally. Without that ownership, the safer default per the data in Section 02 is plain, direct, consistent language.</p>
+  </div>
+
+  <div class="sec-h2">04 — US and Europe are not the same audience</div>
+  <div class="concl amber">
+    US and UK Gen Z skew individualist — self-expression is prioritized in messaging. Ecological/circular framing lands harder in Europe than in the US, and European Gen Z women show a stronger pull toward solitary creative pursuits (writing, sewing) versus the US skew toward social/gaming leisure.
+    <span class="src">Sources: <a href="https://www.comtectranslations.co.uk/content-hub/talking-to-gen-z-an-international-guide/" target="_blank" rel="noopener">Comtec Translations, "Talking to Gen Z: An International Guide"</a>, 15 Jan 2025 · <a href="https://www.ipsos.com/en/exploring-nuances-how-gen-z-females-usa-and-europe-differ-behaviors-and-values" target="_blank" rel="noopener">Ipsos, "Exploring the nuances: How Gen Z females in the USA and Europe differ"</a>, 3 Jun 2023</span>
+  </div>
+  <div class="twrap">
+  <table>
+    <tr><th>Signal</th><th>USA</th><th>Europe</th><th>Source</th></tr>
+    <tr><td>Primary values focus</td><td>Social issues, equality</td><td>Ecological sustainability</td><td><a href="https://www.ipsos.com/en/exploring-nuances-how-gen-z-females-usa-and-europe-differ-behaviors-and-values" target="_blank" rel="noopener">Ipsos</a></td></tr>
+    <tr><td>Career framing</td><td>Entrepreneurial, "make it on their own"</td><td>Traditional career paths, strategic investing</td><td><a href="https://www.ipsos.com/en/exploring-nuances-how-gen-z-females-usa-and-europe-differ-behaviors-and-values" target="_blank" rel="noopener">Ipsos</a></td></tr>
+    <tr><td>Leisure</td><td>Social gatherings, festivals, online gaming</td><td>Solitary creative pursuits, outdoor sport</td><td><a href="https://www.ipsos.com/en/exploring-nuances-how-gen-z-females-usa-and-europe-differ-behaviors-and-values" target="_blank" rel="noopener">Ipsos</a></td></tr>
+    <tr><td>Identity framing</td><td>Individualist — self-expression prioritized</td><td>More collectivist cues than the US, though still individualist relative to Asia/Latin America</td><td><a href="https://www.comtectranslations.co.uk/content-hub/talking-to-gen-z-an-international-guide/" target="_blank" rel="noopener">Comtec Translations</a></td></tr>
+    <tr><td>Real-customer imagery trust</td><td colspan="2">82% trust a brand more when it uses real customers instead of models — no regional split reported</td><td><a href="https://www.comtectranslations.co.uk/content-hub/talking-to-gen-z-an-international-guide/" target="_blank" rel="noopener">Comtec Translations</a></td></tr>
+  </table>
+  </div>
+  <p class="lede" style="font-size:14px;margin-top:10px">Practical read: one English-language voice can run across both markets, but which proof point leads should flex — individual style and personal upside for US copy, durability/craft/circularity framing for European copy. The core voice (direct, honest, low on forced humor) does not need to change by region.</p>
+
+  <div class="sec-h2">05 — Reference brand voices in adjacent categories</div>
+  <div class="concl green">
+    Fashion resale and community platforms already serving this audience split into two working patterns: one collective, simple voice built around a single imperative (Vinted), or several first-person voices that carry the platform's stylishness through the community itself rather than through brand copy (Depop). Both are viable; neither leans on borrowed slang from the brand's own mouth.
+  </div>
+  <div class="twrap">
+  <table>
+    <tr><th>Brand</th><th>Category</th><th>Voice pattern</th><th>Source</th></tr>
+    <tr><td>Vinted</td><td>Fashion resale marketplace</td><td>One collective voice, first-person plural ("we all end up with too many clothes"), direct imperative — "Don't wear it? Sell it!"</td><td><a href="https://www.ics-digital.com/blog/vinted-depop-tone-of-voice" target="_blank" rel="noopener">ICS-digital</a></td></tr>
+    <tr><td>Depop</td><td>Fashion resale marketplace</td><td>Multiple first-person voices from real sellers, no collective "we" — the community supplies the stylish, youth-coded language rather than the brand writing it</td><td><a href="https://www.ics-digital.com/blog/vinted-depop-tone-of-voice" target="_blank" rel="noopener">ICS-digital</a></td></tr>
+    <tr><td>Glossier</td><td>Beauty, community-led</td><td>Everyday, conversational copy framing the product as personal expression rather than correction — built around community content and co-creation</td><td><a href="https://www.enrichlabs.ai/case-study/glossier-marketing-strategy" target="_blank" rel="noopener">Enrich Labs case study</a></td></tr>
+    <tr><td>Gymshark</td><td>Apparel, community-led</td><td>Conversational and motivational, addresses the audience as equals rather than from authority; "family" framing for the community</td><td><a href="https://www.enrichlabs.ai/case-study/gymshark-marketing-strategy" target="_blank" rel="noopener">Enrich Labs case study</a></td></tr>
+    <tr><td>Reformation</td><td>Affordable-to-mid luxury apparel</td><td>Casual, light-hearted, likeable copy aimed at a self-confident customer; sustainability framed with practical tips, not lecturing</td><td><a href="https://www.fashionmonitor.com/blog/97/what-brands-can-learn-from-reformation-on-social-media" target="_blank" rel="noopener">Fashion Monitor</a></td></tr>
+    <tr><td>Duolingo</td><td>Consumer app, outside fashion</td><td>Owned, character-driven "unhinged" persona — cited only as the reference case for how meme voice is built and governed, not as a fashion comparable</td><td><a href="https://design.duolingo.com/writing/tone" target="_blank" rel="noopener">Duolingo Brand Guidelines</a></td></tr>
+  </table>
+  </div>
+
+  <div class="sec-h2">06 — Checking a reference campaign against its source</div>
+  <div class="concl amber">
+    H&M's "There are no rules in fashion" line is from the 2015 "Close the Loop" campaign. The full line is "There are no rules in fashion but one: recycle your clothes" — the "no rules" opening is a setup for a garment-recycling call to action, not a freestanding self-expression thesis.
+    <span class="src">Source: <a href="https://hmgroup.com/nyheter/there-are-no-rules-to-in-fashion-but-one-that-is-to-recycle-your-clothes-2/" target="_blank" rel="noopener">H&M Group, "Close the Loop" campaign page</a>, 3 Sep 2015 · <a href="https://lbbonline.com/news/forsman-bodenfors-breaks-all-the-fashion-rules-with-iggy-pop-hm" target="_blank" rel="noopener">LBBOnline campaign coverage</a></span>
+  </div>
+  <p class="lede" style="font-size:15px">The film's imagery — diverse casting, self-expression through clothing — is genuine and reusable as a mood reference. But if "no rules" language is used in SMTHG copy, it should carry its own payoff (a specific action or feature), the way H&M's line paid off into a recycling instruction, rather than standing alone as an abstract identity claim — which Section 02's data flags as the lower-priority register for this audience.</p>
+
+  <div class="sec-h2">07 — Recommended position for SMTHG</div>
+  <div class="concl green">
+    Casual but substantive, warm rather than sarcastic, mostly matter-of-fact with enthusiasm reserved for real moments (a drop opening, a reward unlocking) — not scripted into every sentence. Humor is optional, not required.
+  </div>
+
+  <div class="sliders">
+    <div class="slider-row">
+      <div class="slider-end">Serious</div>
+      <div class="slider-track"><div class="slider-dot" style="left:38%"></div></div>
+      <div class="slider-end right">Funny</div>
+    </div>
+    <div class="slider-row">
+      <div class="slider-end">Formal</div>
+      <div class="slider-track"><div class="slider-dot" style="left:78%"></div></div>
+      <div class="slider-end right">Casual</div>
+    </div>
+    <div class="slider-row">
+      <div class="slider-end">Respectful</div>
+      <div class="slider-track"><div class="slider-dot" style="left:32%"></div></div>
+      <div class="slider-end right">Irreverent</div>
+    </div>
+    <div class="slider-row">
+      <div class="slider-end">Matter-of-fact</div>
+      <div class="slider-track"><div class="slider-dot" style="left:58%"></div></div>
+      <div class="slider-end right">Enthusiastic</div>
+    </div>
+  </div>
+  <p class="lede" style="font-size:14px;margin-top:16px">Positions reflect Section 02's ranking (honesty and consistency over cleverness) and Section 03's ownership risk on humor — casual and direct, low on irreverence and forced enthusiasm, until a dedicated voice owner exists to safely push further.</p>
+
+  <div class="compare">
+    <div class="cbox bad">
+      <h3>Avoid</h3>
+      <p class="line">"OMG this drop is literally so unhinged, no cap 🔥🔥🔥"</p>
+      <p class="note">Slang borrowed from a subculture the platform has no ownership of. Reads as try-hard and dates within a season. Contradicted by Section 02's data — humor and cleverness rank lowest of all measured traits.</p>
+    </div>
+    <div class="cbox good">
+      <h3>Prefer</h3>
+      <p class="line">"72 hours. When it's gone, it's gone — no restock."</p>
+      <p class="note">Direct, specific, matter-of-fact urgency. States the mechanic instead of performing excitement about it — matches what the data shows this audience rates highest: honesty and consistency.</p>
+    </div>
+  </div>
+
+  <div class="guard">
+    <h4>Open before this direction is locked</h4>
+    <ul>
+      <li>Confirm the audience split (Gen Z vs. young Millennial share) against actual designer follower demographics once available — this research assumes both, per the target designer profile.</li>
+      <li>Decide whether US and European copy will run as one unified voice with flexed proof points (Section 04) or as separate regional variants — a cost and workflow decision, not just a voice decision.</li>
+      <li>If a more expressive, meme-capable register is wanted later, it needs a named owner per Section 03 before it is safe to attempt.</li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">SMTHG · Tone of Voice — Research</div>
+</footer>
+
+</body>
+</html>
