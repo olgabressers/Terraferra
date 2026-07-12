@@ -55,10 +55,10 @@ body{font-family:'Inter',sans-serif;background:var(--off);color:var(--black);min
 }
 
 /* ── HEADER ── */
-header{background:var(--off);border-bottom:1px solid var(--border);padding:72px 52px 60px}
+header{background:var(--off);border-bottom:1px solid var(--border);padding:24px 52px 20px}
 .header-inner{max-width:1200px;margin:0 auto}
-.eyebrow{font-size:10px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:28px;display:block}
-.logo{font-size:clamp(72px,10vw,136px);font-weight:900;letter-spacing:-4px;line-height:.9;color:var(--black);margin-bottom:24px}
+.eyebrow{font-size:10px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:6px;display:block}
+.logo{font-size:clamp(26px,3.2vw,40px);font-weight:900;letter-spacing:-1.2px;line-height:1;color:var(--black);margin-bottom:4px}
 .logo .dot{color:var(--red)}
 .tagline{font-size:11px;font-weight:800;letter-spacing:5px;text-transform:uppercase;color:rgba(0,0,0,.32)}
 
@@ -79,7 +79,7 @@ main{flex:1;padding:48px 52px 80px}
 .card:hover{border-top-color:var(--red)}
 .card-num{font-size:10px;font-weight:800;letter-spacing:2px;color:var(--red);margin-bottom:18px}
 .card-title{font-size:17px;font-weight:800;line-height:1.2;color:var(--black);letter-spacing:-.3px;margin-bottom:10px}
-.card-links{margin-top:auto;display:flex;flex-direction:column;gap:6px;padding-top:14px;border-top:1px solid var(--border)}
+.card-links{margin-top:14px;display:flex;flex-direction:column;gap:6px;padding-top:14px;border-top:1px solid var(--border)}
 .card-link{font-size:12.5px;font-weight:600;color:var(--black);text-decoration:none;line-height:1.4;transition:color .15s}
 .card-link:hover{color:var(--red)}
 .card-link.hi{color:var(--red)}
@@ -96,12 +96,12 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:22px 5
 
 /* ── RESPONSIVE ── */
 @media(max-width:1000px){
-  header{padding:48px 24px 40px}
+  header{padding:20px 24px 18px}
   main{padding:24px 24px 60px}
   .grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:600px){
-  header{padding:36px 18px 32px}
+  header{padding:16px 18px 14px}
   main{padding:18px 18px 48px}
   footer{padding:16px 18px;flex-direction:column;gap:8px;text-align:center}
   .grid{grid-template-columns:1fr}
@@ -163,7 +163,7 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:22px 5
 <header>
   <div class="header-inner">
     <span class="eyebrow">Internal · Private</span>
-    <div class="logo">SMTHG<span class="dot">.</span></div>
+    <div class="logo">smthg<span class="dot">.</span></div>
     <div class="tagline">Workflow Hub</div>
   </div>
 </header>
@@ -207,7 +207,7 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:22px 5
 
     <div class="card">
       <div class="card-num">03</div>
-      <div class="card-title">SMTHG Business Model &amp; GTM</div>
+      <div class="card-title">SMTHG Business Model Research</div>
       <div class="card-links">
         <a class="card-link hi" href="TFcommunities.html">Fashion Communities by Audience →</a>
         <a class="card-link hi" href="socialcommerce.html">Social Commerce — Community Elements Map →</a>
@@ -215,7 +215,6 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:22px 5
         <a class="card-link hi" href="community-mktg.html">Community Marketing + Paid Digital Layer — Research →</a>
         <a class="card-link" href="TFbrandsworldwide.html">Fashion Brands Worldwide (market size + Asia) →</a>
         <a class="card-link" href="TFvisualdiscovery.html">Visual Discovery Engines — Research →</a>
-        <a class="card-link hi" href="TFmvpcosts.html">MVP Scope &amp; Costs →</a>
         <a class="card-link" href="TFreferral.html">Referral &amp; Viral Mechanics — Research →</a>
         <a class="card-link" href="TFwhynow.html">Why Now — LTK / ShopMy / VTO Timing →</a>
         <a class="card-link" href="TFdropsmarket.html">Drop Market Research →</a>
@@ -231,6 +230,15 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:22px 5
 
     <div class="card">
       <div class="card-num">04</div>
+      <div class="card-title">SMTHG Business Model &amp; GTM Final</div>
+      <div class="card-links">
+        <a class="card-link hi" href="smthg_businessmodel.html">Business Model — Circles (Final) →</a>
+        <a class="card-link hi" href="TFmvpcosts.html">MVP Scope &amp; Costs →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-num">05</div>
       <div class="card-title">SMTHG System Architecture &amp; Tools</div>
       <div class="card-links">
         <a class="card-link" href="architecture.html">System Architecture &amp; Tools →</a>
@@ -240,7 +248,7 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:22px 5
     </div>
 
     <div class="card">
-      <div class="card-num">05</div>
+      <div class="card-num">06</div>
       <div class="card-title">SMTHG Operations</div>
       <div class="card-links">
         <a class="card-link hi" href="TFmarketplaces.html">Marketplace Technology &amp; Cross-border Requirements →</a>
@@ -248,7 +256,7 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:22px 5
     </div>
 
     <div class="card">
-      <div class="card-num">06</div>
+      <div class="card-num">07</div>
       <div class="card-title">SMTHG Ideas</div>
       <div class="card-links">
         <a class="card-link" href="ideas.html">Ideas &amp; AI Research →</a>
@@ -258,7 +266,7 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:22px 5
     </div>
 
     <div class="card">
-      <div class="card-num">07</div>
+      <div class="card-num">08</div>
       <div class="card-title">SMTHG Design &amp; Creativity</div>
       <div class="card-links">
         <a class="card-link hi" href="smthg_v3.html">SMTHG — Concept V3 Home (Revised) →</a>
@@ -269,7 +277,7 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:22px 5
     </div>
 
     <div class="card">
-      <div class="card-num">08</div>
+      <div class="card-num">09</div>
       <div class="card-title">SMTHG Brands</div>
       <div class="card-links">
         <a class="card-link hi" href="TFsmthgbrands.html">MVP Brand Candidates →</a>
@@ -277,7 +285,7 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:22px 5
     </div>
 
     <div class="card">
-      <div class="card-num">09</div>
+      <div class="card-num">10</div>
       <div class="card-title">SMTHG Legal / Tax</div>
       <div class="card-links">
         <a class="card-link hi" href="TFrussia.html">Russian Designers — US Sanctions Compliance →</a>
@@ -285,7 +293,7 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:22px 5
     </div>
 
     <div class="card">
-      <div class="card-num">10</div>
+      <div class="card-num">11</div>
       <div class="card-title">SMTHG Task Tracker &amp; Planning</div>
       <div class="card-links">
         <a class="card-link" href="task-tracker.html">Task Tracker →</a>
