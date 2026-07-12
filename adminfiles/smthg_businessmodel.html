@@ -79,6 +79,9 @@ tr:last-child td{border-bottom:none}
 .rtable td.yes{color:var(--green);font-weight:800;white-space:nowrap}
 .rtable td.no{color:var(--tf);font-weight:800;white-space:nowrap}
 .rtable td.early{color:var(--amber);font-weight:800;white-space:nowrap}
+.rtable tr.grp td{background:var(--ink);color:white;font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:6px 10px}
+.rtable td.tick{text-align:center;font-weight:800;color:var(--green)}
+.rtable td.tick.x{color:var(--rule)}
 
 /* guardrail */
 .guard{margin-top:40px;background:var(--amber-bg);border-left:4px solid var(--amber);border-radius:8px;padding:18px 22px}
@@ -196,20 +199,38 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
   <h2 class="sec-h2">Reference cases</h2>
   <div class="twrap">
   <table class="rtable">
-    <tr><th>Company</th><th>Key mechanism</th><th>Sustained</th><th>Risk / why not</th></tr>
-    <tr><td>Booking.com</td><td>Real-time "rooms left" urgency</td><td class="early">Partial</td><td>CMA found claims false in spot-checks; faces an €8B class action</td></tr>
-    <tr><td>Uber</td><td>Surge pricing — real scarcity, not staged</td><td class="yes">Yes</td><td>Copied industry-wide (airlines, hotels, ticketing) — no reputational risk</td></tr>
-    <tr><td>Robinhood</td><td>Referral-gated waitlist, no cash reward</td><td class="yes">Yes</td><td>—</td></tr>
-    <tr><td>Duolingo</td><td>Hearts (scarcity) + streak (loss aversion)</td><td class="yes">Yes</td><td>—</td></tr>
-    <tr><td>Tinder</td><td>Freemium swipe limits, gamified friction</td><td class="yes">Yes</td><td>—</td></tr>
-    <tr><td>Groupon</td><td>Time-limited local deals</td><td class="no">No</td><td>Couldn't sustain past novelty phase; pivoted away from the model in 2014</td></tr>
-    <tr><td>Clubhouse</td><td>Invite-only scarcity + celebrity FOMO</td><td class="no">No</td><td>Collapsed once lockdowns ended and Twitter Spaces copied the format</td></tr>
-    <tr><td>Peloton</td><td>Premium price + community leaderboard</td><td class="no">No</td><td>Growth reversed once its pandemic tailwind faded</td></tr>
-    <tr><td>Breeze</td><td>Daily curated batch + pay-per-date deposit</td><td class="early">Too early</td><td>600,000+ dates organized, still early-stage — not yet proven long-term</td></tr>
-    <tr><td>Patta</td><td>Real drop scarcity + community</td><td class="yes">Yes</td><td>—</td></tr>
-    <tr><td>Otrium</td><td>Time-limited access to designer overstock</td><td class="yes">Yes</td><td>—</td></tr>
-    <tr><td>LTK</td><td>Creator commission, no scarcity mechanic</td><td class="yes">Yes</td><td>No urgency/loop — structurally exposed to being out-innovated</td></tr>
-    <tr><td>ShopMy</td><td>Brand-led referral flywheel, no scarcity mechanic</td><td class="yes">Yes</td><td>Same gap as LTK — no scarcity or urgency layer</td></tr>
+    <tr><th>Company</th><th>Country</th><th>Founded</th><th>Key mechanism</th><th>Scarcity</th><th>Urgency</th><th>Pain closed</th><th>Network loop</th><th>Tailwind</th><th>Sustained</th><th>Risk / why not</th></tr>
+
+    <tr class="grp"><td colspan="11">Fashion &amp; Retail</td></tr>
+    <tr><td>Patta</td><td>Netherlands</td><td>2004</td><td>Real drop scarcity + community</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick x">—</td><td class="tick x">—</td><td class="yes">Yes</td><td>—</td></tr>
+    <tr><td>Otrium</td><td>Netherlands</td><td>2017</td><td>Time-limited access to designer overstock</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick x">—</td><td class="tick x">—</td><td class="yes">Yes</td><td>—</td></tr>
+    <tr><td>LTK</td><td>USA</td><td>2011</td><td>Creator commission, no scarcity mechanic</td><td class="tick x">—</td><td class="tick x">—</td><td class="tick">✓</td><td class="tick x">—</td><td class="tick x">—</td><td class="yes">Yes</td><td>No urgency/loop — structurally exposed to being out-innovated</td></tr>
+    <tr><td>ShopMy</td><td>USA</td><td>2020</td><td>Brand-led referral flywheel, no scarcity mechanic</td><td class="tick x">—</td><td class="tick x">—</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick x">—</td><td class="yes">Yes</td><td>Same gap as LTK — no scarcity or urgency layer</td></tr>
+
+    <tr class="grp"><td colspan="11">Travel</td></tr>
+    <tr><td>Booking.com</td><td>Netherlands</td><td>1996</td><td>Real-time "rooms left" urgency</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick x">—</td><td class="tick x">—</td><td class="early">Partial</td><td>CMA found claims false in spot-checks; faces an €8B class action</td></tr>
+
+    <tr class="grp"><td colspan="11">Transport</td></tr>
+    <tr><td>Uber</td><td>USA</td><td>2009</td><td>Surge pricing — real scarcity, not staged</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick x">—</td><td class="tick x">—</td><td class="yes">Yes</td><td>Copied industry-wide (airlines, hotels, ticketing) — no reputational risk</td></tr>
+
+    <tr class="grp"><td colspan="11">Fintech</td></tr>
+    <tr><td>Robinhood</td><td>USA</td><td>2013</td><td>Referral-gated waitlist, no cash reward</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick x">—</td><td class="yes">Yes</td><td>—</td></tr>
+
+    <tr class="grp"><td colspan="11">Dating</td></tr>
+    <tr><td>Tinder</td><td>USA</td><td>2012</td><td>Freemium swipe limits, gamified friction</td><td class="tick">✓</td><td class="tick x">—</td><td class="tick">✓</td><td class="tick x">—</td><td class="tick x">—</td><td class="yes">Yes</td><td>—</td></tr>
+    <tr><td>Breeze</td><td>Netherlands</td><td>2019</td><td>Daily curated batch + pay-per-date deposit</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick x">—</td><td class="tick x">—</td><td class="early">Too early</td><td>600,000+ dates organized, still early-stage — not yet proven long-term</td></tr>
+
+    <tr class="grp"><td colspan="11">Deals / E-commerce</td></tr>
+    <tr><td>Groupon</td><td>USA</td><td>2008</td><td>Time-limited local deals</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick x">—</td><td class="tick x">—</td><td class="no">No</td><td>Couldn't sustain past novelty phase; pivoted away from the model in 2014</td></tr>
+
+    <tr class="grp"><td colspan="11">Social Audio</td></tr>
+    <tr><td>Clubhouse</td><td>USA</td><td>2020</td><td>Invite-only scarcity + celebrity FOMO</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="no">No</td><td>Collapsed once lockdowns ended and Twitter Spaces copied the format</td></tr>
+
+    <tr class="grp"><td colspan="11">Fitness</td></tr>
+    <tr><td>Peloton</td><td>USA</td><td>2012</td><td>Premium price + community leaderboard</td><td class="tick">✓</td><td class="tick x">—</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="no">No</td><td>Growth reversed once its pandemic tailwind faded</td></tr>
+
+    <tr class="grp"><td colspan="11">Edtech</td></tr>
+    <tr><td>Duolingo</td><td>USA</td><td>2011</td><td>Hearts (scarcity) + streak (loss aversion)</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick x">—</td><td class="tick x">—</td><td class="yes">Yes</td><td>—</td></tr>
   </table>
   </div>
 
