@@ -46,6 +46,7 @@ h1{font-size:clamp(30px,4.4vw,48px);font-weight:900;letter-spacing:-1.5px;margin
 
 /* dimension cards */
 .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
 .comp{background:white;border:1px solid var(--rule);border-top:3px solid var(--ink);border-radius:10px;padding:18px 16px;display:flex;flex-direction:column}
 .comp h4{font-size:15px;font-weight:800;line-height:1.25;margin-bottom:10px}
 .comp p{font-size:13.5px;color:var(--ink);line-height:1.55;flex:1}
@@ -93,8 +94,8 @@ table a:hover{text-decoration:underline}
 footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margin-top:60px}
 .footer-inner{max-width:1240px;margin:0 auto;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub)}
 
-@media(max-width:1000px){.grid4{grid-template-columns:repeat(2,1fr)}.compare{grid-template-columns:1fr}}
-@media(max-width:700px){.wrap{padding:20px 16px 60px}.grid4{grid-template-columns:1fr}.slider-row{grid-template-columns:1fr}.slider-end.right{text-align:left}}
+@media(max-width:1000px){.grid4{grid-template-columns:repeat(2,1fr)}.grid5{grid-template-columns:repeat(3,1fr)}.compare{grid-template-columns:1fr}}
+@media(max-width:700px){.wrap{padding:20px 16px 60px}.grid4{grid-template-columns:1fr}.grid5{grid-template-columns:1fr}.slider-row{grid-template-columns:1fr}.slider-end.right{text-align:left}}
 </style>
 </head>
 <body>
@@ -170,13 +171,13 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
     </div>
   </div>
 
-  <div class="sec-h2">01 — Framework: four independent dimensions, not one adjective</div>
+  <div class="sec-h2">01 — Framework: five independent dimensions, not one adjective</div>
   <div class="concl green">
-    Tone is not a single style choice. It is four separate sliders — funny↔serious, formal↔casual, respectful↔irreverent, enthusiastic↔matter-of-fact — that can each sit anywhere on their own scale.
-    <span class="src">Source: <a href="https://www.nngroup.com/articles/tone-of-voice-dimensions/" target="_blank" rel="noopener">Nielsen Norman Group, "The Four Dimensions of Tone of Voice"</a></span>
+    Tone is not a single style choice. Four sliders are a standard framework — funny↔serious, formal↔casual, respectful↔irreverent, enthusiastic↔matter-of-fact. A fifth, mass-market↔luxury, is added here because it is the axis that decides whether copy reads as this platform's category — see Section 02.
+    <span class="src">Source (dimensions 1–4): <a href="https://www.nngroup.com/articles/tone-of-voice-dimensions/" target="_blank" rel="noopener">Nielsen Norman Group, "The Four Dimensions of Tone of Voice"</a></span>
   </div>
 
-  <div class="grid4">
+  <div class="grid5">
     <div class="comp">
       <h4>Funny ↔ Serious</h4>
       <p>Whether the copy is trying to be humorous or approaches the subject plainly.</p>
@@ -193,6 +194,11 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
       <h4>Enthusiastic ↔ Matter-of-fact</h4>
       <p>Energy level and emotional intensity — exclamation vs. plain statement.</p>
       <div class="src">Nielsen Norman Group, <a href="https://www.nngroup.com/articles/tone-of-voice-dimensions/" target="_blank" rel="noopener">nngroup.com</a></div>
+    </div>
+    <div class="comp">
+      <h4>Mass-market ↔ Luxury</h4>
+      <p>Word choice and specificity that signal price bracket and category — added for fashion, not part of the general NN/g framework.</p>
+      <div class="src">See Section 02, below</div>
     </div>
   </div>
 
