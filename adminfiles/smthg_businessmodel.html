@@ -79,9 +79,31 @@ tr:last-child td{border-bottom:none}
 .rtable td.yes{color:var(--green);font-weight:800;white-space:nowrap}
 .rtable td.no{color:var(--tf);font-weight:800;white-space:nowrap}
 .rtable td.early{color:var(--amber);font-weight:800;white-space:nowrap}
-.rtable tr.grp td{background:var(--ink);color:white;font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:6px 10px}
+.rtable tr.grp td{background:#EDEAE3;color:var(--ink);font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:6px 10px}
 .rtable td.tick{text-align:center;font-weight:800;color:var(--green)}
 .rtable td.tick.x{color:var(--rule)}
+.rtable a{color:var(--tf);text-decoration:none;font-weight:700}
+.rtable a:hover{text-decoration:underline}
+.rlegend{font-size:11px;color:var(--ink);line-height:1.7;margin-top:10px;padding:10px 14px;background:var(--tf-ghost);border-radius:6px}
+.rlegend b{color:var(--ink)}
+
+/* growth charts */
+.growth-note{font-size:12.5px;color:var(--ink);margin:14px 0 18px;line-height:1.6;max-width:820px}
+.growth-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gcard{background:white;border:1px solid var(--rule);border-top:3px solid var(--green);border-radius:8px;padding:16px 18px}
+.gc-name{font-size:13px;font-weight:800;color:var(--ink);margin-bottom:2px}
+.gc-unit{font-size:10.5px;font-weight:600;color:var(--sub)}
+.gc-bars{margin-top:10px;display:flex;flex-direction:column;gap:6px}
+.gc-row{display:grid;grid-template-columns:52px 1fr 64px;align-items:center;gap:8px}
+.gc-label{font-size:10px;color:var(--sub);font-weight:700;text-align:right}
+.gc-track{background:var(--tf-ghost);border-radius:3px;height:12px;overflow:hidden}
+.gc-fill{background:var(--green);height:100%;border-radius:3px;min-width:3px}
+.gc-val{font-size:10.5px;font-weight:800;color:var(--ink)}
+.gc-src{font-size:10px;color:var(--sub);margin-top:10px;line-height:1.4}
+.gc-src a{color:var(--tf);text-decoration:none}
+.gc-src a:hover{text-decoration:underline}
+@media(max-width:1000px){.growth-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.growth-grid{grid-template-columns:1fr}}
 
 /* guardrail */
 .guard{margin-top:40px;background:var(--amber-bg);border-left:4px solid var(--amber);border-radius:8px;padding:18px 22px}
@@ -197,41 +219,112 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
   </div>
 
   <h2 class="sec-h2">Reference cases</h2>
+  <div class="rlegend">
+    <b>Scarcity</b> — real limited supply · <b>Urgency</b> — a closing window that forces action now · <b>Pain closed</b> — solves a real, permanent customer problem · <b>Network loop</b> — one user's action recruits the next user · <b>Tailwind</b> — a temporary external boost (a pandemic, a cultural moment) that isn't part of the product itself and can't be relied on to last.
+  </div>
   <div class="twrap">
   <table class="rtable">
     <tr><th>Company</th><th>Country</th><th>Founded</th><th>Key mechanism</th><th>Scarcity</th><th>Urgency</th><th>Pain closed</th><th>Network loop</th><th>Tailwind</th><th>Sustained</th><th>Risk / why not</th></tr>
 
     <tr class="grp"><td colspan="11">Fashion &amp; Retail</td></tr>
-    <tr><td>Patta</td><td>Netherlands</td><td>2004</td><td>Real drop scarcity + community</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick x">—</td><td class="tick x">—</td><td class="yes">Yes</td><td>—</td></tr>
-    <tr><td>Otrium</td><td>Netherlands</td><td>2017</td><td>Time-limited access to designer overstock</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick x">—</td><td class="tick x">—</td><td class="yes">Yes</td><td>—</td></tr>
-    <tr><td>LTK</td><td>USA</td><td>2011</td><td>Creator commission, no scarcity mechanic</td><td class="tick x">—</td><td class="tick x">—</td><td class="tick">✓</td><td class="tick x">—</td><td class="tick x">—</td><td class="yes">Yes</td><td>No urgency/loop — structurally exposed to being out-innovated</td></tr>
-    <tr><td>ShopMy</td><td>USA</td><td>2020</td><td>Brand-led referral flywheel, no scarcity mechanic</td><td class="tick x">—</td><td class="tick x">—</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick x">—</td><td class="yes">Yes</td><td>Same gap as LTK — no scarcity or urgency layer</td></tr>
+    <tr><td><a href="https://patta.nl/" target="_blank" rel="noopener">Patta</a></td><td>Netherlands</td><td>2004</td><td>Real drop scarcity + community</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick x">—</td><td class="tick x">—</td><td class="yes">Yes</td><td>—</td></tr>
+    <tr><td><a href="https://www.otrium.com/" target="_blank" rel="noopener">Otrium</a></td><td>Netherlands</td><td>2017</td><td>Time-limited access to designer overstock</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick x">—</td><td class="tick x">—</td><td class="yes">Yes</td><td>—</td></tr>
+    <tr><td><a href="https://company.shopltk.com/" target="_blank" rel="noopener">LTK</a></td><td>USA</td><td>2011</td><td>Creator commission, no scarcity mechanic</td><td class="tick x">—</td><td class="tick x">—</td><td class="tick">✓</td><td class="tick x">—</td><td class="tick x">—</td><td class="yes">Yes</td><td>No urgency/loop — structurally exposed to being out-innovated</td></tr>
+    <tr><td><a href="https://shopmy.us/" target="_blank" rel="noopener">ShopMy</a></td><td>USA</td><td>2020</td><td>Brand-led referral flywheel, no scarcity mechanic</td><td class="tick x">—</td><td class="tick x">—</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick x">—</td><td class="yes">Yes</td><td>Same gap as LTK — no scarcity or urgency layer</td></tr>
+
+    <tr class="grp"><td colspan="11">Community Platforms</td></tr>
+    <tr><td><a href="https://www.skool.com/" target="_blank" rel="noopener">Skool</a></td><td>USA</td><td>2019</td><td>Paid community + course platform, points/levels progression</td><td class="tick x">—</td><td class="tick x">—</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick x">—</td><td class="yes">Yes</td><td>Bootstrapped, cashflow-positive, ~$26.6M ARR (2025)</td></tr>
+    <tr><td><a href="https://discord.com/" target="_blank" rel="noopener">Discord</a></td><td>USA</td><td>2015</td><td>Per-server invite links — virality built into the product itself</td><td class="tick x">—</td><td class="tick x">—</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="yes">Yes</td><td>Pandemic boosted MAU 56M→100M (2020) — grew before and after, tailwind wasn't the cause</td></tr>
 
     <tr class="grp"><td colspan="11">Travel</td></tr>
-    <tr><td>Booking.com</td><td>Netherlands</td><td>1996</td><td>Real-time "rooms left" urgency</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick x">—</td><td class="tick x">—</td><td class="early">Partial</td><td>CMA found claims false in spot-checks; faces an €8B class action</td></tr>
+    <tr><td><a href="https://www.booking.com/" target="_blank" rel="noopener">Booking.com</a></td><td>Netherlands</td><td>1996</td><td>Real-time "rooms left" urgency</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick x">—</td><td class="tick x">—</td><td class="early">Partial</td><td>CMA found claims false in spot-checks; faces an €8B class action</td></tr>
 
     <tr class="grp"><td colspan="11">Transport</td></tr>
-    <tr><td>Uber</td><td>USA</td><td>2009</td><td>Surge pricing — real scarcity, not staged</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick x">—</td><td class="tick x">—</td><td class="yes">Yes</td><td>Copied industry-wide (airlines, hotels, ticketing) — no reputational risk</td></tr>
+    <tr><td><a href="https://www.uber.com/" target="_blank" rel="noopener">Uber</a></td><td>USA</td><td>2009</td><td>Surge pricing — real scarcity, not staged</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick x">—</td><td class="tick x">—</td><td class="yes">Yes</td><td>Copied industry-wide (airlines, hotels, ticketing) — no reputational risk</td></tr>
 
     <tr class="grp"><td colspan="11">Fintech</td></tr>
-    <tr><td>Robinhood</td><td>USA</td><td>2013</td><td>Referral-gated waitlist, no cash reward</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick x">—</td><td class="yes">Yes</td><td>—</td></tr>
+    <tr><td><a href="https://robinhood.com/" target="_blank" rel="noopener">Robinhood</a></td><td>USA</td><td>2013</td><td>Referral-gated waitlist, no cash reward</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick x">—</td><td class="yes">Yes</td><td>—</td></tr>
 
     <tr class="grp"><td colspan="11">Dating</td></tr>
-    <tr><td>Tinder</td><td>USA</td><td>2012</td><td>Freemium swipe limits, gamified friction</td><td class="tick">✓</td><td class="tick x">—</td><td class="tick">✓</td><td class="tick x">—</td><td class="tick x">—</td><td class="yes">Yes</td><td>—</td></tr>
-    <tr><td>Breeze</td><td>Netherlands</td><td>2019</td><td>Daily curated batch + pay-per-date deposit</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick x">—</td><td class="tick x">—</td><td class="early">Too early</td><td>600,000+ dates organized, still early-stage — not yet proven long-term</td></tr>
+    <tr><td><a href="https://tinder.com/" target="_blank" rel="noopener">Tinder</a></td><td>USA</td><td>2012</td><td>Freemium swipe limits, gamified friction</td><td class="tick">✓</td><td class="tick x">—</td><td class="tick">✓</td><td class="tick x">—</td><td class="tick x">—</td><td class="yes">Yes</td><td>—</td></tr>
+    <tr><td><a href="https://breeze.social/" target="_blank" rel="noopener">Breeze</a></td><td>Netherlands</td><td>2019</td><td>Daily curated batch + pay-per-date deposit</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick x">—</td><td class="tick x">—</td><td class="early">Too early</td><td>600,000+ dates organized, still early-stage — not yet proven long-term</td></tr>
 
     <tr class="grp"><td colspan="11">Deals / E-commerce</td></tr>
-    <tr><td>Groupon</td><td>USA</td><td>2008</td><td>Time-limited local deals</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick x">—</td><td class="tick x">—</td><td class="no">No</td><td>Couldn't sustain past novelty phase; pivoted away from the model in 2014</td></tr>
+    <tr><td><a href="https://www.groupon.com/" target="_blank" rel="noopener">Groupon</a></td><td>USA</td><td>2008</td><td>Time-limited local deals</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick x">—</td><td class="tick x">—</td><td class="no">No</td><td>Couldn't sustain past novelty phase; pivoted away from the model in 2014</td></tr>
 
     <tr class="grp"><td colspan="11">Social Audio</td></tr>
-    <tr><td>Clubhouse</td><td>USA</td><td>2020</td><td>Invite-only scarcity + celebrity FOMO</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="no">No</td><td>Collapsed once lockdowns ended and Twitter Spaces copied the format</td></tr>
+    <tr><td><a href="https://www.clubhouse.com/" target="_blank" rel="noopener">Clubhouse</a></td><td>USA</td><td>2020</td><td>Invite-only scarcity + celebrity FOMO</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="no">No</td><td>Collapsed once lockdowns ended and Twitter Spaces copied the format</td></tr>
 
     <tr class="grp"><td colspan="11">Fitness</td></tr>
-    <tr><td>Peloton</td><td>USA</td><td>2012</td><td>Premium price + community leaderboard</td><td class="tick">✓</td><td class="tick x">—</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="no">No</td><td>Growth reversed once its pandemic tailwind faded</td></tr>
+    <tr><td><a href="https://www.onepeloton.com/" target="_blank" rel="noopener">Peloton</a></td><td>USA</td><td>2012</td><td>Premium price + community leaderboard</td><td class="tick">✓</td><td class="tick x">—</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="no">No</td><td>Growth reversed once its pandemic tailwind faded</td></tr>
 
     <tr class="grp"><td colspan="11">Edtech</td></tr>
-    <tr><td>Duolingo</td><td>USA</td><td>2011</td><td>Hearts (scarcity) + streak (loss aversion)</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick x">—</td><td class="tick x">—</td><td class="yes">Yes</td><td>—</td></tr>
+    <tr><td><a href="https://www.duolingo.com/" target="_blank" rel="noopener">Duolingo</a></td><td>USA</td><td>2011</td><td>Hearts (scarcity) + streak (loss aversion)</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick x">—</td><td class="tick x">—</td><td class="early">At risk</td><td>Stock fell ~46% in 2025 after an "AI-first" strategy backlash slowed user growth — included because its scarcity/urgency mechanic (hearts + streak) is one of the most durable on record, but it shows even a decade-proven mechanic isn't immune to a new disruption</td></tr>
   </table>
+  </div>
+
+  <h2 class="sec-h2">Early growth — how fast each one went viral</h2>
+  <div class="growth-note">Revenue in the first 1–2 years isn't public for most of these — many were private and didn't disclose it. Shown is each company's own earliest disclosed adoption metric (users, downloads, waitlist, or revenue where that's what's available), on its own scale — not comparable company to company, only within each company's own timeline. Booking.com, Patta, Otrium, LTK, ShopMy, Skool, Peloton and Breeze are excluded here — no comparable early-growth curve was found in sourcing.</div>
+  <div class="growth-grid">
+
+    <div class="gcard">
+      <div class="gc-name">Duolingo <span class="gc-unit">— registered users</span></div>
+      <div class="gc-bars">
+        <div class="gc-row"><span class="gc-label">2012</span><div class="gc-track"><div class="gc-fill" style="width:4%"></div></div><span class="gc-val">1M</span></div>
+        <div class="gc-row"><span class="gc-label">Jul '13</span><div class="gc-track"><div class="gc-fill" style="width:20%"></div></div><span class="gc-val">5M</span></div>
+        <div class="gc-row"><span class="gc-label">Late '13</span><div class="gc-track"><div class="gc-fill" style="width:60%"></div></div><span class="gc-val">15M</span></div>
+        <div class="gc-row"><span class="gc-label">Feb '14</span><div class="gc-track"><div class="gc-fill" style="width:100%"></div></div><span class="gc-val">25M</span></div>
+      </div>
+      <div class="gc-src">1M users in year 1 to 25M registered in ~2 years</div>
+    </div>
+
+    <div class="gcard">
+      <div class="gc-name">Discord <span class="gc-unit">— monthly active users</span></div>
+      <div class="gc-bars">
+        <div class="gc-row"><span class="gc-label">Dec '15</span><div class="gc-track"><div class="gc-fill" style="width:1%"></div></div><span class="gc-val">2K</span></div>
+        <div class="gc-row"><span class="gc-label">Jan '16</span><div class="gc-track"><div class="gc-fill" style="width:1%"></div></div><span class="gc-val">20K</span></div>
+        <div class="gc-row"><span class="gc-label">2017</span><div class="gc-track"><div class="gc-fill" style="width:19%"></div></div><span class="gc-val">25M</span></div>
+        <div class="gc-row"><span class="gc-label">2018</span><div class="gc-track"><div class="gc-fill" style="width:100%"></div></div><span class="gc-val">130M</span></div>
+      </div>
+      <div class="gc-src">2,000 users after a single viral Reddit post to 130M MAU in 3 years</div>
+    </div>
+
+    <div class="gcard">
+      <div class="gc-name">Tinder <span class="gc-unit">— downloads</span></div>
+      <div class="gc-bars">
+        <div class="gc-row"><span class="gc-label">Sep '12</span><div class="gc-track"><div class="gc-fill" style="width:2%"></div></div><span class="gc-val">Launch</span></div>
+        <div class="gc-row"><span class="gc-label">Early '13</span><div class="gc-track"><div class="gc-fill" style="width:100%"></div></div><span class="gc-val">10M</span></div>
+      </div>
+      <div class="gc-src">10M downloads within months, via campus-party growth hack</div>
+    </div>
+
+    <div class="gcard">
+      <div class="gc-name">Groupon <span class="gc-unit">— monthly US revenue</span></div>
+      <div class="gc-bars">
+        <div class="gc-row"><span class="gc-label">Jan '10</span><div class="gc-track"><div class="gc-fill" style="width:12%"></div></div><span class="gc-val">$11M</span></div>
+        <div class="gc-row"><span class="gc-label">Jan '11</span><div class="gc-track"><div class="gc-fill" style="width:100%"></div></div><span class="gc-val">$89M</span></div>
+      </div>
+      <div class="gc-src">8x monthly revenue in 13 months — fastest company to $1B valuation at the time</div>
+    </div>
+
+    <div class="gcard">
+      <div class="gc-name">Robinhood <span class="gc-unit">— users</span></div>
+      <div class="gc-bars">
+        <div class="gc-row"><span class="gc-label">Pre-launch</span><div class="gc-track"><div class="gc-fill" style="width:17%"></div></div><span class="gc-val">1M waitlist</span></div>
+        <div class="gc-row"><span class="gc-label">+2 yrs</span><div class="gc-track"><div class="gc-fill" style="width:100%"></div></div><span class="gc-val">6M</span></div>
+      </div>
+      <div class="gc-src">1M-person waitlist before launch, referral-driven, $0 ad spend</div>
+    </div>
+
+    <div class="gcard">
+      <div class="gc-name">Clubhouse <span class="gc-unit">— users</span></div>
+      <div class="gc-bars">
+        <div class="gc-row"><span class="gc-label">Dec '20</span><div class="gc-track"><div class="gc-fill" style="width:6%"></div></div><span class="gc-val">600K</span></div>
+        <div class="gc-row"><span class="gc-label">Feb '21</span><div class="gc-track"><div class="gc-fill" style="width:100%"></div></div><span class="gc-val">10M/wk</span></div>
+      </div>
+      <div class="gc-src">600K → 10M weekly users in 2 months — then collapsed once scarcity lifted (see table)</div>
+    </div>
+
   </div>
 
 </div>
