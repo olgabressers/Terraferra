@@ -35,6 +35,15 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 h1{font-size:clamp(30px,4.4vw,48px);font-weight:900;letter-spacing:-1.5px;margin-top:12px;line-height:1.08}
 .lede{font-size:17px;color:var(--ink);margin-top:14px;max-width:820px;line-height:1.65}
 
+/* what SMTHG stands for */
+.msg-box{margin-top:24px;background:var(--tf-ghost);border-radius:10px;padding:22px 24px}
+.msg-box h3{font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);margin-bottom:14px}
+.msg-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 24px}
+.msg-item{font-size:17px;font-weight:800;color:var(--ink);line-height:1.35}
+.msg-src{font-size:12.5px;color:var(--sub);margin-top:16px}
+.msg-src a{color:var(--tf);text-decoration:none}
+.msg-src a:hover{text-decoration:underline}
+
 /* the pain */
 .pain-box{margin-top:30px;background:white;border:1px solid var(--rule);border-left:4px solid var(--tf);border-radius:10px;padding:24px 26px}
 .pain-box h3{font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);margin-bottom:14px}
@@ -140,7 +149,7 @@ tr:last-child td{border-bottom:none}
 
 footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margin-top:60px}
 .footer-inner{max-width:1240px;margin:0 auto;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub)}
-@media(max-width:700px){.pain-roles{grid-template-columns:1fr}}
+@media(max-width:700px){.pain-roles{grid-template-columns:1fr}.msg-grid{grid-template-columns:1fr}}
 
 @media(max-width:1000px){.grid5{grid-template-columns:repeat(2,1fr)}.grid4{grid-template-columns:repeat(2,1fr)}.compare{grid-template-columns:1fr}}
 @media(max-width:700px){.wrap{padding:20px 16px 60px}.grid5{grid-template-columns:1fr}.grid4{grid-template-columns:1fr}.img-row{grid-template-columns:1fr}}
@@ -161,6 +170,17 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
 
   <div class="eyebrow">SMTHG Business Model <span class="badge badge-sug">Direction · Not Decided</span></div>
   <h1>The Circles Model</h1>
+
+  <div class="msg-box">
+    <h3>What SMTHG stands for</h3>
+    <div class="msg-grid">
+      <div class="msg-item">Limited drops. Limited windows.<br/>Do not miss.</div>
+      <div class="msg-item">Fashion you can't find anywhere else.</div>
+      <div class="msg-item">Discover. Try on. Make it happen.</div>
+      <div class="msg-item">Your Circle. Never drop alone.<span class="badge badge-sug" style="font-size:9.5px;padding:1px 7px;margin-left:6px;vertical-align:middle">Drafted</span></div>
+    </div>
+    <div class="msg-src">First three per <a href="smthg_v3_consumers.html">smthg_v3_consumers.html</a>; community line drafted to match, not yet approved.</div>
+  </div>
 
   <div class="compare">
     <div class="cbox bad">
@@ -290,8 +310,9 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
         <div class="pain-item"><b>Wearing what everyone wears</b><p>Mass-market supply means nothing bought is theirs alone.</p></div>
       </div>
       <div class="pain-role">
-        <div class="pain-role-label">Superfans <span class="badge badge-sug" style="font-size:10.5px;padding:2px 8px;margin-left:4px">Direction · Not decided</span></div>
-        <div class="pain-item"><b>Nowhere to belong between drops</b><p>Once a drop ends, nothing brings the most engaged consumers back until the next one starts from zero — a potential role for consumers the community turns into repeat, higher-status members.</p></div>
+        <div class="pain-role-label">Community</div>
+        <div class="pain-item"><b>Nowhere to belong between drops</b><p>Once a drop ends, nothing brings people back until the next one starts from zero — no shared space to discuss it, revisit it, or connect with others who bought the same drop.</p></div>
+        <div class="pain-item"><b>Discovery is solitary</b><p>Finding an emerging designer happens alone, scrolling — there's no group of people who found it too. <span class="badge badge-sug" style="font-size:10.5px;padding:2px 8px">Superfan role: Direction · Not decided</span></p></div>
       </div>
     </div>
   </div>
