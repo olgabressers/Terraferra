@@ -36,10 +36,11 @@ h1{font-size:clamp(30px,4.4vw,48px);font-weight:900;letter-spacing:-1.5px;margin
 .lede{font-size:17px;color:var(--ink);margin-top:14px;max-width:820px;line-height:1.65}
 
 /* what SMTHG stands for */
-.msg-box{margin-top:24px;background:var(--tf-ghost);border-radius:10px;padding:22px 24px}
-.msg-box h3{font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);margin-bottom:14px}
-.msg-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.msg-col-label{font-size:11.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);margin-bottom:12px}
+.msg-box{margin-top:24px}
+.msg-box>h3{font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);margin-bottom:14px}
+.msg-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.msg-col{border-radius:16px;padding:22px 24px;border:2px solid var(--ink);background:white}
+.msg-col-label{font-size:14px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);margin-bottom:14px}
 .msg-item{font-size:17px;font-weight:800;color:var(--ink);line-height:1.35;margin-bottom:14px}
 .msg-item:last-child{margin-bottom:0}
 
@@ -150,7 +151,7 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
 .footer-inner{max-width:1240px;margin:0 auto;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub)}
 @media(max-width:700px){.pain-roles{grid-template-columns:1fr}.msg-cols{grid-template-columns:1fr}}
 
-@media(max-width:1000px){.grid5{grid-template-columns:repeat(2,1fr)}.grid4{grid-template-columns:repeat(2,1fr)}.compare{grid-template-columns:1fr}}
+@media(max-width:1000px){.grid5{grid-template-columns:repeat(2,1fr)}.grid4{grid-template-columns:repeat(2,1fr)}.compare{grid-template-columns:1fr}.msg-cols{grid-template-columns:1fr}}
 @media(max-width:700px){.wrap{padding:20px 16px 60px}.grid5{grid-template-columns:1fr}.grid4{grid-template-columns:1fr}.img-row{grid-template-columns:1fr}}
 </style>
 </head>
@@ -184,6 +185,12 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
         <div class="msg-item">Release your drop.<br/>Produce what sells.</div>
         <div class="msg-item">Your visual identity. Your community. Zero leftover stock.</div>
         <div class="msg-item">Built for designers who won't produce without demand.</div>
+      </div>
+      <div class="msg-col">
+        <div class="msg-col-label">For Community</div>
+        <div class="msg-item">Chat with the people who found it first.</div>
+        <div class="msg-item">Live with the designer.<br/>Not just a feed.</div>
+        <div class="msg-item">Points, status, and a reason to come back.</div>
       </div>
     </div>
   </div>
