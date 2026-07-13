@@ -60,6 +60,10 @@ h1{font-size:clamp(30px,4.4vw,48px);font-weight:900;letter-spacing:-1.5px;margin
 .sec-h2{font-size:clamp(20px,2.6vw,27px);font-weight:900;letter-spacing:-.8px;margin:52px 0 18px}
 .grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
 .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.img-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+.img-card{background:white;border:1px solid var(--rule);border-radius:10px;padding:14px}
+.img-card img{width:100%;height:auto;display:block;border-radius:6px}
+.img-cap{font-size:12.5px;color:var(--sub);margin-top:8px}
 .comp{background:white;border:1px solid var(--rule);border-top:3px solid var(--ink);border-radius:10px;padding:18px 16px;display:flex;flex-direction:column}
 .comp .cnum{font-size:13px;font-weight:800;color:var(--tf);letter-spacing:1px;margin-bottom:8px}
 .comp h4{font-size:15px;font-weight:800;line-height:1.25;margin-bottom:8px}
@@ -139,7 +143,7 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
 @media(max-width:700px){.pain-roles{grid-template-columns:1fr}}
 
 @media(max-width:1000px){.grid5{grid-template-columns:repeat(2,1fr)}.grid4{grid-template-columns:repeat(2,1fr)}.compare{grid-template-columns:1fr}}
-@media(max-width:700px){.wrap{padding:20px 16px 60px}.grid5{grid-template-columns:1fr}.grid4{grid-template-columns:1fr}}
+@media(max-width:700px){.wrap{padding:20px 16px 60px}.grid5{grid-template-columns:1fr}.grid4{grid-template-columns:1fr}.img-row{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -242,6 +246,17 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
       <div class="src">Element per <a href="socialcommerce.html">Social Commerce — Platform Map</a></div>
     </div>
 
+  </div>
+
+  <div class="img-row">
+    <div class="img-card">
+      <img src="smthg-community-feed.png" alt="Community feed reference" loading="lazy"/>
+      <div class="img-cap">Reference: community feed layout</div>
+    </div>
+    <div class="img-card">
+      <img src="smthg-community-flow.svg" alt="Community flow diagram" loading="lazy"/>
+      <div class="img-cap">Reference: community/shop/events flow</div>
+    </div>
   </div>
 
   <h2 class="sec-h2">The loop</h2>
