@@ -109,7 +109,7 @@ body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--ink);ove
 .space-tile{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:1;background:var(--off);box-shadow:0 12px 30px rgba(22,22,22,.08)}
 .space-tile img{width:100%;height:100%;object-fit:cover;display:block}
 .space-tile-bg{width:100%;height:100%;background-size:cover;background-position:center}
-.space-tile-label{position:absolute;left:0;right:0;bottom:0;padding:16px 18px;background:linear-gradient(180deg,transparent 30%,rgba(22,22,22,.88) 100%);color:var(--white);font-size:13px;font-weight:800;letter-spacing:.4px;text-transform:uppercase}
+.space-tile-label{position:absolute;left:0;right:0;bottom:0;padding:16px 18px;background:linear-gradient(180deg,transparent 30%,rgba(22,22,22,.88) 100%);color:var(--red);font-size:13px;font-weight:800;letter-spacing:.4px;text-transform:uppercase}
 .space-text{padding-left:8px}
 @media(max-width:900px){.space-layout{grid-template-columns:1fr;gap:32px}.space-text{padding-left:0;order:-1}}
 @media(max-width:600px){.circle-section{padding:56px 0}.space-photos{gap:8px}}
@@ -144,6 +144,13 @@ body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--ink);ove
 .sustain-body p:last-child{margin-bottom:0}
 @media(max-width:800px){.sustain .container{grid-template-columns:1fr;gap:28px}}
 @media(max-width:600px){.sustain{padding:48px 0}}
+
+/* ── VIRTUAL TRY-ON ── */
+.vto-section{padding:80px 0;background:var(--cream)}
+.vto-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.vto-photo{border-radius:14px;min-height:440px;background-size:cover;background-position:center;box-shadow:0 18px 44px rgba(22,22,22,.1)}
+@media(max-width:900px){.vto-grid{grid-template-columns:1fr;gap:32px}.vto-photo{min-height:340px}}
+@media(max-width:600px){.vto-section{padding:56px 0}}
 
 /* ── FAQ ── */
 .faq-section{padding:80px 0;background:var(--white)}
@@ -193,14 +200,14 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.07);padding:
 <nav class="nav">
   <a href="https://terraferra.co/adminfiles/" class="nav-logo">smthg<span class="dot">.</span></a>
   <div class="nav-links">
-    <a href="#space">So-Me-Space</a>
-    <a href="#drops">Drops</a>
+    <a href="#space" style="color:var(--red)">So-Me-Space</a>
+    <a href="#drops" style="color:var(--red)">Drops</a>
     <a href="#how">How It Works</a>
     <a href="#faq">FAQ</a>
   </div>
   <div class="nav-btns">
     <a href="smthg_v4_brands.html" class="nav-pill">For Designers →</a>
-    <a href="#join" class="nav-cta">Get Early Access</a>
+    <a href="#join" class="nav-cta">Get Notified</a>
   </div>
 </nav>
 
@@ -210,7 +217,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.07);padding:
   <div class="hero-inner">
     <span class="hero-eye">A Community First</span>
     <h1 class="hero-title">Fashion, found<br>together.</h1>
-    <p class="hero-desc">A community where you discover and share — not just designer drops. Talk style, watch real counts fall together, and pre-order before it's made. it's so me.</p>
+    <p class="hero-desc">Limited drops from independent designers — found and shared inside a community, not scrolled alone. Watch the count fall together, and pre-order before it's made. it's so me.</p>
     <div class="hero-actions">
       <a href="#space" class="btn btn-fill">Join a So-Me-Space</a>
       <a href="#drops" class="btn btn-outline">Discover Drops</a>
@@ -243,7 +250,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.07);padding:
       <div class="space-text">
         <span class="sec-label">So-Me-Space</span>
         <h2 class="sec-h2">Brand Space. Style Space. Events. The Feed.</h2>
-        <p class="sec-lede">Brands have a home with live sessions and a recording library. Events and the drop calendar bring people together between drops. The feed is where everyone chats and shares.</p>
+        <p class="sec-lede">Brands have a home with live sessions. Events and the drop calendar bring people together between drops. The feed is where everyone chats and shares.</p>
       </div>
     </div>
   </div>
@@ -326,7 +333,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.07);padding:
     <div class="drops-sub">
       <div>
         <h3>Never miss a drop.</h3>
-        <p>Early access — 24 hours before every drop opens.</p>
+        <p>Get notified 24 hours before every drop opens.</p>
       </div>
       <div class="sub-form">
         <input class="sub-input" type="email" placeholder="Your email" aria-label="Email"/>
@@ -344,8 +351,8 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.07);padding:
     <div class="val-grid">
       <div class="val-card">
         <div class="val-num">01</div>
-        <div class="val-title">First access, every time</div>
-        <p>Subscribe and get drops 24 hours before the public. Limited quantities. Once the window closes — it's gone for good.</p>
+        <div class="val-title">Never miss a drop</div>
+        <p>Get notified 24 hours before every drop goes public. Limited quantities. Once the window closes — it's gone for good.</p>
       </div>
       <div class="val-card">
         <div class="val-num">02</div>
@@ -356,6 +363,20 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.07);padding:
         <div class="val-num">03</div>
         <div class="val-title">You order it. It gets made.</div>
         <p>Pre-orders mean the piece is produced only because you wanted it. You're not choosing from stock — you're deciding what exists.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIRTUAL TRY-ON -->
+<section class="vto-section" id="try-on">
+  <div class="container">
+    <div class="vto-grid">
+      <div class="vto-photo" style="background-image:url('https://images.unsplash.com/photo-1587225655162-bdde17e8efa0?w=1200&q=80&auto=format&fit=crop')"></div>
+      <div class="vto-text">
+        <span class="sec-label">Virtual Try-On</span>
+        <h2 class="sec-h2">Try it on. Share it in your Space.</h2>
+        <p class="sec-lede">Upload a photo and see any drop on your own body before you decide. Share the look with your So-Me-Space members and get real opinions before you buy.</p>
       </div>
     </div>
   </div>
@@ -391,8 +412,8 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.07);padding:
       <div class="step">
         <div class="step-num">04</div>
         <div>
-          <h3>Invite friends. Move up the queue.</h3>
-          <p>Bringing someone into So-Me-Space moves you up the queue or unlocks earlier access to the next drop.</p>
+          <h3>Share it. Grow your Space.</h3>
+          <p>Share your favorite items with friends and grow your Space with people who share your taste.</p>
         </div>
       </div>
     </div>
@@ -443,12 +464,12 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.07);padding:
           <p class="faq-body">Independent emerging labels in premium and affordable-luxury — niche, with a distinct visual identity. Designers who want demand confirmed before they produce a single item.</p>
         </details>
         <details>
-          <summary>What happens when I invite a friend?</summary>
-          <p class="faq-body">Inviting someone into So-Me-Space moves you up the queue for the next drop, or unlocks earlier access — ahead of the public window.</p>
+          <summary>Can I share drops with friends?</summary>
+          <p class="faq-body">Yes — share your favorite items straight from the drop. It's how your Space grows with people who share your taste.</p>
         </details>
         <details>
           <summary>What if the drop sells out before I get there?</summary>
-          <p class="faq-body">Subscribe and get early access 24 hours before every drop goes public. So-Me-Space members always get first access to the limited quantity.</p>
+          <p class="faq-body">Subscribe and get notified 24 hours before every drop goes public — so you never miss it. So-Me-Space members always get first access to the limited quantity.</p>
         </details>
         <details>
           <summary>Is this better for the planet?</summary>
@@ -462,9 +483,9 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.07);padding:
 <!-- CTA -->
 <section class="cta-section" id="join">
   <div class="container">
-    <div class="cta-eye">Early access</div>
-    <h2 class="cta-title">Get early access to drops.</h2>
-    <p class="cta-desc">Subscribe for 24-hour early access before every drop goes public.</p>
+    <div class="cta-eye">Never miss a drop</div>
+    <h2 class="cta-title">Get notified before every drop.</h2>
+    <p class="cta-desc">Subscribe and get notified 24 hours before every drop goes public.</p>
     <div class="cta-form">
       <input class="cta-input" type="email" placeholder="Your email address" aria-label="Email"/>
       <button class="btn btn-fill" type="button">Subscribe</button>
