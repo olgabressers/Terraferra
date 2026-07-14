@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>smthg — For Shoppers · V4</title>
+<link rel="icon" type="image/svg+xml" href="smthg_favicon.svg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#F8F6F2;
+  --off:#F1EEE9;
+  --ink:#161616;
+  --red:#E8002D;
+  --red-dark:#B50023;
+  --muted:#8A8880;
+  --sub:#5C5A56;
+  --border:#E6E2DA;
+  --white:#FFFFFF;
+  --green:#1A7A4A;
+  --green-bg:#EDFAF3;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden}
+
+/* ── VER BAR ── */
+.ver-bar{background:var(--ink);padding:8px 52px;font-size:9.5px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.35);display:flex;justify-content:space-between;align-items:center}
+.ver-bar a{color:rgba(255,255,255,.35);text-decoration:none;transition:color .15s}.ver-bar a:hover{color:rgba(255,255,255,.7)}
+@media(max-width:600px){.ver-bar{padding:8px 18px;font-size:9px}}
+
+/* ── NAV ── */
+.nav{background:var(--white);border-bottom:1px solid var(--border);padding:0 52px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.nav-logo{font-size:22px;font-weight:900;letter-spacing:-1px;color:var(--ink);text-decoration:none;line-height:1}
+.nav-logo .dot{color:var(--red)}
+.nav-links{display:flex;gap:22px;align-items:center;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.nav-links a{font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .15s;white-space:nowrap}
+.nav-links a:hover{color:var(--ink)}
+.nav-btns{display:flex;gap:8px;align-items:center}
+.nav-cta{background:var(--red);color:var(--white)!important;padding:9px 22px;font-size:10px;font-weight:800;letter-spacing:1.5px;transition:background .15s!important;text-decoration:none}
+.nav-cta:hover{background:var(--red-dark)!important}
+.nav-pill{border:1.5px solid var(--border);color:var(--ink)!important;padding:8px 18px;font-size:10px;font-weight:800;letter-spacing:1.5px;transition:all .15s!important;text-decoration:none}
+.nav-pill:hover{border-color:var(--ink)!important;color:var(--ink)!important}
+@media(max-width:900px){.nav{padding:0 24px}.nav-links{display:none}.nav-btns{gap:6px}}
+@media(max-width:600px){.nav{padding:0 18px;height:56px}.nav-logo{font-size:18px}.nav-pill{padding:6px 10px;font-size:9px;letter-spacing:.8px}}
+
+/* ── HERO ── */
+.hero{background:var(--off);padding:88px 52px 72px;position:relative;overflow:hidden}
+.hero-bg-circle{position:absolute;right:-120px;bottom:-120px;width:500px;height:500px;border-radius:50%;background:var(--red);opacity:.05;pointer-events:none}
+.hero-inner{max-width:1160px;margin:0 auto;position:relative;z-index:1}
+.hero-eye{font-size:10px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:28px;display:block}
+.hero-title{font-size:clamp(52px,7vw,100px);font-weight:900;line-height:.95;letter-spacing:-3px;color:var(--ink);margin-bottom:24px}
+.hero-desc{font-size:clamp(16px,1.8vw,20px);line-height:1.65;color:var(--sub);max-width:560px;margin-bottom:48px;font-weight:400}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{padding:14px 32px;font-family:'Inter',sans-serif;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;display:inline-block;transition:all .15s}
+.btn-fill{background:var(--red);color:var(--white)}.btn-fill:hover{background:var(--red-dark)}
+.btn-outline{border:1.5px solid var(--red);color:var(--red);background:transparent}.btn-outline:hover{background:var(--red);color:var(--white)}
+@media(max-width:768px){.hero{padding:72px 24px 64px}}
+@media(max-width:600px){.hero{padding:56px 18px 52px}.hero-title{letter-spacing:-2px}}
+
+/* ── CONTAINER / SEC ── */
+.container{max-width:1200px;margin:0 auto;padding:0 52px}
+.sec-label{font-size:10px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:12px;display:block}
+.sec-h2{font-size:clamp(26px,3vw,40px);font-weight:800;letter-spacing:-1px;line-height:1.15;color:var(--ink);margin-bottom:20px}
+.sec-lede{font-size:15px;line-height:1.75;color:var(--ink);max-width:640px;margin-bottom:44px}
+@media(max-width:600px){.container{padding:0 18px}}
+
+/* ── DROPS ── */
+.drops-section{padding:72px 0;background:var(--white)}
+.drops-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px}
+.drop-card{background:var(--off);border-top:3px solid var(--ink);transition:border-top-color .2s;display:flex;flex-direction:column;overflow:hidden}
+.drop-card:hover{border-top-color:var(--red)}
+.drop-img{position:relative;height:210px;overflow:hidden;background:var(--cream)}
+.drop-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.drop-card:hover .drop-img img{transform:scale(1.04)}
+.drop-badge{position:absolute;top:12px;left:12px;background:var(--red);color:var(--white);font-size:8px;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:5px 10px;z-index:2}
+.drop-badge.soon{background:var(--ink)}
+.drop-win{position:absolute;bottom:12px;right:12px;background:rgba(22,22,22,.8);color:var(--white);font-size:9px;font-weight:700;letter-spacing:.7px;padding:5px 9px;text-transform:uppercase;z-index:2}
+.drop-ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.drop-ph span{font-size:44px;font-weight:900;letter-spacing:-3px;user-select:none}
+.drop-body{padding:18px 18px 22px;flex:1;display:flex;flex-direction:column;background:var(--white)}
+.drop-flag{font-size:8px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:7px}
+.drop-brand{font-size:17px;font-weight:800;color:var(--ink);margin-bottom:6px;letter-spacing:-.4px}
+.drop-desc{font-size:12px;line-height:1.6;color:var(--sub);margin-bottom:14px}
+.drop-scarcity{margin-bottom:14px}
+.drop-scarcity-row{display:flex;justify-content:space-between;font-size:10.5px;font-weight:700;color:var(--sub);margin-bottom:5px}
+.drop-scarcity-row b{color:var(--red)}
+.drop-scarcity-bar{height:5px;background:var(--border);border-radius:4px;overflow:hidden}
+.drop-scarcity-fill{height:100%;background:var(--red)}
+.drop-link{display:inline-block;background:var(--ink);color:var(--white);font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:10px 18px;text-decoration:none;transition:background .15s;align-self:flex-start;margin-top:auto}
+.drop-link:hover{background:var(--red)}
+.drops-sub{background:var(--off);padding:28px 32px;margin-top:4px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.drops-sub h3{font-size:17px;font-weight:800;color:var(--ink);margin-bottom:3px;letter-spacing:-.3px}
+.drops-sub p{font-size:12.5px;color:var(--ink)}
+.sub-form{display:flex;gap:8px;flex-wrap:wrap}
+.sub-input{padding:11px 16px;width:230px;background:var(--white);border:1.5px solid var(--border);color:var(--ink);font-family:'Inter',sans-serif;font-size:13px;outline:none;transition:border-color .15s}
+.sub-input:focus{border-color:var(--red)}
+.sub-btn{background:var(--red);color:var(--white);border:none;padding:11px 22px;font-family:'Inter',sans-serif;font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:background .15s}
+.sub-btn:hover{background:var(--red-dark)}
+@media(max-width:1024px){.drops-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.drops-grid{grid-template-columns:1fr}.drops-section{padding:56px 0}.drops-sub{flex-direction:column;align-items:flex-start;padding:20px 18px}.sub-input{width:100%}.sub-form{flex-direction:column;width:100%}.sub-btn{width:100%}}
+
+/* ── SO-ME-SPACE (community) ── */
+.circle-section{padding:80px 0;background:var(--cream)}
+.space-layout{display:grid;grid-template-columns:1.2fr 1fr;gap:56px;align-items:center}
+.space-photos{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.space-tile{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:1;background:var(--off);box-shadow:0 12px 30px rgba(22,22,22,.08)}
+.space-tile img{width:100%;height:100%;object-fit:cover;display:block}
+.space-tile-bg{width:100%;height:100%;background-size:cover;background-position:center}
+.space-tile-label{position:absolute;left:0;right:0;bottom:0;padding:16px 18px;background:linear-gradient(180deg,transparent 30%,rgba(22,22,22,.88) 100%);color:var(--white);font-size:14px;font-weight:800;letter-spacing:-.2px}
+.space-text{padding-left:8px}
+@media(max-width:900px){.space-layout{grid-template-columns:1fr;gap:32px}.space-text{padding-left:0;order:-1}}
+@media(max-width:600px){.circle-section{padding:56px 0}.space-photos{gap:8px}}
+
+/* ── 3 VALUE CARDS ── */
+.val-section{padding:80px 0;background:var(--white)}
+.val-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+.val-card{background:var(--off);padding:40px 32px 36px;border-top:3px solid var(--ink);transition:border-top-color .2s}
+.val-card:hover{border-top-color:var(--red)}
+.val-num{font-size:10px;font-weight:800;letter-spacing:2px;color:var(--red);margin-bottom:16px}
+.val-title{font-size:18px;font-weight:800;line-height:1.2;color:var(--ink);letter-spacing:-.3px;margin-bottom:12px}
+.val-card p{font-size:14px;line-height:1.75;color:var(--ink)}
+@media(max-width:900px){.val-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.val-grid{grid-template-columns:1fr}.val-section{padding:56px 0}}
+
+/* ── HOW IT WORKS ── */
+.how-section{padding:80px 0;background:var(--cream)}
+.steps{display:flex;flex-direction:column;margin-top:8px}
+.step{display:grid;grid-template-columns:100px 1fr;gap:36px;border-top:1px solid var(--border);padding:40px 0;align-items:start}
+.step:last-child{border-bottom:1px solid var(--border)}
+.step-num{font-size:72px;font-weight:900;letter-spacing:-4px;line-height:1;color:transparent;-webkit-text-stroke:2px var(--red)}
+.step h3{font-size:clamp(17px,1.8vw,22px);font-weight:800;color:var(--ink);margin-bottom:10px;letter-spacing:-.4px;line-height:1.2}
+.step p{font-size:14px;line-height:1.75;color:var(--ink);max-width:540px}
+@media(max-width:600px){.step{grid-template-columns:70px 1fr;gap:20px}.step-num{font-size:50px}}
+
+/* ── SUSTAIN ── */
+.sustain{background:var(--off);padding:64px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.sustain .container{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.sustain-label{font-size:10px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:12px;display:block}
+.sustain-title{font-size:clamp(24px,2.8vw,36px);font-weight:800;letter-spacing:-1px;line-height:1.15;color:var(--ink)}
+.sustain-body p{font-size:14px;line-height:1.78;color:var(--ink);margin-bottom:14px}
+.sustain-body p:last-child{margin-bottom:0}
+@media(max-width:800px){.sustain .container{grid-template-columns:1fr;gap:28px}}
+@media(max-width:600px){.sustain{padding:48px 0}}
+
+/* ── FAQ ── */
+.faq-section{padding:80px 0;background:var(--white)}
+.faq-list{display:grid;grid-template-columns:1fr 1fr;gap:0 64px;margin-top:8px}
+details{border-top:1px solid var(--border)}
+details:last-child{border-bottom:1px solid var(--border)}
+summary{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:18px 0;cursor:pointer;list-style:none;font-size:14px;font-weight:700;color:var(--ink);line-height:1.3;transition:color .15s}
+summary::-webkit-details-marker{display:none}
+summary::after{content:'+';font-size:20px;font-weight:300;color:var(--red);flex-shrink:0;line-height:1;transition:transform .2s}
+details[open] summary{color:var(--red)}
+details[open] summary::after{transform:rotate(45deg)}
+.faq-body{font-size:13.5px;line-height:1.78;color:var(--ink);padding-bottom:20px}
+@media(max-width:768px){.faq-list{grid-template-columns:1fr}}
+@media(max-width:600px){.faq-section{padding:56px 0}}
+
+/* ── CTA ── */
+.cta-section{background:var(--cream);padding:72px 0;text-align:center;border-top:1px solid var(--border)}
+.cta-section .container{display:flex;flex-direction:column;align-items:center}
+.cta-eye{font-size:10px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:16px}
+.cta-title{font-size:clamp(28px,3.5vw,48px);font-weight:800;letter-spacing:-1.5px;color:var(--ink);line-height:1.1;margin-bottom:12px}
+.cta-desc{font-size:15px;line-height:1.65;color:var(--ink);max-width:380px;margin-bottom:32px}
+.cta-form{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:12px}
+.cta-input{padding:14px 20px;width:260px;background:var(--white);border:1.5px solid var(--border);color:var(--ink);font-family:'Inter',sans-serif;font-size:14px;outline:none;transition:border-color .15s}
+.cta-input::placeholder{color:var(--muted)}
+.cta-input:focus{border-color:var(--red)}
+.cta-note{font-size:10px;font-weight:600;letter-spacing:.5px;color:var(--muted)}
+@media(max-width:600px){.cta-section{padding:56px 0}.cta-input{width:100%}.cta-form{flex-direction:column;align-items:stretch;padding:0 18px}.cta-form .btn-fill{text-align:center}}
+
+/* ── FOOTER ── */
+footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.07);padding:22px 52px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.foot-logo{font-size:14px;font-weight:900;letter-spacing:-.5px;color:var(--white)}
+.foot-logo .dot{color:var(--red)}
+.foot-note{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.2)}
+.foot-nav{display:flex;gap:20px}
+.foot-nav a{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.3);text-decoration:none;transition:color .15s}
+.foot-nav a:hover{color:rgba(255,255,255,.7)}
+@media(max-width:600px){footer{padding:18px 18px;flex-direction:column;gap:12px;text-align:center}.foot-nav{justify-content:center}}
+</style>
+</head>
+<body>
+
+<div class="ver-bar">
+  <span>V4 · For Shoppers — Communities &amp; Drops</span>
+  <a href="https://terraferra.co/adminfiles/">← Admin Hub</a>
+</div>
+
+<nav class="nav">
+  <a href="https://terraferra.co/adminfiles/" class="nav-logo">smthg<span class="dot">.</span></a>
+  <div class="nav-links">
+    <a href="#space">So-Me-Space</a>
+    <a href="#drops">Drops</a>
+    <a href="#how">How It Works</a>
+    <a href="#faq">FAQ</a>
+  </div>
+  <div class="nav-btns">
+    <a href="smthg_v4_brands.html" class="nav-pill">For Designers →</a>
+    <a href="#join" class="nav-cta">Get Early Access</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-circle"></div>
+  <div class="hero-inner">
+    <span class="hero-eye">A Community First</span>
+    <h1 class="hero-title">Fashion, found<br>together.</h1>
+    <p class="hero-desc">Every designer here has a Circle before they have a drop — people who found them first, who talk style between releases, who watch the count fall together in real time. it's so me.</p>
+    <div class="hero-actions">
+      <a href="#space" class="btn btn-fill">Join a So-Me-Space</a>
+      <a href="#drops" class="btn btn-outline">Discover Drops</a>
+    </div>
+  </div>
+</section>
+
+<!-- SO-ME-SPACE (community) -->
+<section class="circle-section" id="space">
+  <div class="container">
+    <div class="space-layout">
+      <div class="space-photos">
+        <div class="space-tile">
+          <div class="space-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1603189343302-e603f7add05a?w=700&q=80&auto=format&fit=crop')"></div>
+          <div class="space-tile-label">Minimalist</div>
+        </div>
+        <div class="space-tile">
+          <div class="space-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1772521245636-0d7fb39bd59d?w=700&q=80&auto=format&fit=crop')"></div>
+          <div class="space-tile-label">Streetwear</div>
+        </div>
+        <div class="space-tile">
+          <div class="space-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1699816709710-ae1b3a226d4b?w=700&q=80&auto=format&fit=crop')"></div>
+          <div class="space-tile-label">Quiet Luxury</div>
+        </div>
+        <div class="space-tile">
+          <img src="smthg-community-feed.png" alt="Community feed and chat"/>
+          <div class="space-tile-label">The Feed &amp; Chat</div>
+        </div>
+      </div>
+      <div class="space-text">
+        <span class="sec-label">So-Me-Space</span>
+        <h2 class="sec-h2">Where your tribe already talks style.</h2>
+        <p class="sec-lede">A feed and a chat for every aesthetic — minimalist, streetwear, quiet luxury. Members trade looks, advice, and the names they coin for their own style.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DROPS -->
+<section class="drops-section" id="drops">
+  <div class="container">
+    <span class="sec-label">Dropping now</span>
+    <h2 class="sec-h2">Limited drops. Limited windows.<br>Do not miss.</h2>
+    <div class="drops-grid">
+
+      <div class="drop-card">
+        <div class="drop-img" style="background:#F0EDE8">
+          <div class="drop-ph"><span style="color:rgba(0,0,0,.06)">ALÉMAIS</span></div>
+          <img src="https://img.shopmy.us/eyJidWNrZXQiOiJwcm9kdWN0aW9uLXNob3BteXNoZWxmLXVwbG9hZHMiLCJrZXkiOiI1OTBlMDE2Ny1iNzI5LTQxM2YtOTg2YS05ZWFiMTM0YzFkMDRfU29maWFSX1RleHQucG5nIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjo3NjgsImZpdCI6ImNvdmVyIiwid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlfX19" alt="ALÉMAIS" loading="lazy" onerror="this.style.display='none'"/>
+          <div class="drop-badge">Live Now</div>
+          <div class="drop-win">⏱ 48 hrs left</div>
+        </div>
+        <div class="drop-body">
+          <div class="drop-flag">Do Not Miss</div>
+          <div class="drop-brand">ALÉMAIS</div>
+          <p class="drop-desc">Australian contemporary. Resort &amp; ready-to-wear. Pre-order only.</p>
+          <div class="drop-scarcity">
+            <div class="drop-scarcity-row"><span>What's really left</span><b>17 of 40</b></div>
+            <div class="drop-scarcity-bar"><div class="drop-scarcity-fill" style="width:43%"></div></div>
+          </div>
+          <a href="#join" class="drop-link">Reserve — $25 Deposit</a>
+        </div>
+      </div>
+
+      <div class="drop-card">
+        <div class="drop-img" style="background:#EDE8E3">
+          <div class="drop-ph"><span style="color:rgba(0,0,0,.06)">EMME</span></div>
+          <img src="https://img.shopmy.us/eyJidWNrZXQiOiJwcm9kdWN0aW9uLXNob3BteXNoZWxmLXVwbG9hZHMiLCJrZXkiOiIxMDhkZjQ1OS1mZTM2LTRlMTItODFlNi0yNGNiNDJjN2FlYTYiLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjc2OCwiZml0IjoiY292ZXIiLCJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWV9fX0=" alt="Emme Parsons" loading="lazy" onerror="this.style.display='none'"/>
+          <div class="drop-badge">Live Now</div>
+          <div class="drop-win">⏱ 3 days left</div>
+        </div>
+        <div class="drop-body">
+          <div class="drop-flag">Do Not Miss</div>
+          <div class="drop-brand">Emme Parsons</div>
+          <p class="drop-desc">NY luxury footwear. Hand-crafted mules, single artisan. Pre-order only.</p>
+          <div class="drop-scarcity">
+            <div class="drop-scarcity-row"><span>What's really left</span><b>22 of 60</b></div>
+            <div class="drop-scarcity-bar"><div class="drop-scarcity-fill" style="width:37%"></div></div>
+          </div>
+          <a href="#join" class="drop-link">Reserve — $25 Deposit</a>
+        </div>
+      </div>
+
+      <div class="drop-card">
+        <div class="drop-img" style="background:#E8E3DC">
+          <div class="drop-ph"><span style="color:rgba(0,0,0,.06)">OLIVE</span></div>
+          <div class="drop-badge soon">Coming Soon</div>
+          <div class="drop-win">Opens in 2 days</div>
+        </div>
+        <div class="drop-body">
+          <div class="drop-flag">Subscribe First</div>
+          <div class="drop-brand">Olive Ateliers</div>
+          <p class="drop-desc">Slow fashion jewelry. Made to order. Sustainable materials.</p>
+          <a href="#join" class="drop-link">Subscribe</a>
+        </div>
+      </div>
+
+      <div class="drop-card">
+        <div class="drop-img" style="background:#1C1C1C">
+          <div class="drop-ph"><span style="color:rgba(232,0,45,.15)">LIBRE</span></div>
+          <div class="drop-badge soon">Coming Soon</div>
+          <div class="drop-win">Opens Friday</div>
+        </div>
+        <div class="drop-body">
+          <div class="drop-flag">Subscribe First</div>
+          <div class="drop-brand">Liberowe</div>
+          <p class="drop-desc">NYC sustainable streetwear. Spring drop. Small run, made-to-order.</p>
+          <a href="#join" class="drop-link">Subscribe</a>
+        </div>
+      </div>
+
+    </div>
+    <div class="drops-sub">
+      <div>
+        <h3>Never miss a drop.</h3>
+        <p>Early access — 24 hours before every drop opens.</p>
+      </div>
+      <div class="sub-form">
+        <input class="sub-input" type="email" placeholder="Your email" aria-label="Email"/>
+        <button class="sub-btn" type="button">Subscribe</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 VALUE PROPS -->
+<section class="val-section" id="why">
+  <div class="container">
+    <span class="sec-label">Why smthg</span>
+    <h2 class="sec-h2">Fashion you can't find anywhere else.</h2>
+    <div class="val-grid">
+      <div class="val-card">
+        <div class="val-num">01</div>
+        <div class="val-title">First access, every time</div>
+        <p>Subscribe and get drops 24 hours before the public. Limited quantities. Once the window closes — it's gone for good.</p>
+      </div>
+      <div class="val-card">
+        <div class="val-num">02</div>
+        <div class="val-title">See it on you before you buy</div>
+        <p>Virtual Try-On lets you upload a photo and see any piece on your own body. No guessing. No returns from bad fit.</p>
+      </div>
+      <div class="val-card">
+        <div class="val-num">03</div>
+        <div class="val-title">You order it. It gets made.</div>
+        <p>Pre-orders mean the piece is produced only because you wanted it. You're not choosing from stock — you're deciding what exists.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how">
+  <div class="container">
+    <span class="sec-label">How it works</span>
+    <h2 class="sec-h2">Discover. Try on. Make it happen.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div>
+          <h3>Join the Circle</h3>
+          <p>Free to join, per designer. You're in the community before the drop — see the feed, interest groups, and the drop calendar.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div>
+          <h3>Try it on virtually</h3>
+          <p>Upload a photo. See the piece on your own body. The AI Stylist shows you how to complete the look. No fitting rooms, no surprises.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div>
+          <h3>Deposit to hold your spot</h3>
+          <p>Order during the drop window. Production starts once orders are confirmed. Your piece is made to order — not pulled from a warehouse shelf.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div>
+          <h3>Invite friends. Move up the queue.</h3>
+          <p>Bringing someone into the Circle moves you up the queue or unlocks earlier access to the next drop.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUSTAINABILITY -->
+<div class="sustain">
+  <div class="container">
+    <div>
+      <span class="sustain-label">Why pre-order matters</span>
+      <div class="sustain-title">Fashion makes too much.<br>Most of it is destroyed.</div>
+    </div>
+    <div class="sustain-body">
+      <p>The fashion industry overproduces by 30–40%. Unsold inventory is incinerated or sent to landfill.</p>
+      <p>Pre-orders change the logic: nothing gets made until it's sold. Your purchase decides what gets produced — and nothing more.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="container">
+    <span class="sec-label">Questions</span>
+    <h2 class="sec-h2">How it all works.</h2>
+    <div class="faq-list">
+      <div>
+        <details>
+          <summary>What is smthg?</summary>
+          <p class="faq-body">A platform for limited fashion drops from independent designers, built around a Circle for each designer. You join the community, discover through creators, try on virtually, and pre-order before the window closes.</p>
+        </details>
+        <details>
+          <summary>What is a Circle?</summary>
+          <p class="faq-body">A free community for a single designer. You join before you buy — the feed includes drop announcements, interest groups, live sessions, and discussion with other members.</p>
+        </details>
+        <details>
+          <summary>Do I pay before the item is made?</summary>
+          <p class="faq-body">A deposit holds your spot during the drop window. The balance is charged only once orders are confirmed and the designer starts production. Each designer sets their own production timeline.</p>
+        </details>
+        <details>
+          <summary>How does Virtual Try-On work?</summary>
+          <p class="faq-body">Upload a photo, select a piece, and see it on your own body. The AI Stylist adds outfit recommendations. Far fewer returns — you already know what it looks like on you.</p>
+        </details>
+      </div>
+      <div>
+        <details>
+          <summary>Who are the designers?</summary>
+          <p class="faq-body">Independent emerging labels in premium and affordable-luxury — niche, with a distinct visual identity. Designers who want demand confirmed before they produce a single item.</p>
+        </details>
+        <details>
+          <summary>What happens when I invite a friend?</summary>
+          <p class="faq-body">Inviting someone into a Circle moves you up the queue for that Circle's next drop, or unlocks earlier access — ahead of the public window.</p>
+        </details>
+        <details>
+          <summary>What if the drop sells out before I get there?</summary>
+          <p class="faq-body">Subscribe and get early access 24 hours before every drop goes public. Circle members always get first access to the limited quantity.</p>
+        </details>
+        <details>
+          <summary>Is this better for the planet?</summary>
+          <p class="faq-body">Pre-orders eliminate overproduction by design — nothing gets manufactured without confirmed demand. Zero surplus means zero destruction.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="join">
+  <div class="container">
+    <div class="cta-eye">Early access</div>
+    <h2 class="cta-title">Get early access to drops.</h2>
+    <p class="cta-desc">Subscribe for 24-hour early access before every drop goes public.</p>
+    <div class="cta-form">
+      <input class="cta-input" type="email" placeholder="Your email address" aria-label="Email"/>
+      <button class="btn btn-fill" type="button">Subscribe</button>
+    </div>
+    <div class="cta-note">No spam · Unsubscribe any time</div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-logo">smthg<span class="dot">.</span></div>
+  <div class="foot-nav">
+    <a href="smthg_v4_brands.html">For Designers</a>
+  </div>
+  <div class="foot-note">Fashion Discovery · V4</div>
+</footer>
+
+</body>
+</html>

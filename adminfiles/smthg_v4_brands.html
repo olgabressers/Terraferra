@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>smthg — For Designers · V4</title>
+<link rel="icon" type="image/svg+xml" href="smthg_favicon.svg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#F8F6F2;
+  --off:#F1EEE9;
+  --ink:#161616;
+  --red:#E8002D;
+  --red-dark:#B50023;
+  --muted:#8A8880;
+  --sub:#5C5A56;
+  --border:#E6E2DA;
+  --white:#FFFFFF;
+  --green:#1A7A4A;
+  --green-bg:#EDFAF3;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden}
+
+/* ── VER BAR ── */
+.ver-bar{background:var(--ink);padding:8px 52px;font-size:9.5px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.35);display:flex;justify-content:space-between;align-items:center}
+.ver-bar a{color:rgba(255,255,255,.35);text-decoration:none;transition:color .15s}.ver-bar a:hover{color:rgba(255,255,255,.7)}
+@media(max-width:600px){.ver-bar{padding:8px 18px;font-size:9px}}
+
+/* ── NAV ── */
+.nav{background:var(--white);border-bottom:1px solid var(--border);padding:0 52px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.nav-logo{font-size:22px;font-weight:900;letter-spacing:-1px;color:var(--ink);text-decoration:none;line-height:1}
+.nav-logo .dot{color:var(--red)}
+.nav-links{display:flex;gap:22px;align-items:center;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.nav-links a{font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .15s;white-space:nowrap}
+.nav-links a:hover{color:var(--ink)}
+.nav-btns{display:flex;gap:8px;align-items:center}
+.nav-cta{background:var(--red);color:var(--white)!important;padding:9px 22px;font-size:10px;font-weight:800;letter-spacing:1.5px;transition:background .15s!important;text-decoration:none}
+.nav-cta:hover{background:var(--red-dark)!important}
+.nav-pill{border:1.5px solid var(--border);color:var(--ink)!important;padding:8px 18px;font-size:10px;font-weight:800;letter-spacing:1.5px;transition:all .15s!important;text-decoration:none}
+.nav-pill:hover{border-color:var(--ink)!important}
+@media(max-width:900px){.nav{padding:0 24px}.nav-links{display:none}.nav-btns{gap:6px}}
+@media(max-width:600px){.nav{padding:0 18px;height:56px}.nav-logo{font-size:18px}.nav-pill{padding:6px 10px;font-size:9px;letter-spacing:.8px}}
+
+/* ── HERO ── */
+.hero{background:var(--off);padding:88px 52px 72px;position:relative;overflow:hidden}
+.hero-bg-circle{position:absolute;right:-120px;bottom:-120px;width:500px;height:500px;border-radius:50%;background:var(--red);opacity:.05;pointer-events:none}
+.hero-inner{max-width:1160px;margin:0 auto;position:relative;z-index:1}
+.hero-eye{font-size:10px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:28px;display:block}
+.hero-title{font-size:clamp(44px,6vw,84px);font-weight:900;line-height:1;letter-spacing:-2.5px;color:var(--ink);margin-bottom:24px;max-width:760px}
+.hero-desc{font-size:clamp(16px,1.8vw,19px);line-height:1.65;color:var(--ink);max-width:520px;margin-bottom:44px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{padding:14px 32px;font-family:'Inter',sans-serif;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;display:inline-block;transition:all .15s}
+.btn-fill{background:var(--red);color:var(--white)}.btn-fill:hover{background:var(--red-dark)}
+.btn-outline{border:1.5px solid var(--red);color:var(--red);background:transparent}.btn-outline:hover{background:var(--red);color:var(--white)}
+@media(max-width:768px){.hero{padding:72px 24px 64px}}
+@media(max-width:600px){.hero{padding:56px 18px 52px}.hero-title{letter-spacing:-1.5px}}
+
+/* ── STAT STRIP ── */
+.stat-strip{background:var(--white);border-bottom:1px solid var(--border)}
+.stat-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
+.stat-tile{background:var(--white);padding:28px 24px;border-top:2px solid var(--red)}
+.stat-num{font-size:clamp(28px,3vw,42px);font-weight:900;letter-spacing:-1.5px;color:var(--ink);margin-bottom:6px}
+.stat-num span{color:var(--red)}
+.stat-label{font-size:11px;font-weight:600;color:var(--ink);letter-spacing:.2px;line-height:1.45}
+@media(max-width:900px){.stat-grid{grid-template-columns:1fr 1fr}}
+
+/* ── CONTAINER / SEC ── */
+.container{max-width:1200px;margin:0 auto;padding:0 52px}
+.sec-label{font-size:10px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:12px;display:block}
+.sec-h2{font-size:clamp(26px,3vw,40px);font-weight:800;letter-spacing:-1px;line-height:1.15;color:var(--ink);margin-bottom:20px}
+.sec-lede{font-size:15px;line-height:1.75;color:var(--ink);max-width:640px;margin-bottom:44px}
+@media(max-width:600px){.container{padding:0 18px}}
+
+/* ── CIRCLE (community, designer side) ── */
+.circle-section{padding:80px 0;background:var(--cream)}
+.circle-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.manifesto{margin-top:32px;display:flex;flex-direction:column;gap:32px}
+.manifesto-line{font-size:clamp(19px,2.3vw,27px);font-weight:400;line-height:1.35;letter-spacing:-.3px;color:var(--ink)}
+.manifesto-line b{font-weight:800}
+@media(max-width:900px){.circle-grid{grid-template-columns:1fr;gap:36px}}
+
+.dash-card{background:var(--white);border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 18px 44px rgba(22,22,22,.07);display:flex;flex-direction:column}
+.dash-card-head{display:flex;align-items:center;gap:12px;padding:16px 18px;border-bottom:1px solid var(--border)}
+.dash-card-avatar{width:34px;height:34px;border-radius:8px;background:var(--ink);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800}
+.dash-card-name{font-size:13px;font-weight:800;color:var(--ink)}
+.dash-card-sub{font-size:10.5px;color:var(--muted);font-weight:600}
+.dash-card-body{padding:16px 18px 20px;flex:1}
+.dash-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.dash-stat{background:var(--off);border-radius:8px;padding:10px 10px;text-align:center}
+.dash-stat-num{font-size:16px;font-weight:900;color:var(--ink)}
+.dash-stat-label{font-size:8.5px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:.4px;margin-top:2px}
+.post{background:var(--off);border-radius:10px;padding:14px 16px;margin-bottom:12px}
+.post:last-child{margin-bottom:0}
+.post-head{display:flex;align-items:center;gap:9px;margin-bottom:9px}
+.post-avatar{width:26px;height:26px;border-radius:50%;background:var(--red);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800}
+.post-avatar.grey{background:var(--muted)}
+.post-name{font-size:11.5px;font-weight:800;color:var(--ink)}
+.post-meta{font-size:9.5px;color:var(--muted);font-weight:600}
+.post-body{font-size:12px;color:var(--ink);line-height:1.55}
+.post-scarcity{background:var(--white);border-radius:8px;padding:10px 12px;margin-top:10px}
+.post-scarcity-row{display:flex;justify-content:space-between;font-size:10px;font-weight:700;color:var(--sub);margin-bottom:6px}
+.post-scarcity-row b{color:var(--red)}
+.post-scarcity-bar{height:5px;background:var(--border);border-radius:4px;overflow:hidden}
+.post-scarcity-fill{height:100%;background:var(--red)}
+
+/* ── 3 VALUE CARDS ── */
+.val-section{padding:80px 0;background:var(--white)}
+.val-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+.val-card{background:var(--off);padding:40px 32px 36px;border-top:3px solid var(--ink);transition:border-top-color .2s}
+.val-card:hover{border-top-color:var(--red)}
+.val-num{font-size:10px;font-weight:800;letter-spacing:2px;color:var(--red);margin-bottom:16px}
+.val-title{font-size:18px;font-weight:800;line-height:1.2;color:var(--ink);letter-spacing:-.3px;margin-bottom:12px}
+.val-card p{font-size:14px;line-height:1.75;color:var(--ink)}
+@media(max-width:900px){.val-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.val-grid{grid-template-columns:1fr}.val-section{padding:56px 0}}
+
+/* ── WHO IT'S FOR ── */
+.who-section{padding:80px 0;background:var(--cream)}
+.who-box{background:var(--white);border-left:4px solid var(--red);padding:36px 40px;max-width:760px}
+.who-label{font-size:10px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:16px;display:block}
+.who-title{font-size:clamp(20px,2.2vw,28px);font-weight:800;color:var(--ink);margin-bottom:16px;letter-spacing:-.4px;line-height:1.2}
+.who-body{font-size:15px;line-height:1.78;color:var(--ink);margin-bottom:16px}
+.who-body:last-child{margin-bottom:0}
+@media(max-width:600px){.who-section{padding:56px 0}.who-box{padding:24px 22px}}
+
+/* ── HOW IT WORKS ── */
+.how-section{padding:80px 0;background:var(--white)}
+.steps{display:flex;flex-direction:column;margin-top:8px}
+.step{display:grid;grid-template-columns:100px 1fr;gap:36px;border-top:1px solid var(--border);padding:40px 0;align-items:start}
+.step:last-child{border-bottom:1px solid var(--border)}
+.step-num{font-size:72px;font-weight:900;letter-spacing:-4px;line-height:1;color:transparent;-webkit-text-stroke:2px var(--red)}
+.step h3{font-size:clamp(17px,1.8vw,22px);font-weight:800;color:var(--ink);margin-bottom:10px;letter-spacing:-.4px;line-height:1.2}
+.step p{font-size:14px;line-height:1.75;color:var(--ink);max-width:540px}
+@media(max-width:600px){.step{grid-template-columns:70px 1fr;gap:20px}.step-num{font-size:50px}}
+
+/* ── SUSTAINABILITY ── */
+.sustain{background:var(--off);padding:64px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.sustain .container{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.sustain-label{font-size:10px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:12px;display:block}
+.sustain-title{font-size:clamp(24px,2.8vw,36px);font-weight:800;letter-spacing:-1px;line-height:1.15;color:var(--ink)}
+.sustain-body p{font-size:14px;line-height:1.78;color:var(--ink);margin-bottom:14px}
+.sustain-body p:last-child{margin-bottom:0}
+@media(max-width:800px){.sustain .container{grid-template-columns:1fr;gap:28px}}
+@media(max-width:600px){.sustain{padding:48px 0}}
+
+/* ── FAQ ── */
+.faq-section{padding:80px 0;background:var(--cream)}
+.faq-list{display:grid;grid-template-columns:1fr 1fr;gap:0 64px;margin-top:8px}
+details{border-top:1px solid var(--border)}
+details:last-child{border-bottom:1px solid var(--border)}
+summary{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:18px 0;cursor:pointer;list-style:none;font-size:14px;font-weight:700;color:var(--ink);line-height:1.3;transition:color .15s}
+summary::-webkit-details-marker{display:none}
+summary::after{content:'+';font-size:20px;font-weight:300;color:var(--red);flex-shrink:0;line-height:1;transition:transform .2s}
+details[open] summary{color:var(--red)}
+details[open] summary::after{transform:rotate(45deg)}
+.faq-body{font-size:13.5px;line-height:1.78;color:var(--ink);padding-bottom:20px}
+@media(max-width:768px){.faq-list{grid-template-columns:1fr}}
+@media(max-width:600px){.faq-section{padding:56px 0}}
+
+/* ── CTA ── */
+.cta-section{background:var(--white);padding:72px 0;text-align:center;border-top:1px solid var(--border)}
+.cta-section .container{display:flex;flex-direction:column;align-items:center}
+.cta-eye{font-size:10px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:16px}
+.cta-title{font-size:clamp(28px,3.5vw,48px);font-weight:800;letter-spacing:-1.5px;color:var(--ink);line-height:1.1;margin-bottom:12px}
+.cta-desc{font-size:15px;line-height:1.65;color:var(--ink);max-width:400px;margin-bottom:32px}
+.cta-form{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:12px}
+.cta-input{padding:14px 20px;width:260px;background:var(--off);border:1.5px solid var(--border);color:var(--ink);font-family:'Inter',sans-serif;font-size:14px;outline:none;transition:border-color .15s}
+.cta-input::placeholder{color:var(--muted)}
+.cta-input:focus{border-color:var(--red)}
+.cta-note{font-size:10px;font-weight:600;letter-spacing:.5px;color:var(--muted)}
+@media(max-width:600px){.cta-section{padding:56px 0}.cta-input{width:100%}.cta-form{flex-direction:column;align-items:stretch;padding:0 18px}.cta-form .btn-fill{text-align:center}}
+
+/* ── FOOTER ── */
+footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.07);padding:22px 52px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.foot-logo{font-size:14px;font-weight:900;letter-spacing:-.5px;color:var(--white)}
+.foot-logo .dot{color:var(--red)}
+.foot-note{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.2)}
+.foot-nav{display:flex;gap:20px}
+.foot-nav a{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.3);text-decoration:none;transition:color .15s}
+.foot-nav a:hover{color:rgba(255,255,255,.7)}
+@media(max-width:600px){footer{padding:18px 18px;flex-direction:column;gap:12px;text-align:center}.foot-nav{justify-content:center}}
+</style>
+</head>
+<body>
+
+<div class="ver-bar">
+  <span>V4 · For Designers — Communities &amp; Drops</span>
+  <a href="https://terraferra.co/adminfiles/">← Admin Hub</a>
+</div>
+
+<nav class="nav">
+  <a href="https://terraferra.co/adminfiles/" class="nav-logo">smthg<span class="dot">.</span></a>
+  <div class="nav-links">
+    <a href="#circle">Your Circle</a>
+    <a href="#how">How It Works</a>
+    <a href="#faq">FAQ</a>
+  </div>
+  <div class="nav-btns">
+    <a href="smthg_v4_consumers.html" class="nav-pill">For Shoppers →</a>
+    <a href="#apply" class="nav-cta">Apply as Founding Designer</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-circle"></div>
+  <div class="hero-inner">
+    <span class="hero-eye">For Independent Designers</span>
+    <h1 class="hero-title">Nothing made until it's wanted.</h1>
+    <p class="hero-desc">Your community backs the collection before a single piece is cut. Zero unsold stock. Full creative control.</p>
+    <div class="hero-actions">
+      <a href="#apply" class="btn btn-fill">Apply as Founding Designer</a>
+      <a href="#how" class="btn btn-outline">How It Works</a>
+    </div>
+  </div>
+</section>
+
+<!-- STAT STRIP -->
+<div class="stat-strip">
+  <div class="stat-grid">
+    <div class="stat-tile">
+      <div class="stat-num">0<span>%</span></div>
+      <div class="stat-label">unsold inventory — production follows confirmed orders only</div>
+    </div>
+    <div class="stat-tile">
+      <div class="stat-num">10<span>%</span></div>
+      <div class="stat-label">commission on GMV — you keep the rest</div>
+    </div>
+    <div class="stat-tile">
+      <div class="stat-num">24<span>h</span></div>
+      <div class="stat-label">creator head start per drop — before the public window opens</div>
+    </div>
+    <div class="stat-tile">
+      <div class="stat-num">100<span>%</span></div>
+      <div class="stat-label">your visual identity — campaigns, lookbooks, brand universe</div>
+    </div>
+  </div>
+</div>
+
+<!-- CIRCLE (community, designer side) -->
+<section class="circle-section" id="circle">
+  <div class="container">
+    <span class="sec-label">Your Circle</span>
+    <h2 class="sec-h2">Your customers, not a checkout list.</h2>
+    <p class="sec-lede">Every collection starts inside a community that already trusts you — not a cold audience discovering you through an ad.</p>
+
+    <div class="circle-grid">
+      <div>
+        <div class="manifesto">
+          <p class="manifesto-line"><b>Know your buyers.</b> Not just a shipping address.</p>
+          <p class="manifesto-line"><b>Hear it before the next collection.</b> Not after it's too late.</p>
+          <p class="manifesto-line"><b>Build repeat customers.</b> Not a zero start every drop.</p>
+          <p class="manifesto-line"><b>Produce to confirmed demand.</b> Not a warehouse guess.</p>
+        </div>
+      </div>
+
+      <div class="dash-card">
+        <div class="dash-card-head">
+          <div class="dash-card-avatar">OA</div>
+          <div>
+            <div class="dash-card-name">Olive Ateliers Circle</div>
+            <div class="dash-card-sub">You're hosting · 1,204 members</div>
+          </div>
+        </div>
+        <div class="dash-card-body">
+          <div class="dash-stats">
+            <div class="dash-stat"><div class="dash-stat-num">1,204</div><div class="dash-stat-label">Members</div></div>
+            <div class="dash-stat"><div class="dash-stat-num">38</div><div class="dash-stat-label">Confirmed</div></div>
+            <div class="dash-stat"><div class="dash-stat-num">14</div><div class="dash-stat-label">In Queue</div></div>
+          </div>
+          <div class="post">
+            <div class="post-head">
+              <div class="post-avatar">OA</div>
+              <div>
+                <div class="post-name">Your post</div>
+                <div class="post-meta">Spring drop is live</div>
+              </div>
+            </div>
+            <div class="post-body">Small batch, made to order. 38 confirmed so far.</div>
+            <div class="post-scarcity">
+              <div class="post-scarcity-row"><span>Real stock</span><b>22 of 60 left</b></div>
+              <div class="post-scarcity-bar"><div class="post-scarcity-fill" style="width:37%"></div></div>
+            </div>
+          </div>
+          <div class="post">
+            <div class="post-head">
+              <div class="post-avatar grey">JM</div>
+              <div>
+                <div class="post-name">Jana M.</div>
+                <div class="post-meta">Member feedback</div>
+              </div>
+            </div>
+            <div class="post-body">Would love this in charcoal for the next run — the linen colorway sold me instantly.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 VALUE PROPS -->
+<section class="val-section" id="why">
+  <div class="container">
+    <span class="sec-label">Why smthg</span>
+    <h2 class="sec-h2">Built for designers who won't<br>produce without demand.</h2>
+    <div class="val-grid">
+      <div class="val-card">
+        <div class="val-num">01</div>
+        <div class="val-title">Zero inventory risk</div>
+        <p>Pre-orders only. Your collection goes live before a single item is produced. Manufacture exactly what's confirmed — nothing more, nothing less.</p>
+      </div>
+      <div class="val-card">
+        <div class="val-num">02</div>
+        <div class="val-title">Your brand. Your look.</div>
+        <p>Your own campaign imagery, lookbook, and brand universe — not generic marketplace studio shots. What makes your label worth finding stays visible.</p>
+      </div>
+      <div class="val-card">
+        <div class="val-num">03</div>
+        <div class="val-title">Community sells it. Not ads.</div>
+        <p>89.5% of influencers — the nano and micro tiers under 50K whose communities actually buy — don't fit existing platforms. They host your Circle instead of posting a link.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section class="who-section">
+  <div class="container">
+    <span class="sec-label">Who this is for</span>
+    <h2 class="sec-h2">The right platform for the right designer.</h2>
+    <div class="who-box">
+      <span class="who-label">Founding Designer Profile</span>
+      <div class="who-title">Independent labels in premium or affordable-luxury. Revenue around $1M/yr. A following that's engaged but not yet discovered beyond your city.</div>
+      <p class="who-body">You design collections people want but you're not willing to manufacture blind. You've sat on unsold stock before — or you've watched other designers do it. smthg is the infrastructure for testing demand before you produce anything.</p>
+      <p class="who-body">This is not for mass-market brands. It's for designers with a specific point of view and an audience that believes in it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how">
+  <div class="container">
+    <span class="sec-label">How it works</span>
+    <h2 class="sec-h2">From drop to sold-out in three steps.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div>
+          <h3>List your drop — your visuals, your window</h3>
+          <p>Upload your own campaign, set your pre-order window, and choose your quantities. Your brand identity stays front and centre. No generic templates, no forced styling.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div>
+          <h3>Your Circle forms before the drop does</h3>
+          <p>Members join free, ahead of the release — style talk, live sessions, and drop-calendar visibility build the audience that buys on day one.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div>
+          <h3>Pre-orders close. You produce exactly what sold.</h3>
+          <p>The drop window closes. Orders are confirmed. You manufacture to confirmed demand — nothing more. No warehouse risk. No surplus. No destruction.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUSTAINABILITY -->
+<div class="sustain">
+  <div class="container">
+    <div>
+      <span class="sustain-label">The bigger picture</span>
+      <div class="sustain-title">Pre-orders are not just<br>good for business.</div>
+    </div>
+    <div class="sustain-body">
+      <p>The fashion industry destroys 30–40% of what it produces. Mass brands build in that waste as a cost of doing business.</p>
+      <p>On smthg, nothing gets made without a confirmed buyer. Independent designers who care about what they make don't need to overproduce to survive.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="container">
+    <span class="sec-label">Questions</span>
+    <h2 class="sec-h2">What brands ask us.</h2>
+    <div class="faq-list">
+      <div>
+        <details>
+          <summary>What does it cost to list on smthg?</summary>
+          <p class="faq-body">Listing is free. smthg charges 10% on GMV when a drop sells. You pay only on confirmed sales — no monthly fees, no listing fees, no pay-per-click.</p>
+        </details>
+        <details>
+          <summary>Do I have to be based in the US?</summary>
+          <p class="faq-body">No. smthg serves the US consumer market. Founding designer partners are welcome from the US, EU, and UK. Your consumers buy through the US platform regardless of where you're based.</p>
+        </details>
+        <details>
+          <summary>How much control do I have over my brand presentation?</summary>
+          <p class="faq-body">Complete control. You supply your own campaign imagery, lookbook, and brand copy. smthg does not apply standardised marketplace styling to your listings. What makes your label distinctive stays visible.</p>
+        </details>
+      </div>
+      <div>
+        <details>
+          <summary>How does the Circle work for designers?</summary>
+          <p class="faq-body">You host a free community for your label. Members join before your drop goes live, see real-time stock counts, and give feedback that carries into your next collection.</p>
+        </details>
+        <details>
+          <summary>What's the minimum production run?</summary>
+          <p class="faq-body">There is no minimum. You set the quantity. Some designers run drops of 20 pieces; others run 200. What gets ordered is what gets produced — you decide the ceiling, not the floor.</p>
+        </details>
+        <details>
+          <summary>How do I apply?</summary>
+          <p class="faq-body">smthg is selecting its first group of founding designers now. Founding partners receive dedicated onboarding, early platform access, and priority placement in the first drops. Apply using the form below.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="apply">
+  <div class="container">
+    <div class="cta-eye">Founding designer programme</div>
+    <h2 class="cta-title">Apply as a founding designer.</h2>
+    <p class="cta-desc">Selecting the first cohort now. Priority placement, dedicated onboarding, direct access to the team.</p>
+    <div class="cta-form">
+      <input class="cta-input" type="email" placeholder="Your email address" aria-label="Email"/>
+      <button class="btn btn-fill" type="button">Apply Now</button>
+    </div>
+    <div class="cta-note">We review every application · Response within 5 business days</div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-logo">smthg<span class="dot">.</span></div>
+  <div class="foot-nav">
+    <a href="smthg_v4_consumers.html">For Shoppers</a>
+  </div>
+  <div class="foot-note">Fashion Discovery · V4</div>
+</footer>
+
+</body>
+</html>
