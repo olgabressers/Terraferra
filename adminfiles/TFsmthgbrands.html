@@ -270,23 +270,7 @@ var currentVoter = null;
 var filterCountry = '';
 var VOTER_KEYS = {alena:'va', chris:'vc', maxim:'vm', alex:'vx'};
 
-// Vollebak pre-populated as example.
-// Source: Wikipedia — https://en.wikipedia.org/wiki/Vollebak
-// Shipping: vollebak.com/policies/shipping-policy — "We ship worldwide"
-var DEFAULTS = [
-  {
-    id: 'b-vollebak',
-    name: 'Vollebak',
-    url: 'https://vollebak.com',
-    positioning: 'Serious adventurers and endurance athletes in the premium segment. Positions itself as a materials science company — clothing engineered for extreme environments and the future.',
-    origin: 'UK',
-    sellsTo: 'Worldwide: US, UK, EU, APAC, Middle East (D2C online)',
-    whyRelevant: '',
-    comments: '',
-    isExample: true,
-    va: false, vc: false, vm: false, vx: false
-  }
-];
+var DEFAULTS = [];
 
 function blankItem(src){
   var base = {name:'',url:'',instagram:'',revenue:'',positioning:'',origin:'',sellsTo:'',whyRelevant:'',comments:'',isExample:false,va:false,vc:false,vm:false,vx:false};
