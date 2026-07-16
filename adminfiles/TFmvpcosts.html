@@ -820,6 +820,34 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 
       <div class="cost-item">
         <div class="cost-item-label">
+          <div class="cost-item-name">Collabstr Premium</div>
+          <div class="cost-item-note">Collabstr Premium plan — unlimited campaigns, 5% platform fee. Billed annually: ≈ $333/mo. Monthly billing higher. <a href="https://collabstr.com/pricing" target="_blank" rel="noopener" style="color:var(--tf)">collabstr.com/pricing</a></div>
+        </div>
+        <div class="cost-item-ctrl">
+          <button class="cost-btn" onclick="adjC('collabstr',-50)">−</button>
+          <span class="cost-unit">$</span>
+          <input class="cost-input" type="number" id="c-collabstr" value="333" min="0" step="50" oninput="calcCosts()"/>
+          <span class="cost-unit">/mo</span>
+          <button class="cost-btn" onclick="adjC('collabstr',50)">+</button>
+        </div>
+      </div>
+
+      <div class="cost-item">
+        <div class="cost-item-label">
+          <div class="cost-item-name">Circle · community platform</div>
+          <div class="cost-item-note">Circle.so — host brand community, influencer circles, drop announcements. Professional plan ~$89/mo (annual) · ~$99/mo (monthly). <a href="https://circle.so/pricing" target="_blank" rel="noopener" style="color:var(--tf)">circle.so/pricing</a></div>
+        </div>
+        <div class="cost-item-ctrl">
+          <button class="cost-btn" onclick="adjC('circle',-10)">−</button>
+          <span class="cost-unit">$</span>
+          <input class="cost-input" type="number" id="c-circle" value="100" min="0" step="10" oninput="calcCosts()"/>
+          <span class="cost-unit">/mo</span>
+          <button class="cost-btn" onclick="adjC('circle',10)">+</button>
+        </div>
+      </div>
+
+      <div class="cost-item">
+        <div class="cost-item-label">
           <div class="cost-item-name">Other recurring</div>
           <div class="cost-item-note">Tools, subscriptions, misc ops</div>
         </div>
@@ -919,6 +947,20 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
           <input class="cost-input" type="number" id="c-legal" value="500" min="0" step="100" oninput="calcCosts()"/>
           <span class="cost-unit">one-time</span>
           <button class="cost-btn" onclick="adjC('legal',100)">+</button>
+        </div>
+      </div>
+
+      <div class="cost-item">
+        <div class="cost-item-label">
+          <div class="cost-item-name">Website design</div>
+          <div class="cost-item-note">200,000 RUB ≈ <strong>$2,200</strong> at ~90 RUB/USD (mid-2026 rate — verify before billing). AI alternative: use Midjourney + Claude Code + Framer AI — see AI Image Style Tools section below for options. Estimated AI route: $30–60 in tool subscriptions vs. $2,200 for agency.</div>
+        </div>
+        <div class="cost-item-ctrl">
+          <button class="cost-btn" onclick="adjC('website-design',-100)">−</button>
+          <span class="cost-unit">$</span>
+          <input class="cost-input" type="number" id="c-website-design" value="2200" min="0" step="100" oninput="calcCosts()"/>
+          <span class="cost-unit">one-time</span>
+          <button class="cost-btn" onclick="adjC('website-design',100)">+</button>
         </div>
       </div>
 
@@ -1069,6 +1111,65 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 
     </div>
     <div class="ptable-note" style="margin-top:12px"><strong>Insense</strong> (best fashion fit when budget allows) — explicitly fashion-category, 80K+ vetted creators. UGC from $100/video; sponsored posts from $125 (nano-influencers), scaling with following. Subscription + per-campaign budget required. <a href="https://insense.pro/pricing" target="_blank" rel="noopener" style="color:var(--tf)">insense.pro/pricing</a> · <span class="src" style="display:inline">Source: <a href="https://insense.pro/platform/creator-marketplace" target="_blank" rel="noopener">insense.pro/platform/creator-marketplace</a></span></div>
+  </div>
+
+  <!-- AI Image Style Tools -->
+  <div style="margin-top:44px">
+    <div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);margin-bottom:6px;padding-bottom:8px;border-bottom:2px solid var(--rule)">AI Image Style Tools · Unified Visual Identity</div>
+    <div style="font-size:13px;color:var(--ink);margin-bottom:18px;line-height:1.6">Takes existing fashion product photos and aligns them to one consistent aesthetic across the platform. Also the AI alternative to a $2,200 (200K RUB) website design commission.</div>
+    <div class="inf-options-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px">
+
+      <div class="vendor-card rec">
+        <span class="v-badge rec">Best for Style Consistency</span>
+        <div class="v-name">Midjourney</div>
+        <div class="v-url"><a href="https://midjourney.com" target="_blank" rel="noopener">midjourney.com</a></div>
+        <p class="v-desc">Industry standard for fashion aesthetics. The <code>--sref</code> (style reference) flag feeds your existing product photos as style anchors — every generated image inherits the same mood, palette, and lighting. Strongest output quality for fashion imagery.</p>
+        <table class="ptable">
+          <thead><tr><th>Plan</th><th>Monthly fee</th><th>Key limit</th></tr></thead>
+          <tbody>
+            <tr><td>Basic</td><td class="bold">$10 / mo</td><td>~200 images/mo</td></tr>
+            <tr><td>Standard</td><td class="bold">$30 / mo</td><td>15 hr GPU / mo</td></tr>
+            <tr><td>Pro</td><td class="bold">$60 / mo</td><td>30 hr GPU + stealth mode</td></tr>
+          </tbody>
+        </table>
+        <div class="src">Source: <a href="https://midjourney.com/pricing" target="_blank" rel="noopener">midjourney.com/pricing</a></div>
+      </div>
+
+      <div class="vendor-card alt">
+        <span class="v-badge alt">Safe for Commercial Use</span>
+        <div class="v-name">Adobe Firefly</div>
+        <div class="v-url"><a href="https://firefly.adobe.com" target="_blank" rel="noopener">firefly.adobe.com</a></div>
+        <p class="v-desc"><strong>Generative Match</strong> — upload a reference image, Firefly replicates its visual style across new product renders. Trained exclusively on licensed Adobe Stock content: no IP liability risk on commercial output. Integrates directly into Photoshop for batch editing.</p>
+        <table class="ptable">
+          <thead><tr><th>Plan</th><th>Cost</th><th>Credits</th></tr></thead>
+          <tbody>
+            <tr><td>Free</td><td class="bold">$0</td><td>25 generative credits/mo</td></tr>
+            <tr><td>Firefly Premium</td><td class="bold">~$5 / mo</td><td>100 credits/mo</td></tr>
+            <tr><td>Creative Cloud</td><td class="bold">From $55 / mo</td><td>Firefly included</td></tr>
+          </tbody>
+        </table>
+        <div class="src">Source: <a href="https://firefly.adobe.com/pricing" target="_blank" rel="noopener">firefly.adobe.com</a> — verify current plan pricing</div>
+      </div>
+
+      <div class="vendor-card alt">
+        <span class="v-badge alt">Best Image-to-Image</span>
+        <div class="v-name">Runway Gen-3</div>
+        <div class="v-url"><a href="https://runwayml.com" target="_blank" rel="noopener">runwayml.com</a></div>
+        <p class="v-desc">Upload an existing fashion photo → apply a style reference → output a restyled version with consistent lighting, color grade, and atmosphere. Gen-3 Alpha is the strongest image-to-image model for product-level detail. Works with video too (for drop teasers).</p>
+        <table class="ptable">
+          <thead><tr><th>Plan</th><th>Monthly fee</th><th>Credits</th></tr></thead>
+          <tbody>
+            <tr><td>Basic</td><td class="bold">Free</td><td>125 credits / limited</td></tr>
+            <tr><td>Standard</td><td class="bold">$15 / mo</td><td>625 credits/mo</td></tr>
+            <tr><td>Pro</td><td class="bold">$35 / mo</td><td>2,250 credits/mo</td></tr>
+            <tr><td>Unlimited</td><td class="bold">$95 / mo</td><td>Unlimited generations</td></tr>
+          </tbody>
+        </table>
+        <div class="src">Source: <a href="https://runwayml.com/pricing" target="_blank" rel="noopener">runwayml.com/pricing</a></div>
+      </div>
+
+    </div>
+    <div class="ptable-note" style="margin-top:12px"><strong>AI alternative to $2,200 website design:</strong> Midjourney Standard ($30/mo) generates all brand visuals; Framer AI (already in the cost stack) builds the pages; Claude Code writes any custom components. Total: $30–60/mo in tool subscriptions vs. a one-time $2,200 agency fee. Trade-off: requires the CEO's time to direct and iterate vs. handing off to a designer.</div>
   </div>
 
 </section>
@@ -1530,8 +1631,10 @@ function calcCosts() {
 
   var hosting   = +document.getElementById('c-hosting').value      || 0;
   var infSearch = +document.getElementById('c-inf-search').value   || 0;
+  var collabstr = +document.getElementById('c-collabstr').value    || 0;
+  var circle    = +document.getElementById('c-circle').value       || 0;
   var other     = +document.getElementById('c-other').value        || 0;
-  var ops       = hosting + infSearch + other + dynSum('ops');
+  var ops       = hosting + infSearch + collabstr + circle + other + dynSum('ops');
 
   var email     = +document.getElementById('c-email').value      || 0;
   var ads       = +document.getElementById('c-ads').value        || 0;
@@ -1541,10 +1644,11 @@ function calcCosts() {
   var monthly = platform + ops + marketing;
   var annual  = monthly * 12;
 
-  var bank         = +document.getElementById('c-bank').value         || 0;
-  var legal        = +document.getElementById('c-legal').value        || 0;
-  var onetimeOther = +document.getElementById('c-onetime-other').value || 0;
-  var onetime      = bank + legal + onetimeOther + dynSum('onetime');
+  var bank           = +document.getElementById('c-bank').value           || 0;
+  var legal          = +document.getElementById('c-legal').value          || 0;
+  var websiteDesign  = +document.getElementById('c-website-design').value || 0;
+  var onetimeOther   = +document.getElementById('c-onetime-other').value  || 0;
+  var onetime        = bank + legal + websiteDesign + onetimeOther + dynSum('onetime');
 
   // Subtotals
   document.getElementById('cst-platform').textContent   = fcMoYr(platform);
@@ -1571,7 +1675,7 @@ calcCosts();
 /* ——— FIREBASE COST SYNC (Section 02) ——— */
 var CDB   = 'https://terra-ferra-1ac34-default-rtdb.firebaseio.com';
 var CROOT = '/tf-mvpcosts/v1';
-var FIXED_IDS = ['shopify','puppet','framer','platform-other','hosting','inf-search','other','email','ads','mktg-other','bank','legal','onetime-other'];
+var FIXED_IDS = ['shopify','puppet','framer','platform-other','hosting','inf-search','collabstr','circle','other','email','ads','mktg-other','bank','legal','website-design','onetime-other'];
 var CAT_LABEL = {platform:'Platform tool',ops:'Operations cost',marketing:'Marketing cost',onetime:'One-time cost'};
 var CAT_UNIT  = {platform:'/mo',ops:'/mo',marketing:'/mo',onetime:'one-time'};
 
