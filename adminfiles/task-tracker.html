@@ -45,7 +45,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 @media(max-width:700px){.wrap{padding:16px 12px 48px}}
 
 /* PAGE HEADER */
-.page-hd{margin-bottom:22px}
+.page-hd{margin-bottom:20px}
 .page-hd h1{font-size:28px;font-weight:800;letter-spacing:-.5px;color:var(--ink);margin-bottom:6px}
 .page-hd p{font-size:12.5px;color:var(--ink);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .sync-dot{width:8px;height:8px;border-radius:50%;background:#ccc;display:inline-block;flex-shrink:0;transition:background .4s}
@@ -53,11 +53,16 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .sync-dot.err{background:#ef4444}
 .sync-label{font-size:11px;font-weight:700;color:var(--sub)}
 
-/* TOC */
-.toc{background:var(--card);border:1px solid var(--rule);border-left:3px solid var(--ink);padding:12px 20px;margin-bottom:24px;display:flex;flex-wrap:wrap;gap:4px 24px;align-items:center}
-.toc-label{font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);margin-right:4px}
-.toc a{font-size:11px;font-weight:700;color:var(--sub);text-decoration:none;text-transform:uppercase;letter-spacing:.8px;white-space:nowrap}
-.toc a:hover{color:var(--ink)}
+/* PHASES TIMELINE */
+.phases{background:white;border:1px solid var(--rule);padding:16px 20px;margin-bottom:24px;overflow-x:auto}
+.phases-title{font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);margin-bottom:12px}
+.phases-row{display:flex;align-items:stretch;min-width:560px}
+.phase-box{flex:1;border:1px solid var(--rule);padding:11px 14px;background:#FAFAF8}
+.phase-box+.phase-box{border-left:none}
+.pb-week{font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--sub);margin-bottom:5px}
+.pb-label{font-size:11px;font-weight:700;color:var(--ink);line-height:1.35}
+.phase-box.live{background:var(--tf);border-color:var(--tf)}
+.phase-box.live .pb-week,.phase-box.live .pb-label{color:white}
 
 /* FILTER BAR */
 .filter-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:28px}
@@ -67,8 +72,8 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 
 /* SECTION */
 .ws-section{margin-bottom:52px;scroll-margin-top:72px}
-.ws-head{display:flex;align-items:baseline;gap:12px;border-bottom:2px solid var(--ink);padding-bottom:10px;margin-bottom:0}
-.ws-head h2{font-size:16px;font-weight:800;letter-spacing:.5px;color:var(--ink);text-transform:uppercase}
+.ws-head{display:flex;align-items:baseline;gap:12px;border-bottom:2px solid var(--tf);padding-bottom:10px;margin-bottom:0}
+.ws-head h2{font-size:16px;font-weight:800;letter-spacing:.5px;color:var(--tf);text-transform:uppercase}
 .ws-count{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--sub)}
 .ws-count.has-open{color:var(--ink);font-weight:800}
 
@@ -78,7 +83,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 
 /* TABLE */
 .table-scroll{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
-table{width:100%;border-collapse:collapse;font-size:12.5px;min-width:1060px;background:var(--card);border:1px solid var(--rule);border-top:none}
+table{width:100%;border-collapse:collapse;font-size:12.5px;min-width:1080px;background:var(--card);border:1px solid var(--rule);border-top:none}
 thead tr{background:var(--ink)}
 thead th{color:white;font-size:10px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;padding:10px 12px;text-align:left;white-space:nowrap}
 th.col-date{width:68px}
@@ -87,8 +92,9 @@ th.col-owner{width:96px}
 th.col-pri{width:86px}
 th.col-status{width:118px}
 th.col-due{width:78px}
-th.col-ref{min-width:130px}
+th.col-ref{min-width:120px}
 th.col-notes{min-width:140px}
+th.col-move{width:34px;padding:6px 4px;text-align:center}
 th.col-del{width:28px;padding:6px 4px;text-align:center}
 tbody tr{border-bottom:1px solid var(--rule);transition:background .1s}
 tbody tr:last-child{border-bottom:none}
@@ -99,10 +105,9 @@ tbody tr[data-status="done"] td:first-child{border-left:3px solid var(--green)}
 tbody tr[data-status="deferred"] td:first-child{border-left:3px solid var(--rule)}
 tbody tr[data-status="todo"] td:first-child{border-left:3px solid transparent}
 td{padding:9px 12px;vertical-align:middle}
+td.col-move{padding:2px 4px;text-align:center;vertical-align:middle;white-space:nowrap}
 td.col-del{padding:4px;text-align:center;vertical-align:middle}
 td.col-ref{font-size:11px;color:var(--ink)}
-td.col-ref a{color:var(--ink);font-weight:600;text-decoration:underline;font-size:11px;white-space:nowrap}
-td.col-ref a:hover{color:var(--tf)}
 
 /* SELECTS */
 .sel{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;border:1.5px solid var(--rule);border-radius:3px;padding:5px 22px 5px 8px;cursor:pointer;outline:none;width:100%;-webkit-appearance:none;appearance:none;background-repeat:no-repeat;background-position:right 6px center;background-size:9px 5px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='5'%3E%3Cpath d='M0 0l4.5 5 4.5-5z' fill='%235C5A56'/%3E%3C/svg%3E");background-color:white;color:var(--ink);transition:border-color .15s}
@@ -112,6 +117,7 @@ td.col-ref a:hover{color:var(--tf)}
 .sel-owner.o-alena{background-color:#F5E8FA;color:#8B3AB8;border-color:#D8B0ED}
 .sel-owner.o-maxim{background-color:#ECEAF9;color:#3555B8;border-color:#C5C0ED}
 .sel-owner.o-alex{background-color:#E8EEFA;color:#167A47;border-color:#B0BEEE}
+.sel-owner.o-chris{background-color:#E8F5F3;color:#1A7A6A;border-color:#A8D8D0}
 .sel-status.s-todo{background-color:#F0EFF5;color:var(--ink)}
 .sel-status.s-in-progress{background-color:var(--tf-light);color:var(--tf)}
 .sel-status.s-done{background-color:var(--green-tint);color:var(--green)}
@@ -133,6 +139,10 @@ td.col-date:empty::before{content:"date";color:#C4C1D8;font-style:italic}
 /* ADD ROW */
 .btn-add-row{display:flex;align-items:center;gap:6px;padding:8px 14px;background:white;border:1px solid var(--rule);border-top:none;font-size:11px;font-weight:700;color:var(--sub);cursor:pointer;width:100%;text-align:left;transition:color .15s,background .15s;letter-spacing:.4px;font-family:'Inter',sans-serif}
 .btn-add-row:hover{color:var(--ink);background:#F7F5F2}
+
+/* MOVE BUTTONS */
+.btn-move{background:none;border:1px solid var(--rule);color:var(--sub);font-size:10px;line-height:1;cursor:pointer;padding:2px 5px;border-radius:2px;transition:all .15s;font-family:'Inter',sans-serif;display:block;margin:1px auto}
+.btn-move:hover{background:var(--ink);color:white;border-color:var(--ink)}
 
 /* DELETE */
 .btn-del{background:none;border:none;color:var(--rule);font-size:16px;line-height:1;cursor:pointer;padding:1px 5px;border-radius:2px;transition:color .15s;font-family:'Inter',sans-serif}
@@ -217,21 +227,41 @@ footer{padding:20px 48px;border-top:1px solid var(--rule);background:white;margi
     </p>
   </div>
 
-  <nav class="toc" aria-label="Jump to section">
-    <span class="toc-label">Sections</span>
-    <a href="#s-fundraising">01 · Fundraising &amp; Capital</a>
-    <a href="#s-concept">02 · Terra Ferra Concept</a>
-    <a href="#s-tech">03 · Technology &amp; Product Design</a>
-    <a href="#s-operations">04 · Operations</a>
-  </nav>
+  <!-- PHASES TIMELINE -->
+  <div class="phases">
+    <div class="phases-title">Timeline · Target Go-Live 14 Aug</div>
+    <div class="phases-row">
+      <div class="phase-box">
+        <div class="pb-week">Week · 20 Jul</div>
+        <div class="pb-label">Platform ready</div>
+      </div>
+      <div class="phase-box">
+        <div class="pb-week">Week · 27 Jul</div>
+        <div class="pb-label">Brands &amp; influencers selected</div>
+      </div>
+      <div class="phase-box">
+        <div class="pb-week">Week · 3 Aug</div>
+        <div class="pb-label">Agreements made</div>
+      </div>
+      <div class="phase-box">
+        <div class="pb-week">Week · 10 Aug</div>
+        <div class="pb-label">Brands set-up on platform</div>
+      </div>
+      <div class="phase-box live">
+        <div class="pb-week">14 Aug</div>
+        <div class="pb-label">★ Go Live</div>
+      </div>
+    </div>
+  </div>
 
   <div class="filter-bar">
     <span class="filter-label">View</span>
     <select class="view-select" id="filter-owner">
       <option value="all">All owners</option>
-      <option value="maxim">Maxim</option>
       <option value="alena">Alena</option>
+      <option value="maxim">Maxim</option>
       <option value="alex">Alex</option>
+      <option value="chris">Chris</option>
     </select>
     <select class="view-select" id="filter-status">
       <option value="all">All statuses</option>
@@ -242,11 +272,11 @@ footer{padding:20px 48px;border-top:1px solid var(--rule);background:white;margi
     </select>
   </div>
 
-  <!-- 01 FUNDRAISING -->
-  <section class="ws-section" id="s-fundraising">
+  <!-- 01 PLATFORM SET-UP -->
+  <section class="ws-section" id="s-platform">
     <div class="ws-head">
-      <h2>01 · Fundraising &amp; Capital</h2>
-      <span class="ws-count" id="count-fundraising"></span>
+      <h2>01 · Platform Set-up</h2>
+      <span class="ws-count" id="count-platform"></span>
     </div>
     <div class="table-scroll"><table>
       <thead><tr>
@@ -254,18 +284,58 @@ footer{padding:20px 48px;border-top:1px solid var(--rule);background:white;margi
         <th class="col-owner">Owner</th><th class="col-pri">Priority</th>
         <th class="col-status">Status</th><th class="col-due">Due</th>
         <th class="col-ref">Reference</th><th class="col-notes">Notes</th>
-        <th class="col-del"></th>
+        <th class="col-move"></th><th class="col-del"></th>
       </tr></thead>
-      <tbody id="ws-fundraising"></tbody>
+      <tbody id="ws-platform-setup"></tbody>
     </table></div>
-    <div class="ws-empty" id="empty-fundraising">No tasks visible with current filter.</div>
-    <button class="btn-add-row" onclick="addRow('fundraising')">+ Add Task</button>
+    <div class="ws-empty" id="empty-platform-setup">No tasks visible with current filter.</div>
+    <button class="btn-add-row" onclick="addRow('platform-setup')">+ Add Task</button>
   </section>
 
-  <!-- 02 CONCEPT -->
+  <!-- 02 BRAND & CREATIVE -->
+  <section class="ws-section" id="s-brand">
+    <div class="ws-head">
+      <h2>02 · Brand &amp; Creative</h2>
+      <span class="ws-count" id="count-brand"></span>
+    </div>
+    <div class="table-scroll"><table>
+      <thead><tr>
+        <th class="col-date">Date</th><th class="col-task">Task / Idea</th>
+        <th class="col-owner">Owner</th><th class="col-pri">Priority</th>
+        <th class="col-status">Status</th><th class="col-due">Due</th>
+        <th class="col-ref">Reference</th><th class="col-notes">Notes</th>
+        <th class="col-move"></th><th class="col-del"></th>
+      </tr></thead>
+      <tbody id="ws-brand-creative"></tbody>
+    </table></div>
+    <div class="ws-empty" id="empty-brand-creative">No tasks visible with current filter.</div>
+    <button class="btn-add-row" onclick="addRow('brand-creative')">+ Add Task</button>
+  </section>
+
+  <!-- 03 COMMUNITY -->
+  <section class="ws-section" id="s-community">
+    <div class="ws-head">
+      <h2>03 · Community</h2>
+      <span class="ws-count" id="count-community"></span>
+    </div>
+    <div class="table-scroll"><table>
+      <thead><tr>
+        <th class="col-date">Date</th><th class="col-task">Task / Idea</th>
+        <th class="col-owner">Owner</th><th class="col-pri">Priority</th>
+        <th class="col-status">Status</th><th class="col-due">Due</th>
+        <th class="col-ref">Reference</th><th class="col-notes">Notes</th>
+        <th class="col-move"></th><th class="col-del"></th>
+      </tr></thead>
+      <tbody id="ws-community"></tbody>
+    </table></div>
+    <div class="ws-empty" id="empty-community">No tasks visible with current filter.</div>
+    <button class="btn-add-row" onclick="addRow('community')">+ Add Task</button>
+  </section>
+
+  <!-- 04 TERRA FERRA CONCEPT -->
   <section class="ws-section" id="s-concept">
     <div class="ws-head">
-      <h2>02 · Terra Ferra Concept</h2>
+      <h2>04 · Terra Ferra Concept</h2>
       <span class="ws-count" id="count-concept"></span>
     </div>
     <div class="sub-section">
@@ -276,7 +346,7 @@ footer{padding:20px 48px;border-top:1px solid var(--rule);background:white;margi
           <th class="col-owner">Owner</th><th class="col-pri">Priority</th>
           <th class="col-status">Status</th><th class="col-due">Due</th>
           <th class="col-ref">Reference</th><th class="col-notes">Notes</th>
-          <th class="col-del"></th>
+          <th class="col-move"></th><th class="col-del"></th>
         </tr></thead>
         <tbody id="ws-gamification"></tbody>
       </table></div>
@@ -291,7 +361,7 @@ footer{padding:20px 48px;border-top:1px solid var(--rule);background:white;margi
           <th class="col-owner">Owner</th><th class="col-pri">Priority</th>
           <th class="col-status">Status</th><th class="col-due">Due</th>
           <th class="col-ref">Reference</th><th class="col-notes">Notes</th>
-          <th class="col-del"></th>
+          <th class="col-move"></th><th class="col-del"></th>
         </tr></thead>
         <tbody id="ws-narrative"></tbody>
       </table></div>
@@ -306,7 +376,7 @@ footer{padding:20px 48px;border-top:1px solid var(--rule);background:white;margi
           <th class="col-owner">Owner</th><th class="col-pri">Priority</th>
           <th class="col-status">Status</th><th class="col-due">Due</th>
           <th class="col-ref">Reference</th><th class="col-notes">Notes</th>
-          <th class="col-del"></th>
+          <th class="col-move"></th><th class="col-del"></th>
         </tr></thead>
         <tbody id="ws-mvp"></tbody>
       </table></div>
@@ -315,10 +385,10 @@ footer{padding:20px 48px;border-top:1px solid var(--rule);background:white;margi
     </div>
   </section>
 
-  <!-- 03 TECH & PRODUCT DESIGN -->
+  <!-- 05 TECHNOLOGY & PRODUCT DESIGN -->
   <section class="ws-section" id="s-tech">
     <div class="ws-head">
-      <h2>03 · Technology &amp; Product Design</h2>
+      <h2>05 · Technology &amp; Product Design</h2>
       <span class="ws-count" id="count-tech-design"></span>
     </div>
     <div class="sub-section">
@@ -329,7 +399,7 @@ footer{padding:20px 48px;border-top:1px solid var(--rule);background:white;margi
           <th class="col-owner">Owner</th><th class="col-pri">Priority</th>
           <th class="col-status">Status</th><th class="col-due">Due</th>
           <th class="col-ref">Reference</th><th class="col-notes">Notes</th>
-          <th class="col-del"></th>
+          <th class="col-move"></th><th class="col-del"></th>
         </tr></thead>
         <tbody id="ws-technology"></tbody>
       </table></div>
@@ -344,7 +414,7 @@ footer{padding:20px 48px;border-top:1px solid var(--rule);background:white;margi
           <th class="col-owner">Owner</th><th class="col-pri">Priority</th>
           <th class="col-status">Status</th><th class="col-due">Due</th>
           <th class="col-ref">Reference</th><th class="col-notes">Notes</th>
-          <th class="col-del"></th>
+          <th class="col-move"></th><th class="col-del"></th>
         </tr></thead>
         <tbody id="ws-product-design"></tbody>
       </table></div>
@@ -353,10 +423,10 @@ footer{padding:20px 48px;border-top:1px solid var(--rule);background:white;margi
     </div>
   </section>
 
-  <!-- 04 OPERATIONS -->
+  <!-- 06 OPERATIONS -->
   <section class="ws-section" id="s-operations">
     <div class="ws-head">
-      <h2>04 · Operations</h2>
+      <h2>06 · Operations</h2>
       <span class="ws-count" id="count-operations"></span>
     </div>
     <div class="table-scroll"><table>
@@ -365,12 +435,32 @@ footer{padding:20px 48px;border-top:1px solid var(--rule);background:white;margi
         <th class="col-owner">Owner</th><th class="col-pri">Priority</th>
         <th class="col-status">Status</th><th class="col-due">Due</th>
         <th class="col-ref">Reference</th><th class="col-notes">Notes</th>
-        <th class="col-del"></th>
+        <th class="col-move"></th><th class="col-del"></th>
       </tr></thead>
       <tbody id="ws-operations"></tbody>
     </table></div>
     <div class="ws-empty" id="empty-operations">No tasks visible with current filter.</div>
     <button class="btn-add-row" onclick="addRow('operations')">+ Add Task</button>
+  </section>
+
+  <!-- 07 FUNDRAISING & CAPITAL -->
+  <section class="ws-section" id="s-fundraising">
+    <div class="ws-head">
+      <h2>07 · Fundraising &amp; Capital</h2>
+      <span class="ws-count" id="count-fundraising"></span>
+    </div>
+    <div class="table-scroll"><table>
+      <thead><tr>
+        <th class="col-date">Date</th><th class="col-task">Task / Idea</th>
+        <th class="col-owner">Owner</th><th class="col-pri">Priority</th>
+        <th class="col-status">Status</th><th class="col-due">Due</th>
+        <th class="col-ref">Reference</th><th class="col-notes">Notes</th>
+        <th class="col-move"></th><th class="col-del"></th>
+      </tr></thead>
+      <tbody id="ws-fundraising"></tbody>
+    </table></div>
+    <div class="ws-empty" id="empty-fundraising">No tasks visible with current filter.</div>
+    <button class="btn-add-row" onclick="addRow('fundraising')">+ Add Task</button>
   </section>
 
 </div>
@@ -392,19 +482,21 @@ var fbSections = {};
 var writeTimers = {};
 var activeOwner = 'all', activeStatus = 'all';
 
-var ALL_SECTIONS = ['fundraising','gamification','narrative','mvp','technology','product-design','operations'];
-
-var REF_LABELS = {
-  'TFreferral.html':       'Referral & Viral Mechanics',
-  'gamification.html':     'Gamification',
-  'TFwhynow.html':         'Why Now',
-  'TFunservedmarket.html': 'Unserved Market',
-  'TFvisualdiscovery.html':'Visual Discovery',
-  'TFmvpcosts.html':       'MVP Scope & Costs'
-};
+var ALL_SECTIONS = ['platform-setup','brand-creative','community','gamification','narrative','mvp','technology','product-design','operations','fundraising'];
 
 var DEFAULTS = {
   items: {
+    'ps-001':{section:'platform-setup',date:'17 Jul',task:'Landing page — design and publish launch / waitlist page',owner:'alena',priority:'high',status:'todo',due:'20 Jul',ref:'',notes:''},
+    'ps-002':{section:'platform-setup',date:'17 Jul',task:'Shopify integration — connect product feed, test checkout flow',owner:'alena',priority:'high',status:'todo',due:'20 Jul',ref:'TFmvpcosts.html',notes:''},
+    'ps-003':{section:'platform-setup',date:'17 Jul',task:'Circle integration — set up community space, configure access',owner:'alena',priority:'high',status:'todo',due:'20 Jul',ref:'',notes:''},
+    'ps-004':{section:'platform-setup',date:'17 Jul',task:'Payment integration — Stripe, test end-to-end checkout',owner:'alena',priority:'high',status:'todo',due:'20 Jul',ref:'TFmvpcosts.html',notes:''},
+    'ps-005':{section:'platform-setup',date:'17 Jul',task:'Existing app — audit current state, list bugs and MVP blockers before onboarding brands',owner:'alena',priority:'normal',status:'todo',due:'',ref:'TFmvpcosts.html',notes:'App built but never publicly launched'},
+    'bc-001':{section:'brand-creative',date:'17 Jul',task:'Brand name confirmed — SMTHG / Something final decision',owner:'alena',priority:'high',status:'todo',due:'20 Jul',ref:'',notes:''},
+    'bc-002':{section:'brand-creative',date:'17 Jul',task:'Instagram style guide — visual direction, tone, colour palette',owner:'chris',priority:'high',status:'todo',due:'27 Jul',ref:'',notes:''},
+    'bc-003':{section:'brand-creative',date:'17 Jul',task:'Instagram account — create account, set up bio and profile image',owner:'chris',priority:'high',status:'todo',due:'27 Jul',ref:'',notes:''},
+    'bc-004':{section:'brand-creative',date:'17 Jul',task:'Instagram — ongoing content posts',owner:'chris',priority:'normal',status:'todo',due:'',ref:'',notes:'Regular posting from launch onwards'},
+    'cm-001':{section:'community',date:'17 Jul',task:'Community mechanics — define how Circle community works for launch (drops, discussions, influencer layer)',owner:'alena',priority:'high',status:'todo',due:'27 Jul',ref:'',notes:''},
+    'cm-002':{section:'community',date:'17 Jul',task:'Founding community members — identify and invite first cohort',owner:'alena',priority:'normal',status:'todo',due:'3 Aug',ref:'',notes:''},
     'f-002':{section:'fundraising',date:'08 Jun',task:'Prepare investor list — contacts to approach for the round',owner:'maxim',priority:'normal',status:'todo',due:'13 Jun',ref:'',notes:'Large angel communities + funds available — include as priority contacts in list'},
     'f-001':{section:'fundraising',date:'07 Jun',task:'Update Investor Deck',owner:'alena',priority:'normal',status:'todo',due:'21 Jun',ref:'',notes:''},
     'g-001':{section:'gamification',date:'07 Jun',task:'Referral Engine — collect examples, success cases, viral sharing mechanics beyond referral fees',owner:'alena',priority:'normal',status:'todo',due:'',ref:'TFreferral.html',notes:'Status and social rewards may have more value than cash referral fees in this segment'},
@@ -426,13 +518,16 @@ var DEFAULTS = {
     'o-005':{section:'operations',date:'08 Jun',task:'Publication timing — posts staggered over time instead of concentrated at the drop moment; think through how TF structures this to maintain momentum',owner:'alena',priority:'normal',status:'todo',due:'',ref:'',notes:''}
   },
   sections:{
-    fundraising:     {order:['f-002','f-001']},
-    gamification:    {order:['g-001','g-005','g-002','g-003','g-004','o-002']},
-    narrative:       {order:['n-001','n-002']},
-    mvp:             {order:['m-001']},
-    technology:      {order:['t-001','t-002','t-003','o-001']},
-    'product-design':{order:['pd-001']},
-    operations:      {order:['o-003','o-004','o-005']}
+    'platform-setup': {order:['ps-001','ps-002','ps-003','ps-004','ps-005']},
+    'brand-creative':  {order:['bc-001','bc-002','bc-003','bc-004']},
+    'community':       {order:['cm-001','cm-002']},
+    fundraising:       {order:['f-002','f-001']},
+    gamification:      {order:['g-001','g-005','g-002','g-003','g-004','o-002']},
+    narrative:         {order:['n-001','n-002']},
+    mvp:               {order:['m-001']},
+    technology:        {order:['t-001','t-002','t-003','o-001']},
+    'product-design':  {order:['pd-001']},
+    operations:        {order:['o-003','o-004','o-005']}
   }
 };
 
@@ -578,7 +673,6 @@ function buildRow(id){
   tr.dataset.status=item.status||'todo';
   tr.dataset.owner=item.owner||'alena';
 
-  // Date
   var tdDate=document.createElement('td');
   tdDate.className='col-date'; tdDate.contentEditable='true';
   tdDate.dataset.field='date'; tdDate.textContent=item.date||'';
@@ -586,7 +680,6 @@ function buildRow(id){
   tdDate.addEventListener('keydown',function(e){ if(e.key==='Enter'){e.preventDefault();this.blur();} });
   tr.appendChild(tdDate);
 
-  // Task
   var tdTask=document.createElement('td'); tdTask.className='col-task';
   var divTask=document.createElement('div');
   divTask.className='edit-cell'; divTask.contentEditable='true';
@@ -595,25 +688,23 @@ function buildRow(id){
   divTask.addEventListener('blur',function(){ saveField(id,'task',this.textContent.trim()); });
   tdTask.appendChild(divTask); tr.appendChild(tdTask);
 
-  // Owner
   var tdOwner=document.createElement('td');
-  var selOwner=mkSel('owner',item.owner||'alena',[{v:'alena',l:'Alena'},{v:'maxim',l:'Maxim'},{v:'alex',l:'Alex'}]);
+  var selOwner=mkSel('owner',item.owner||'alena',[
+    {v:'alena',l:'Alena'},{v:'maxim',l:'Maxim'},{v:'alex',l:'Alex'},{v:'chris',l:'Chris'}
+  ]);
   selOwner.addEventListener('change',function(){ tr.dataset.owner=this.value; saveField(id,'owner',this.value); stylesel(this); applyFilter(); updateAllCounts(); updateEmpties(); });
   tdOwner.appendChild(selOwner); tr.appendChild(tdOwner);
 
-  // Priority
   var tdPri=document.createElement('td');
   var selPri=mkSel('priority',item.priority||'normal',[{v:'high',l:'High'},{v:'normal',l:'Normal'},{v:'low',l:'Low'}]);
   selPri.addEventListener('change',function(){ saveField(id,'priority',this.value); stylesel(this); });
   tdPri.appendChild(selPri); tr.appendChild(tdPri);
 
-  // Status
   var tdSt=document.createElement('td');
   var selSt=mkSel('status',item.status||'todo',[{v:'todo',l:'To Do'},{v:'in-progress',l:'In Progress'},{v:'done',l:'Done'},{v:'deferred',l:'Deferred'}]);
   selSt.addEventListener('change',function(){ tr.dataset.status=this.value; saveField(id,'status',this.value); stylesel(this); applyFilter(); updateAllCounts(); updateEmpties(); });
   tdSt.appendChild(selSt); tr.appendChild(tdSt);
 
-  // Due
   var tdDue=document.createElement('td');
   var divDue=document.createElement('div');
   divDue.className='edit-cell due-cell'; divDue.contentEditable='true';
@@ -623,17 +714,16 @@ function buildRow(id){
   divDue.addEventListener('keydown',function(e){ if(e.key==='Enter'){e.preventDefault();this.blur();} });
   tdDue.appendChild(divDue); tr.appendChild(tdDue);
 
-  // Ref
   var tdRef=document.createElement('td'); tdRef.className='col-ref';
-  if(item.ref){
-    var a=document.createElement('a');
-    a.href=item.ref; a.target='_blank'; a.rel='noopener';
-    a.textContent=(REF_LABELS[item.ref]||item.ref.replace('.html',''))+' →';
-    tdRef.appendChild(a);
-  }
+  var divRef=document.createElement('div');
+  divRef.className='edit-cell'; divRef.contentEditable='true';
+  divRef.dataset.field='ref'; divRef.dataset.placeholder='add link…';
+  divRef.textContent=item.ref||'';
+  divRef.style.fontSize='10.5px';
+  divRef.addEventListener('blur',function(){ saveField(id,'ref',this.textContent.trim()); });
+  tdRef.appendChild(divRef);
   tr.appendChild(tdRef);
 
-  // Notes
   var tdNotes=document.createElement('td');
   var divNotes=document.createElement('div');
   divNotes.className='edit-cell'; divNotes.contentEditable='true';
@@ -642,7 +732,16 @@ function buildRow(id){
   divNotes.addEventListener('blur',function(){ saveField(id,'notes',this.textContent.trim()); });
   tdNotes.appendChild(divNotes); tr.appendChild(tdNotes);
 
-  // Delete
+  var tdMove=document.createElement('td'); tdMove.className='col-move';
+  var btnUp=document.createElement('button');
+  btnUp.className='btn-move'; btnUp.title='Move up'; btnUp.textContent='↑';
+  btnUp.addEventListener('click',function(){ moveRow(id,-1); });
+  var btnDn=document.createElement('button');
+  btnDn.className='btn-move'; btnDn.title='Move down'; btnDn.textContent='↓';
+  btnDn.addEventListener('click',function(){ moveRow(id,1); });
+  tdMove.appendChild(btnUp); tdMove.appendChild(btnDn);
+  tr.appendChild(tdMove);
+
   var tdDel=document.createElement('td'); tdDel.className='col-del';
   var btnDel=document.createElement('button');
   btnDel.className='btn-del'; btnDel.title='Remove task'; btnDel.textContent='×';
@@ -661,12 +760,27 @@ function mkSel(field,value,opts){
 
 function stylesel(sel){
   var f=sel.dataset.field, v=sel.value;
-  if(f==='status')   sel.className='sel sel-status s-'+v;
+  if(f==='status')        sel.className='sel sel-status s-'+v;
   else if(f==='priority') sel.className='sel sel-pri p-'+v;
   else if(f==='owner')    sel.className='sel sel-owner o-'+v;
 }
 
-// ── Save ──────────────────────────────────────────────────
+// ── Move ─────────────────────────────────────────────────
+function moveRow(id,dir){
+  var item=fbData[id]; if(!item) return;
+  var sec=item.section;
+  if(!fbSections[sec]) return;
+  var order=fbSections[sec].order;
+  var idx=order.indexOf(id); if(idx<0) return;
+  var ni=idx+dir;
+  if(ni<0||ni>=order.length) return;
+  var tmp=order[idx]; order[idx]=order[ni]; order[ni]=tmp;
+  fput('/sections/'+sec+'/order',order);
+  renderSection(sec);
+  updateAllCounts(); updateEmpties();
+}
+
+// ── Save ─────────────────────────────────────────────────
 function flashSaving(){
   var el=document.getElementById('saving-flash'); if(!el) return;
   el.classList.add('show');
@@ -751,16 +865,22 @@ function renderCount(el,all,open){
 }
 
 function updateAllCounts(){
-  var c1=countSec('fundraising');
-  renderCount(document.getElementById('count-fundraising'),c1.all,c1.open);
-  var t2={all:0,open:0};
-  ['gamification','narrative','mvp'].forEach(function(s){ var c=countSec(s); t2.all+=c.all; t2.open+=c.open; });
-  renderCount(document.getElementById('count-concept'),t2.all,t2.open);
-  var t3={all:0,open:0};
-  ['technology','product-design'].forEach(function(s){ var c=countSec(s); t3.all+=c.all; t3.open+=c.open; });
-  renderCount(document.getElementById('count-tech-design'),t3.all,t3.open);
-  var c4=countSec('operations');
-  renderCount(document.getElementById('count-operations'),c4.all,c4.open);
+  var cp=countSec('platform-setup');
+  renderCount(document.getElementById('count-platform'),cp.all,cp.open);
+  var cb=countSec('brand-creative');
+  renderCount(document.getElementById('count-brand'),cb.all,cb.open);
+  var cc=countSec('community');
+  renderCount(document.getElementById('count-community'),cc.all,cc.open);
+  var t4={all:0,open:0};
+  ['gamification','narrative','mvp'].forEach(function(s){ var c=countSec(s); t4.all+=c.all; t4.open+=c.open; });
+  renderCount(document.getElementById('count-concept'),t4.all,t4.open);
+  var t5={all:0,open:0};
+  ['technology','product-design'].forEach(function(s){ var c=countSec(s); t5.all+=c.all; t5.open+=c.open; });
+  renderCount(document.getElementById('count-tech-design'),t5.all,t5.open);
+  var co=countSec('operations');
+  renderCount(document.getElementById('count-operations'),co.all,co.open);
+  var cf=countSec('fundraising');
+  renderCount(document.getElementById('count-fundraising'),cf.all,cf.open);
 }
 
 function updateEmpties(){
@@ -787,8 +907,8 @@ window.addEventListener('scroll',function(){
   document.getElementById('back-to-top').style.display=window.scrollY>300?'flex':'none';
 });
 
-// expose addRow globally for onclick
 window.addRow=addRow;
+window.moveRow=moveRow;
 
 init();
 })();
