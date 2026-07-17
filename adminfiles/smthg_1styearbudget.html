@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>1st Year Budget · SMTHG</title>
+<link rel="icon" type="image/svg+xml" href="smthg_favicon.svg"/>
+<!-- Exchange rate used: 1 USD = 0.91 EUR — approximate rate July 2026. Verify at xe.com before sharing externally. -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --tf:#E8002D;--tf-ghost:#F1EEE9;
+  --off-white:#F8F6F2;--ink:#161616;--sub:#5C5A56;--rule:#E6E2DA;
+  --green:#1A7A4A;--green-bg:#EDFAF3;
+  --amber:#B45309;--amber-bg:#FEF3C7;
+  --navy:#1D2B3A;--navy-bg:#EAF0F6;
+}
+body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink);overflow-x:hidden}
+
+.topnav{background:white;border-bottom:1px solid var(--rule);padding:14px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
+.topnav-home{font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);text-decoration:none;font-size:13px}
+.topnav-links{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:var(--sub);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:12px}
+.topnav-links a:hover{color:var(--tf)}
+@media(max-width:700px){.topnav{position:static;padding:10px 14px}.topnav-links{gap:8px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%}.topnav-links a{font-size:11px;white-space:nowrap}.dropdown{display:none!important}}
+
+.wrap{max-width:1240px;margin:0 auto;padding:40px 48px 80px}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--sub);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+h1{font-size:clamp(30px,4.4vw,48px);font-weight:900;letter-spacing:-1.5px;margin-top:12px;line-height:1.08}
+.lede{font-size:16px;color:var(--ink);margin-top:14px;max-width:820px;line-height:1.65}
+.rate-tag{font-size:13px;color:var(--sub);margin-top:8px;font-style:italic}
+
+/* summary cards */
+.summary-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:32px}
+.scard{background:white;border:1px solid var(--rule);border-top:3px solid var(--tf);border-radius:8px;padding:18px 20px}
+.scard-label{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);margin-bottom:6px}
+.scard-val{font-size:26px;font-weight:900;color:var(--ink);letter-spacing:-0.5px}
+.scard-eur{font-size:13px;font-weight:600;color:var(--sub);margin-top:3px}
+
+/* section heading */
+.sec-h2{font-size:clamp(18px,2.4vw,24px);font-weight:900;letter-spacing:-.6px;margin:40px 0 14px}
+
+/* table wrapper */
+.twrap{overflow-x:auto;border:1px solid var(--rule);border-radius:8px}
+table.budget{width:100%;border-collapse:collapse;background:white;font-size:13.5px}
+table.budget th{background:var(--ink);color:white;text-align:right;padding:10px 16px;font-size:11.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;white-space:nowrap}
+table.budget th:first-child{text-align:left;min-width:220px}
+table.budget td{padding:10px 16px;border-bottom:1px solid var(--rule);vertical-align:middle;color:var(--ink);text-align:right;white-space:nowrap}
+table.budget td:first-child{text-align:left}
+table.budget tr:last-child td{border-bottom:none}
+
+/* category header rows */
+table.budget tr.sec-row td{background:#EDEAE3;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:8px 16px;color:var(--ink)}
+
+/* sub-item rows */
+table.budget tr.sub-row td:first-child{padding-left:28px;color:var(--ink)}
+
+/* subtotal rows */
+table.budget tr.sub-total td{border-top:1px solid var(--rule);font-weight:700}
+
+/* grand total row */
+table.budget tr.total-row td{background:var(--ink);color:white;font-size:14.5px;font-weight:800;border-bottom:none}
+table.budget tr.total-row td .eur{color:rgba(255,255,255,0.55)}
+
+/* EUR secondary display */
+.eur{display:block;font-size:11px;font-weight:600;color:var(--sub);margin-top:2px}
+
+/* founders note */
+.founders-note{margin-top:28px;background:var(--amber-bg);border-left:4px solid var(--amber);border-radius:8px;padding:18px 22px;font-size:14px;color:var(--ink);line-height:1.7}
+.founders-note b{color:var(--ink);font-weight:700}
+
+footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margin-top:60px}
+.footer-inner{max-width:1240px;margin:0 auto;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub)}
+
+@media(max-width:1000px){.summary-strip{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.wrap{padding:20px 16px 60px}.summary-strip{grid-template-columns:repeat(2,1fr)}.scard-val{font-size:20px}.topnav{position:static}}
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <a href="https://terraferra.co/adminfiles/" class="topnav-home">← Admin Hub</a>
+  <div class="topnav-links">
+    <a href="smthg_businessmodel.html">Business Model</a>
+    <a href="TFmvpcosts.html">MVP Costs</a>
+    <a href="smthg_toneofvoice.html">Tone of Voice</a>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="eyebrow">SMTHG · Internal</div>
+  <h1>1st Year Budget</h1>
+  <p class="lede">Total envelope: $500,000. Founders salary is the residual after all operating and team costs, divided equally across 4 quarters. Columns show cumulative spend at each quarter-end.</p>
+  <p class="rate-tag">Rate: 1 USD = 0.91 EUR · approximate, July 2026 · verify at xe.com before sharing externally</p>
+
+  <div class="summary-strip">
+    <div class="scard">
+      <div class="scard-label">3 months</div>
+      <div class="scard-val">$127,025</div>
+      <div class="scard-eur">€115,593</div>
+    </div>
+    <div class="scard">
+      <div class="scard-label">6 months</div>
+      <div class="scard-val">$251,350</div>
+      <div class="scard-eur">€228,729</div>
+    </div>
+    <div class="scard">
+      <div class="scard-label">9 months</div>
+      <div class="scard-val">$375,675</div>
+      <div class="scard-eur">€341,864</div>
+    </div>
+    <div class="scard">
+      <div class="scard-label">12 months · total envelope</div>
+      <div class="scard-val">$500,000</div>
+      <div class="scard-eur">€455,000</div>
+    </div>
+  </div>
+
+  <h2 class="sec-h2">Cost breakdown</h2>
+
+  <div class="twrap">
+    <table class="budget">
+      <thead>
+        <tr>
+          <th>Line item</th>
+          <th>Rate</th>
+          <th>3 months</th>
+          <th>6 months</th>
+          <th>9 months</th>
+          <th>12 months</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <!-- PLATFORM -->
+        <tr class="sec-row"><td colspan="6">Platform</td></tr>
+        <tr class="sub-row">
+          <td>Shopify Grow</td>
+          <td>$79/mo</td>
+          <td>$237<span class="eur">€216</span></td>
+          <td>$474<span class="eur">€431</span></td>
+          <td>$711<span class="eur">€647</span></td>
+          <td>$948<span class="eur">€863</span></td>
+        </tr>
+        <tr class="sub-row">
+          <td>PuppetVendors</td>
+          <td>$49/mo</td>
+          <td>$147<span class="eur">€134</span></td>
+          <td>$294<span class="eur">€268</span></td>
+          <td>$441<span class="eur">€401</span></td>
+          <td>$588<span class="eur">€535</span></td>
+        </tr>
+        <tr class="sub-row">
+          <td>Framer</td>
+          <td>$15/mo</td>
+          <td>$45<span class="eur">€41</span></td>
+          <td>$90<span class="eur">€82</span></td>
+          <td>$135<span class="eur">€123</span></td>
+          <td>$180<span class="eur">€164</span></td>
+        </tr>
+        <tr class="sub-total">
+          <td>Platform subtotal</td>
+          <td>$143/mo</td>
+          <td>$429<span class="eur">€390</span></td>
+          <td>$858<span class="eur">€781</span></td>
+          <td>$1,287<span class="eur">€1,171</span></td>
+          <td>$1,716<span class="eur">€1,562</span></td>
+        </tr>
+
+        <!-- OPERATIONS -->
+        <tr class="sec-row"><td colspan="6">Operations</td></tr>
+        <tr class="sub-row">
+          <td>Web / server infrastructure</td>
+          <td>$20/mo</td>
+          <td>$60<span class="eur">€55</span></td>
+          <td>$120<span class="eur">€109</span></td>
+          <td>$180<span class="eur">€164</span></td>
+          <td>$240<span class="eur">€218</span></td>
+        </tr>
+        <tr class="sub-row">
+          <td>Influencer search · Collabstr Premium</td>
+          <td>$333/mo</td>
+          <td>$999<span class="eur">€909</span></td>
+          <td>$1,998<span class="eur">€1,818</span></td>
+          <td>$2,997<span class="eur">€2,727</span></td>
+          <td>$3,996<span class="eur">€3,636</span></td>
+        </tr>
+        <tr class="sub-row">
+          <td>Circle · community platform</td>
+          <td>$100/mo</td>
+          <td>$300<span class="eur">€273</span></td>
+          <td>$600<span class="eur">€546</span></td>
+          <td>$900<span class="eur">€819</span></td>
+          <td>$1,200<span class="eur">€1,092</span></td>
+        </tr>
+        <tr class="sub-total">
+          <td>Operations subtotal</td>
+          <td>$453/mo</td>
+          <td>$1,359<span class="eur">€1,237</span></td>
+          <td>$2,718<span class="eur">€2,473</span></td>
+          <td>$4,077<span class="eur">€3,710</span></td>
+          <td>$5,436<span class="eur">€4,947</span></td>
+        </tr>
+
+        <!-- MARKETING -->
+        <tr class="sec-row"><td colspan="6">Marketing</td></tr>
+        <tr class="sub-row">
+          <td>Email marketing tool</td>
+          <td>$30/mo</td>
+          <td>$90<span class="eur">€82</span></td>
+          <td>$180<span class="eur">€164</span></td>
+          <td>$270<span class="eur">€246</span></td>
+          <td>$360<span class="eur">€328</span></td>
+        </tr>
+        <tr class="sub-row">
+          <td>AI tools · Instagram content</td>
+          <td>$300/mo</td>
+          <td>$900<span class="eur">€819</span></td>
+          <td>$1,800<span class="eur">€1,638</span></td>
+          <td>$2,700<span class="eur">€2,457</span></td>
+          <td>$3,600<span class="eur">€3,276</span></td>
+        </tr>
+        <tr class="sub-row">
+          <td>Paid social / ads</td>
+          <td>$200/mo</td>
+          <td>$600<span class="eur">€546</span></td>
+          <td>$1,200<span class="eur">€1,092</span></td>
+          <td>$1,800<span class="eur">€1,638</span></td>
+          <td>$2,400<span class="eur">€2,184</span></td>
+        </tr>
+        <tr class="sub-total">
+          <td>Marketing subtotal</td>
+          <td>$530/mo</td>
+          <td>$1,590<span class="eur">€1,447</span></td>
+          <td>$3,180<span class="eur">€2,894</span></td>
+          <td>$4,770<span class="eur">€4,341</span></td>
+          <td>$6,360<span class="eur">€5,788</span></td>
+        </tr>
+
+        <!-- ONE-TIME SETUP -->
+        <tr class="sec-row"><td colspan="6">One-time setup</td></tr>
+        <tr class="sub-row">
+          <td>Legal · incorporation (Delaware C-corp)</td>
+          <td style="color:var(--sub)">one-time</td>
+          <td>$500<span class="eur">€455</span></td>
+          <td>$500<span class="eur">€455</span></td>
+          <td>$500<span class="eur">€455</span></td>
+          <td>$500<span class="eur">€455</span></td>
+        </tr>
+        <tr class="sub-row">
+          <td>Website design</td>
+          <td style="color:var(--sub)">one-time</td>
+          <td>$2,200<span class="eur">€2,002</span></td>
+          <td>$2,200<span class="eur">€2,002</span></td>
+          <td>$2,200<span class="eur">€2,002</span></td>
+          <td>$2,200<span class="eur">€2,002</span></td>
+        </tr>
+        <tr class="sub-total">
+          <td>One-time subtotal</td>
+          <td style="color:var(--sub)">—</td>
+          <td>$2,700<span class="eur">€2,457</span></td>
+          <td>$2,700<span class="eur">€2,457</span></td>
+          <td>$2,700<span class="eur">€2,457</span></td>
+          <td>$2,700<span class="eur">€2,457</span></td>
+        </tr>
+
+        <!-- PEOPLE · TEAM -->
+        <tr class="sec-row"><td colspan="6">People · Team</td></tr>
+        <tr class="sub-row">
+          <td>Developers (2 people · $2,000 each)</td>
+          <td>$4,000/mo</td>
+          <td>$12,000<span class="eur">€10,920</span></td>
+          <td>$24,000<span class="eur">€21,840</span></td>
+          <td>$36,000<span class="eur">€32,760</span></td>
+          <td>$48,000<span class="eur">€43,680</span></td>
+        </tr>
+        <tr class="sub-row">
+          <td>Community manager</td>
+          <td>$2,500/mo</td>
+          <td>$7,500<span class="eur">€6,825</span></td>
+          <td>$15,000<span class="eur">€13,650</span></td>
+          <td>$22,500<span class="eur">€20,475</span></td>
+          <td>$30,000<span class="eur">€27,300</span></td>
+        </tr>
+        <tr class="sub-row">
+          <td>Operational assistant</td>
+          <td>$2,500/mo</td>
+          <td>$7,500<span class="eur">€6,825</span></td>
+          <td>$15,000<span class="eur">€13,650</span></td>
+          <td>$22,500<span class="eur">€20,475</span></td>
+          <td>$30,000<span class="eur">€27,300</span></td>
+        </tr>
+        <tr class="sub-total">
+          <td>Team subtotal</td>
+          <td>$9,000/mo</td>
+          <td>$27,000<span class="eur">€24,570</span></td>
+          <td>$54,000<span class="eur">€49,140</span></td>
+          <td>$81,000<span class="eur">€73,710</span></td>
+          <td>$108,000<span class="eur">€98,280</span></td>
+        </tr>
+
+        <!-- PEOPLE · FOUNDERS -->
+        <tr class="sec-row"><td colspan="6">People · Founders</td></tr>
+        <tr class="sub-row">
+          <td>Founders salary budget</td>
+          <td>$93,947/qtr</td>
+          <td>$93,947<span class="eur">€85,492</span></td>
+          <td>$187,894<span class="eur">€170,984</span></td>
+          <td>$281,841<span class="eur">€256,475</span></td>
+          <td>$375,788<span class="eur">€341,967</span></td>
+        </tr>
+
+        <!-- GRAND TOTAL -->
+        <tr class="total-row">
+          <td>Total spend</td>
+          <td>—</td>
+          <td>$127,025<span class="eur">€115,593</span></td>
+          <td>$251,350<span class="eur">€228,729</span></td>
+          <td>$375,675<span class="eur">€341,864</span></td>
+          <td>$500,000<span class="eur">€455,000</span></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <div class="founders-note">
+    <b>Founders salary — how calculated:</b> $500,000 total envelope minus platform ($1,716), operations ($5,436), marketing ($6,360) for 12 months, one-time setup ($2,700), and team salaries ($108,000) = $375,788 available for founders. Split equally: $93,947 per quarter.
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">SMTHG · Internal · Not for distribution</div>
+</footer>
+</body>
+</html>
