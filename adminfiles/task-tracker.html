@@ -11,19 +11,19 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --tf:#E8002D;--tf-dark:#B50023;--tf-light:#FEF5F6;--tf-ghost:#F1EEE9;
-  --orange:#E8002D;--off-white:#F8F6F2;--ink:#161616;--sub:#5C5A56;--rule:#E6E2DA;
+  --off-white:#F8F6F2;--ink:#161616;--sub:#5C5A56;--rule:#E6E2DA;--card:#FFF;
   --green:#1F7A4E;--green-tint:#DDEEE5;--red:#B23A2F;--red-tint:#FDEAE8;
 }
-body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink);min-height:100vh;display:flex;flex-direction:column}
+body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink);min-height:100vh}
 
 /* NAV */
 .topnav{background:white;border-bottom:1px solid var(--rule);padding:12px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
-.topnav-home{font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);text-decoration:none;font-size:11px}
+.topnav-home{font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--ink);text-decoration:none;font-size:11px}
 .topnav-home:hover{color:var(--tf-dark)}
 .topnav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
 .topnav-links a{color:var(--sub);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:10px}
 .topnav-links a:hover{color:var(--tf)}
-.topnav-links a.active{color:var(--orange)}
+.topnav-links a.active{color:var(--tf)}
 .topnav-links .has-dropdown{position:relative;padding-bottom:10px;margin-bottom:-10px}
 .topnav-links .dropdown-trigger{cursor:pointer;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:10px;user-select:none}
 .topnav-links .dropdown-trigger:hover,.topnav-links .has-dropdown:focus-within .dropdown-trigger{color:var(--tf)}
@@ -34,45 +34,52 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 @media(max-width:700px){
   .topnav{position:static;padding:10px 14px}
   .topnav-links{gap:8px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:2px;width:100%}
-  .topnav-links a{font-size:9.5px;white-space:nowrap}
-  .dropdown-trigger{font-size:9.5px;white-space:nowrap}
+  .topnav-links a,.topnav-links .dropdown-trigger{font-size:9.5px;white-space:nowrap}
   .has-dropdown{padding-bottom:0;margin-bottom:0}
   .dropdown{display:none!important}
 }
 
+/* WRAP */
+.wrap{max-width:1240px;margin:0 auto;padding:40px 48px 80px}
+@media(max-width:1000px){.wrap{padding:24px 18px 60px}}
+@media(max-width:700px){.wrap{padding:16px 12px 48px}}
+
 /* PAGE HEADER */
-.page-header{padding:44px 60px 0}
-.page-header-inner{max-width:1300px;margin:0 auto}
-.eyebrow{font-size:10px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--sub);opacity:.5;margin-bottom:10px}
-.page-title{font-size:34px;font-weight:800;letter-spacing:-1px;color:var(--ink);margin-bottom:24px}
+.page-hd{margin-bottom:22px}
+.page-hd h1{font-size:28px;font-weight:800;letter-spacing:-.5px;color:var(--ink);margin-bottom:6px}
+.page-hd p{font-size:12.5px;color:var(--ink);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.sync-dot{width:8px;height:8px;border-radius:50%;background:#ccc;display:inline-block;flex-shrink:0;transition:background .4s}
+.sync-dot.live{background:#22c55e}
+.sync-dot.err{background:#ef4444}
+.sync-label{font-size:11px;font-weight:700;color:var(--sub)}
 
-/* VIEW BAR */
-.view-bar{padding:0 60px 20px}
-.view-bar-inner{max-width:1300px;margin:0 auto;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.view-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);opacity:.6}
-.view-select{font-family:'Inter',sans-serif;font-size:11px;font-weight:600;color:var(--ink);background:white;border:1.5px solid var(--rule);border-radius:3px;padding:6px 28px 6px 10px;cursor:pointer;outline:none;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%235B5880'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 8px center;background-size:9px}
-.view-select:hover,.view-select:focus{border-color:var(--tf)}
+/* TOC */
+.toc{background:var(--card);border:1px solid var(--rule);border-left:3px solid var(--ink);padding:12px 20px;margin-bottom:24px;display:flex;flex-wrap:wrap;gap:4px 24px;align-items:center}
+.toc-label{font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);margin-right:4px}
+.toc a{font-size:11px;font-weight:700;color:var(--sub);text-decoration:none;text-transform:uppercase;letter-spacing:.8px;white-space:nowrap}
+.toc a:hover{color:var(--ink)}
 
-/* MAIN */
-main{flex:1;padding:4px 60px 80px}
-.main-inner{max-width:1300px;margin:0 auto}
+/* FILTER BAR */
+.filter-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+.filter-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub)}
+.view-select{font-family:'Inter',sans-serif;font-size:11px;font-weight:600;color:var(--ink);background:white;border:1.5px solid var(--rule);border-radius:3px;padding:6px 28px 6px 10px;cursor:pointer;outline:none;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%235C5A56'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 8px center;background-size:9px}
+.view-select:hover,.view-select:focus{border-color:var(--ink)}
 
 /* SECTION */
-.ws-section{margin-bottom:52px}
-.ws-head{display:flex;align-items:baseline;gap:12px;border-bottom:2px solid var(--tf);padding-bottom:10px;margin-bottom:0}
-.ws-head h2{font-size:17px;font-weight:800;letter-spacing:.5px;color:var(--orange);text-transform:uppercase}
-.ws-count{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--sub);opacity:.7}
-.ws-count.has-open{color:var(--orange);opacity:1}
+.ws-section{margin-bottom:52px;scroll-margin-top:72px}
+.ws-head{display:flex;align-items:baseline;gap:12px;border-bottom:2px solid var(--ink);padding-bottom:10px;margin-bottom:0}
+.ws-head h2{font-size:16px;font-weight:800;letter-spacing:.5px;color:var(--ink);text-transform:uppercase}
+.ws-count{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--sub)}
+.ws-count.has-open{color:var(--ink);font-weight:800}
 
 /* SUB-SECTION */
 .sub-section{margin-top:16px}
-.sub-section:first-of-type{margin-top:12px}
-.sub-head{font-size:10px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--tf);background:var(--tf-ghost);padding:8px 14px;border:1px solid var(--rule);border-bottom:none}
+.sub-head{font-size:10px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--sub);background:#F2F0EB;padding:8px 14px;border:1px solid var(--rule);border-bottom:none}
 
 /* TABLE */
 .table-scroll{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
-table{width:100%;border-collapse:collapse;font-size:12.5px;min-width:1060px;background:white;border:1px solid var(--rule);border-top:none}
-thead tr{background:var(--tf)}
+table{width:100%;border-collapse:collapse;font-size:12.5px;min-width:1060px;background:var(--card);border:1px solid var(--rule);border-top:none}
+thead tr{background:var(--ink)}
 thead th{color:white;font-size:10px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;padding:10px 12px;text-align:left;white-space:nowrap}
 th.col-date{width:68px}
 th.col-task{min-width:200px}
@@ -80,41 +87,42 @@ th.col-owner{width:96px}
 th.col-pri{width:86px}
 th.col-status{width:118px}
 th.col-due{width:78px}
-th.col-ref{min-width:160px}
+th.col-ref{min-width:130px}
 th.col-notes{min-width:140px}
+th.col-del{width:28px;padding:6px 4px;text-align:center}
 tbody tr{border-bottom:1px solid var(--rule);transition:background .1s}
 tbody tr:last-child{border-bottom:none}
 tbody tr.hidden{display:none}
-tbody tr:hover{background:#FAFAFE}
+tbody tr:hover{background:#FAFAF8}
 tbody tr[data-status="in-progress"] td:first-child{border-left:3px solid var(--tf)}
 tbody tr[data-status="done"] td:first-child{border-left:3px solid var(--green)}
 tbody tr[data-status="deferred"] td:first-child{border-left:3px solid var(--rule)}
 tbody tr[data-status="todo"] td:first-child{border-left:3px solid transparent}
 td{padding:9px 12px;vertical-align:middle}
+td.col-del{padding:4px;text-align:center;vertical-align:middle}
 td.col-ref{font-size:11px;color:var(--ink)}
-td.col-ref a{color:var(--tf);font-weight:600;text-decoration:none;font-size:11px;display:inline-block;margin-right:4px;white-space:nowrap}
-td.col-ref a:hover{color:var(--orange);text-decoration:underline}
+td.col-ref a{color:var(--ink);font-weight:600;text-decoration:underline;font-size:11px;white-space:nowrap}
+td.col-ref a:hover{color:var(--tf)}
 
-/* INLINE SELECTS */
-.sel{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;border:1.5px solid var(--rule);border-radius:3px;padding:5px 22px 5px 8px;cursor:pointer;outline:none;width:100%;-webkit-appearance:none;appearance:none;background-repeat:no-repeat;background-position:right 6px center;background-size:9px 5px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='5'%3E%3Cpath d='M0 0l4.5 5 4.5-5z' fill='%235B5880'/%3E%3C/svg%3E");transition:border-color .15s;background-color:white;color:var(--ink)}
-.sel:hover,.sel:focus{border-color:var(--tf)}
+/* SELECTS */
+.sel{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;border:1.5px solid var(--rule);border-radius:3px;padding:5px 22px 5px 8px;cursor:pointer;outline:none;width:100%;-webkit-appearance:none;appearance:none;background-repeat:no-repeat;background-position:right 6px center;background-size:9px 5px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='5'%3E%3Cpath d='M0 0l4.5 5 4.5-5z' fill='%235C5A56'/%3E%3C/svg%3E");background-color:white;color:var(--ink);transition:border-color .15s}
+.sel:hover,.sel:focus{border-color:var(--ink)}
 .sel-pri.p-high{background-color:var(--red-tint);color:var(--red);border-color:#F2C4C0}
-.sel-pri.p-normal{color:var(--ink)}
 .sel-pri.p-low{color:var(--sub)}
 .sel-owner.o-alena{background-color:#F5E8FA;color:#8B3AB8;border-color:#D8B0ED}
-.sel-owner.o-maxim{background-color:#ECEAF9;color:var(--tf);border-color:#C5C0ED}
-.sel-owner.o-alex{background-color:#E8EEFA;color:#3555B8;border-color:#B0BEEE}
+.sel-owner.o-maxim{background-color:#ECEAF9;color:#3555B8;border-color:#C5C0ED}
+.sel-owner.o-alex{background-color:#E8EEFA;color:#167A47;border-color:#B0BEEE}
 .sel-status.s-todo{background-color:#F0EFF5;color:var(--ink)}
 .sel-status.s-in-progress{background-color:var(--tf-light);color:var(--tf)}
 .sel-status.s-done{background-color:var(--green-tint);color:var(--green)}
-.sel-status.s-deferred{background-color:var(--off-white);color:var(--sub);border-color:var(--rule)}
+.sel-status.s-deferred{background-color:var(--off-white);color:var(--sub)}
 
 /* EDITABLE CELLS */
 .edit-cell{outline:none;font-size:11.5px;color:var(--ink);line-height:1.5;cursor:text;min-height:20px}
 .edit-cell:empty::before{content:attr(data-placeholder);color:#C4C1D8;font-style:italic}
-.edit-cell:focus{background:#FAFAFE;box-shadow:inset 0 0 0 1.5px var(--tf);padding:2px 4px;margin:-2px -4px}
-td.col-date{font-size:11px;color:var(--ink);font-weight:600;white-space:nowrap;cursor:text}
-td.col-date:focus{outline:none;background:#FAFAFE;box-shadow:inset 0 0 0 1.5px var(--tf)}
+.edit-cell:focus{background:#FAFAFE;box-shadow:inset 0 0 0 1.5px var(--ink);padding:2px 4px;margin:-2px -4px}
+td.col-date{font-size:11px;color:var(--ink);font-weight:600;white-space:nowrap;cursor:text;outline:none}
+td.col-date:focus{background:#FAFAFE;box-shadow:inset 0 0 0 1.5px var(--ink)}
 td.col-date:empty::before{content:"date";color:#C4C1D8;font-style:italic}
 .due-cell{white-space:nowrap;font-size:11px;font-weight:600;color:var(--ink)}
 
@@ -122,45 +130,37 @@ td.col-date:empty::before{content:"date";color:#C4C1D8;font-style:italic}
 .ws-empty{display:none;padding:14px 18px;font-size:12px;color:var(--sub);font-style:italic;background:white;border:1px solid var(--rule);border-top:none}
 .ws-empty.show{display:block}
 
-/* FOOTER */
-footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margin-top:auto}
-.footer-inner{max-width:1300px;margin:0 auto;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);opacity:.4}
+/* ADD ROW */
+.btn-add-row{display:flex;align-items:center;gap:6px;padding:8px 14px;background:white;border:1px solid var(--rule);border-top:none;font-size:11px;font-weight:700;color:var(--sub);cursor:pointer;width:100%;text-align:left;transition:color .15s,background .15s;letter-spacing:.4px;font-family:'Inter',sans-serif}
+.btn-add-row:hover{color:var(--ink);background:#F7F5F2}
 
-#back-to-top{position:fixed;bottom:28px;right:28px;width:40px;height:40px;background:var(--tf);color:white;border:none;border-radius:50%;font-size:18px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900;transition:background .2s}
-#back-to-top:hover{background:var(--tf-dark)}
-
-/* RESPONSIVE */
-@media(max-width:1000px){
-  .page-header,.view-bar,main{padding-left:24px;padding-right:24px}
-  .page-title{font-size:28px}
-}
-@media(max-width:700px){
-  .page-header,.view-bar,main{padding-left:14px;padding-right:14px}
-  .page-title{font-size:22px}
-  footer{padding:16px 14px}
-  .ws-head h2{font-size:14px}
-  .sub-head{font-size:9px;padding:7px 12px;letter-spacing:2px}
-  .view-bar-inner{gap:8px}
-  #back-to-top{bottom:16px;right:16px;width:36px;height:36px;font-size:16px}
-}
-@media(max-width:480px){
-  .page-header,.view-bar,main{padding-left:10px;padding-right:10px}
-  .page-title{font-size:20px}
-}
-
-/* DELETE + ADD ROW CONTROLS */
-th.col-del{width:28px;padding:6px 4px;text-align:center}
-td.col-del{padding:4px;text-align:center;vertical-align:middle}
-.btn-del{background:none;border:none;color:var(--rule);font-size:16px;line-height:1;cursor:pointer;padding:1px 5px;border-radius:2px;transition:color .15s}
+/* DELETE */
+.btn-del{background:none;border:none;color:var(--rule);font-size:16px;line-height:1;cursor:pointer;padding:1px 5px;border-radius:2px;transition:color .15s;font-family:'Inter',sans-serif}
 .btn-del:hover{color:var(--red)}
-.btn-add-row{display:flex;align-items:center;gap:6px;padding:8px 14px;background:white;border:1px solid var(--rule);border-top:none;font-size:11px;font-weight:700;color:var(--sub);cursor:pointer;width:100%;text-align:left;transition:color .15s,background .15s;letter-spacing:.4px}
-.btn-add-row:hover{color:var(--tf);background:var(--tf-ghost)}
+
+/* SAVING FLASH */
+.saving-flash{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;font-size:11px;font-weight:700;padding:7px 16px;border-radius:4px;letter-spacing:.5px;opacity:0;transition:opacity .3s;pointer-events:none;z-index:999;white-space:nowrap}
+.saving-flash.show{opacity:1}
+
+/* FOOTER */
+footer{padding:20px 48px;border-top:1px solid var(--rule);background:white;margin-top:20px}
+.footer-inner{max-width:1240px;margin:0 auto;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);opacity:.4}
+
+/* BACK TO TOP */
+#back-to-top{position:fixed;bottom:28px;right:28px;width:40px;height:40px;background:var(--ink);color:white;border:none;border-radius:50%;font-size:18px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900;transition:background .2s;font-family:'Inter',sans-serif}
+#back-to-top:hover{background:var(--tf)}
+@media(max-width:700px){
+  .ws-head h2{font-size:14px}
+  .sub-head{font-size:9px;padding:7px 12px}
+  #back-to-top{bottom:16px;right:16px;width:36px;height:36px;font-size:16px}
+  footer{padding:16px 12px}
+}
 </style>
 </head>
 <body>
 
 <nav class="topnav">
-  <a href="index.html" class="topnav-home">SMTHG<span style="color:var(--tf)">.</span></a>
+  <a href="index.html" class="topnav-home">smthg<span style="color:var(--tf)">.</span></a>
   <div class="topnav-links">
     <a href="index.html">Files</a>
     <div class="has-dropdown">
@@ -186,10 +186,12 @@ td.col-del{padding:4px;text-align:center;vertical-align:middle}
         <a href="TFstylists.html">Stylist Layer</a>
         <a href="/psychology-fashion.html">Psychology + Fashion</a>
         <a href="TFvisualdiscovery.html">Visual Discovery</a>
+        <a href="TFbrandsworldwide.html">Fashion Brands Worldwide</a>
+        <a href="TFcommunities.html">Fashion Communities</a>
       </div>
     </div>
     <a href="TFmarketplaces.html">Operations</a>
-    <a href="architecture.html">Architecture</a>
+    <a href="architecture.html">Architecture &amp; Tools</a>
     <div class="has-dropdown">
       <span class="dropdown-trigger" tabindex="0">Ideas ▾</span>
       <div class="dropdown">
@@ -199,21 +201,32 @@ td.col-del{padding:4px;text-align:center;vertical-align:middle}
         <a href="strategic-brief.html">Strategic Brief</a>
       </div>
     </div>
+    <a href="TFsmthgbrands.html">Brands</a>
+    <a href="TFnewname.html">Design</a>
     <a href="TFrussia.html">Legal / Tax</a>
-    <a href="task-tracker.html">Planning</a>
+    <a href="task-tracker.html" class="active">Planning</a>
   </div>
 </nav>
 
-<div class="page-header">
-  <div class="page-header-inner">
-    <div class="eyebrow">Internal · Private</div>
-    <h1 class="page-title">Task Tracker</h1>
-  </div>
-</div>
+<div class="wrap">
 
-<div class="view-bar">
-  <div class="view-bar-inner">
-    <span class="view-label">View</span>
+  <div class="page-hd">
+    <h1>Task Tracker</h1>
+    <p>SMTHG · shared task board · changes sync live across all participants
+      &nbsp;<span class="sync-dot" id="sync-dot"></span><span class="sync-label" id="sync-label">Connecting…</span>
+    </p>
+  </div>
+
+  <nav class="toc" aria-label="Jump to section">
+    <span class="toc-label">Sections</span>
+    <a href="#s-fundraising">01 · Fundraising &amp; Capital</a>
+    <a href="#s-concept">02 · Terra Ferra Concept</a>
+    <a href="#s-tech">03 · Technology &amp; Product Design</a>
+    <a href="#s-operations">04 · Operations</a>
+  </nav>
+
+  <div class="filter-bar">
+    <span class="filter-label">View</span>
     <select class="view-select" id="filter-owner">
       <option value="all">All owners</option>
       <option value="maxim">Maxim</option>
@@ -228,1005 +241,556 @@ td.col-del{padding:4px;text-align:center;vertical-align:middle}
       <option value="deferred">Deferred</option>
     </select>
   </div>
-</div>
 
-<main>
-<div class="main-inner">
-
-
-<!-- ═══════════════════════════════════════
-     01 · FUNDRAISING & CAPITAL
-═══════════════════════════════════════ -->
-<section class="ws-section">
-  <div class="ws-head">
-    <h2>01 · Fundraising &amp; Capital</h2>
-    <span class="ws-count" id="count-fundraising"></span>
-  </div>
-  <div class="table-scroll">
-    <table>
-      <thead>
-        <tr>
-          <th class="col-date">Date</th>
-          <th class="col-task">Task / Idea</th>
-          <th class="col-owner">Owner</th>
-          <th class="col-pri">Priority</th>
-          <th class="col-status">Status</th>
-          <th class="col-due">Due Date</th>
-          <th class="col-ref">Reference</th>
-          <th class="col-notes">Notes</th>
-        </tr>
-      </thead>
-      <tbody id="ws-fundraising">
-        <!--
-        HOW TO ADD A ROW — data-id values: f-003, f-004 …
-        Copy template from Concept section below.
-        -->
-        <tr data-id="f-002" data-status="todo" data-owner="maxim">
-          <td class="col-date" contenteditable="true" data-field="date">08 Jun</td>
-          <td class="col-task">Prepare investor list — contacts to approach for the round</td>
-          <td><select class="sel sel-owner" data-field="owner">
-            <option value="alena">Alena</option>
-            <option value="maxim" selected>Maxim</option>
-            <option value="alex">Alex</option>
-          </select></td>
-          <td><select class="sel sel-pri" data-field="priority">
-            <option value="high">High</option>
-            <option value="normal" selected>Normal</option>
-            <option value="low">Low</option>
-          </select></td>
-          <td><select class="sel sel-status" data-field="status">
-            <option value="todo" selected>To Do</option>
-            <option value="in-progress">In Progress</option>
-            <option value="done">Done</option>
-            <option value="deferred">Deferred</option>
-          </select></td>
-          <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—">13 Jun</div></td>
-          <td class="col-ref"></td>
-          <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…">Large angel communities + funds available — include as priority contacts in list</div></td>
-        </tr>
-        <tr data-id="f-001" data-status="todo" data-owner="alena">
-          <td class="col-date" contenteditable="true" data-field="date">07 Jun</td>
-          <td class="col-task">Update Investor Deck</td>
-          <td><select class="sel sel-owner" data-field="owner">
-            <option value="alena" selected>Alena</option>
-            <option value="maxim">Maxim</option>
-            <option value="alex">Alex</option>
-          </select></td>
-          <td><select class="sel sel-pri" data-field="priority">
-            <option value="high">High</option>
-            <option value="normal" selected>Normal</option>
-            <option value="low">Low</option>
-          </select></td>
-          <td><select class="sel sel-status" data-field="status">
-            <option value="todo" selected>To Do</option>
-            <option value="in-progress">In Progress</option>
-            <option value="done">Done</option>
-            <option value="deferred">Deferred</option>
-          </select></td>
-          <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—">21 Jun</div></td>
-          <td class="col-ref"></td>
-          <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…"></div></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="ws-empty" id="empty-fundraising">No tasks visible with current filter.</div>
-</section>
-
-
-<!-- ═══════════════════════════════════════
-     02 · TERRA FERRA CONCEPT
-═══════════════════════════════════════ -->
-<section class="ws-section">
-  <div class="ws-head">
-    <h2>02 · Terra Ferra Concept</h2>
-    <span class="ws-count" id="count-concept"></span>
-  </div>
-
-
-  <!-- ── Product & Gamification ── -->
-  <div class="sub-section">
-    <div class="sub-head">Product &amp; Gamification</div>
-    <div class="table-scroll">
-      <table>
-        <thead>
-          <tr>
-            <th class="col-date">Date</th>
-            <th class="col-task">Task / Idea</th>
-            <th class="col-owner">Owner</th>
-            <th class="col-pri">Priority</th>
-            <th class="col-status">Status</th>
-            <th class="col-due">Due Date</th>
-            <th class="col-ref">Reference</th>
-            <th class="col-notes">Notes</th>
-          </tr>
-        </thead>
-        <tbody id="ws-gamification">
-          <!--
-          HOW TO ADD A ROW — data-id values: g-006, g-007 …
-
-          <tr data-id="g-006" data-status="todo" data-owner="alena">
-            <td class="col-date" contenteditable="true" data-field="date">08 Jun</td>
-            <td class="col-task">Task description</td>
-            <td><select class="sel sel-owner" data-field="owner">
-              <option value="alena" selected>Alena</option>
-              <option value="maxim">Maxim</option>
-              <option value="alex">Alex</option>
-            </select></td>
-            <td><select class="sel sel-pri" data-field="priority">
-              <option value="high">High</option>
-              <option value="normal" selected>Normal</option>
-              <option value="low">Low</option>
-            </select></td>
-            <td><select class="sel sel-status" data-field="status">
-              <option value="todo" selected>To Do</option>
-              <option value="in-progress">In Progress</option>
-              <option value="done">Done</option>
-              <option value="deferred">Deferred</option>
-            </select></td>
-            <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—"></div></td>
-            <td class="col-ref"><a href="pagename.html">Page Title →</a></td>
-            <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…"></div></td>
-          </tr>
-          -->
-          <tr data-id="g-001" data-status="todo" data-owner="alena">
-            <td class="col-date" contenteditable="true" data-field="date">07 Jun</td>
-            <td class="col-task">Referral Engine — collect examples, success cases, viral sharing mechanics beyond referral fees</td>
-            <td><select class="sel sel-owner" data-field="owner">
-              <option value="alena" selected>Alena</option>
-              <option value="maxim">Maxim</option>
-              <option value="alex">Alex</option>
-            </select></td>
-            <td><select class="sel sel-pri" data-field="priority">
-              <option value="high">High</option>
-              <option value="normal" selected>Normal</option>
-              <option value="low">Low</option>
-            </select></td>
-            <td><select class="sel sel-status" data-field="status">
-              <option value="todo" selected>To Do</option>
-              <option value="in-progress">In Progress</option>
-              <option value="done">Done</option>
-              <option value="deferred">Deferred</option>
-            </select></td>
-            <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—"></div></td>
-            <td class="col-ref"><a href="TFreferral.html">Referral &amp; Viral Mechanics →</a></td>
-            <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…">Status and social rewards may have more value than cash referral fees in this segment</div></td>
-          </tr>
-          <tr data-id="g-005" data-status="todo" data-owner="alena">
-            <td class="col-date" contenteditable="true" data-field="date">08 Jun</td>
-            <td class="col-task">Referral mechanic — review existing app logic (designer-led perks); assess what works; define standard perk set recommendation</td>
-            <td><select class="sel sel-owner" data-field="owner">
-              <option value="alena" selected>Alena</option>
-              <option value="maxim">Maxim</option>
-              <option value="alex">Alex</option>
-            </select></td>
-            <td><select class="sel sel-pri" data-field="priority">
-              <option value="high">High</option>
-              <option value="normal" selected>Normal</option>
-              <option value="low">Low</option>
-            </select></td>
-            <td><select class="sel sel-status" data-field="status">
-              <option value="todo" selected>To Do</option>
-              <option value="in-progress">In Progress</option>
-              <option value="done">Done</option>
-              <option value="deferred">Deferred</option>
-            </select></td>
-            <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—"></div></td>
-            <td class="col-ref"><a href="TFreferral.html">Referral &amp; Viral Mechanics →</a></td>
-            <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…">Each designer gives own perks in existing app — need to recommend a standard set; confirm whether existing referral logic requires changes</div></td>
-          </tr>
-          <tr data-id="g-002" data-status="done" data-owner="alena">
-            <td class="col-date" contenteditable="true" data-field="date">07 Jun</td>
-            <td class="col-task">Tiered loyalty — research how influencer tiers work on other platforms; what tiers mean for TF influencers</td>
-            <td><select class="sel sel-owner" data-field="owner">
-              <option value="alena" selected>Alena</option>
-              <option value="maxim">Maxim</option>
-              <option value="alex">Alex</option>
-            </select></td>
-            <td><select class="sel sel-pri" data-field="priority">
-              <option value="high">High</option>
-              <option value="normal" selected>Normal</option>
-              <option value="low">Low</option>
-            </select></td>
-            <td><select class="sel sel-status" data-field="status">
-              <option value="todo">To Do</option>
-              <option value="in-progress">In Progress</option>
-              <option value="done" selected>Done</option>
-              <option value="deferred">Deferred</option>
-            </select></td>
-            <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—">08 Jun</div></td>
-            <td class="col-ref"><a href="TFreferral.html">Referral &amp; Viral Mechanics →</a></td>
-            <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…">Answered in Referral &amp; Viral Mechanics — Section 05</div></td>
-          </tr>
-          <tr data-id="g-003" data-status="todo" data-owner="alena">
-            <td class="col-date" contenteditable="true" data-field="date">07 Jun</td>
-            <td class="col-task">Styling Contests — research reward types that work at small assortment stage</td>
-            <td><select class="sel sel-owner" data-field="owner">
-              <option value="alena" selected>Alena</option>
-              <option value="maxim">Maxim</option>
-              <option value="alex">Alex</option>
-            </select></td>
-            <td><select class="sel sel-pri" data-field="priority">
-              <option value="high">High</option>
-              <option value="normal" selected>Normal</option>
-              <option value="low">Low</option>
-            </select></td>
-            <td><select class="sel sel-status" data-field="status">
-              <option value="todo" selected>To Do</option>
-              <option value="in-progress">In Progress</option>
-              <option value="done">Done</option>
-              <option value="deferred">Deferred</option>
-            </select></td>
-            <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—"></div></td>
-            <td class="col-ref"><a href="gamification.html">Gamification →</a></td>
-            <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…">Points / voter discounts may not attract this audience at launch assortment size</div></td>
-          </tr>
-          <tr data-id="g-004" data-status="todo" data-owner="alena">
-            <td class="col-date" contenteditable="true" data-field="date">07 Jun</td>
-            <td class="col-task">Gamification — rethink co-design mechanic; social style discovery is the core loop, not explicit game mechanics</td>
-            <td><select class="sel sel-owner" data-field="owner">
-              <option value="alena" selected>Alena</option>
-              <option value="maxim">Maxim</option>
-              <option value="alex">Alex</option>
-            </select></td>
-            <td><select class="sel sel-pri" data-field="priority">
-              <option value="high">High</option>
-              <option value="normal" selected>Normal</option>
-              <option value="low">Low</option>
-            </select></td>
-            <td><select class="sel sel-status" data-field="status">
-              <option value="todo" selected>To Do</option>
-              <option value="in-progress">In Progress</option>
-              <option value="done">Done</option>
-              <option value="deferred">Deferred</option>
-            </select></td>
-            <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—"></div></td>
-            <td class="col-ref"><a href="gamification.html">Gamification →</a></td>
-            <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…">Co-design presentation looks unworkable; users want entertainment, not purchasing</div></td>
-          </tr>
-          <tr data-id="o-002" data-status="todo" data-owner="alena">
-            <td class="col-date" contenteditable="true" data-field="date">08 Jun</td>
-            <td class="col-task">Designer brand experience — define how TF enables selling in own brand DNA style (not generic marketplace presentation); quality styling + brand-matched models</td>
-            <td><select class="sel sel-owner" data-field="owner">
-              <option value="alena" selected>Alena</option>
-              <option value="maxim">Maxim</option>
-              <option value="alex">Alex</option>
-            </select></td>
-            <td><select class="sel sel-pri" data-field="priority">
-              <option value="high">High</option>
-              <option value="normal" selected>Normal</option>
-              <option value="low">Low</option>
-            </select></td>
-            <td><select class="sel sel-status" data-field="status">
-              <option value="todo" selected>To Do</option>
-              <option value="in-progress">In Progress</option>
-              <option value="done">Done</option>
-              <option value="deferred">Deferred</option>
-            </select></td>
-            <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—"></div></td>
-            <td class="col-ref"></td>
-            <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…">White background catalog option also possible; key is brand DNA preservation vs. generic marketplace feel</div></td>
-          </tr>
-        </tbody>
-      </table>
+  <!-- 01 FUNDRAISING -->
+  <section class="ws-section" id="s-fundraising">
+    <div class="ws-head">
+      <h2>01 · Fundraising &amp; Capital</h2>
+      <span class="ws-count" id="count-fundraising"></span>
     </div>
-    <div class="ws-empty" id="empty-gamification">No tasks visible with current filter.</div>
-  </div>
+    <div class="table-scroll"><table>
+      <thead><tr>
+        <th class="col-date">Date</th><th class="col-task">Task / Idea</th>
+        <th class="col-owner">Owner</th><th class="col-pri">Priority</th>
+        <th class="col-status">Status</th><th class="col-due">Due</th>
+        <th class="col-ref">Reference</th><th class="col-notes">Notes</th>
+        <th class="col-del"></th>
+      </tr></thead>
+      <tbody id="ws-fundraising"></tbody>
+    </table></div>
+    <div class="ws-empty" id="empty-fundraising">No tasks visible with current filter.</div>
+    <button class="btn-add-row" onclick="addRow('fundraising')">+ Add Task</button>
+  </section>
 
-
-  <!-- ── Why Now & Competition ── -->
-  <div class="sub-section">
-    <div class="sub-head">Why Now &amp; Competition</div>
-    <div class="table-scroll">
-      <table>
-        <thead>
-          <tr>
-            <th class="col-date">Date</th>
-            <th class="col-task">Task / Idea</th>
-            <th class="col-owner">Owner</th>
-            <th class="col-pri">Priority</th>
-            <th class="col-status">Status</th>
-            <th class="col-due">Due Date</th>
-            <th class="col-ref">Reference</th>
-            <th class="col-notes">Notes</th>
-          </tr>
-        </thead>
-        <tbody id="ws-narrative">
-          <!--
-          HOW TO ADD A ROW — data-id values: n-003, n-004 …
-          Copy template from Product & Gamification above.
-          -->
-          <tr data-id="n-001" data-status="todo" data-owner="alena">
-            <td class="col-date" contenteditable="true" data-field="date">07 Jun</td>
-            <td class="col-task">Write "Why Now" slide — unserved designer/creator segments, market size, timing argument</td>
-            <td><select class="sel sel-owner" data-field="owner">
-              <option value="alena" selected>Alena</option>
-              <option value="maxim">Maxim</option>
-              <option value="alex">Alex</option>
-            </select></td>
-            <td><select class="sel sel-pri" data-field="priority">
-              <option value="high">High</option>
-              <option value="normal" selected>Normal</option>
-              <option value="low">Low</option>
-            </select></td>
-            <td><select class="sel sel-status" data-field="status">
-              <option value="todo" selected>To Do</option>
-              <option value="in-progress">In Progress</option>
-              <option value="done">Done</option>
-              <option value="deferred">Deferred</option>
-            </select></td>
-            <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—"></div></td>
-            <td class="col-ref"><a href="TFwhynow.html">Why Now — LTK / ShopMy / VTO Timing →</a><br><a href="TFunservedmarket.html">Unserved Market Segments →</a></td>
-            <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…"></div></td>
-          </tr>
-          <tr data-id="n-002" data-status="todo" data-owner="alena">
-            <td class="col-date" contenteditable="true" data-field="date">07 Jun</td>
-            <td class="col-task">Write VTO + drops/pre-orders section — how virtual try-on makes drops virally promotable for influencers</td>
-            <td><select class="sel sel-owner" data-field="owner">
-              <option value="alena" selected>Alena</option>
-              <option value="maxim">Maxim</option>
-              <option value="alex">Alex</option>
-            </select></td>
-            <td><select class="sel sel-pri" data-field="priority">
-              <option value="high">High</option>
-              <option value="normal" selected>Normal</option>
-              <option value="low">Low</option>
-            </select></td>
-            <td><select class="sel sel-status" data-field="status">
-              <option value="todo" selected>To Do</option>
-              <option value="in-progress">In Progress</option>
-              <option value="done">Done</option>
-              <option value="deferred">Deferred</option>
-            </select></td>
-            <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—"></div></td>
-            <td class="col-ref"><a href="TFvisualdiscovery.html">Visual Discovery Engines →</a></td>
-            <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…"></div></td>
-          </tr>
-        </tbody>
-      </table>
+  <!-- 02 CONCEPT -->
+  <section class="ws-section" id="s-concept">
+    <div class="ws-head">
+      <h2>02 · Terra Ferra Concept</h2>
+      <span class="ws-count" id="count-concept"></span>
     </div>
-    <div class="ws-empty" id="empty-narrative">No tasks visible with current filter.</div>
-  </div>
-
-
-
-  <!-- ── MVP ── -->
-  <div class="sub-section">
-    <div class="sub-head">MVP</div>
-    <div class="table-scroll">
-      <table>
-        <thead>
-          <tr>
-            <th class="col-date">Date</th>
-            <th class="col-task">Task / Idea</th>
-            <th class="col-owner">Owner</th>
-            <th class="col-pri">Priority</th>
-            <th class="col-status">Status</th>
-            <th class="col-due">Due Date</th>
-            <th class="col-ref">Reference</th>
-            <th class="col-notes">Notes</th>
-          </tr>
-        </thead>
-        <tbody id="ws-mvp">
-          <!--
-          HOW TO ADD A ROW — data-id values: m-002, m-003 …
-          Copy template from Product & Gamification above.
-          -->
-          <tr data-id="m-001" data-status="todo" data-owner="alena">
-            <td class="col-date" contenteditable="true" data-field="date">08 Jun</td>
-            <td class="col-task">Review MVP Scope &amp; Costs — define priorities and open questions</td>
-            <td><select class="sel sel-owner" data-field="owner">
-              <option value="alena" selected>Alena</option>
-              <option value="maxim">Maxim</option>
-              <option value="alex">Alex</option>
-            </select></td>
-            <td><select class="sel sel-pri" data-field="priority">
-              <option value="high">High</option>
-              <option value="normal" selected>Normal</option>
-              <option value="low">Low</option>
-            </select></td>
-            <td><select class="sel sel-status" data-field="status">
-              <option value="todo" selected>To Do</option>
-              <option value="in-progress">In Progress</option>
-              <option value="done">Done</option>
-              <option value="deferred">Deferred</option>
-            </select></td>
-            <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—"></div></td>
-            <td class="col-ref"><a href="TFmvpcosts.html">MVP Scope &amp; Costs →</a></td>
-            <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…"></div></td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="sub-section">
+      <div class="sub-head">Product &amp; Gamification</div>
+      <div class="table-scroll"><table>
+        <thead><tr>
+          <th class="col-date">Date</th><th class="col-task">Task / Idea</th>
+          <th class="col-owner">Owner</th><th class="col-pri">Priority</th>
+          <th class="col-status">Status</th><th class="col-due">Due</th>
+          <th class="col-ref">Reference</th><th class="col-notes">Notes</th>
+          <th class="col-del"></th>
+        </tr></thead>
+        <tbody id="ws-gamification"></tbody>
+      </table></div>
+      <div class="ws-empty" id="empty-gamification">No tasks visible with current filter.</div>
+      <button class="btn-add-row" onclick="addRow('gamification')">+ Add Task</button>
     </div>
-    <div class="ws-empty" id="empty-mvp">No tasks visible with current filter.</div>
-  </div>
-
-
-</section>
-
-
-
-
-<!-- ═══════════════════════════════════════
-     03 · TECHNOLOGY & PRODUCT DESIGN
-═══════════════════════════════════════ -->
-<section class="ws-section">
-  <div class="ws-head">
-    <h2>03 · Technology &amp; Product Design</h2>
-    <span class="ws-count" id="count-tech-design"></span>
-  </div>
-
-
-  <!-- ── Technology ── -->
-  <div class="sub-section">
-    <div class="sub-head">Technology</div>
-    <div class="table-scroll">
-      <table>
-        <thead>
-          <tr>
-            <th class="col-date">Date</th>
-            <th class="col-task">Task / Idea</th>
-            <th class="col-owner">Owner</th>
-            <th class="col-pri">Priority</th>
-            <th class="col-status">Status</th>
-            <th class="col-due">Due Date</th>
-            <th class="col-ref">Reference</th>
-            <th class="col-notes">Notes</th>
-          </tr>
-        </thead>
-        <tbody id="ws-technology">
-          <!--
-          HOW TO ADD A ROW — data-id values: t-004, t-005 …
-          Copy template from Product &amp; Gamification above.
-          -->
-          <tr data-id="t-001" data-status="done" data-owner="alena">
-            <td class="col-date" contenteditable="true" data-field="date">07 Jun</td>
-            <td class="col-task">Visual Discovery Engine — research pricing and options with AI</td>
-            <td><select class="sel sel-owner" data-field="owner">
-              <option value="alena" selected>Alena</option>
-              <option value="maxim">Maxim</option>
-              <option value="alex">Alex</option>
-            </select></td>
-            <td><select class="sel sel-pri" data-field="priority">
-              <option value="high">High</option>
-              <option value="normal" selected>Normal</option>
-              <option value="low">Low</option>
-            </select></td>
-            <td><select class="sel sel-status" data-field="status">
-              <option value="todo">To Do</option>
-              <option value="in-progress">In Progress</option>
-              <option value="done" selected>Done</option>
-              <option value="deferred">Deferred</option>
-            </select></td>
-            <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—">08 Jun</div></td>
-            <td class="col-ref"><a href="TFvisualdiscovery.html">Visual Discovery Engines →</a></td>
-            <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…"></div></td>
-          </tr>
-          <tr data-id="t-002" data-status="todo" data-owner="alex">
-            <td class="col-date" contenteditable="true" data-field="date">07 Jun</td>
-            <td class="col-task">Visual Discovery Engine — assess optimal solution for TF</td>
-            <td><select class="sel sel-owner" data-field="owner">
-              <option value="alena">Alena</option>
-              <option value="maxim">Maxim</option>
-              <option value="alex" selected>Alex</option>
-            </select></td>
-            <td><select class="sel sel-pri" data-field="priority">
-              <option value="high">High</option>
-              <option value="normal" selected>Normal</option>
-              <option value="low">Low</option>
-            </select></td>
-            <td><select class="sel sel-status" data-field="status">
-              <option value="todo" selected>To Do</option>
-              <option value="in-progress">In Progress</option>
-              <option value="done">Done</option>
-              <option value="deferred">Deferred</option>
-            </select></td>
-            <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—">14 Jun</div></td>
-            <td class="col-ref"><a href="TFvisualdiscovery.html">Visual Discovery Engines →</a></td>
-            <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…"></div></td>
-          </tr>
-          <tr data-id="t-003" data-status="deferred" data-owner="alena">
-            <td class="col-date" contenteditable="true" data-field="date">07 Jun</td>
-            <td class="col-task">Virtual Try-On — usage restriction approach</td>
-            <td><select class="sel sel-owner" data-field="owner">
-              <option value="alena" selected>Alena</option>
-              <option value="maxim">Maxim</option>
-              <option value="alex">Alex</option>
-            </select></td>
-            <td><select class="sel sel-pri" data-field="priority">
-              <option value="high">High</option>
-              <option value="normal" selected>Normal</option>
-              <option value="low">Low</option>
-            </select></td>
-            <td><select class="sel sel-status" data-field="status">
-              <option value="todo">To Do</option>
-              <option value="in-progress">In Progress</option>
-              <option value="done">Done</option>
-              <option value="deferred" selected>Deferred</option>
-            </select></td>
-            <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—"></div></td>
-            <td class="col-ref"></td>
-            <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…">No restrictions at this stage — technology cost expected to drop</div></td>
-          </tr>
-          <tr data-id="o-001" data-status="todo" data-owner="maxim">
-            <td class="col-date" contenteditable="true" data-field="date">08 Jun</td>
-            <td class="col-task">Visual Discovery — share platform matching quality research results</td>
-            <td><select class="sel sel-owner" data-field="owner">
-              <option value="alena">Alena</option>
-              <option value="maxim" selected>Maxim</option>
-              <option value="alex">Alex</option>
-            </select></td>
-            <td><select class="sel sel-pri" data-field="priority">
-              <option value="high">High</option>
-              <option value="normal" selected>Normal</option>
-              <option value="low">Low</option>
-            </select></td>
-            <td><select class="sel sel-status" data-field="status">
-              <option value="todo" selected>To Do</option>
-              <option value="in-progress">In Progress</option>
-              <option value="done">Done</option>
-              <option value="deferred">Deferred</option>
-            </select></td>
-            <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—">15 Jun</div></td>
-            <td class="col-ref"><a href="TFvisualdiscovery.html">Visual Discovery Engines →</a></td>
-            <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…">Studying matching quality across platforms; results expected within the week</div></td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="sub-section">
+      <div class="sub-head">Why Now &amp; Competition</div>
+      <div class="table-scroll"><table>
+        <thead><tr>
+          <th class="col-date">Date</th><th class="col-task">Task / Idea</th>
+          <th class="col-owner">Owner</th><th class="col-pri">Priority</th>
+          <th class="col-status">Status</th><th class="col-due">Due</th>
+          <th class="col-ref">Reference</th><th class="col-notes">Notes</th>
+          <th class="col-del"></th>
+        </tr></thead>
+        <tbody id="ws-narrative"></tbody>
+      </table></div>
+      <div class="ws-empty" id="empty-narrative">No tasks visible with current filter.</div>
+      <button class="btn-add-row" onclick="addRow('narrative')">+ Add Task</button>
     </div>
-    <div class="ws-empty" id="empty-technology">No tasks visible with current filter.</div>
-  </div>
-
-
-  <!-- ── Product Design ── -->
-  <div class="sub-section">
-    <div class="sub-head">Product Design</div>
-    <div class="table-scroll">
-      <table>
-        <thead>
-          <tr>
-            <th class="col-date">Date</th>
-            <th class="col-task">Task / Idea</th>
-            <th class="col-owner">Owner</th>
-            <th class="col-pri">Priority</th>
-            <th class="col-status">Status</th>
-            <th class="col-due">Due Date</th>
-            <th class="col-ref">Reference</th>
-            <th class="col-notes">Notes</th>
-          </tr>
-        </thead>
-        <tbody id="ws-product-design">
-          <!--
-          HOW TO ADD A ROW — data-id values: pd-002, pd-003 …
-          Copy template from Product &amp; Gamification above.
-          -->
-          <tr data-id="pd-001" data-status="todo" data-owner="alena">
-            <td class="col-date" contenteditable="true" data-field="date">08 Jun</td>
-            <td class="col-task">Define content standards for designers to upload products — image formats, styling requirements, brand DNA alignment criteria</td>
-            <td><select class="sel sel-owner" data-field="owner">
-              <option value="alena" selected>Alena</option>
-              <option value="maxim">Maxim</option>
-              <option value="alex">Alex</option>
-            </select></td>
-            <td><select class="sel sel-pri" data-field="priority">
-              <option value="high">High</option>
-              <option value="normal" selected>Normal</option>
-              <option value="low">Low</option>
-            </select></td>
-            <td><select class="sel sel-status" data-field="status">
-              <option value="todo" selected>To Do</option>
-              <option value="in-progress">In Progress</option>
-              <option value="done">Done</option>
-              <option value="deferred">Deferred</option>
-            </select></td>
-            <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—"></div></td>
-            <td class="col-ref"></td>
-            <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…">Designers need brand identity preservation — not generic marketplace presentation. White background catalog option possible with quality styling and brand-matched model selection. Platform should enable each designer's visual DNA.</div></td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="sub-section">
+      <div class="sub-head">MVP</div>
+      <div class="table-scroll"><table>
+        <thead><tr>
+          <th class="col-date">Date</th><th class="col-task">Task / Idea</th>
+          <th class="col-owner">Owner</th><th class="col-pri">Priority</th>
+          <th class="col-status">Status</th><th class="col-due">Due</th>
+          <th class="col-ref">Reference</th><th class="col-notes">Notes</th>
+          <th class="col-del"></th>
+        </tr></thead>
+        <tbody id="ws-mvp"></tbody>
+      </table></div>
+      <div class="ws-empty" id="empty-mvp">No tasks visible with current filter.</div>
+      <button class="btn-add-row" onclick="addRow('mvp')">+ Add Task</button>
     </div>
-    <div class="ws-empty" id="empty-product-design">No tasks visible with current filter.</div>
-  </div>
+  </section>
 
+  <!-- 03 TECH & PRODUCT DESIGN -->
+  <section class="ws-section" id="s-tech">
+    <div class="ws-head">
+      <h2>03 · Technology &amp; Product Design</h2>
+      <span class="ws-count" id="count-tech-design"></span>
+    </div>
+    <div class="sub-section">
+      <div class="sub-head">Technology</div>
+      <div class="table-scroll"><table>
+        <thead><tr>
+          <th class="col-date">Date</th><th class="col-task">Task / Idea</th>
+          <th class="col-owner">Owner</th><th class="col-pri">Priority</th>
+          <th class="col-status">Status</th><th class="col-due">Due</th>
+          <th class="col-ref">Reference</th><th class="col-notes">Notes</th>
+          <th class="col-del"></th>
+        </tr></thead>
+        <tbody id="ws-technology"></tbody>
+      </table></div>
+      <div class="ws-empty" id="empty-technology">No tasks visible with current filter.</div>
+      <button class="btn-add-row" onclick="addRow('technology')">+ Add Task</button>
+    </div>
+    <div class="sub-section">
+      <div class="sub-head">Product Design</div>
+      <div class="table-scroll"><table>
+        <thead><tr>
+          <th class="col-date">Date</th><th class="col-task">Task / Idea</th>
+          <th class="col-owner">Owner</th><th class="col-pri">Priority</th>
+          <th class="col-status">Status</th><th class="col-due">Due</th>
+          <th class="col-ref">Reference</th><th class="col-notes">Notes</th>
+          <th class="col-del"></th>
+        </tr></thead>
+        <tbody id="ws-product-design"></tbody>
+      </table></div>
+      <div class="ws-empty" id="empty-product-design">No tasks visible with current filter.</div>
+      <button class="btn-add-row" onclick="addRow('product-design')">+ Add Task</button>
+    </div>
+  </section>
 
-</section>
-
-
-
-
-<!-- ═══════════════════════════════════════
-     04 · OPERATIONS
-═══════════════════════════════════════ -->
-<section class="ws-section">
-  <div class="ws-head">
-    <h2>04 · Operations</h2>
-    <span class="ws-count" id="count-operations"></span>
-  </div>
-  <div class="table-scroll">
-    <table>
-      <thead>
-        <tr>
-          <th class="col-date">Date</th>
-          <th class="col-task">Task / Idea</th>
-          <th class="col-owner">Owner</th>
-          <th class="col-pri">Priority</th>
-          <th class="col-status">Status</th>
-          <th class="col-due">Due Date</th>
-          <th class="col-ref">Reference</th>
-          <th class="col-notes">Notes</th>
-        </tr>
-      </thead>
-      <tbody id="ws-operations">
-        <!--
-        HOW TO ADD A ROW — data-id values: o-006, o-007 …
-        Copy template from Product & Gamification above.
-        -->
-        <tr data-id="o-003" data-status="todo" data-owner="alena">
-          <td class="col-date" contenteditable="true" data-field="date">08 Jun</td>
-          <td class="col-task">Influencer accountability — small influencers don't follow through when brands/agencies reach out; think through how TF's model addresses this (consistent workload volume + no product shipment until content is published)</td>
-          <td><select class="sel sel-owner" data-field="owner">
-            <option value="alena" selected>Alena</option>
-            <option value="maxim">Maxim</option>
-            <option value="alex">Alex</option>
-          </select></td>
-          <td><select class="sel sel-pri" data-field="priority">
-            <option value="high">High</option>
-            <option value="normal" selected>Normal</option>
-            <option value="low">Low</option>
-          </select></td>
-          <td><select class="sel sel-status" data-field="status">
-            <option value="todo" selected>To Do</option>
-            <option value="in-progress">In Progress</option>
-            <option value="done">Done</option>
-            <option value="deferred">Deferred</option>
-          </select></td>
-          <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—"></div></td>
-          <td class="col-ref"></td>
-          <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…"></div></td>
-        </tr>
-        <tr data-id="o-004" data-status="todo" data-owner="alena">
-          <td class="col-date" contenteditable="true" data-field="date">08 Jun</td>
-          <td class="col-task">Returns logistics — assess reverse logistics complexity; returns add an extra operational link in the supply chain; think through how TF minimises or removes it</td>
-          <td><select class="sel sel-owner" data-field="owner">
-            <option value="alena" selected>Alena</option>
-            <option value="maxim">Maxim</option>
-            <option value="alex">Alex</option>
-          </select></td>
-          <td><select class="sel sel-pri" data-field="priority">
-            <option value="high">High</option>
-            <option value="normal" selected>Normal</option>
-            <option value="low">Low</option>
-          </select></td>
-          <td><select class="sel sel-status" data-field="status">
-            <option value="todo" selected>To Do</option>
-            <option value="in-progress">In Progress</option>
-            <option value="done">Done</option>
-            <option value="deferred">Deferred</option>
-          </select></td>
-          <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—"></div></td>
-          <td class="col-ref"></td>
-          <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…"></div></td>
-        </tr>
-        <tr data-id="o-005" data-status="todo" data-owner="alena">
-          <td class="col-date" contenteditable="true" data-field="date">08 Jun</td>
-          <td class="col-task">Publication timing — posts staggered over time instead of concentrated at the drop moment; think through how TF structures this to maintain momentum</td>
-          <td><select class="sel sel-owner" data-field="owner">
-            <option value="alena" selected>Alena</option>
-            <option value="maxim">Maxim</option>
-            <option value="alex">Alex</option>
-          </select></td>
-          <td><select class="sel sel-pri" data-field="priority">
-            <option value="high">High</option>
-            <option value="normal" selected>Normal</option>
-            <option value="low">Low</option>
-          </select></td>
-          <td><select class="sel sel-status" data-field="status">
-            <option value="todo" selected>To Do</option>
-            <option value="in-progress">In Progress</option>
-            <option value="done">Done</option>
-            <option value="deferred">Deferred</option>
-          </select></td>
-          <td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—"></div></td>
-          <td class="col-ref"></td>
-          <td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…"></div></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="ws-empty" id="empty-operations">No tasks visible with current filter.</div>
-</section>
-
+  <!-- 04 OPERATIONS -->
+  <section class="ws-section" id="s-operations">
+    <div class="ws-head">
+      <h2>04 · Operations</h2>
+      <span class="ws-count" id="count-operations"></span>
+    </div>
+    <div class="table-scroll"><table>
+      <thead><tr>
+        <th class="col-date">Date</th><th class="col-task">Task / Idea</th>
+        <th class="col-owner">Owner</th><th class="col-pri">Priority</th>
+        <th class="col-status">Status</th><th class="col-due">Due</th>
+        <th class="col-ref">Reference</th><th class="col-notes">Notes</th>
+        <th class="col-del"></th>
+      </tr></thead>
+      <tbody id="ws-operations"></tbody>
+    </table></div>
+    <div class="ws-empty" id="empty-operations">No tasks visible with current filter.</div>
+    <button class="btn-add-row" onclick="addRow('operations')">+ Add Task</button>
+  </section>
 
 </div>
-</main>
 
 <footer>
   <div class="footer-inner">Private · noindex · Not for distribution</div>
 </footer>
 
-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">&#8593;</button>
+<div class="saving-flash" id="saving-flash">Saving…</div>
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
 
 <script>
 (function(){
-  var STORE = 'tf_tracker_v1';
+var DB   = 'https://terra-ferra-1ac34-default-rtdb.firebaseio.com';
+var ROOT = '/tf-tracker/v1';
 
-  function load(){
-    try{ return JSON.parse(localStorage.getItem(STORE)) || {}; }
-    catch(e){ return {}; }
+var fbData     = {};
+var fbSections = {};
+var writeTimers = {};
+var activeOwner = 'all', activeStatus = 'all';
+
+var ALL_SECTIONS = ['fundraising','gamification','narrative','mvp','technology','product-design','operations'];
+
+var REF_LABELS = {
+  'TFreferral.html':       'Referral & Viral Mechanics',
+  'gamification.html':     'Gamification',
+  'TFwhynow.html':         'Why Now',
+  'TFunservedmarket.html': 'Unserved Market',
+  'TFvisualdiscovery.html':'Visual Discovery',
+  'TFmvpcosts.html':       'MVP Scope & Costs'
+};
+
+var DEFAULTS = {
+  items: {
+    'f-002':{section:'fundraising',date:'08 Jun',task:'Prepare investor list — contacts to approach for the round',owner:'maxim',priority:'normal',status:'todo',due:'13 Jun',ref:'',notes:'Large angel communities + funds available — include as priority contacts in list'},
+    'f-001':{section:'fundraising',date:'07 Jun',task:'Update Investor Deck',owner:'alena',priority:'normal',status:'todo',due:'21 Jun',ref:'',notes:''},
+    'g-001':{section:'gamification',date:'07 Jun',task:'Referral Engine — collect examples, success cases, viral sharing mechanics beyond referral fees',owner:'alena',priority:'normal',status:'todo',due:'',ref:'TFreferral.html',notes:'Status and social rewards may have more value than cash referral fees in this segment'},
+    'g-005':{section:'gamification',date:'08 Jun',task:'Referral mechanic — review existing app logic (designer-led perks); assess what works; define standard perk set recommendation',owner:'alena',priority:'normal',status:'todo',due:'',ref:'TFreferral.html',notes:'Each designer gives own perks in existing app — need to recommend a standard set; confirm whether existing referral logic requires changes'},
+    'g-002':{section:'gamification',date:'07 Jun',task:'Tiered loyalty — research how influencer tiers work on other platforms; what tiers mean for TF influencers',owner:'alena',priority:'normal',status:'done',due:'08 Jun',ref:'TFreferral.html',notes:'Answered in Referral & Viral Mechanics — Section 05'},
+    'g-003':{section:'gamification',date:'07 Jun',task:'Styling Contests — research reward types that work at small assortment stage',owner:'alena',priority:'normal',status:'todo',due:'',ref:'gamification.html',notes:'Points / voter discounts may not attract this audience at launch assortment size'},
+    'g-004':{section:'gamification',date:'07 Jun',task:'Gamification — rethink co-design mechanic; social style discovery is the core loop, not explicit game mechanics',owner:'alena',priority:'normal',status:'todo',due:'',ref:'gamification.html',notes:'Co-design presentation looks unworkable; users want entertainment, not purchasing'},
+    'o-002':{section:'gamification',date:'08 Jun',task:'Designer brand experience — define how TF enables selling in own brand DNA style (not generic marketplace presentation); quality styling + brand-matched models',owner:'alena',priority:'normal',status:'todo',due:'',ref:'',notes:'White background catalog option also possible; key is brand DNA preservation vs. generic marketplace feel'},
+    'n-001':{section:'narrative',date:'07 Jun',task:'Write "Why Now" slide — unserved designer/creator segments, market size, timing argument',owner:'alena',priority:'normal',status:'todo',due:'',ref:'TFwhynow.html',notes:''},
+    'n-002':{section:'narrative',date:'07 Jun',task:'Write VTO + drops/pre-orders section — how virtual try-on makes drops virally promotable for influencers',owner:'alena',priority:'normal',status:'todo',due:'',ref:'TFvisualdiscovery.html',notes:''},
+    'm-001':{section:'mvp',date:'08 Jun',task:'Review MVP Scope & Costs — define priorities and open questions',owner:'alena',priority:'normal',status:'todo',due:'',ref:'TFmvpcosts.html',notes:''},
+    't-001':{section:'technology',date:'07 Jun',task:'Visual Discovery Engine — research pricing and options with AI',owner:'alena',priority:'normal',status:'done',due:'08 Jun',ref:'TFvisualdiscovery.html',notes:''},
+    't-002':{section:'technology',date:'07 Jun',task:'Visual Discovery Engine — assess optimal solution for TF',owner:'alex',priority:'normal',status:'todo',due:'14 Jun',ref:'TFvisualdiscovery.html',notes:''},
+    't-003':{section:'technology',date:'07 Jun',task:'Virtual Try-On — usage restriction approach',owner:'alena',priority:'normal',status:'deferred',due:'',ref:'',notes:'No restrictions at this stage — technology cost expected to drop'},
+    'o-001':{section:'technology',date:'08 Jun',task:'Visual Discovery — share platform matching quality research results',owner:'maxim',priority:'normal',status:'todo',due:'15 Jun',ref:'TFvisualdiscovery.html',notes:'Studying matching quality across platforms; results expected within the week'},
+    'pd-001':{section:'product-design',date:'08 Jun',task:'Define content standards for designers to upload products — image formats, styling requirements, brand DNA alignment criteria',owner:'alena',priority:'normal',status:'todo',due:'',ref:'',notes:'Designers need brand identity preservation — not generic marketplace presentation. White background catalog option possible with quality styling and brand-matched model selection.'},
+    'o-003':{section:'operations',date:'08 Jun',task:"Influencer accountability — small influencers don't follow through when brands/agencies reach out; think through how TF's model addresses this (consistent workload volume + no product shipment until content is published)",owner:'alena',priority:'normal',status:'todo',due:'',ref:'',notes:''},
+    'o-004':{section:'operations',date:'08 Jun',task:'Returns logistics — assess reverse logistics complexity; returns add an extra operational link in the supply chain; think through how TF minimises or removes it',owner:'alena',priority:'normal',status:'todo',due:'',ref:'',notes:''},
+    'o-005':{section:'operations',date:'08 Jun',task:'Publication timing — posts staggered over time instead of concentrated at the drop moment; think through how TF structures this to maintain momentum',owner:'alena',priority:'normal',status:'todo',due:'',ref:'',notes:''}
+  },
+  sections:{
+    fundraising:     {order:['f-002','f-001']},
+    gamification:    {order:['g-001','g-005','g-002','g-003','g-004','o-002']},
+    narrative:       {order:['n-001','n-002']},
+    mvp:             {order:['m-001']},
+    technology:      {order:['t-001','t-002','t-003','o-001']},
+    'product-design':{order:['pd-001']},
+    operations:      {order:['o-003','o-004','o-005']}
   }
-  function save(data){
-    try{ localStorage.setItem(STORE, JSON.stringify(data)); }
-    catch(e){}
-  }
+};
 
-  var data = load();
+// ── Firebase ──────────────────────────────────────────────
+function furl(path){ return DB+ROOT+(path||'')+'.json'; }
+function fput(path,data){
+  return fetch(furl(path),{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).catch(function(){});
+}
 
-  // Make task cells editable like notes
-  document.querySelectorAll('tr[data-id] td.col-task').forEach(function(td){
-    var text = td.textContent.trim();
-    var div = document.createElement('div');
-    div.className = 'edit-cell';
-    div.contentEditable = 'true';
-    div.setAttribute('data-field','task');
-    div.setAttribute('data-placeholder','add task…');
-    div.textContent = text;
-    td.textContent = '';
-    td.appendChild(div);
-  });
-
-  function restoreRows(){
-    document.querySelectorAll('tr[data-id]').forEach(function(row){
-      var id = row.dataset.id;
-      if(!data[id]) return;
-      row.querySelectorAll('select[data-field]').forEach(function(sel){
-        var f = sel.dataset.field;
-        if(data[id][f] !== undefined){
-          sel.value = data[id][f];
-          if(f === 'status') row.dataset.status = sel.value;
-          if(f === 'owner')  row.dataset.owner  = sel.value;
+async function init(){
+  setSyncStatus('connecting');
+  try{
+    var r = await fetch(furl());
+    var saved = await r.json();
+    if(saved && saved.items && saved.sections){
+      fbData = saved.items;
+      fbSections = saved.sections;
+      var changed = false;
+      Object.keys(DEFAULTS.items).forEach(function(id){
+        if(!fbData[id]){ fbData[id]=DEFAULTS.items[id]; changed=true; }
+      });
+      Object.keys(DEFAULTS.sections).forEach(function(sec){
+        if(!fbSections[sec]){ fbSections[sec]=DEFAULTS.sections[sec]; changed=true; }
+        else {
+          DEFAULTS.sections[sec].order.forEach(function(id){
+            if(fbSections[sec].order.indexOf(id)<0){ fbSections[sec].order.push(id); changed=true; }
+          });
         }
       });
-      row.querySelectorAll('[contenteditable][data-field]').forEach(function(el){
-        var f = el.dataset.field;
-        if(data[id][f] !== undefined) el.textContent = data[id][f];
-      });
-    });
+      if(changed) fput('',{items:fbData,sections:fbSections});
+    } else {
+      fbData     = JSON.parse(JSON.stringify(DEFAULTS.items));
+      fbSections = JSON.parse(JSON.stringify(DEFAULTS.sections));
+      await fput('',{items:fbData,sections:fbSections});
+    }
+    setSyncStatus('live');
+  } catch(e){
+    setSyncStatus('err');
+    fbData     = JSON.parse(JSON.stringify(DEFAULTS.items));
+    fbSections = JSON.parse(JSON.stringify(DEFAULTS.sections));
   }
+  renderAll();
+  startSSE();
+}
 
-  function styleSelect(sel){
-    var f = sel.dataset.field, v = sel.value;
-    if(f === 'status') sel.className = 'sel sel-status s-' + v;
-    else if(f === 'priority') sel.className = 'sel sel-pri p-' + v;
-    else if(f === 'owner') sel.className = 'sel sel-owner o-' + v;
-  }
+function startSSE(){
+  var src = new EventSource(furl()+'?accept=text/event-stream');
+  src.addEventListener('put',   function(e){ try{ handleSSE(JSON.parse(e.data)); }catch(ex){} });
+  src.addEventListener('patch', function(e){ try{ handlePatch(JSON.parse(e.data)); }catch(ex){} });
+  src.onopen  = function(){ setSyncStatus('live'); };
+  src.onerror = function(){ setSyncStatus('err');  };
+}
 
-  function styleAllSelects(){
-    document.querySelectorAll('select[data-field]').forEach(styleSelect);
+function handleSSE(p){
+  var path  = (p.path||'/').replace(/^\/+/,'');
+  var val   = p.data;
+  var parts = path.split('/').filter(Boolean);
+  if(parts.length===0){
+    if(val && val.items)    fbData     = val.items;
+    if(val && val.sections) fbSections = val.sections;
+    renderAll(); return;
   }
-
-  function wireSelects(){
-    document.querySelectorAll('tr[data-id] select[data-field]').forEach(function(sel){
-      sel.addEventListener('change', function(){
-        var row = sel.closest('tr'), id = row.dataset.id;
-        var f = sel.dataset.field, v = sel.value;
-        if(!data[id]) data[id] = {};
-        data[id][f] = v;
-        save(data);
-        if(f === 'status') row.dataset.status = v;
-        if(f === 'owner')  row.dataset.owner  = v;
-        styleSelect(sel);
-        applyFilter(); updateAllCounts(); updateEmpties();
-      });
-    });
-  }
-
-  function wireEditable(){
-    document.querySelectorAll('tr[data-id] [contenteditable][data-field]').forEach(function(el){
-      el.addEventListener('blur', function(){
-        var row = el.closest('tr'), id = row.dataset.id, f = el.dataset.field;
-        if(!data[id]) data[id] = {};
-        data[id][f] = el.textContent;
-        save(data);
-      });
-      el.addEventListener('keydown', function(e){
-        if(e.key === 'Enter'){ e.preventDefault(); el.blur(); }
-      });
-    });
-  }
-
-  var activeOwner = 'all', activeStatus = 'all';
-
-  document.getElementById('filter-owner').addEventListener('change', function(){
-    activeOwner = this.value; applyFilter(); updateAllCounts(); updateEmpties();
-  });
-  document.getElementById('filter-status').addEventListener('change', function(){
-    activeStatus = this.value; applyFilter(); updateAllCounts(); updateEmpties();
-  });
-
-  function applyFilter(){
-    document.querySelectorAll('tbody tr[data-id]').forEach(function(row){
-      var ok = (activeOwner  === 'all' || row.dataset.owner  === activeOwner) &&
-               (activeStatus === 'all' || row.dataset.status === activeStatus);
-      row.classList.toggle('hidden', !ok);
-    });
-  }
-
-  function sectionCount(ws){
-    var tbody = document.getElementById('ws-' + ws);
-    if(!tbody) return {all:0,open:0};
-    return {
-      all:  tbody.querySelectorAll('tr[data-id]').length,
-      open: tbody.querySelectorAll('tr[data-id][data-status="todo"],tr[data-id][data-status="in-progress"]').length
-    };
-  }
-
-  function renderCount(el, all, open){
-    if(!el) return;
-    if(all === 0){ el.textContent=''; return; }
-    el.textContent = open > 0 ? open+' open · '+all+' total' : all+' · all done';
-    el.classList.toggle('has-open', open > 0);
-  }
-
-  function updateAllCounts(){
-    // Section 01 — Fundraising
-    var c1 = sectionCount('fundraising');
-    renderCount(document.getElementById('count-fundraising'), c1.all, c1.open);
-    // Section 02 — Concept
-    var subs02 = ['gamification','narrative','mvp'];
-    var tot02 = {all:0,open:0};
-    subs02.forEach(function(ws){ var c=sectionCount(ws); tot02.all+=c.all; tot02.open+=c.open; });
-    renderCount(document.getElementById('count-concept'), tot02.all, tot02.open);
-    // Section 03 — Technology & Product Design
-    var subs03 = ['technology','product-design'];
-    var tot03 = {all:0,open:0};
-    subs03.forEach(function(ws){ var c=sectionCount(ws); tot03.all+=c.all; tot03.open+=c.open; });
-    renderCount(document.getElementById('count-tech-design'), tot03.all, tot03.open);
-    // Section 04 — Operations
-    var c4 = sectionCount('operations');
-    renderCount(document.getElementById('count-operations'), c4.all, c4.open);
-  }
-
-  function updateEmpties(){
-    ['gamification','narrative','technology','mvp','fundraising','operations','product-design'].forEach(function(ws){
-      var tbody = document.getElementById('ws-'+ws);
-      var emptyEl = document.getElementById('empty-'+ws);
-      if(!tbody||!emptyEl) return;
-      emptyEl.classList.toggle('show', tbody.querySelectorAll('tr[data-id]:not(.hidden)').length === 0);
-    });
-  }
-
-  // DELETE BUTTONS
-  function wireDeleteButtons(){
-    document.querySelectorAll('thead tr').forEach(function(tr){
-      var th = document.createElement('th');
-      th.className = 'col-del';
-      tr.appendChild(th);
-    });
-    document.querySelectorAll('tr[data-id]').forEach(function(row){
-      var td = document.createElement('td');
-      td.className = 'col-del';
-      var btn = document.createElement('button');
-      btn.className = 'btn-del';
-      btn.title = 'Remove task';
-      btn.textContent = '×';
-      btn.addEventListener('click', function(){
-        var id = row.dataset.id;
-        if(window.confirm('Remove this task?')){
-          delete data[id];
-          save(data);
-          row.remove();
-          updateAllCounts(); updateEmpties();
-        }
-      });
-      td.appendChild(btn);
-      row.appendChild(td);
-    });
-  }
-
-  // ADD ROW BUTTONS
-  var ROW_CTR_KEY = 'tf_row_ctr_v1';
-  function nextRowId(){
-    var n = parseInt(localStorage.getItem(ROW_CTR_KEY)||'1000',10) + 1;
-    localStorage.setItem(ROW_CTR_KEY, n);
-    return 'r-' + n;
-  }
-  function todayLabel(){
-    var d = new Date();
-    var m = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getMonth()];
-    return String(d.getDate()).padStart(2,' ') + ' ' + m;
-  }
-  function makeNewRow(id){
-    var tr = document.createElement('tr');
-    tr.dataset.id = id;
-    tr.dataset.status = 'todo';
-    tr.dataset.owner = 'alena';
-    tr.innerHTML =
-      '<td class="col-date" contenteditable="true" data-field="date">'+todayLabel()+'</td>'+
-      '<td class="col-task"><div class="edit-cell" contenteditable="true" data-field="task" data-placeholder="add task…"></div></td>'+
-      '<td><select class="sel sel-owner o-alena" data-field="owner">'+
-        '<option value="alena" selected>Alena</option>'+
-        '<option value="maxim">Maxim</option>'+
-        '<option value="alex">Alex</option>'+
-      '</select></td>'+
-      '<td><select class="sel sel-pri p-normal" data-field="priority">'+
-        '<option value="high">High</option>'+
-        '<option value="normal" selected>Normal</option>'+
-        '<option value="low">Low</option>'+
-      '</select></td>'+
-      '<td><select class="sel sel-status s-todo" data-field="status">'+
-        '<option value="todo" selected>To Do</option>'+
-        '<option value="in-progress">In Progress</option>'+
-        '<option value="done">Done</option>'+
-        '<option value="deferred">Deferred</option>'+
-      '</select></td>'+
-      '<td><div class="edit-cell due-cell" contenteditable="true" data-field="due" data-placeholder="—"></div></td>'+
-      '<td class="col-ref"></td>'+
-      '<td><div class="edit-cell" contenteditable="true" data-field="notes" data-placeholder="add note…"></div></td>'+
-      '<td class="col-del"><button class="btn-del" title="Remove task">×</button></td>';
-    return tr;
-  }
-  function wireNewRow(tr){
-    tr.querySelectorAll('select[data-field]').forEach(function(sel){
-      sel.addEventListener('change', function(){
-        var id = tr.dataset.id, f = sel.dataset.field, v = sel.value;
-        if(!data[id]) data[id] = {};
-        data[id][f] = v;
-        save(data);
-        if(f==='status') tr.dataset.status = v;
-        if(f==='owner')  tr.dataset.owner  = v;
-        styleSelect(sel);
-        applyFilter(); updateAllCounts(); updateEmpties();
-      });
-    });
-    tr.querySelectorAll('[contenteditable][data-field]').forEach(function(el){
-      el.addEventListener('blur', function(){
-        var id = tr.dataset.id, f = el.dataset.field;
-        if(!data[id]) data[id] = {};
-        data[id][f] = el.textContent;
-        save(data);
-      });
-      el.addEventListener('keydown', function(e){
-        if(e.key==='Enter'){ e.preventDefault(); el.blur(); }
-      });
-    });
-    tr.querySelector('.btn-del').addEventListener('click', function(){
-      var id = tr.dataset.id;
-      if(window.confirm('Remove this task?')){
-        delete data[id];
-        save(data);
-        tr.remove();
+  if(parts[0]==='items'){
+    if(parts.length===2){
+      if(val===null){
+        delete fbData[parts[1]];
+        var row=document.getElementById('row-'+parts[1]); if(row) row.remove();
+        updateAllCounts(); updateEmpties();
+      } else if(val){
+        var existed=!!fbData[parts[1]];
+        fbData[parts[1]]=val;
+        if(!existed){ appendRow(parts[1]); }
+        else { refreshRow(parts[1]); }
         updateAllCounts(); updateEmpties();
       }
-    });
+    } else if(parts.length>=3 && val!==undefined){
+      if(!fbData[parts[1]]) fbData[parts[1]]={};
+      fbData[parts[1]][parts[2]]=val;
+      refreshRow(parts[1]);
+    }
   }
-  function wireAddButtons(){
-    document.querySelectorAll('tbody[id^="ws-"]').forEach(function(tbody){
-      var ws = tbody.id.replace('ws-','');
-      var emptyEl = document.getElementById('empty-'+ws);
-      if(!emptyEl) return;
-      var btn = document.createElement('button');
-      btn.className = 'btn-add-row';
-      btn.textContent = '+ Add Task';
-      btn.addEventListener('click', function(){
-        var id = nextRowId();
-        var tr = makeNewRow(id);
-        tbody.insertBefore(tr, tbody.firstChild);
-        wireNewRow(tr);
-        updateAllCounts(); updateEmpties(); applyFilter();
-      });
-      emptyEl.after(btn);
-    });
+  if(parts[0]==='sections' && parts.length>=3 && parts[2]==='order' && Array.isArray(val)){
+    if(!fbSections[parts[1]]) fbSections[parts[1]]={};
+    fbSections[parts[1]].order=val;
+    renderSection(parts[1]);
+    updateAllCounts(); updateEmpties();
   }
+}
 
-  window.addEventListener('scroll', function(){
-    document.getElementById('back-to-top').style.display = window.scrollY > 300 ? 'flex' : 'none';
-  });
+function handlePatch(p){
+  var path=(p.path||'/').replace(/^\/+/,'');
+  var parts=path.split('/').filter(Boolean);
+  if(parts[0]==='items' && parts.length===2 && p.data){
+    if(!fbData[parts[1]]) fbData[parts[1]]={};
+    Object.assign(fbData[parts[1]],p.data);
+    refreshRow(parts[1]);
+  }
+}
 
-  restoreRows(); styleAllSelects(); wireSelects(); wireEditable();
-  wireDeleteButtons(); wireAddButtons();
+// ── Render ────────────────────────────────────────────────
+function renderAll(){
+  ALL_SECTIONS.forEach(renderSection);
+  updateAllCounts(); updateEmpties(); applyFilter();
+}
+
+function renderSection(sec){
+  var tbody=document.getElementById('ws-'+sec); if(!tbody) return;
+  var order=(fbSections[sec]&&fbSections[sec].order)||[];
+  tbody.innerHTML='';
+  order.forEach(function(id){ if(fbData[id]) tbody.appendChild(buildRow(id)); });
+  applyFilter();
+}
+
+function refreshRow(id){
+  var item=fbData[id]; if(!item) return;
+  var el=document.getElementById('row-'+id);
+  if(!el){ appendRow(id); return; }
+  if(el.contains(document.activeElement)) return;
+  el.parentNode.replaceChild(buildRow(id),el);
+  applyFilter();
+}
+
+function appendRow(id){
+  var item=fbData[id]; if(!item) return;
+  var tbody=document.getElementById('ws-'+item.section); if(!tbody) return;
+  var sec=item.section;
+  var order=(fbSections[sec]&&fbSections[sec].order)||[];
+  var idx=order.indexOf(id);
+  if(idx<0){ tbody.appendChild(buildRow(id)); }
+  else {
+    var rows=tbody.querySelectorAll('tr[data-id]');
+    var before=null;
+    rows.forEach(function(r){ if(!before && order.indexOf(r.dataset.id)>idx) before=r; });
+    if(before) tbody.insertBefore(buildRow(id),before); else tbody.appendChild(buildRow(id));
+  }
+  applyFilter();
+}
+
+function buildRow(id){
+  var item=fbData[id]||{};
+  var tr=document.createElement('tr');
+  tr.id='row-'+id; tr.dataset.id=id;
+  tr.dataset.status=item.status||'todo';
+  tr.dataset.owner=item.owner||'alena';
+
+  // Date
+  var tdDate=document.createElement('td');
+  tdDate.className='col-date'; tdDate.contentEditable='true';
+  tdDate.dataset.field='date'; tdDate.textContent=item.date||'';
+  tdDate.addEventListener('blur',function(){ saveField(id,'date',this.textContent.trim()); });
+  tdDate.addEventListener('keydown',function(e){ if(e.key==='Enter'){e.preventDefault();this.blur();} });
+  tr.appendChild(tdDate);
+
+  // Task
+  var tdTask=document.createElement('td'); tdTask.className='col-task';
+  var divTask=document.createElement('div');
+  divTask.className='edit-cell'; divTask.contentEditable='true';
+  divTask.dataset.field='task'; divTask.dataset.placeholder='add task…';
+  divTask.textContent=item.task||'';
+  divTask.addEventListener('blur',function(){ saveField(id,'task',this.textContent.trim()); });
+  tdTask.appendChild(divTask); tr.appendChild(tdTask);
+
+  // Owner
+  var tdOwner=document.createElement('td');
+  var selOwner=mkSel('owner',item.owner||'alena',[{v:'alena',l:'Alena'},{v:'maxim',l:'Maxim'},{v:'alex',l:'Alex'}]);
+  selOwner.addEventListener('change',function(){ tr.dataset.owner=this.value; saveField(id,'owner',this.value); stylesel(this); applyFilter(); updateAllCounts(); updateEmpties(); });
+  tdOwner.appendChild(selOwner); tr.appendChild(tdOwner);
+
+  // Priority
+  var tdPri=document.createElement('td');
+  var selPri=mkSel('priority',item.priority||'normal',[{v:'high',l:'High'},{v:'normal',l:'Normal'},{v:'low',l:'Low'}]);
+  selPri.addEventListener('change',function(){ saveField(id,'priority',this.value); stylesel(this); });
+  tdPri.appendChild(selPri); tr.appendChild(tdPri);
+
+  // Status
+  var tdSt=document.createElement('td');
+  var selSt=mkSel('status',item.status||'todo',[{v:'todo',l:'To Do'},{v:'in-progress',l:'In Progress'},{v:'done',l:'Done'},{v:'deferred',l:'Deferred'}]);
+  selSt.addEventListener('change',function(){ tr.dataset.status=this.value; saveField(id,'status',this.value); stylesel(this); applyFilter(); updateAllCounts(); updateEmpties(); });
+  tdSt.appendChild(selSt); tr.appendChild(tdSt);
+
+  // Due
+  var tdDue=document.createElement('td');
+  var divDue=document.createElement('div');
+  divDue.className='edit-cell due-cell'; divDue.contentEditable='true';
+  divDue.dataset.field='due'; divDue.dataset.placeholder='—';
+  divDue.textContent=item.due||'';
+  divDue.addEventListener('blur',function(){ saveField(id,'due',this.textContent.trim()); });
+  divDue.addEventListener('keydown',function(e){ if(e.key==='Enter'){e.preventDefault();this.blur();} });
+  tdDue.appendChild(divDue); tr.appendChild(tdDue);
+
+  // Ref
+  var tdRef=document.createElement('td'); tdRef.className='col-ref';
+  if(item.ref){
+    var a=document.createElement('a');
+    a.href=item.ref; a.target='_blank'; a.rel='noopener';
+    a.textContent=(REF_LABELS[item.ref]||item.ref.replace('.html',''))+' →';
+    tdRef.appendChild(a);
+  }
+  tr.appendChild(tdRef);
+
+  // Notes
+  var tdNotes=document.createElement('td');
+  var divNotes=document.createElement('div');
+  divNotes.className='edit-cell'; divNotes.contentEditable='true';
+  divNotes.dataset.field='notes'; divNotes.dataset.placeholder='add note…';
+  divNotes.textContent=item.notes||'';
+  divNotes.addEventListener('blur',function(){ saveField(id,'notes',this.textContent.trim()); });
+  tdNotes.appendChild(divNotes); tr.appendChild(tdNotes);
+
+  // Delete
+  var tdDel=document.createElement('td'); tdDel.className='col-del';
+  var btnDel=document.createElement('button');
+  btnDel.className='btn-del'; btnDel.title='Remove task'; btnDel.textContent='×';
+  btnDel.addEventListener('click',function(){ if(confirm('Remove this task?')) deleteRow(id); });
+  tdDel.appendChild(btnDel); tr.appendChild(tdDel);
+
+  [selOwner,selPri,selSt].forEach(stylesel);
+  return tr;
+}
+
+function mkSel(field,value,opts){
+  var sel=document.createElement('select'); sel.className='sel'; sel.dataset.field=field;
+  opts.forEach(function(o){ var opt=document.createElement('option'); opt.value=o.v; opt.textContent=o.l; if(o.v===value) opt.selected=true; sel.appendChild(opt); });
+  return sel;
+}
+
+function stylesel(sel){
+  var f=sel.dataset.field, v=sel.value;
+  if(f==='status')   sel.className='sel sel-status s-'+v;
+  else if(f==='priority') sel.className='sel sel-pri p-'+v;
+  else if(f==='owner')    sel.className='sel sel-owner o-'+v;
+}
+
+// ── Save ──────────────────────────────────────────────────
+function flashSaving(){
+  var el=document.getElementById('saving-flash'); if(!el) return;
+  el.classList.add('show');
+  setTimeout(function(){ el.classList.remove('show'); },1200);
+}
+
+function saveField(id,field,value){
+  if(!fbData[id]) return;
+  fbData[id][field]=value;
+  clearTimeout(writeTimers[id+'_'+field]);
+  writeTimers[id+'_'+field]=setTimeout(function(){
+    flashSaving();
+    fput('/items/'+id+'/'+field,value);
+  },500);
+}
+
+// ── Add / Delete ──────────────────────────────────────────
+function addRow(section){
+  var newId='r-'+Date.now();
+  var d=new Date();
+  var ms=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var dateLabel=d.getDate()+' '+ms[d.getMonth()];
+  var newItem={section:section,date:dateLabel,task:'',owner:'alena',priority:'normal',status:'todo',due:'',ref:'',notes:''};
+  fbData[newId]=newItem;
+  if(!fbSections[section]) fbSections[section]={order:[]};
+  fbSections[section].order.unshift(newId);
+  fput('/items/'+newId,newItem);
+  fput('/sections/'+section+'/order',fbSections[section].order);
+  var tbody=document.getElementById('ws-'+section);
+  if(tbody){
+    var newRow=buildRow(newId);
+    tbody.insertBefore(newRow,tbody.firstChild);
+    var tc=newRow.querySelector('.edit-cell[data-field="task"]');
+    if(tc) setTimeout(function(){ tc.focus(); },30);
+  }
+  updateAllCounts(); updateEmpties(); applyFilter();
+}
+
+function deleteRow(id){
+  var item=fbData[id]; if(!item) return;
+  var sec=item.section;
+  delete fbData[id];
+  if(fbSections[sec]){
+    var ix=fbSections[sec].order.indexOf(id);
+    if(ix>=0) fbSections[sec].order.splice(ix,1);
+    fput('/sections/'+sec+'/order',fbSections[sec].order);
+  }
+  fput('/items/'+id,null);
+  var row=document.getElementById('row-'+id); if(row) row.remove();
   updateAllCounts(); updateEmpties();
+}
 
+// ── Filter ────────────────────────────────────────────────
+document.getElementById('filter-owner').addEventListener('change',function(){ activeOwner=this.value; applyFilter(); updateAllCounts(); updateEmpties(); });
+document.getElementById('filter-status').addEventListener('change',function(){ activeStatus=this.value; applyFilter(); updateAllCounts(); updateEmpties(); });
+
+function applyFilter(){
+  document.querySelectorAll('tbody tr[data-id]').forEach(function(row){
+    var ok=(activeOwner==='all'||row.dataset.owner===activeOwner)&&(activeStatus==='all'||row.dataset.status===activeStatus);
+    row.classList.toggle('hidden',!ok);
+  });
+  updateEmpties();
+}
+
+// ── Counts ────────────────────────────────────────────────
+function countSec(sec){
+  var all=0,open=0;
+  var order=(fbSections[sec]&&fbSections[sec].order)||[];
+  order.forEach(function(id){
+    if(!fbData[id]) return;
+    all++;
+    if(fbData[id].status==='todo'||fbData[id].status==='in-progress') open++;
+  });
+  return {all:all,open:open};
+}
+
+function renderCount(el,all,open){
+  if(!el) return;
+  if(all===0){ el.textContent=''; return; }
+  el.textContent=open>0 ? open+' open · '+all+' total' : all+' · all done';
+  el.classList.toggle('has-open',open>0);
+}
+
+function updateAllCounts(){
+  var c1=countSec('fundraising');
+  renderCount(document.getElementById('count-fundraising'),c1.all,c1.open);
+  var t2={all:0,open:0};
+  ['gamification','narrative','mvp'].forEach(function(s){ var c=countSec(s); t2.all+=c.all; t2.open+=c.open; });
+  renderCount(document.getElementById('count-concept'),t2.all,t2.open);
+  var t3={all:0,open:0};
+  ['technology','product-design'].forEach(function(s){ var c=countSec(s); t3.all+=c.all; t3.open+=c.open; });
+  renderCount(document.getElementById('count-tech-design'),t3.all,t3.open);
+  var c4=countSec('operations');
+  renderCount(document.getElementById('count-operations'),c4.all,c4.open);
+}
+
+function updateEmpties(){
+  ALL_SECTIONS.forEach(function(sec){
+    var tbody=document.getElementById('ws-'+sec);
+    var el=document.getElementById('empty-'+sec);
+    if(!tbody||!el) return;
+    el.classList.toggle('show',tbody.querySelectorAll('tr[data-id]:not(.hidden)').length===0);
+  });
+}
+
+// ── Sync status ───────────────────────────────────────────
+function setSyncStatus(state){
+  var dot=document.getElementById('sync-dot');
+  var label=document.getElementById('sync-label');
+  if(!dot||!label) return;
+  dot.className='sync-dot';
+  if(state==='live'){ dot.classList.add('live'); label.textContent='Live'; }
+  else if(state==='err'){ dot.classList.add('err'); label.textContent='Offline'; }
+  else { label.textContent='Connecting…'; }
+}
+
+window.addEventListener('scroll',function(){
+  document.getElementById('back-to-top').style.display=window.scrollY>300?'flex':'none';
+});
+
+// expose addRow globally for onclick
+window.addRow=addRow;
+
+init();
 })();
 </script>
 </body>
