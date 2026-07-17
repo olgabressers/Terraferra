@@ -1089,6 +1089,10 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         <span class="out-row-val" id="co-legal">TBD</span>
       </div>
       <div class="out-row">
+        <span class="out-row-lbl">Website design</span>
+        <span class="out-row-val" id="co-website-design">$0</span>
+      </div>
+      <div class="out-row">
         <span style="font-size:12px;font-weight:700;color:white">One-time total</span>
         <span class="out-row-val" id="co-onetime">$0</span>
       </div>
@@ -1716,9 +1720,10 @@ function calcCosts() {
   document.getElementById('co-ads').textContent         = fc$(ads);
   document.getElementById('co-monthly').textContent     = fc$(monthly);
   document.getElementById('co-annual').textContent      = fc$(annual);
-  document.getElementById('co-bank').textContent        = fc$(bank);
-  document.getElementById('co-legal').textContent       = legal > 0 ? fc$(legal) : 'TBD';
-  document.getElementById('co-onetime').textContent     = fc$(onetime);
+  document.getElementById('co-bank').textContent           = fc$(bank);
+  document.getElementById('co-legal').textContent          = legal > 0 ? fc$(legal) : 'TBD';
+  document.getElementById('co-website-design').textContent = fc$(websiteDesign);
+  document.getElementById('co-onetime').textContent        = fc$(onetime);
 }
 
 calcCosts();
