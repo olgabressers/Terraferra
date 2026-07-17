@@ -1030,9 +1030,38 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         <span class="out-row-lbl">Operations</span>
         <span class="out-row-val" id="co-ops">—</span>
       </div>
+      <div class="out-row" style="padding-top:4px;padding-bottom:4px">
+        <span class="out-row-lbl" style="padding-left:12px;font-size:13px">Infrastructure</span>
+        <span class="out-row-val" style="font-size:13px" id="co-hosting">$0</span>
+      </div>
+      <div class="out-row" style="padding-top:4px;padding-bottom:4px">
+        <span class="out-row-lbl" style="padding-left:12px;font-size:13px">Influencer search</span>
+        <span class="out-row-val" style="font-size:13px" id="co-inf-search">$0</span>
+      </div>
+      <div class="out-row" style="padding-top:4px;padding-bottom:4px">
+        <span class="out-row-lbl" style="padding-left:12px;font-size:13px">Collabstr Premium</span>
+        <span class="out-row-val" style="font-size:13px" id="co-collabstr">$0</span>
+      </div>
+      <div class="out-row" style="padding-top:4px;padding-bottom:4px">
+        <span class="out-row-lbl" style="padding-left:12px;font-size:13px">Circle</span>
+        <span class="out-row-val" style="font-size:13px" id="co-circle">$0</span>
+      </div>
+
       <div class="out-row">
         <span class="out-row-lbl">Marketing</span>
         <span class="out-row-val" id="co-marketing">—</span>
+      </div>
+      <div class="out-row" style="padding-top:4px;padding-bottom:4px">
+        <span class="out-row-lbl" style="padding-left:12px;font-size:13px">Email</span>
+        <span class="out-row-val" style="font-size:13px" id="co-email">$0</span>
+      </div>
+      <div class="out-row" style="padding-top:4px;padding-bottom:4px">
+        <span class="out-row-lbl" style="padding-left:12px;font-size:13px">AI content tools</span>
+        <span class="out-row-val" style="font-size:13px" id="co-ai-content">$0</span>
+      </div>
+      <div class="out-row" style="padding-top:4px;padding-bottom:4px">
+        <span class="out-row-lbl" style="padding-left:12px;font-size:13px">Paid social / ads</span>
+        <span class="out-row-val" style="font-size:13px" id="co-ads">$0</span>
       </div>
 
       <div class="out-divider"></div>
@@ -1677,7 +1706,14 @@ function calcCosts() {
   document.getElementById('co-puppet').textContent      = fc$(puppet);
   document.getElementById('co-framer').textContent      = fc$(framer);
   document.getElementById('co-ops').textContent         = fc$(ops);
+  document.getElementById('co-hosting').textContent     = fc$(hosting);
+  document.getElementById('co-inf-search').textContent  = fc$(infSearch);
+  document.getElementById('co-collabstr').textContent   = fc$(collabstr);
+  document.getElementById('co-circle').textContent      = fc$(circle);
   document.getElementById('co-marketing').textContent   = fc$(marketing);
+  document.getElementById('co-email').textContent       = fc$(email);
+  document.getElementById('co-ai-content').textContent  = fc$(aiContent);
+  document.getElementById('co-ads').textContent         = fc$(ads);
   document.getElementById('co-monthly').textContent     = fc$(monthly);
   document.getElementById('co-annual').textContent      = fc$(annual);
   document.getElementById('co-bank').textContent        = fc$(bank);
