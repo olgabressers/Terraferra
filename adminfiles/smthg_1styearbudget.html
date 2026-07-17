@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <meta name="robots" content="noindex,nofollow"/>
 <title>1st Year Budget · SMTHG</title>
+<link rel="icon" type="image/svg+xml" href="smthg_favicon.svg"/>
 <!-- Exchange rate: 1 USD = 0.91 EUR · July 2026 -->
 <!-- Office: 4 core team × $200/month = $800/mo -->
 <!-- Canva Pro $15/mo added to AI Tools; core team residual adjusted to $160,164 -->
@@ -75,8 +76,9 @@ td:nth-child(2){text-align:left}
 
 /* Variable cost panels — 3-column grid */
 .var-panels{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px}
-.var-panel{border:1px solid var(--rule);border-radius:8px;overflow:hidden;background:var(--card)}
-.var-panel-hdr{padding:11px 14px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#fff}
+.var-panel{border:1px solid var(--rule);border-radius:8px;background:var(--card)}
+.var-panel-hdr{padding:11px 14px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#fff;border-radius:7px 7px 0 0}
+.var-tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
 .var-panel-hdr.vto    {background:#0D7D8E}
 .var-panel-hdr.payment{background:#1A7A4A}
 .var-panel-hdr.fraud  {background:#956800}
@@ -124,7 +126,7 @@ td:nth-child(2){text-align:left}
   <div class="sc">
     <div class="sc-label">Operations &amp; marketing</div>
     <div class="sc-val">$174,636</div>
-    <div class="sc-note">≈€158,919 · Financial/Legal + tools + AI + marketing · $160,164+$108,000+$174,636+$57,200 = $500,000</div>
+    <div class="sc-note">≈€158,919 · Financial/Legal + tools + AI + marketing</div>
   </div>
   <div class="sc">
     <div class="sc-label">One-time launch costs</div>
@@ -646,7 +648,7 @@ td:nth-child(2){text-align:left}
       <!-- VTO -->
       <div class="var-panel">
         <div class="var-panel-hdr vto">Virtual Try-On (VTO)</div>
-        <table>
+        <div class="var-tbl-wrap"><table>
           <thead>
             <tr><th>Quarter</th><th class="num">VTO tries</th><th class="num">Rate</th><th class="num">Cost</th></tr>
           </thead>
@@ -657,14 +659,14 @@ td:nth-child(2){text-align:left}
             <tr><td>Q4</td><td class="num">~20,000</td><td class="num">$0.10/try</td><td class="num">~$2,000</td></tr>
             <tr><td>Year 1</td><td class="num">~38,750</td><td></td><td class="num">~$3,875</td></tr>
           </tbody>
-        </table>
+        </table></div>
         <div class="var-panel-note">Shopify VTO $0.10/try · Kivisense flat $888/mo viable above 8,880 tries/qtr (est. Q3–Q4) · Source: TFmvpcosts.html</div>
       </div>
 
       <!-- PAYMENT PROCESSING -->
       <div class="var-panel">
         <div class="var-panel-hdr payment">Payment Processing (Stripe)</div>
-        <table>
+        <div class="var-tbl-wrap"><table>
           <thead>
             <tr><th>Quarter</th><th class="num">GMV</th><th class="num">Orders</th><th class="num">Fees</th></tr>
           </thead>
@@ -675,14 +677,14 @@ td:nth-child(2){text-align:left}
             <tr><td>Q4</td><td class="num">~$80K</td><td class="num">~400</td><td class="num">~$2,440</td></tr>
             <tr><td>Year 1</td><td class="num">~$155K</td><td class="num">~775</td><td class="num">~$4,728</td></tr>
           </tbody>
-        </table>
+        </table></div>
         <div class="var-panel-note">Stripe: 2.9% × GMV + $0.30 × orders · Example Q1: 2.9%×$5,000 + 25×$0.30 = $145+$8 = $153 · Funded from GMV revenue</div>
       </div>
 
       <!-- FRAUD PREVENTION -->
       <div class="var-panel">
         <div class="var-panel-hdr fraud">Fraud Prevention (Stripe Radar)</div>
-        <table>
+        <div class="var-tbl-wrap"><table>
           <thead>
             <tr><th>Quarter</th><th class="num">GMV</th><th class="num">Rate</th><th class="num">Cost</th></tr>
           </thead>
@@ -693,7 +695,7 @@ td:nth-child(2){text-align:left}
             <tr><td>Q4</td><td class="num">~$80K</td><td class="num">0.05%</td><td class="num">~$40</td></tr>
             <tr><td>Year 1</td><td class="num">~$155K</td><td></td><td class="num">~$78</td></tr>
           </tbody>
-        </table>
+        </table></div>
         <div class="var-panel-note">Stripe Radar: 0.05% per transaction value · Built-in ML fraud detection · No separate setup required</div>
       </div>
 
