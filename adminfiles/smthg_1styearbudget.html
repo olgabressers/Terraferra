@@ -620,25 +620,26 @@ td:nth-child(2){text-align:left}
 
     <!-- ORDER & GMV ASSUMPTIONS -->
     <div class="ni-section-title">Order &amp; GMV Assumptions</div>
-    <p class="ni-sub-note">Basis for all variable cost estimates below. Avg order value $200 · 5% platform conversion rate · 50% VTO adoption · 5 tries per VTO session.</p>
+    <p class="ni-sub-note">1 drop = 150 orders (sold-out; 150 items per drop) · Avg order value $200 · 5% platform conversion rate · 50% VTO adoption · 5 tries per VTO session. Q1: 30 drops minimum (planning floor). Q2–Q4: planning basis.</p>
 
     <table class="ni-tbl">
       <thead>
         <tr>
           <th>Quarter</th>
-          <th class="num">GMV target</th>
-          <th class="num">Orders (÷$200)</th>
+          <th class="num">Drops</th>
+          <th class="num">GMV (÷$200×150)</th>
+          <th class="num">Orders (×150)</th>
           <th class="num">Visitors (÷5%)</th>
           <th class="num">VTO users (×50%)</th>
           <th class="num">VTO tries (×5)</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td>Q1</td><td class="num">~$5,000</td><td class="num">~25</td><td class="num">~500</td><td class="num">~250</td><td class="num">~1,250</td></tr>
-        <tr><td>Q2</td><td class="num">~$20,000</td><td class="num">~100</td><td class="num">~2,000</td><td class="num">~1,000</td><td class="num">~5,000</td></tr>
-        <tr><td>Q3</td><td class="num">~$50,000</td><td class="num">~250</td><td class="num">~5,000</td><td class="num">~2,500</td><td class="num">~12,500</td></tr>
-        <tr><td>Q4</td><td class="num">~$80,000</td><td class="num">~400</td><td class="num">~8,000</td><td class="num">~4,000</td><td class="num">~20,000</td></tr>
-        <tr><td>Year 1</td><td class="num">~$155,000</td><td class="num">~775</td><td class="num">~15,500</td><td class="num">~7,750</td><td class="num">~38,750</td></tr>
+        <tr><td>Q1</td><td class="num">30</td><td class="num">~$900,000</td><td class="num">4,500</td><td class="num">90,000</td><td class="num">2,250</td><td class="num">11,250</td></tr>
+        <tr><td>Q2</td><td class="num">60</td><td class="num">~$1,800,000</td><td class="num">9,000</td><td class="num">180,000</td><td class="num">4,500</td><td class="num">22,500</td></tr>
+        <tr><td>Q3</td><td class="num">90</td><td class="num">~$2,700,000</td><td class="num">13,500</td><td class="num">270,000</td><td class="num">6,750</td><td class="num">33,750</td></tr>
+        <tr><td>Q4</td><td class="num">120</td><td class="num">~$3,600,000</td><td class="num">18,000</td><td class="num">360,000</td><td class="num">9,000</td><td class="num">45,000</td></tr>
+        <tr><td>Year 1</td><td class="num">300</td><td class="num">~$9,000,000</td><td class="num">45,000</td><td class="num">900,000</td><td class="num">22,500</td><td class="num">112,500</td></tr>
       </tbody>
     </table>
 
@@ -653,14 +654,14 @@ td:nth-child(2){text-align:left}
             <tr><th>Quarter</th><th class="num">VTO tries</th><th class="num">Rate</th><th class="num">Cost</th></tr>
           </thead>
           <tbody>
-            <tr><td>Q1</td><td class="num">~1,250</td><td class="num">$0.10/try</td><td class="num">~$125</td></tr>
-            <tr><td>Q2</td><td class="num">~5,000</td><td class="num">$0.10/try</td><td class="num">~$500</td></tr>
-            <tr><td>Q3</td><td class="num">~12,500</td><td class="num">$0.10/try</td><td class="num">~$1,250</td></tr>
-            <tr><td>Q4</td><td class="num">~20,000</td><td class="num">$0.10/try</td><td class="num">~$2,000</td></tr>
-            <tr><td>Year 1</td><td class="num">~38,750</td><td></td><td class="num">~$3,875</td></tr>
+            <tr><td>Q1</td><td class="num">11,250</td><td class="num">$0.10/try</td><td class="num">~$1,125</td></tr>
+            <tr><td>Q2</td><td class="num">22,500</td><td class="num">$0.10/try</td><td class="num">~$2,250</td></tr>
+            <tr><td>Q3</td><td class="num">33,750</td><td class="num">Kivisense $888/mo</td><td class="num">~$2,664</td></tr>
+            <tr><td>Q4</td><td class="num">45,000</td><td class="num">Kivisense $888/mo</td><td class="num">~$2,664</td></tr>
+            <tr><td>Year 1</td><td class="num">112,500</td><td></td><td class="num">~$8,703</td></tr>
           </tbody>
         </table></div>
-        <div class="var-panel-note">Shopify VTO $0.10/try · Kivisense flat $888/mo viable above 8,880 tries/qtr (est. Q3–Q4) · Source: TFmvpcosts.html</div>
+        <div class="var-panel-note">Shopify VTO $0.10/try · Kivisense flat $888/mo viable above 26,640 tries/qtr — switches Q3 · Source: TFmvpcosts.html</div>
       </div>
 
       <!-- PAYMENT PROCESSING -->
@@ -671,14 +672,14 @@ td:nth-child(2){text-align:left}
             <tr><th>Quarter</th><th class="num">GMV</th><th class="num">Orders</th><th class="num">Fees</th></tr>
           </thead>
           <tbody>
-            <tr><td>Q1</td><td class="num">~$5K</td><td class="num">~25</td><td class="num">~$153</td></tr>
-            <tr><td>Q2</td><td class="num">~$20K</td><td class="num">~100</td><td class="num">~$610</td></tr>
-            <tr><td>Q3</td><td class="num">~$50K</td><td class="num">~250</td><td class="num">~$1,525</td></tr>
-            <tr><td>Q4</td><td class="num">~$80K</td><td class="num">~400</td><td class="num">~$2,440</td></tr>
-            <tr><td>Year 1</td><td class="num">~$155K</td><td class="num">~775</td><td class="num">~$4,728</td></tr>
+            <tr><td>Q1</td><td class="num">$900K</td><td class="num">4,500</td><td class="num">~$27,450</td></tr>
+            <tr><td>Q2</td><td class="num">$1.8M</td><td class="num">9,000</td><td class="num">~$54,900</td></tr>
+            <tr><td>Q3</td><td class="num">$2.7M</td><td class="num">13,500</td><td class="num">~$82,350</td></tr>
+            <tr><td>Q4</td><td class="num">$3.6M</td><td class="num">18,000</td><td class="num">~$109,800</td></tr>
+            <tr><td>Year 1</td><td class="num">$9M</td><td class="num">45,000</td><td class="num">~$274,500</td></tr>
           </tbody>
         </table></div>
-        <div class="var-panel-note">Stripe: 2.9% × GMV + $0.30 × orders · Example Q1: 2.9%×$5,000 + 25×$0.30 = $145+$8 = $153 · Funded from GMV revenue</div>
+        <div class="var-panel-note">Stripe: 2.9% × GMV + $0.30 × orders · Q1: 2.9%×$900K + 4,500×$0.30 = $26,100+$1,350 = $27,450 · Funded from GMV revenue</div>
       </div>
 
       <!-- FRAUD PREVENTION -->
@@ -689,11 +690,11 @@ td:nth-child(2){text-align:left}
             <tr><th>Quarter</th><th class="num">GMV</th><th class="num">Rate</th><th class="num">Cost</th></tr>
           </thead>
           <tbody>
-            <tr><td>Q1</td><td class="num">~$5K</td><td class="num">0.05%</td><td class="num">~$3</td></tr>
-            <tr><td>Q2</td><td class="num">~$20K</td><td class="num">0.05%</td><td class="num">~$10</td></tr>
-            <tr><td>Q3</td><td class="num">~$50K</td><td class="num">0.05%</td><td class="num">~$25</td></tr>
-            <tr><td>Q4</td><td class="num">~$80K</td><td class="num">0.05%</td><td class="num">~$40</td></tr>
-            <tr><td>Year 1</td><td class="num">~$155K</td><td></td><td class="num">~$78</td></tr>
+            <tr><td>Q1</td><td class="num">$900K</td><td class="num">0.05%</td><td class="num">~$450</td></tr>
+            <tr><td>Q2</td><td class="num">$1.8M</td><td class="num">0.05%</td><td class="num">~$900</td></tr>
+            <tr><td>Q3</td><td class="num">$2.7M</td><td class="num">0.05%</td><td class="num">~$1,350</td></tr>
+            <tr><td>Q4</td><td class="num">$3.6M</td><td class="num">0.05%</td><td class="num">~$1,800</td></tr>
+            <tr><td>Year 1</td><td class="num">$9M</td><td></td><td class="num">~$4,500</td></tr>
           </tbody>
         </table></div>
         <div class="var-panel-note">Stripe Radar: 0.05% per transaction value · Built-in ML fraud detection · No separate setup required</div>
@@ -705,19 +706,19 @@ td:nth-child(2){text-align:left}
     <div class="var-total">
       <div class="var-total-item">
         <div class="vt-label">Total variable — Year 1</div>
-        <div class="vt-val">~$8,681</div>
+        <div class="vt-val">~$287,703</div>
       </div>
       <div class="var-total-item">
         <div class="vt-label">VTO cost</div>
-        <div class="vt-val">~$3,875</div>
+        <div class="vt-val">~$8,703</div>
       </div>
       <div class="var-total-item">
         <div class="vt-label">Payment processing</div>
-        <div class="vt-val">~$4,728</div>
+        <div class="vt-val">~$274,500</div>
       </div>
       <div class="var-total-item">
         <div class="vt-label">Fraud prevention</div>
-        <div class="vt-val">~$78</div>
+        <div class="vt-val">~$4,500</div>
       </div>
       <div class="var-total-note">All variable costs funded from platform GMV revenue — not charged to the $500K fixed envelope</div>
     </div>
