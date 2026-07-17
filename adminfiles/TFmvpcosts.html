@@ -886,13 +886,27 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 
       <div class="cost-item">
         <div class="cost-item-label">
+          <div class="cost-item-name">AI tools · Instagram content</div>
+          <div class="cost-item-note">AI tools for creating and styling Instagram content — product photos, reels, carousels, brand visuals. e.g. Midjourney Standard $30/mo + Runway Standard $15/mo + Adobe Firefly ~$5/mo + buffer for generations. See AI Image Style Tools section below.</div>
+        </div>
+        <div class="cost-item-ctrl">
+          <button class="cost-btn" onclick="adjC('ai-content',-10)">−</button>
+          <span class="cost-unit">$</span>
+          <input class="cost-input" type="number" id="c-ai-content" value="300" min="0" step="10" oninput="calcCosts()"/>
+          <span class="cost-unit">/mo</span>
+          <button class="cost-btn" onclick="adjC('ai-content',10)">+</button>
+        </div>
+      </div>
+
+      <div class="cost-item">
+        <div class="cost-item-label">
           <div class="cost-item-name">Paid social / ads budget</div>
           <div class="cost-item-note">Instagram, TikTok ads to drive initial designer sign-ups and consumer awareness. MVP-level spend.</div>
         </div>
         <div class="cost-item-ctrl">
           <button class="cost-btn" onclick="adjC('ads',-50)">−</button>
           <span class="cost-unit">$</span>
-          <input class="cost-input" type="number" id="c-ads" value="300" min="0" step="50" oninput="calcCosts()"/>
+          <input class="cost-input" type="number" id="c-ads" value="200" min="0" step="50" oninput="calcCosts()"/>
           <span class="cost-unit">/mo</span>
           <button class="cost-btn" onclick="adjC('ads',50)">+</button>
         </div>
@@ -1636,10 +1650,11 @@ function calcCosts() {
   var other     = +document.getElementById('c-other').value        || 0;
   var ops       = hosting + infSearch + collabstr + circle + other + dynSum('ops');
 
-  var email     = +document.getElementById('c-email').value      || 0;
-  var ads       = +document.getElementById('c-ads').value        || 0;
-  var mktgOther = +document.getElementById('c-mktg-other').value || 0;
-  var marketing = email + ads + mktgOther + dynSum('marketing');
+  var email     = +document.getElementById('c-email').value        || 0;
+  var aiContent = +document.getElementById('c-ai-content').value  || 0;
+  var ads       = +document.getElementById('c-ads').value          || 0;
+  var mktgOther = +document.getElementById('c-mktg-other').value  || 0;
+  var marketing = email + aiContent + ads + mktgOther + dynSum('marketing');
 
   var monthly = platform + ops + marketing;
   var annual  = monthly * 12;
@@ -1675,7 +1690,7 @@ calcCosts();
 /* ——— FIREBASE COST SYNC (Section 02) ——— */
 var CDB   = 'https://terra-ferra-1ac34-default-rtdb.firebaseio.com';
 var CROOT = '/tf-mvpcosts/v1';
-var FIXED_IDS = ['shopify','puppet','framer','platform-other','hosting','inf-search','collabstr','circle','other','email','ads','mktg-other','bank','legal','website-design','onetime-other'];
+var FIXED_IDS = ['shopify','puppet','framer','platform-other','hosting','inf-search','collabstr','circle','other','email','ai-content','ads','mktg-other','bank','legal','website-design','onetime-other'];
 var CAT_LABEL = {platform:'Platform tool',ops:'Operations cost',marketing:'Marketing cost',onetime:'One-time cost'};
 var CAT_UNIT  = {platform:'/mo',ops:'/mo',marketing:'/mo',onetime:'one-time'};
 
