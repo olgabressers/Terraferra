@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <meta name="robots" content="noindex, nofollow"/>
-<title>Task Tracker · SMTHG</title>
+<title>Task Tracker · smthg.</title>
 <link rel="icon" type="image/svg+xml" href="smthg_favicon.svg"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
@@ -56,17 +56,26 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 /* PHASES TIMELINE */
 .phases{background:white;border:1px solid var(--rule);padding:16px 20px;margin-bottom:24px;overflow-x:auto}
 .phases-title{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);margin-bottom:12px}
+
+/* Timeline date ruler — independent of the milestone boxes below */
+.timeline-row{display:flex;align-items:stretch;gap:6px;min-width:560px;margin-bottom:16px}
+.timeline-item{flex:1;display:flex;align-items:center;gap:4px;border:1px solid var(--rule);background:#F2F0EB;padding:6px 6px}
+.timeline-item .btn-move{padding:1px 5px;font-size:11px;flex-shrink:0}
+.tl-text{flex:1;font-size:11px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--sub);outline:none;cursor:text;text-align:center}
+.tl-text:focus{background:rgba(255,255,255,.8);box-shadow:inset 0 0 0 1.5px var(--ink)}
+
+/* Milestone box lanes */
 .phases-row{display:flex;align-items:stretch;min-width:560px}
+.phases-row+.phases-row{margin-top:14px}
 .phase-box{flex:1;border:1px solid var(--rule);padding:11px 14px;background:#FAFAF8}
 .phase-box+.phase-box{border-left:none}
 .phase-move{display:flex;justify-content:flex-end;gap:4px;margin-bottom:6px}
 .phase-move .btn-move{padding:1px 6px;font-size:12px}
-.pb-week{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--sub);margin-bottom:5px;outline:none;cursor:text}
 .pb-label{font-size:13px;font-weight:700;color:var(--ink);line-height:1.35;outline:none;cursor:text}
-.pb-week:focus,.pb-label:focus{background:rgba(255,255,255,.7);box-shadow:inset 0 0 0 1.5px var(--ink)}
+.pb-label:focus{background:rgba(255,255,255,.7);box-shadow:inset 0 0 0 1.5px var(--ink)}
 .phase-box.live{background:var(--tf);border-color:var(--tf)}
-.phase-box.live .pb-week,.phase-box.live .pb-label{color:white}
-.phase-box.live .pb-week:focus,.phase-box.live .pb-label:focus{background:rgba(255,255,255,.15);box-shadow:inset 0 0 0 1.5px white}
+.phase-box.live .pb-label{color:white}
+.phase-box.live .pb-label:focus{background:rgba(255,255,255,.15);box-shadow:inset 0 0 0 1.5px white}
 .phase-box.live .btn-move{border-color:rgba(255,255,255,.6);color:#fff}
 .phase-box.live .btn-move:hover{background:#fff;color:var(--tf-dark);border-color:#fff}
 
@@ -229,7 +238,7 @@ footer{padding:20px 48px;border-top:1px solid var(--rule);background:white;margi
 
   <div class="page-hd">
     <h1>Task Tracker</h1>
-    <p>SMTHG · shared task board · changes sync live across all participants
+    <p>smthg<span style="color:var(--tf)">.</span> · shared task board · changes sync live across all participants
       &nbsp;<span class="sync-dot" id="sync-dot"></span><span class="sync-label" id="sync-label">Connecting…</span>
     </p>
   </div>
@@ -237,7 +246,8 @@ footer{padding:20px 48px;border-top:1px solid var(--rule);background:white;margi
   <!-- PHASES TIMELINE -->
   <div class="phases">
     <div class="phases-title">Timeline · Target Go-Live 14 Aug</div>
-    <div class="phases-row" id="phases-row"></div>
+    <div class="timeline-row" id="timeline-row"></div>
+    <div id="phase-sets"></div>
   </div>
 
   <div class="filter-bar">
@@ -282,7 +292,7 @@ footer{padding:20px 48px;border-top:1px solid var(--rule);background:white;margi
   <!-- 02 BRAND & CREATIVE -->
   <section class="ws-section" id="s-brand">
     <div class="ws-head">
-      <h2>02 · Brand &amp; Creative</h2>
+      <h2>02 · Designers</h2>
       <span class="ws-count" id="count-brand"></span>
     </div>
     <div class="table-scroll"><table>
@@ -299,10 +309,30 @@ footer{padding:20px 48px;border-top:1px solid var(--rule);background:white;margi
     <button class="btn-add-row" onclick="addRow('brand-creative')">+ Add Task</button>
   </section>
 
-  <!-- 03 COMMUNITY -->
+  <!-- 03 SOCIAL MEDIA -->
+  <section class="ws-section" id="s-social">
+    <div class="ws-head">
+      <h2>03 · Social Media</h2>
+      <span class="ws-count" id="count-social"></span>
+    </div>
+    <div class="table-scroll"><table>
+      <thead><tr>
+        <th class="col-date">Date</th><th class="col-task">Task / Idea</th>
+        <th class="col-owner">Owner</th><th class="col-pri">Priority</th>
+        <th class="col-status">Status</th><th class="col-due">Due</th>
+        <th class="col-ref">Reference</th><th class="col-notes">Notes</th>
+        <th class="col-move"></th><th class="col-del"></th>
+      </tr></thead>
+      <tbody id="ws-social-media"></tbody>
+    </table></div>
+    <div class="ws-empty" id="empty-social-media">No tasks visible with current filter.</div>
+    <button class="btn-add-row" onclick="addRow('social-media')">+ Add Task</button>
+  </section>
+
+  <!-- 04 COMMUNITY -->
   <section class="ws-section" id="s-community">
     <div class="ws-head">
-      <h2>03 · Community</h2>
+      <h2>04 · Community</h2>
       <span class="ws-count" id="count-community"></span>
     </div>
     <div class="table-scroll"><table>
@@ -319,10 +349,10 @@ footer{padding:20px 48px;border-top:1px solid var(--rule);background:white;margi
     <button class="btn-add-row" onclick="addRow('community')">+ Add Task</button>
   </section>
 
-  <!-- 04 SMTHG CONCEPT -->
+  <!-- 05 SMTHG CONCEPT -->
   <section class="ws-section" id="s-concept">
     <div class="ws-head">
-      <h2>04 · SMTHG Concept</h2>
+      <h2>05 · SMTHG Concept</h2>
       <span class="ws-count" id="count-concept"></span>
     </div>
     <div class="sub-section">
@@ -372,10 +402,10 @@ footer{padding:20px 48px;border-top:1px solid var(--rule);background:white;margi
     </div>
   </section>
 
-  <!-- 05 TECHNOLOGY & PRODUCT DESIGN -->
+  <!-- 06 TECHNOLOGY & PRODUCT DESIGN -->
   <section class="ws-section" id="s-tech">
     <div class="ws-head">
-      <h2>05 · Technology &amp; Product Design</h2>
+      <h2>06 · Technology &amp; Product Design</h2>
       <span class="ws-count" id="count-tech-design"></span>
     </div>
     <div class="sub-section">
@@ -410,10 +440,10 @@ footer{padding:20px 48px;border-top:1px solid var(--rule);background:white;margi
     </div>
   </section>
 
-  <!-- 06 OPERATIONS -->
+  <!-- 07 OPERATIONS -->
   <section class="ws-section" id="s-operations">
     <div class="ws-head">
-      <h2>06 · Operations</h2>
+      <h2>07 · Operations</h2>
       <span class="ws-count" id="count-operations"></span>
     </div>
     <div class="table-scroll"><table>
@@ -430,10 +460,10 @@ footer{padding:20px 48px;border-top:1px solid var(--rule);background:white;margi
     <button class="btn-add-row" onclick="addRow('operations')">+ Add Task</button>
   </section>
 
-  <!-- 07 FUNDRAISING & CAPITAL -->
+  <!-- 08 FUNDRAISING & CAPITAL -->
   <section class="ws-section" id="s-fundraising">
     <div class="ws-head">
-      <h2>07 · Fundraising &amp; Capital</h2>
+      <h2>08 · Fundraising &amp; Capital</h2>
       <span class="ws-count" id="count-fundraising"></span>
     </div>
     <div class="table-scroll"><table>
@@ -450,26 +480,6 @@ footer{padding:20px 48px;border-top:1px solid var(--rule);background:white;margi
     <button class="btn-add-row" onclick="addRow('fundraising')">+ Add Task</button>
   </section>
 
-  <!-- 08 SOCIAL MEDIA -->
-  <section class="ws-section" id="s-social">
-    <div class="ws-head">
-      <h2>08 · Social Media</h2>
-      <span class="ws-count" id="count-social"></span>
-    </div>
-    <div class="table-scroll"><table>
-      <thead><tr>
-        <th class="col-date">Date</th><th class="col-task">Task / Idea</th>
-        <th class="col-owner">Owner</th><th class="col-pri">Priority</th>
-        <th class="col-status">Status</th><th class="col-due">Due</th>
-        <th class="col-ref">Reference</th><th class="col-notes">Notes</th>
-        <th class="col-move"></th><th class="col-del"></th>
-      </tr></thead>
-      <tbody id="ws-social-media"></tbody>
-    </table></div>
-    <div class="ws-empty" id="empty-social-media">No tasks visible with current filter.</div>
-    <button class="btn-add-row" onclick="addRow('social-media')">+ Add Task</button>
-  </section>
-
 </div>
 
 <footer>
@@ -484,33 +494,42 @@ footer{padding:20px 48px;border-top:1px solid var(--rule);background:white;margi
 var DB   = 'https://terra-ferra-1ac34-default-rtdb.firebaseio.com';
 var ROOT = '/tf-tracker/v1';
 
-var fbData     = {};
-var fbSections = {};
-var fbPhases   = [];
+var fbData      = {};
+var fbSections  = {};
+var fbTimeline  = [];
+var fbPhaseSets = [];
 var writeTimers = {};
 var activeOwner = 'all', activeStatus = 'all';
 
-var DEFAULT_PHASES = [
-  {week:'Week · 20 Jul', label:'Platform ready', live:false},
-  {week:'Week · 27 Jul', label:'Brands & influencers selected', live:false},
-  {week:'Week · 3 Aug', label:'Agreements made', live:false},
-  {week:'Week · 10 Aug', label:'Brands set-up on platform', live:false},
-  {week:'14 Aug', label:'★ Go Live', live:true}
+var DEFAULT_TIMELINE = ['Week · 20 Jul','Week · 27 Jul','Week · 3 Aug','Week · 10 Aug','14 Aug','Week · 21 Aug','Week · 28 Aug'];
+
+var DEFAULT_PHASE_SETS = [
+  [
+    {label:'Platform ready', live:false},
+    {label:'Brands & influencers selected', live:false},
+    {label:'Agreements made', live:false},
+    {label:'Brands set-up on platform', live:false},
+    {label:'★ Go Live', live:true}
+  ],
+  [
+    {label:'Social media set', live:false}
+  ]
 ];
 
 var ALL_SECTIONS = ['platform-setup','brand-creative','community','gamification','narrative','mvp','technology','product-design','operations','fundraising','social-media'];
 
 var DEFAULTS = {
   items: {
-    'ps-001':{section:'platform-setup',date:'17 Jul',task:'Landing page — design and publish launch / waitlist page',owner:'alex',priority:'high',status:'todo',due:'20 Jul',ref:'',notes:''},
-    'ps-002':{section:'platform-setup',date:'17 Jul',task:'Shopify integration — connect product feed, test checkout flow',owner:'alex',priority:'high',status:'todo',due:'20 Jul',ref:'',notes:''},
-    'ps-003':{section:'platform-setup',date:'17 Jul',task:'Circle integration — set up community space, configure access',owner:'alex',priority:'high',status:'todo',due:'20 Jul',ref:'',notes:''},
-    'ps-004':{section:'platform-setup',date:'17 Jul',task:'Payment integration — Stripe, test end-to-end checkout',owner:'alex',priority:'high',status:'todo',due:'20 Jul',ref:'',notes:''},
-    'ps-005':{section:'platform-setup',date:'17 Jul',task:'Platform testing',owner:'everyone',priority:'normal',status:'todo',due:'',ref:'',notes:'App built but never publicly launched'},
-    'bc-001':{section:'brand-creative',date:'17 Jul',task:'Brand name confirmed — SMTHG / Something final decision',owner:'alena',priority:'high',status:'todo',due:'20 Jul',ref:'',notes:''},
-    'bc-002':{section:'brand-creative',date:'17 Jul',task:'Instagram style guide — visual direction, tone, colour palette',owner:'chris',priority:'high',status:'todo',due:'27 Jul',ref:'',notes:''},
+    'ps-001':{section:'platform-setup',date:'20 Jul',task:'Landing page — design and publish launch / waitlist page',owner:'alex',priority:'high',status:'todo',due:'22 Jul',ref:'',notes:''},
+    'ps-002':{section:'platform-setup',date:'20 Jul',task:'Shopify integration — connect product feed, test checkout flow',owner:'alex',priority:'high',status:'todo',due:'22 Jul',ref:'',notes:''},
+    'ps-003':{section:'platform-setup',date:'20 Jul',task:'Circle integration — set up community space, configure access',owner:'alex',priority:'high',status:'todo',due:'22 Jul',ref:'',notes:''},
+    'ps-004':{section:'platform-setup',date:'20 Jul',task:'Payment integration — Stripe, test end-to-end checkout',owner:'alex',priority:'high',status:'todo',due:'22 Jul',ref:'',notes:''},
+    'ps-005':{section:'platform-setup',date:'20 Jul',task:'Platform testing',owner:'everyone',priority:'normal',status:'todo',due:'24 Jul',ref:'',notes:''},
     'bc-003':{section:'brand-creative',date:'17 Jul',task:'Instagram account — create account, set up bio and profile image',owner:'chris',priority:'high',status:'todo',due:'27 Jul',ref:'',notes:''},
-    'bc-004':{section:'brand-creative',date:'17 Jul',task:'Instagram — ongoing content posts',owner:'chris',priority:'normal',status:'todo',due:'',ref:'',notes:'Regular posting from launch onwards'},
+    'dz-001':{section:'brand-creative',date:'20 Jul',task:'Long list of designers defined',owner:'chris',priority:'normal',status:'todo',due:'',ref:'',notes:''},
+    'dz-002':{section:'brand-creative',date:'20 Jul',task:'Short list of designers defined',owner:'chris',priority:'normal',status:'todo',due:'',ref:'',notes:'& Alena'},
+    'dz-003':{section:'brand-creative',date:'20 Jul',task:'Designer outreach',owner:'chris',priority:'normal',status:'todo',due:'',ref:'',notes:''},
+    'dz-004':{section:'brand-creative',date:'20 Jul',task:'Calls planned',owner:'chris',priority:'normal',status:'todo',due:'',ref:'',notes:''},
     'cm-001':{section:'community',date:'17 Jul',task:'Community mechanics — define how Circle community works for launch (drops, discussions, influencer layer)',owner:'alena',priority:'high',status:'todo',due:'27 Jul',ref:'',notes:''},
     'cm-002':{section:'community',date:'17 Jul',task:'Founding community members — identify and invite first cohort',owner:'alena',priority:'normal',status:'todo',due:'3 Aug',ref:'',notes:''},
     'f-002':{section:'fundraising',date:'08 Jun',task:'Prepare investor list — contacts to approach for the round',owner:'maxim',priority:'normal',status:'todo',due:'13 Jun',ref:'',notes:'Large angel communities + funds available — include as priority contacts in list'},
@@ -538,7 +557,7 @@ var DEFAULTS = {
   },
   sections:{
     'platform-setup': {order:['ps-001','ps-002','ps-003','ps-004','ps-005']},
-    'brand-creative':  {order:['bc-001','bc-002','bc-003','bc-004']},
+    'brand-creative':  {order:['bc-003','dz-001','dz-002','dz-003','dz-004']},
     'community':       {order:['cm-001','cm-002']},
     fundraising:       {order:['f-002','f-001']},
     gamification:      {order:['g-001','g-005','g-002','g-003','g-004','o-002']},
@@ -577,25 +596,33 @@ async function init(){
           });
         }
       });
-      if(saved.phases && saved.phases.length){
-        fbPhases = saved.phases;
+      if(saved.timeline && saved.timeline.length){
+        fbTimeline = saved.timeline;
       } else {
-        fbPhases = JSON.parse(JSON.stringify(DEFAULT_PHASES));
+        fbTimeline = JSON.parse(JSON.stringify(DEFAULT_TIMELINE));
         changed = true;
       }
-      if(changed) fput('',{items:fbData,sections:fbSections,phases:fbPhases});
+      if(saved.phaseSets && saved.phaseSets.length){
+        fbPhaseSets = saved.phaseSets;
+      } else {
+        fbPhaseSets = JSON.parse(JSON.stringify(DEFAULT_PHASE_SETS));
+        changed = true;
+      }
+      if(changed) fput('',{items:fbData,sections:fbSections,timeline:fbTimeline,phaseSets:fbPhaseSets});
     } else {
-      fbData     = JSON.parse(JSON.stringify(DEFAULTS.items));
-      fbSections = JSON.parse(JSON.stringify(DEFAULTS.sections));
-      fbPhases   = JSON.parse(JSON.stringify(DEFAULT_PHASES));
-      await fput('',{items:fbData,sections:fbSections,phases:fbPhases});
+      fbData      = JSON.parse(JSON.stringify(DEFAULTS.items));
+      fbSections  = JSON.parse(JSON.stringify(DEFAULTS.sections));
+      fbTimeline  = JSON.parse(JSON.stringify(DEFAULT_TIMELINE));
+      fbPhaseSets = JSON.parse(JSON.stringify(DEFAULT_PHASE_SETS));
+      await fput('',{items:fbData,sections:fbSections,timeline:fbTimeline,phaseSets:fbPhaseSets});
     }
     setSyncStatus('live');
   } catch(e){
     setSyncStatus('err');
-    fbData     = JSON.parse(JSON.stringify(DEFAULTS.items));
-    fbSections = JSON.parse(JSON.stringify(DEFAULTS.sections));
-    fbPhases   = JSON.parse(JSON.stringify(DEFAULT_PHASES));
+    fbData      = JSON.parse(JSON.stringify(DEFAULTS.items));
+    fbSections  = JSON.parse(JSON.stringify(DEFAULTS.sections));
+    fbTimeline  = JSON.parse(JSON.stringify(DEFAULT_TIMELINE));
+    fbPhaseSets = JSON.parse(JSON.stringify(DEFAULT_PHASE_SETS));
   }
   renderAll();
   startSSE();
@@ -614,14 +641,21 @@ function handleSSE(p){
   var val   = p.data;
   var parts = path.split('/').filter(Boolean);
   if(parts.length===0){
-    if(val && val.items)    fbData     = val.items;
-    if(val && val.sections) fbSections = val.sections;
-    if(val && val.phases)   fbPhases   = val.phases;
+    if(val && val.items)     fbData      = val.items;
+    if(val && val.sections)  fbSections  = val.sections;
+    if(val && val.timeline)  fbTimeline  = val.timeline;
+    if(val && val.phaseSets) fbPhaseSets = val.phaseSets;
     renderAll(); return;
   }
-  if(parts[0]==='phases'){
-    if(parts.length===1){ fbPhases = val || []; renderPhases(); }
-    else if(parts.length>=3 && fbPhases[parts[1]]){ fbPhases[parts[1]][parts[2]]=val; renderPhases(); }
+  if(parts[0]==='timeline'){
+    if(parts.length===1){ fbTimeline = val || []; renderTimeline(); }
+    else if(parts.length>=2){ fbTimeline[parts[1]]=val; renderTimeline(); }
+    return;
+  }
+  if(parts[0]==='phaseSets'){
+    if(parts.length===1){ fbPhaseSets = val || []; renderPhaseSets(); }
+    else if(parts.length===2 && val){ fbPhaseSets[parts[1]]=val; renderPhaseSets(); }
+    else if(parts.length>=4 && fbPhaseSets[parts[1]] && fbPhaseSets[parts[1]][parts[2]]){ fbPhaseSets[parts[1]][parts[2]][parts[3]]=val; renderPhaseSets(); }
     return;
   }
   if(parts[0]==='items'){
@@ -663,59 +697,101 @@ function handlePatch(p){
 
 // ── Render ────────────────────────────────────────────────
 function renderAll(){
-  renderPhases();
+  renderTimeline();
+  renderPhaseSets();
   ALL_SECTIONS.forEach(renderSection);
   updateAllCounts(); updateEmpties(); applyFilter();
 }
 
-// ── Phases timeline ──────────────────────────────────────
-function renderPhases(){
-  var row=document.getElementById('phases-row'); if(!row) return;
+// ── Timeline (date ruler, independent of the boxes) ───────
+function renderTimeline(){
+  var row=document.getElementById('timeline-row'); if(!row) return;
   row.innerHTML='';
-  fbPhases.forEach(function(ph,idx){
-    var box=document.createElement('div');
-    box.className='phase-box'+(ph.live?' live':'');
+  fbTimeline.forEach(function(txt,idx){
+    var item=document.createElement('div'); item.className='timeline-item';
 
-    var ctrl=document.createElement('div'); ctrl.className='phase-move';
     var btnL=document.createElement('button'); btnL.className='btn-move'; btnL.title='Move left'; btnL.textContent='‹';
-    btnL.addEventListener('click',function(){ movePhase(idx,-1); });
+    btnL.addEventListener('click',function(){ moveTimeline(idx,-1); });
+    item.appendChild(btnL);
+
+    var span=document.createElement('div'); span.className='tl-text'; span.contentEditable='true';
+    span.textContent=txt||'';
+    span.addEventListener('blur',function(){ saveTimelineField(idx,this.textContent.trim()); });
+    span.addEventListener('keydown',function(e){ if(e.key==='Enter'){e.preventDefault();this.blur();} });
+    item.appendChild(span);
+
     var btnR=document.createElement('button'); btnR.className='btn-move'; btnR.title='Move right'; btnR.textContent='›';
-    btnR.addEventListener('click',function(){ movePhase(idx,1); });
-    ctrl.appendChild(btnL); ctrl.appendChild(btnR);
-    box.appendChild(ctrl);
+    btnR.addEventListener('click',function(){ moveTimeline(idx,1); });
+    item.appendChild(btnR);
 
-    var week=document.createElement('div'); week.className='pb-week'; week.contentEditable='true';
-    week.textContent=ph.week||'';
-    week.addEventListener('blur',function(){ savePhaseField(idx,'week',this.textContent.trim()); });
-    week.addEventListener('keydown',function(e){ if(e.key==='Enter'){e.preventDefault();this.blur();} });
-    box.appendChild(week);
-
-    var label=document.createElement('div'); label.className='pb-label'; label.contentEditable='true';
-    label.textContent=ph.label||'';
-    label.addEventListener('blur',function(){ savePhaseField(idx,'label',this.textContent.trim()); });
-    label.addEventListener('keydown',function(e){ if(e.key==='Enter'){e.preventDefault();this.blur();} });
-    box.appendChild(label);
-
-    row.appendChild(box);
+    row.appendChild(item);
   });
 }
 
-function savePhaseField(idx,field,value){
-  if(!fbPhases[idx]) return;
-  fbPhases[idx][field]=value;
-  clearTimeout(writeTimers['phase_'+idx+'_'+field]);
-  writeTimers['phase_'+idx+'_'+field]=setTimeout(function(){
+function saveTimelineField(idx,value){
+  if(fbTimeline[idx]===undefined) return;
+  fbTimeline[idx]=value;
+  clearTimeout(writeTimers['tl_'+idx]);
+  writeTimers['tl_'+idx]=setTimeout(function(){
     flashSaving();
-    fput('/phases/'+idx+'/'+field,value);
+    fput('/timeline/'+idx,value);
   },500);
 }
 
-function movePhase(idx,dir){
+function moveTimeline(idx,dir){
   var ni=idx+dir;
-  if(ni<0||ni>=fbPhases.length) return;
-  var tmp=fbPhases[idx]; fbPhases[idx]=fbPhases[ni]; fbPhases[ni]=tmp;
-  fput('/phases',fbPhases);
-  renderPhases();
+  if(ni<0||ni>=fbTimeline.length) return;
+  var tmp=fbTimeline[idx]; fbTimeline[idx]=fbTimeline[ni]; fbTimeline[ni]=tmp;
+  fput('/timeline',fbTimeline);
+  renderTimeline();
+}
+
+// ── Milestone box lanes ───────────────────────────────────
+function renderPhaseSets(){
+  var wrap=document.getElementById('phase-sets'); if(!wrap) return;
+  wrap.innerHTML='';
+  fbPhaseSets.forEach(function(set,si){
+    var rowEl=document.createElement('div'); rowEl.className='phases-row';
+    (set||[]).forEach(function(box,bi){
+      var el=document.createElement('div'); el.className='phase-box'+(box.live?' live':'');
+
+      var ctrl=document.createElement('div'); ctrl.className='phase-move';
+      var btnL=document.createElement('button'); btnL.className='btn-move'; btnL.title='Move left'; btnL.textContent='‹';
+      btnL.addEventListener('click',function(){ movePhaseBox(si,bi,-1); });
+      var btnR=document.createElement('button'); btnR.className='btn-move'; btnR.title='Move right'; btnR.textContent='›';
+      btnR.addEventListener('click',function(){ movePhaseBox(si,bi,1); });
+      ctrl.appendChild(btnL); ctrl.appendChild(btnR);
+      el.appendChild(ctrl);
+
+      var label=document.createElement('div'); label.className='pb-label'; label.contentEditable='true';
+      label.textContent=box.label||'';
+      label.addEventListener('blur',function(){ savePhaseBoxField(si,bi,this.textContent.trim()); });
+      label.addEventListener('keydown',function(e){ if(e.key==='Enter'){e.preventDefault();this.blur();} });
+      el.appendChild(label);
+
+      rowEl.appendChild(el);
+    });
+    wrap.appendChild(rowEl);
+  });
+}
+
+function savePhaseBoxField(si,bi,value){
+  if(!fbPhaseSets[si]||!fbPhaseSets[si][bi]) return;
+  fbPhaseSets[si][bi].label=value;
+  clearTimeout(writeTimers['pb_'+si+'_'+bi]);
+  writeTimers['pb_'+si+'_'+bi]=setTimeout(function(){
+    flashSaving();
+    fput('/phaseSets/'+si+'/'+bi+'/label',value);
+  },500);
+}
+
+function movePhaseBox(si,bi,dir){
+  var set=fbPhaseSets[si]; if(!set) return;
+  var ni=bi+dir;
+  if(ni<0||ni>=set.length) return;
+  var tmp=set[bi]; set[bi]=set[ni]; set[ni]=tmp;
+  fput('/phaseSets/'+si,set);
+  renderPhaseSets();
 }
 
 function renderSection(sec){
