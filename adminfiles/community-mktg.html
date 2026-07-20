@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <meta name="robots" content="noindex, nofollow"/>
-<title>Community Marketing Mechanisms · SMTHG</title>
+<title>Community Growth — Process Flows · SMTHG</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
@@ -18,7 +18,6 @@
 }
 body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)}
 
-/* NAV */
 .topnav{background:white;border-bottom:1px solid var(--rule);padding:12px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
 .topnav-home{font-weight:900;letter-spacing:-.5px;color:var(--ink);text-decoration:none;font-size:17px;line-height:1}
 .topnav-home:hover{color:var(--red)}
@@ -33,130 +32,107 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
   .topnav-links a{font-size:9.5px;white-space:nowrap}
 }
 
-/* LAYOUT */
 .pg-wrap{max-width:1240px;margin:0 auto;padding:40px 48px 80px}
-.pg-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--sub);opacity:.6}
+.pg-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--sub)}
 .pg-title{font-size:clamp(26px,5vw,44px);font-weight:800;letter-spacing:-1px;color:var(--ink);margin-top:14px;line-height:1.1}
 .pg-sub{font-size:13.5px;color:var(--ink);margin-top:10px;line-height:1.65}
-.pg-date{font-size:11px;color:var(--sub);margin-top:10px;opacity:.7}
 
 .section{padding:48px 0}
 .section+.section{border-top:1px solid var(--rule)}
-.sec-heading{font-size:20px;font-weight:800;color:var(--orange);margin-bottom:20px;line-height:1.2}
+.sec-heading{font-size:20px;font-weight:800;color:var(--orange);margin-bottom:6px}
 .sec-num{font-size:20px;font-weight:800;color:var(--orange);margin-right:8px;display:inline}
-.sec-intro{font-size:13.5px;color:var(--ink);line-height:1.65;margin-bottom:24px}
+.sec-lead{font-size:13px;color:var(--ink);line-height:1.65;margin:8px 0 28px;max-width:860px}
 
-/* CONCLUSION BOXES */
-.concl{padding:20px 26px;margin-bottom:24px;font-size:13.5px;line-height:1.65;color:var(--ink);font-weight:500}
+.concl{padding:18px 24px;margin:0 0 24px;font-size:13px;line-height:1.65;color:var(--ink);font-weight:500}
 .concl.green{background:var(--green-bg);border-left:4px solid var(--green)}
 .concl.amber{background:var(--amber-bg);border-left:4px solid var(--amber)}
 .concl.red{background:var(--red-ghost);border-left:4px solid var(--red)}
 .concl strong{font-weight:800}
 
-/* FLYWHEEL */
-.flywheel{background:white;border:1px solid var(--rule);padding:32px 36px;margin:0 0 32px}
-.fw-title{font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);margin-bottom:24px}
-.fw-steps{display:flex;flex-wrap:wrap;gap:0;align-items:stretch}
-.fw-step{flex:1;min-width:140px;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;padding:0 8px}
-.fw-step::after{content:'→';position:absolute;right:-10px;top:50%;transform:translateY(-50%);font-size:18px;color:var(--orange);font-weight:800;z-index:1}
-.fw-step:last-child::after{display:none}
-.fw-num{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:white;margin:0 auto 12px;flex-shrink:0}
-.fw-num.purple{background:var(--red)}
-.fw-num.orange{background:var(--orange)}
-.fw-num.green{background:var(--green)}
-.fw-label{font-size:12px;font-weight:800;color:var(--ink);margin-bottom:6px;line-height:1.3}
-.fw-detail{font-size:11.5px;color:var(--sub);line-height:1.45}
-.fw-arrow-return{text-align:center;margin-top:20px;padding-top:16px;border-top:1px dashed var(--rule);font-size:11.5px;color:var(--sub);font-style:italic}
-.fw-arrow-return strong{color:var(--orange);font-style:normal}
+/* ENTRY FLOW CARDS */
+.flow-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.flow-card{background:white;border:1px solid var(--rule);border-top:3px solid var(--red)}
+.flow-card.b{border-top-color:var(--orange)}
+.flow-card.c{border-top-color:var(--green)}
+.flow-head{padding:18px 20px 14px;border-bottom:1px solid var(--rule)}
+.flow-tag{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:6px}
+.flow-card.b .flow-tag{color:var(--orange)}
+.flow-card.c .flow-tag{color:var(--green)}
+.flow-title{font-size:14px;font-weight:800;color:var(--ink);line-height:1.3}
+.flow-steps{list-style:none;padding:0;margin:0}
+.flow-step{display:flex;gap:12px;padding:11px 20px;border-bottom:1px solid var(--rule)}
+.flow-snum{font-size:10px;font-weight:800;color:var(--red);min-width:18px;padding-top:2px;flex-shrink:0}
+.flow-card.b .flow-snum{color:var(--orange)}
+.flow-card.c .flow-snum{color:var(--green)}
+.flow-stext{font-size:12.5px;color:var(--ink);line-height:1.55}
+.flow-output{padding:12px 20px;background:var(--off-white);font-size:12px;color:var(--ink);font-weight:600}
+@media(max-width:1000px){.flow-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:650px){.flow-grid{grid-template-columns:1fr}}
 
-/* LOOP CARDS */
-.loop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:0}
-.loop-card{background:white;border:1px solid var(--rule);border-top:3px solid var(--red);padding:26px 22px}
-.loop-card.orange{border-top-color:var(--orange)}
-.loop-card.green{border-top-color:var(--green)}
-.loop-tag{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:10px}
-.loop-card.orange .loop-tag{color:var(--orange)}
-.loop-card.green .loop-tag{color:var(--green)}
-.loop-title{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:14px;line-height:1.3}
-.loop-steps{list-style:none;padding:0;margin:0}
-.loop-steps li{font-size:12.5px;color:var(--ink);line-height:1.6;padding:6px 0;border-bottom:1px solid var(--rule);display:flex;gap:10px}
-.loop-steps li:last-child{border-bottom:none}
-.loop-step-num{font-size:10px;font-weight:800;color:var(--red);min-width:18px;padding-top:2px}
-.loop-card.orange .loop-step-num{color:var(--orange)}
-.loop-card.green .loop-step-num{color:var(--green)}
-.loop-output{margin-top:14px;padding:10px 14px;background:var(--off-white);font-size:12px;color:var(--ink);font-weight:600;border-left:3px solid var(--red)}
-.loop-card.orange .loop-output{border-left-color:var(--orange)}
-.loop-card.green .loop-output{border-left-color:var(--green)}
+/* DROP TIMELINE */
+.timeline{border:1px solid var(--rule);background:white}
+.tl-row{display:grid;grid-template-columns:96px 1fr;border-bottom:1px solid var(--rule)}
+.tl-row:last-child{border-bottom:none}
+.tl-when{padding:16px 14px;font-size:11.5px;font-weight:800;color:var(--red);background:var(--red-ghost);border-right:1px solid var(--rule);display:flex;align-items:flex-start;line-height:1.35}
+.tl-row.b .tl-when{color:var(--orange);background:var(--amber-bg)}
+.tl-row.g .tl-when{color:var(--green);background:var(--green-bg)}
+.tl-content{padding:14px 22px}
+.tl-who{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);margin-bottom:5px}
+.tl-what{font-size:13px;color:var(--ink);line-height:1.6}
+.tl-trigger{font-size:11.5px;color:var(--green);font-weight:700;margin-top:7px}
+@media(max-width:600px){.tl-row{grid-template-columns:78px 1fr}.tl-when{font-size:10px;padding:12px 10px}}
 
-/* TABLE */
-.dtable{width:100%;border-collapse:collapse;font-size:13px;margin:20px 0}
-.dtable th{text-align:left;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--ink);padding:9px 14px;border-bottom:2px solid var(--rule);background:var(--red-ghost)}
-.dtable td{padding:11px 14px;border-bottom:1px solid var(--rule);vertical-align:top;color:var(--ink);line-height:1.55;font-weight:500}
+/* FEATURE MAP TABLE */
+.dtable{width:100%;border-collapse:collapse;font-size:13px;margin:4px 0}
+.dtable th{text-align:left;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--ink);padding:9px 14px;border-bottom:2px solid var(--rule);background:var(--red-ghost)}
+.dtable td{padding:11px 14px;border-bottom:1px solid var(--rule);vertical-align:top;color:var(--ink);line-height:1.55}
 .dtable tr:last-child td{border-bottom:none}
 .dtable .bold{font-weight:800}
-.dtable .src{font-size:11px;color:var(--sub);display:block;margin-top:3px;font-weight:400}
-.dtable .src a{color:inherit;text-decoration:underline;opacity:.85}
-.dtable .check::before{content:'✓  ';color:var(--green);font-weight:800}
-.dtable .smthg{background:var(--red-ghost);font-weight:600}
+.dtable .sub-text{font-size:11px;color:var(--sub);display:block;margin-top:3px;font-weight:400}
+.dtable .tag{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:3px;margin-top:6px}
+.tag.hi{background:var(--green-bg);color:var(--green)}
+.tag.med{background:var(--amber-bg);color:var(--amber)}
+.tag.lo{background:var(--off-white);color:var(--sub);border:1px solid var(--rule)}
+.tag.ret{background:var(--red-ghost);color:var(--red)}
 @media(max-width:700px){.dtable{display:block;overflow-x:auto;white-space:nowrap}}
 
-/* STAT ROW */
-.stat-row{display:flex;gap:16px;flex-wrap:wrap;margin:20px 0 28px}
-.stat-box{background:white;border:1px solid var(--rule);border-left:4px solid var(--red);padding:18px 22px;flex:1;min-width:170px}
-.stat-box.orange{border-left-color:var(--orange)}
-.stat-box.green{border-left-color:var(--green)}
-.stat-num{font-size:32px;font-weight:800;letter-spacing:-1.5px;color:var(--red);line-height:1}
-.stat-box.orange .stat-num{color:var(--orange)}
-.stat-box.green .stat-num{color:var(--green)}
-.stat-label{font-size:12px;color:var(--ink);font-weight:600;margin-top:5px;line-height:1.4}
-.stat-src{font-size:11px;color:var(--sub);margin-top:3px}
-.stat-src a{color:inherit;text-decoration:underline;opacity:.85}
+/* TRIBE STEPS */
+.tribe-flow{border:1px solid var(--rule);background:white}
+.tribe-step{display:grid;grid-template-columns:52px 1fr;border-bottom:1px solid var(--rule)}
+.tribe-step:last-child{border-bottom:none}
+.ts-num{display:flex;align-items:center;justify-content:center;background:var(--red-ghost);border-right:1px solid var(--rule);font-size:14px;font-weight:800;color:var(--red);padding:18px 0;flex-shrink:0}
+.ts-content{padding:15px 20px}
+.ts-action{font-size:13px;font-weight:800;color:var(--ink);line-height:1.3;margin-bottom:5px}
+.ts-what{font-size:12.5px;color:var(--ink);line-height:1.55}
+.ts-feature{font-size:10.5px;font-weight:700;color:var(--orange);margin-top:6px;text-transform:uppercase;letter-spacing:.5px}
 
-/* MECHANISM ROWS */
-.mech-list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:16px}
-.mech-item{background:white;border:1px solid var(--rule);padding:20px 24px;display:grid;grid-template-columns:200px 1fr 1fr;gap:20px;align-items:start}
-.mech-name{font-size:13px;font-weight:800;color:var(--ink)}
-.mech-how{font-size:12.5px;color:var(--ink);line-height:1.6}
-.mech-smthg{font-size:12.5px;color:var(--ink);line-height:1.6;border-left:3px solid var(--orange);padding-left:12px}
-.mech-smthg strong{color:var(--orange);font-weight:700}
-@media(max-width:900px){.mech-item{grid-template-columns:1fr}.mech-smthg{border-left:none;padding-left:0;border-top:2px solid var(--orange);padding-top:10px;margin-top:4px}}
+/* PLAYBOOK TABLE */
+.pb-table{width:100%;border-collapse:collapse;font-size:13px;margin:4px 0;border:1px solid var(--rule)}
+.pb-table td{padding:13px 16px;border-bottom:1px solid var(--rule);vertical-align:top;color:var(--ink);line-height:1.55;background:white}
+.pb-table tr:last-child td{border-bottom:none}
+.pb-day{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:white;background:var(--ink);padding:13px 16px;vertical-align:top;white-space:nowrap}
+.pb-priority{font-size:11px;font-weight:800;color:var(--orange);text-transform:uppercase;letter-spacing:.5px;white-space:nowrap;padding:13px 16px;background:var(--off-white);border-bottom:1px solid var(--rule);vertical-align:top}
+.pb-check{font-size:12px;color:var(--sub);padding:13px 16px;background:white;border-left:1px solid var(--rule);border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.5}
+@media(max-width:700px){.pb-table{display:block;overflow-x:auto;white-space:nowrap}}
 
-/* STAGE TABLE */
-.stage-row{display:grid;grid-template-columns:120px 1fr 1fr 1fr;gap:0;margin:20px 0}
-.stage-header{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);padding:10px 14px;background:var(--red-ghost);border:1px solid var(--rule)}
-.stage-cell{font-size:12.5px;color:var(--ink);padding:14px 14px;border:1px solid var(--rule);border-top:none;line-height:1.55;vertical-align:top;background:white}
-.stage-cell.label{font-weight:800;background:var(--red-ghost);font-size:12px}
-.stage-cell.smthg{background:#FFFDF9}
-@media(max-width:800px){.stage-row{display:block}.stage-header,.stage-cell{display:block;border-top:1px solid var(--rule)}}
-
-/* METRICS */
-.metric-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:20px}
-.metric-card{background:white;border:1px solid var(--rule);padding:20px 22px}
-.metric-phase{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:10px}
-.metric-card.orange .metric-phase{color:var(--orange)}
-.metric-card.green .metric-phase{color:var(--green)}
-.metric-items{list-style:none;padding:0;margin:0}
-.metric-items li{font-size:12.5px;color:var(--ink);padding:6px 0;border-bottom:1px solid var(--rule);line-height:1.5;display:flex;justify-content:space-between;gap:10px}
-.metric-items li:last-child{border-bottom:none}
-.metric-items .kpi{font-weight:700;color:var(--ink);white-space:nowrap}
+/* STALL SIGNALS */
+.signal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.signal-card{background:white;border:1px solid var(--rule);border-top:3px solid var(--amber)}
+.sig-head{padding:18px 20px 14px;border-bottom:1px solid var(--rule)}
+.sig-label{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:6px}
+.sig-signal{font-size:13.5px;font-weight:800;color:var(--ink);line-height:1.3}
+.sig-body{padding:16px 20px 20px;display:flex;flex-direction:column;gap:12px}
+.sig-row b{font-size:10px;font-weight:800;color:var(--sub);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:3px}
+.sig-row{font-size:12.5px;color:var(--ink);line-height:1.55}
+.sig-fix{background:var(--green-bg);border-left:3px solid var(--green);padding:10px 14px;font-size:12.5px;color:var(--ink);line-height:1.55;font-weight:600}
+@media(max-width:900px){.signal-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.signal-grid{grid-template-columns:1fr}}
 
 footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margin-top:60px}
 .footer-inner{max-width:1240px;margin:0 auto;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);opacity:.5}
 #back-to-top{position:fixed;bottom:28px;right:28px;width:42px;height:42px;background:var(--red);color:white;border:none;border-radius:50%;font-size:18px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900}
 #back-to-top.visible{display:flex}
-
-@media(max-width:1000px){.loop-grid{grid-template-columns:1fr 1fr}.metric-grid{grid-template-columns:1fr}}
-@media(max-width:700px){
-  .pg-wrap{padding:28px 18px 60px}
-  .loop-grid{grid-template-columns:1fr}
-  .stat-row{flex-direction:column}
-  .fw-steps{flex-direction:column;align-items:flex-start}
-  .fw-step{flex-direction:row;align-items:flex-start;text-align:left;width:100%;padding:0 0 16px 0;border-bottom:1px solid var(--rule)}
-  .fw-step::after{content:'↓';position:static;transform:none;margin:0 0 0 auto;align-self:flex-end}
-  .fw-step:last-child{border-bottom:none}
-  .fw-num{margin:0 14px 0 0;flex-shrink:0}
-  footer{padding:18px 20px}
-}
+@media(max-width:700px){.pg-wrap{padding:28px 18px 60px}footer{padding:18px 20px}}
 </style>
 </head>
 <body>
@@ -167,7 +143,7 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
     <a href="/adminfiles/smthg.html">Brand</a>
     <a href="/adminfiles/TFbusinessmodel.html">Model</a>
     <a href="/adminfiles/TFgtm.html">GTM</a>
-    <a href="/adminfiles/TFwhynow.html">Why Now</a>
+    <a href="/adminfiles/socialcommerce.html">Platform</a>
     <a href="/adminfiles/community-mktg.html" class="active">Community</a>
     <a href="/adminfiles/roles.html">Roles</a>
     <a href="/adminfiles/budget.html">Budget</a>
@@ -177,386 +153,479 @@ footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margi
 <div class="pg-wrap">
 
   <div style="padding:12px 0 0">
-    <span class="pg-eyebrow">Strategy · Mechanisms</span>
-    <h1 class="pg-title">Community Marketing — How It Works on SMTHG</h1>
-    <p class="pg-sub">The mechanisms that drive community growth, how communities self-recruit, and how each SMTHG feature maps to a specific community process.</p>
-    <p class="pg-date">July 2026</p>
+    <span class="pg-eyebrow">Operations · Process Flows</span>
+    <h1 class="pg-title">Community Growth — Concrete Processes</h1>
+    <p class="pg-sub">How each SMTHG. feature drives new members in. Step-by-step entry flows, the drop timeline a community manager runs week by week, and how to diagnose when the flywheel breaks.</p>
   </div>
 
 
-  <!-- 01 THE FLYWHEEL -->
+  <!-- 01 ENTRY FLOWS -->
   <div class="section">
-    <h2 class="sec-heading"><span class="sec-num">01</span>The Community Flywheel</h2>
+    <h2 class="sec-heading"><span class="sec-num">01</span>How New Members Arrive — Three Entry Flows</h2>
+    <p class="sec-lead">Every new member enters through one of three paths. Knowing which path they came from tells you what to do in the next 72 hours to activate them.</p>
 
-    <div class="concl purple">
-      <strong>A flywheel is a self-reinforcing loop.</strong> Each stage feeds the next. The critical insight: community members do the marketing. Every purchase generates social proof. Every referral lowers cost of acquisition. Every drop creates urgency that triggers sharing. The platform's job is to design the triggers — not run the campaigns.
-    </div>
+    <div class="flow-grid">
 
-    <div class="flywheel">
-      <div class="fw-title">The SMTHG Flywheel — 6 Stages</div>
-      <div class="fw-steps">
-
-        <div class="fw-step">
-          <div class="fw-num purple">1</div>
-          <div>
-            <div class="fw-label">Designer enters</div>
-            <div class="fw-detail">Brings existing audience — followers, email list, loyal buyers</div>
-          </div>
+      <div class="flow-card">
+        <div class="flow-head">
+          <div class="flow-tag">Flow A</div>
+          <div class="flow-title">Designer Announcement → Community Join</div>
         </div>
-
-        <div class="fw-step">
-          <div class="fw-num orange">2</div>
-          <div>
-            <div class="fw-label">Audience joins So-Me-Space</div>
-            <div class="fw-detail">Followers convert to community members. Free access — low friction entry.</div>
-          </div>
-        </div>
-
-        <div class="fw-step">
-          <div class="fw-num purple">3</div>
-          <div>
-            <div class="fw-label">Drop activates urgency</div>
-            <div class="fw-detail">Countdown, limited quantity, 24hr early-access notification. Members feel they need to act.</div>
-          </div>
-        </div>
-
-        <div class="fw-step">
-          <div class="fw-num orange">4</div>
-          <div>
-            <div class="fw-label">Members pre-order + share</div>
-            <div class="fw-detail">"I just reserved this" is a natural share moment. Virtual try-on photos go on Instagram. Deposit is social proof.</div>
-          </div>
-        </div>
-
-        <div class="fw-step">
-          <div class="fw-num green">5</div>
-          <div>
-            <div class="fw-label">Referral brings new members</div>
-            <div class="fw-detail">"Share & Grow" — members invite friends. Each new join expands the community and the designer's demand pool.</div>
-          </div>
-        </div>
-
-        <div class="fw-step">
-          <div class="fw-num green">6</div>
-          <div>
-            <div class="fw-label">New members discover more designers</div>
-            <div class="fw-detail">Inside So-Me-Space, new members see other drops, shared feed, live sessions → buy from a second designer → loop restarts.</div>
-          </div>
-        </div>
-
-      </div>
-      <div class="fw-arrow-return">↩ Loop repeats with each new drop. The community grows with every cycle. <strong>CAC falls over time because existing members do the recruiting.</strong></div>
-    </div>
-
-    <div class="stat-row">
-      <div class="stat-box green">
-        <div class="stat-num">68%</div>
-        <div class="stat-label">of new community members join via word-of-mouth referral</div>
-        <div class="stat-src"><a href="https://marketingltb.com/blog/statistics/community-marketing-statistics/" target="_blank" rel="noopener">marketingltb.com, 2026</a></div>
-      </div>
-      <div class="stat-box orange">
-        <div class="stat-num">2.1×</div>
-        <div class="stat-label">faster revenue growth for brands with active communities</div>
-        <div class="stat-src"><a href="https://marketingltb.com/blog/statistics/community-marketing-statistics/" target="_blank" rel="noopener">marketingltb.com, 2026</a></div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-num">+46%</div>
-        <div class="stat-label">higher customer LTV for brands with active communities</div>
-        <div class="stat-src"><a href="https://marketingltb.com/blog/statistics/community-marketing-statistics/" target="_blank" rel="noopener">marketingltb.com, 2026</a></div>
-      </div>
-      <div class="stat-box orange">
-        <div class="stat-num">$6.40</div>
-        <div class="stat-label">returned per $1 invested in community marketing</div>
-        <div class="stat-src"><a href="https://marketingltb.com/blog/statistics/community-marketing-statistics/" target="_blank" rel="noopener">marketingltb.com, 2026</a></div>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- 02 THREE GROWTH LOOPS -->
-  <div class="section">
-    <h2 class="sec-heading"><span class="sec-num">02</span>Three Growth Loops — How New People Come In</h2>
-
-    <p class="sec-intro">SMTHG has three distinct loops that bring new members in. Each operates independently — they compound when all three run simultaneously. A new member acquired via any loop can become the seed of all three.</p>
-
-    <div class="loop-grid">
-
-      <!-- Loop 1 -->
-      <div class="loop-card">
-        <div class="loop-tag">Loop A</div>
-        <div class="loop-title">Designer-Led Loop</div>
-        <ul class="loop-steps">
-          <li><span class="loop-step-num">1</span><span>Designer announces upcoming drop to their existing audience (Instagram, email, TikTok)</span></li>
-          <li><span class="loop-step-num">2</span><span>Audience clicks to So-Me-Space — joins free to access the drop calendar and early access</span></li>
-          <li><span class="loop-step-num">3</span><span>New members see other designers' communities inside the platform</span></li>
-          <li><span class="loop-step-num">4</span><span>They follow a second designer → become part of a second community</span></li>
-          <li><span class="loop-step-num">5</span><span>They invite friends with the same taste → friends join and discover both designers</span></li>
+        <ul class="flow-steps">
+          <li class="flow-step">
+            <span class="flow-snum">1</span>
+            <span class="flow-stext">Designer posts to their Instagram / TikTok / email list: "My first drop opens Thursday — join my space for 24h early access." Link points to their Brand Space on SMTHG.</span>
+          </li>
+          <li class="flow-step">
+            <span class="flow-snum">2</span>
+            <span class="flow-stext">Follower clicks. Lands on the Brand Space: intro video, drop countdown ("Opens in 2d 14h"), member count visible ("47 people already in").</span>
+          </li>
+          <li class="flow-step">
+            <span class="flow-snum">3</span>
+            <span class="flow-stext">Joins free. Email only — no payment, no app install at this stage. Lands in So-Me-Space with the community feed and other members' styling posts immediately visible.</span>
+          </li>
+          <li class="flow-step">
+            <span class="flow-snum">4</span>
+            <span class="flow-stext">Automated designer welcome message fires within 1 hour. Drop notification queued for T−24h. Member is now in the activation window.</span>
+          </li>
+          <li class="flow-step">
+            <span class="flow-snum">5</span>
+            <span class="flow-stext">Member returns for the drop. Pre-orders, pays deposit. Share &amp; Grow prompt fires immediately after confirmation — peak excitement moment. They invite someone with similar taste.</span>
+          </li>
+          <li class="flow-step">
+            <span class="flow-snum">6</span>
+            <span class="flow-stext">Inside So-Me-Space, the member discovers a second designer through the style tribe they joined. Follows that Brand Space. Becomes part of a second community. Flow A restarts with that designer's audience.</span>
+          </li>
         </ul>
-        <div class="loop-output">Each designer onboarded brings their audience — typically 2,000–50,000 warm followers — as a single acquisition event.</div>
+        <div class="flow-output">Each designer onboarded brings their existing followers — 2,000 to 50,000 warm contacts — as a single acquisition event.</div>
       </div>
 
-      <!-- Loop 2 -->
-      <div class="loop-card orange">
-        <div class="loop-tag">Loop B</div>
-        <div class="loop-title">Influencer-Led Loop</div>
-        <ul class="loop-steps">
-          <li><span class="loop-step-num">1</span><span>Influencer joins designer's community in So-Me-Space (as a Founding Creator or organic member)</span></li>
-          <li><span class="loop-step-num">2</span><span>Influencer posts about the drop — styled try-on content, "I just reserved this" moment, countdown</span></li>
-          <li><span class="loop-step-num">3</span><span>Followers click through to SMTHG — join free to access the same drop</span></li>
-          <li><span class="loop-step-num">4</span><span>Some followers also pre-order → create social proof for their own followers</span></li>
-          <li><span class="loop-step-num">5</span><span>Drop sells out → scarcity proof → next influencer posts drives even faster uptake</span></li>
+      <div class="flow-card b">
+        <div class="flow-head">
+          <div class="flow-tag">Flow B</div>
+          <div class="flow-title">Influencer Content → Community Join</div>
+        </div>
+        <ul class="flow-steps">
+          <li class="flow-step">
+            <span class="flow-snum">1</span>
+            <span class="flow-stext">AI-matched influencer receives brief + early try-on access 3 days before the drop. Gets: tracking link, suggested post timing, and commission rate (10–20% of sales they drive).</span>
+          </li>
+          <li class="flow-step">
+            <span class="flow-snum">2</span>
+            <span class="flow-stext">Influencer uploads their photo into the Virtual Try-On feature. Gets an AI-styled preview of the drop piece. Posts to Instagram / TikTok with their real face in the piece, link in bio.</span>
+          </li>
+          <li class="flow-step">
+            <span class="flow-snum">3</span>
+            <span class="flow-stext">Followers click through. Land on the drop page with a live deposit counter ("22 reserved") and the same try-on tool. Trying on creates emotional attachment before the purchase decision.</span>
+          </li>
+          <li class="flow-step">
+            <span class="flow-snum">4</span>
+            <span class="flow-stext">Follower pre-orders. Shares their own try-on preview to their network. The second wave of posts reaches people who follow a peer — higher trust than a paid creator.</span>
+          </li>
+          <li class="flow-step">
+            <span class="flow-snum">5</span>
+            <span class="flow-stext">Drop sells out. The sold-out card and the sell-out time become the hook for the next influencer brief: "This closed in 58 hours last time." Proof for the next cycle.</span>
+          </li>
         </ul>
-        <div class="loop-output">Influencer posts are the highest-velocity acquisition event. One post from a 50K fashion creator can add 200–1,000 new members in 48 hours.</div>
+        <div class="flow-output">One influencer post creates the highest-velocity acquisition event in the drop window. Commission tracking keeps the creator invested in conversion, not just reach.</div>
       </div>
 
-      <!-- Loop 3 -->
-      <div class="loop-card green">
-        <div class="loop-tag">Loop C</div>
-        <div class="loop-title">Member Referral Loop ("Share & Grow")</div>
-        <ul class="loop-steps">
-          <li><span class="loop-step-num">1</span><span>Existing member pre-orders a piece and gets a "Share & Grow" prompt</span></li>
-          <li><span class="loop-step-num">2</span><span>Member shares their unique link with a friend who has similar taste</span></li>
-          <li><span class="loop-step-num">3</span><span>Friend joins So-Me-Space → sees the same drop that was shared</span></li>
-          <li><span class="loop-step-num">4</span><span>Friend also pre-orders → becomes a member → gets their own "Share & Grow" prompt</span></li>
-          <li><span class="loop-step-num">5</span><span>Referral compounds: each member brings ~1.3–2 more members over time</span></li>
+      <div class="flow-card c">
+        <div class="flow-head">
+          <div class="flow-tag">Flow C</div>
+          <div class="flow-title">Style Tribe Discovery → Community Join</div>
+        </div>
+        <ul class="flow-steps">
+          <li class="flow-step">
+            <span class="flow-snum">1</span>
+            <span class="flow-stext">An existing member curates a public board: "Quiet Luxury Picks" — 12 drops saved with their own styling notes. Board is visible in the Quiet Luxury tribe feed and in search.</span>
+          </li>
+          <li class="flow-step">
+            <span class="flow-snum">2</span>
+            <span class="flow-stext">A stranger with the same aesthetic finds the board through a mutual share, a social search, or a DM from a friend. Clicks in — no account required to browse.</span>
+          </li>
+          <li class="flow-step">
+            <span class="flow-snum">3</span>
+            <span class="flow-stext">Lands in the Quiet Luxury tribe: drop feed, "340 saves" on a piece they like, member styling posts, the style-tag library. Joins free to follow the board and see drops in their aesthetic.</span>
+          </li>
+          <li class="flow-step">
+            <span class="flow-snum">4</span>
+            <span class="flow-stext">Clicks into a Brand Space from the tribe feed. Watches the intro video. Enables early-access notification for the next drop. Enters Flow A from step 4 onwards.</span>
+          </li>
+          <li class="flow-step">
+            <span class="flow-snum">5</span>
+            <span class="flow-stext">Posts their own styling in the tribe. Coins a new style name in the tag library. Their content surfaces to the next stranger who discovers the tribe. Loop C continues without any platform action.</span>
+          </li>
         </ul>
-        <div class="loop-output">The referral loop is the only one that runs without any platform action. It operates continuously between drops as long as members stay engaged.</div>
+        <div class="flow-output">The only flow that runs without platform spend, drops, or influencers. It operates on member-created boards and public curation — permanently.</div>
       </div>
 
     </div>
   </div>
 
 
-  <!-- 03 MECHANISMS IN DETAIL -->
+  <!-- 02 DROP TIMELINE -->
   <div class="section">
-    <h2 class="sec-heading"><span class="sec-num">03</span>Community Mechanisms — What Each One Does on SMTHG</h2>
+    <h2 class="sec-heading"><span class="sec-num">02</span>The Drop Timeline — What the Community Manager Does, Step by Step</h2>
+    <p class="sec-lead">Every drop is an acquisition and activation event. Eight steps from announcement to close. Each step has either an automated trigger or a specific CM action.</p>
 
-    <p class="sec-intro">Every community marketing mechanism has a specific job. Below: the mechanism, how it works in general, and how it maps to a specific SMTHG feature or process.</p>
+    <div class="timeline">
 
-    <ul class="mech-list">
-
-      <li class="mech-item">
-        <div>
-          <div class="mech-name">FOMO &amp; Scarcity</div>
-          <div style="font-size:11px;color:var(--sub);margin-top:4px;font-weight:600;text-transform:uppercase;letter-spacing:.5px">Acquisition trigger</div>
+      <div class="tl-row">
+        <div class="tl-when">T−7 days</div>
+        <div class="tl-content">
+          <div class="tl-who">Designer + Community Manager</div>
+          <div class="tl-what">Designer publishes drop announcement in their Brand Space: title, piece previews, close date. CM posts a teaser in the relevant style tribe. Platform sends a push notification to all members already following that Brand Space.</div>
+          <div class="tl-trigger">↳ "Coming soon" card appears in So-Me-Space for this designer's community.</div>
         </div>
-        <div class="mech-how">Limited availability creates urgency. When people know they can miss out, they share to ensure their friends also get access — expanding the audience as a side effect of the urgency signal.</div>
-        <div class="mech-smthg"><strong>SMTHG:</strong> Drop countdown timers, limited quantities, 24hr early-access notifications. "48 hrs left" is not just urgency — it triggers sharing ("don't miss this"). The sell-out event becomes proof for the next drop.</div>
-      </li>
+      </div>
 
-      <li class="mech-item">
-        <div>
-          <div class="mech-name">Social Proof</div>
-          <div style="font-size:11px;color:var(--sub);margin-top:4px;font-weight:600;text-transform:uppercase;letter-spacing:.5px">Conversion trigger</div>
+      <div class="tl-row b">
+        <div class="tl-when">T−5 days</div>
+        <div class="tl-content">
+          <div class="tl-who">Community Manager</div>
+          <div class="tl-what">Tribe engagement post: "What's your version of this aesthetic?" — a question, not a product post. Measures tribe temperature. High engagement → brief one influencer. Low engagement → run a Super-fan challenge to warm the community before the drop.</div>
+          <div class="tl-trigger">↳ Tribe response rate informs how many influencers to brief and whether to add a live session at launch.</div>
         </div>
-        <div class="mech-how">People follow other people's purchasing decisions. Seeing "200 members pre-ordered this" or "your friend just reserved X" reduces purchase anxiety and accelerates decisions.</div>
-        <div class="mech-smthg"><strong>SMTHG:</strong> Shared feed showing activity, pre-order deposit counts visible to community. The "so-me-space" feed is a continuous social proof signal — members see each other acting, which encourages action.</div>
-      </li>
+      </div>
 
-      <li class="mech-item">
-        <div>
-          <div class="mech-name">Identity &amp; Belonging</div>
-          <div style="font-size:11px;color:var(--sub);margin-top:4px;font-weight:600;text-transform:uppercase;letter-spacing:.5px">Retention mechanism</div>
+      <div class="tl-row">
+        <div class="tl-when">T−3 days</div>
+        <div class="tl-content">
+          <div class="tl-who">Platform (automated) + Influencer</div>
+          <div class="tl-what">AI-matched influencer receives brief: drop details, early try-on access, unique tracking link, commission rate, suggested post date (T−2). Brief includes current tribe engagement numbers as context.</div>
+          <div class="tl-trigger">↳ Creator tracking link activated. Commission measurement starts from first click.</div>
         </div>
-        <div class="mech-how">When members identify with a community ("I'm a SMTHG person", "I follow this designer"), leaving becomes a social loss, not just a product cancellation. Identity attachment is the most durable retention mechanism.</div>
-        <div class="mech-smthg"><strong>SMTHG:</strong> So-Me-Space is named to trigger personal identity ("so-me" = this is me). Members build style profiles, follow specific designers, and build a curated community circle. The platform reflects their taste — leaving means losing that mirror.</div>
-      </li>
+      </div>
 
-      <li class="mech-item">
-        <div>
-          <div class="mech-name">UGC (User-Generated Content)</div>
-          <div style="font-size:11px;color:var(--sub);margin-top:4px;font-weight:600;text-transform:uppercase;letter-spacing:.5px">Organic acquisition</div>
+      <div class="tl-row b">
+        <div class="tl-when">T−2 days</div>
+        <div class="tl-content">
+          <div class="tl-who">Influencer (external post)</div>
+          <div class="tl-what">Influencer posts virtual try-on content to Instagram / TikTok. CM checks post performance at 6 hours. Under 2% engagement rate → brief a second creator for a post at T−1. Good performance → log the creator for the next drop brief.</div>
+          <div class="tl-trigger">↳ New member surge expected within 12–24h. Platform queues welcome messages + drop notification for all incoming joins.</div>
         </div>
-        <div class="mech-how">When community members create content about the platform (photos, reviews, try-on videos), they do the platform's marketing for free. UGC has higher trust than brand content and reaches new audiences organically.</div>
-        <div class="mech-smthg"><strong>SMTHG:</strong> Virtual try-on is the UGC engine. A member uploads their photo, gets an AI-styled preview, and naturally shares it ("look what I'm getting"). Each shared try-on is an unpaid acquisition post reaching the member's full follower base.</div>
-      </li>
+      </div>
 
-      <li class="mech-item">
-        <div>
-          <div class="mech-name">Network Effects</div>
-          <div style="font-size:11px;color:var(--sub);margin-top:4px;font-weight:600;text-transform:uppercase;letter-spacing:.5px">Value compounding</div>
+      <div class="tl-row">
+        <div class="tl-when">T−1 day</div>
+        <div class="tl-content">
+          <div class="tl-who">Platform (automated)</div>
+          <div class="tl-what">24h early-access notification fires to all community members — push and email. "Your 24h window is open. [Brand] drop closes tomorrow." Live deposit counter activates in So-Me-Space: "38 people have already reserved."</div>
+          <div class="tl-trigger">↳ Notification open rate measured. Under 25% → queue a second push at T−4h with a different subject line.</div>
         </div>
-        <div class="mech-how">Each new member makes the community more valuable for existing members. More members = more social proof, more peer feedback, more demand confirmation for designers, more reason to join. Value grows non-linearly.</div>
-        <div class="mech-smthg"><strong>SMTHG:</strong> More members in a designer's So-Me-Space means more pre-order demand → designer produces more confidently → better drops → more members join. The community is the demand signal that makes the designer's product better.</div>
-      </li>
+      </div>
 
-      <li class="mech-item">
-        <div>
-          <div class="mech-name">Peer Recommendation</div>
-          <div style="font-size:11px;color:var(--sub);margin-top:4px;font-weight:600;text-transform:uppercase;letter-spacing:.5px">Trust-based acquisition</div>
+      <div class="tl-row g">
+        <div class="tl-when">Drop opens</div>
+        <div class="tl-content">
+          <div class="tl-who">Platform + Designer + Community Manager</div>
+          <div class="tl-what">Drop goes live. Countdown running. Live deposit counter visible to all visitors arriving from external links — real-time social proof. Super-fan studio opens: members generate AI try-on videos for this drop's pieces and share to their own social. Designer optionally runs a live Brand Space session. CM posts in the tribe: "It's open — 72 hours."</div>
+          <div class="tl-trigger">↳ Every new visitor sees real-time demand. Each shared try-on video is an unpaid acquisition post reaching that member's full follower base.</div>
         </div>
-        <div class="mech-how">A recommendation from a friend converts at 4–10× the rate of a brand advertisement. Peer recommendations are the highest-trust acquisition channel — and the hardest to manufacture. The platform's job is to make sharing frictionless.</div>
-        <div class="mech-smthg"><strong>SMTHG:</strong> "Share & Grow" is the peer recommendation mechanism. The key is to trigger it at the right moment — right after a pre-order deposit, when excitement is highest. That is the moment members most want to tell someone.</div>
-      </li>
+      </div>
 
-      <li class="mech-item">
-        <div>
-          <div class="mech-name">Live Events &amp; Sessions</div>
-          <div style="font-size:11px;color:var(--sub);margin-top:4px;font-weight:600;text-transform:uppercase;letter-spacing:.5px">Depth &amp; loyalty</div>
+      <div class="tl-row b">
+        <div class="tl-when">+24h post-deposit</div>
+        <div class="tl-content">
+          <div class="tl-who">Platform (automated)</div>
+          <div class="tl-what">Share &amp; Grow prompt fires for every member who has just deposited — at the exact moment of peak excitement. "You're in. Share this drop with a friend — if they reserve too, you both get [incentive]." Each friend who deposits also receives the same prompt 24h later. The referral chain compounds automatically.</div>
+          <div class="tl-trigger">↳ Track per drop: % of depositors who share, % of shared links that convert to a join. These two numbers give you the viral coefficient for this drop.</div>
         </div>
-        <div class="mech-how">Real-time events (Q&amp;As, design sessions, live try-ons) create moments that cannot be replicated asynchronously. Members who attend feel a direct relationship with the creator — dramatically increasing loyalty and repeat purchase rate.</div>
-        <div class="mech-smthg"><strong>SMTHG:</strong> "Live brand sessions and events" inside So-Me-Space. These are the highest-loyalty moments on the platform. Each live session is also a recruitment opportunity — members share the invite before the event ("come watch this designer's session").</div>
-      </li>
+      </div>
 
-      <li class="mech-item">
-        <div>
-          <div class="mech-name">Exclusive Access</div>
-          <div style="font-size:11px;color:var(--sub);margin-top:4px;font-weight:600;text-transform:uppercase;letter-spacing:.5px">Entry barrier &amp; status</div>
+      <div class="tl-row g">
+        <div class="tl-when">Drop closes</div>
+        <div class="tl-content">
+          <div class="tl-who">Platform + Community Manager</div>
+          <div class="tl-what">Drop closes. Sold-out card published. CM posts in tribe: "Gone — [X] pieces claimed in [Y] hours." Platform sends a "Missed it?" push to members who viewed the drop but did not deposit. Waitlist opens for a potential re-run. Sold-out stats become the hook for the next drop's influencer brief.</div>
+          <div class="tl-trigger">↳ "Missed it" members are the highest-intent audience for the next drop. They already wanted it — they just needed one more reason.</div>
         </div>
-        <div class="mech-how">When non-members can see that members get something they don't (early access, exclusive drops, first look), joining becomes desirable. Exclusivity is a pull mechanism — it makes outsiders want in without the platform having to advertise.</div>
-        <div class="mech-smthg"><strong>SMTHG:</strong> Community members get 24hr early-access to drops before the general public. Non-members who hear about a sold-out drop want to be first next time — which drives community joins ahead of the next drop.</div>
-      </li>
+      </div>
 
-    </ul>
-  </div>
-
-
-  <!-- 04 COMMUNITY STAGES -->
-  <div class="section">
-    <h2 class="sec-heading"><span class="sec-num">04</span>Community Stages — How Each Designer's Community Grows</h2>
-
-    <p class="sec-intro">Each designer's community on SMTHG goes through predictable stages. The platform's job at each stage is different. Knowing the stage tells the CEO what action to prioritise.</p>
-
-    <div style="overflow-x:auto">
-    <div class="stage-row" style="grid-template-columns:130px repeat(4,1fr)">
-      <div class="stage-header">Stage</div>
-      <div class="stage-header">Seed</div>
-      <div class="stage-header">Activation</div>
-      <div class="stage-header">Growth</div>
-      <div class="stage-header">Scale</div>
-
-      <div class="stage-cell label">Size</div>
-      <div class="stage-cell">0 → 50 members</div>
-      <div class="stage-cell">50 → 300 members</div>
-      <div class="stage-cell">300 → 2,000 members</div>
-      <div class="stage-cell">2,000+ members</div>
-
-      <div class="stage-cell label">Primary driver</div>
-      <div class="stage-cell">Designer's own audience (Loop A)</div>
-      <div class="stage-cell">First drop urgency; early-access invites</div>
-      <div class="stage-cell">Referrals (Loop C) + influencer posts (Loop B)</div>
-      <div class="stage-cell">Network effects — community value pulls people in</div>
-
-      <div class="stage-cell label">What SMTHG does</div>
-      <div class="stage-cell smthg">Onboard the designer, import their links, set up their So-Me-Space</div>
-      <div class="stage-cell smthg">Run first drop: countdown, early-access notification, deposit flow</div>
-      <div class="stage-cell smthg">Trigger "Share & Grow" at deposit moment; brief an influencer to post</div>
-      <div class="stage-cell smthg">Schedule regular drops, live sessions; surface cross-designer discovery</div>
-
-      <div class="stage-cell label">Risk at this stage</div>
-      <div class="stage-cell">Designer doesn't bring their audience — community never seeds</div>
-      <div class="stage-cell">First drop has too little urgency or too long a wait — members go cold</div>
-      <div class="stage-cell">Referral prompt fires at wrong moment — too early or after excitement fades</div>
-      <div class="stage-cell">Platform doesn't surface new designers to existing members — growth stalls within one designer's community</div>
-    </div>
     </div>
   </div>
 
 
-  <!-- 05 ACTIVATION -->
+  <!-- 03 FEATURE MAP -->
   <div class="section">
-    <h2 class="sec-heading"><span class="sec-num">05</span>Activation — Turning Joiners into Buyers</h2>
-
-    <div class="concl amber">
-      <strong>Most people who join a community never buy.</strong> Activation is the moment a passive member takes their first meaningful action — a pre-order deposit, a try-on share, attending a live session. The window for activation is short: 72 hours after joining. If a new member sees nothing compelling in the first 3 days, they disengage permanently.
-    </div>
+    <h2 class="sec-heading"><span class="sec-num">03</span>Platform Features — What Each One Does for Growth</h2>
+    <p class="sec-lead">Every feature from the <a href="socialcommerce.html" style="color:var(--red);text-decoration:none;font-weight:700">platform map</a> has a specific growth function. Some bring new people in, some retain them, some do both. The full map:</p>
 
     <table class="dtable">
       <thead>
         <tr>
-          <th style="width:180px">Trigger</th>
-          <th>What activates the member</th>
-          <th style="width:220px">SMTHG mechanic</th>
-          <th style="width:140px">When to fire</th>
+          <th style="width:190px">Feature</th>
+          <th>What it triggers</th>
+          <th style="width:210px">Who it brings in or keeps</th>
+          <th style="width:110px">Impact type</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td class="bold">Welcome drop notification</td>
-          <td>New member gets a notification that a drop they can access is happening soon. Creates an immediate reason to return.</td>
-          <td class="smthg">Drop calendar visible on join; 24hr countdown notification</td>
-          <td>Within 24h of joining</td>
+          <td class="bold">Style Tribes — chat &amp; feed<span class="sub-text">Aesthetic communities per style (minimalist, streetwear, quiet luxury)</span></td>
+          <td>Public boards surface in social search. A non-member finds a "Quiet Luxury" board through a mutual share. Clicks in, discovers the tribe, joins free to follow the board and see drops in their aesthetic.</td>
+          <td>Strangers with perfect taste alignment — no ad spend, no influencer required.</td>
+          <td><span class="tag lo">Low volume</span><span class="tag hi">High fit</span></td>
         </tr>
         <tr>
-          <td class="bold">Virtual try-on prompt</td>
-          <td>Trying on a piece virtually reduces purchase anxiety and creates emotional attachment. Members who try on are significantly more likely to pre-order.</td>
-          <td class="smthg">Prompt to upload photo and try the featured drop</td>
-          <td>On first visit to a drop page</td>
+          <td class="bold">Virtual Try-On<span class="sub-text">AI-styled preview from a member's own photo</span></td>
+          <td>Member uploads their photo, gets an AI-styled preview of the drop piece, and shares it to their social. Each shared try-on reaches the member's full follower base as an unpaid acquisition post — with a real face, not a brand asset.</td>
+          <td>Followers of existing members — higher trust than brand content because it shows a real person.</td>
+          <td><span class="tag hi">High volume</span><span class="tag hi">High trust</span></td>
         </tr>
         <tr>
-          <td class="bold">Social feed activity</td>
-          <td>Seeing other members active in the shared feed signals that the community is alive. Social activity normalises participation.</td>
-          <td class="smthg">Shared feed with peer styling photos, comments, pre-order confirmations visible</td>
-          <td>Always-on, visible on homepage</td>
+          <td class="bold">Super-Fan Studio<span class="sub-text">Themed creation per drop; top submissions get featured and paid</span></td>
+          <td>Members create AI try-on videos or self-filmed content for each drop. Best submissions are featured in the tribe feed with a micro-reward. The creation incentive drives sharing even from members who have not yet pre-ordered.</td>
+          <td>Followers of the member who posted their studio content. Each post is an organic drop announcement.</td>
+          <td><span class="tag med">Medium volume</span><span class="tag med">Per drop</span></td>
         </tr>
         <tr>
-          <td class="bold">Designer direct message</td>
-          <td>A personal message from the designer to new members creates a felt connection. Even a templated message with the member's name converts significantly better than silence.</td>
-          <td class="smthg">Automated "welcome" from the designer when a new member joins their So-Me-Space</td>
-          <td>Within 1h of joining a designer's space</td>
+          <td class="bold">Brand Space — live sessions<span class="sub-text">Designer Q&amp;As; recordings stay in the library</span></td>
+          <td>Members share session invites to their own network ("come watch this designer"). A live event invite is low-pressure — free, no commitment. Non-members join free to attend, then stay for the drop.</td>
+          <td>Friends of existing members and the designer's own professional network. Produces higher loyalty than influencer-driven joins.</td>
+          <td><span class="tag med">Medium volume</span><span class="tag hi">High loyalty</span></td>
         </tr>
         <tr>
-          <td class="bold">Peer pre-order signal</td>
-          <td>"[Friend] just reserved this piece" is the single highest-converting activation trigger. It combines social proof with personal connection.</td>
-          <td class="smthg">If the member joined via a friend's referral, show that friend's activity prominently in their feed</td>
-          <td>On first login after joining</td>
+          <td class="bold">Share &amp; Grow<span class="sub-text">Referral prompt fires immediately after deposit</span></td>
+          <td>Fires at the exact moment of peak excitement — right after deposit confirmation. Member shares a unique link. Each referred friend who joins and deposits gets the same prompt 24h later. The chain compounds automatically across every active depositor.</td>
+          <td>Close network of existing members. Highest-trust channel — shared taste plus personal recommendation.</td>
+          <td><span class="tag hi">Highest conversion</span><span class="tag hi">Compounds</span></td>
+        </tr>
+        <tr>
+          <td class="bold">Drop Sell-Out Card<span class="sub-text">Published automatically when a drop closes</span></td>
+          <td>"[X] pieces claimed in [Y] hours" circulates as social proof. Members who viewed the drop but did not deposit receive a "Missed it?" push. Non-members who see the card want to be positioned before the next drop closes.</td>
+          <td>Members who hesitated on the current drop. High intent — motivated by having missed out.</td>
+          <td><span class="tag hi">High intent</span><span class="tag med">Pre-queued</span></td>
+        </tr>
+        <tr>
+          <td class="bold">Boards &amp; Saves<span class="sub-text">Public save counts; trending by tribe</span></td>
+          <td>"Saved by 340 people" is social proof that no ad budget can generate. Trending boards surface cross-designer discovery inside the platform. Member curation builds the discovery surface that Flow C depends on.</td>
+          <td>Primarily internal. Occasionally a shared board brings in a new member through Flow C.</td>
+          <td><span class="tag ret">Retention</span><span class="tag lo">Cross-discovery</span></td>
+        </tr>
+        <tr>
+          <td class="bold">Points, Levels &amp; Leaderboard<span class="sub-text">1 like = 1 point; levels unlock content and early access</span></td>
+          <td>Top-ranked members become visible community faces — their names appear on the tribe leaderboard. A non-member browsing the tribe sees who the most active contributors are and sees a community worth joining. Points system drives repeat contribution between drops.</td>
+          <td>Primarily drives repeat engagement from existing members. Leaderboard visibility is a minor external signal.</td>
+          <td><span class="tag ret">Retention</span><span class="tag ret">Depth</span></td>
+        </tr>
+        <tr>
+          <td class="bold">Status — Owner Cards<span class="sub-text">"One of 150" badge on profile from closed drops</span></td>
+          <td>Members display owner cards on their profile. Anyone visiting that profile sees the exclusivity signal: this person owns something that no longer exists to buy. Leaving the platform means abandoning a profile that documents their taste history.</td>
+          <td>Profile visitors and people who know the member personally — the smallest-volume but highest-curiosity acquisition signal.</td>
+          <td><span class="tag lo">Low volume</span><span class="tag hi">High intent</span></td>
+        </tr>
+        <tr>
+          <td class="bold">Learning — The Classroom<span class="sub-text">Styling courses for members; brand-building for designers; Creator School for influencers</span></td>
+          <td>Course completion is a shareable milestone. "I just completed the SMTHG. styling course" reaches a member's professional network. Designers who complete the brand-building course share their progress with their own audience — a secondary acquisition signal aimed at other designers.</td>
+          <td>Professional networks of active learners. Primarily relevant for designer and influencer acquisition.</td>
+          <td><span class="tag lo">Low volume</span><span class="tag med">Professional reach</span></td>
         </tr>
       </tbody>
     </table>
   </div>
 
 
-  <!-- 06 METRICS -->
+  <!-- 04 STYLE TRIBE SELF-RECRUITMENT -->
   <div class="section">
-    <h2 class="sec-heading"><span class="sec-num">06</span>What to Measure — Community Health Metrics</h2>
+    <h2 class="sec-heading"><span class="sec-num">04</span>How Style Tribes Self-Recruit — The Organic Loop</h2>
+    <p class="sec-lead">Style tribes are the only part of the platform that grows without drops, influencers, or paid activity. The loop runs entirely on member curation. Seven steps:</p>
 
-    <p class="sec-intro">Community health cannot be measured by follower counts alone. The metrics below tell you whether the flywheel is spinning. If any one of them is stalled, the loop is broken at that stage.</p>
-
-    <div class="metric-grid">
-      <div class="metric-card">
-        <div class="metric-phase">Acquisition</div>
-        <ul class="metric-items">
-          <li><span>New members per drop</span><span class="kpi">Target: 50+ per drop at launch</span></li>
-          <li><span>% joining via referral (Loop C)</span><span class="kpi">Target: 30%+ of joins</span></li>
-          <li><span>Designer audience conversion rate</span><span class="kpi">% of designer's followers who join So-Me-Space</span></li>
-          <li><span>Influencer post → join rate</span><span class="kpi">Track per post; target 1–3% of views</span></li>
-        </ul>
+    <div class="tribe-flow">
+      <div class="tribe-step">
+        <div class="ts-num">1</div>
+        <div class="ts-content">
+          <div class="ts-action">A member curates a public board</div>
+          <div class="ts-what">"Coastal Suede — my picks" — 10 drops saved with the member's own styling notes and commentary. The board is visible in their style tribe's feed and in public search.</div>
+          <div class="ts-feature">Feature: Boards &amp; Saves</div>
+        </div>
       </div>
-      <div class="metric-card orange">
-        <div class="metric-phase">Activation</div>
-        <ul class="metric-items">
-          <li><span>72h activation rate</span><span class="kpi">% who take action in first 3 days</span></li>
-          <li><span>Try-on → deposit conversion</span><span class="kpi">% who try on and then pre-order</span></li>
-          <li><span>First drop participation rate</span><span class="kpi">% of new members who pre-order on first drop</span></li>
-          <li><span>Time to first action</span><span class="kpi">Target: under 48h from join</span></li>
-        </ul>
+      <div class="tribe-step">
+        <div class="ts-num">2</div>
+        <div class="ts-content">
+          <div class="ts-action">The board reaches a stranger</div>
+          <div class="ts-what">Another member shares the board link in a DM. Or a friend of the board owner tags it on Instagram. Or it surfaces in SMTHG. tribe search. A non-member clicks in — no account needed to browse.</div>
+          <div class="ts-feature">Feature: Style Tribes — chat &amp; feed</div>
+        </div>
       </div>
-      <div class="metric-card green">
-        <div class="metric-phase">Retention &amp; Depth</div>
-        <ul class="metric-items">
-          <li><span>Repeat pre-order rate</span><span class="kpi">% who buy across 2+ drops</span></li>
-          <li><span>Cross-designer discovery</span><span class="kpi">% following 2+ designer spaces</span></li>
-          <li><span>Live session attendance</span><span class="kpi">% of active members attending at least 1/month</span></li>
-          <li><span>30/60/90-day retention</span><span class="kpi">% still active at each interval</span></li>
-        </ul>
+      <div class="tribe-step">
+        <div class="ts-num">3</div>
+        <div class="ts-content">
+          <div class="ts-action">Stranger enters the tribe</div>
+          <div class="ts-what">Sees the Coastal Suede tribe: drop feed, "380 members," trending boards, member styling posts. Joins free to follow the board and get drop notifications for this aesthetic.</div>
+          <div class="ts-feature">Feature: Style Tribes — chat &amp; feed</div>
+        </div>
       </div>
-      <div class="metric-card">
-        <div class="metric-phase">Flywheel Speed</div>
-        <ul class="metric-items">
-          <li><span>Viral coefficient (K-factor)</span><span class="kpi">Each member invites how many? Target: K &gt; 1.0</span></li>
-          <li><span>Drop-to-drop growth</span><span class="kpi">% increase in community size per drop cycle</span></li>
-          <li><span>CAC trend</span><span class="kpi">Should decline over time as referrals compound</span></li>
-          <li><span>Community GMV share</span><span class="kpi">% of total GMV from community members vs new visitors</span></li>
-        </ul>
+      <div class="tribe-step">
+        <div class="ts-num">4</div>
+        <div class="ts-content">
+          <div class="ts-action">New member clicks into a Brand Space from the tribe feed</div>
+          <div class="ts-what">Sees a drop card from a designer whose aesthetic matches. Clicks into their Brand Space. Watches the intro video. Enables early-access notification for the next drop. Enters the drop flow.</div>
+          <div class="ts-feature">Feature: Brand Space — intro video + drop countdown</div>
+        </div>
       </div>
-    </div>
-
-    <div class="concl purple" style="margin-top:28px;">
-      <strong>The one number that tells you if the flywheel is working:</strong> the viral coefficient (K-factor). If K &gt; 1.0, each member on average recruits more than one new member — the community grows without paid acquisition. If K &lt; 1.0, the platform is leaking. K = (referrals sent per member) × (conversion rate of those referrals).
+      <div class="tribe-step">
+        <div class="ts-num">5</div>
+        <div class="ts-content">
+          <div class="ts-action">New member coins a style name</div>
+          <div class="ts-what">While saving a drop, the member types a new style tag: "Coastal Suede." This enters the style-tag library — a discovery vocabulary that belongs to the platform and grows with every contribution. The member earns a point for creating it.</div>
+          <div class="ts-feature">Feature: Style-Tag Library (via Points &amp; Leaderboard)</div>
+        </div>
+      </div>
+      <div class="tribe-step">
+        <div class="ts-num">6</div>
+        <div class="ts-content">
+          <div class="ts-action">Tag surfaces in cross-tribe discovery</div>
+          <div class="ts-what">"Coastal Suede" appears in trending tags. Members from adjacent aesthetics (Coastal Minimalist, Quiet Luxury) find it. Content clusters form around the tag. More boards accumulate under it. The tribe feed grows without any CM action.</div>
+          <div class="ts-feature">Feature: Style-Tag Library + Boards &amp; Saves</div>
+        </div>
+      </div>
+      <div class="tribe-step">
+        <div class="ts-num">7</div>
+        <div class="ts-content">
+          <div class="ts-action">The board's save count increases — attracting the next stranger</div>
+          <div class="ts-what">"Saved by 340 people" is visible to every visitor. As the count grows, the board becomes more compelling to click into, more prominent in search, and more likely to be shared. Loop restarts at step 2.</div>
+          <div class="ts-feature">Feature: Boards &amp; Saves — public save counts</div>
+        </div>
+      </div>
     </div>
   </div>
 
-</div><!-- /pg-wrap -->
+
+  <!-- 05 WEEKLY CM RHYTHM -->
+  <div class="section">
+    <h2 class="sec-heading"><span class="sec-num">05</span>Community Manager — Weekly Operations</h2>
+    <p class="sec-lead">The minimum weekly rhythm to keep the flywheel spinning across 3–5 active designer communities simultaneously. Every row is a specific action, not a goal.</p>
+
+    <div style="overflow-x:auto">
+    <table class="pb-table">
+      <thead style="background:var(--red-ghost)">
+        <tr>
+          <th style="padding:10px 16px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--ink);border-bottom:2px solid var(--rule);width:70px;background:var(--red-ghost)">Day</th>
+          <th style="padding:10px 16px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--ink);border-bottom:2px solid var(--rule);width:120px;background:var(--red-ghost)">Focus</th>
+          <th style="padding:10px 16px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--ink);border-bottom:2px solid var(--rule);background:var(--red-ghost)">Action</th>
+          <th style="padding:10px 16px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--ink);border-bottom:2px solid var(--rule);background:var(--red-ghost);width:230px">What to decide</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="pb-day">MON</td>
+          <td style="padding:13px 16px;font-size:11px;font-weight:800;color:var(--orange);text-transform:uppercase;letter-spacing:.5px;vertical-align:top;background:var(--off-white);border-bottom:1px solid var(--rule)">Metrics</td>
+          <td style="padding:13px 16px;font-size:13px;color:var(--ink);line-height:1.55;vertical-align:top;border-bottom:1px solid var(--rule)">Review last week: 72h activation rate per community, referral rate per drop, total new members, drop GMV. Compare each number to the previous drop.</td>
+          <td style="padding:13px 16px;font-size:12.5px;color:var(--ink);line-height:1.5;vertical-align:top;background:var(--off-white);border-bottom:1px solid var(--rule)">Flag any community where activation &lt; 30% or referral rate &lt; 20%. These are the two stall signals requiring a fix this week.</td>
+        </tr>
+        <tr>
+          <td class="pb-day">TUE</td>
+          <td style="padding:13px 16px;font-size:11px;font-weight:800;color:var(--orange);text-transform:uppercase;letter-spacing:.5px;vertical-align:top;background:var(--off-white);border-bottom:1px solid var(--rule)">Next Drop</td>
+          <td style="padding:13px 16px;font-size:13px;color:var(--ink);line-height:1.55;vertical-align:top;border-bottom:1px solid var(--rule)">Brief the next drop's designer: confirm announcement post date, copy draft, and which social channel to prioritise. Send the AI-matched influencer their brief with early try-on access and tracking link.</td>
+          <td style="padding:13px 16px;font-size:12.5px;color:var(--ink);line-height:1.5;vertical-align:top;background:var(--off-white);border-bottom:1px solid var(--rule)">Does the influencer match this specific drop's aesthetic? Capacity this week? If not — find a second match now, not at T−1.</td>
+        </tr>
+        <tr>
+          <td class="pb-day">WED</td>
+          <td style="padding:13px 16px;font-size:11px;font-weight:800;color:var(--orange);text-transform:uppercase;letter-spacing:.5px;vertical-align:top;background:var(--off-white);border-bottom:1px solid var(--rule)">Tribes</td>
+          <td style="padding:13px 16px;font-size:13px;color:var(--ink);line-height:1.55;vertical-align:top;border-bottom:1px solid var(--rule)">Post a "name this style" prompt in 2 style tribes. Feature the top board from the last 7 days in the tribe feed. Review Super-fan studio content from the previous drop — feature the best 2–3 submissions with creator credit.</td>
+          <td style="padding:13px 16px;font-size:12.5px;color:var(--ink);line-height:1.5;vertical-align:top;background:var(--off-white);border-bottom:1px solid var(--rule)">Is the tribe active between drops, or only during drop windows? If mid-week activity is low — add a live Brand Space session to the upcoming drop schedule.</td>
+        </tr>
+        <tr>
+          <td class="pb-day">THU</td>
+          <td style="padding:13px 16px;font-size:11px;font-weight:800;color:var(--orange);text-transform:uppercase;letter-spacing:.5px;vertical-align:top;background:var(--off-white);border-bottom:1px solid var(--rule)">Drop Prep</td>
+          <td style="padding:13px 16px;font-size:13px;color:var(--ink);line-height:1.55;vertical-align:top;border-bottom:1px solid var(--rule)">Verify drop countdown is live, quantities are correct, and the early-access notification list is confirmed. If a live Brand Space session is scheduled for launch, send the designer the session brief and confirm the time.</td>
+          <td style="padding:13px 16px;font-size:12.5px;color:var(--ink);line-height:1.5;vertical-align:top;background:var(--off-white);border-bottom:1px solid var(--rule)">Is the drop opening at a time when the target audience is online? Avoid Saturday midnight and Monday 7am for the first open.</td>
+        </tr>
+        <tr>
+          <td class="pb-day">FRI</td>
+          <td style="padding:13px 16px;font-size:11px;font-weight:800;color:var(--orange);text-transform:uppercase;letter-spacing:.5px;vertical-align:top;background:var(--off-white);border-bottom:1px solid var(--rule)">Activation</td>
+          <td style="padding:13px 16px;font-size:13px;color:var(--ink);line-height:1.55;vertical-align:top;border-bottom:1px solid var(--rule)">Identify everyone who joined Monday–Wednesday but has taken no action yet. Queue a push notification: "A drop you'll love closes Sunday — your early access is waiting." Check influencer post 48h performance. Under 2% engagement → brief a second creator for a Saturday post.</td>
+          <td style="padding:13px 16px;font-size:12.5px;color:var(--ink);line-height:1.5;vertical-align:top;background:var(--off-white);border-bottom:1px solid var(--rule)">Are new joins arriving from influencer posts or from referrals? The source tells you which of the three flows is carrying the most weight this week.</td>
+        </tr>
+        <tr>
+          <td class="pb-day">SAT</td>
+          <td style="padding:13px 16px;font-size:11px;font-weight:800;color:var(--orange);text-transform:uppercase;letter-spacing:.5px;vertical-align:top;background:var(--off-white);border-bottom:1px solid var(--rule)">Creators</td>
+          <td style="padding:13px 16px;font-size:13px;color:var(--ink);line-height:1.55;vertical-align:top;border-bottom:1px solid var(--rule)">Review Super-fan studio submissions from the current drop. DM the top 3 creators: acknowledge their submission and note if they are being featured. Post the featured content in the tribe feed with their credit tag.</td>
+          <td style="padding:13px 16px;font-size:12.5px;color:var(--ink);line-height:1.5;vertical-align:top;background:var(--off-white);border-bottom:1px solid var(--rule)">Is the studio active? If fewer than 5 submissions — the drop brief did not generate enough excitement. Adjust the brief format for the next drop.</td>
+        </tr>
+        <tr>
+          <td class="pb-day">SUN</td>
+          <td style="padding:13px 16px;font-size:11px;font-weight:800;color:var(--orange);text-transform:uppercase;letter-spacing:.5px;vertical-align:top;background:var(--off-white)">Discovery</td>
+          <td style="padding:13px 16px;font-size:13px;color:var(--ink);line-height:1.55;vertical-align:top">Surface a second designer to all members who were active in this week's drop community. "You might also like [Brand B]." Preview next week's drop in the tribe feed. Send a weekly wrap to style tribes: what happened, what's coming.</td>
+          <td style="padding:13px 16px;font-size:12.5px;color:var(--ink);line-height:1.5;vertical-align:top;background:var(--off-white)">Are members following only one Brand Space? Cross-designer discovery is the step that turns a one-drop purchase into a platform habit.</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+
+  <!-- 06 WHEN THE FLYWHEEL STALLS -->
+  <div class="section">
+    <h2 class="sec-heading"><span class="sec-num">06</span>When the Flywheel Stalls — Three Warning Signals</h2>
+    <p class="sec-lead">Each stall maps to a specific broken stage. Diagnose by the signal; fix that stage only.</p>
+
+    <div class="signal-grid">
+
+      <div class="signal-card">
+        <div class="sig-head">
+          <div class="sig-label">Signal 1</div>
+          <div class="sig-signal">New members not activating — under 30% take any action in the first 72 hours</div>
+        </div>
+        <div class="sig-body">
+          <div class="sig-row">
+            <b>What it means</b>
+            Members joined, saw nothing compelling immediately, and forgot the platform exists. The join was easy; the reason to return was absent.
+          </div>
+          <div class="sig-row">
+            <b>Where the flywheel breaks</b>
+            Stage 3: Drop urgency is not reaching new members fast enough. The gap between join moment and first drop is too long for the activation window to hold.
+          </div>
+          <div class="sig-fix">Fix: Fire the welcome drop notification within 2h of every new join — not only at T−24h. Move the next drop earlier if the calendar allows. Add a designer welcome message that names the specific drop date and the countdown.</div>
+        </div>
+      </div>
+
+      <div class="signal-card">
+        <div class="sig-head">
+          <div class="sig-label">Signal 2</div>
+          <div class="sig-signal">Referral rate below 20% — Share &amp; Grow is not converting</div>
+        </div>
+        <div class="sig-body">
+          <div class="sig-row">
+            <b>What it means</b>
+            The Share &amp; Grow prompt fires at the wrong moment — either before the member has emotionally committed, or after post-purchase excitement has faded.
+          </div>
+          <div class="sig-row">
+            <b>Where the flywheel breaks</b>
+            Stage 5: The referral chain does not start. K-factor stays below 1.0. Every drop requires a full influencer or designer-driven acquisition effort with no compounding from existing members.
+          </div>
+          <div class="sig-fix">Fix: Move Share &amp; Grow to fire immediately after deposit confirmation. Test two variations: instant (0h delay) vs 2h post-deposit. Add a specific incentive: "Your friend gets 24h early access on their first drop."</div>
+        </div>
+      </div>
+
+      <div class="signal-card">
+        <div class="sig-head">
+          <div class="sig-label">Signal 3</div>
+          <div class="sig-signal">Drop pre-orders declining — next drop converting lower than the previous</div>
+        </div>
+        <div class="sig-body">
+          <div class="sig-row">
+            <b>What it means</b>
+            The community goes cold between drops. Members who were active in drop one have disengaged by drop two. No mid-drop activity means no habit — the platform is behaving like a one-off shop.
+          </div>
+          <div class="sig-row">
+            <b>Where the flywheel breaks</b>
+            Stage 6: Members are not discovering a second designer. The platform is not becoming a habit — it is a single-brand experience with repeat drops.
+          </div>
+          <div class="sig-fix">Fix: Add a mid-week live Brand Space session between drops (20 min Q&amp;A). Run a Super-fan challenge in the interim week. Surface a second designer to every member who pre-ordered the first drop — cross-designer discovery creates the return habit.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="concl green" style="margin-top:28px">
+      <strong>The one number that tells you whether the flywheel is working:</strong> the viral coefficient. K = (share rate per depositor) × (join rate per shared link). K above 1.0 means the community grows without paid acquisition. K below 1.0 means it leaks. Track it per drop, not per month.
+    </div>
+  </div>
+
+</div>
 
 <footer>
   <div class="footer-inner">SMTHG · Internal Research · Not for Distribution · July 2026</div>
