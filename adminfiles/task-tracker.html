@@ -310,10 +310,30 @@ footer{padding:20px 48px;border-top:1px solid var(--rule);background:white;margi
     <button class="btn-add-row" onclick="addRow('brand-creative')">+ Add Task</button>
   </section>
 
-  <!-- 03 SOCIAL MEDIA -->
+  <!-- 03 INFLUENCERS -->
+  <section class="ws-section" id="s-influencers">
+    <div class="ws-head">
+      <h2>03 · Influencers</h2>
+      <span class="ws-count" id="count-influencers"></span>
+    </div>
+    <div class="table-scroll"><table>
+      <thead><tr>
+        <th class="col-date">Date</th><th class="col-task">Task / Idea</th>
+        <th class="col-owner">Owner</th><th class="col-pri">Priority</th>
+        <th class="col-status">Status</th><th class="col-due">Due</th>
+        <th class="col-ref">Reference</th><th class="col-notes">Notes</th>
+        <th class="col-move"></th><th class="col-del"></th>
+      </tr></thead>
+      <tbody id="ws-influencers"></tbody>
+    </table></div>
+    <div class="ws-empty" id="empty-influencers">No tasks visible with current filter.</div>
+    <button class="btn-add-row" onclick="addRow('influencers')">+ Add Task</button>
+  </section>
+
+  <!-- 04 SOCIAL MEDIA -->
   <section class="ws-section" id="s-social">
     <div class="ws-head">
-      <h2>03 · Social Media</h2>
+      <h2>04 · Social Media</h2>
       <span class="ws-count" id="count-social"></span>
     </div>
     <div class="table-scroll"><table>
@@ -330,10 +350,10 @@ footer{padding:20px 48px;border-top:1px solid var(--rule);background:white;margi
     <button class="btn-add-row" onclick="addRow('social-media')">+ Add Task</button>
   </section>
 
-  <!-- 04 COMMUNITY -->
+  <!-- 05 COMMUNITY -->
   <section class="ws-section" id="s-community">
     <div class="ws-head">
-      <h2>04 · Community</h2>
+      <h2>05 · Community</h2>
       <span class="ws-count" id="count-community"></span>
     </div>
     <div class="table-scroll"><table>
@@ -350,11 +370,10 @@ footer{padding:20px 48px;border-top:1px solid var(--rule);background:white;margi
     <button class="btn-add-row" onclick="addRow('community')">+ Add Task</button>
   </section>
 
-  <!-- 05 SMTHG CONCEPT -->
-  <!-- 05 OPERATIONS -->
+  <!-- 06 OPERATIONS -->
   <section class="ws-section" id="s-operations">
     <div class="ws-head">
-      <h2>05 · Operations</h2>
+      <h2>06 · Operations</h2>
       <span class="ws-count" id="count-operations"></span>
     </div>
     <div class="table-scroll"><table>
@@ -371,10 +390,30 @@ footer{padding:20px 48px;border-top:1px solid var(--rule);background:white;margi
     <button class="btn-add-row" onclick="addRow('operations')">+ Add Task</button>
   </section>
 
-  <!-- 06 FUNDRAISING & CAPITAL -->
+  <!-- 07 FINANCE, LEGAL & ADMIN -->
+  <section class="ws-section" id="s-finance">
+    <div class="ws-head">
+      <h2>07 · Finance, Legal &amp; Admin</h2>
+      <span class="ws-count" id="count-finance"></span>
+    </div>
+    <div class="table-scroll"><table>
+      <thead><tr>
+        <th class="col-date">Date</th><th class="col-task">Task / Idea</th>
+        <th class="col-owner">Owner</th><th class="col-pri">Priority</th>
+        <th class="col-status">Status</th><th class="col-due">Due</th>
+        <th class="col-ref">Reference</th><th class="col-notes">Notes</th>
+        <th class="col-move"></th><th class="col-del"></th>
+      </tr></thead>
+      <tbody id="ws-finance-legal-admin"></tbody>
+    </table></div>
+    <div class="ws-empty" id="empty-finance-legal-admin">No tasks visible with current filter.</div>
+    <button class="btn-add-row" onclick="addRow('finance-legal-admin')">+ Add Task</button>
+  </section>
+
+  <!-- 08 FUNDRAISING & CAPITAL -->
   <section class="ws-section" id="s-fundraising">
     <div class="ws-head">
-      <h2>06 · Fundraising &amp; Capital</h2>
+      <h2>08 · Fundraising &amp; Capital</h2>
       <span class="ws-count" id="count-fundraising"></span>
     </div>
     <div class="table-scroll"><table>
@@ -436,7 +475,7 @@ var DEFAULT_PHASE_SETS = [
   ]
 ];
 
-var ALL_SECTIONS = ['platform-setup','brand-creative','community','operations','fundraising','social-media'];
+var ALL_SECTIONS = ['platform-setup','brand-creative','influencers','community','operations','fundraising','social-media','finance-legal-admin'];
 
 var DEFAULTS = {
   items: {
@@ -458,9 +497,18 @@ var DEFAULTS = {
     'o-003':{section:'operations',date:'08 Jun',task:"Influencer accountability — small influencers don't follow through when brands/agencies reach out; think through how TF's model addresses this (consistent workload volume + no product shipment until content is published)",owner:'alena',priority:'normal',status:'todo',due:'',ref:'',notes:''},
     'o-004':{section:'operations',date:'08 Jun',task:'Returns logistics — assess reverse logistics complexity; returns add an extra operational link in the supply chain; think through how TF minimises or removes it',owner:'alena',priority:'normal',status:'todo',due:'',ref:'',notes:''},
     'o-005':{section:'operations',date:'08 Jun',task:'Publication timing — posts staggered over time instead of concentrated at the drop moment; think through how TF structures this to maintain momentum',owner:'alena',priority:'normal',status:'todo',due:'',ref:'',notes:''},
-    'sm-001':{section:'social-media',date:'20 Jul',task:'Instagram style definition',owner:'chris',priority:'normal',status:'todo',due:'',ref:'',notes:''},
-    'sm-002':{section:'social-media',date:'20 Jul',task:'Content creation',owner:'chris',priority:'normal',status:'todo',due:'',ref:'',notes:''},
-    'sm-003':{section:'social-media',date:'20 Jul',task:'Content posting',owner:'alena',priority:'normal',status:'todo',due:'',ref:'',notes:''}
+    'sm-001':{section:'social-media',date:'20 Jul',task:'Instagram style definition',owner:'chris',priority:'normal',status:'todo',due:'20 Jul',ref:'',notes:''},
+    'sm-002':{section:'social-media',date:'20 Jul',task:'Content creation',owner:'chris',priority:'normal',status:'todo',due:'20 Jul',ref:'',notes:''},
+    'sm-003':{section:'social-media',date:'20 Jul',task:'Content posting',owner:'alena',priority:'normal',status:'todo',due:'20 Jul',ref:'',notes:''},
+    'if-001':{section:'influencers',date:'20 Jul',task:'Get Insense access',owner:'alena',priority:'high',status:'todo',due:'24 Jul',ref:'',notes:''},
+    'if-002':{section:'influencers',date:'20 Jul',task:'Search influencers',owner:'alena',priority:'high',status:'todo',due:'24 Jul',ref:'',notes:''},
+    'if-003':{section:'influencers',date:'20 Jul',task:'Reach out to influencers',owner:'alena',priority:'high',status:'todo',due:'24 Jul',ref:'',notes:''},
+    'fl-001':{section:'finance-legal-admin',date:'20 Jul',task:'Domain registration',owner:'maxim',priority:'high',status:'todo',due:'24 Jul',ref:'',notes:''},
+    'fl-002':{section:'finance-legal-admin',date:'20 Jul',task:'Hosting',owner:'alex',priority:'high',status:'todo',due:'24 Jul',ref:'',notes:''},
+    'fl-003':{section:'finance-legal-admin',date:'20 Jul',task:'Open bank account',owner:'maxim',priority:'high',status:'todo',due:'24 Jul',ref:'',notes:''},
+    'fl-004':{section:'finance-legal-admin',date:'20 Jul',task:'Open credit card',owner:'maxim',priority:'high',status:'todo',due:'24 Jul',ref:'',notes:''},
+    'fl-005':{section:'finance-legal-admin',date:'20 Jul',task:'Contracts for designers',owner:'alena',priority:'normal',status:'todo',due:'31 Jul',ref:'',notes:''},
+    'fl-006':{section:'finance-legal-admin',date:'20 Jul',task:'Contracts for influencers',owner:'alena',priority:'normal',status:'todo',due:'31 Jul',ref:'',notes:''}
   },
   sections:{
     'platform-setup': {order:['ps-001','ps-002','ps-003','ps-004','ps-005','ps-006']},
@@ -468,7 +516,9 @@ var DEFAULTS = {
     'community':       {order:['cm-001','cm-002']},
     fundraising:       {order:['f-002','f-001']},
     operations:        {order:['o-003','o-004','o-005']},
-    'social-media':    {order:['sm-001','sm-002','sm-003']}
+    'social-media':    {order:['sm-001','sm-002','sm-003']},
+    influencers:       {order:['if-001','if-002','if-003']},
+    'finance-legal-admin': {order:['fl-001','fl-002','fl-003','fl-004','fl-005','fl-006']}
   }
 };
 
@@ -965,6 +1015,8 @@ function updateAllCounts(){
   renderCount(document.getElementById('count-platform'),cp.all,cp.open);
   var cb=countSec('brand-creative');
   renderCount(document.getElementById('count-brand'),cb.all,cb.open);
+  var ci=countSec('influencers');
+  renderCount(document.getElementById('count-influencers'),ci.all,ci.open);
   var cc=countSec('community');
   renderCount(document.getElementById('count-community'),cc.all,cc.open);
   var co=countSec('operations');
@@ -973,6 +1025,8 @@ function updateAllCounts(){
   renderCount(document.getElementById('count-fundraising'),cf.all,cf.open);
   var cs=countSec('social-media');
   renderCount(document.getElementById('count-social'),cs.all,cs.open);
+  var cfl=countSec('finance-legal-admin');
+  renderCount(document.getElementById('count-finance'),cfl.all,cfl.open);
 }
 
 function updateEmpties(){
