@@ -59,10 +59,16 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .phases-row{display:flex;align-items:stretch;min-width:560px}
 .phase-box{flex:1;border:1px solid var(--rule);padding:11px 14px;background:#FAFAF8}
 .phase-box+.phase-box{border-left:none}
-.pb-week{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--sub);margin-bottom:5px}
-.pb-label{font-size:13px;font-weight:700;color:var(--ink);line-height:1.35}
+.phase-move{display:flex;justify-content:flex-end;gap:4px;margin-bottom:6px}
+.phase-move .btn-move{padding:1px 6px;font-size:12px}
+.pb-week{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--sub);margin-bottom:5px;outline:none;cursor:text}
+.pb-label{font-size:13px;font-weight:700;color:var(--ink);line-height:1.35;outline:none;cursor:text}
+.pb-week:focus,.pb-label:focus{background:rgba(255,255,255,.7);box-shadow:inset 0 0 0 1.5px var(--ink)}
 .phase-box.live{background:var(--tf);border-color:var(--tf)}
 .phase-box.live .pb-week,.phase-box.live .pb-label{color:white}
+.phase-box.live .pb-week:focus,.phase-box.live .pb-label:focus{background:rgba(255,255,255,.15);box-shadow:inset 0 0 0 1.5px white}
+.phase-box.live .btn-move{border-color:rgba(255,255,255,.6);color:#fff}
+.phase-box.live .btn-move:hover{background:#fff;color:var(--tf-dark);border-color:#fff}
 
 /* FILTER BAR */
 .filter-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:28px}
@@ -118,6 +124,7 @@ td.col-ref{font-size:13px;color:var(--ink)}
 .sel-owner.o-maxim{background-color:#ECEAF9;color:#3555B8;border-color:#C5C0ED}
 .sel-owner.o-alex{background-color:#E8EEFA;color:#167A47;border-color:#B0BEEE}
 .sel-owner.o-chris{background-color:#E8F5F3;color:#1A7A6A;border-color:#A8D8D0}
+.sel-owner.o-everyone{background-color:#F2F0EB;color:var(--ink);border-color:#CFCBC0}
 .sel-status.s-todo{background-color:#F0EFF5;color:var(--ink)}
 .sel-status.s-in-progress{background-color:var(--tf-light);color:var(--tf)}
 .sel-status.s-done{background-color:var(--green-tint);color:var(--green)}
@@ -230,28 +237,7 @@ footer{padding:20px 48px;border-top:1px solid var(--rule);background:white;margi
   <!-- PHASES TIMELINE -->
   <div class="phases">
     <div class="phases-title">Timeline · Target Go-Live 14 Aug</div>
-    <div class="phases-row">
-      <div class="phase-box">
-        <div class="pb-week">Week · 20 Jul</div>
-        <div class="pb-label">Platform ready</div>
-      </div>
-      <div class="phase-box">
-        <div class="pb-week">Week · 27 Jul</div>
-        <div class="pb-label">Brands &amp; influencers selected</div>
-      </div>
-      <div class="phase-box">
-        <div class="pb-week">Week · 3 Aug</div>
-        <div class="pb-label">Agreements made</div>
-      </div>
-      <div class="phase-box">
-        <div class="pb-week">Week · 10 Aug</div>
-        <div class="pb-label">Brands set-up on platform</div>
-      </div>
-      <div class="phase-box live">
-        <div class="pb-week">14 Aug</div>
-        <div class="pb-label">★ Go Live</div>
-      </div>
-    </div>
+    <div class="phases-row" id="phases-row"></div>
   </div>
 
   <div class="filter-bar">
@@ -262,6 +248,7 @@ footer{padding:20px 48px;border-top:1px solid var(--rule);background:white;margi
       <option value="maxim">Maxim</option>
       <option value="alex">Alex</option>
       <option value="chris">Chris</option>
+      <option value="everyone">All</option>
     </select>
     <select class="view-select" id="filter-status">
       <option value="all">All statuses</option>
@@ -499,18 +486,27 @@ var ROOT = '/tf-tracker/v1';
 
 var fbData     = {};
 var fbSections = {};
+var fbPhases   = [];
 var writeTimers = {};
 var activeOwner = 'all', activeStatus = 'all';
+
+var DEFAULT_PHASES = [
+  {week:'Week · 20 Jul', label:'Platform ready', live:false},
+  {week:'Week · 27 Jul', label:'Brands & influencers selected', live:false},
+  {week:'Week · 3 Aug', label:'Agreements made', live:false},
+  {week:'Week · 10 Aug', label:'Brands set-up on platform', live:false},
+  {week:'14 Aug', label:'★ Go Live', live:true}
+];
 
 var ALL_SECTIONS = ['platform-setup','brand-creative','community','gamification','narrative','mvp','technology','product-design','operations','fundraising','social-media'];
 
 var DEFAULTS = {
   items: {
-    'ps-001':{section:'platform-setup',date:'17 Jul',task:'Landing page — design and publish launch / waitlist page',owner:'alena',priority:'high',status:'todo',due:'20 Jul',ref:'',notes:''},
-    'ps-002':{section:'platform-setup',date:'17 Jul',task:'Shopify integration — connect product feed, test checkout flow',owner:'alena',priority:'high',status:'todo',due:'20 Jul',ref:'TFmvpcosts.html',notes:''},
-    'ps-003':{section:'platform-setup',date:'17 Jul',task:'Circle integration — set up community space, configure access',owner:'alena',priority:'high',status:'todo',due:'20 Jul',ref:'',notes:''},
-    'ps-004':{section:'platform-setup',date:'17 Jul',task:'Payment integration — Stripe, test end-to-end checkout',owner:'alena',priority:'high',status:'todo',due:'20 Jul',ref:'TFmvpcosts.html',notes:''},
-    'ps-005':{section:'platform-setup',date:'17 Jul',task:'Existing app — audit current state, list bugs and MVP blockers before onboarding brands',owner:'alena',priority:'normal',status:'todo',due:'',ref:'TFmvpcosts.html',notes:'App built but never publicly launched'},
+    'ps-001':{section:'platform-setup',date:'17 Jul',task:'Landing page — design and publish launch / waitlist page',owner:'alex',priority:'high',status:'todo',due:'20 Jul',ref:'',notes:''},
+    'ps-002':{section:'platform-setup',date:'17 Jul',task:'Shopify integration — connect product feed, test checkout flow',owner:'alex',priority:'high',status:'todo',due:'20 Jul',ref:'',notes:''},
+    'ps-003':{section:'platform-setup',date:'17 Jul',task:'Circle integration — set up community space, configure access',owner:'alex',priority:'high',status:'todo',due:'20 Jul',ref:'',notes:''},
+    'ps-004':{section:'platform-setup',date:'17 Jul',task:'Payment integration — Stripe, test end-to-end checkout',owner:'alex',priority:'high',status:'todo',due:'20 Jul',ref:'',notes:''},
+    'ps-005':{section:'platform-setup',date:'17 Jul',task:'Platform testing',owner:'everyone',priority:'normal',status:'todo',due:'',ref:'',notes:'App built but never publicly launched'},
     'bc-001':{section:'brand-creative',date:'17 Jul',task:'Brand name confirmed — SMTHG / Something final decision',owner:'alena',priority:'high',status:'todo',due:'20 Jul',ref:'',notes:''},
     'bc-002':{section:'brand-creative',date:'17 Jul',task:'Instagram style guide — visual direction, tone, colour palette',owner:'chris',priority:'high',status:'todo',due:'27 Jul',ref:'',notes:''},
     'bc-003':{section:'brand-creative',date:'17 Jul',task:'Instagram account — create account, set up bio and profile image',owner:'chris',priority:'high',status:'todo',due:'27 Jul',ref:'',notes:''},
@@ -527,7 +523,7 @@ var DEFAULTS = {
     'o-002':{section:'gamification',date:'08 Jun',task:'Designer brand experience — define how TF enables selling in own brand DNA style (not generic marketplace presentation); quality styling + brand-matched models',owner:'alena',priority:'normal',status:'todo',due:'',ref:'',notes:'White background catalog option also possible; key is brand DNA preservation vs. generic marketplace feel'},
     'n-001':{section:'narrative',date:'07 Jun',task:'Write "Why Now" slide — unserved designer/creator segments, market size, timing argument',owner:'alena',priority:'normal',status:'todo',due:'',ref:'TFwhynow.html',notes:''},
     'n-002':{section:'narrative',date:'07 Jun',task:'Write VTO + drops/pre-orders section — how virtual try-on makes drops virally promotable for influencers',owner:'alena',priority:'normal',status:'todo',due:'',ref:'TFvisualdiscovery.html',notes:''},
-    'm-001':{section:'mvp',date:'08 Jun',task:'Review MVP Scope & Costs — define priorities and open questions',owner:'alena',priority:'normal',status:'todo',due:'',ref:'TFmvpcosts.html',notes:''},
+    'm-001':{section:'mvp',date:'08 Jun',task:'Review MVP Scope & Costs — define priorities and open questions',owner:'alena',priority:'normal',status:'todo',due:'',ref:'',notes:''},
     't-001':{section:'technology',date:'07 Jun',task:'Visual Discovery Engine — research pricing and options with AI',owner:'alena',priority:'normal',status:'done',due:'08 Jun',ref:'TFvisualdiscovery.html',notes:''},
     't-002':{section:'technology',date:'07 Jun',task:'Visual Discovery Engine — assess optimal solution for TF',owner:'alex',priority:'normal',status:'todo',due:'14 Jun',ref:'TFvisualdiscovery.html',notes:''},
     't-003':{section:'technology',date:'07 Jun',task:'Virtual Try-On — usage restriction approach',owner:'alena',priority:'normal',status:'deferred',due:'',ref:'',notes:'No restrictions at this stage — technology cost expected to drop'},
@@ -581,17 +577,25 @@ async function init(){
           });
         }
       });
-      if(changed) fput('',{items:fbData,sections:fbSections});
+      if(saved.phases && saved.phases.length){
+        fbPhases = saved.phases;
+      } else {
+        fbPhases = JSON.parse(JSON.stringify(DEFAULT_PHASES));
+        changed = true;
+      }
+      if(changed) fput('',{items:fbData,sections:fbSections,phases:fbPhases});
     } else {
       fbData     = JSON.parse(JSON.stringify(DEFAULTS.items));
       fbSections = JSON.parse(JSON.stringify(DEFAULTS.sections));
-      await fput('',{items:fbData,sections:fbSections});
+      fbPhases   = JSON.parse(JSON.stringify(DEFAULT_PHASES));
+      await fput('',{items:fbData,sections:fbSections,phases:fbPhases});
     }
     setSyncStatus('live');
   } catch(e){
     setSyncStatus('err');
     fbData     = JSON.parse(JSON.stringify(DEFAULTS.items));
     fbSections = JSON.parse(JSON.stringify(DEFAULTS.sections));
+    fbPhases   = JSON.parse(JSON.stringify(DEFAULT_PHASES));
   }
   renderAll();
   startSSE();
@@ -612,7 +616,13 @@ function handleSSE(p){
   if(parts.length===0){
     if(val && val.items)    fbData     = val.items;
     if(val && val.sections) fbSections = val.sections;
+    if(val && val.phases)   fbPhases   = val.phases;
     renderAll(); return;
+  }
+  if(parts[0]==='phases'){
+    if(parts.length===1){ fbPhases = val || []; renderPhases(); }
+    else if(parts.length>=3 && fbPhases[parts[1]]){ fbPhases[parts[1]][parts[2]]=val; renderPhases(); }
+    return;
   }
   if(parts[0]==='items'){
     if(parts.length===2){
@@ -653,8 +663,59 @@ function handlePatch(p){
 
 // ── Render ────────────────────────────────────────────────
 function renderAll(){
+  renderPhases();
   ALL_SECTIONS.forEach(renderSection);
   updateAllCounts(); updateEmpties(); applyFilter();
+}
+
+// ── Phases timeline ──────────────────────────────────────
+function renderPhases(){
+  var row=document.getElementById('phases-row'); if(!row) return;
+  row.innerHTML='';
+  fbPhases.forEach(function(ph,idx){
+    var box=document.createElement('div');
+    box.className='phase-box'+(ph.live?' live':'');
+
+    var ctrl=document.createElement('div'); ctrl.className='phase-move';
+    var btnL=document.createElement('button'); btnL.className='btn-move'; btnL.title='Move left'; btnL.textContent='‹';
+    btnL.addEventListener('click',function(){ movePhase(idx,-1); });
+    var btnR=document.createElement('button'); btnR.className='btn-move'; btnR.title='Move right'; btnR.textContent='›';
+    btnR.addEventListener('click',function(){ movePhase(idx,1); });
+    ctrl.appendChild(btnL); ctrl.appendChild(btnR);
+    box.appendChild(ctrl);
+
+    var week=document.createElement('div'); week.className='pb-week'; week.contentEditable='true';
+    week.textContent=ph.week||'';
+    week.addEventListener('blur',function(){ savePhaseField(idx,'week',this.textContent.trim()); });
+    week.addEventListener('keydown',function(e){ if(e.key==='Enter'){e.preventDefault();this.blur();} });
+    box.appendChild(week);
+
+    var label=document.createElement('div'); label.className='pb-label'; label.contentEditable='true';
+    label.textContent=ph.label||'';
+    label.addEventListener('blur',function(){ savePhaseField(idx,'label',this.textContent.trim()); });
+    label.addEventListener('keydown',function(e){ if(e.key==='Enter'){e.preventDefault();this.blur();} });
+    box.appendChild(label);
+
+    row.appendChild(box);
+  });
+}
+
+function savePhaseField(idx,field,value){
+  if(!fbPhases[idx]) return;
+  fbPhases[idx][field]=value;
+  clearTimeout(writeTimers['phase_'+idx+'_'+field]);
+  writeTimers['phase_'+idx+'_'+field]=setTimeout(function(){
+    flashSaving();
+    fput('/phases/'+idx+'/'+field,value);
+  },500);
+}
+
+function movePhase(idx,dir){
+  var ni=idx+dir;
+  if(ni<0||ni>=fbPhases.length) return;
+  var tmp=fbPhases[idx]; fbPhases[idx]=fbPhases[ni]; fbPhases[ni]=tmp;
+  fput('/phases',fbPhases);
+  renderPhases();
 }
 
 function renderSection(sec){
@@ -714,7 +775,7 @@ function buildRow(id){
 
   var tdOwner=document.createElement('td');
   var selOwner=mkSel('owner',item.owner||'alena',[
-    {v:'alena',l:'Alena'},{v:'maxim',l:'Maxim'},{v:'alex',l:'Alex'},{v:'chris',l:'Chris'}
+    {v:'alena',l:'Alena'},{v:'maxim',l:'Maxim'},{v:'alex',l:'Alex'},{v:'chris',l:'Chris'},{v:'everyone',l:'All'}
   ]);
   selOwner.addEventListener('change',function(){ tr.dataset.owner=this.value; saveField(id,'owner',this.value); stylesel(this); applyFilter(); updateAllCounts(); updateEmpties(); });
   tdOwner.appendChild(selOwner); tr.appendChild(tdOwner);
