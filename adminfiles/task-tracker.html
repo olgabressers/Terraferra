@@ -57,18 +57,19 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .phases{background:white;border:1px solid var(--rule);padding:16px 20px;margin-bottom:24px;overflow-x:auto}
 .phases-title{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);margin-bottom:12px}
 
-/* Timeline date ruler — independent of the milestone boxes below */
-.timeline-row{display:flex;align-items:stretch;gap:6px;min-width:560px;margin-bottom:16px}
-.timeline-item{flex:1;display:flex;align-items:center;gap:4px;border:1px solid var(--rule);background:#F2F0EB;padding:6px 6px}
+/* Timeline date ruler — independent of the milestone boxes below.
+   Column count is set inline (grid-template-columns) to match fbTimeline.length,
+   so every box in every lane below is exactly 1 column = 1 week wide. */
+.timeline-row{display:grid;gap:6px;min-width:560px;margin-bottom:16px}
+.timeline-item{min-width:0;display:flex;align-items:center;gap:4px;border:1px solid var(--rule);background:#F2F0EB;padding:6px 6px}
 .timeline-item .btn-move{padding:1px 5px;font-size:11px;flex-shrink:0}
-.tl-text{flex:1;font-size:11px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--sub);outline:none;cursor:text;text-align:center}
+.tl-text{flex:1;min-width:0;font-size:11px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--sub);outline:none;cursor:text;text-align:center}
 .tl-text:focus{background:rgba(255,255,255,.8);box-shadow:inset 0 0 0 1.5px var(--ink)}
 
-/* Milestone box lanes */
-.phases-row{display:flex;align-items:stretch;min-width:560px}
+/* Milestone box lanes — same grid column count as the timeline above */
+.phases-row{display:grid;gap:6px;min-width:560px}
 .phases-row+.phases-row{margin-top:14px}
-.phase-box{flex:1;border:1px solid var(--rule);padding:11px 14px;background:#FAFAF8}
-.phase-box+.phase-box{border-left:none}
+.phase-box{min-width:0;border:1px solid var(--rule);padding:11px 14px;background:#FAFAF8}
 .phase-move{display:flex;justify-content:flex-end;gap:4px;margin-bottom:6px}
 .phase-move .btn-move{padding:1px 6px;font-size:12px}
 .pb-label{font-size:13px;font-weight:700;color:var(--ink);line-height:1.35;outline:none;cursor:text}
@@ -98,17 +99,17 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 
 /* TABLE */
 .table-scroll{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
-table{width:100%;border-collapse:collapse;font-size:15px;min-width:1080px;background:var(--card);border:1px solid var(--rule);border-top:none}
+table{width:100%;table-layout:fixed;border-collapse:collapse;font-size:15px;min-width:1080px;background:var(--card);border:1px solid var(--rule);border-top:none}
 thead tr{background:var(--ink)}
 thead th{color:white;font-size:12px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;padding:10px 12px;text-align:left;white-space:nowrap}
 th.col-date{width:68px}
-th.col-task{min-width:200px}
+th.col-task{width:280px}
 th.col-owner{width:96px}
 th.col-pri{width:86px}
 th.col-status{width:118px}
 th.col-due{width:78px}
-th.col-ref{min-width:120px}
-th.col-notes{min-width:140px}
+th.col-ref{width:140px}
+th.col-notes{width:152px}
 th.col-move{width:34px;padding:6px 4px;text-align:center}
 th.col-del{width:28px;padding:6px 4px;text-align:center}
 tbody tr{border-bottom:1px solid var(--rule);transition:background .1s}
@@ -350,100 +351,10 @@ footer{padding:20px 48px;border-top:1px solid var(--rule);background:white;margi
   </section>
 
   <!-- 05 SMTHG CONCEPT -->
-  <section class="ws-section" id="s-concept">
-    <div class="ws-head">
-      <h2>05 · SMTHG Concept</h2>
-      <span class="ws-count" id="count-concept"></span>
-    </div>
-    <div class="sub-section">
-      <div class="sub-head">Product &amp; Gamification</div>
-      <div class="table-scroll"><table>
-        <thead><tr>
-          <th class="col-date">Date</th><th class="col-task">Task / Idea</th>
-          <th class="col-owner">Owner</th><th class="col-pri">Priority</th>
-          <th class="col-status">Status</th><th class="col-due">Due</th>
-          <th class="col-ref">Reference</th><th class="col-notes">Notes</th>
-          <th class="col-move"></th><th class="col-del"></th>
-        </tr></thead>
-        <tbody id="ws-gamification"></tbody>
-      </table></div>
-      <div class="ws-empty" id="empty-gamification">No tasks visible with current filter.</div>
-      <button class="btn-add-row" onclick="addRow('gamification')">+ Add Task</button>
-    </div>
-    <div class="sub-section">
-      <div class="sub-head">Why Now &amp; Competition</div>
-      <div class="table-scroll"><table>
-        <thead><tr>
-          <th class="col-date">Date</th><th class="col-task">Task / Idea</th>
-          <th class="col-owner">Owner</th><th class="col-pri">Priority</th>
-          <th class="col-status">Status</th><th class="col-due">Due</th>
-          <th class="col-ref">Reference</th><th class="col-notes">Notes</th>
-          <th class="col-move"></th><th class="col-del"></th>
-        </tr></thead>
-        <tbody id="ws-narrative"></tbody>
-      </table></div>
-      <div class="ws-empty" id="empty-narrative">No tasks visible with current filter.</div>
-      <button class="btn-add-row" onclick="addRow('narrative')">+ Add Task</button>
-    </div>
-    <div class="sub-section">
-      <div class="sub-head">MVP</div>
-      <div class="table-scroll"><table>
-        <thead><tr>
-          <th class="col-date">Date</th><th class="col-task">Task / Idea</th>
-          <th class="col-owner">Owner</th><th class="col-pri">Priority</th>
-          <th class="col-status">Status</th><th class="col-due">Due</th>
-          <th class="col-ref">Reference</th><th class="col-notes">Notes</th>
-          <th class="col-move"></th><th class="col-del"></th>
-        </tr></thead>
-        <tbody id="ws-mvp"></tbody>
-      </table></div>
-      <div class="ws-empty" id="empty-mvp">No tasks visible with current filter.</div>
-      <button class="btn-add-row" onclick="addRow('mvp')">+ Add Task</button>
-    </div>
-  </section>
-
-  <!-- 06 TECHNOLOGY & PRODUCT DESIGN -->
-  <section class="ws-section" id="s-tech">
-    <div class="ws-head">
-      <h2>06 · Technology &amp; Product Design</h2>
-      <span class="ws-count" id="count-tech-design"></span>
-    </div>
-    <div class="sub-section">
-      <div class="sub-head">Technology</div>
-      <div class="table-scroll"><table>
-        <thead><tr>
-          <th class="col-date">Date</th><th class="col-task">Task / Idea</th>
-          <th class="col-owner">Owner</th><th class="col-pri">Priority</th>
-          <th class="col-status">Status</th><th class="col-due">Due</th>
-          <th class="col-ref">Reference</th><th class="col-notes">Notes</th>
-          <th class="col-move"></th><th class="col-del"></th>
-        </tr></thead>
-        <tbody id="ws-technology"></tbody>
-      </table></div>
-      <div class="ws-empty" id="empty-technology">No tasks visible with current filter.</div>
-      <button class="btn-add-row" onclick="addRow('technology')">+ Add Task</button>
-    </div>
-    <div class="sub-section">
-      <div class="sub-head">Product Design</div>
-      <div class="table-scroll"><table>
-        <thead><tr>
-          <th class="col-date">Date</th><th class="col-task">Task / Idea</th>
-          <th class="col-owner">Owner</th><th class="col-pri">Priority</th>
-          <th class="col-status">Status</th><th class="col-due">Due</th>
-          <th class="col-ref">Reference</th><th class="col-notes">Notes</th>
-          <th class="col-move"></th><th class="col-del"></th>
-        </tr></thead>
-        <tbody id="ws-product-design"></tbody>
-      </table></div>
-      <div class="ws-empty" id="empty-product-design">No tasks visible with current filter.</div>
-      <button class="btn-add-row" onclick="addRow('product-design')">+ Add Task</button>
-    </div>
-  </section>
-
-  <!-- 07 OPERATIONS -->
+  <!-- 05 OPERATIONS -->
   <section class="ws-section" id="s-operations">
     <div class="ws-head">
-      <h2>07 · Operations</h2>
+      <h2>05 · Operations</h2>
       <span class="ws-count" id="count-operations"></span>
     </div>
     <div class="table-scroll"><table>
@@ -460,10 +371,10 @@ footer{padding:20px 48px;border-top:1px solid var(--rule);background:white;margi
     <button class="btn-add-row" onclick="addRow('operations')">+ Add Task</button>
   </section>
 
-  <!-- 08 FUNDRAISING & CAPITAL -->
+  <!-- 06 FUNDRAISING & CAPITAL -->
   <section class="ws-section" id="s-fundraising">
     <div class="ws-head">
-      <h2>08 · Fundraising &amp; Capital</h2>
+      <h2>06 · Fundraising &amp; Capital</h2>
       <span class="ws-count" id="count-fundraising"></span>
     </div>
     <div class="table-scroll"><table>
@@ -503,20 +414,29 @@ var activeOwner = 'all', activeStatus = 'all';
 
 var DEFAULT_TIMELINE = ['Week · 20 Jul','Week · 27 Jul','Week · 3 Aug','Week · 10 Aug','14 Aug','Week · 21 Aug','Week · 28 Aug'];
 
+/* Each set has exactly one box per timeline column (7), so every box is 1 week wide. */
 var DEFAULT_PHASE_SETS = [
   [
     {label:'Platform ready', live:false},
     {label:'Brands & influencers selected', live:false},
     {label:'Agreements made', live:false},
     {label:'Brands set-up on platform', live:false},
-    {label:'★ Go Live', live:true}
+    {label:'★ Go Live', live:true},
+    {label:'', live:false},
+    {label:'', live:false}
   ],
   [
-    {label:'Social media set', live:false}
+    {label:'Social media set', live:false},
+    {label:'', live:false},
+    {label:'', live:false},
+    {label:'', live:false},
+    {label:'', live:false},
+    {label:'', live:false},
+    {label:'', live:false}
   ]
 ];
 
-var ALL_SECTIONS = ['platform-setup','brand-creative','community','gamification','narrative','mvp','technology','product-design','operations','fundraising','social-media'];
+var ALL_SECTIONS = ['platform-setup','brand-creative','community','operations','fundraising','social-media'];
 
 var DEFAULTS = {
   items: {
@@ -525,6 +445,7 @@ var DEFAULTS = {
     'ps-003':{section:'platform-setup',date:'20 Jul',task:'Circle integration — set up community space, configure access',owner:'alex',priority:'high',status:'todo',due:'22 Jul',ref:'',notes:''},
     'ps-004':{section:'platform-setup',date:'20 Jul',task:'Payment integration — Stripe, test end-to-end checkout',owner:'alex',priority:'high',status:'todo',due:'22 Jul',ref:'',notes:''},
     'ps-005':{section:'platform-setup',date:'20 Jul',task:'Platform testing',owner:'everyone',priority:'normal',status:'todo',due:'24 Jul',ref:'',notes:''},
+    'ps-006':{section:'platform-setup',date:'20 Jul',task:'VTO integration',owner:'alena',priority:'high',status:'todo',due:'22 Jul',ref:'',notes:''},
     'bc-003':{section:'brand-creative',date:'17 Jul',task:'Instagram account — create account, set up bio and profile image',owner:'chris',priority:'high',status:'todo',due:'27 Jul',ref:'',notes:''},
     'dz-001':{section:'brand-creative',date:'20 Jul',task:'Long list of designers defined',owner:'chris',priority:'normal',status:'todo',due:'',ref:'',notes:''},
     'dz-002':{section:'brand-creative',date:'20 Jul',task:'Short list of designers defined',owner:'chris',priority:'normal',status:'todo',due:'',ref:'',notes:'& Alena'},
@@ -534,20 +455,6 @@ var DEFAULTS = {
     'cm-002':{section:'community',date:'17 Jul',task:'Founding community members — identify and invite first cohort',owner:'alena',priority:'normal',status:'todo',due:'3 Aug',ref:'',notes:''},
     'f-002':{section:'fundraising',date:'08 Jun',task:'Prepare investor list — contacts to approach for the round',owner:'maxim',priority:'normal',status:'todo',due:'13 Jun',ref:'',notes:'Large angel communities + funds available — include as priority contacts in list'},
     'f-001':{section:'fundraising',date:'07 Jun',task:'Update Investor Deck',owner:'alena',priority:'normal',status:'todo',due:'21 Jun',ref:'',notes:''},
-    'g-001':{section:'gamification',date:'07 Jun',task:'Referral Engine — collect examples, success cases, viral sharing mechanics beyond referral fees',owner:'alena',priority:'normal',status:'todo',due:'',ref:'TFreferral.html',notes:'Status and social rewards may have more value than cash referral fees in this segment'},
-    'g-005':{section:'gamification',date:'08 Jun',task:'Referral mechanic — review existing app logic (designer-led perks); assess what works; define standard perk set recommendation',owner:'alena',priority:'normal',status:'todo',due:'',ref:'TFreferral.html',notes:'Each designer gives own perks in existing app — need to recommend a standard set; confirm whether existing referral logic requires changes'},
-    'g-002':{section:'gamification',date:'07 Jun',task:'Tiered loyalty — research how influencer tiers work on other platforms; what tiers mean for TF influencers',owner:'alena',priority:'normal',status:'done',due:'08 Jun',ref:'TFreferral.html',notes:'Answered in Referral & Viral Mechanics — Section 05'},
-    'g-003':{section:'gamification',date:'07 Jun',task:'Styling Contests — research reward types that work at small assortment stage',owner:'alena',priority:'normal',status:'todo',due:'',ref:'gamification.html',notes:'Points / voter discounts may not attract this audience at launch assortment size'},
-    'g-004':{section:'gamification',date:'07 Jun',task:'Gamification — rethink co-design mechanic; social style discovery is the core loop, not explicit game mechanics',owner:'alena',priority:'normal',status:'todo',due:'',ref:'gamification.html',notes:'Co-design presentation looks unworkable; users want entertainment, not purchasing'},
-    'o-002':{section:'gamification',date:'08 Jun',task:'Designer brand experience — define how TF enables selling in own brand DNA style (not generic marketplace presentation); quality styling + brand-matched models',owner:'alena',priority:'normal',status:'todo',due:'',ref:'',notes:'White background catalog option also possible; key is brand DNA preservation vs. generic marketplace feel'},
-    'n-001':{section:'narrative',date:'07 Jun',task:'Write "Why Now" slide — unserved designer/creator segments, market size, timing argument',owner:'alena',priority:'normal',status:'todo',due:'',ref:'TFwhynow.html',notes:''},
-    'n-002':{section:'narrative',date:'07 Jun',task:'Write VTO + drops/pre-orders section — how virtual try-on makes drops virally promotable for influencers',owner:'alena',priority:'normal',status:'todo',due:'',ref:'TFvisualdiscovery.html',notes:''},
-    'm-001':{section:'mvp',date:'08 Jun',task:'Review MVP Scope & Costs — define priorities and open questions',owner:'alena',priority:'normal',status:'todo',due:'',ref:'',notes:''},
-    't-001':{section:'technology',date:'07 Jun',task:'Visual Discovery Engine — research pricing and options with AI',owner:'alena',priority:'normal',status:'done',due:'08 Jun',ref:'TFvisualdiscovery.html',notes:''},
-    't-002':{section:'technology',date:'07 Jun',task:'Visual Discovery Engine — assess optimal solution for TF',owner:'alex',priority:'normal',status:'todo',due:'14 Jun',ref:'TFvisualdiscovery.html',notes:''},
-    't-003':{section:'technology',date:'07 Jun',task:'Virtual Try-On — usage restriction approach',owner:'alena',priority:'normal',status:'deferred',due:'',ref:'',notes:'No restrictions at this stage — technology cost expected to drop'},
-    'o-001':{section:'technology',date:'08 Jun',task:'Visual Discovery — share platform matching quality research results',owner:'maxim',priority:'normal',status:'todo',due:'15 Jun',ref:'TFvisualdiscovery.html',notes:'Studying matching quality across platforms; results expected within the week'},
-    'pd-001':{section:'product-design',date:'08 Jun',task:'Define content standards for designers to upload products — image formats, styling requirements, brand DNA alignment criteria',owner:'alena',priority:'normal',status:'todo',due:'',ref:'',notes:'Designers need brand identity preservation — not generic marketplace presentation. White background catalog option possible with quality styling and brand-matched model selection.'},
     'o-003':{section:'operations',date:'08 Jun',task:"Influencer accountability — small influencers don't follow through when brands/agencies reach out; think through how TF's model addresses this (consistent workload volume + no product shipment until content is published)",owner:'alena',priority:'normal',status:'todo',due:'',ref:'',notes:''},
     'o-004':{section:'operations',date:'08 Jun',task:'Returns logistics — assess reverse logistics complexity; returns add an extra operational link in the supply chain; think through how TF minimises or removes it',owner:'alena',priority:'normal',status:'todo',due:'',ref:'',notes:''},
     'o-005':{section:'operations',date:'08 Jun',task:'Publication timing — posts staggered over time instead of concentrated at the drop moment; think through how TF structures this to maintain momentum',owner:'alena',priority:'normal',status:'todo',due:'',ref:'',notes:''},
@@ -556,15 +463,10 @@ var DEFAULTS = {
     'sm-003':{section:'social-media',date:'20 Jul',task:'Content posting',owner:'alena',priority:'normal',status:'todo',due:'',ref:'',notes:''}
   },
   sections:{
-    'platform-setup': {order:['ps-001','ps-002','ps-003','ps-004','ps-005']},
+    'platform-setup': {order:['ps-001','ps-002','ps-003','ps-004','ps-005','ps-006']},
     'brand-creative':  {order:['bc-003','dz-001','dz-002','dz-003','dz-004']},
     'community':       {order:['cm-001','cm-002']},
     fundraising:       {order:['f-002','f-001']},
-    gamification:      {order:['g-001','g-005','g-002','g-003','g-004','o-002']},
-    narrative:         {order:['n-001','n-002']},
-    mvp:               {order:['m-001']},
-    technology:        {order:['t-001','t-002','t-003','o-001']},
-    'product-design':  {order:['pd-001']},
     operations:        {order:['o-003','o-004','o-005']},
     'social-media':    {order:['sm-001','sm-002','sm-003']}
   }
@@ -707,6 +609,7 @@ function renderAll(){
 function renderTimeline(){
   var row=document.getElementById('timeline-row'); if(!row) return;
   row.innerHTML='';
+  row.style.gridTemplateColumns='repeat('+Math.max(fbTimeline.length,1)+',1fr)';
   fbTimeline.forEach(function(txt,idx){
     var item=document.createElement('div'); item.className='timeline-item';
 
@@ -752,6 +655,7 @@ function renderPhaseSets(){
   wrap.innerHTML='';
   fbPhaseSets.forEach(function(set,si){
     var rowEl=document.createElement('div'); rowEl.className='phases-row';
+    rowEl.style.gridTemplateColumns='repeat('+Math.max(fbTimeline.length,1)+',1fr)';
     (set||[]).forEach(function(box,bi){
       var el=document.createElement('div'); el.className='phase-box'+(box.live?' live':'');
 
@@ -1063,12 +967,6 @@ function updateAllCounts(){
   renderCount(document.getElementById('count-brand'),cb.all,cb.open);
   var cc=countSec('community');
   renderCount(document.getElementById('count-community'),cc.all,cc.open);
-  var t4={all:0,open:0};
-  ['gamification','narrative','mvp'].forEach(function(s){ var c=countSec(s); t4.all+=c.all; t4.open+=c.open; });
-  renderCount(document.getElementById('count-concept'),t4.all,t4.open);
-  var t5={all:0,open:0};
-  ['technology','product-design'].forEach(function(s){ var c=countSec(s); t5.all+=c.all; t5.open+=c.open; });
-  renderCount(document.getElementById('count-tech-design'),t5.all,t5.open);
   var co=countSec('operations');
   renderCount(document.getElementById('count-operations'),co.all,co.open);
   var cf=countSec('fundraising');
