@@ -147,6 +147,8 @@ tr:hover .del-btn{opacity:1}
 .filter-btn{padding:4px 12px;border:1.5px solid var(--rule);background:white;color:var(--sub);font-family:'Inter',sans-serif;font-size:11px;font-weight:700;cursor:pointer;transition:all .12s;border-radius:3px}
 .filter-btn:hover{border-color:var(--tf);color:var(--tf)}
 .filter-btn.active{background:var(--tf);border-color:var(--tf);color:white}
+.filter-btn.eu-group{border-color:var(--tf);color:var(--tf)}
+.filter-btn.eu-group.active{background:var(--tf);color:white}
 
 /* Add button */
 .add-btn{
@@ -247,7 +249,6 @@ tr:hover .del-btn{opacity:1}
           <th style="min-width:100px">Country origin</th>
           <th style="min-width:120px">Sells to</th>
           <th style="min-width:190px">Why relevant for SMTHG</th>
-          <th style="min-width:140px">Comments</th>
           <th class="th-votes">Votes</th>
           <th class="th-del"></th>
         </tr>
@@ -287,7 +288,6 @@ var FIELDS = [
   {key:'origin',      ph:'UK, US…',              w:'100px'},
   {key:'sellsTo',     ph:'Global, US, EU…',      w:'120px'},
   {key:'whyRelevant', ph:'Reason for SMTHG…',    w:'190px'},
-  {key:'comments',    ph:'Notes…',               w:'140px'},
 ];
 
 // ── Firebase helpers ──────────────────────────────────────────────────────────
@@ -490,15 +490,22 @@ function setFilter(country){
   applyFilter();
 }
 
+var EU_COUNTRIES = ['Austria','Belgium','Bulgaria','Croatia','Cyprus','Czechia','Denmark','Estonia','Finland','France','Germany','Greece','Hungary','Ireland','Italy','Latvia','Lithuania','Luxembourg','Malta','Netherlands','Poland','Portugal','Romania','Slovakia','Slovenia','Spain','Sweden'];
+var NON_EU_ORDER = ['US','Canada','Russia'];
+
 function applyFilter(){
   document.querySelectorAll('#brands-tbody tr').forEach(function(tr){
     var id = tr.id.replace('brow-','');
     var item = fbData[id];
+    var show;
     if(!filterCountry || !item){
-      tr.style.display = '';
+      show = true;
+    } else if(filterCountry === 'EU'){
+      show = EU_COUNTRIES.indexOf((item.origin||'').trim()) >= 0;
     } else {
-      tr.style.display = (item.origin||'').trim() === filterCountry.trim() ? '' : 'none';
+      show = (item.origin||'').trim() === filterCountry.trim();
     }
+    tr.style.display = show ? '' : 'none';
   });
   renumberRows();
 }
@@ -512,14 +519,33 @@ function renderFilter(){
     if(o) origins[o] = true;
   });
   bar.querySelectorAll('[data-country]:not([data-country=""])').forEach(function(b){ b.remove(); });
-  Object.keys(origins).sort().forEach(function(o){
-    var btn = document.createElement('button');
-    btn.className = 'filter-btn'+(filterCountry===o?' active':'');
-    btn.dataset.country = o;
-    btn.textContent = o;
-    (function(c){ btn.onclick = function(){ setFilter(c); }; })(o);
-    bar.appendChild(btn);
+
+  var allOrigins = Object.keys(origins);
+  var euInData  = allOrigins.filter(function(o){ return EU_COUNTRIES.indexOf(o) >= 0; }).sort();
+  var nonEuInData = allOrigins.filter(function(o){ return EU_COUNTRIES.indexOf(o) < 0; });
+  // Sort non-EU: preferred order first, then alphabetical for others
+  nonEuInData.sort(function(a, b){
+    var ai = NON_EU_ORDER.indexOf(a), bi = NON_EU_ORDER.indexOf(b);
+    if(ai >= 0 && bi >= 0) return ai - bi;
+    if(ai >= 0) return -1;
+    if(bi >= 0) return 1;
+    return a.localeCompare(b);
   });
+
+  function addBtn(country, extraClass){
+    var btn = document.createElement('button');
+    btn.className = 'filter-btn'+(extraClass?' '+extraClass:'')+(filterCountry===country?' active':'');
+    btn.dataset.country = country;
+    btn.textContent = country;
+    (function(c){ btn.onclick = function(){ setFilter(c); }; })(country);
+    bar.appendChild(btn);
+  }
+
+  if(euInData.length > 0){
+    addBtn('EU', 'eu-group');
+    euInData.forEach(function(o){ addBtn(o); });
+  }
+  nonEuInData.forEach(function(o){ addBtn(o); });
 }
 
 function renderAll(fid){
