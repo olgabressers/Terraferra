@@ -557,7 +557,15 @@ function setFilter(country){
 }
 
 var EU_COUNTRIES = ['Austria','Belgium','Bulgaria','Croatia','Cyprus','Czechia','Denmark','Estonia','Finland','France','Germany','Greece','Hungary','Ireland','Italy','Latvia','Lithuania','Luxembourg','Malta','Netherlands','Poland','Portugal','Romania','Slovakia','Slovenia','Spain','Sweden'];
-var NON_EU_ORDER = ['US','Canada','Russia'];
+var NON_EU_ORDER = ['Russia']; // US and Canada are pinned before EU in renderFilter
+
+function originRank(o){
+  if(o==='US') return 1;
+  if(o==='Canada') return 2;
+  if(EU_COUNTRIES.indexOf(o)>=0) return 3;
+  if(o) return 4;
+  return 99;
+}
 
 function applyFilter(){
   document.querySelectorAll('#brands-tbody tr').forEach(function(tr){
@@ -587,14 +595,13 @@ function renderFilter(){
   bar.querySelectorAll('[data-country]:not([data-country=""])').forEach(function(b){ b.remove(); });
 
   var allOrigins = Object.keys(origins);
-  var euInData  = allOrigins.filter(function(o){ return EU_COUNTRIES.indexOf(o) >= 0; }).sort();
-  var nonEuInData = allOrigins.filter(function(o){ return EU_COUNTRIES.indexOf(o) < 0; });
-  // Sort non-EU: preferred order first, then alphabetical for others
-  nonEuInData.sort(function(a, b){
+  var euInData   = allOrigins.filter(function(o){ return EU_COUNTRIES.indexOf(o) >= 0; }).sort();
+  var otherInData = allOrigins.filter(function(o){ return EU_COUNTRIES.indexOf(o) < 0 && o !== 'US' && o !== 'Canada'; });
+  otherInData.sort(function(a,b){
     var ai = NON_EU_ORDER.indexOf(a), bi = NON_EU_ORDER.indexOf(b);
-    if(ai >= 0 && bi >= 0) return ai - bi;
-    if(ai >= 0) return -1;
-    if(bi >= 0) return 1;
+    if(ai>=0 && bi>=0) return ai-bi;
+    if(ai>=0) return -1;
+    if(bi>=0) return 1;
     return a.localeCompare(b);
   });
 
@@ -610,22 +617,33 @@ function renderFilter(){
     bar.appendChild(btn);
   }
 
+  // Order: US → Canada → EU group + EU countries alphabetically → others (Russia first, then alpha)
+  if(origins['US'])     addBtn('US');
+  if(origins['Canada']) addBtn('Canada');
   if(euInData.length > 0){
     addBtn('EU', 'eu-group');
     euInData.forEach(function(o){ addBtn(o); });
   }
-  nonEuInData.forEach(function(o){ addBtn(o); });
+  otherInData.forEach(function(o){ addBtn(o); });
 }
 
 function renderAll(fid){
   var tbody = document.getElementById('brands-tbody');
   if(!tbody) return;
   tbody.innerHTML = '';
-  // Examples always first, then rest in fbOrder
+  // Sort: examples first, then by country rank (US→Canada→EU alpha→others), then brand name
   var sorted = fbOrder.slice().sort(function(a,b){
     var ae = fbData[a] && fbData[a].isExample ? 1 : 0;
     var be = fbData[b] && fbData[b].isExample ? 1 : 0;
-    return be - ae;
+    if(ae !== be) return be - ae;
+    var oa = ((fbData[a]&&fbData[a].origin)||'').trim();
+    var ob = ((fbData[b]&&fbData[b].origin)||'').trim();
+    var ra = originRank(oa), rb = originRank(ob);
+    if(ra !== rb) return ra - rb;
+    if(oa !== ob) return oa.localeCompare(ob); // within EU: alphabetical by country
+    var na = ((fbData[a]&&fbData[a].name)||'').toLowerCase();
+    var nb = ((fbData[b]&&fbData[b].name)||'').toLowerCase();
+    return na.localeCompare(nb);
   });
   sorted.forEach(function(id, i){
     if(fbData[id] !== undefined) tbody.appendChild(buildRow(id, i+1));
