@@ -169,28 +169,38 @@ tr:hover .del-btn{opacity:1}
 .vote-dashboard{background:white;border:1px solid var(--rule);border-top:3px solid var(--tf);padding:16px 20px;margin-bottom:16px}
 .vote-dashboard-hd{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);margin-bottom:10px;display:flex;align-items:center;gap:8px}
 .vote-dashboard-hd-sub{font-size:11px;font-weight:400;letter-spacing:0;text-transform:none;color:#C0BCBA;font-style:italic}
-.dash-empty{font-size:12px;color:var(--sub);font-style:italic;padding:4px 0}
-.dash-grid{display:flex;flex-direction:column;gap:3px}
-.dash-row{display:flex;align-items:center;gap:10px;padding:5px 10px;border-radius:3px;border:1px solid transparent}
+.dash-empty{font-size:13px;color:var(--sub);font-style:italic;padding:4px 0}
+.dash-grid{display:flex;flex-direction:column;gap:2px}
+.dash-cols{display:grid;grid-template-columns:28px 160px 145px 140px 70px 100px 50px 1fr;gap:0 10px;align-items:center}
+.dash-header{padding:4px 10px 7px;border-bottom:1px solid var(--rule);margin-bottom:4px}
+.dash-header-cell{font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub)}
+.dash-header-cell.right{text-align:right}
+.dash-row{padding:7px 10px;border-radius:3px;border:1px solid transparent}
 .dash-top6{background:var(--tf-ghost);border-color:var(--rule)}
-.dash-rank{font-size:11px;font-weight:800;color:#C0BCBA;min-width:22px;text-align:right;flex-shrink:0}
+.dash-rank{font-size:13px;font-weight:800;color:#C0BCBA;text-align:right}
 .dash-rank-top{color:var(--tf)}
-.dash-name{font-size:13px;font-weight:700;color:var(--ink);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.dash-origin{font-size:11px;color:var(--sub);min-width:70px;flex-shrink:0}
-.dash-voters{display:flex;gap:3px;flex-shrink:0}
-.dash-dot{width:20px;height:20px;border-radius:50%;font-size:9px;font-weight:800;color:white;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.dash-name{font-size:15px;font-weight:700;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dash-web{font-size:13px;color:var(--tf);text-decoration:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block}
+.dash-web:hover{text-decoration:underline}
+.dash-ig{font-size:12px;color:var(--sub);text-decoration:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block;margin-top:1px}
+.dash-ig:hover{text-decoration:underline}
+.dash-link-empty{font-size:12px;color:#D0CCC5}
+.dash-origin{font-size:13px;color:var(--sub);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dash-voters{display:flex;gap:3px;align-items:center}
+.dash-dot{width:22px;height:22px;border-radius:50%;font-size:9px;font-weight:800;color:white;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
 .dash-dot-va{background:var(--va)}
 .dash-dot-vc{background:var(--vc)}
 .dash-dot-vm{background:var(--vm)}
 .dash-dot-vx{background:var(--vx)}
 .dash-dot-empty{background:transparent;border:1.5px solid var(--rule)}
-.dash-links{display:flex;flex-direction:column;gap:2px;min-width:130px;flex-shrink:0}
-.dash-link{font-size:11px;color:var(--tf);text-decoration:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.dash-link:hover{text-decoration:underline}
-.dash-link-ig{color:var(--sub)}
-.dash-link-empty{font-size:11px;color:#D0CCC5}
-.dash-count{font-size:11px;font-weight:700;color:var(--sub);min-width:44px;text-align:right;flex-shrink:0}
-@media(max-width:700px){.dash-origin{display:none}.dash-links{display:none}.dash-row{padding:4px 6px}}
+.dash-count{font-size:13px;font-weight:700;color:var(--sub);text-align:right}
+.dash-ai-pick{font-size:12px;font-weight:700;color:#167A47}
+.dash-ai-reason{font-size:11px;color:var(--sub);margin-top:2px;line-height:1.35}
+@media(max-width:700px){
+  .dash-cols{grid-template-columns:24px 1fr 22px 22px}
+  .dash-web,.dash-ig,.dash-origin,.dash-count,.dash-ai-pick,.dash-ai-reason{display:none}
+  .dash-header{display:none}
+}
 </style>
 </head>
 <body>
@@ -871,6 +881,15 @@ function escHtml(s){
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
+var AI_PICKS = {
+  'Haculla':     'US-based, no customs. NYC street art × fashion, built for drops and influencer launches.',
+  'Hellstar':    'US-based, no customs. Drop model already proven — huge streetwear community, easy onboarding.',
+  'R13':         'US-based, no customs. Premium denim $300–700, ideal SMTHG price point, established DTC.',
+  'Charles Lu':  'Canada (USMCA = zero tariff). Already ships to US. Unique concept, DTC-native.',
+  'GCDS':        'Italy, ships to 190+ countries incl. US. Highest EU revenue ($25M), logistics proven.',
+  'DARKPARK':    'Italy, explicitly ships to US. Luxury-adjacent price point, right positioning for SMTHG.',
+};
+
 function renderDashboard(){
   var panel = document.getElementById('vote-dashboard');
   if(!panel) return;
@@ -894,32 +913,41 @@ function renderDashboard(){
     return (fbData[a].name||'').localeCompare(fbData[b].name||'');
   });
 
-  var html = '<div class="vote-dashboard-hd">Leaderboard <span class="vote-dashboard-hd-sub">top 6 highlighted</span></div><div class="dash-grid">';
+  var hCols = function(cells){ return '<div class="dash-cols dash-header">'+cells.map(function(c,i){ return '<span class="dash-header-cell'+(i>=5?' right':'')+'">'+c+'</span>'; }).join('')+'</div>'; };
+  var html = '<div class="vote-dashboard-hd">Leaderboard <span class="vote-dashboard-hd-sub">top 6 highlighted</span></div>';
+  html += hCols(['#','Brand','Website','Instagram','Origin','Votes','','AI Recommendation']);
+  html += '<div class="dash-grid">';
+
   voted.forEach(function(id, i){
     var item = fbData[id];
     var rank = i + 1;
     var isTop = rank <= 6;
     var total = vconf.filter(function(v){ return item[v.k]; }).length;
     var dots = vconf.map(function(v){
-      if(item[v.k]){
-        return '<span class="dash-dot dash-dot-'+v.cls+'" title="'+{va:'Alena',vx:'Alex',vc:'Chris',vm:'Maxim'}[v.k]+'">'+v.lbl+'</span>';
-      }
+      if(item[v.k]) return '<span class="dash-dot dash-dot-'+v.cls+'" title="'+{va:'Alena',vx:'Alex',vc:'Chris',vm:'Maxim'}[v.k]+'">'+v.lbl+'</span>';
       return '<span class="dash-dot dash-dot-empty"></span>';
     }).join('');
 
     var urlHost = item.url ? (function(u){ try{ return new URL(u).hostname.replace(/^www\./,''); }catch(e){ return u.replace(/^https?:\/\/(www\.)?/,'').split('/')[0]||u; } })(item.url) : '';
     var igHandle = item.instagram ? (function(u){ var m=u.match(/instagram\.com\/([^\/\?#]+)/); return m?'@'+m[1].replace(/\/+$/,''):u.replace(/^https?:\/\/(www\.)?/,''); })(item.instagram) : '';
-    var urlLink = item.url ? '<a class="dash-link" href="'+escHtml(item.url)+'" target="_blank" rel="noopener">'+escHtml(urlHost)+'</a>' : '<span class="dash-link-empty">—</span>';
-    var igLink = item.instagram ? '<a class="dash-link dash-link-ig" href="'+escHtml(item.instagram)+'" target="_blank" rel="noopener">'+escHtml(igHandle)+'</a>' : '<span class="dash-link-empty">—</span>';
+    var webCell = item.url ? '<a class="dash-web" href="'+escHtml(item.url)+'" target="_blank" rel="noopener">'+escHtml(urlHost)+'</a>' : '<span class="dash-link-empty">—</span>';
+    var igCell  = item.instagram ? '<a class="dash-ig" href="'+escHtml(item.instagram)+'" target="_blank" rel="noopener">'+escHtml(igHandle)+'</a>' : '<span class="dash-link-empty">—</span>';
 
-    html += '<div class="dash-row'+(isTop?' dash-top6':'')+'">'+
+    var aiReason = AI_PICKS[item.name] || '';
+    var aiCell = aiReason
+      ? '<span class="dash-ai-pick">✓ MVP Pick</span><div class="dash-ai-reason">'+escHtml(aiReason)+'</div>'
+      : '';
+
+    html += '<div class="dash-row'+(isTop?' dash-top6':'')+'"><div class="dash-cols">'+
       '<span class="dash-rank'+(isTop?' dash-rank-top':'')+'">'+rank+'</span>'+
       '<span class="dash-name">'+escHtml(item.name)+'</span>'+
+      '<span>'+webCell+'</span>'+
+      '<span>'+igCell+'</span>'+
       '<span class="dash-origin">'+escHtml(item.origin||'')+'</span>'+
-      '<span class="dash-links">'+urlLink+igLink+'</span>'+
       '<span class="dash-voters">'+dots+'</span>'+
-      '<span class="dash-count">'+total+(total===1?' vote':' votes')+'</span>'+
-    '</div>';
+      '<span class="dash-count">'+total+'</span>'+
+      '<span>'+aiCell+'</span>'+
+    '</div></div>';
   });
   html += '</div>';
   panel.innerHTML = html;
