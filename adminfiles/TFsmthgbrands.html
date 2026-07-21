@@ -494,10 +494,12 @@ function renderEmailDisplay(dispEl, val){
   }
   lines.forEach(function(line){
     var em = line.match(/[\w._%+\-]+@[\w.\-]+\.[a-z]{2,}/i);
+    var urlM = line.match(/^https?:\/\/\S+/);
     var a = document.createElement('a');
     a.style.cssText = 'font-size:13px;text-decoration:none;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:1px;';
     a.textContent = line;
     if(em){ a.href = 'mailto:'+em[0]; a.style.color='var(--tf)'; a.title='Send email'; }
+    else if(urlM){ a.href=urlM[0]; a.target='_blank'; a.rel='noopener'; a.style.color='var(--tf)'; a.title='Open contact page'; }
     else { a.style.color='var(--ink)'; }
     dispEl.appendChild(a);
   });
