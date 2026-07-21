@@ -229,10 +229,10 @@ tr:hover .del-btn{opacity:1}
 
   <div class="voter-bar">
     <span class="voter-bar-label">I am:</span>
+    <button class="voter-btn" data-voter="alex" onclick="setVoter('alex')">Alex</button>
     <button class="voter-btn" data-voter="alena" onclick="setVoter('alena')">Alena</button>
     <button class="voter-btn" data-voter="chris" onclick="setVoter('chris')">Chris</button>
     <button class="voter-btn" data-voter="maxim" onclick="setVoter('maxim')">Maxim</button>
-    <button class="voter-btn" data-voter="alex" onclick="setVoter('alex')">Alex</button>
     <span class="voter-status" id="voter-status">Select your name to enable voting</span>
   </div>
 
@@ -694,7 +694,7 @@ function renderRow(id, fid){
 function updateVoteButtons(id){
   var item = fbData[id];
   if(!item) return;
-  var vconf = [{k:'va',cls:'va',lbl:'A'},{k:'vc',cls:'vc',lbl:'C'},{k:'vm',cls:'vm',lbl:'M'},{k:'vx',cls:'vx',lbl:'X'}];
+  var vconf = [{k:'vx',cls:'vx',lbl:'X'},{k:'va',cls:'va',lbl:'A'},{k:'vc',cls:'vc',lbl:'C'},{k:'vm',cls:'vm',lbl:'M'}];
   var total = 0;
   vconf.forEach(function(v){
     var btn = document.getElementById('vbtn-'+v.k+'-'+id);
@@ -749,7 +749,7 @@ function buildRow(id, num){
   tdVote.className = 'vote-cell';
   var vWrap = document.createElement('div');
   vWrap.className = 'vote-btns';
-  [{k:'va',cls:'va',lbl:'A'},{k:'vc',cls:'vc',lbl:'C'},{k:'vm',cls:'vm',lbl:'M'},{k:'vx',cls:'vx',lbl:'X'}].forEach(function(v){
+  [{k:'vx',cls:'vx',lbl:'X'},{k:'va',cls:'va',lbl:'A'},{k:'vc',cls:'vc',lbl:'C'},{k:'vm',cls:'vm',lbl:'M'}].forEach(function(v){
     var btn = document.createElement('button');
     btn.className = 'vote-btn'+(item[v.k] ? ' '+v.cls : '');
     btn.id = 'vbtn-'+v.k+'-'+id;
@@ -816,7 +816,7 @@ function renumberRows(){
 }
 
 function updateCount(){
-  var n = Object.keys(fbData).length;
+  var n = Object.keys(fbData).filter(function(id){ return fbData[id] && fbData[id].name; }).length;
   var el = document.getElementById('count-bar');
   if(el) el.textContent = n + (n===1 ? ' brand' : ' brands');
 }
