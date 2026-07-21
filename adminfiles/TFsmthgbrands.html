@@ -149,6 +149,7 @@ tr:hover .del-btn{opacity:1}
 .filter-btn.active{background:var(--tf);border-color:var(--tf);color:white}
 .filter-btn.eu-group{border-color:var(--tf);color:var(--tf)}
 .filter-btn.eu-group.active{background:var(--tf);color:white}
+.filter-count{font-size:10px;font-weight:600;opacity:.6;margin-left:3px}
 
 /* Add button */
 .add-btn{
@@ -536,7 +537,10 @@ function renderFilter(){
     var btn = document.createElement('button');
     btn.className = 'filter-btn'+(extraClass?' '+extraClass:'')+(filterCountry===country?' active':'');
     btn.dataset.country = country;
-    btn.textContent = country;
+    var count = country === 'EU'
+      ? Object.keys(fbData).filter(function(id){ return fbData[id] && EU_COUNTRIES.indexOf((fbData[id].origin||'').trim()) >= 0; }).length
+      : Object.keys(fbData).filter(function(id){ return fbData[id] && (fbData[id].origin||'').trim() === country; }).length;
+    btn.innerHTML = country + '<span class="filter-count">' + count + '</span>';
     (function(c){ btn.onclick = function(){ setFilter(c); }; })(country);
     bar.appendChild(btn);
   }
