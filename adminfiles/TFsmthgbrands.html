@@ -582,6 +582,7 @@ function applyFilter(){
     tr.style.display = show ? '' : 'none';
   });
   renumberRows();
+  requestAnimationFrame(resizeAllTextareas);
 }
 
 function renderFilter(){
