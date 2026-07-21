@@ -100,6 +100,70 @@ td:nth-child(2){text-align:left}
 @media(max-width:1000px){.wrap{padding:24px 18px 60px}.summary{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:700px){.wrap{padding:16px 12px 48px}.summary{grid-template-columns:1fr}}
 
+/* ── PROJECTIONS ── */
+.proj-sep{background:var(--ink);color:white;padding:22px 28px;margin:52px -48px 0;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.proj-sep .sn{font-size:32px;font-weight:800;color:var(--tf);line-height:1}
+.proj-sep .st{font-size:20px;font-weight:800;letter-spacing:-.3px}
+.proj-sep .ss{font-size:11px;color:rgba(255,255,255,.4);margin-left:auto}
+.proj-layout{display:grid;grid-template-columns:280px 1fr;gap:24px;align-items:start;margin-top:24px}
+.param-box{background:white;border:1px solid var(--rule);padding:22px 24px}
+.param-ey{font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);margin-bottom:16px}
+.p-cat{font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);opacity:.6;margin:18px 0 10px;padding-top:14px;border-top:1px solid var(--rule)}
+.p-cat:first-of-type{margin-top:0;padding-top:0;border-top:none}
+.psg{margin-bottom:14px}
+.psg-top{display:flex;justify-content:space-between;margin-bottom:5px}
+.psg-lbl{font-size:12px;font-weight:700;color:var(--ink)}
+.psg-val{font-size:13px;font-weight:800;color:var(--tf)}
+.psg-note{font-size:10px;color:var(--sub);margin-top:2px;line-height:1.4}
+.psg-hint{display:flex;justify-content:space-between;font-size:9.5px;color:var(--sub);opacity:.5;margin-top:2px}
+input[type=range]{width:100%;height:4px;accent-color:var(--tf);cursor:pointer;display:block}
+.vto-sw{display:flex;border:1px solid var(--rule);margin-bottom:4px}
+.vto-swb{flex:1;padding:8px 6px;text-align:center;cursor:pointer;font-size:10.5px;font-weight:700;color:var(--sub);background:white;border:none;border-right:1px solid var(--rule);line-height:1.3;transition:all .15s;font-family:'Inter',sans-serif}
+.vto-swb:last-child{border-right:none}
+.vto-swb.on{background:var(--tf);color:white}
+.vto-swb span{display:block;font-size:9px;font-weight:400;margin-top:1px;opacity:.8}
+.q-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.q-box{background:white;border:1px solid var(--rule)}
+.q-head{padding:12px 14px;border-bottom:2px solid var(--rule);background:#FAFAF8}
+.q-qlbl{font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);margin-bottom:3px}
+.q-gmv-h{font-size:17px;font-weight:800;color:var(--ink)}
+.q-dr-wrap{padding:11px 14px;border-bottom:1px solid var(--rule)}
+.q-dr-lbl{font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);margin-bottom:7px}
+.q-dr-ctrl{display:flex;align-items:center;gap:5px}
+.qb{width:26px;height:26px;border:1px solid var(--rule);background:white;font-size:15px;font-weight:700;color:var(--tf);cursor:pointer;flex-shrink:0;padding:0;line-height:1;transition:background .12s;font-family:'Inter',sans-serif}
+.qb:hover{background:#FEF0EE}
+.qi{width:44px;text-align:center;border:1px solid var(--rule);padding:3px 4px;font-size:14px;font-weight:800;font-family:'Inter',sans-serif;color:var(--ink);background:white;-moz-appearance:textfield}
+.qi::-webkit-inner-spin-button,.qi::-webkit-outer-spin-button{-webkit-appearance:none}
+.q-unit{font-size:10px;color:var(--sub);margin-left:2px}
+.q-rows{padding:11px 14px}
+.q-row{display:flex;justify-content:space-between;align-items:baseline;padding:5px 0;border-bottom:1px solid var(--rule);gap:6px}
+.q-row:last-child{border-bottom:none}
+.ql{font-size:11px;color:var(--sub);font-weight:500;flex:1;min-width:0}
+.qv{font-size:12px;font-weight:800;color:var(--ink);white-space:nowrap}
+.qv.g{color:#1A7A4A}.qv.r{color:var(--tf)}.qv.b{font-size:14px}
+.qdiv{height:1px;background:var(--rule);margin:3px 0}
+.yr-bar{background:var(--ink);padding:16px 20px;display:grid;grid-template-columns:repeat(5,1fr);margin-top:14px}
+.yr-i{padding:0 14px;border-right:1px solid rgba(255,255,255,.1)}
+.yr-i:first-child{padding-left:0}.yr-i:last-child{border-right:none}
+.yr-l{font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:5px}
+.yr-v{font-size:18px;font-weight:800;color:white}
+.yr-v.g{color:#7AE3B2}.yr-v.r{color:#FF8A80}
+/* Consolidated */
+.consol-sep{background:var(--ink);color:white;padding:22px 28px;margin:52px -48px 0;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.ctw{overflow-x:auto;margin-top:24px}
+.ct{width:100%;border-collapse:collapse;background:white;border:1px solid var(--rule)}
+.ct thead th{background:#F2F0EB;color:var(--sub);padding:10px 13px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;text-align:right;border-bottom:1px solid var(--rule);white-space:nowrap}
+.ct thead th:first-child{text-align:left;min-width:190px}
+.ct td{padding:10px 13px;border-bottom:1px solid var(--rule);font-size:13px;text-align:right;white-space:nowrap;color:var(--ink)}
+.ct td:first-child{text-align:left;font-weight:600}
+.ct .cat td{background:#F7F5F2;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--sub);padding:7px 13px}
+.ct .sub td{background:#F2F0EB;font-weight:700;border-top:1px solid #D5D2CA}
+.ct .tot td{background:var(--ink);color:white;font-weight:800;font-size:14px;border-top:2px solid var(--tf)}
+.ct td.pos{color:#1A7A4A;font-weight:700}.ct td.neg{color:var(--tf);font-weight:700}
+.ct .note-r{font-size:11px;color:var(--sub);font-weight:400;text-align:left}
+@media(max-width:1100px){.proj-layout{grid-template-columns:1fr}.q-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.proj-sep,.consol-sep{margin-left:-12px;margin-right:-12px;padding:16px 16px}.q-grid{grid-template-columns:1fr}.yr-bar{grid-template-columns:repeat(2,1fr);row-gap:14px}.yr-i{border-right:none;padding-left:0}}
+
 /* Top nav */
 .topnav{background:#FFF;border-bottom:1px solid var(--rule);padding:12px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
 .topnav-home{font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);text-decoration:none;font-size:11px}
@@ -632,8 +696,305 @@ td:nth-child(2){text-align:left}
 </table>
 </div>
 
-<!-- ═══ NOT INCLUDED ═══ -->
-<div class="not-included">
+<!-- ═══ SECTION 02: QUARTERLY REVENUE PROJECTIONS ═══ -->
+<div class="proj-sep">
+  <span class="sn">02</span>
+  <span class="st">Quarterly Revenue Projections</span>
+  <span class="ss">All parameters shared across quarters · only drop count varies per quarter</span>
+</div>
+
+<div class="proj-layout">
+
+  <!-- LEFT: shared parameters -->
+  <div class="param-box">
+    <div class="param-ey">Shared Parameters · Same for All Quarters</div>
+
+    <div class="p-cat">VTO Vendor</div>
+    <div class="vto-sw">
+      <button class="vto-swb on" id="btn-shopify" onclick="setVTO('shopify')">Shopify VTO<span>$0.10 / try</span></button>
+      <button class="vto-swb" id="btn-kivisense" onclick="setVTO('kivisense')">Kivisense<span>$888 / mo flat</span></button>
+    </div>
+
+    <div class="p-cat">Drop Economics</div>
+
+    <div class="psg">
+      <div class="psg-top"><span class="psg-lbl">Items per drop</span><span class="psg-val" id="v-items">150</span></div>
+      <input type="range" id="p-items" min="10" max="500" step="10" value="150" oninput="proj()"/>
+      <div class="psg-hint"><span>10</span><span>500</span></div>
+      <div class="psg-note">Each drop capped at this quantity — sold-out model assumed.</div>
+    </div>
+
+    <div class="psg">
+      <div class="psg-top"><span class="psg-lbl">Avg order value</span><span class="psg-val" id="v-aov">$200</span></div>
+      <input type="range" id="p-aov" min="50" max="1000" step="10" value="200" oninput="proj()"/>
+      <div class="psg-hint"><span>$50</span><span>$1,000</span></div>
+    </div>
+
+    <div class="p-cat">SMTHG Revenue</div>
+
+    <div class="psg">
+      <div class="psg-top"><span class="psg-lbl">Platform fee (% of GMV)</span><span class="psg-val" id="v-tf-fee">10%</span></div>
+      <input type="range" id="p-tf-fee" min="5" max="20" step="0.5" value="10" oninput="proj()"/>
+      <div class="psg-hint"><span>5%</span><span>20%</span></div>
+      <div class="psg-note">Current model: 10% of GMV. Source: v18 deck.</div>
+    </div>
+
+    <div class="psg">
+      <div class="psg-top"><span class="psg-lbl">Active designers on platform</span><span class="psg-val" id="v-designers">10</span></div>
+      <input type="range" id="p-designers" min="1" max="50" step="1" value="10" oninput="proj()"/>
+      <div class="psg-hint"><span>1</span><span>50</span></div>
+      <div class="psg-note">Platform subscription $500/mo/designer adds to SMTHG revenue.</div>
+    </div>
+
+    <div class="p-cat">Designer Costs (for context)</div>
+
+    <div class="psg">
+      <div class="psg-top"><span class="psg-lbl">Influencer commission</span><span class="psg-val" id="v-inf">10%</span></div>
+      <input type="range" id="p-inf" min="5" max="25" step="1" value="10" oninput="proj()"/>
+      <div class="psg-hint"><span>5%</span><span>25%</span></div>
+      <div class="psg-note">Paid by designer from their revenue — not SMTHG's cost.</div>
+    </div>
+
+    <div class="p-cat">Variable Platform Costs</div>
+
+    <div class="psg">
+      <div class="psg-top"><span class="psg-lbl">Payment processing</span><span class="psg-val" id="v-pay">2.9%</span></div>
+      <input type="range" id="p-pay" min="1" max="5" step="0.1" value="2.9" oninput="proj()"/>
+      <div class="psg-hint"><span>1%</span><span>5%</span></div>
+      <div class="psg-note">Stripe: % of GMV + $0.30/order flat.</div>
+    </div>
+
+    <div class="psg">
+      <div class="psg-top"><span class="psg-lbl">VTO adoption (% of buyers)</span><span class="psg-val" id="v-vto-a">50%</span></div>
+      <input type="range" id="p-vto-a" min="10" max="100" step="5" value="50" oninput="proj()"/>
+      <div class="psg-hint"><span>10%</span><span>100%</span></div>
+    </div>
+
+    <div class="psg">
+      <div class="psg-top"><span class="psg-lbl">Tries per VTO session</span><span class="psg-val" id="v-vto-t">5×</span></div>
+      <input type="range" id="p-vto-t" min="1" max="15" step="1" value="5" oninput="proj()"/>
+      <div class="psg-hint"><span>1×</span><span>15×</span></div>
+    </div>
+  </div>
+
+  <!-- RIGHT: quarterly results -->
+  <div>
+    <div class="q-grid">
+
+      <!-- Q1 -->
+      <div class="q-box">
+        <div class="q-head">
+          <div class="q-qlbl">Q1 · Jan–Mar</div>
+          <div class="q-gmv-h" id="q1h">—</div>
+        </div>
+        <div class="q-dr-wrap">
+          <div class="q-dr-lbl">Drops this quarter</div>
+          <div class="q-dr-ctrl">
+            <button class="qb" onclick="adjD(1,-5)">−</button>
+            <input class="qi" type="number" id="d1" value="30" min="0" step="5" oninput="proj()"/>
+            <button class="qb" onclick="adjD(1,5)">+</button>
+            <span class="q-unit">drops</span>
+          </div>
+        </div>
+        <div class="q-rows">
+          <div class="q-row"><span class="ql">Orders</span><span class="qv" id="q1-ord">—</span></div>
+          <div class="q-row"><span class="ql">GMV</span><span class="qv" id="q1-gmv">—</span></div>
+          <div class="qdiv"></div>
+          <div class="q-row"><span class="ql">Platform fee</span><span class="qv g" id="q1-tfr">—</span></div>
+          <div class="q-row"><span class="ql">Subscriptions</span><span class="qv g" id="q1-sub">—</span></div>
+          <div class="qdiv"></div>
+          <div class="q-row"><span class="ql">VTO cost</span><span class="qv r" id="q1-vto">—</span></div>
+          <div class="q-row"><span class="ql">Payment proc.</span><span class="qv r" id="q1-pay">—</span></div>
+          <div class="qdiv"></div>
+          <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">SMTHG Net</span><span class="qv b" id="q1-net">—</span></div>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="q-box">
+        <div class="q-head">
+          <div class="q-qlbl">Q2 · Apr–Jun</div>
+          <div class="q-gmv-h" id="q2h">—</div>
+        </div>
+        <div class="q-dr-wrap">
+          <div class="q-dr-lbl">Drops this quarter</div>
+          <div class="q-dr-ctrl">
+            <button class="qb" onclick="adjD(2,-5)">−</button>
+            <input class="qi" type="number" id="d2" value="60" min="0" step="5" oninput="proj()"/>
+            <button class="qb" onclick="adjD(2,5)">+</button>
+            <span class="q-unit">drops</span>
+          </div>
+        </div>
+        <div class="q-rows">
+          <div class="q-row"><span class="ql">Orders</span><span class="qv" id="q2-ord">—</span></div>
+          <div class="q-row"><span class="ql">GMV</span><span class="qv" id="q2-gmv">—</span></div>
+          <div class="qdiv"></div>
+          <div class="q-row"><span class="ql">Platform fee</span><span class="qv g" id="q2-tfr">—</span></div>
+          <div class="q-row"><span class="ql">Subscriptions</span><span class="qv g" id="q2-sub">—</span></div>
+          <div class="qdiv"></div>
+          <div class="q-row"><span class="ql">VTO cost</span><span class="qv r" id="q2-vto">—</span></div>
+          <div class="q-row"><span class="ql">Payment proc.</span><span class="qv r" id="q2-pay">—</span></div>
+          <div class="qdiv"></div>
+          <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">SMTHG Net</span><span class="qv b" id="q2-net">—</span></div>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="q-box">
+        <div class="q-head">
+          <div class="q-qlbl">Q3 · Jul–Sep</div>
+          <div class="q-gmv-h" id="q3h">—</div>
+        </div>
+        <div class="q-dr-wrap">
+          <div class="q-dr-lbl">Drops this quarter</div>
+          <div class="q-dr-ctrl">
+            <button class="qb" onclick="adjD(3,-5)">−</button>
+            <input class="qi" type="number" id="d3" value="90" min="0" step="5" oninput="proj()"/>
+            <button class="qb" onclick="adjD(3,5)">+</button>
+            <span class="q-unit">drops</span>
+          </div>
+        </div>
+        <div class="q-rows">
+          <div class="q-row"><span class="ql">Orders</span><span class="qv" id="q3-ord">—</span></div>
+          <div class="q-row"><span class="ql">GMV</span><span class="qv" id="q3-gmv">—</span></div>
+          <div class="qdiv"></div>
+          <div class="q-row"><span class="ql">Platform fee</span><span class="qv g" id="q3-tfr">—</span></div>
+          <div class="q-row"><span class="ql">Subscriptions</span><span class="qv g" id="q3-sub">—</span></div>
+          <div class="qdiv"></div>
+          <div class="q-row"><span class="ql">VTO cost</span><span class="qv r" id="q3-vto">—</span></div>
+          <div class="q-row"><span class="ql">Payment proc.</span><span class="qv r" id="q3-pay">—</span></div>
+          <div class="qdiv"></div>
+          <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">SMTHG Net</span><span class="qv b" id="q3-net">—</span></div>
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="q-box">
+        <div class="q-head">
+          <div class="q-qlbl">Q4 · Oct–Dec</div>
+          <div class="q-gmv-h" id="q4h">—</div>
+        </div>
+        <div class="q-dr-wrap">
+          <div class="q-dr-lbl">Drops this quarter</div>
+          <div class="q-dr-ctrl">
+            <button class="qb" onclick="adjD(4,-5)">−</button>
+            <input class="qi" type="number" id="d4" value="120" min="0" step="5" oninput="proj()"/>
+            <button class="qb" onclick="adjD(4,5)">+</button>
+            <span class="q-unit">drops</span>
+          </div>
+        </div>
+        <div class="q-rows">
+          <div class="q-row"><span class="ql">Orders</span><span class="qv" id="q4-ord">—</span></div>
+          <div class="q-row"><span class="ql">GMV</span><span class="qv" id="q4-gmv">—</span></div>
+          <div class="qdiv"></div>
+          <div class="q-row"><span class="ql">Platform fee</span><span class="qv g" id="q4-tfr">—</span></div>
+          <div class="q-row"><span class="ql">Subscriptions</span><span class="qv g" id="q4-sub">—</span></div>
+          <div class="qdiv"></div>
+          <div class="q-row"><span class="ql">VTO cost</span><span class="qv r" id="q4-vto">—</span></div>
+          <div class="q-row"><span class="ql">Payment proc.</span><span class="qv r" id="q4-pay">—</span></div>
+          <div class="qdiv"></div>
+          <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">SMTHG Net</span><span class="qv b" id="q4-net">—</span></div>
+        </div>
+      </div>
+
+    </div><!-- /q-grid -->
+
+    <!-- Year totals bar -->
+    <div class="yr-bar">
+      <div class="yr-i"><div class="yr-l">Year GMV</div><div class="yr-v" id="yt-gmv">—</div></div>
+      <div class="yr-i"><div class="yr-l">Year Orders</div><div class="yr-v" id="yt-ord">—</div></div>
+      <div class="yr-i"><div class="yr-l">SMTHG Revenue</div><div class="yr-v g" id="yt-rev">—</div></div>
+      <div class="yr-i"><div class="yr-l">Variable Costs</div><div class="yr-v r" id="yt-var">—</div></div>
+      <div class="yr-i"><div class="yr-l">SMTHG Net (var only)</div><div class="yr-v g" id="yt-net">—</div></div>
+    </div>
+
+  </div><!-- /right -->
+</div><!-- /proj-layout -->
+
+<!-- ═══ SECTION 03: CONSOLIDATED REVENUE & COSTS ═══ -->
+<div class="consol-sep">
+  <span class="sn" style="font-size:32px;font-weight:800;color:var(--tf)">03</span>
+  <span class="st" style="font-size:20px;font-weight:800">Consolidated Revenue &amp; Costs</span>
+  <span class="ss" style="font-size:11px;color:rgba(255,255,255,.4);margin-left:auto">Section 01 fixed costs + Section 02 variable projections</span>
+</div>
+
+<div class="ctw">
+<table class="ct">
+<thead>
+  <tr>
+    <th style="text-align:left">Line</th>
+    <th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th>
+    <th style="border-left:1px solid #ccc">Year 1 Total</th>
+    <th class="note-r" style="text-align:left;min-width:160px">Note</th>
+  </tr>
+</thead>
+<tbody>
+<tr class="cat"><td colspan="7">Revenue</td></tr>
+<tr>
+  <td>GMV (platform sales)</td>
+  <td id="c-gmv1">—</td><td id="c-gmv2">—</td><td id="c-gmv3">—</td><td id="c-gmv4">—</td>
+  <td style="border-left:1px solid var(--rule)" id="c-gmvy">—</td>
+  <td class="note-r">Total sales through platform</td>
+</tr>
+<tr>
+  <td>Platform fee (<span id="cn-tf">10%</span> of GMV)</td>
+  <td class="pos" id="c-tfr1">—</td><td class="pos" id="c-tfr2">—</td><td class="pos" id="c-tfr3">—</td><td class="pos" id="c-tfr4">—</td>
+  <td class="pos" style="border-left:1px solid var(--rule)" id="c-tfry">—</td>
+  <td class="note-r">SMTHG commission revenue</td>
+</tr>
+<tr>
+  <td>Designer subscriptions (<span id="cn-ds">10</span> × $500/mo)</td>
+  <td class="pos" id="c-sub1">—</td><td class="pos" id="c-sub2">—</td><td class="pos" id="c-sub3">—</td><td class="pos" id="c-sub4">—</td>
+  <td class="pos" style="border-left:1px solid var(--rule)" id="c-suby">—</td>
+  <td class="note-r">$500/mo per active designer</td>
+</tr>
+<tr class="sub">
+  <td>Total Revenue</td>
+  <td class="pos" id="c-rev1">—</td><td class="pos" id="c-rev2">—</td><td class="pos" id="c-rev3">—</td><td class="pos" id="c-rev4">—</td>
+  <td class="pos" style="border-left:1px solid var(--rule)" id="c-revy">—</td>
+  <td></td>
+</tr>
+
+<tr class="cat"><td colspan="7">Fixed Operating Costs (from Section 01)</td></tr>
+<tr>
+  <td>Fixed envelope (per quarter)</td>
+  <td class="neg">$120,563</td><td class="neg">$124,279</td><td class="neg">$127,579</td><td class="neg">$127,579</td>
+  <td class="neg" style="border-left:1px solid var(--rule)">$500,000</td>
+  <td class="note-r">People · tools · legal · marketing. Q1 includes $57,200 one-time.</td>
+</tr>
+
+<tr class="cat"><td colspan="7">Variable Costs (scale with GMV · from Section 02)</td></tr>
+<tr>
+  <td>VTO cost</td>
+  <td class="neg" id="c-vto1">—</td><td class="neg" id="c-vto2">—</td><td class="neg" id="c-vto3">—</td><td class="neg" id="c-vto4">—</td>
+  <td class="neg" style="border-left:1px solid var(--rule)" id="c-vtoy">—</td>
+  <td class="note-r" id="cn-vto">Shopify $0.10/try</td>
+</tr>
+<tr>
+  <td>Payment processing (Stripe)</td>
+  <td class="neg" id="c-pay1">—</td><td class="neg" id="c-pay2">—</td><td class="neg" id="c-pay3">—</td><td class="neg" id="c-pay4">—</td>
+  <td class="neg" style="border-left:1px solid var(--rule)" id="c-payy">—</td>
+  <td class="note-r"><span id="cn-pay">2.9%</span> GMV + $0.30/order</td>
+</tr>
+<tr class="sub">
+  <td>Total Variable</td>
+  <td class="neg" id="c-var1">—</td><td class="neg" id="c-var2">—</td><td class="neg" id="c-var3">—</td><td class="neg" id="c-var4">—</td>
+  <td class="neg" style="border-left:1px solid var(--rule)" id="c-vary">—</td>
+  <td></td>
+</tr>
+
+<tr class="tot">
+  <td>Net Position</td>
+  <td id="c-net1">—</td><td id="c-net2">—</td><td id="c-net3">—</td><td id="c-net4">—</td>
+  <td style="border-left:1px solid #555" id="c-nety">—</td>
+  <td style="color:rgba(255,255,255,.45);font-size:11px">Revenue minus all fixed and variable costs</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<!-- ═══ VARIABLE COSTS REFERENCE (original) ═══ -->
+<div class="not-included" style="margin-top:48px">
   <div class="ni-hdr-main">Not Included in $500K Envelope · Variable costs — scale with GMV</div>
   <div class="ni-body">
 
@@ -802,6 +1163,121 @@ td:nth-child(2){text-align:left}
   </div>
 </div>
 
-</div>
+</div><!-- /wrap -->
+<script>
+var vtoMode='shopify';
+function setVTO(m){
+  vtoMode=m;
+  document.getElementById('btn-shopify').classList.toggle('on',m==='shopify');
+  document.getElementById('btn-kivisense').classList.toggle('on',m==='kivisense');
+  document.getElementById('cn-vto').textContent=m==='shopify'?'Shopify $0.10/try':'Kivisense $888/mo flat';
+  proj();
+}
+function adjD(q,d){
+  var el=document.getElementById('d'+q);
+  el.value=Math.max(0,(parseInt(el.value)||0)+d);
+  proj();
+}
+function fmtM(n){
+  if(Math.abs(n)>=1000000)return '$'+(n/1000000).toFixed(2)+'M';
+  if(Math.abs(n)>=1000)return '$'+(n/1000).toFixed(0)+'K';
+  return '$'+Math.round(Math.abs(n)).toLocaleString();
+}
+function fmtN(n){return Math.round(n).toLocaleString();}
+function g(id){return parseFloat(document.getElementById(id).value)||0;}
+function s(id,v){var el=document.getElementById(id);if(el)el.textContent=v;}
+
+function proj(){
+  var items=g('p-items'), aov=g('p-aov');
+  var tfFee=g('p-tf-fee')/100, inf=g('p-inf')/100;
+  var payPct=g('p-pay')/100, designers=g('p-designers');
+  var vtoA=g('p-vto-a')/100, vtoT=g('p-vto-t');
+
+  // Update slider display values
+  s('v-items',Math.round(items));
+  s('v-aov','$'+Math.round(aov));
+  s('v-tf-fee',(tfFee*100).toFixed(1)+'%');
+  s('v-inf',(inf*100).toFixed(0)+'%');
+  s('v-pay',(payPct*100).toFixed(1)+'%');
+  s('v-vto-a',(vtoA*100).toFixed(0)+'%');
+  s('v-vto-t',Math.round(vtoT)+'×');
+  s('v-designers',Math.round(designers));
+  s('cn-tf',(tfFee*100).toFixed(0)+'%');
+  s('cn-pay',(payPct*100).toFixed(1)+'%');
+  s('cn-ds',Math.round(designers));
+  s('cn-pay',(payPct*100).toFixed(1)+'%');
+
+  var subQ=designers*500*3; // subscription revenue per quarter
+
+  var totGMV=0,totOrd=0,totRev=0,totVTO=0,totPay=0;
+
+  [1,2,3,4].forEach(function(q){
+    var drops=parseInt(document.getElementById('d'+q).value)||0;
+    var orders=drops*items;
+    var gmv=orders*aov;
+    var tfRev=gmv*tfFee;
+    var payCost=gmv*payPct+orders*0.30;
+    var vtoTries=orders*vtoA*vtoT;
+    var vtoCost=vtoMode==='shopify'?vtoTries*0.10:888*3;
+    var smthgNet=tfRev+subQ-vtoCost-payCost;
+    var col=smthgNet>=0?'#1A7A4A':'var(--tf)';
+
+    s('q'+q+'h',fmtM(gmv)+' GMV');
+    s('q'+q+'-ord',fmtN(orders));
+    s('q'+q+'-gmv',fmtM(gmv));
+    s('q'+q+'-tfr','+'+fmtM(tfRev));
+    s('q'+q+'-sub','+'+fmtM(subQ));
+    s('q'+q+'-vto','−'+fmtM(vtoCost));
+    s('q'+q+'-pay','−'+fmtM(payCost));
+    var netEl=document.getElementById('q'+q+'-net');
+    if(netEl){netEl.textContent=(smthgNet>=0?'+':'')+fmtM(Math.abs(smthgNet));netEl.style.color=col;}
+
+    // Consolidated table
+    s('c-gmv'+q,fmtM(gmv));
+    s('c-tfr'+q,'+'+fmtM(tfRev));
+    s('c-sub'+q,'+'+fmtM(subQ));
+    s('c-rev'+q,'+'+fmtM(tfRev+subQ));
+    s('c-vto'+q,'−'+fmtM(vtoCost));
+    s('c-pay'+q,'−'+fmtM(payCost));
+    s('c-var'+q,'−'+fmtM(vtoCost+payCost));
+
+    // Fixed costs per quarter (from main table)
+    var fixed=[120563,124279,127579,127579][q-1];
+    var net=tfRev+subQ-fixed-vtoCost-payCost;
+    var netEl2=document.getElementById('c-net'+q);
+    if(netEl2){
+      netEl2.textContent=(net>=0?'+':'-')+fmtM(Math.abs(net));
+      netEl2.style.color=net>=0?'#7AE3B2':'#FF8A80';
+    }
+
+    totGMV+=gmv; totOrd+=orders; totRev+=tfRev+subQ; totVTO+=vtoCost; totPay+=payCost;
+  });
+
+  var totVar=totVTO+totPay;
+  var totNet=totRev-500000-totVar;
+  s('yt-gmv',fmtM(totGMV));
+  s('yt-ord',fmtN(totOrd));
+  s('yt-rev','+'+fmtM(totRev));
+  s('yt-var','−'+fmtM(totVar));
+  var ytNetEl=document.getElementById('yt-net');
+  if(ytNetEl){ytNetEl.textContent=(totRev-totVar>=0?'+':'')+fmtM(Math.abs(totRev-totVar));ytNetEl.className='yr-v '+(totRev-totVar>=0?'g':'r');}
+
+  // Consolidated year totals
+  var totTFR=totRev-designers*500*3*4; // platform fee only
+  var totSub=designers*500*3*4;
+  s('c-gmvy',fmtM(totGMV));
+  s('c-tfry','+'+fmtM(totTFR));
+  s('c-suby','+'+fmtM(totSub));
+  s('c-revy','+'+fmtM(totRev));
+  s('c-vtoy','−'+fmtM(totVTO));
+  s('c-payy','−'+fmtM(totPay));
+  s('c-vary','−'+fmtM(totVar));
+  var netY=totRev-500000-totVar;
+  var netYEl=document.getElementById('c-nety');
+  if(netYEl){netYEl.textContent=(netY>=0?'+':'-')+fmtM(Math.abs(netY));netYEl.style.color=netY>=0?'#7AE3B2':'#FF8A80';}
+}
+
+proj();
+</script>
 </body>
 </html>
