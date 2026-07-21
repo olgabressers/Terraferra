@@ -828,7 +828,7 @@ input[type=range]{width:100%;height:4px;accent-color:var(--tf);cursor:pointer;di
           <div class="q-dr-lbl">Drops this quarter</div>
           <div class="q-dr-ctrl">
             <button class="qb" onclick="adjD(2,-5)">−</button>
-            <input class="qi" type="number" id="d2" value="26" min="0" step="1" oninput="proj()"/>
+            <input class="qi" type="number" id="d2" value="16" min="0" step="1" oninput="proj()"/>
             <button class="qb" onclick="adjD(2,5)">+</button>
             <span class="q-unit">drops</span>
           </div>
@@ -858,7 +858,7 @@ input[type=range]{width:100%;height:4px;accent-color:var(--tf);cursor:pointer;di
           <div class="q-dr-lbl">Drops this quarter</div>
           <div class="q-dr-ctrl">
             <button class="qb" onclick="adjD(3,-5)">−</button>
-            <input class="qi" type="number" id="d3" value="52" min="0" step="1" oninput="proj()"/>
+            <input class="qi" type="number" id="d3" value="20" min="0" step="1" oninput="proj()"/>
             <button class="qb" onclick="adjD(3,5)">+</button>
             <span class="q-unit">drops</span>
           </div>
@@ -888,7 +888,7 @@ input[type=range]{width:100%;height:4px;accent-color:var(--tf);cursor:pointer;di
           <div class="q-dr-lbl">Drops this quarter</div>
           <div class="q-dr-ctrl">
             <button class="qb" onclick="adjD(4,-5)">−</button>
-            <input class="qi" type="number" id="d4" value="104" min="0" step="1" oninput="proj()"/>
+            <input class="qi" type="number" id="d4" value="25" min="0" step="1" oninput="proj()"/>
             <button class="qb" onclick="adjD(4,5)">+</button>
             <span class="q-unit">drops</span>
           </div>
@@ -1254,8 +1254,6 @@ function proj(){
     }
     var ybEl=document.getElementById('yb-net'+q);
     if(ybEl){ybEl.textContent=(net>=0?'+':'-')+fmtM(Math.abs(net));ybEl.className='yr-v '+(net>=0?'g':'r');}
-    var ybMoEl=document.getElementById('yb-mo'+q);
-    if(ybMoEl){var mo2=net/3;ybMoEl.textContent=(mo2>=0?'+':'-')+fmtM(Math.abs(mo2));ybMoEl.className='yr-v '+(mo2>=0?'g':'r');}
     // Variable-only net for Section 03 duplicate row
     var varNet=tfRev+subQ-vtoCost-payCost;
     var snetEl=document.getElementById('c-snet'+q);
@@ -1292,8 +1290,6 @@ function proj(){
   if(netYEl){netYEl.textContent=(netY>=0?'+':'-')+fmtM(Math.abs(netY));netYEl.style.color=netY>=0?'#7AE3B2':'#FF8A80';}
   var ybYEl=document.getElementById('yb-nety');
   if(ybYEl){ybYEl.textContent=(netY>=0?'+':'-')+fmtM(Math.abs(netY));ybYEl.className='yr-v '+(netY>=0?'g':'r');}
-  var ybMoYEl=document.getElementById('yb-moy');
-  if(ybMoYEl){var moY=netY/12;ybMoYEl.textContent=(moY>=0?'+':'-')+fmtM(Math.abs(moY));ybMoYEl.className='yr-v '+(moY>=0?'g':'r');}
 }
 
 proj();
