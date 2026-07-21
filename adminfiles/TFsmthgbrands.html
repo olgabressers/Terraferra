@@ -428,6 +428,100 @@ function makeLinkCell(id, field, value, openId, cleanFn, openTitle){
   return cell;
 }
 
+// ── LinkedIn / Email clickable cell helpers ───────────────────────────────────
+function renderLinkedinDisplay(dispEl, val){
+  dispEl.innerHTML = '';
+  var lines = (val||'').split('\n').map(function(l){return l.trim();}).filter(Boolean);
+  if(!lines.length){
+    var ph = document.createElement('span');
+    ph.className = 'link-disp-text empty';
+    ph.style.cssText = 'font-size:13px;white-space:nowrap;';
+    ph.textContent = 'Full Name · linkedin.com/in/…';
+    dispEl.appendChild(ph);
+    return;
+  }
+  lines.forEach(function(line){
+    var urlM = line.match(/(?:https?:\/\/)?(?:[a-z]{2,3}\.)?linkedin\.com\/in\/[^\s]+/i);
+    var url = urlM ? (urlM[0].match(/^https?:\/\//) ? urlM[0] : 'https://'+urlM[0]) : null;
+    if(url) url = url.replace(/\/+$/,'');
+    var name = line.split('·')[0].trim() || line;
+    var row = document.createElement('div');
+    row.style.cssText = 'display:flex;align-items:center;gap:4px;margin-bottom:1px;overflow:hidden;';
+    var nameEl = document.createElement('span');
+    nameEl.style.cssText = 'font-size:13px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;min-width:0;';
+    nameEl.textContent = name;
+    row.appendChild(nameEl);
+    if(url){
+      var a = document.createElement('a');
+      a.href = url; a.target = '_blank'; a.rel = 'noopener';
+      a.textContent = '↗'; a.title = 'Open LinkedIn';
+      a.style.cssText = 'flex-shrink:0;font-size:12px;color:var(--tf);opacity:1;text-decoration:none;';
+      row.appendChild(a);
+    }
+    dispEl.appendChild(row);
+  });
+}
+
+function makeLinkedinCell(id, value){
+  var cell = document.createElement('div');
+  cell.className = 'link-cell';
+  var disp = document.createElement('div');
+  disp.id = 'li-disp-'+id;
+  disp.className = 'link-disp';
+  disp.style.cssText = 'flex-direction:column;align-items:flex-start;min-height:36px;overflow:hidden;cursor:text;';
+  renderLinkedinDisplay(disp, value);
+  disp.addEventListener('click', function(e){
+    if(e.target.tagName==='A') return;
+    cell.classList.add('editing'); inp.focus();
+  });
+  cell.appendChild(disp);
+  var inp = makeInput(id, 'linkedinContacts', value, 'Full Name · linkedin.com/in/…');
+  inp.addEventListener('blur', function(){ renderLinkedinDisplay(disp, inp.value); cell.classList.remove('editing'); });
+  cell.appendChild(inp);
+  return cell;
+}
+
+function renderEmailDisplay(dispEl, val){
+  dispEl.innerHTML = '';
+  var lines = (val||'').split('\n').map(function(l){return l.trim();}).filter(Boolean);
+  if(!lines.length){
+    var ph = document.createElement('span');
+    ph.className = 'link-disp-text empty';
+    ph.style.cssText = 'font-size:13px;white-space:nowrap;';
+    ph.textContent = 'contact@brand.com…';
+    dispEl.appendChild(ph);
+    return;
+  }
+  lines.forEach(function(line){
+    var em = line.match(/[\w._%+\-]+@[\w.\-]+\.[a-z]{2,}/i);
+    var a = document.createElement('a');
+    a.style.cssText = 'font-size:13px;text-decoration:none;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:1px;';
+    a.textContent = line;
+    if(em){ a.href = 'mailto:'+em[0]; a.style.color='var(--tf)'; a.title='Send email'; }
+    else { a.style.color='var(--ink)'; }
+    dispEl.appendChild(a);
+  });
+}
+
+function makeEmailCell(id, value){
+  var cell = document.createElement('div');
+  cell.className = 'link-cell';
+  var disp = document.createElement('div');
+  disp.id = 'email-disp-'+id;
+  disp.className = 'link-disp';
+  disp.style.cssText = 'flex-direction:column;align-items:flex-start;min-height:36px;overflow:hidden;cursor:text;';
+  renderEmailDisplay(disp, value);
+  disp.addEventListener('click', function(e){
+    if(e.target.tagName==='A') return;
+    cell.classList.add('editing'); inp.focus();
+  });
+  cell.appendChild(disp);
+  var inp = makeInput(id, 'contactEmail', value, 'contact@brand.com…');
+  inp.addEventListener('blur', function(){ renderEmailDisplay(disp, inp.value); cell.classList.remove('editing'); });
+  cell.appendChild(inp);
+  return cell;
+}
+
 // ── Firebase helpers ──────────────────────────────────────────────────────────
 function furl(path){ return DB+ROOT+(path||'')+'.json'; }
 function fput(path,data){
@@ -763,6 +857,12 @@ function renderRow(id, fid){
       inp.classList.toggle('has-text', !!(item[field] && item[field].length > 0));
       autoResize(inp);
     }
+    // Refresh clickable display
+    var dispEl = document.getElementById((field==='linkedinContacts'?'li-disp-':'email-disp-')+id);
+    if(dispEl && document.activeElement !== inp){
+      if(field==='linkedinContacts') renderLinkedinDisplay(dispEl, item[field]||'');
+      else renderEmailDisplay(dispEl, item[field]||'');
+    }
   });
 
   updateVoteButtons(id);
@@ -855,13 +955,13 @@ function buildRow(id, num){
   // Contact email cell
   var tdEmail = document.createElement('td');
   tdEmail.style.minWidth = '150px';
-  tdEmail.appendChild(makeInput(id, 'contactEmail', item.contactEmail, 'contact@brand.com…'));
+  tdEmail.appendChild(makeEmailCell(id, item.contactEmail));
   tr.appendChild(tdEmail);
 
   // LinkedIn cell
   var tdLinkedin = document.createElement('td');
   tdLinkedin.style.minWidth = '200px';
-  tdLinkedin.appendChild(makeInput(id, 'linkedinContacts', item.linkedinContacts, 'Full Name · linkedin.com/in/…'));
+  tdLinkedin.appendChild(makeLinkedinCell(id, item.linkedinContacts));
   tr.appendChild(tdLinkedin);
 
   // Delete cell
