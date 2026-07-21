@@ -1012,6 +1012,15 @@ input[type=range]{width:100%;height:4px;accent-color:var(--tf);cursor:pointer;di
   <td style="border-left:1px solid #555" id="c-nety">—</td>
   <td style="color:rgba(255,255,255,.45);font-size:11px">Revenue minus all fixed and variable costs</td>
 </tr>
+<tr style="background:#242220">
+  <td style="color:rgba(255,255,255,.7);font-weight:600;font-size:13px">Monthly avg</td>
+  <td id="c-mo1" style="font-size:15px;font-weight:700">—</td>
+  <td id="c-mo2" style="font-size:15px;font-weight:700">—</td>
+  <td id="c-mo3" style="font-size:15px;font-weight:700">—</td>
+  <td id="c-mo4" style="font-size:15px;font-weight:700">—</td>
+  <td style="border-left:1px solid #555;font-size:15px;font-weight:700" id="c-moy">—</td>
+  <td style="color:rgba(255,255,255,.35);font-size:11px">Net Position ÷ 3 per quarter</td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -1256,6 +1265,8 @@ function proj(){
     }
     var ybEl=document.getElementById('yb-net'+q);
     if(ybEl){ybEl.textContent=(net>=0?'+':'-')+fmtM(Math.abs(net));ybEl.className='yr-v '+(net>=0?'g':'r');}
+    var cMoEl=document.getElementById('c-mo'+q);
+    if(cMoEl){var cmo=net/3;cMoEl.textContent=(cmo>=0?'+':'-')+fmtM(Math.abs(cmo));cMoEl.style.color=cmo>=0?'#7AE3B2':'#FF8A80';}
     var ybMoEl=document.getElementById('yb-mo'+q);
     if(ybMoEl){var mo=net/3;ybMoEl.textContent=(mo>=0?'+':'-')+fmtM(Math.abs(mo));ybMoEl.className='yr-v '+(mo>=0?'g':'r');}
     // Variable-only net for Section 03 duplicate row
@@ -1296,6 +1307,8 @@ function proj(){
   if(ybYEl){ybYEl.textContent=(netY>=0?'+':'-')+fmtM(Math.abs(netY));ybYEl.className='yr-v '+(netY>=0?'g':'r');}
   var ybMoYEl=document.getElementById('yb-moy');
   if(ybMoYEl){var moY=netY/12;ybMoYEl.textContent=(moY>=0?'+':'-')+fmtM(Math.abs(moY));ybMoYEl.className='yr-v '+(moY>=0?'g':'r');}
+  var cMoYEl=document.getElementById('c-moy');
+  if(cMoYEl){var cmoY=netY/12;cMoYEl.textContent=(cmoY>=0?'+':'-')+fmtM(Math.abs(cmoY));cMoYEl.style.color=cmoY>=0?'#7AE3B2':'#FF8A80';}
 }
 
 proj();
