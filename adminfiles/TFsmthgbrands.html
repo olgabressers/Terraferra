@@ -51,7 +51,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .sync-dot.err{background:#ef4444}
 .sync-label{font-size:11px;font-weight:700;color:var(--sub)}
 
-.count-bar{font-size:11px;font-weight:700;color:var(--sub);margin-bottom:12px;letter-spacing:.5px}
+.count-bar{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:12px;letter-spacing:.5px}
 
 /* ── VOTER BAR ── */
 .voter-bar{background:white;border:1px solid var(--rule);border-top:3px solid var(--tf);padding:14px 20px;margin-bottom:16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
@@ -69,8 +69,8 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .tbl-wrap{background:white;border:1px solid var(--rule);border-top:3px solid var(--tf);overflow-x:auto;-webkit-overflow-scrolling:touch}
 .brands-tbl{width:100%;border-collapse:collapse;min-width:1180px}
 .brands-tbl thead th{
-  padding:10px 10px 10px 12px;font-size:10px;font-weight:800;letter-spacing:1.5px;
-  text-transform:uppercase;color:var(--sub);border-bottom:2px solid var(--rule);
+  padding:10px 10px 10px 12px;font-size:11px;font-weight:800;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--ink);border-bottom:2px solid var(--rule);
   text-align:left;background:white;white-space:nowrap;
 }
 .brands-tbl thead th.th-num{width:36px;text-align:center}
@@ -88,7 +88,7 @@ td{padding:3px 6px;vertical-align:top;padding-top:4px;white-space:normal}
 /* Inputs */
 .cell-inp{
   border:1px solid transparent;background:transparent;
-  font-family:'Inter',sans-serif;font-size:12.5px;font-weight:400;color:var(--ink);
+  font-family:'Inter',sans-serif;font-size:14px;font-weight:400;color:var(--ink);
   padding:6px 8px;outline:none;width:100%;
   resize:vertical;overflow-y:auto;min-height:36px;height:36px;line-height:1.45;display:block;
   white-space:pre-wrap;word-wrap:break-word;
@@ -98,14 +98,20 @@ td{padding:3px 6px;vertical-align:top;padding-top:4px;white-space:normal}
 .cell-inp.has-text{height:auto;min-height:36px}
 .cell-inp.brand-field{font-weight:700}
 
-/* URL cell */
+/* URL / Instagram display cells */
+.link-cell{position:relative}
+.link-disp{display:flex;align-items:center;gap:6px;padding:6px 8px;cursor:text;min-height:36px}
+.link-disp-text{font-size:13px;color:var(--tf);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;text-decoration:none}
+.link-disp-text:hover{text-decoration:underline}
+.link-disp-text.empty{color:#D0CCC5;font-size:12px;pointer-events:none}
+.link-open{flex-shrink:0;font-size:13px;color:var(--sub);text-decoration:none;opacity:0;transition:opacity .12s}
+.link-cell:hover .link-open,.link-open:focus{opacity:1}
+.link-open:hover{color:var(--tf)}
+.link-cell .cell-inp{display:none;margin:2px 4px}
+.link-cell.editing .cell-inp{display:block}
+.link-cell.editing .link-disp{display:none}
+/* legacy, keep for non-link cells */
 .url-cell{display:flex;align-items:flex-start;gap:3px}
-.url-open{
-  flex-shrink:0;font-size:12px;color:var(--sub);text-decoration:none;
-  opacity:0;transition:opacity .15s;line-height:1;padding:8px 2px 2px;
-}
-tr:hover .url-open,.url-open:focus{opacity:1}
-.url-open:hover{color:var(--tf)}
 
 /* Example badge */
 .example-badge{
@@ -144,7 +150,7 @@ tr:hover .del-btn{opacity:1}
 /* Filter bar */
 .filter-bar{display:flex;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap}
 .filter-label{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub)}
-.filter-btn{padding:4px 12px;border:1.5px solid var(--rule);background:white;color:var(--sub);font-family:'Inter',sans-serif;font-size:11px;font-weight:700;cursor:pointer;transition:all .12s;border-radius:3px}
+.filter-btn{padding:5px 13px;border:1.5px solid var(--rule);background:white;color:var(--ink);font-family:'Inter',sans-serif;font-size:12px;font-weight:700;cursor:pointer;transition:all .12s;border-radius:3px}
 .filter-btn:hover{border-color:var(--tf);color:var(--tf)}
 .filter-btn.active{background:var(--tf);border-color:var(--tf);color:white}
 .filter-btn.eu-group{border-color:var(--tf);color:var(--tf)}
@@ -290,6 +296,65 @@ var FIELDS = [
   {key:'sellsTo',     ph:'Global, US, EU…',      w:'120px'},
   {key:'whyRelevant', ph:'Reason for SMTHG…',    w:'190px'},
 ];
+
+// ── URL / Instagram display helpers ──────────────────────────────────────────
+function cleanUrl(url){
+  if(!url) return '';
+  try{ return new URL(url).hostname.replace(/^www\./,''); }
+  catch(e){ return url.replace(/^https?:\/\/(www\.)?/,'').split('/')[0]||url; }
+}
+function cleanInstagram(url){
+  if(!url) return '';
+  var m = url.match(/instagram\.com\/([^\/\?#]+)/);
+  return m ? '@'+m[1].replace(/\/+$/,'') : url.replace(/^https?:\/\/(www\.)?/,'');
+}
+function makeLinkCell(id, field, value, openId, cleanFn, openTitle){
+  var cell = document.createElement('div');
+  cell.className = 'link-cell';
+
+  var disp = document.createElement('div');
+  disp.className = 'link-disp';
+
+  var cleanVal = cleanFn(value||'');
+  var textEl = document.createElement('a');
+  textEl.id = 'ltext-'+field+'-'+id;
+  textEl.className = 'link-disp-text'+(cleanVal?'':' empty');
+  textEl.textContent = cleanVal||'Add link…';
+  if(value){ textEl.href=value; textEl.target='_blank'; textEl.rel='noopener'; }
+  disp.appendChild(textEl);
+
+  var openLink = document.createElement('a');
+  openLink.id = openId;
+  openLink.className = 'link-open';
+  openLink.href = value||'#';
+  openLink.target = '_blank';
+  openLink.rel = 'noopener';
+  openLink.textContent = '↗';
+  openLink.title = openTitle;
+  openLink.style.display = value ? 'inline' : 'none';
+  disp.appendChild(openLink);
+
+  disp.addEventListener('click', function(e){
+    if(e.target.tagName==='A') return;
+    cell.classList.add('editing');
+    inp.focus();
+    inp.setSelectionRange(0,inp.value.length);
+  });
+  cell.appendChild(disp);
+
+  var inp = makeInput(id, field, value, 'https://…');
+  inp.addEventListener('blur', function(){
+    var val = inp.value.trim();
+    var cleaned = cleanFn(val);
+    var tEl = document.getElementById('ltext-'+field+'-'+id);
+    if(tEl){ tEl.textContent=cleaned||'Add link…'; tEl.className='link-disp-text'+(cleaned?'':' empty'); if(val){tEl.href=val;tEl.target='_blank';tEl.rel='noopener';}else{tEl.removeAttribute('href');} }
+    var oEl = document.getElementById(openId);
+    if(oEl){ oEl.href=val||'#'; oEl.style.display=val?'inline':'none'; }
+    cell.classList.remove('editing');
+  });
+  cell.appendChild(inp);
+  return cell;
+}
 
 // ── Firebase helpers ──────────────────────────────────────────────────────────
 function furl(path){ return DB+ROOT+(path||'')+'.json'; }
@@ -588,10 +653,14 @@ function renderRow(id, fid){
     if(fc.key === 'url'){
       var link = document.getElementById('url-link-'+id);
       if(link){ link.href = item.url||'#'; link.style.display = item.url ? 'inline' : 'none'; }
+      var tEl = document.getElementById('ltext-url-'+id);
+      if(tEl){ var c=cleanUrl(item.url||''); tEl.textContent=c||'Add link…'; tEl.className='link-disp-text'+(c?'':' empty'); if(item.url){tEl.href=item.url;tEl.target='_blank';}else{tEl.removeAttribute('href');} }
     }
     if(fc.key === 'instagram'){
       var iglink = document.getElementById('ig-link-'+id);
       if(iglink){ iglink.href = item.instagram||'#'; iglink.style.display = item.instagram ? 'inline' : 'none'; }
+      var tElI = document.getElementById('ltext-instagram-'+id);
+      if(tElI){ var ci=cleanInstagram(item.instagram||''); tElI.textContent=ci||'Add link…'; tElI.className='link-disp-text'+(ci?'':' empty'); if(item.instagram){tElI.href=item.instagram;tElI.target='_blank';}else{tElI.removeAttribute('href');} }
     }
   });
   updateVoteButtons(id);
@@ -647,35 +716,9 @@ function buildRow(id, num){
       wrap.appendChild(badge);
       td.appendChild(wrap);
     } else if(fc.key === 'url'){
-      var wrap = document.createElement('div');
-      wrap.className = 'url-cell';
-      wrap.appendChild(makeInput(id, fc.key, item[fc.key], fc.ph));
-      var link = document.createElement('a');
-      link.id = 'url-link-'+id;
-      link.className = 'url-open';
-      link.href = item.url || '#';
-      link.target = '_blank';
-      link.rel = 'noopener';
-      link.textContent = '↗';
-      link.title = 'Open URL';
-      link.style.display = item.url ? 'inline' : 'none';
-      wrap.appendChild(link);
-      td.appendChild(wrap);
+      td.appendChild(makeLinkCell(id, 'url', item.url, 'url-link-'+id, cleanUrl, 'Open URL'));
     } else if(fc.key === 'instagram'){
-      var wrap = document.createElement('div');
-      wrap.className = 'url-cell';
-      wrap.appendChild(makeInput(id, fc.key, item[fc.key], fc.ph));
-      var iglink = document.createElement('a');
-      iglink.id = 'ig-link-'+id;
-      iglink.className = 'url-open';
-      iglink.href = item.instagram || '#';
-      iglink.target = '_blank';
-      iglink.rel = 'noopener';
-      iglink.textContent = '↗';
-      iglink.title = 'Open Instagram';
-      iglink.style.display = item.instagram ? 'inline' : 'none';
-      wrap.appendChild(iglink);
-      td.appendChild(wrap);
+      td.appendChild(makeLinkCell(id, 'instagram', item.instagram, 'ig-link-'+id, cleanInstagram, 'Open Instagram'));
     } else {
       td.appendChild(makeInput(id, fc.key, item[fc.key], fc.ph));
     }
