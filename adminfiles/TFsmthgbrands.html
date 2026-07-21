@@ -326,9 +326,9 @@ tr:hover .del-btn{opacity:1}
           <th style="min-width:100px">Country origin</th>
           <th style="min-width:120px">Sells to</th>
           <th style="min-width:190px">Why relevant for SMTHG</th>
+          <th class="th-votes">Votes</th>
           <th style="min-width:150px">Contact email</th>
           <th style="min-width:200px">LinkedIn (owner / commercial)</th>
-          <th class="th-votes">Votes</th>
           <th class="th-del"></th>
         </tr>
       </thead>
@@ -367,8 +367,6 @@ var FIELDS = [
   {key:'origin',      ph:'UK, US…',              w:'100px'},
   {key:'sellsTo',     ph:'Global, US, EU…',      w:'120px'},
   {key:'whyRelevant',      ph:'Reason for SMTHG…',              w:'190px'},
-  {key:'contactEmail',    ph:'contact@brand.com…',             w:'150px'},
-  {key:'linkedinContacts',ph:'Full Name · linkedin.com/in/…',  w:'200px'},
 ];
 
 // ── URL / Instagram display helpers ──────────────────────────────────────────
@@ -757,6 +755,16 @@ function renderRow(id, fid){
       if(tElI){ var ci=cleanInstagram(item.instagram||''); tElI.textContent=ci||'Add link…'; tElI.className='link-disp-text'+(ci?'':' empty'); if(item.instagram){tElI.href=item.instagram;tElI.target='_blank';}else{tElI.removeAttribute('href');} }
     }
   });
+  // Update contact fields (not in FIELDS loop)
+  ['contactEmail','linkedinContacts'].forEach(function(field){
+    var inp = document.getElementById('inp-'+field+'-'+id);
+    if(inp && document.activeElement !== inp){
+      inp.value = item[field] || '';
+      inp.classList.toggle('has-text', !!(item[field] && item[field].length > 0));
+      autoResize(inp);
+    }
+  });
+
   updateVoteButtons(id);
   renderFilter();
   applyFilter();
@@ -843,6 +851,18 @@ function buildRow(id, num){
   vWrap.appendChild(cnt);
   tdVote.appendChild(vWrap);
   tr.appendChild(tdVote);
+
+  // Contact email cell
+  var tdEmail = document.createElement('td');
+  tdEmail.style.minWidth = '150px';
+  tdEmail.appendChild(makeInput(id, 'contactEmail', item.contactEmail, 'contact@brand.com…'));
+  tr.appendChild(tdEmail);
+
+  // LinkedIn cell
+  var tdLinkedin = document.createElement('td');
+  tdLinkedin.style.minWidth = '200px';
+  tdLinkedin.appendChild(makeInput(id, 'linkedinContacts', item.linkedinContacts, 'Full Name · linkedin.com/in/…'));
+  tr.appendChild(tdLinkedin);
 
   // Delete cell
   var tdDel = document.createElement('td');
