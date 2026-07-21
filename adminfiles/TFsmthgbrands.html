@@ -164,6 +164,28 @@ tr:hover .del-btn{opacity:1}
   cursor:pointer;text-align:center;letter-spacing:1px;transition:background .12s;
 }
 .add-btn:hover{background:var(--tf-ghost)}
+
+/* ── VOTE DASHBOARD ── */
+.vote-dashboard{background:white;border:1px solid var(--rule);border-top:3px solid var(--tf);padding:16px 20px;margin-bottom:16px}
+.vote-dashboard-hd{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.vote-dashboard-hd-sub{font-size:11px;font-weight:400;letter-spacing:0;text-transform:none;color:#C0BCBA;font-style:italic}
+.dash-empty{font-size:12px;color:var(--sub);font-style:italic;padding:4px 0}
+.dash-grid{display:flex;flex-direction:column;gap:3px}
+.dash-row{display:flex;align-items:center;gap:10px;padding:5px 10px;border-radius:3px;border:1px solid transparent}
+.dash-top6{background:var(--tf-ghost);border-color:var(--rule)}
+.dash-rank{font-size:11px;font-weight:800;color:#C0BCBA;min-width:22px;text-align:right;flex-shrink:0}
+.dash-rank-top{color:var(--tf)}
+.dash-name{font-size:13px;font-weight:700;color:var(--ink);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dash-origin{font-size:11px;color:var(--sub);min-width:70px;flex-shrink:0}
+.dash-voters{display:flex;gap:3px;flex-shrink:0}
+.dash-dot{width:20px;height:20px;border-radius:50%;font-size:9px;font-weight:800;color:white;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.dash-dot-va{background:var(--va)}
+.dash-dot-vc{background:var(--vc)}
+.dash-dot-vm{background:var(--vm)}
+.dash-dot-vx{background:var(--vx)}
+.dash-dot-empty{background:transparent;border:1.5px solid var(--rule)}
+.dash-count{font-size:11px;font-weight:700;color:var(--sub);min-width:44px;text-align:right;flex-shrink:0}
+@media(max-width:700px){.dash-origin{display:none}.dash-row{padding:4px 6px}}
 </style>
 </head>
 <body>
@@ -234,6 +256,11 @@ tr:hover .del-btn{opacity:1}
     <button class="voter-btn" data-voter="chris" onclick="setVoter('chris')">Chris</button>
     <button class="voter-btn" data-voter="maxim" onclick="setVoter('maxim')">Maxim</button>
     <span class="voter-status" id="voter-status">Select your name to enable voting</span>
+  </div>
+
+  <div class="vote-dashboard" id="vote-dashboard">
+    <div class="vote-dashboard-hd">Leaderboard <span class="vote-dashboard-hd-sub">top 6 highlighted</span></div>
+    <div class="dash-empty">No votes yet — select your name above and click vote buttons on brands below.</div>
   </div>
 
   <div class="count-bar" id="count-bar">Loading…</div>
@@ -652,6 +679,7 @@ function renderAll(fid){
   updateCount();
   renderFilter();
   applyFilter();
+  renderDashboard();
   requestAnimationFrame(resizeAllTextareas);
   if(fid){
     var el = document.getElementById(fid);
@@ -705,6 +733,7 @@ function updateVoteButtons(id){
   });
   var cnt = document.getElementById('vcnt-'+id);
   if(cnt) cnt.textContent = total > 0 ? total : '';
+  renderDashboard();
 }
 
 function buildRow(id, num){
@@ -830,6 +859,59 @@ function setVoter(name){
   var st = document.getElementById('voter-status');
   st.textContent = 'Voting as '+name.charAt(0).toUpperCase()+name.slice(1);
   st.className = 'voter-status ready';
+}
+
+// ── Dashboard ─────────────────────────────────────────────────────────────────
+function escHtml(s){
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function renderDashboard(){
+  var panel = document.getElementById('vote-dashboard');
+  if(!panel) return;
+
+  var vconf = [{k:'va',cls:'va',lbl:'A'},{k:'vx',cls:'vx',lbl:'X'},{k:'vc',cls:'vc',lbl:'C'},{k:'vm',cls:'vm',lbl:'M'}];
+
+  var voted = Object.keys(fbData).filter(function(id){
+    var item = fbData[id];
+    return item && item.name && vconf.some(function(v){ return item[v.k]; });
+  });
+
+  if(voted.length === 0){
+    panel.innerHTML = '<div class="vote-dashboard-hd">Leaderboard <span class="vote-dashboard-hd-sub">top 6 highlighted</span></div><div class="dash-empty">No votes yet — select your name above and click vote buttons on brands below.</div>';
+    return;
+  }
+
+  voted.sort(function(a, b){
+    var ta = vconf.filter(function(v){ return fbData[a][v.k]; }).length;
+    var tb = vconf.filter(function(v){ return fbData[b][v.k]; }).length;
+    if(ta !== tb) return tb - ta;
+    return (fbData[a].name||'').localeCompare(fbData[b].name||'');
+  });
+
+  var html = '<div class="vote-dashboard-hd">Leaderboard <span class="vote-dashboard-hd-sub">top 6 highlighted</span></div><div class="dash-grid">';
+  voted.forEach(function(id, i){
+    var item = fbData[id];
+    var rank = i + 1;
+    var isTop = rank <= 6;
+    var total = vconf.filter(function(v){ return item[v.k]; }).length;
+    var dots = vconf.map(function(v){
+      if(item[v.k]){
+        return '<span class="dash-dot dash-dot-'+v.cls+'" title="'+{va:'Alena',vx:'Alex',vc:'Chris',vm:'Maxim'}[v.k]+'">'+v.lbl+'</span>';
+      }
+      return '<span class="dash-dot dash-dot-empty"></span>';
+    }).join('');
+
+    html += '<div class="dash-row'+(isTop?' dash-top6':'')+'">'+
+      '<span class="dash-rank'+(isTop?' dash-rank-top':'')+'">'+rank+'</span>'+
+      '<span class="dash-name">'+escHtml(item.name)+'</span>'+
+      '<span class="dash-origin">'+escHtml(item.origin||'')+'</span>'+
+      '<span class="dash-voters">'+dots+'</span>'+
+      '<span class="dash-count">'+total+(total===1?' vote':' votes')+'</span>'+
+    '</div>';
+  });
+  html += '</div>';
+  panel.innerHTML = html;
 }
 
 function setSyncStatus(state){
