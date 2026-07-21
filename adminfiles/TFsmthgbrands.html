@@ -184,8 +184,13 @@ tr:hover .del-btn{opacity:1}
 .dash-dot-vm{background:var(--vm)}
 .dash-dot-vx{background:var(--vx)}
 .dash-dot-empty{background:transparent;border:1.5px solid var(--rule)}
+.dash-links{display:flex;flex-direction:column;gap:2px;min-width:130px;flex-shrink:0}
+.dash-link{font-size:11px;color:var(--tf);text-decoration:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dash-link:hover{text-decoration:underline}
+.dash-link-ig{color:var(--sub)}
+.dash-link-empty{font-size:11px;color:#D0CCC5}
 .dash-count{font-size:11px;font-weight:700;color:var(--sub);min-width:44px;text-align:right;flex-shrink:0}
-@media(max-width:700px){.dash-origin{display:none}.dash-row{padding:4px 6px}}
+@media(max-width:700px){.dash-origin{display:none}.dash-links{display:none}.dash-row{padding:4px 6px}}
 </style>
 </head>
 <body>
@@ -902,10 +907,16 @@ function renderDashboard(){
       return '<span class="dash-dot dash-dot-empty"></span>';
     }).join('');
 
+    var urlHost = item.url ? (function(u){ try{ return new URL(u).hostname.replace(/^www\./,''); }catch(e){ return u.replace(/^https?:\/\/(www\.)?/,'').split('/')[0]||u; } })(item.url) : '';
+    var igHandle = item.instagram ? (function(u){ var m=u.match(/instagram\.com\/([^\/\?#]+)/); return m?'@'+m[1].replace(/\/+$/,''):u.replace(/^https?:\/\/(www\.)?/,''); })(item.instagram) : '';
+    var urlLink = item.url ? '<a class="dash-link" href="'+escHtml(item.url)+'" target="_blank" rel="noopener">'+escHtml(urlHost)+'</a>' : '<span class="dash-link-empty">—</span>';
+    var igLink = item.instagram ? '<a class="dash-link dash-link-ig" href="'+escHtml(item.instagram)+'" target="_blank" rel="noopener">'+escHtml(igHandle)+'</a>' : '<span class="dash-link-empty">—</span>';
+
     html += '<div class="dash-row'+(isTop?' dash-top6':'')+'">'+
       '<span class="dash-rank'+(isTop?' dash-rank-top':'')+'">'+rank+'</span>'+
       '<span class="dash-name">'+escHtml(item.name)+'</span>'+
       '<span class="dash-origin">'+escHtml(item.origin||'')+'</span>'+
+      '<span class="dash-links">'+urlLink+igLink+'</span>'+
       '<span class="dash-voters">'+dots+'</span>'+
       '<span class="dash-count">'+total+(total===1?' vote':' votes')+'</span>'+
     '</div>';
