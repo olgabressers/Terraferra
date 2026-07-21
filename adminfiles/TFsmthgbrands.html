@@ -68,7 +68,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 
 /* ── TABLE ── */
 .tbl-wrap{background:white;border:1px solid var(--rule);border-top:3px solid var(--tf);overflow-x:auto;-webkit-overflow-scrolling:touch}
-.brands-tbl{width:100%;border-collapse:collapse;min-width:1180px}
+.brands-tbl{width:100%;border-collapse:collapse;min-width:1550px}
 .brands-tbl thead th{
   padding:10px 10px 10px 12px;font-size:11px;font-weight:800;letter-spacing:1.5px;
   text-transform:uppercase;color:var(--ink);border-bottom:2px solid var(--rule);
@@ -326,6 +326,8 @@ tr:hover .del-btn{opacity:1}
           <th style="min-width:100px">Country origin</th>
           <th style="min-width:120px">Sells to</th>
           <th style="min-width:190px">Why relevant for SMTHG</th>
+          <th style="min-width:150px">Contact email</th>
+          <th style="min-width:200px">LinkedIn (owner / commercial)</th>
           <th class="th-votes">Votes</th>
           <th class="th-del"></th>
         </tr>
@@ -351,7 +353,7 @@ var VOTER_KEYS = {alena:'va', chris:'vc', maxim:'vm', alex:'vx', claude:'vl'};
 var DEFAULTS = [];
 
 function blankItem(src){
-  var base = {name:'',url:'',instagram:'',revenue:'',positioning:'',origin:'',sellsTo:'',whyRelevant:'',comments:'',isExample:false,va:false,vc:false,vm:false,vx:false,vl:false};
+  var base = {name:'',url:'',instagram:'',revenue:'',positioning:'',origin:'',sellsTo:'',whyRelevant:'',contactEmail:'',linkedinContacts:'',comments:'',isExample:false,va:false,vc:false,vm:false,vx:false,vl:false};
   if(src){ Object.keys(src).forEach(function(k){ base[k]=src[k]; }); }
   return base;
 }
@@ -364,7 +366,9 @@ var FIELDS = [
   {key:'positioning', ph:'What they make…',       w:'190px'},
   {key:'origin',      ph:'UK, US…',              w:'100px'},
   {key:'sellsTo',     ph:'Global, US, EU…',      w:'120px'},
-  {key:'whyRelevant', ph:'Reason for SMTHG…',    w:'190px'},
+  {key:'whyRelevant',      ph:'Reason for SMTHG…',              w:'190px'},
+  {key:'contactEmail',    ph:'contact@brand.com…',             w:'150px'},
+  {key:'linkedinContacts',ph:'Full Name · linkedin.com/in/…',  w:'200px'},
 ];
 
 // ── URL / Instagram display helpers ──────────────────────────────────────────
