@@ -12,7 +12,7 @@
 :root{
   --tf:#E8002D;--tf-dark:#B50023;--tf-ghost:#F1EEE9;
   --off-white:#F8F6F2;--ink:#161616;--sub:#5C5A56;--rule:#E6E2DA;
-  --va:#B8106D;--vc:#E86820;--vm:#1A6BCC;--vx:#167A47;
+  --va:#B8106D;--vc:#E86820;--vm:#1A6BCC;--vx:#167A47;--vl:#7C3AED;
 }
 body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink);min-height:100vh}
 
@@ -62,6 +62,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .voter-btn[data-voter="chris"].active{background:var(--vc);border-color:var(--vc);color:white}
 .voter-btn[data-voter="maxim"].active{background:var(--vm);border-color:var(--vm);color:white}
 .voter-btn[data-voter="alex"].active{background:var(--vx);border-color:var(--vx);color:white}
+.voter-btn[data-voter="claude"].active{background:var(--vl);border-color:var(--vl);color:white}
 .voter-status{font-size:12px;color:var(--sub);font-style:italic;margin-left:4px}
 .voter-status.ready{color:var(--tf);font-weight:700;font-style:normal}
 
@@ -135,6 +136,7 @@ td{padding:3px 6px;vertical-align:top;padding-top:4px;white-space:normal}
 .vote-btn.vc{background:var(--vc);border-color:var(--vc);color:white}
 .vote-btn.vm{background:var(--vm);border-color:var(--vm);color:white}
 .vote-btn.vx{background:var(--vx);border-color:var(--vx);color:white}
+.vote-btn.vl{background:var(--vl);border-color:var(--vl);color:white}
 .vote-count{font-size:11px;font-weight:800;color:var(--ink);min-width:14px;text-align:center;margin-left:2px}
 
 /* Delete button */
@@ -171,7 +173,7 @@ tr:hover .del-btn{opacity:1}
 .vote-dashboard-hd-sub{font-size:11px;font-weight:400;letter-spacing:0;text-transform:none;color:#C0BCBA;font-style:italic}
 .dash-empty{font-size:13px;color:var(--sub);font-style:italic;padding:4px 0}
 .dash-grid{display:flex;flex-direction:column;gap:2px}
-.dash-cols{display:grid;grid-template-columns:28px 160px 145px 140px 70px 100px 50px 1fr;gap:0 10px;align-items:center}
+.dash-cols{display:grid;grid-template-columns:28px 180px 150px 145px 75px 125px 50px;gap:0 10px;align-items:center}
 .dash-header{padding:4px 10px 7px;border-bottom:1px solid var(--rule);margin-bottom:4px}
 .dash-header-cell{font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub)}
 .dash-header-cell.right{text-align:right}
@@ -192,6 +194,7 @@ tr:hover .del-btn{opacity:1}
 .dash-dot-vc{background:var(--vc)}
 .dash-dot-vm{background:var(--vm)}
 .dash-dot-vx{background:var(--vx)}
+.dash-dot-vl{background:var(--vl)}
 .dash-dot-empty{background:transparent;border:1.5px solid var(--rule)}
 .dash-count{font-size:13px;font-weight:700;color:var(--sub);text-align:right}
 .dash-ai-pick{font-size:12px;font-weight:700;color:#167A47}
@@ -270,6 +273,7 @@ tr:hover .del-btn{opacity:1}
     <button class="voter-btn" data-voter="alex" onclick="setVoter('alex')">Alex</button>
     <button class="voter-btn" data-voter="chris" onclick="setVoter('chris')">Chris</button>
     <button class="voter-btn" data-voter="maxim" onclick="setVoter('maxim')">Maxim</button>
+    <button class="voter-btn" data-voter="claude" onclick="setVoter('claude')">Claude</button>
     <span class="voter-status" id="voter-status">Select your name to enable voting</span>
   </div>
 
@@ -318,12 +322,12 @@ var fbOrder = [];
 var textTimers = {};
 var currentVoter = null;
 var filterCountry = '';
-var VOTER_KEYS = {alena:'va', chris:'vc', maxim:'vm', alex:'vx'};
+var VOTER_KEYS = {alena:'va', chris:'vc', maxim:'vm', alex:'vx', claude:'vl'};
 
 var DEFAULTS = [];
 
 function blankItem(src){
-  var base = {name:'',url:'',instagram:'',revenue:'',positioning:'',origin:'',sellsTo:'',whyRelevant:'',comments:'',isExample:false,va:false,vc:false,vm:false,vx:false};
+  var base = {name:'',url:'',instagram:'',revenue:'',positioning:'',origin:'',sellsTo:'',whyRelevant:'',comments:'',isExample:false,va:false,vc:false,vm:false,vx:false,vl:false};
   if(src){ Object.keys(src).forEach(function(k){ base[k]=src[k]; }); }
   return base;
 }
@@ -416,7 +420,7 @@ async function init(){
       // Ensure all items have vote fields
       var vChanged = false;
       Object.keys(fbData).forEach(function(id){
-        ['va','vc','vm','vx'].forEach(function(k){
+        ['va','vc','vm','vx','vl'].forEach(function(k){
           if(fbData[id][k] === undefined){ fbData[id][k] = false; vChanged = true; }
         });
       });
@@ -737,7 +741,7 @@ function renderRow(id, fid){
 function updateVoteButtons(id){
   var item = fbData[id];
   if(!item) return;
-  var vconf = [{k:'va',cls:'va',lbl:'A'},{k:'vx',cls:'vx',lbl:'X'},{k:'vc',cls:'vc',lbl:'C'},{k:'vm',cls:'vm',lbl:'M'}];
+  var vconf = [{k:'va',cls:'va',lbl:'A'},{k:'vx',cls:'vx',lbl:'X'},{k:'vc',cls:'vc',lbl:'C'},{k:'vm',cls:'vm',lbl:'M'},{k:'vl',cls:'vl',lbl:'AI'}];
   var total = 0;
   vconf.forEach(function(v){
     var btn = document.getElementById('vbtn-'+v.k+'-'+id);
@@ -793,12 +797,12 @@ function buildRow(id, num){
   tdVote.className = 'vote-cell';
   var vWrap = document.createElement('div');
   vWrap.className = 'vote-btns';
-  [{k:'va',cls:'va',lbl:'A'},{k:'vx',cls:'vx',lbl:'X'},{k:'vc',cls:'vc',lbl:'C'},{k:'vm',cls:'vm',lbl:'M'}].forEach(function(v){
+  [{k:'va',cls:'va',lbl:'A'},{k:'vx',cls:'vx',lbl:'X'},{k:'vc',cls:'vc',lbl:'C'},{k:'vm',cls:'vm',lbl:'M'},{k:'vl',cls:'vl',lbl:'AI'}].forEach(function(v){
     var btn = document.createElement('button');
     btn.className = 'vote-btn'+(item[v.k] ? ' '+v.cls : '');
     btn.id = 'vbtn-'+v.k+'-'+id;
     btn.textContent = v.lbl;
-    var titles = {va:'Alena',vc:'Chris',vm:'Maxim',vx:'Alex'};
+    var titles = {va:'Alena',vc:'Chris',vm:'Maxim',vx:'Alex',vl:'Claude'};
     btn.title = titles[v.k];
     (function(cId){ btn.onclick = function(){ vote(cId); }; })(id);
     vWrap.appendChild(btn);
@@ -806,7 +810,7 @@ function buildRow(id, num){
   var cnt = document.createElement('span');
   cnt.className = 'vote-count';
   cnt.id = 'vcnt-'+id;
-  var total = ['va','vc','vm','vx'].filter(function(k){ return item[k]; }).length;
+  var total = ['va','vc','vm','vx','vl'].filter(function(k){ return item[k]; }).length;
   cnt.textContent = total > 0 ? total : '';
   vWrap.appendChild(cnt);
   tdVote.appendChild(vWrap);
@@ -881,20 +885,12 @@ function escHtml(s){
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
-var AI_PICKS = {
-  'Haculla':     'US-based, no customs. NYC street art × fashion, built for drops and influencer launches.',
-  'Hellstar':    'US-based, no customs. Drop model already proven — huge streetwear community, easy onboarding.',
-  'R13':         'US-based, no customs. Premium denim $300–700, ideal SMTHG price point, established DTC.',
-  'Charles Lu':  'Canada (USMCA = zero tariff). Already ships to US. Unique concept, DTC-native.',
-  'GCDS':        'Italy, ships to 190+ countries incl. US. Highest EU revenue ($25M), logistics proven.',
-  'DARKPARK':    'Italy, explicitly ships to US. Luxury-adjacent price point, right positioning for SMTHG.',
-};
-
 function renderDashboard(){
   var panel = document.getElementById('vote-dashboard');
   if(!panel) return;
 
-  var vconf = [{k:'va',cls:'va',lbl:'A'},{k:'vx',cls:'vx',lbl:'X'},{k:'vc',cls:'vc',lbl:'C'},{k:'vm',cls:'vm',lbl:'M'}];
+  var vconf = [{k:'va',cls:'va',lbl:'A'},{k:'vx',cls:'vx',lbl:'X'},{k:'vc',cls:'vc',lbl:'C'},{k:'vm',cls:'vm',lbl:'M'},{k:'vl',cls:'vl',lbl:'AI'}];
+  var vtitles = {va:'Alena',vx:'Alex',vc:'Chris',vm:'Maxim',vl:'Claude'};
 
   var voted = Object.keys(fbData).filter(function(id){
     var item = fbData[id];
@@ -913,9 +909,8 @@ function renderDashboard(){
     return (fbData[a].name||'').localeCompare(fbData[b].name||'');
   });
 
-  var hCols = function(cells){ return '<div class="dash-cols dash-header">'+cells.map(function(c,i){ return '<span class="dash-header-cell'+(i>=5?' right':'')+'">'+c+'</span>'; }).join('')+'</div>'; };
   var html = '<div class="vote-dashboard-hd">Leaderboard <span class="vote-dashboard-hd-sub">top 6 highlighted</span></div>';
-  html += hCols(['#','Brand','Website','Instagram','Origin','Votes','','AI Recommendation']);
+  html += '<div class="dash-cols dash-header"><span class="dash-header-cell">#</span><span class="dash-header-cell">Brand</span><span class="dash-header-cell">Website</span><span class="dash-header-cell">Instagram</span><span class="dash-header-cell">Origin</span><span class="dash-header-cell">Votes</span><span class="dash-header-cell right">Count</span></div>';
   html += '<div class="dash-grid">';
 
   voted.forEach(function(id, i){
@@ -924,7 +919,7 @@ function renderDashboard(){
     var isTop = rank <= 6;
     var total = vconf.filter(function(v){ return item[v.k]; }).length;
     var dots = vconf.map(function(v){
-      if(item[v.k]) return '<span class="dash-dot dash-dot-'+v.cls+'" title="'+{va:'Alena',vx:'Alex',vc:'Chris',vm:'Maxim'}[v.k]+'">'+v.lbl+'</span>';
+      if(item[v.k]) return '<span class="dash-dot dash-dot-'+v.cls+'" title="'+vtitles[v.k]+'">'+v.lbl+'</span>';
       return '<span class="dash-dot dash-dot-empty"></span>';
     }).join('');
 
@@ -932,11 +927,6 @@ function renderDashboard(){
     var igHandle = item.instagram ? (function(u){ var m=u.match(/instagram\.com\/([^\/\?#]+)/); return m?'@'+m[1].replace(/\/+$/,''):u.replace(/^https?:\/\/(www\.)?/,''); })(item.instagram) : '';
     var webCell = item.url ? '<a class="dash-web" href="'+escHtml(item.url)+'" target="_blank" rel="noopener">'+escHtml(urlHost)+'</a>' : '<span class="dash-link-empty">—</span>';
     var igCell  = item.instagram ? '<a class="dash-ig" href="'+escHtml(item.instagram)+'" target="_blank" rel="noopener">'+escHtml(igHandle)+'</a>' : '<span class="dash-link-empty">—</span>';
-
-    var aiReason = AI_PICKS[item.name] || '';
-    var aiCell = aiReason
-      ? '<span class="dash-ai-pick">✓ MVP Pick</span><div class="dash-ai-reason">'+escHtml(aiReason)+'</div>'
-      : '';
 
     html += '<div class="dash-row'+(isTop?' dash-top6':'')+'"><div class="dash-cols">'+
       '<span class="dash-rank'+(isTop?' dash-rank-top':'')+'">'+rank+'</span>'+
@@ -946,7 +936,6 @@ function renderDashboard(){
       '<span class="dash-origin">'+escHtml(item.origin||'')+'</span>'+
       '<span class="dash-voters">'+dots+'</span>'+
       '<span class="dash-count">'+total+'</span>'+
-      '<span>'+aiCell+'</span>'+
     '</div></div>';
   });
   html += '</div>';
