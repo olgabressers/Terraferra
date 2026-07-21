@@ -914,6 +914,14 @@ input[type=range]{width:100%;height:4px;accent-color:var(--tf);cursor:pointer;di
       <div class="yr-i"><div class="yr-l">Variable Costs</div><div class="yr-v r" id="yt-var">—</div></div>
       <div class="yr-i"><div class="yr-l">SMTHG Net (var only)</div><div class="yr-v g" id="yt-net">—</div></div>
     </div>
+    <!-- Net Position (after fixed) — per quarter -->
+    <div class="yr-bar" style="grid-template-columns:repeat(5,1fr);border-top:1px solid rgba(255,255,255,.1);margin-top:0;padding-top:14px">
+      <div class="yr-i"><div class="yr-l" style="color:rgba(255,255,255,.6);font-size:8px">Net Position · Q1</div><div class="yr-v" id="yb-net1">—</div></div>
+      <div class="yr-i"><div class="yr-l" style="color:rgba(255,255,255,.6);font-size:8px">Net Position · Q2</div><div class="yr-v" id="yb-net2">—</div></div>
+      <div class="yr-i"><div class="yr-l" style="color:rgba(255,255,255,.6);font-size:8px">Net Position · Q3</div><div class="yr-v" id="yb-net3">—</div></div>
+      <div class="yr-i"><div class="yr-l" style="color:rgba(255,255,255,.6);font-size:8px">Net Position · Q4</div><div class="yr-v" id="yb-net4">—</div></div>
+      <div class="yr-i"><div class="yr-l" style="color:rgba(255,255,255,.6);font-size:8px">Net Position · Year</div><div class="yr-v" id="yb-nety">—</div></div>
+    </div>
 
   </div><!-- /right -->
 </div><!-- /proj-layout -->
@@ -1269,6 +1277,8 @@ function proj(){
       netEl2.textContent=(net>=0?'+':'-')+fmtM(Math.abs(net));
       netEl2.style.color=net>=0?'#7AE3B2':'#FF8A80';
     }
+    var ybEl=document.getElementById('yb-net'+q);
+    if(ybEl){ybEl.textContent=(net>=0?'+':'')+fmtM(Math.abs(net));ybEl.className='yr-v '+(net>=0?'g':'r');}
     // Variable-only net for Section 03 duplicate row
     var varNet=tfRev+subQ-vtoCost-payCost;
     var snetEl=document.getElementById('c-snet'+q);
@@ -1303,6 +1313,8 @@ function proj(){
   var netY=totRev-s1fixY-totVar;
   var netYEl=document.getElementById('c-nety');
   if(netYEl){netYEl.textContent=(netY>=0?'+':'-')+fmtM(Math.abs(netY));netYEl.style.color=netY>=0?'#7AE3B2':'#FF8A80';}
+  var ybYEl=document.getElementById('yb-nety');
+  if(ybYEl){ybYEl.textContent=(netY>=0?'+':'')+fmtM(Math.abs(netY));ybYEl.className='yr-v '+(netY>=0?'g':'r');}
 }
 
 proj();
