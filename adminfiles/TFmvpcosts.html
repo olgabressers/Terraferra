@@ -253,7 +253,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 <body>
 
 <nav class="topnav">
-  <a href="index.html" class="topnav-home">SMTHG<span class="dot">.</span></a>
+  <a href="index.html" class="topnav-home">smthg<span class="dot">.</span></a>
   <div class="topnav-links">
     <a href="index.html">Files</a>
     <div class="has-dropdown">
@@ -1416,6 +1416,203 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
   </div>
 </section>
 
+
+<!-- 07 5-YEAR OUTLOOK -->
+<section class="section">
+  <div class="sec-heading"><span class="sec-num">07</span> Revenue Model · 5-Year Outlook &amp; EBITDA Break-Even</div>
+
+  <div style="background:var(--green-bg);border:1px solid var(--rule);border-left:4px solid var(--green);padding:16px 22px;margin-bottom:28px">
+    <div style="font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);margin-bottom:8px">Break-Even</div>
+    <div style="font-size:14px;color:var(--ink);line-height:1.7">Monthly EBITDA turns positive in <strong>Year 2</strong> — approximately month 18–20 of operation — when ~25 active designers are running drops. Cumulative EBITDA turns positive by end of Year 2 (+$47K). A $200K bridge covers total startup costs with buffer. By Year 5: <strong>$11M EBITDA on $13.2M revenue at 83% margin</strong>. Margin expands sharply because platform and people costs grow slower than GMV — each additional designer adds ~$21K annual net revenue at near-zero marginal cost.</div>
+  </div>
+
+  <!-- Per-designer math -->
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:32px">
+    <div style="background:white;border:1px solid var(--rule);padding:18px 20px">
+      <div style="font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);margin-bottom:6px">Avg GMV per drop</div>
+      <div style="font-size:22px;font-weight:800;color:var(--ink)">$14K → $22K</div>
+      <div style="font-size:12px;color:var(--sub);margin-top:4px;line-height:1.5">100 items × $200 × 70% sell-through in Y1. ASP and sell-through improve as designer quality grows. Source: MVP calculator, section 01.</div>
+    </div>
+    <div style="background:white;border:1px solid var(--rule);padding:18px 20px">
+      <div style="font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);margin-bottom:6px">SMTHG net per drop</div>
+      <div style="font-size:22px;font-weight:800;color:var(--ink)">~$839 net</div>
+      <div style="font-size:12px;color:var(--sub);margin-top:4px;line-height:1.5">Gross commission 10% × $14K = $1,400. Less VTO ($125) + payment processing ($436) = $561 variable cost. Net: $839/drop. Source: section 01 calculator.</div>
+    </div>
+    <div style="background:white;border:1px solid var(--rule);padding:18px 20px">
+      <div style="font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);margin-bottom:6px">Net revenue per designer / yr</div>
+      <div style="font-size:22px;font-weight:800;color:var(--ink)">~$21K</div>
+      <div style="font-size:12px;color:var(--sub);margin-top:4px;line-height:1.5">At 1.5 drops/month: $839 × 18 drops = $15,102 net commission + $500 × 12 = $6,000 subscription = <strong>$21,102/yr</strong>.</div>
+    </div>
+    <div style="background:white;border:1px solid var(--rule);padding:18px 20px">
+      <div style="font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);margin-bottom:6px">Designer subscription</div>
+      <div style="font-size:22px;font-weight:800;color:var(--ink)">$500 / month</div>
+      <div style="font-size:12px;color:var(--sub);margin-top:4px;line-height:1.5">Fixed monthly fee per active designer — SMTHG revenue independent of drop results. Source: v18 deck, p.9 · TFmvpcosts.html calculator.</div>
+    </div>
+    <div style="background:white;border:1px solid var(--rule);padding:18px 20px">
+      <div style="font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);margin-bottom:6px">Drops per designer / month</div>
+      <div style="font-size:22px;font-weight:800;color:var(--ink)">1 → 3</div>
+      <div style="font-size:12px;color:var(--sub);margin-top:4px;line-height:1.5">Starts at 1 drop/month in Y1 as designers learn the workflow. Reaches 3/month by Y5 for active brands. Varies by designer.</div>
+    </div>
+    <div style="background:white;border:1px solid var(--rule);padding:18px 20px">
+      <div style="font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);margin-bottom:6px">Designer growth (avg active)</div>
+      <div style="font-size:22px;font-weight:800;color:var(--ink)">8 → 230</div>
+      <div style="font-size:12px;color:var(--sub);margin-top:4px;line-height:1.5">Target: 20 active by end Y1, 50 by end Y2, 110 by Y3, 200 by Y4, 350 by Y5. Number of active designers is the single largest lever on break-even timing.</div>
+    </div>
+  </div>
+
+  <!-- 5-year P&L table -->
+  <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:16px">
+    <table style="width:100%;border-collapse:collapse;min-width:680px;font-size:13px">
+      <thead>
+        <tr style="background:var(--ink)">
+          <th style="text-align:left;padding:11px 16px;font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.55);width:32%">Metric</th>
+          <th style="text-align:right;padding:11px 14px;font-size:12px;font-weight:800;color:white;white-space:nowrap">Year 1</th>
+          <th style="text-align:right;padding:11px 14px;font-size:12px;font-weight:800;color:white;white-space:nowrap">Year 2</th>
+          <th style="text-align:right;padding:11px 14px;font-size:12px;font-weight:800;color:white;white-space:nowrap">Year 3</th>
+          <th style="text-align:right;padding:11px 14px;font-size:12px;font-weight:800;color:white;white-space:nowrap">Year 4</th>
+          <th style="text-align:right;padding:11px 14px;font-size:12px;font-weight:800;color:white;white-space:nowrap">Year 5</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- SCALE -->
+        <tr><td colspan="6" style="background:var(--off-white);padding:7px 16px;font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub)">Scale</td></tr>
+        <tr style="border-bottom:1px solid var(--rule)">
+          <td style="padding:9px 16px;color:var(--ink)">Designers (avg active during year)</td>
+          <td style="text-align:right;padding:9px 14px;font-weight:700;color:var(--ink)">8</td>
+          <td style="text-align:right;padding:9px 14px;font-weight:700;color:var(--ink)">25</td>
+          <td style="text-align:right;padding:9px 14px;font-weight:700;color:var(--ink)">65</td>
+          <td style="text-align:right;padding:9px 14px;font-weight:700;color:var(--ink)">130</td>
+          <td style="text-align:right;padding:9px 14px;font-weight:700;color:var(--ink)">230</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--rule)">
+          <td style="padding:9px 16px;color:var(--ink)">Drops / designer / month</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--sub)">1</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--sub)">1.5</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--sub)">2</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--sub)">2.5</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--sub)">3</td>
+        </tr>
+        <tr style="border-bottom:2px solid var(--rule)">
+          <td style="padding:9px 16px;color:var(--ink)">Annual GMV</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--sub)">$1.3M</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--sub)">$6.8M</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--sub)">$26.5M</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--sub)">$74M</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--sub)">$182M</td>
+        </tr>
+
+        <!-- REVENUE -->
+        <tr><td colspan="6" style="background:var(--off-white);padding:7px 16px;font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub)">Revenue</td></tr>
+        <tr style="border-bottom:1px solid var(--rule)">
+          <td style="padding:9px 16px;color:var(--ink)">Gross commission (10% of GMV)</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--sub)">$134K</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--sub)">$675K</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--sub)">$2.65M</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--sub)">$7.4M</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--sub)">$18.2M</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--rule)">
+          <td style="padding:9px 16px;color:var(--ink)">Variable costs — VTO + payment processing (~35%)</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--sub)">−$47K</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--sub)">−$236K</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--sub)">−$928K</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--sub)">−$2.6M</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--sub)">−$6.4M</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--rule)">
+          <td style="padding:9px 16px;color:var(--ink)">Net commission</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--ink)">$87K</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--ink)">$439K</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--ink)">$1.72M</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--ink)">$4.82M</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--ink)">$11.8M</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--rule)">
+          <td style="padding:9px 16px;color:var(--ink)">Designer subscriptions ($500/mo × designers)</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--ink)">$48K</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--ink)">$150K</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--ink)">$390K</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--ink)">$780K</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--ink)">$1.38M</td>
+        </tr>
+        <tr style="border-bottom:2px solid var(--ink);background:rgba(232,0,45,.04)">
+          <td style="padding:10px 16px;font-weight:800;color:var(--ink)">Total Revenue</td>
+          <td style="text-align:right;padding:10px 14px;font-weight:800;color:var(--tf)">$135K</td>
+          <td style="text-align:right;padding:10px 14px;font-weight:800;color:var(--tf)">$589K</td>
+          <td style="text-align:right;padding:10px 14px;font-weight:800;color:var(--tf)">$2.11M</td>
+          <td style="text-align:right;padding:10px 14px;font-weight:800;color:var(--tf)">$5.60M</td>
+          <td style="text-align:right;padding:10px 14px;font-weight:800;color:var(--tf)">$13.2M</td>
+        </tr>
+
+        <!-- COSTS -->
+        <tr><td colspan="6" style="background:var(--off-white);padding:7px 16px;font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub)">Costs</td></tr>
+        <tr style="border-bottom:1px solid var(--rule)">
+          <td style="padding:9px 16px;color:var(--ink)">Platform tools &amp; infrastructure</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--sub)">$15K</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--sub)">$24K</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--sub)">$48K</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--sub)">$90K</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--sub)">$150K</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--rule)">
+          <td style="padding:9px 16px;color:var(--ink)">People — CEO, developer, CS, influencer relations</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--sub)">$180K</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--sub)">$350K</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--sub)">$650K</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--sub)">$1.1M</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--sub)">$1.8M</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--rule)">
+          <td style="padding:9px 16px;color:var(--ink)">Marketing &amp; acquisition</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--sub)">$36K</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--sub)">$72K</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--sub)">$120K</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--sub)">$200K</td>
+          <td style="text-align:right;padding:9px 14px;color:var(--sub)">$300K</td>
+        </tr>
+        <tr style="border-bottom:2px solid var(--ink);background:rgba(0,0,0,.03)">
+          <td style="padding:10px 16px;font-weight:800;color:var(--ink)">Total Costs</td>
+          <td style="text-align:right;padding:10px 14px;font-weight:800;color:var(--ink)">$231K</td>
+          <td style="text-align:right;padding:10px 14px;font-weight:800;color:var(--ink)">$446K</td>
+          <td style="text-align:right;padding:10px 14px;font-weight:800;color:var(--ink)">$818K</td>
+          <td style="text-align:right;padding:10px 14px;font-weight:800;color:var(--ink)">$1.39M</td>
+          <td style="text-align:right;padding:10px 14px;font-weight:800;color:var(--ink)">$2.25M</td>
+        </tr>
+
+        <!-- RESULT -->
+        <tr><td colspan="6" style="background:var(--off-white);padding:7px 16px;font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub)">Result</td></tr>
+        <tr style="border-bottom:1px solid var(--rule);background:white">
+          <td style="padding:11px 16px;font-weight:800;font-size:15px;color:var(--ink)">EBITDA</td>
+          <td style="text-align:right;padding:11px 14px;font-weight:800;font-size:15px;color:#C0392B">−$96K</td>
+          <td style="text-align:right;padding:11px 14px;font-weight:800;font-size:15px;color:var(--green)">+$143K</td>
+          <td style="text-align:right;padding:11px 14px;font-weight:800;font-size:15px;color:var(--green)">+$1.29M</td>
+          <td style="text-align:right;padding:11px 14px;font-weight:800;font-size:15px;color:var(--green)">+$4.21M</td>
+          <td style="text-align:right;padding:11px 14px;font-weight:800;font-size:15px;color:var(--green)">+$11.0M</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--rule)">
+          <td style="padding:9px 16px;color:var(--ink)">EBITDA margin</td>
+          <td style="text-align:right;padding:9px 14px;font-weight:700;color:#C0392B">−71%</td>
+          <td style="text-align:right;padding:9px 14px;font-weight:700;color:var(--green)">+24%</td>
+          <td style="text-align:right;padding:9px 14px;font-weight:700;color:var(--green)">+61%</td>
+          <td style="text-align:right;padding:9px 14px;font-weight:700;color:var(--green)">+75%</td>
+          <td style="text-align:right;padding:9px 14px;font-weight:700;color:var(--green)">+83%</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--rule)">
+          <td style="padding:9px 16px;color:var(--ink)">Cumulative EBITDA</td>
+          <td style="text-align:right;padding:9px 14px;font-weight:700;color:#C0392B">−$96K</td>
+          <td style="text-align:right;padding:9px 14px;font-weight:700;color:var(--green)">+$47K</td>
+          <td style="text-align:right;padding:9px 14px;font-weight:700;color:var(--green)">+$1.34M</td>
+          <td style="text-align:right;padding:9px 14px;font-weight:700;color:var(--green)">+$5.55M</td>
+          <td style="text-align:right;padding:9px 14px;font-weight:700;color:var(--green)">+$16.6M</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="ptable-note">
+    <strong>Variable costs</strong> (VTO at $0.10/try + Stripe 2.9% + $0.30/order) ≈ 35% of gross commission — consistent with the unit-economics calculator in section 01. <strong>People Y1:</strong> CEO salary starts month 4 from bridge, 9 months at $8K = $72K; 1 developer contractor $8K/month × 12 = $96K; CS part-time from month 6 = $12K. <strong>People Y2–Y5</strong> scale per the Operations Team page. Annual GMV growth reflects higher drop frequency and improving sell-through — not an assumed increase in item prices. Does not include equity compensation. All figures are directional; the primary variable is how fast the designer roster scales — each designer above break-even adds ~$21K net annual revenue at near-zero marginal cost.
+  </div>
+</section>
 
 </div><!-- pg-wrap -->
 
