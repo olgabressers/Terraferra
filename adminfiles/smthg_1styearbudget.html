@@ -176,6 +176,16 @@ input[type=range]{width:100%;height:4px;accent-color:var(--tf);cursor:pointer;di
 .topnav-links a:hover{color:var(--tf)}
 .topnav-links a.active{color:var(--tf)}
 @media(max-width:700px){.topnav{position:static;padding:10px 14px}.topnav-links{gap:8px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap;width:100%;padding-bottom:2px}.topnav-links a{font-size:9.5px;white-space:nowrap}}
+
+/* cost detail foldables */
+.cd{border:none;padding:0;margin:2px 0 0}
+.cd summary{font-size:10px;color:var(--sub);cursor:pointer;padding:2px 0 4px 13px;list-style:none;position:relative;user-select:none}
+.cd summary::-webkit-details-marker{display:none}
+.cd summary::before{content:'▸';position:absolute;left:0;top:2px;font-size:9px;line-height:1}
+details[open].cd summary::before{content:'▾'}
+.cd-body{padding:2px 0 6px 10px}
+.cd-r{display:flex;justify-content:space-between;gap:8px;font-size:10px;color:var(--sub);line-height:1.5}
+.cd-tot{font-weight:700;color:var(--ink);border-top:1px solid var(--rule);margin-top:2px;padding-top:2px}
 </style>
 </head>
 <body>
@@ -1189,9 +1199,9 @@ input[type=range]{width:100%;height:4px;accent-color:var(--tf);cursor:pointer;di
   <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
     <span style="font-size:11px;color:var(--sub)">People:</span>
     <label style="font-size:11px;color:var(--ink);display:flex;align-items:center;gap:4px">Y2 <input id="ct-y2-count" type="number" value="4" min="0" max="99" style="width:42px;border:1px solid var(--rule);padding:3px 5px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif" oninput="yrProj()"></label>
-    <label style="font-size:11px;color:var(--ink);display:flex;align-items:center;gap:4px">Y3 <input id="ct-y3-count" type="number" value="5" min="0" max="99" style="width:42px;border:1px solid var(--rule);padding:3px 5px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif" oninput="yrProj()"></label>
-    <label style="font-size:11px;color:var(--ink);display:flex;align-items:center;gap:4px">Y4 <input id="ct-y4-count" type="number" value="6" min="0" max="99" style="width:42px;border:1px solid var(--rule);padding:3px 5px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif" oninput="yrProj()"></label>
-    <label style="font-size:11px;color:var(--ink);display:flex;align-items:center;gap:4px">Y5 <input id="ct-y5-count" type="number" value="8" min="0" max="99" style="width:42px;border:1px solid var(--rule);padding:3px 5px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif" oninput="yrProj()"></label>
+    <label style="font-size:11px;color:var(--ink);display:flex;align-items:center;gap:4px">Y3 <input id="ct-y3-count" type="number" value="4" min="0" max="99" style="width:42px;border:1px solid var(--rule);padding:3px 5px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif" oninput="yrProj()"></label>
+    <label style="font-size:11px;color:var(--ink);display:flex;align-items:center;gap:4px">Y4 <input id="ct-y4-count" type="number" value="4" min="0" max="99" style="width:42px;border:1px solid var(--rule);padding:3px 5px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif" oninput="yrProj()"></label>
+    <label style="font-size:11px;color:var(--ink);display:flex;align-items:center;gap:4px">Y5 <input id="ct-y5-count" type="number" value="4" min="0" max="99" style="width:42px;border:1px solid var(--rule);padding:3px 5px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif" oninput="yrProj()"></label>
   </div>
   <div style="font-size:11px;color:var(--sub)">Y1 actual $182K · G&amp;A estimates: Y1 $180K · Y2 $100K · Y3 $130K · Y4 $200K · Y5 $300K</div>
 </div>
@@ -1208,10 +1218,31 @@ input[type=range]{width:100%;height:4px;accent-color:var(--tf);cursor:pointer;di
     </div>
     <div class="q-rows">
       <div class="q-row"><span class="ql">Variable costs</span><span class="qv r" id="yc1-var">—</span></div>
+      <details class="cd"><summary>VTO · payment proc. · fraud prev.</summary><div class="cd-body">
+        <div class="cd-r"><span>VTO (Shopify/Kivisense)</span><span id="ycd1-vto">—</span></div>
+        <div class="cd-r"><span>Payment proc. (Stripe 2.9%+$0.30)</span><span id="ycd1-pay">—</span></div>
+        <div class="cd-r"><span>Fraud prev. (Stripe Radar 0.05%)</span><span id="ycd1-fraud">—</span></div>
+      </div></details>
       <div class="qdiv"></div>
       <div class="q-row"><span class="ql">Ops team <span style="font-size:10px">(<a href="smthg_operationsteam.html" style="color:var(--sub)">Headcount</a>)</span></span><span class="qv r" id="yc1-ops">—</span></div>
+      <details class="cd"><summary>5 part-time contractors · offshore rates · ~$11.5K/mo</summary><div class="cd-body">
+        <div class="cd-r"><span>Customer service</span><span>part-time · $1.5K/mo</span></div>
+        <div class="cd-r"><span>Influencer relations</span><span>part-time · $2K/mo</span></div>
+        <div class="cd-r"><span>Content creation</span><span>part-time · $1.5K/mo</span></div>
+        <div class="cd-r"><span>Community manager</span><span>full contractor · $2.5K/mo</span></div>
+        <div class="cd-r"><span>Platform devs</span><span>2 contractors · $4K/mo</span></div>
+        <div class="cd-r cd-tot"><span>Total</span><span>~$11.5K/mo · $138K/yr</span></div>
+      </div></details>
       <div class="q-row"><span class="ql">Core team salary</span><span class="qv r" id="yc1-core">—</span></div>
+      <details class="cd"><summary>4 founders · Section 01 actuals</summary><div class="cd-body">
+        <div class="cd-r"><span>CEO + CTO + Creative Dir + co-founder</span><span></span></div>
+        <div class="cd-r cd-tot"><span>Total</span><span>$182K/yr (Q1 deferred)</span></div>
+      </div></details>
       <div class="q-row"><span class="ql">G&amp;A</span><span class="qv r" id="yc1-ga">—</span></div>
+      <details class="cd"><summary>Office · tools · legal · admin</summary><div class="cd-body">
+        <div class="cd-r"><span>Basis</span><span>Section 01 actuals</span></div>
+        <div class="cd-r cd-tot"><span>Total</span><span>$180K/yr</span></div>
+      </div></details>
       <div class="qdiv"></div>
       <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">Total Costs</span><span class="qv b r" id="yc1-tot">—</span></div>
       <div class="qdiv"></div>
@@ -1228,10 +1259,29 @@ input[type=range]{width:100%;height:4px;accent-color:var(--tf);cursor:pointer;di
     </div>
     <div class="q-rows">
       <div class="q-row"><span class="ql">Variable costs</span><span class="qv r" id="yc2-var">—</span></div>
+      <details class="cd"><summary>VTO · payment proc. · fraud prev.</summary><div class="cd-body">
+        <div class="cd-r"><span>VTO</span><span id="ycd2-vto">—</span></div>
+        <div class="cd-r"><span>Payment proc.</span><span id="ycd2-pay">—</span></div>
+        <div class="cd-r"><span>Fraud prev.</span><span id="ycd2-fraud">—</span></div>
+      </div></details>
       <div class="qdiv"></div>
       <div class="q-row"><span class="ql">Ops team</span><span class="qv r" id="yc2-ops">—</span></div>
+      <details class="cd"><summary>~8 FTE equivalents · US market rates · ~$43K/mo</summary><div class="cd-body">
+        <div class="cd-r"><span>Customer service</span><span>1 FTE</span></div>
+        <div class="cd-r"><span>Influencer relations</span><span>1 FTE</span></div>
+        <div class="cd-r"><span>Content creation</span><span>1 FTE</span></div>
+        <div class="cd-r"><span>Community manager</span><span>1.5 FTE</span></div>
+        <div class="cd-r"><span>Platform devs</span><span>3 (2 cont + 1 FTE frontend)</span></div>
+        <div class="cd-r cd-tot"><span>Total</span><span>~$43K/mo · $516K/yr</span></div>
+      </div></details>
       <div class="q-row"><span class="ql">Core team salary</span><span class="qv r" id="yc2-core">—</span></div>
+      <details class="cd"><summary>4 founders · rate adjustable above</summary><div class="cd-body">
+        <div class="cd-r"><span id="ycd2-ct-info">4 founders × $10K/mo × 12 = $480K/yr</span></div>
+      </div></details>
       <div class="q-row"><span class="ql">G&amp;A</span><span class="qv r" id="yc2-ga">—</span></div>
+      <details class="cd"><summary>Office · tools · legal · admin (indicative)</summary><div class="cd-body">
+        <div class="cd-r cd-tot"><span>Total</span><span>$100K/yr (estimate)</span></div>
+      </div></details>
       <div class="qdiv"></div>
       <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">Total Costs</span><span class="qv b r" id="yc2-tot">—</span></div>
       <div class="qdiv"></div>
@@ -1248,10 +1298,29 @@ input[type=range]{width:100%;height:4px;accent-color:var(--tf);cursor:pointer;di
     </div>
     <div class="q-rows">
       <div class="q-row"><span class="ql">Variable costs</span><span class="qv r" id="yc3-var">—</span></div>
+      <details class="cd"><summary>VTO · payment proc. · fraud prev.</summary><div class="cd-body">
+        <div class="cd-r"><span>VTO</span><span id="ycd3-vto">—</span></div>
+        <div class="cd-r"><span>Payment proc.</span><span id="ycd3-pay">—</span></div>
+        <div class="cd-r"><span>Fraud prev.</span><span id="ycd3-fraud">—</span></div>
+      </div></details>
       <div class="qdiv"></div>
       <div class="q-row"><span class="ql">Ops team</span><span class="qv r" id="yc3-ops">—</span></div>
+      <details class="cd"><summary>~13 FTE equivalents · US market rates · ~$100K/mo</summary><div class="cd-body">
+        <div class="cd-r"><span>Customer service</span><span>2 FTE + lead</span></div>
+        <div class="cd-r"><span>Influencer relations</span><span>2 FTE</span></div>
+        <div class="cd-r"><span>Content creation</span><span>2 FTE</span></div>
+        <div class="cd-r"><span>Community manager</span><span>2 FTE</span></div>
+        <div class="cd-r"><span>Platform devs</span><span>4–5 FTE (mobile + DevOps added)</span></div>
+        <div class="cd-r cd-tot"><span>Total</span><span>~$100K/mo · $1.2M/yr</span></div>
+      </div></details>
       <div class="q-row"><span class="ql">Core team salary</span><span class="qv r" id="yc3-core">—</span></div>
+      <details class="cd"><summary>4 founders · rate adjustable above</summary><div class="cd-body">
+        <div class="cd-r"><span id="ycd3-ct-info">4 founders × $10K/mo × 12 = $480K/yr</span></div>
+      </div></details>
       <div class="q-row"><span class="ql">G&amp;A</span><span class="qv r" id="yc3-ga">—</span></div>
+      <details class="cd"><summary>Office · tools · legal · admin (indicative)</summary><div class="cd-body">
+        <div class="cd-r cd-tot"><span>Total</span><span>$130K/yr (estimate)</span></div>
+      </div></details>
       <div class="qdiv"></div>
       <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">Total Costs</span><span class="qv b r" id="yc3-tot">—</span></div>
       <div class="qdiv"></div>
@@ -1268,10 +1337,29 @@ input[type=range]{width:100%;height:4px;accent-color:var(--tf);cursor:pointer;di
     </div>
     <div class="q-rows">
       <div class="q-row"><span class="ql">Variable costs</span><span class="qv r" id="yc4-var">—</span></div>
+      <details class="cd"><summary>VTO · payment proc. · fraud prev.</summary><div class="cd-body">
+        <div class="cd-r"><span>VTO</span><span id="ycd4-vto">—</span></div>
+        <div class="cd-r"><span>Payment proc.</span><span id="ycd4-pay">—</span></div>
+        <div class="cd-r"><span>Fraud prev.</span><span id="ycd4-fraud">—</span></div>
+      </div></details>
       <div class="qdiv"></div>
       <div class="q-row"><span class="ql">Ops team</span><span class="qv r" id="yc4-ops">—</span></div>
+      <details class="cd"><summary>~20 FTE equivalents · US market rates · ~$185K/mo</summary><div class="cd-body">
+        <div class="cd-r"><span>Customer service</span><span>4 FTE + lead</span></div>
+        <div class="cd-r"><span>Influencer relations</span><span>3 FTE + Head</span></div>
+        <div class="cd-r"><span>Content creation</span><span>3 FTE + Head</span></div>
+        <div class="cd-r"><span>Community manager</span><span>3 FTE + Head</span></div>
+        <div class="cd-r"><span>Platform devs</span><span>7–8 FTE (senior eng, on-call)</span></div>
+        <div class="cd-r cd-tot"><span>Total</span><span>~$185K/mo · $2.22M/yr</span></div>
+      </div></details>
       <div class="q-row"><span class="ql">Core team salary</span><span class="qv r" id="yc4-core">—</span></div>
+      <details class="cd"><summary>4 founders · rate adjustable above</summary><div class="cd-body">
+        <div class="cd-r"><span id="ycd4-ct-info">4 founders × $10K/mo × 12 = $480K/yr</span></div>
+      </div></details>
       <div class="q-row"><span class="ql">G&amp;A</span><span class="qv r" id="yc4-ga">—</span></div>
+      <details class="cd"><summary>Office · tools · legal · admin (indicative)</summary><div class="cd-body">
+        <div class="cd-r cd-tot"><span>Total</span><span>$200K/yr (estimate)</span></div>
+      </div></details>
       <div class="qdiv"></div>
       <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">Total Costs</span><span class="qv b r" id="yc4-tot">—</span></div>
       <div class="qdiv"></div>
@@ -1288,10 +1376,29 @@ input[type=range]{width:100%;height:4px;accent-color:var(--tf);cursor:pointer;di
     </div>
     <div class="q-rows">
       <div class="q-row"><span class="ql">Variable costs</span><span class="qv r" id="yc5-var">—</span></div>
+      <details class="cd"><summary>VTO · payment proc. · fraud prev.</summary><div class="cd-body">
+        <div class="cd-r"><span>VTO</span><span id="ycd5-vto">—</span></div>
+        <div class="cd-r"><span>Payment proc.</span><span id="ycd5-pay">—</span></div>
+        <div class="cd-r"><span>Fraud prev.</span><span id="ycd5-fraud">—</span></div>
+      </div></details>
       <div class="qdiv"></div>
       <div class="q-row"><span class="ql">Ops team</span><span class="qv r" id="yc5-ops">—</span></div>
+      <details class="cd"><summary>~35 FTE equivalents · US market rates · ~$320K/mo</summary><div class="cd-body">
+        <div class="cd-r"><span>Customer service</span><span>7 FTE + 2 leads (multi-language)</span></div>
+        <div class="cd-r"><span>Influencer relations</span><span>5 FTE + Director</span></div>
+        <div class="cd-r"><span>Content creation</span><span>5 FTE + Director</span></div>
+        <div class="cd-r"><span>Community manager</span><span>5 FTE + Director</span></div>
+        <div class="cd-r"><span>Platform devs</span><span>12–15 FTE (dedicated mobile team)</span></div>
+        <div class="cd-r cd-tot"><span>Total</span><span>~$320K/mo · $3.84M/yr</span></div>
+      </div></details>
       <div class="q-row"><span class="ql">Core team salary</span><span class="qv r" id="yc5-core">—</span></div>
+      <details class="cd"><summary>4 founders · rate adjustable above</summary><div class="cd-body">
+        <div class="cd-r"><span id="ycd5-ct-info">4 founders × $10K/mo × 12 = $480K/yr</span></div>
+      </div></details>
       <div class="q-row"><span class="ql">G&amp;A</span><span class="qv r" id="yc5-ga">—</span></div>
+      <details class="cd"><summary>Office · tools · legal · admin (indicative)</summary><div class="cd-body">
+        <div class="cd-r cd-tot"><span>Total</span><span>$300K/yr (estimate)</span></div>
+      </div></details>
       <div class="qdiv"></div>
       <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">Total Costs</span><span class="qv b r" id="yc5-tot">—</span></div>
       <div class="qdiv"></div>
@@ -1304,7 +1411,7 @@ input[type=range]{width:100%;height:4px;accent-color:var(--tf);cursor:pointer;di
 
 <div style="background:#EDFAF3;border:1px solid var(--rule);border-left:4px solid #1A7A4A;padding:16px 22px;margin:28px 0">
   <div style="font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#1A7A4A;margin-bottom:8px">Break-Even</div>
-  <div style="font-size:14px;color:var(--ink);line-height:1.7">At defaults (72 → 4,800 drops/yr, 4–8 core team × $10K/mo), EBIT turns positive in <strong>Year 3</strong>. Cumulative break-even in <strong>Year 4</strong>. Adjust drops and team size above — all numbers recalculate live.</div>
+  <div style="font-size:14px;color:var(--ink);line-height:1.7">At defaults (72 → 4,800 drops/yr, 4 founders × $10K/mo, ops team from Headcount Roadmap), EBIT turns positive in <strong>Year 3</strong>. Cumulative break-even in <strong>Year 4</strong>. Adjust drops and rate above — all numbers recalculate live.</div>
 </div>
 
 <div class="ctw">
@@ -1358,7 +1465,7 @@ input[type=range]{width:100%;height:4px;accent-color:var(--tf);cursor:pointer;di
 </tbody>
 </table>
 </div>
-<p style="font-size:11px;color:var(--sub);margin-top:12px;line-height:1.6">Unit economics from Section 02: 150 items/drop, $200 AOV, 10% platform fee, 50% VTO × 5 tries at $0.10 (Shopify), Stripe 2.9% + $0.30/order, Stripe Radar 0.05%. Designer frequency: Y1 once/3mo (÷4/yr), Y2 1×/mo (÷12), Y3 1.25×/mo (÷15), Y4 1.5×/mo (÷18), Y5 2×/mo (÷24). Ops team from <a href="smthg_operationsteam.html" style="color:var(--sub)">Headcount Roadmap</a> (mo × 12): Y1 $11.5K, Y2 $43K, Y3 $100K, Y4 $185K, Y5 $320K. Y1 core team $182K + G&amp;A $180K from Section 01 actual. All figures indicative.</p>
+<p style="font-size:11px;color:var(--sub);margin-top:12px;line-height:1.6">Unit economics from Section 02: 150 items/drop, $200 AOV, 10% platform fee, 50% VTO × 5 tries at $0.10 (Shopify), Stripe 2.9% + $0.30/order, Stripe Radar 0.05%. Designer frequency: once/3mo (4 drops/yr per designer) for all years.25×/mo (÷15), Y4 1.5×/mo (÷18), Y5 2×/mo (÷24). Ops team from <a href="smthg_operationsteam.html" style="color:var(--sub)">Headcount Roadmap</a> (mo × 12): Y1 $11.5K, Y2 $43K, Y3 $100K, Y4 $185K, Y5 $320K. Y1 core team $182K + G&amp;A $180K from Section 01 actual. All figures indicative.</p>
 
 <!-- ═══ SECTION 05: APPENDIX ═══ -->
 <div class="proj-sep">
@@ -1679,8 +1786,8 @@ function proj(){
 }
 
 // ── 5-Year projection (Section 04) ──
-var Y_FREQ=[0,4,12,15,18,24];
-var Y_FREQ_LBL=['','once/3mo','1×/mo','1.25×/mo','1.5×/mo','2×/mo'];
+var Y_FREQ=[0,4,4,4,4,4];
+var Y_FREQ_LBL=['','once/3mo','once/3mo','once/3mo','once/3mo','once/3mo'];
 var Y_OPS=[0,138000,516000,1200000,2220000,3840000];
 var Y_GA=[0,180000,100000,130000,200000,300000];
 var Y1_CORE=182000;
@@ -1739,10 +1846,18 @@ function yrProj(){
     if(cnEl){cnEl.textContent=(smthgNet>=0?'+':'')+fmtM(Math.abs(smthgNet));cnEl.style.color=netCol;}
     var eEl=document.getElementById('yc'+yr+'-ebit');
     if(eEl){eEl.textContent=(ebit>=0?'+':'')+fmtM(Math.abs(ebit));eEl.style.color=ebitCol;}
-    if(yr>1){var hEl=document.getElementById('yc'+yr+'-hdr');if(hEl)hEl.textContent=getCTC(yr)+' people × $'+(ctRate/1000).toFixed(0)+'K/mo';}
+    if(yr>1){
+      var hEl=document.getElementById('yc'+yr+'-hdr');
+      if(hEl)hEl.textContent=getCTC(yr)+' founders × $'+(ctRate/1000).toFixed(0)+'K/mo';
+      var ciEl=document.getElementById('ycd'+yr+'-ct-info');
+      if(ciEl)ciEl.textContent=getCTC(yr)+' founders × $'+(ctRate/1000).toFixed(0)+'K/mo × 12 = '+fmtM(getCTC(yr)*ctRate*12)+'/yr';
+    }
+    s('ycd'+yr+'-vto','−'+fmtM(vtoCost));
+    s('ycd'+yr+'-pay','−'+fmtM(payCost));
+    s('ycd'+yr+'-fraud','−'+fmtM(fraudCost));
     // P&L table
     s('yt-des-'+yr,designers.toLocaleString());
-    s('yt-freq-'+yr,(freq/12).toFixed(2).replace('.00','').replace(/\.?0+$/,'')+'×/mo');
+    s('yt-freq-'+yr,Y_FREQ_LBL[yr]);
     s('yt-drops-'+yr,drops.toLocaleString());
     s('yt-gmv-'+yr,fmtM(gmv));
     s('yt-tfr-'+yr,fmtM(platformFee));
