@@ -1437,5 +1437,472 @@ details[open].cd summary::before{content:'▾'}
 </div>
 <p style="font-size:11px;color:var(--sub);margin-top:12px;line-height:1.6">Unit economics from Section 02: 150 items/drop, $200 AOV, 10% platform fee, 50% VTO × 5 tries at $0.10 (Shopify), Stripe 2.9% + $0.30/order, Stripe Radar 0.05%. Designer frequency: once/3mo (4 drops/yr per designer) for all years.25×/mo (÷15), Y4 1.5×/mo (÷18), Y5 2×/mo (÷24). Ops team from <a href="smthg_operationsteam.html" style="color:var(--sub)">Headcount Roadmap</a> (mo × 12): Y1 $11.5K, Y2 $43K, Y3 $100K, Y4 $185K, Y5 $320K. Y1 core team $182K + G&amp;A $180K from Section 01 actual. All figures indicative.</p>
 
+<!-- ═══ SECTION 05: APPENDIX ═══ -->
+<div class="proj-sep">
+  <span class="sn">05</span>
+  <span class="st">Appendix · Variable Cost Reference</span>
+  <span class="ss">Not included in $500K envelope · scale with GMV</span>
+</div>
+<div class="ni-body" style="background:white;border:1px solid var(--rule);border-radius:8px;margin-top:24px">
+
+    <!-- 3 VARIABLE COST PANELS -->
+    <div class="var-panels">
+
+      <!-- VTO -->
+      <div class="var-panel">
+        <div class="var-panel-hdr vto">Virtual Try-On (VTO)</div>
+        <div class="var-tbl-wrap"><table>
+          <thead>
+            <tr><th>Quarter</th><th class="num">VTO tries</th><th class="num">Rate</th><th class="num">Cost</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Q1</td><td class="num" id="vp-vto-tries-1">—</td><td class="num" id="vp-vto-rate-1">—</td><td class="num" id="vp-vto-cost-1">—</td></tr>
+            <tr><td>Q2</td><td class="num" id="vp-vto-tries-2">—</td><td class="num" id="vp-vto-rate-2">—</td><td class="num" id="vp-vto-cost-2">—</td></tr>
+            <tr><td>Q3</td><td class="num" id="vp-vto-tries-3">—</td><td class="num" id="vp-vto-rate-3">—</td><td class="num" id="vp-vto-cost-3">—</td></tr>
+            <tr><td>Q4</td><td class="num" id="vp-vto-tries-4">—</td><td class="num" id="vp-vto-rate-4">—</td><td class="num" id="vp-vto-cost-4">—</td></tr>
+            <tr><td>Year 1</td><td class="num" id="vp-vto-tries-y">—</td><td></td><td class="num" id="vp-vto-cost-y">—</td></tr>
+          </tbody>
+        </table></div>
+        <div class="var-panel-note" id="vp-vto-note">Shopify VTO $0.10/try · Kivisense flat $888/mo viable above 26,640 tries/qtr · Source: TFmvpcosts.html</div>
+      </div>
+
+      <!-- PAYMENT PROCESSING -->
+      <div class="var-panel">
+        <div class="var-panel-hdr payment">Payment Processing (Stripe)</div>
+        <div class="var-tbl-wrap"><table>
+          <thead>
+            <tr><th>Quarter</th><th class="num">GMV</th><th class="num">Orders</th><th class="num">Fees</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Q1</td><td class="num" id="vp-pay-gmv-1">—</td><td class="num" id="vp-pay-ord-1">—</td><td class="num" id="vp-pay-fee-1">—</td></tr>
+            <tr><td>Q2</td><td class="num" id="vp-pay-gmv-2">—</td><td class="num" id="vp-pay-ord-2">—</td><td class="num" id="vp-pay-fee-2">—</td></tr>
+            <tr><td>Q3</td><td class="num" id="vp-pay-gmv-3">—</td><td class="num" id="vp-pay-ord-3">—</td><td class="num" id="vp-pay-fee-3">—</td></tr>
+            <tr><td>Q4</td><td class="num" id="vp-pay-gmv-4">—</td><td class="num" id="vp-pay-ord-4">—</td><td class="num" id="vp-pay-fee-4">—</td></tr>
+            <tr><td>Year 1</td><td class="num" id="vp-pay-gmv-y">—</td><td class="num" id="vp-pay-ord-y">—</td><td class="num" id="vp-pay-fee-y">—</td></tr>
+          </tbody>
+        </table></div>
+        <div class="var-panel-note" id="vp-pay-note">Stripe: 2.9% × GMV + $0.30 × orders · Funded from GMV revenue</div>
+      </div>
+
+      <!-- FRAUD PREVENTION -->
+      <div class="var-panel">
+        <div class="var-panel-hdr fraud">Fraud Prevention (Stripe Radar)</div>
+        <div class="var-tbl-wrap"><table>
+          <thead>
+            <tr><th>Quarter</th><th class="num">GMV</th><th class="num">Rate</th><th class="num">Cost</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Q1</td><td class="num" id="vp-fraud-gmv-1">—</td><td class="num">0.05%</td><td class="num" id="vp-fraud-cost-1">—</td></tr>
+            <tr><td>Q2</td><td class="num" id="vp-fraud-gmv-2">—</td><td class="num">0.05%</td><td class="num" id="vp-fraud-cost-2">—</td></tr>
+            <tr><td>Q3</td><td class="num" id="vp-fraud-gmv-3">—</td><td class="num">0.05%</td><td class="num" id="vp-fraud-cost-3">—</td></tr>
+            <tr><td>Q4</td><td class="num" id="vp-fraud-gmv-4">—</td><td class="num">0.05%</td><td class="num" id="vp-fraud-cost-4">—</td></tr>
+            <tr><td>Year 1</td><td class="num" id="vp-fraud-gmv-y">—</td><td></td><td class="num" id="vp-fraud-cost-y">—</td></tr>
+          </tbody>
+        </table></div>
+        <div class="var-panel-note">Stripe Radar: 0.05% per transaction value · Built-in ML fraud detection · No separate setup required</div>
+      </div>
+
+    </div><!-- /var-panels -->
+
+    <!-- TOTAL VARIABLE BAR -->
+    <div class="var-total">
+      <div class="var-total-item">
+        <div class="vt-label">Total variable — Year 1</div>
+        <div class="vt-val" id="vt-total">—</div>
+      </div>
+      <div class="var-total-item">
+        <div class="vt-label">VTO cost</div>
+        <div class="vt-val" id="vt-vto">—</div>
+      </div>
+      <div class="var-total-item">
+        <div class="vt-label">Payment processing</div>
+        <div class="vt-val" id="vt-pay">—</div>
+      </div>
+      <div class="var-total-item">
+        <div class="vt-label">Fraud prevention</div>
+        <div class="vt-val" id="vt-fraud">—</div>
+      </div>
+      <div class="var-total-note">All variable costs funded from platform GMV revenue — not charged to the $500K fixed envelope</div>
+    </div>
+
+    <!-- T&E -->
+    <div class="ni-section-title" style="margin-top:8px">Travel &amp; Representation (T&amp;E) — Excluded</div>
+    <p class="ni-sub-note">Fairs, investor meetings, designer trips. Indicative: ~$3,924/mo (~$47K/year) based on 4 trips/year × 2 attendees. Budget to be agreed separately.</p>
+
+    <!-- FASHION FAIRS -->
+    <div class="ni-section-title">Fashion Fairs Reference</div>
+    <p class="ni-sub-note">Indicative ticket pricing if T&amp;E budget is approved. Classified as non-retailer / solution provider at industry events.</p>
+
+    <table class="ni-tbl">
+      <thead>
+        <tr>
+          <th>Event</th>
+          <th>Date · Location</th>
+          <th>Pass type</th>
+          <th class="num">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="https://nrfbigshow.nrf.com/register" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">NRF Big Show</a></td>
+          <td>Jan · Javits Center, NYC</td>
+          <td>All-Access — non-retailer NRF member</td>
+          <td class="num">$2,500</td>
+        </tr>
+        <tr>
+          <td><a href="https://nrfbigshow.nrf.com/register" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">NRF Big Show</a></td>
+          <td>Jan · NYC</td>
+          <td>All-Access — non-retailer non-member</td>
+          <td class="num">$3,700</td>
+        </tr>
+        <tr>
+          <td><a href="https://nrfbigshow.nrf.com/register" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">NRF Big Show</a></td>
+          <td>Jan · NYC</td>
+          <td>Expo Pass — non-retailer non-member</td>
+          <td class="num">$3,200</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.coteriefashionevents.com/en/events/coterie-new-york/event-information.html" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Coterie New York</a></td>
+          <td>Feb &amp; Sept · Javits Center, NYC</td>
+          <td>Trade buyer — invitation only, qualified buyers</td>
+          <td class="num">Free if qualified</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.businessoffashion.com/events/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Business of Fashion — VOICES &amp; events</a></td>
+          <td>Various · UK / global</td>
+          <td>Invitation-only</td>
+          <td class="num">$3,000–$5,000+</td>
+        </tr>
+        <tr>
+          <td>Fashion Tech Forum / FTF events</td>
+          <td>Various · NYC</td>
+          <td>Standard attendee</td>
+          <td class="num">$1,500–$3,000</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+</div><!-- /wrap -->
+<script>
+var vtoMode='shopify';
+function setVTO(m){
+  vtoMode=m;
+  document.getElementById('btn-shopify').classList.toggle('on',m==='shopify');
+  document.getElementById('btn-kivisense').classList.toggle('on',m==='kivisense');
+  document.getElementById('cn-vto').textContent=m==='shopify'?'Shopify $0.10/try':'Kivisense $888/mo flat';
+  proj();
+  pushInputs();
+}
+function adjD(q,d){
+  var el=document.getElementById('d'+q);
+  el.value=Math.max(0,(parseInt(el.value)||0)+d);
+  proj();
+}
+function fmtM(n){
+  if(Math.abs(n)>=1000000)return '$'+(n/1000000).toFixed(2)+'M';
+  if(Math.abs(n)>=1000)return '$'+(n/1000).toFixed(0)+'K';
+  return '$'+Math.round(Math.abs(n)).toLocaleString();
+}
+function fmtN(n){return Math.round(n).toLocaleString();}
+function g(id){return parseFloat(document.getElementById(id).value)||0;}
+function s(id,v){var el=document.getElementById(id);if(el)el.textContent=v;}
+
+function proj(){
+  var items=g('p-items'), aov=g('p-aov');
+  var tfFee=g('p-tf-fee')/100, inf=g('p-inf')/100;
+  var payPct=g('p-pay')/100, designers=g('p-designers');
+  var vtoA=g('p-vto-a')/100, vtoT=g('p-vto-t');
+
+  // Update slider display values
+  s('v-items',Math.round(items));
+  s('v-aov','$'+Math.round(aov));
+  s('v-tf-fee',(tfFee*100).toFixed(1)+'%');
+  s('v-inf',(inf*100).toFixed(0)+'%');
+  s('v-pay',(payPct*100).toFixed(1)+'%');
+  s('v-vto-a',(vtoA*100).toFixed(0)+'%');
+  s('v-vto-t',Math.round(vtoT)+'×');
+  s('v-designers',Math.round(designers));
+  s('cn-tf',(tfFee*100).toFixed(0)+'%');
+  s('cn-pay',(payPct*100).toFixed(1)+'%');
+  s('cn-ds',Math.round(designers));
+  s('cn-pay',(payPct*100).toFixed(1)+'%');
+
+  var subQ=designers*500*3; // subscription revenue per quarter
+
+  // Read fixed costs from Section 01 Grand Total row (data-usd attributes)
+  var s1fixArr=[1,2,3,4].map(function(q){var el=document.getElementById('s1-q'+q);return el?parseFloat(el.getAttribute('data-usd'))||0:0;});
+  var s1fixY=(function(){var el=document.getElementById('s1-yr');return el?parseFloat(el.getAttribute('data-usd'))||0:500000;})();
+
+  var totGMV=0,totOrd=0,totRev=0,totVTO=0,totPay=0,totFraud=0;
+  var vpData=[];
+
+  [1,2,3,4].forEach(function(q){
+    var drops=parseInt(document.getElementById('d'+q).value)||0;
+    var orders=drops*items;
+    var gmv=orders*aov;
+    var tfRev=gmv*tfFee;
+    var payCost=gmv*payPct+orders*0.30;
+    var vtoTries=orders*vtoA*vtoT;
+    var vtoCost=vtoMode==='shopify'?vtoTries*0.10:888*3;
+    var fraudCost=gmv*0.0005;
+    var smthgNet=tfRev+subQ-vtoCost-payCost-fraudCost;
+    var col=smthgNet>=0?'#1A7A4A':'var(--tf)';
+
+    s('q'+q+'h',fmtM(gmv)+' GMV');
+    s('q'+q+'-ord',fmtN(orders));
+    s('q'+q+'-gmv',fmtM(gmv));
+    s('q'+q+'-tfr','+'+fmtM(tfRev));
+    s('q'+q+'-sub','+'+fmtM(subQ));
+    s('q'+q+'-vto','−'+fmtM(vtoCost));
+    s('q'+q+'-pay','−'+fmtM(payCost));
+    var netEl=document.getElementById('q'+q+'-net');
+    if(netEl){netEl.textContent=(smthgNet>=0?'+':'')+fmtM(Math.abs(smthgNet));netEl.style.color=col;}
+    var moEl=document.getElementById('q'+q+'-mo');
+    if(moEl){var mo=smthgNet/3;moEl.textContent=(mo>=0?'+':'')+fmtM(Math.abs(mo));moEl.style.color=col;}
+
+    // Consolidated table
+    s('c-gmv'+q,fmtM(gmv));
+    s('c-tfr'+q,'+'+fmtM(tfRev));
+    s('c-sub'+q,'+'+fmtM(subQ));
+    s('c-rev'+q,'+'+fmtM(tfRev+subQ));
+    vpData.push({tries:vtoTries,vtoCost:vtoCost,gmv:gmv,orders:orders,payCost:payCost,fraudCost:fraudCost});
+    totFraud+=fraudCost;
+    s('c-vto'+q,'−'+fmtM(vtoCost));
+    s('c-pay'+q,'−'+fmtM(payCost));
+    s('c-fraud'+q,'−'+fmtM(fraudCost));
+    s('c-var'+q,'−'+fmtM(vtoCost+payCost+fraudCost));
+
+    // Fixed costs from Section 01 Grand Total
+    var fixed=s1fixArr[q-1];
+    s('c-fix'+q,'$'+Math.round(fixed).toLocaleString());
+    var net=tfRev+subQ-fixed-vtoCost-payCost-fraudCost;
+    var netEl2=document.getElementById('c-net'+q);
+    if(netEl2){
+      netEl2.textContent=(net>=0?'+':'-')+fmtM(Math.abs(net));
+      netEl2.style.color=net>=0?'#7AE3B2':'#FF8A80';
+    }
+    var ybEl=document.getElementById('yb-net'+q);
+    if(ybEl){ybEl.textContent=(net>=0?'+':'-')+fmtM(Math.abs(net));ybEl.className='yr-v '+(net>=0?'g':'r');}
+    // Variable-only net for Section 03 duplicate row
+    var varNet=tfRev+subQ-vtoCost-payCost-fraudCost;
+    var snetEl=document.getElementById('c-snet'+q);
+    if(snetEl){snetEl.textContent=(varNet>=0?'+':'')+fmtM(Math.abs(varNet));snetEl.style.color=varNet>=0?'#7AE3B2':'#FF8A80';}
+
+    totGMV+=gmv; totOrd+=orders; totRev+=tfRev+subQ; totVTO+=vtoCost; totPay+=payCost;
+  });
+
+  var totVar=totVTO+totPay+totFraud;
+  var totNet=totRev-s1fixY-totVar;
+  s('c-fixY','$'+Math.round(s1fixY).toLocaleString());
+  var snety=totRev-totVTO-totPay-totFraud;
+  var snetYEl=document.getElementById('c-snety');
+  if(snetYEl){snetYEl.textContent=(snety>=0?'+':'')+fmtM(Math.abs(snety));snetYEl.style.color=snety>=0?'#7AE3B2':'#FF8A80';}
+  s('yt-gmv',fmtM(totGMV));
+  s('yt-ord',fmtN(totOrd));
+  s('yt-rev','+'+fmtM(totRev));
+  s('yt-var','−'+fmtM(totVar));
+  var ytNetEl=document.getElementById('yt-net');
+  if(ytNetEl){ytNetEl.textContent=(totRev-totVar>=0?'+':'')+fmtM(Math.abs(totRev-totVar));ytNetEl.className='yr-v '+(totRev-totVar>=0?'g':'r');}
+
+  // Consolidated year totals
+  var totTFR=totRev-designers*500*3*4; // platform fee only
+  var totSub=designers*500*3*4;
+  s('c-gmvy',fmtM(totGMV));
+  s('c-tfry','+'+fmtM(totTFR));
+  s('c-suby','+'+fmtM(totSub));
+  s('c-revy','+'+fmtM(totRev));
+  s('c-vtoy','−'+fmtM(totVTO));
+  s('c-payy','−'+fmtM(totPay));
+  s('c-fraudy','−'+fmtM(totFraud));
+  s('c-vary','−'+fmtM(totVar));
+
+  // Appendix Section 04 — dynamic tables
+  var vtoRate=vtoMode==='shopify'?'$0.10/try':'Kivisense $888/mo';
+  var vtoTriesY=0;
+  [0,1,2,3].forEach(function(i){
+    var q=i+1;
+    vtoTriesY+=vpData[i].tries;
+    s('vp-vto-tries-'+q,fmtN(Math.round(vpData[i].tries)));
+    s('vp-vto-rate-'+q,vtoRate);
+    s('vp-vto-cost-'+q,'~'+fmtM(vpData[i].vtoCost));
+    s('vp-pay-gmv-'+q,fmtM(vpData[i].gmv));
+    s('vp-pay-ord-'+q,fmtN(Math.round(vpData[i].orders)));
+    s('vp-pay-fee-'+q,'~'+fmtM(vpData[i].payCost));
+    s('vp-fraud-gmv-'+q,fmtM(vpData[i].gmv));
+    s('vp-fraud-cost-'+q,'~'+fmtM(vpData[i].fraudCost));
+  });
+  s('vp-vto-tries-y',fmtN(Math.round(vtoTriesY)));
+  s('vp-vto-cost-y','~'+fmtM(totVTO));
+  s('vp-pay-gmv-y',fmtM(totGMV));
+  s('vp-pay-ord-y',fmtN(Math.round(totOrd)));
+  s('vp-pay-fee-y','~'+fmtM(totPay));
+  s('vp-fraud-gmv-y',fmtM(totGMV));
+  s('vp-fraud-cost-y','~'+fmtM(totFraud));
+  s('vt-total','~'+fmtM(totVar));
+  s('vt-vto','~'+fmtM(totVTO));
+  s('vt-pay','~'+fmtM(totPay));
+  s('vt-fraud','~'+fmtM(totFraud));
+  var vtoNote=document.getElementById('vp-vto-note');
+  if(vtoNote){vtoNote.textContent=vtoMode==='shopify'?'Shopify VTO $0.10/try · Kivisense flat $888/mo viable above 26,640 tries/qtr · Source: TFmvpcosts.html':'Kivisense $888/mo flat · Shopify $0.10/try viable below 26,640 tries/qtr · Source: TFmvpcosts.html';}
+  var payNote=document.getElementById('vp-pay-note');
+  if(payNote){payNote.textContent='Stripe: '+(payPct*100).toFixed(1)+'% × GMV + $0.30 × orders · Funded from GMV revenue';}
+  var netY=totRev-s1fixY-totVar;
+  var netYEl=document.getElementById('c-nety');
+  if(netYEl){netYEl.textContent=(netY>=0?'+':'-')+fmtM(Math.abs(netY));netYEl.style.color=netY>=0?'#7AE3B2':'#FF8A80';}
+  var ybYEl=document.getElementById('yb-nety');
+  if(ybYEl){ybYEl.textContent=(netY>=0?'+':'-')+fmtM(Math.abs(netY));ybYEl.className='yr-v '+(netY>=0?'g':'r');}
+  yrProj();
+}
+
+// ── 5-Year projection (Section 04) ──
+var Y_FREQ=[0,4,4,4,4,4];
+var Y_FREQ_LBL=['','once/3mo','once/3mo','once/3mo','once/3mo','once/3mo'];
+var Y_OPS=[0,138000,516000,1200000,2220000,3840000];
+var Y_GA=[0,180000,100000,130000,200000,300000];
+var Y1_CORE=182000;
+
+function adjY(yr,d){var el=document.getElementById('yd'+yr);if(!el)return;el.value=Math.max(0,(parseInt(el.value)||0)+d);yrProj();}
+
+function yrProj(){
+  var items=g('p-items'),aov=g('p-aov'),tfFee=g('p-tf-fee')/100;
+  var payPct=g('p-pay')/100,vtoA=g('p-vto-a')/100,vtoT=g('p-vto-t');
+  var ctRateEl=document.getElementById('ct-rate');
+  var ctRate=parseFloat(ctRateEl?ctRateEl.value:10000)||10000;
+  function getCTC(yr){var el=document.getElementById('ct-y'+yr+'-count');return parseInt(el?el.value:0)||0;}
+  var cumEbit=0;
+  for(var yr=1;yr<=5;yr++){
+    var dropEl=document.getElementById('yd'+yr);
+    var drops=parseInt(dropEl?dropEl.value:0)||0;
+    var freq=Y_FREQ[yr];
+    var designers=freq>0?Math.round(drops/freq):0;
+    var orders=drops*items,gmv=orders*aov;
+    var platformFee=gmv*tfFee,subs=designers*500*12;
+    var vtoTries=orders*vtoA*vtoT;
+    var vtoCost=vtoMode==='shopify'?vtoTries*0.10:888*12;
+    var payCost=gmv*payPct+orders*0.30,fraudCost=gmv*0.0005;
+    var varTotal=vtoCost+payCost+fraudCost;
+    var smthgNet=platformFee+subs-varTotal;
+    var rev=platformFee+subs;
+    var netCol=smthgNet>=0?'#1A7A4A':'var(--tf)';
+    // revenue box
+    s('yr'+yr+'-gmv-h',fmtM(gmv)+' GMV');
+    s('yr'+yr+'-des-lbl',designers.toLocaleString()+' designers · '+Y_FREQ_LBL[yr]);
+    s('yr'+yr+'-ord',fmtN(orders));
+    s('yr'+yr+'-gmv',fmtM(gmv));
+    s('yr'+yr+'-tfr','+'+fmtM(platformFee));
+    s('yr'+yr+'-sub','+'+fmtM(subs));
+    s('yr'+yr+'-vto','−'+fmtM(vtoCost));
+    s('yr'+yr+'-pay','−'+fmtM(payCost));
+    s('yr'+yr+'-fraud','−'+fmtM(fraudCost));
+    var nEl=document.getElementById('yr'+yr+'-net');
+    if(nEl){nEl.textContent=(smthgNet>=0?'+':'')+fmtM(Math.abs(smthgNet));nEl.style.color=netCol;}
+    var qEl=document.getElementById('yr'+yr+'-qavg');
+    if(qEl){var qa=smthgNet/4;qEl.textContent=(qa>=0?'+':'')+fmtM(Math.abs(qa));qEl.style.color=netCol;}
+    // costs
+    var opsTeam=Y_OPS[yr];
+    var coreTeam=yr===1?Y1_CORE:getCTC(yr)*ctRate*12;
+    var ga=Y_GA[yr];
+    var totalCosts=varTotal+opsTeam+coreTeam+ga;
+    var opEx=opsTeam+coreTeam+ga;
+    var ebit=smthgNet-opsTeam-coreTeam-ga;
+    var ebitCol=ebit>=0?'#1A7A4A':'var(--tf)';
+    cumEbit+=ebit;
+    s('yc'+yr+'-ops','−'+fmtM(opsTeam));
+    s('yc'+yr+'-core','−'+fmtM(coreTeam));
+    s('yc'+yr+'-ga','−'+fmtM(ga));
+    s('yc'+yr+'-tot','−'+fmtM(opEx));
+    var cnEl=document.getElementById('yc'+yr+'-net');
+    if(cnEl){cnEl.textContent=(smthgNet>=0?'+':'')+fmtM(Math.abs(smthgNet));cnEl.style.color=netCol;}
+    var eEl=document.getElementById('yc'+yr+'-ebit');
+    if(eEl){eEl.textContent=(ebit>=0?'+':'')+fmtM(Math.abs(ebit));eEl.style.color=ebitCol;}
+    if(yr>1){
+      var hEl=document.getElementById('yc'+yr+'-hdr');
+      if(hEl)hEl.textContent=getCTC(yr)+' founders × $'+(ctRate/1000).toFixed(0)+'K/mo';
+      var ciEl=document.getElementById('ycd'+yr+'-ct-info');
+      if(ciEl)ciEl.textContent=getCTC(yr)+' founders × $'+(ctRate/1000).toFixed(0)+'K/mo × 12 = '+fmtM(getCTC(yr)*ctRate*12)+'/yr';
+    }
+    // P&L table
+    s('yt-des-'+yr,designers.toLocaleString());
+    s('yt-freq-'+yr,Y_FREQ_LBL[yr]);
+    s('yt-drops-'+yr,drops.toLocaleString());
+    s('yt-gmv-'+yr,fmtM(gmv));
+    s('yt-tfr-'+yr,fmtM(platformFee));
+    s('yt-sub-'+yr,fmtM(subs));
+    s('yt-rev-'+yr,fmtM(rev));
+    s('yt-var-'+yr,fmtM(varTotal));
+    s('yt-ops-'+yr,fmtM(opsTeam));
+    s('yt-core-'+yr,fmtM(coreTeam));
+    s('yt-ga-'+yr,fmtM(ga));
+    s('yt-tot-'+yr,fmtM(totalCosts));
+    var teEl=document.getElementById('yt-ebit-'+yr);
+    if(teEl){teEl.textContent=(ebit>=0?'+':'')+fmtM(Math.abs(ebit));teEl.style.color=ebit>=0?'#7AE3B2':'#FF8A80';}
+    var tmEl=document.getElementById('yt-margin-'+yr);
+    if(tmEl){var m=rev>0?(ebit/rev*100).toFixed(0)+'%':'—';tmEl.textContent=(ebit>=0?'+':'')+m;tmEl.style.color=ebit>=0?'#1A7A4A':'var(--tf)';}
+    var tcEl=document.getElementById('yt-cum-'+yr);
+    if(tcEl){tcEl.textContent=(cumEbit>=0?'+':'')+fmtM(Math.abs(cumEbit));tcEl.style.color=cumEbit>=0?'#1A7A4A':'var(--tf)';}
+  }
+}
+
+proj();
+
+// ── Firebase shared-inputs sync ───────────────────────────────────────────
+var DB_BUDGET='https://terra-ferra-1ac34-default-rtdb.firebaseio.com';
+var BUDGET_PATH='/tf-budget/v1/inputs.json';
+var SYNC_IDS=['p-items','p-aov','p-tf-fee','p-designers','p-inf','p-pay','p-vto-a','p-vto-t',
+  'yd1','yd2','yd3','yd4','yd5','ct-rate','ct-y2-count','ct-y3-count','ct-y4-count','ct-y5-count'];
+var dbTimer=null,applying=false,lastSnap='';
+
+function setSyncState(s){
+  var dot=document.getElementById('sync-dot'),lbl=document.getElementById('sync-label');
+  if(!dot)return;
+  dot.className='sync-dot'+(s==='live'?' live':s==='err'?' err':'');
+  if(lbl)lbl.textContent=s==='live'?'Live':s==='err'?'Error':'Connecting…';
+}
+function snapInputs(){
+  var o={vtoMode:vtoMode};
+  SYNC_IDS.forEach(function(id){var el=document.getElementById(id);if(el)o[id]=el.value;});
+  return o;
+}
+function applySnap(data){
+  applying=true;
+  SYNC_IDS.forEach(function(id){if(data[id]!=null){var el=document.getElementById(id);if(el)el.value=data[id];}});
+  if(data.vtoMode&&data.vtoMode!==vtoMode){
+    vtoMode=data.vtoMode;
+    ['shopify','kivisense'].forEach(function(m){var b=document.getElementById('btn-'+m);if(b)b.classList.toggle('on',m===vtoMode);});
+    var cn=document.getElementById('cn-vto');if(cn)cn.textContent=vtoMode==='shopify'?'Shopify $0.10/try':'Kivisense $888/mo flat';
+  }
+  proj();yrProj();
+  applying=false;
+}
+function pushInputs(){
+  if(applying)return;
+  clearTimeout(dbTimer);
+  dbTimer=setTimeout(function(){
+    var data=snapInputs();
+    fetch(DB_BUDGET+BUDGET_PATH,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
+      .then(function(r){setSyncState(r.ok?'live':'err');}).catch(function(){setSyncState('err');});
+  },800);
+}
+function pollFb(){
+  fetch(DB_BUDGET+BUDGET_PATH)
+    .then(function(r){return r.json();})
+    .then(function(data){
+      if(!data){setSyncState('live');return;}
+      var snap=JSON.stringify(data);
+      if(snap!==lastSnap){lastSnap=snap;applySnap(data);}
+      setSyncState('live');
+    }).catch(function(){setSyncState('err');});
+}
+window.addEventListener('DOMContentLoaded',function(){
+  fetch(DB_BUDGET+BUDGET_PATH)
+    .then(function(r){return r.json();})
+    .then(function(data){if(data){lastSnap=JSON.stringify(data);applySnap(data);}setSyncState('live');})
+    .catch(function(){setSyncState('err');});
+  SYNC_IDS.forEach(function(id){var el=document.getElementById(id);if(el)el.addEventListener('input',pushInputs);});
+  setInterval(pollFb,5000);
+});
+</script>
 </body>
 </html>
