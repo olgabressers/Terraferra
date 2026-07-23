@@ -35,65 +35,56 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 @media(max-width:700px){.wrap{padding:24px 16px 60px}}
 
 /* ── HERO ── */
-.eyebrow{font-size:12px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--sub)}
 h1{font-size:clamp(26px,3.8vw,42px);font-weight:900;letter-spacing:-1.2px;margin-top:10px;line-height:1.1;color:var(--ink)}
-.lede{font-size:15.5px;color:var(--ink);margin-top:10px;max-width:860px;line-height:1.6}
+.lede{font-size:17px;color:var(--ink);margin-top:10px;max-width:860px;line-height:1.65}
 
 /* ── SECTION HEADINGS ── */
-.sec-h2{font-size:clamp(17px,2vw,22px);font-weight:900;letter-spacing:-.5px;margin:44px 0 14px;color:var(--ink)}
+.sec-h2{font-size:clamp(18px,2vw,23px);font-weight:900;letter-spacing:-.5px;margin:48px 0 16px;color:var(--ink)}
 .sec-h2 span{color:var(--tf)}
 
 /* ── ROLE CARDS GRID ── */
-.role-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.role-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
 @media(max-width:900px){.role-grid{grid-template-columns:1fr}}
 
-.role-card{background:white;border:1px solid var(--rule);border-top:3px solid var(--tf);border-radius:10px;padding:22px 22px 18px}
-.role-card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
-.role-title{font-size:17px;font-weight:900;letter-spacing:-.3px;color:var(--ink)}
-.badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:.5px;white-space:nowrap}
+.role-card{background:white;border:1px solid var(--rule);border-top:3px solid var(--tf);border-radius:10px;padding:24px 24px 20px}
+.role-card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.role-title{font-size:19px;font-weight:900;letter-spacing:-.3px;color:var(--ink)}
+.badge{display:inline-block;padding:4px 11px;border-radius:20px;font-size:12px;font-weight:700;letter-spacing:.5px;white-space:nowrap}
 .badge-constraint{background:#F1EEE9;color:var(--sub);border:1px solid var(--rule)}
 .badge-dev{background:#EAF0F6;color:var(--navy);border:1px solid #c4d2de}
 
-.jd{margin:0 0 14px;padding:0 0 0 16px;list-style:disc}
-.jd li{font-size:13.5px;color:var(--ink);line-height:1.55;margin-bottom:4px}
+.jd{margin:0 0 16px;padding:0 0 0 18px;list-style:disc}
+.jd li{font-size:15.5px;color:var(--ink);line-height:1.65;margin-bottom:6px}
 
-.trigger-row{background:var(--green-bg);border-left:3px solid var(--green);border-radius:0 6px 6px 0;padding:8px 14px;margin:0 0 12px;font-size:13px;color:var(--ink);line-height:1.5}
+.trigger-row{background:var(--green-bg);border-left:3px solid var(--green);border-radius:0 6px 6px 0;padding:11px 16px;margin:0 0 14px;font-size:15px;color:var(--ink);line-height:1.55}
 .trigger-row strong{color:var(--green)}
 
 .salary-row{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
-.salary-main{font-size:16px;font-weight:900;color:var(--ink)}
-.salary-yr{font-size:13px;color:var(--sub)}
-.salary-src{font-size:12px;color:var(--sub)}
+.salary-main{font-size:18px;font-weight:900;color:var(--ink)}
+.salary-yr{font-size:14px;color:var(--sub)}
+.salary-src{font-size:13px;color:var(--sub)}
 .salary-src a{color:var(--tf);text-decoration:none}
 .salary-src a:hover{text-decoration:underline}
 
-/* ── SCALING TABLE ── */
+/* ── TABLES ── */
 .tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:14px;border:1px solid var(--rule);border-radius:8px}
-table{width:100%;border-collapse:collapse;background:white;font-size:13px;min-width:820px}
-thead th{background:var(--ink);color:white;text-align:left;padding:10px 13px;font-size:12px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;white-space:nowrap}
+table{width:100%;border-collapse:collapse;background:white;font-size:15px;min-width:860px}
+thead th{background:var(--ink);color:white;text-align:left;padding:12px 15px;font-size:13px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;white-space:nowrap}
 thead th.hi{background:var(--tf)}
 tbody tr:hover{background:#fafaf8}
-tbody td{padding:10px 13px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.5;color:var(--ink)}
+tbody td{padding:12px 15px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.55;color:var(--ink);font-size:15px}
 tbody td.stage{font-weight:800;white-space:nowrap;color:var(--ink)}
-tbody td.gmv{color:var(--sub);font-size:12.5px;white-space:nowrap}
+tbody td.gmv{color:var(--sub);font-size:14px;white-space:nowrap}
 tbody td.num{text-align:right;white-space:nowrap;font-weight:700}
-tbody td.note{font-size:12px;color:var(--sub);line-height:1.45}
-tbody tr.total-row{background:#F8F6F2}
-tbody tr.total-row td{font-weight:800;border-top:2px solid var(--rule);border-bottom:2px solid var(--rule)}
-.pill{display:inline-block;padding:2px 8px;border-radius:10px;font-size:11.5px;font-weight:700;white-space:nowrap;line-height:1.4}
-.pill-c{background:#FEF3C7;color:#92400E}
-.pill-cont{background:#EAF0F6;color:var(--navy)}
-.pill-cm{background:var(--green-bg);color:var(--green)}
-.pill-dev{background:#F3F0FF;color:#5B21B6}
+tbody td.note{font-size:14px;color:var(--ink);line-height:1.5}
 
 /* ── FOOTNOTE ── */
-.footnote{margin-top:28px;font-size:13px;color:var(--sub);line-height:1.6;border-top:1px solid var(--rule);padding-top:18px}
-.footnote strong{color:var(--ink)}
+.footnote{margin-top:28px;font-size:14px;color:var(--sub);line-height:1.65;border-top:1px solid var(--rule);padding-top:18px}
 .footnote a{color:var(--tf);text-decoration:none}
 .footnote a:hover{text-decoration:underline}
 
 /* ── CONTRACTOR NOTE BOX ── */
-.info-box{background:var(--amber-bg);border-left:4px solid var(--amber);border-radius:0 8px 8px 0;padding:14px 18px;margin-top:32px;font-size:14px;color:var(--ink);line-height:1.6}
+.info-box{background:var(--amber-bg);border-left:4px solid var(--amber);border-radius:0 8px 8px 0;padding:16px 20px;margin-top:36px;font-size:15px;color:var(--ink);line-height:1.65}
 .info-box strong{color:#92400E}
 </style>
 </head>
@@ -130,16 +121,39 @@ tbody tr.total-row td{font-weight:800;border-top:2px solid var(--rule);border-bo
         <li>Handle designer-side issues: dashboard access, drop submission errors, payout queries</li>
         <li>Maintain SLA: &lt;4hr first response, &lt;24hr resolution; CSAT tracking per brand</li>
         <li>Build and maintain macros and FAQ to deflect recurring queries</li>
-        <li>Flag quality complaints and fraud patterns to ops lead</li>
+        <li>Document recurring quality complaints and fraud patterns; alert platform team if systemic</li>
       </ul>
       <div class="trigger-row">
         <strong>Hire when:</strong> 150 tickets/month (first part-time). Full-time at 400/month. +1 rep per 500 additional tickets/month.<br>
-        <span style="font-size:12px;color:var(--sub)">Capacity: 25–35 tickets/agent/day · Source: <a href="https://www.jitbit.com/news/helpdesk-performance-metrics/" target="_blank" rel="noopener" style="color:var(--tf)">Jitbit 1,000-company study</a></span>
+        <span style="font-size:13.5px;color:var(--sub)">Capacity: 25–35 tickets/agent/day · Source: <a href="https://www.jitbit.com/news/helpdesk-performance-metrics/" target="_blank" rel="noopener" style="color:var(--tf)">Jitbit 1,000-company study</a></span>
       </div>
       <div class="salary-row">
         <span class="salary-main">$3,200–4,300/mo</span>
         <span class="salary-yr">$38–52K/yr</span>
         <span class="salary-src">Source: <a href="https://www.bls.gov/ooh/office-and-administrative-support/customer-service-representatives.htm" target="_blank" rel="noopener">BLS SOC 43-1011</a> · US median $38.7K</span>
+      </div>
+    </div>
+
+    <!-- INFLUENCER RELATIONS -->
+    <div class="role-card">
+      <div class="role-card-head">
+        <div class="role-title">Influencer Relations</div>
+        <span class="badge badge-constraint">Recruiting · Drops · Performance</span>
+      </div>
+      <ul class="jd">
+        <li>Recruit and vet influencers: screen for audience fit, follower quality, niche alignment</li>
+        <li>Brief influencers on upcoming drops: creative direction, timing, commission terms</li>
+        <li>Track influencer GMV, conversion rate, and engagement per drop; share performance reports</li>
+        <li>Handle commission queries and Founding Creator tier applications</li>
+        <li>Build long-term relationships with top performers for exclusive drops and co-marketing</li>
+      </ul>
+      <div class="trigger-row">
+        <strong>Hire when:</strong> Platform launch — influencer layer is core to the drop model from day 1. Dedicated FTE at 25+ active influencers.
+      </div>
+      <div class="salary-row">
+        <span class="salary-main">$4,200–6,500/mo</span>
+        <span class="salary-yr">$50–78K/yr</span>
+        <span class="salary-src">Source: Glassdoor / LinkedIn Salary 2025 · Influencer / Creator Relations, fashion, US</span>
       </div>
     </div>
 
@@ -162,7 +176,7 @@ tbody tr.total-row td{font-weight:800;border-top:2px solid var(--rule);border-bo
       <div class="salary-row">
         <span class="salary-main">$3,800–5,500/mo</span>
         <span class="salary-yr">$46–66K/yr</span>
-        <span class="salary-src">Source: Glassdoor/LinkedIn Salary 2025 · Social Media / Content Manager, fashion, US</span>
+        <span class="salary-src">Source: Glassdoor / LinkedIn Salary 2025 · Social Media / Content Manager, fashion, US</span>
       </div>
     </div>
 
@@ -170,22 +184,22 @@ tbody tr.total-row td{font-weight:800;border-top:2px solid var(--rule);border-bo
     <div class="role-card">
       <div class="role-card-head">
         <div class="role-title">Community Manager</div>
-        <span class="badge badge-constraint">Designers · Influencers · So-Me-Space</span>
+        <span class="badge badge-constraint">Designers · So-Me-Space</span>
       </div>
       <ul class="jd">
         <li>Onboard pilot designers: profile setup, first drop walkthrough, rules briefing</li>
         <li>Curate and moderate So-Me-Space feed — quality standards, spam, tribal curation</li>
-        <li>Activate influencer relationships: drop briefings, commission reporting, UGC coordination</li>
         <li>Run monthly designer success reviews: sell-through rates, engagement, recommendations</li>
         <li>Build community rituals: style tribe features, drop countdowns, new designer spotlights</li>
+        <li>Own designer retention: identify at-risk brands, flag issues to platform team</li>
       </ul>
       <div class="trigger-row">
-        <strong>Hire when:</strong> 3 active designers (from day one of pilots). +1 at 20 active community members needing curation. Add influencer-specific role at 50+ active influencers.
+        <strong>Hire when:</strong> 3 active designers (from day one of pilots). +1 at 20 active community members needing curation.
       </div>
       <div class="salary-row">
         <span class="salary-main">$4,000–6,200/mo</span>
         <span class="salary-yr">$48–74K/yr</span>
-        <span class="salary-src">Source: Glassdoor/LinkedIn Salary 2025 · Community Manager, e-commerce, US</span>
+        <span class="salary-src">Source: Glassdoor / LinkedIn Salary 2025 · Community Manager, e-commerce, US</span>
       </div>
     </div>
 
@@ -196,11 +210,11 @@ tbody tr.total-row td{font-weight:800;border-top:2px solid var(--rule);border-bo
         <span class="badge badge-dev">Backend · Frontend · Mobile</span>
       </div>
       <ul class="jd">
-        <li>Backend: API, GMV reporting, Stripe/VTO integrations, designer dashboards, security</li>
-        <li>Frontend/mobile: drop browsing, checkout flow, influencer commission views, app performance</li>
+        <li>Backend: API, GMV reporting, Stripe integrations, designer dashboards, security</li>
+        <li>Frontend / mobile: drop browsing, checkout flow, influencer commission views, app performance</li>
         <li>Code reviews, dependency updates, on-call rotation (from Y3)</li>
-        <li>DevOps/infra added at $3M+ GMV (CI/CD, cloud cost optimisation, load testing)</li>
-        <li>Mobile specialist added at 100K+ MAU; senior full-stack at $5M+ GMV</li>
+        <li>DevOps / infra added at $3M+ GMV (CI/CD, cloud cost optimisation, load testing)</li>
+        <li>Mobile specialist at 100K+ MAU; senior full-stack at $5M+ GMV</li>
       </ul>
       <div class="trigger-row">
         <strong>Start:</strong> 2 contractors at MVP. +1 FTE per major feature track from Y2. Dedicated mobile engineer from Y3–Y4.
@@ -208,7 +222,7 @@ tbody tr.total-row td{font-weight:800;border-top:2px solid var(--rule);border-bo
       <div class="salary-row">
         <span class="salary-main">$9,200–13,300/mo</span>
         <span class="salary-yr">$110–160K/yr · senior backend</span>
-        <span class="salary-src">Source: <a href="https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm" target="_blank" rel="noopener">BLS SOC 15-1252</a> · US median $130K · entry $80–100K</span>
+        <span class="salary-src">Source: <a href="https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm" target="_blank" rel="noopener">BLS SOC 15-1252</a> · US median $130K</span>
       </div>
     </div>
 
@@ -216,91 +230,98 @@ tbody tr.total-row td{font-weight:800;border-top:2px solid var(--rule);border-bo
 
   <!-- ═══ SCALING TABLE ═══ -->
   <h2 class="sec-h2">Headcount Roadmap · MVP → <span>Year 5</span></h2>
-  <p style="font-size:13.5px;color:var(--ink);margin-bottom:6px">Headcount shown as FTE equivalents. Contractor roles shown in parentheses. Monthly cost at US market rates — Year 1 budget uses lower offshore contractor rates (see note below).</p>
+  <p style="font-size:15px;color:var(--ink);margin-bottom:8px">FTE equivalents. Contractors noted in parentheses. Monthly cost at US market rates — Year 1 budget uses lower offshore contractor rates (see note below).</p>
 
   <div class="tbl-wrap">
-    <table>
+    <table style="min-width:1000px">
       <thead>
         <tr>
           <th>Stage</th>
-          <th>GMV target</th>
+          <th>GMV</th>
           <th class="hi">Customer Service</th>
+          <th class="hi">Influencer Relations</th>
           <th class="hi">Content</th>
           <th class="hi">Community</th>
           <th class="hi">Developers</th>
-          <th>Est. monthly cost<br><span style="font-weight:400;font-size:11px;opacity:.8">US market rates</span></th>
-          <th>Key trigger / note</th>
+          <th>Est. monthly cost</th>
+          <th>Key trigger</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td class="stage">MVP<br><span style="font-size:12px;font-weight:400;color:var(--sub)">0–6 mo</span></td>
+          <td class="stage">MVP<br><span style="font-size:13px;font-weight:400;color:var(--sub)">0–6 mo</span></td>
           <td class="gmv">$0–50K</td>
-          <td><span class="pill pill-c">CEO / VA</span></td>
-          <td><span class="pill pill-cont">CEO / contract</span></td>
-          <td><span class="pill pill-cm">CEO</span></td>
-          <td><span class="pill pill-dev">2 contractors</span><br><span style="font-size:12px;color:var(--sub)">$2K/mo each</span></td>
+          <td><strong>CEO / VA</strong></td>
+          <td><strong>CEO</strong></td>
+          <td><strong>CEO / contract</strong></td>
+          <td><strong>Creative Director</strong></td>
+          <td><strong>2 contractors</strong><br><span style="font-size:13px;color:var(--sub)">$2K/mo each</span></td>
           <td class="num">~$4K</td>
-          <td class="note">Founder covers all ops. Dev contractors handle app maintenance. No dedicated ops hires.</td>
+          <td class="note">No dedicated ops hires. Dev contractors handle app maintenance.</td>
         </tr>
         <tr>
           <td class="stage">Year 1</td>
           <td class="gmv">~$500K</td>
-          <td><span class="pill pill-c">0.5 (contractor)</span><br><span style="font-size:12px;color:var(--sub)">~$1,500/mo</span></td>
-          <td><span class="pill pill-cont">0.5 (contractor)</span><br><span style="font-size:12px;color:var(--sub)">~$1,500/mo</span></td>
-          <td><span class="pill pill-cm">1 (contractor)</span><br><span style="font-size:12px;color:var(--sub)">$2,500/mo</span></td>
-          <td><span class="pill pill-dev">2 contractors</span><br><span style="font-size:12px;color:var(--sub)">$4K/mo</span></td>
-          <td class="num">~$9.5K<br><span style="font-size:11px;color:var(--sub);font-weight:400">(offshore rates)</span></td>
-          <td class="note">~100–200 CS tickets/mo at Q4; below full-time CS trigger. Community hire day-1 for pilot designer onboarding.</td>
+          <td><strong>0.5</strong><br><span style="font-size:13px;color:var(--sub)">contractor · ~$1,500/mo</span></td>
+          <td><strong>0.5</strong><br><span style="font-size:13px;color:var(--sub)">contractor · ~$2,000/mo</span></td>
+          <td><strong>0.5</strong><br><span style="font-size:13px;color:var(--sub)">contractor · ~$1,500/mo</span></td>
+          <td><strong>1</strong><br><span style="font-size:13px;color:var(--sub)">contractor · $2,500/mo</span></td>
+          <td><strong>2 contractors</strong><br><span style="font-size:13px;color:var(--sub)">$4K/mo</span></td>
+          <td class="num">~$11.5K<br><span style="font-size:12px;color:var(--sub);font-weight:400">(offshore rates)</span></td>
+          <td class="note">~100–200 CS tickets/mo at Q4; below full-time trigger. Community hire day-1 for pilot onboarding.</td>
         </tr>
         <tr>
           <td class="stage">Year 2</td>
           <td class="gmv">~$3M</td>
-          <td><span class="pill pill-c">1 FTE</span></td>
-          <td><span class="pill pill-cont">1 FTE</span></td>
-          <td><span class="pill pill-cm">1.5 FTE</span></td>
-          <td><span class="pill pill-dev">3</span><br><span style="font-size:12px;color:var(--sub)">2 cont + 1 FTE frontend</span></td>
-          <td class="num">~$38K</td>
-          <td class="note">400+ tickets/mo triggers full-time CS. 10+ active brands triggers full-time content. Add DevOps contractor.</td>
+          <td><strong>1 FTE</strong></td>
+          <td><strong>1 FTE</strong></td>
+          <td><strong>1 FTE</strong></td>
+          <td><strong>1.5 FTE</strong></td>
+          <td><strong>3</strong><br><span style="font-size:13px;color:var(--sub)">2 cont + 1 FTE frontend</span></td>
+          <td class="num">~$43K</td>
+          <td class="note">400+ tickets/mo triggers full-time CS. 10+ active brands triggers full-time content. DevOps contractor added.</td>
         </tr>
         <tr>
           <td class="stage">Year 3</td>
           <td class="gmv">~$10M</td>
-          <td><span class="pill pill-c">2 FTE + lead</span></td>
-          <td><span class="pill pill-cont">2 FTE</span></td>
-          <td><span class="pill pill-cm">2 FTE</span></td>
-          <td><span class="pill pill-dev">4–5 FTE</span><br><span style="font-size:12px;color:var(--sub)">backend, frontend, mobile, devops</span></td>
-          <td class="num">~$95K</td>
-          <td class="note">800+ tickets/mo. Add Spanish-language CS if EU/Hispanic market growing. Add mobile engineer. On-call rotation starts.</td>
+          <td><strong>2 FTE + lead</strong></td>
+          <td><strong>2 FTE</strong></td>
+          <td><strong>2 FTE</strong></td>
+          <td><strong>2 FTE</strong></td>
+          <td><strong>4–5 FTE</strong><br><span style="font-size:13px;color:var(--sub)">backend, frontend, mobile, devops</span></td>
+          <td class="num">~$100K</td>
+          <td class="note">800+ tickets/mo. Mobile engineer added. On-call rotation starts.</td>
         </tr>
         <tr>
           <td class="stage">Year 4</td>
           <td class="gmv">~$35M</td>
-          <td><span class="pill pill-c">4 FTE + lead</span></td>
-          <td><span class="pill pill-cont">3 FTE + head</span></td>
-          <td><span class="pill pill-cm">3 FTE + head</span></td>
-          <td><span class="pill pill-dev">7–8 FTE</span></td>
-          <td class="num">~$175K</td>
-          <td class="note">2,000+ tickets/mo. Content Head manages brand content standards at 100+ designers. Community Head runs influencer programme.</td>
+          <td><strong>4 FTE + lead</strong></td>
+          <td><strong>3 FTE + Head</strong></td>
+          <td><strong>3 FTE + Head</strong></td>
+          <td><strong>3 FTE + Head</strong></td>
+          <td><strong>7–8 FTE</strong></td>
+          <td class="num">~$185K</td>
+          <td class="note">2,000+ tickets/mo. Influencer Head manages Founding Creator programme. Content Head at 100+ designers.</td>
         </tr>
         <tr>
           <td class="stage">Year 5</td>
           <td class="gmv">~$90M</td>
-          <td><span class="pill pill-c">7 FTE + 2 leads</span></td>
-          <td><span class="pill pill-cont">5 FTE + director</span></td>
-          <td><span class="pill pill-cm">5 FTE + director</span></td>
-          <td><span class="pill pill-dev">12–15 FTE</span></td>
-          <td class="num">~$300K</td>
-          <td class="note">5,000+ tickets/mo. Multi-language CS (English + Spanish + 1 EU). Dedicated mobile team. Senior engineering leadership.</td>
+          <td><strong>7 FTE + 2 leads</strong></td>
+          <td><strong>5 FTE + Director</strong></td>
+          <td><strong>5 FTE + Director</strong></td>
+          <td><strong>5 FTE + Director</strong></td>
+          <td><strong>12–15 FTE</strong></td>
+          <td class="num">~$320K</td>
+          <td class="note">5,000+ tickets/mo. Multi-language CS. Dedicated mobile team. Senior engineering leadership.</td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <!-- Cost per ticket benchmarks -->
-  <h2 class="sec-h2" style="margin-top:44px">CS Benchmarks</h2>
+  <!-- ═══ CS BENCHMARKS ═══ -->
+  <h2 class="sec-h2">CS Benchmarks</h2>
   <div class="tbl-wrap">
-    <table style="min-width:600px">
+    <table style="min-width:560px">
       <thead>
         <tr>
           <th>Metric</th>
@@ -310,14 +331,9 @@ tbody tr.total-row td{font-weight:800;border-top:2px solid var(--rule);border-bo
       </thead>
       <tbody>
         <tr>
-          <td>Tickets handled per agent/day (baseline)</td>
-          <td class="num">21</td>
-          <td class="note"><a href="https://www.jitbit.com/news/helpdesk-performance-metrics/" target="_blank" rel="noopener" style="color:var(--tf)">Jitbit, 1,000-company study</a></td>
-        </tr>
-        <tr>
           <td>Tickets handled per agent/day (with tooling)</td>
           <td class="num">25–35</td>
-          <td class="note"><a href="https://www.jitbit.com/news/helpdesk-performance-metrics/" target="_blank" rel="noopener" style="color:var(--tf)">Jitbit benchmark</a></td>
+          <td class="note"><a href="https://www.jitbit.com/news/helpdesk-performance-metrics/" target="_blank" rel="noopener" style="color:var(--tf)">Jitbit, 1,000-company study</a></td>
         </tr>
         <tr>
           <td>Monthly capacity per agent</td>
@@ -325,7 +341,7 @@ tbody tr.total-row td{font-weight:800;border-top:2px solid var(--rule);border-bo
           <td class="note">CompanySights staffing model</td>
         </tr>
         <tr>
-          <td>Cost per ticket — retail/e-commerce</td>
+          <td>Cost per ticket — retail / e-commerce</td>
           <td class="num">$2.70–$5.60</td>
           <td class="note"><a href="https://www.maestroqa.com/resource/the-cost-of-customer-service" target="_blank" rel="noopener" style="color:var(--tf)">MaestroQA 2024 Cost Study</a></td>
         </tr>
@@ -334,21 +350,53 @@ tbody tr.total-row td{font-weight:800;border-top:2px solid var(--rule);border-bo
           <td class="num">200–400 tickets/mo</td>
           <td class="note">CompanySights; Eightx 2026 DTC portfolio study</td>
         </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══ MARKETPLACE BENCHMARKS ═══ -->
+  <h2 class="sec-h2">Marketplace Benchmarks</h2>
+  <p style="font-size:15px;color:var(--ink);margin-bottom:8px">Directional benchmarks for comparable DTC / creator-economy platforms.</p>
+  <div class="tbl-wrap">
+    <table style="min-width:560px">
+      <thead>
         <tr>
-          <td>Typical CS + support as % of ARR</td>
-          <td class="num">~8%</td>
-          <td class="note"><a href="https://saascapital.com" target="_blank" rel="noopener" style="color:var(--tf)">SaaS Capital B2B Support Spending Report</a> · SaaS proxy, directional only</td>
+          <th>Metric</th>
+          <th>Value</th>
+          <th>Context / Source</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>CS FTE per $1M GMV — DTC fashion e-commerce</td>
+          <td class="num">~0.5–1 FTE</td>
+          <td class="note"><a href="https://www.gorgias.com/blog/ecommerce-customer-service-benchmarks" target="_blank" rel="noopener" style="color:var(--tf)">Gorgias 2023 State of Ecomm CX Benchmark</a> · varies by return rate and AOV</td>
+        </tr>
+        <tr>
+          <td>Support tickets per 100 orders — apparel</td>
+          <td class="num">4–9 tickets</td>
+          <td class="note"><a href="https://www.zendesk.com/blog/ecommerce-customer-service/" target="_blank" rel="noopener" style="color:var(--tf)">Zendesk Ecomm CX Report</a> · fashion higher than average due to returns and fit queries</td>
+        </tr>
+        <tr>
+          <td>Influencer relations — manager per active creators</td>
+          <td class="num">1 per 50–100</td>
+          <td class="note">Creator economy industry benchmark · varies by programme complexity and drop frequency</td>
+        </tr>
+        <tr>
+          <td>Community manager per active brands — marketplace</td>
+          <td class="num">1 per 20–40</td>
+          <td class="note">Shopify partner ecosystem standard for curated marketplaces (Faire, Wolf &amp; Badger operational model)</td>
         </tr>
       </tbody>
     </table>
   </div>
 
   <div class="info-box">
-    <strong>Year 1 budget uses offshore contractor rates — not US market rates.</strong> The 1st Year Budget page prices Community Manager and Customer Ops at $2,500/mo each — offshore contractor rates from lower-cost markets (Thailand, Netherlands, etc.). US market equivalents for those roles are $4,000–6,200/mo. The scaling table above uses US rates from Year 2 onward. Year 1 remains viable at contractor rates; switching to US-based hires at Y2 is a deliberate cost step-up tied to funding milestones.
+    <strong>Year 1 budget uses offshore contractor rates — not US market rates.</strong> The 1st Year Budget page prices roles at $1,500–2,500/mo — offshore contractor rates from lower-cost markets. US market equivalents are $3,200–6,500/mo depending on role. The scaling table above uses US rates from Year 2 onward. Year 1 remains viable at contractor rates; switching to US-based hires at Y2 is a deliberate cost step-up tied to funding milestones.
   </div>
 
   <p class="footnote">
-    Salary ranges are approximate US market figures. Customer Service: <a href="https://www.bls.gov/ooh/office-and-administrative-support/customer-service-representatives.htm" target="_blank" rel="noopener">BLS SOC 43-1011</a>, median $38.7K/yr (2023). Developers: <a href="https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm" target="_blank" rel="noopener">BLS SOC 15-1252</a>, median $130K/yr (2023). Content and Community salaries: Glassdoor / LinkedIn Salary, fashion/e-commerce, US, 2025 — approximate, verify before hiring. GMV targets are directional; actual staffing should be triggered by the per-role metrics above, not the revenue calendar.
+    Salary ranges are approximate US market figures. Customer Service: <a href="https://www.bls.gov/ooh/office-and-administrative-support/customer-service-representatives.htm" target="_blank" rel="noopener">BLS SOC 43-1011</a>, median $38.7K/yr. Developers: <a href="https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm" target="_blank" rel="noopener">BLS SOC 15-1252</a>, median $130K/yr. Content, Community, and Influencer Relations salaries: Glassdoor / LinkedIn Salary, fashion/e-commerce, US, 2025. GMV targets are directional; actual staffing should be triggered by the per-role metrics above, not the revenue calendar.
   </p>
 
 </div><!-- /wrap -->
