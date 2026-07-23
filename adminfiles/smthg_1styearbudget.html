@@ -995,6 +995,12 @@ input[type=range]{width:100%;height:4px;accent-color:var(--tf);cursor:pointer;di
   <td class="neg" style="border-left:1px solid var(--rule)" id="c-payy">—</td>
   <td class="note-r"><span id="cn-pay">2.9%</span> GMV + $0.30/order</td>
 </tr>
+<tr>
+  <td>Fraud prevention (Stripe Radar)</td>
+  <td class="neg" id="c-fraud1">—</td><td class="neg" id="c-fraud2">—</td><td class="neg" id="c-fraud3">—</td><td class="neg" id="c-fraud4">—</td>
+  <td class="neg" style="border-left:1px solid var(--rule)" id="c-fraudy">—</td>
+  <td class="note-r">0.05% of GMV · Stripe Radar</td>
+</tr>
 <tr class="sub">
   <td>Total Variable</td>
   <td class="neg" id="c-var1">—</td><td class="neg" id="c-var2">—</td><td class="neg" id="c-var3">—</td><td class="neg" id="c-var4">—</td>
@@ -1031,14 +1037,14 @@ input[type=range]{width:100%;height:4px;accent-color:var(--tf);cursor:pointer;di
             <tr><th>Quarter</th><th class="num">VTO tries</th><th class="num">Rate</th><th class="num">Cost</th></tr>
           </thead>
           <tbody>
-            <tr><td>Q1</td><td class="num">11,250</td><td class="num">$0.10/try</td><td class="num">~$1,125</td></tr>
-            <tr><td>Q2</td><td class="num">22,500</td><td class="num">$0.10/try</td><td class="num">~$2,250</td></tr>
-            <tr><td>Q3</td><td class="num">33,750</td><td class="num">Kivisense $888/mo</td><td class="num">~$2,664</td></tr>
-            <tr><td>Q4</td><td class="num">45,000</td><td class="num">Kivisense $888/mo</td><td class="num">~$2,664</td></tr>
-            <tr><td>Year 1</td><td class="num">112,500</td><td></td><td class="num">~$8,703</td></tr>
+            <tr><td>Q1</td><td class="num" id="vp-vto-tries-1">—</td><td class="num" id="vp-vto-rate-1">—</td><td class="num" id="vp-vto-cost-1">—</td></tr>
+            <tr><td>Q2</td><td class="num" id="vp-vto-tries-2">—</td><td class="num" id="vp-vto-rate-2">—</td><td class="num" id="vp-vto-cost-2">—</td></tr>
+            <tr><td>Q3</td><td class="num" id="vp-vto-tries-3">—</td><td class="num" id="vp-vto-rate-3">—</td><td class="num" id="vp-vto-cost-3">—</td></tr>
+            <tr><td>Q4</td><td class="num" id="vp-vto-tries-4">—</td><td class="num" id="vp-vto-rate-4">—</td><td class="num" id="vp-vto-cost-4">—</td></tr>
+            <tr><td>Year 1</td><td class="num" id="vp-vto-tries-y">—</td><td></td><td class="num" id="vp-vto-cost-y">—</td></tr>
           </tbody>
         </table></div>
-        <div class="var-panel-note">Shopify VTO $0.10/try · Kivisense flat $888/mo viable above 26,640 tries/qtr — switches Q3 · Source: TFmvpcosts.html</div>
+        <div class="var-panel-note" id="vp-vto-note">Shopify VTO $0.10/try · Kivisense flat $888/mo viable above 26,640 tries/qtr · Source: TFmvpcosts.html</div>
       </div>
 
       <!-- PAYMENT PROCESSING -->
@@ -1049,14 +1055,14 @@ input[type=range]{width:100%;height:4px;accent-color:var(--tf);cursor:pointer;di
             <tr><th>Quarter</th><th class="num">GMV</th><th class="num">Orders</th><th class="num">Fees</th></tr>
           </thead>
           <tbody>
-            <tr><td>Q1</td><td class="num">$900K</td><td class="num">4,500</td><td class="num">~$27,450</td></tr>
-            <tr><td>Q2</td><td class="num">$1.8M</td><td class="num">9,000</td><td class="num">~$54,900</td></tr>
-            <tr><td>Q3</td><td class="num">$2.7M</td><td class="num">13,500</td><td class="num">~$82,350</td></tr>
-            <tr><td>Q4</td><td class="num">$3.6M</td><td class="num">18,000</td><td class="num">~$109,800</td></tr>
-            <tr><td>Year 1</td><td class="num">$9M</td><td class="num">45,000</td><td class="num">~$274,500</td></tr>
+            <tr><td>Q1</td><td class="num" id="vp-pay-gmv-1">—</td><td class="num" id="vp-pay-ord-1">—</td><td class="num" id="vp-pay-fee-1">—</td></tr>
+            <tr><td>Q2</td><td class="num" id="vp-pay-gmv-2">—</td><td class="num" id="vp-pay-ord-2">—</td><td class="num" id="vp-pay-fee-2">—</td></tr>
+            <tr><td>Q3</td><td class="num" id="vp-pay-gmv-3">—</td><td class="num" id="vp-pay-ord-3">—</td><td class="num" id="vp-pay-fee-3">—</td></tr>
+            <tr><td>Q4</td><td class="num" id="vp-pay-gmv-4">—</td><td class="num" id="vp-pay-ord-4">—</td><td class="num" id="vp-pay-fee-4">—</td></tr>
+            <tr><td>Year 1</td><td class="num" id="vp-pay-gmv-y">—</td><td class="num" id="vp-pay-ord-y">—</td><td class="num" id="vp-pay-fee-y">—</td></tr>
           </tbody>
         </table></div>
-        <div class="var-panel-note">Stripe: 2.9% × GMV + $0.30 × orders · Q1: 2.9%×$900K + 4,500×$0.30 = $26,100+$1,350 = $27,450 · Funded from GMV revenue</div>
+        <div class="var-panel-note" id="vp-pay-note">Stripe: 2.9% × GMV + $0.30 × orders · Funded from GMV revenue</div>
       </div>
 
       <!-- FRAUD PREVENTION -->
@@ -1067,11 +1073,11 @@ input[type=range]{width:100%;height:4px;accent-color:var(--tf);cursor:pointer;di
             <tr><th>Quarter</th><th class="num">GMV</th><th class="num">Rate</th><th class="num">Cost</th></tr>
           </thead>
           <tbody>
-            <tr><td>Q1</td><td class="num">$900K</td><td class="num">0.05%</td><td class="num">~$450</td></tr>
-            <tr><td>Q2</td><td class="num">$1.8M</td><td class="num">0.05%</td><td class="num">~$900</td></tr>
-            <tr><td>Q3</td><td class="num">$2.7M</td><td class="num">0.05%</td><td class="num">~$1,350</td></tr>
-            <tr><td>Q4</td><td class="num">$3.6M</td><td class="num">0.05%</td><td class="num">~$1,800</td></tr>
-            <tr><td>Year 1</td><td class="num">$9M</td><td></td><td class="num">~$4,500</td></tr>
+            <tr><td>Q1</td><td class="num" id="vp-fraud-gmv-1">—</td><td class="num">0.05%</td><td class="num" id="vp-fraud-cost-1">—</td></tr>
+            <tr><td>Q2</td><td class="num" id="vp-fraud-gmv-2">—</td><td class="num">0.05%</td><td class="num" id="vp-fraud-cost-2">—</td></tr>
+            <tr><td>Q3</td><td class="num" id="vp-fraud-gmv-3">—</td><td class="num">0.05%</td><td class="num" id="vp-fraud-cost-3">—</td></tr>
+            <tr><td>Q4</td><td class="num" id="vp-fraud-gmv-4">—</td><td class="num">0.05%</td><td class="num" id="vp-fraud-cost-4">—</td></tr>
+            <tr><td>Year 1</td><td class="num" id="vp-fraud-gmv-y">—</td><td></td><td class="num" id="vp-fraud-cost-y">—</td></tr>
           </tbody>
         </table></div>
         <div class="var-panel-note">Stripe Radar: 0.05% per transaction value · Built-in ML fraud detection · No separate setup required</div>
@@ -1083,19 +1089,19 @@ input[type=range]{width:100%;height:4px;accent-color:var(--tf);cursor:pointer;di
     <div class="var-total">
       <div class="var-total-item">
         <div class="vt-label">Total variable — Year 1</div>
-        <div class="vt-val">~$287,703</div>
+        <div class="vt-val" id="vt-total">—</div>
       </div>
       <div class="var-total-item">
         <div class="vt-label">VTO cost</div>
-        <div class="vt-val">~$8,703</div>
+        <div class="vt-val" id="vt-vto">—</div>
       </div>
       <div class="var-total-item">
         <div class="vt-label">Payment processing</div>
-        <div class="vt-val">~$274,500</div>
+        <div class="vt-val" id="vt-pay">—</div>
       </div>
       <div class="var-total-item">
         <div class="vt-label">Fraud prevention</div>
-        <div class="vt-val">~$4,500</div>
+        <div class="vt-val" id="vt-fraud">—</div>
       </div>
       <div class="var-total-note">All variable costs funded from platform GMV revenue — not charged to the $500K fixed envelope</div>
     </div>
@@ -1209,7 +1215,8 @@ function proj(){
   var s1fixArr=[1,2,3,4].map(function(q){var el=document.getElementById('s1-q'+q);return el?parseFloat(el.getAttribute('data-usd'))||0:0;});
   var s1fixY=(function(){var el=document.getElementById('s1-yr');return el?parseFloat(el.getAttribute('data-usd'))||0:500000;})();
 
-  var totGMV=0,totOrd=0,totRev=0,totVTO=0,totPay=0;
+  var totGMV=0,totOrd=0,totRev=0,totVTO=0,totPay=0,totFraud=0;
+  var vpData=[];
 
   [1,2,3,4].forEach(function(q){
     var drops=parseInt(document.getElementById('d'+q).value)||0;
@@ -1219,7 +1226,8 @@ function proj(){
     var payCost=gmv*payPct+orders*0.30;
     var vtoTries=orders*vtoA*vtoT;
     var vtoCost=vtoMode==='shopify'?vtoTries*0.10:888*3;
-    var smthgNet=tfRev+subQ-vtoCost-payCost;
+    var fraudCost=gmv*0.0005;
+    var smthgNet=tfRev+subQ-vtoCost-payCost-fraudCost;
     var col=smthgNet>=0?'#1A7A4A':'var(--tf)';
 
     s('q'+q+'h',fmtM(gmv)+' GMV');
@@ -1239,14 +1247,17 @@ function proj(){
     s('c-tfr'+q,'+'+fmtM(tfRev));
     s('c-sub'+q,'+'+fmtM(subQ));
     s('c-rev'+q,'+'+fmtM(tfRev+subQ));
+    vpData.push({tries:vtoTries,vtoCost:vtoCost,gmv:gmv,orders:orders,payCost:payCost,fraudCost:fraudCost});
+    totFraud+=fraudCost;
     s('c-vto'+q,'−'+fmtM(vtoCost));
     s('c-pay'+q,'−'+fmtM(payCost));
-    s('c-var'+q,'−'+fmtM(vtoCost+payCost));
+    s('c-fraud'+q,'−'+fmtM(fraudCost));
+    s('c-var'+q,'−'+fmtM(vtoCost+payCost+fraudCost));
 
     // Fixed costs from Section 01 Grand Total
     var fixed=s1fixArr[q-1];
     s('c-fix'+q,'$'+Math.round(fixed).toLocaleString());
-    var net=tfRev+subQ-fixed-vtoCost-payCost;
+    var net=tfRev+subQ-fixed-vtoCost-payCost-fraudCost;
     var netEl2=document.getElementById('c-net'+q);
     if(netEl2){
       netEl2.textContent=(net>=0?'+':'-')+fmtM(Math.abs(net));
@@ -1255,17 +1266,17 @@ function proj(){
     var ybEl=document.getElementById('yb-net'+q);
     if(ybEl){ybEl.textContent=(net>=0?'+':'-')+fmtM(Math.abs(net));ybEl.className='yr-v '+(net>=0?'g':'r');}
     // Variable-only net for Section 03 duplicate row
-    var varNet=tfRev+subQ-vtoCost-payCost;
+    var varNet=tfRev+subQ-vtoCost-payCost-fraudCost;
     var snetEl=document.getElementById('c-snet'+q);
     if(snetEl){snetEl.textContent=(varNet>=0?'+':'')+fmtM(Math.abs(varNet));snetEl.style.color=varNet>=0?'#7AE3B2':'#FF8A80';}
 
     totGMV+=gmv; totOrd+=orders; totRev+=tfRev+subQ; totVTO+=vtoCost; totPay+=payCost;
   });
 
-  var totVar=totVTO+totPay;
+  var totVar=totVTO+totPay+totFraud;
   var totNet=totRev-s1fixY-totVar;
   s('c-fixY','$'+Math.round(s1fixY).toLocaleString());
-  var snety=totRev-totVar;
+  var snety=totRev-totVTO-totPay-totFraud;
   var snetYEl=document.getElementById('c-snety');
   if(snetYEl){snetYEl.textContent=(snety>=0?'+':'')+fmtM(Math.abs(snety));snetYEl.style.color=snety>=0?'#7AE3B2':'#FF8A80';}
   s('yt-gmv',fmtM(totGMV));
@@ -1284,7 +1295,39 @@ function proj(){
   s('c-revy','+'+fmtM(totRev));
   s('c-vtoy','−'+fmtM(totVTO));
   s('c-payy','−'+fmtM(totPay));
+  s('c-fraudy','−'+fmtM(totFraud));
   s('c-vary','−'+fmtM(totVar));
+
+  // Appendix Section 04 — dynamic tables
+  var vtoRate=vtoMode==='shopify'?'$0.10/try':'Kivisense $888/mo';
+  var vtoTriesY=0;
+  [0,1,2,3].forEach(function(i){
+    var q=i+1;
+    vtoTriesY+=vpData[i].tries;
+    s('vp-vto-tries-'+q,fmtN(Math.round(vpData[i].tries)));
+    s('vp-vto-rate-'+q,vtoRate);
+    s('vp-vto-cost-'+q,'~'+fmtM(vpData[i].vtoCost));
+    s('vp-pay-gmv-'+q,fmtM(vpData[i].gmv));
+    s('vp-pay-ord-'+q,fmtN(Math.round(vpData[i].orders)));
+    s('vp-pay-fee-'+q,'~'+fmtM(vpData[i].payCost));
+    s('vp-fraud-gmv-'+q,fmtM(vpData[i].gmv));
+    s('vp-fraud-cost-'+q,'~'+fmtM(vpData[i].fraudCost));
+  });
+  s('vp-vto-tries-y',fmtN(Math.round(vtoTriesY)));
+  s('vp-vto-cost-y','~'+fmtM(totVTO));
+  s('vp-pay-gmv-y',fmtM(totGMV));
+  s('vp-pay-ord-y',fmtN(Math.round(totOrd)));
+  s('vp-pay-fee-y','~'+fmtM(totPay));
+  s('vp-fraud-gmv-y',fmtM(totGMV));
+  s('vp-fraud-cost-y','~'+fmtM(totFraud));
+  s('vt-total','~'+fmtM(totVar));
+  s('vt-vto','~'+fmtM(totVTO));
+  s('vt-pay','~'+fmtM(totPay));
+  s('vt-fraud','~'+fmtM(totFraud));
+  var vtoNote=document.getElementById('vp-vto-note');
+  if(vtoNote){vtoNote.textContent=vtoMode==='shopify'?'Shopify VTO $0.10/try · Kivisense flat $888/mo viable above 26,640 tries/qtr · Source: TFmvpcosts.html':'Kivisense $888/mo flat · Shopify $0.10/try viable below 26,640 tries/qtr · Source: TFmvpcosts.html';}
+  var payNote=document.getElementById('vp-pay-note');
+  if(payNote){payNote.textContent='Stripe: '+(payPct*100).toFixed(1)+'% × GMV + $0.30 × orders · Funded from GMV revenue';}
   var netY=totRev-s1fixY-totVar;
   var netYEl=document.getElementById('c-nety');
   if(netYEl){netYEl.textContent=(netY>=0?'+':'-')+fmtM(Math.abs(netY));netYEl.style.color=netY>=0?'#7AE3B2':'#FF8A80';}
