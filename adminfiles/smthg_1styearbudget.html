@@ -936,7 +936,7 @@ input[type=range]{width:100%;height:4px;accent-color:var(--tf);cursor:pointer;di
 <!-- ═══ SECTION 03: CONSOLIDATED REVENUE & COSTS ═══ -->
 <div class="consol-sep">
   <span class="sn" style="font-size:32px;font-weight:800;color:var(--tf)">03</span>
-  <span class="st" style="font-size:20px;font-weight:800">Consolidated Revenue &amp; Costs</span>
+  <span class="st" style="font-size:20px;font-weight:800">Consolidated Revenue &amp; Costs · Year 1</span>
   <span class="ss" style="font-size:11px;color:rgba(255,255,255,.4);margin-left:auto">Section 01 fixed costs + Section 02 variable projections</span>
 </div>
 
@@ -1021,235 +1021,344 @@ input[type=range]{width:100%;height:4px;accent-color:var(--tf);cursor:pointer;di
 </table>
 </div>
 
-<!-- ═══ SECTION 04: 5-YEAR EBITDA OUTLOOK ═══ -->
+<!-- === SECTION 04: 5-YEAR REVENUE & EBIT OUTLOOK === -->
 <div class="consol-sep">
   <span class="sn" style="font-size:32px;font-weight:800;color:var(--tf)">04</span>
-  <span class="st" style="font-size:20px;font-weight:800">5-Year EBITDA Outlook &amp; Break-Even</span>
-  <span class="ss" style="font-size:11px;color:rgba(255,255,255,.4);margin-left:auto">Same unit economics as Sections 01–02</span>
+  <span class="st" style="font-size:20px;font-weight:800">5-Year Revenue &amp; EBIT Outlook</span>
+  <span class="ss" style="font-size:11px;color:rgba(255,255,255,.4);margin-left:auto">Drop-led model · same unit economics as Section 02</span>
 </div>
 
+<div style="font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);margin:24px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--rule)">Revenue &nbsp;·&nbsp; smthg<span style="color:var(--tf)">.</span> net (after VTO + payment + fraud)</div>
 <div class="y-grid">
 
-  <!-- Y1 -->
+  <!-- Y1 revenue -->
   <div class="q-box">
-    <div class="q-head">
-      <div class="q-qlbl">Year 1</div>
-      <div class="q-gmv-h">$2.2M GMV</div>
-    </div>
+    <div class="q-head"><div class="q-qlbl">Year 1</div><div class="q-gmv-h" id="yr1-gmv-h">—</div></div>
     <div class="q-dr-wrap">
-      <div class="q-dr-lbl">Total drops</div>
-      <div style="font-size:20px;font-weight:800;color:var(--ink);line-height:1.1">74</div>
-      <div style="font-size:10px;color:var(--sub);margin-top:2px">10 designers · 0.6×/mo</div>
+      <div class="q-dr-lbl">Total drops / year</div>
+      <div class="q-dr-ctrl">
+        <button class="qb" onclick="adjY(1,-4)">−</button>
+        <input class="qi" id="yd1" type="number" value="72" min="0" style="width:60px" oninput="yrProj()">
+        <button class="qb" onclick="adjY(1,4)">+</button>
+        <span class="q-unit">/yr</span>
+      </div>
+      <div style="font-size:10px;color:var(--sub);margin-top:6px" id="yr1-des-lbl">—</div>
     </div>
     <div class="q-rows">
-      <div class="q-row"><span class="ql">Orders</span><span class="qv">11,100</span></div>
-      <div class="q-row"><span class="ql">GMV</span><span class="qv">$2.22M</span></div>
+      <div class="q-row"><span class="ql">Orders</span><span class="qv" id="yr1-ord">—</span></div>
+      <div class="q-row"><span class="ql">GMV</span><span class="qv" id="yr1-gmv">—</span></div>
       <div class="qdiv"></div>
-      <div class="q-row"><span class="ql">Platform fee</span><span class="qv g">+$222K</span></div>
-      <div class="q-row"><span class="ql">Subscriptions</span><span class="qv g">+$60K</span></div>
+      <div class="q-row"><span class="ql">Platform fee</span><span class="qv g" id="yr1-tfr">—</span></div>
+      <div class="q-row"><span class="ql">Subscriptions</span><span class="qv g" id="yr1-sub">—</span></div>
       <div class="qdiv"></div>
-      <div class="q-row"><span class="ql">VTO cost</span><span class="qv r">−$2.8K</span></div>
-      <div class="q-row"><span class="ql">Payment proc.</span><span class="qv r">−$69K</span></div>
+      <div class="q-row"><span class="ql">VTO cost</span><span class="qv r" id="yr1-vto">—</span></div>
+      <div class="q-row"><span class="ql">Payment proc.</span><span class="qv r" id="yr1-pay">—</span></div>
+      <div class="q-row"><span class="ql">Fraud prev.</span><span class="qv r" id="yr1-fraud">—</span></div>
       <div class="qdiv"></div>
-      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">smthg<span style="color:var(--tf)">.</span> Net</span><span class="qv b" style="color:#1A7A4A">+$210K</span></div>
-      <div class="q-row" style="border-top:1px solid var(--rule)"><span class="ql" style="color:var(--sub);font-size:11px">Quarterly avg</span><span class="qv" style="font-size:11px;font-weight:700;color:#1A7A4A">+$53K</span></div>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">smthg<span style="color:var(--tf)">.</span> Net</span><span class="qv b" id="yr1-net">—</span></div>
+      <div class="q-row" style="border-top:1px solid var(--rule)"><span class="ql" style="color:var(--sub);font-size:11px">Quarterly avg</span><span class="qv" style="font-size:11px;font-weight:700" id="yr1-qavg">—</span></div>
     </div>
   </div>
 
-  <!-- Y2 -->
+  <!-- Y2 revenue -->
   <div class="q-box">
-    <div class="q-head">
-      <div class="q-qlbl">Year 2</div>
-      <div class="q-gmv-h">$9.0M GMV</div>
-    </div>
+    <div class="q-head"><div class="q-qlbl">Year 2</div><div class="q-gmv-h" id="yr2-gmv-h">—</div></div>
     <div class="q-dr-wrap">
-      <div class="q-dr-lbl">Total drops</div>
-      <div style="font-size:20px;font-weight:800;color:var(--ink);line-height:1.1">300</div>
-      <div style="font-size:10px;color:var(--sub);margin-top:2px">25 designers · 1×/mo</div>
+      <div class="q-dr-lbl">Total drops / year</div>
+      <div class="q-dr-ctrl">
+        <button class="qb" onclick="adjY(2,-12)">−</button>
+        <input class="qi" id="yd2" type="number" value="300" min="0" style="width:60px" oninput="yrProj()">
+        <button class="qb" onclick="adjY(2,12)">+</button>
+        <span class="q-unit">/yr</span>
+      </div>
+      <div style="font-size:10px;color:var(--sub);margin-top:6px" id="yr2-des-lbl">—</div>
     </div>
     <div class="q-rows">
-      <div class="q-row"><span class="ql">Orders</span><span class="qv">45,000</span></div>
-      <div class="q-row"><span class="ql">GMV</span><span class="qv">$9.0M</span></div>
+      <div class="q-row"><span class="ql">Orders</span><span class="qv" id="yr2-ord">—</span></div>
+      <div class="q-row"><span class="ql">GMV</span><span class="qv" id="yr2-gmv">—</span></div>
       <div class="qdiv"></div>
-      <div class="q-row"><span class="ql">Platform fee</span><span class="qv g">+$900K</span></div>
-      <div class="q-row"><span class="ql">Subscriptions</span><span class="qv g">+$150K</span></div>
+      <div class="q-row"><span class="ql">Platform fee</span><span class="qv g" id="yr2-tfr">—</span></div>
+      <div class="q-row"><span class="ql">Subscriptions</span><span class="qv g" id="yr2-sub">—</span></div>
       <div class="qdiv"></div>
-      <div class="q-row"><span class="ql">VTO cost</span><span class="qv r">−$11.3K</span></div>
-      <div class="q-row"><span class="ql">Payment proc.</span><span class="qv r">−$279K</span></div>
+      <div class="q-row"><span class="ql">VTO cost</span><span class="qv r" id="yr2-vto">—</span></div>
+      <div class="q-row"><span class="ql">Payment proc.</span><span class="qv r" id="yr2-pay">—</span></div>
+      <div class="q-row"><span class="ql">Fraud prev.</span><span class="qv r" id="yr2-fraud">—</span></div>
       <div class="qdiv"></div>
-      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">smthg<span style="color:var(--tf)">.</span> Net</span><span class="qv b" style="color:#1A7A4A">+$760K</span></div>
-      <div class="q-row" style="border-top:1px solid var(--rule)"><span class="ql" style="color:var(--sub);font-size:11px">Quarterly avg</span><span class="qv" style="font-size:11px;font-weight:700;color:#1A7A4A">+$190K</span></div>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">smthg<span style="color:var(--tf)">.</span> Net</span><span class="qv b" id="yr2-net">—</span></div>
+      <div class="q-row" style="border-top:1px solid var(--rule)"><span class="ql" style="color:var(--sub);font-size:11px">Quarterly avg</span><span class="qv" style="font-size:11px;font-weight:700" id="yr2-qavg">—</span></div>
     </div>
   </div>
 
-  <!-- Y3 -->
+  <!-- Y3 revenue -->
   <div class="q-box">
-    <div class="q-head">
-      <div class="q-qlbl">Year 3</div>
-      <div class="q-gmv-h">$27.0M GMV</div>
-    </div>
+    <div class="q-head"><div class="q-qlbl">Year 3</div><div class="q-gmv-h" id="yr3-gmv-h">—</div></div>
     <div class="q-dr-wrap">
-      <div class="q-dr-lbl">Total drops</div>
-      <div style="font-size:20px;font-weight:800;color:var(--ink);line-height:1.1">900</div>
-      <div style="font-size:10px;color:var(--sub);margin-top:2px">60 designers · 1.25×/mo</div>
+      <div class="q-dr-lbl">Total drops / year</div>
+      <div class="q-dr-ctrl">
+        <button class="qb" onclick="adjY(3,-15)">−</button>
+        <input class="qi" id="yd3" type="number" value="900" min="0" style="width:60px" oninput="yrProj()">
+        <button class="qb" onclick="adjY(3,15)">+</button>
+        <span class="q-unit">/yr</span>
+      </div>
+      <div style="font-size:10px;color:var(--sub);margin-top:6px" id="yr3-des-lbl">—</div>
     </div>
     <div class="q-rows">
-      <div class="q-row"><span class="ql">Orders</span><span class="qv">135,000</span></div>
-      <div class="q-row"><span class="ql">GMV</span><span class="qv">$27.0M</span></div>
+      <div class="q-row"><span class="ql">Orders</span><span class="qv" id="yr3-ord">—</span></div>
+      <div class="q-row"><span class="ql">GMV</span><span class="qv" id="yr3-gmv">—</span></div>
       <div class="qdiv"></div>
-      <div class="q-row"><span class="ql">Platform fee</span><span class="qv g">+$2.70M</span></div>
-      <div class="q-row"><span class="ql">Subscriptions</span><span class="qv g">+$360K</span></div>
+      <div class="q-row"><span class="ql">Platform fee</span><span class="qv g" id="yr3-tfr">—</span></div>
+      <div class="q-row"><span class="ql">Subscriptions</span><span class="qv g" id="yr3-sub">—</span></div>
       <div class="qdiv"></div>
-      <div class="q-row"><span class="ql">VTO cost</span><span class="qv r">−$33.8K</span></div>
-      <div class="q-row"><span class="ql">Payment proc.</span><span class="qv r">−$837K</span></div>
+      <div class="q-row"><span class="ql">VTO cost</span><span class="qv r" id="yr3-vto">—</span></div>
+      <div class="q-row"><span class="ql">Payment proc.</span><span class="qv r" id="yr3-pay">—</span></div>
+      <div class="q-row"><span class="ql">Fraud prev.</span><span class="qv r" id="yr3-fraud">—</span></div>
       <div class="qdiv"></div>
-      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">smthg<span style="color:var(--tf)">.</span> Net</span><span class="qv b" style="color:#1A7A4A">+$2.19M</span></div>
-      <div class="q-row" style="border-top:1px solid var(--rule)"><span class="ql" style="color:var(--sub);font-size:11px">Quarterly avg</span><span class="qv" style="font-size:11px;font-weight:700;color:#1A7A4A">+$547K</span></div>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">smthg<span style="color:var(--tf)">.</span> Net</span><span class="qv b" id="yr3-net">—</span></div>
+      <div class="q-row" style="border-top:1px solid var(--rule)"><span class="ql" style="color:var(--sub);font-size:11px">Quarterly avg</span><span class="qv" style="font-size:11px;font-weight:700" id="yr3-qavg">—</span></div>
     </div>
   </div>
 
-  <!-- Y4 -->
+  <!-- Y4 revenue -->
   <div class="q-box">
-    <div class="q-head">
-      <div class="q-qlbl">Year 4</div>
-      <div class="q-gmv-h">$64.8M GMV</div>
-    </div>
+    <div class="q-head"><div class="q-qlbl">Year 4</div><div class="q-gmv-h" id="yr4-gmv-h">—</div></div>
     <div class="q-dr-wrap">
-      <div class="q-dr-lbl">Total drops</div>
-      <div style="font-size:20px;font-weight:800;color:var(--ink);line-height:1.1">2,160</div>
-      <div style="font-size:10px;color:var(--sub);margin-top:2px">120 designers · 1.5×/mo</div>
+      <div class="q-dr-lbl">Total drops / year</div>
+      <div class="q-dr-ctrl">
+        <button class="qb" onclick="adjY(4,-18)">−</button>
+        <input class="qi" id="yd4" type="number" value="2160" min="0" style="width:60px" oninput="yrProj()">
+        <button class="qb" onclick="adjY(4,18)">+</button>
+        <span class="q-unit">/yr</span>
+      </div>
+      <div style="font-size:10px;color:var(--sub);margin-top:6px" id="yr4-des-lbl">—</div>
     </div>
     <div class="q-rows">
-      <div class="q-row"><span class="ql">Orders</span><span class="qv">324,000</span></div>
-      <div class="q-row"><span class="ql">GMV</span><span class="qv">$64.8M</span></div>
+      <div class="q-row"><span class="ql">Orders</span><span class="qv" id="yr4-ord">—</span></div>
+      <div class="q-row"><span class="ql">GMV</span><span class="qv" id="yr4-gmv">—</span></div>
       <div class="qdiv"></div>
-      <div class="q-row"><span class="ql">Platform fee</span><span class="qv g">+$6.48M</span></div>
-      <div class="q-row"><span class="ql">Subscriptions</span><span class="qv g">+$720K</span></div>
+      <div class="q-row"><span class="ql">Platform fee</span><span class="qv g" id="yr4-tfr">—</span></div>
+      <div class="q-row"><span class="ql">Subscriptions</span><span class="qv g" id="yr4-sub">—</span></div>
       <div class="qdiv"></div>
-      <div class="q-row"><span class="ql">VTO cost</span><span class="qv r">−$81K</span></div>
-      <div class="q-row"><span class="ql">Payment proc.</span><span class="qv r">−$2.01M</span></div>
+      <div class="q-row"><span class="ql">VTO cost</span><span class="qv r" id="yr4-vto">—</span></div>
+      <div class="q-row"><span class="ql">Payment proc.</span><span class="qv r" id="yr4-pay">—</span></div>
+      <div class="q-row"><span class="ql">Fraud prev.</span><span class="qv r" id="yr4-fraud">—</span></div>
       <div class="qdiv"></div>
-      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">smthg<span style="color:var(--tf)">.</span> Net</span><span class="qv b" style="color:#1A7A4A">+$5.11M</span></div>
-      <div class="q-row" style="border-top:1px solid var(--rule)"><span class="ql" style="color:var(--sub);font-size:11px">Quarterly avg</span><span class="qv" style="font-size:11px;font-weight:700;color:#1A7A4A">+$1.28M</span></div>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">smthg<span style="color:var(--tf)">.</span> Net</span><span class="qv b" id="yr4-net">—</span></div>
+      <div class="q-row" style="border-top:1px solid var(--rule)"><span class="ql" style="color:var(--sub);font-size:11px">Quarterly avg</span><span class="qv" style="font-size:11px;font-weight:700" id="yr4-qavg">—</span></div>
     </div>
   </div>
 
-  <!-- Y5 -->
+  <!-- Y5 revenue -->
   <div class="q-box">
-    <div class="q-head">
-      <div class="q-qlbl">Year 5</div>
-      <div class="q-gmv-h">$144M GMV</div>
-    </div>
+    <div class="q-head"><div class="q-qlbl">Year 5</div><div class="q-gmv-h" id="yr5-gmv-h">—</div></div>
     <div class="q-dr-wrap">
-      <div class="q-dr-lbl">Total drops</div>
-      <div style="font-size:20px;font-weight:800;color:var(--ink);line-height:1.1">4,800</div>
-      <div style="font-size:10px;color:var(--sub);margin-top:2px">200 designers · 2×/mo</div>
+      <div class="q-dr-lbl">Total drops / year</div>
+      <div class="q-dr-ctrl">
+        <button class="qb" onclick="adjY(5,-24)">−</button>
+        <input class="qi" id="yd5" type="number" value="4800" min="0" style="width:60px" oninput="yrProj()">
+        <button class="qb" onclick="adjY(5,24)">+</button>
+        <span class="q-unit">/yr</span>
+      </div>
+      <div style="font-size:10px;color:var(--sub);margin-top:6px" id="yr5-des-lbl">—</div>
     </div>
     <div class="q-rows">
-      <div class="q-row"><span class="ql">Orders</span><span class="qv">720,000</span></div>
-      <div class="q-row"><span class="ql">GMV</span><span class="qv">$144M</span></div>
+      <div class="q-row"><span class="ql">Orders</span><span class="qv" id="yr5-ord">—</span></div>
+      <div class="q-row"><span class="ql">GMV</span><span class="qv" id="yr5-gmv">—</span></div>
       <div class="qdiv"></div>
-      <div class="q-row"><span class="ql">Platform fee</span><span class="qv g">+$14.4M</span></div>
-      <div class="q-row"><span class="ql">Subscriptions</span><span class="qv g">+$1.20M</span></div>
+      <div class="q-row"><span class="ql">Platform fee</span><span class="qv g" id="yr5-tfr">—</span></div>
+      <div class="q-row"><span class="ql">Subscriptions</span><span class="qv g" id="yr5-sub">—</span></div>
       <div class="qdiv"></div>
-      <div class="q-row"><span class="ql">VTO cost</span><span class="qv r">−$180K</span></div>
-      <div class="q-row"><span class="ql">Payment proc.</span><span class="qv r">−$4.46M</span></div>
+      <div class="q-row"><span class="ql">VTO cost</span><span class="qv r" id="yr5-vto">—</span></div>
+      <div class="q-row"><span class="ql">Payment proc.</span><span class="qv r" id="yr5-pay">—</span></div>
+      <div class="q-row"><span class="ql">Fraud prev.</span><span class="qv r" id="yr5-fraud">—</span></div>
       <div class="qdiv"></div>
-      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">smthg<span style="color:var(--tf)">.</span> Net</span><span class="qv b" style="color:#1A7A4A">+$10.96M</span></div>
-      <div class="q-row" style="border-top:1px solid var(--rule)"><span class="ql" style="color:var(--sub);font-size:11px">Quarterly avg</span><span class="qv" style="font-size:11px;font-weight:700;color:#1A7A4A">+$2.74M</span></div>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">smthg<span style="color:var(--tf)">.</span> Net</span><span class="qv b" id="yr5-net">—</span></div>
+      <div class="q-row" style="border-top:1px solid var(--rule)"><span class="ql" style="color:var(--sub);font-size:11px">Quarterly avg</span><span class="qv" style="font-size:11px;font-weight:700" id="yr5-qavg">—</span></div>
     </div>
   </div>
 
-</div><!-- /y-grid -->
+</div><!-- /y-grid revenue -->
 
-<div style="background:#EDFAF3;border:1px solid var(--rule);border-left:4px solid #1A7A4A;padding:16px 22px;margin:28px 0 28px">
+<!-- Core team salary controls -->
+<div style="background:#F7F5F2;border:1px solid var(--rule);padding:16px 24px;margin-top:20px;display:flex;gap:20px;align-items:center;flex-wrap:wrap">
+  <div style="font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);white-space:nowrap">Core team salary · Y2–Y5</div>
+  <div style="display:flex;align-items:center;gap:6px">
+    <span style="font-size:12px;color:var(--ink);font-weight:600">Rate</span>
+    <input id="ct-rate" type="number" value="10000" min="0" step="1000" style="width:80px;border:1px solid var(--rule);padding:4px 6px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif;color:var(--ink)" oninput="yrProj()">
+    <span style="font-size:11px;color:var(--sub)">$/mo per person</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+    <span style="font-size:11px;color:var(--sub)">People:</span>
+    <label style="font-size:11px;color:var(--ink);display:flex;align-items:center;gap:4px">Y2 <input id="ct-y2-count" type="number" value="4" min="0" max="99" style="width:42px;border:1px solid var(--rule);padding:3px 5px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif" oninput="yrProj()"></label>
+    <label style="font-size:11px;color:var(--ink);display:flex;align-items:center;gap:4px">Y3 <input id="ct-y3-count" type="number" value="5" min="0" max="99" style="width:42px;border:1px solid var(--rule);padding:3px 5px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif" oninput="yrProj()"></label>
+    <label style="font-size:11px;color:var(--ink);display:flex;align-items:center;gap:4px">Y4 <input id="ct-y4-count" type="number" value="6" min="0" max="99" style="width:42px;border:1px solid var(--rule);padding:3px 5px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif" oninput="yrProj()"></label>
+    <label style="font-size:11px;color:var(--ink);display:flex;align-items:center;gap:4px">Y5 <input id="ct-y5-count" type="number" value="8" min="0" max="99" style="width:42px;border:1px solid var(--rule);padding:3px 5px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif" oninput="yrProj()"></label>
+  </div>
+  <div style="font-size:11px;color:var(--sub)">Y1 actual $182K · G&amp;A estimates: Y1 $180K · Y2 $100K · Y3 $130K · Y4 $200K · Y5 $300K</div>
+</div>
+
+<!-- Cost year boxes -->
+<div style="font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);margin:20px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--rule)">Costs &nbsp;·&nbsp; ops team + core team salary + G&amp;A</div>
+<div class="y-grid">
+
+  <!-- Y1 cost -->
+  <div class="q-box" style="border-top:3px solid var(--tf)">
+    <div class="q-head" style="background:#FFF5F5">
+      <div class="q-qlbl" style="font-size:16px">Year 1</div>
+      <div style="font-size:10px;color:var(--sub);margin-top:3px">Section 01 actual</div>
+    </div>
+    <div class="q-rows">
+      <div class="q-row"><span class="ql">Variable costs</span><span class="qv r" id="yc1-var">—</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql">Ops team <span style="font-size:10px">(<a href="smthg_operationsteam.html" style="color:var(--sub)">Headcount</a>)</span></span><span class="qv r" id="yc1-ops">—</span></div>
+      <div class="q-row"><span class="ql">Core team salary</span><span class="qv r" id="yc1-core">—</span></div>
+      <div class="q-row"><span class="ql">G&amp;A</span><span class="qv r" id="yc1-ga">—</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">Total Costs</span><span class="qv b r" id="yc1-tot">—</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql" style="font-size:10px;color:var(--sub)">smthg<span style="color:var(--tf)">.</span> Net</span><span class="qv" style="font-size:11px" id="yc1-net">—</span></div>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">EBIT</span><span class="qv b" id="yc1-ebit">—</span></div>
+    </div>
+  </div>
+
+  <!-- Y2 cost -->
+  <div class="q-box" style="border-top:3px solid var(--tf)">
+    <div class="q-head" style="background:#FFF5F5">
+      <div class="q-qlbl" style="font-size:16px">Year 2</div>
+      <div style="font-size:10px;color:var(--sub);margin-top:3px" id="yc2-hdr">—</div>
+    </div>
+    <div class="q-rows">
+      <div class="q-row"><span class="ql">Variable costs</span><span class="qv r" id="yc2-var">—</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql">Ops team</span><span class="qv r" id="yc2-ops">—</span></div>
+      <div class="q-row"><span class="ql">Core team salary</span><span class="qv r" id="yc2-core">—</span></div>
+      <div class="q-row"><span class="ql">G&amp;A</span><span class="qv r" id="yc2-ga">—</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">Total Costs</span><span class="qv b r" id="yc2-tot">—</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql" style="font-size:10px;color:var(--sub)">smthg<span style="color:var(--tf)">.</span> Net</span><span class="qv" style="font-size:11px" id="yc2-net">—</span></div>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">EBIT</span><span class="qv b" id="yc2-ebit">—</span></div>
+    </div>
+  </div>
+
+  <!-- Y3 cost -->
+  <div class="q-box" style="border-top:3px solid var(--tf)">
+    <div class="q-head" style="background:#FFF5F5">
+      <div class="q-qlbl" style="font-size:16px">Year 3</div>
+      <div style="font-size:10px;color:var(--sub);margin-top:3px" id="yc3-hdr">—</div>
+    </div>
+    <div class="q-rows">
+      <div class="q-row"><span class="ql">Variable costs</span><span class="qv r" id="yc3-var">—</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql">Ops team</span><span class="qv r" id="yc3-ops">—</span></div>
+      <div class="q-row"><span class="ql">Core team salary</span><span class="qv r" id="yc3-core">—</span></div>
+      <div class="q-row"><span class="ql">G&amp;A</span><span class="qv r" id="yc3-ga">—</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">Total Costs</span><span class="qv b r" id="yc3-tot">—</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql" style="font-size:10px;color:var(--sub)">smthg<span style="color:var(--tf)">.</span> Net</span><span class="qv" style="font-size:11px" id="yc3-net">—</span></div>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">EBIT</span><span class="qv b" id="yc3-ebit">—</span></div>
+    </div>
+  </div>
+
+  <!-- Y4 cost -->
+  <div class="q-box" style="border-top:3px solid var(--tf)">
+    <div class="q-head" style="background:#FFF5F5">
+      <div class="q-qlbl" style="font-size:16px">Year 4</div>
+      <div style="font-size:10px;color:var(--sub);margin-top:3px" id="yc4-hdr">—</div>
+    </div>
+    <div class="q-rows">
+      <div class="q-row"><span class="ql">Variable costs</span><span class="qv r" id="yc4-var">—</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql">Ops team</span><span class="qv r" id="yc4-ops">—</span></div>
+      <div class="q-row"><span class="ql">Core team salary</span><span class="qv r" id="yc4-core">—</span></div>
+      <div class="q-row"><span class="ql">G&amp;A</span><span class="qv r" id="yc4-ga">—</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">Total Costs</span><span class="qv b r" id="yc4-tot">—</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql" style="font-size:10px;color:var(--sub)">smthg<span style="color:var(--tf)">.</span> Net</span><span class="qv" style="font-size:11px" id="yc4-net">—</span></div>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">EBIT</span><span class="qv b" id="yc4-ebit">—</span></div>
+    </div>
+  </div>
+
+  <!-- Y5 cost -->
+  <div class="q-box" style="border-top:3px solid var(--tf)">
+    <div class="q-head" style="background:#FFF5F5">
+      <div class="q-qlbl" style="font-size:16px">Year 5</div>
+      <div style="font-size:10px;color:var(--sub);margin-top:3px" id="yc5-hdr">—</div>
+    </div>
+    <div class="q-rows">
+      <div class="q-row"><span class="ql">Variable costs</span><span class="qv r" id="yc5-var">—</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql">Ops team</span><span class="qv r" id="yc5-ops">—</span></div>
+      <div class="q-row"><span class="ql">Core team salary</span><span class="qv r" id="yc5-core">—</span></div>
+      <div class="q-row"><span class="ql">G&amp;A</span><span class="qv r" id="yc5-ga">—</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">Total Costs</span><span class="qv b r" id="yc5-tot">—</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql" style="font-size:10px;color:var(--sub)">smthg<span style="color:var(--tf)">.</span> Net</span><span class="qv" style="font-size:11px" id="yc5-net">—</span></div>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">EBIT</span><span class="qv b" id="yc5-ebit">—</span></div>
+    </div>
+  </div>
+
+</div><!-- /y-grid costs -->
+
+<div style="background:#EDFAF3;border:1px solid var(--rule);border-left:4px solid #1A7A4A;padding:16px 22px;margin:28px 0">
   <div style="font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#1A7A4A;margin-bottom:8px">Break-Even</div>
-  <div style="font-size:14px;color:var(--ink);line-height:1.7">Monthly EBITDA turns positive in <strong>Year 3</strong> — when ~60 active designers each run 1.25 drops per month. Cumulative EBITDA breaks even in <strong>Year 3 Q3–Q4</strong>. Y1–Y2 total deficit ≈$400K — covered by the pre-seed raise. By Year 5: <strong>$6.2M EBITDA on $15.6M revenue (40% margin)</strong>, as GMV scales faster than team headcount.</div>
+  <div style="font-size:14px;color:var(--ink);line-height:1.7">At defaults (72 → 4,800 drops/yr, 4–8 core team × $10K/mo), EBIT turns positive in <strong>Year 3</strong>. Cumulative break-even in <strong>Year 4</strong>. Adjust drops and team size above — all numbers recalculate live.</div>
 </div>
 
 <div class="ctw">
 <table class="ct">
 <thead>
   <tr>
-    <th style="text-align:left;min-width:210px">Metric</th>
+    <th style="text-align:left;min-width:220px">Metric</th>
     <th>Year 1</th><th>Year 2</th><th>Year 3</th><th>Year 4</th><th>Year 5</th>
   </tr>
 </thead>
 <tbody>
 
 <tr class="cat"><td colspan="6">Scale</td></tr>
-<tr>
-  <td>Active designers (avg)</td>
-  <td>10</td><td>25</td><td>60</td><td>120</td><td>200</td>
-</tr>
-<tr>
-  <td>Drops / designer / month</td>
-  <td>0.6×</td><td>1×</td><td>1.25×</td><td>1.5×</td><td>2×</td>
-</tr>
-<tr>
-  <td>Total drops / year</td>
-  <td>74</td><td>300</td><td>900</td><td>2,160</td><td>4,800</td>
-</tr>
-<tr>
-  <td>Annual GMV <span style="font-size:11px;color:var(--sub)">(150 items × $200 AOV)</span></td>
-  <td>$2.2M</td><td>$9.0M</td><td>$27.0M</td><td>$64.8M</td><td>$144.0M</td>
-</tr>
+<tr><td>Active designers</td>
+  <td id="yt-des-1">—</td><td id="yt-des-2">—</td><td id="yt-des-3">—</td><td id="yt-des-4">—</td><td id="yt-des-5">—</td></tr>
+<tr><td>Drops / designer / mo</td>
+  <td id="yt-freq-1">—</td><td id="yt-freq-2">—</td><td id="yt-freq-3">—</td><td id="yt-freq-4">—</td><td id="yt-freq-5">—</td></tr>
+<tr><td>Total drops / year</td>
+  <td id="yt-drops-1">—</td><td id="yt-drops-2">—</td><td id="yt-drops-3">—</td><td id="yt-drops-4">—</td><td id="yt-drops-5">—</td></tr>
+<tr><td>Annual GMV <span style="font-size:11px;color:var(--sub)">(150 items × $200 AOV)</span></td>
+  <td id="yt-gmv-1">—</td><td id="yt-gmv-2">—</td><td id="yt-gmv-3">—</td><td id="yt-gmv-4">—</td><td id="yt-gmv-5">—</td></tr>
 
 <tr class="cat"><td colspan="6">Revenue</td></tr>
-<tr>
-  <td>Platform fee (10% of GMV)</td>
-  <td class="pos">$222K</td><td class="pos">$900K</td><td class="pos">$2.70M</td><td class="pos">$6.48M</td><td class="pos">$14.40M</td>
-</tr>
-<tr>
-  <td>Designer subscriptions ($500/mo)</td>
-  <td class="pos">$60K</td><td class="pos">$150K</td><td class="pos">$360K</td><td class="pos">$720K</td><td class="pos">$1.20M</td>
-</tr>
-<tr class="sub">
-  <td>Total Revenue</td>
-  <td class="pos">$282K</td><td class="pos">$1,050K</td><td class="pos">$3,060K</td><td class="pos">$7,200K</td><td class="pos">$15,600K</td>
-</tr>
+<tr><td>Platform fee (10% GMV)</td>
+  <td class="pos" id="yt-tfr-1">—</td><td class="pos" id="yt-tfr-2">—</td><td class="pos" id="yt-tfr-3">—</td><td class="pos" id="yt-tfr-4">—</td><td class="pos" id="yt-tfr-5">—</td></tr>
+<tr><td>Designer subscriptions</td>
+  <td class="pos" id="yt-sub-1">—</td><td class="pos" id="yt-sub-2">—</td><td class="pos" id="yt-sub-3">—</td><td class="pos" id="yt-sub-4">—</td><td class="pos" id="yt-sub-5">—</td></tr>
+<tr class="sub"><td>Total Revenue</td>
+  <td class="pos" id="yt-rev-1">—</td><td class="pos" id="yt-rev-2">—</td><td class="pos" id="yt-rev-3">—</td><td class="pos" id="yt-rev-4">—</td><td class="pos" id="yt-rev-5">—</td></tr>
 
 <tr class="cat"><td colspan="6">Costs</td></tr>
-<tr>
-  <td>Variable <span style="font-size:11px;color:var(--sub)">(VTO + Stripe + Fraud · ~$968/drop)</span></td>
-  <td class="neg">$72K</td><td class="neg">$290K</td><td class="neg">$871K</td><td class="neg">$2,090K</td><td class="neg">$4,644K</td>
-</tr>
-<tr>
-  <td>People · Ops Team <span style="font-size:11px;color:var(--sub)">(<a href="smthg_operationsteam.html" style="color:var(--sub)">Headcount Roadmap</a> · monthly × 12)</span></td>
-  <td class="neg">$138K</td><td class="neg">$516K</td><td class="neg">$1,200K</td><td class="neg">$2,220K</td><td class="neg">$3,840K</td>
-</tr>
-<tr>
-  <td>Core team + G&amp;A <span style="font-size:11px;color:var(--sub)">(founders + tools + marketing + legal)</span></td>
-  <td class="neg">$362K</td><td class="neg">$350K</td><td class="neg">$480K</td><td class="neg">$680K</td><td class="neg">$960K</td>
-</tr>
-<tr class="sub">
-  <td>Total Costs</td>
-  <td class="neg">$572K</td><td class="neg">$1,156K</td><td class="neg">$2,551K</td><td class="neg">$4,990K</td><td class="neg">$9,444K</td>
-</tr>
+<tr><td>Variable <span style="font-size:11px;color:var(--sub)">(VTO + Stripe + Fraud)</span></td>
+  <td class="neg" id="yt-var-1">—</td><td class="neg" id="yt-var-2">—</td><td class="neg" id="yt-var-3">—</td><td class="neg" id="yt-var-4">—</td><td class="neg" id="yt-var-5">—</td></tr>
+<tr><td>Ops team <span style="font-size:11px;color:var(--sub)">(<a href="smthg_operationsteam.html" style="color:var(--sub)">Headcount</a> · mo × 12)</span></td>
+  <td class="neg" id="yt-ops-1">—</td><td class="neg" id="yt-ops-2">—</td><td class="neg" id="yt-ops-3">—</td><td class="neg" id="yt-ops-4">—</td><td class="neg" id="yt-ops-5">—</td></tr>
+<tr><td>Core team salary <span style="font-size:11px;color:var(--sub)">(Y1 actual · Y2–Y5 count × rate)</span></td>
+  <td class="neg" id="yt-core-1">—</td><td class="neg" id="yt-core-2">—</td><td class="neg" id="yt-core-3">—</td><td class="neg" id="yt-core-4">—</td><td class="neg" id="yt-core-5">—</td></tr>
+<tr><td>G&amp;A <span style="font-size:11px;color:var(--sub)">(tools + marketing + legal)</span></td>
+  <td class="neg" id="yt-ga-1">—</td><td class="neg" id="yt-ga-2">—</td><td class="neg" id="yt-ga-3">—</td><td class="neg" id="yt-ga-4">—</td><td class="neg" id="yt-ga-5">—</td></tr>
+<tr class="sub"><td>Total Costs</td>
+  <td class="neg" id="yt-tot-1">—</td><td class="neg" id="yt-tot-2">—</td><td class="neg" id="yt-tot-3">—</td><td class="neg" id="yt-tot-4">—</td><td class="neg" id="yt-tot-5">—</td></tr>
 
 <tr class="cat"><td colspan="6">Result</td></tr>
-<tr class="tot">
-  <td>EBITDA</td>
-  <td style="color:#FF8A80;font-weight:800">−$290K</td>
-  <td style="color:#FF8A80;font-weight:800">−$106K</td>
-  <td style="color:#7AE3B2;font-weight:800">+$509K</td>
-  <td style="color:#7AE3B2;font-weight:800">+$2.21M</td>
-  <td style="color:#7AE3B2;font-weight:800">+$6.16M</td>
-</tr>
-<tr>
-  <td>EBITDA margin</td>
-  <td class="neg">−103%</td><td class="neg">−10%</td><td class="pos">+17%</td><td class="pos">+31%</td><td class="pos">+39%</td>
-</tr>
-<tr>
-  <td>Cumulative EBITDA</td>
-  <td class="neg">−$290K</td><td class="neg">−$396K</td><td class="pos">+$113K</td><td class="pos">+$2.32M</td><td class="pos">+$8.48M</td>
-</tr>
+<tr class="tot"><td>EBIT</td>
+  <td id="yt-ebit-1">—</td><td id="yt-ebit-2">—</td><td id="yt-ebit-3">—</td><td id="yt-ebit-4">—</td><td id="yt-ebit-5">—</td></tr>
+<tr><td>EBIT margin</td>
+  <td id="yt-margin-1">—</td><td id="yt-margin-2">—</td><td id="yt-margin-3">—</td><td id="yt-margin-4">—</td><td id="yt-margin-5">—</td></tr>
+<tr><td>Cumulative EBIT</td>
+  <td id="yt-cum-1">—</td><td id="yt-cum-2">—</td><td id="yt-cum-3">—</td><td id="yt-cum-4">—</td><td id="yt-cum-5">—</td></tr>
 
 </tbody>
 </table>
 </div>
-<p style="font-size:11px;color:var(--sub);margin-top:12px;line-height:1.6">Unit economics from Section 02 defaults: 150 items/drop, $200 AOV, 10% platform fee, 50% VTO adoption × 5 tries at $0.10 (Shopify), Stripe 2.9% + $0.30/order, Stripe Radar 0.05%. People costs Y2–Y5 from <a href="smthg_operationsteam.html" style="color:var(--sub)">Operations Team · Headcount Roadmap</a> (monthly × 12): Y2 $43K/mo, Y3 $100K/mo, Y4 $185K/mo, Y5 $320K/mo. Core team + G&amp;A covers founder compensation, tools, marketing, and legal. Y1 uses actual 1st Year Budget ($500K fixed envelope). Designer growth: 10 → 25 → 60 → 120 → 200 active brands. All figures indicative.</p>
-
+<p style="font-size:11px;color:var(--sub);margin-top:12px;line-height:1.6">Unit economics from Section 02: 150 items/drop, $200 AOV, 10% platform fee, 50% VTO × 5 tries at $0.10 (Shopify), Stripe 2.9% + $0.30/order, Stripe Radar 0.05%. Designer frequency: Y1 once/3mo (÷4/yr), Y2 1×/mo (÷12), Y3 1.25×/mo (÷15), Y4 1.5×/mo (÷18), Y5 2×/mo (÷24). Ops team from <a href="smthg_operationsteam.html" style="color:var(--sub)">Headcount Roadmap</a> (mo × 12): Y1 $11.5K, Y2 $43K, Y3 $100K, Y4 $185K, Y5 $320K. Y1 core team $182K + G&amp;A $180K from Section 01 actual. All figures indicative.</p>
 
 <!-- ═══ SECTION 05: APPENDIX ═══ -->
 <div class="proj-sep">
@@ -1566,6 +1675,91 @@ function proj(){
   if(netYEl){netYEl.textContent=(netY>=0?'+':'-')+fmtM(Math.abs(netY));netYEl.style.color=netY>=0?'#7AE3B2':'#FF8A80';}
   var ybYEl=document.getElementById('yb-nety');
   if(ybYEl){ybYEl.textContent=(netY>=0?'+':'-')+fmtM(Math.abs(netY));ybYEl.className='yr-v '+(netY>=0?'g':'r');}
+  yrProj();
+}
+
+// ── 5-Year projection (Section 04) ──
+var Y_FREQ=[0,4,12,15,18,24];
+var Y_FREQ_LBL=['','once/3mo','1×/mo','1.25×/mo','1.5×/mo','2×/mo'];
+var Y_OPS=[0,138000,516000,1200000,2220000,3840000];
+var Y_GA=[0,180000,100000,130000,200000,300000];
+var Y1_CORE=182000;
+
+function adjY(yr,d){var el=document.getElementById('yd'+yr);if(!el)return;el.value=Math.max(0,(parseInt(el.value)||0)+d);yrProj();}
+
+function yrProj(){
+  var items=g('p-items'),aov=g('p-aov'),tfFee=g('p-tf-fee')/100;
+  var payPct=g('p-pay')/100,vtoA=g('p-vto-a')/100,vtoT=g('p-vto-t');
+  var ctRateEl=document.getElementById('ct-rate');
+  var ctRate=parseFloat(ctRateEl?ctRateEl.value:10000)||10000;
+  function getCTC(yr){var el=document.getElementById('ct-y'+yr+'-count');return parseInt(el?el.value:0)||0;}
+  var cumEbit=0;
+  for(var yr=1;yr<=5;yr++){
+    var dropEl=document.getElementById('yd'+yr);
+    var drops=parseInt(dropEl?dropEl.value:0)||0;
+    var freq=Y_FREQ[yr];
+    var designers=freq>0?Math.round(drops/freq):0;
+    var orders=drops*items,gmv=orders*aov;
+    var platformFee=gmv*tfFee,subs=designers*500*12;
+    var vtoTries=orders*vtoA*vtoT;
+    var vtoCost=vtoMode==='shopify'?vtoTries*0.10:888*12;
+    var payCost=gmv*payPct+orders*0.30,fraudCost=gmv*0.0005;
+    var varTotal=vtoCost+payCost+fraudCost;
+    var smthgNet=platformFee+subs-varTotal;
+    var rev=platformFee+subs;
+    var netCol=smthgNet>=0?'#1A7A4A':'var(--tf)';
+    // revenue box
+    s('yr'+yr+'-gmv-h',fmtM(gmv)+' GMV');
+    s('yr'+yr+'-des-lbl',designers.toLocaleString()+' designers · '+Y_FREQ_LBL[yr]);
+    s('yr'+yr+'-ord',fmtN(orders));
+    s('yr'+yr+'-gmv',fmtM(gmv));
+    s('yr'+yr+'-tfr','+'+fmtM(platformFee));
+    s('yr'+yr+'-sub','+'+fmtM(subs));
+    s('yr'+yr+'-vto','−'+fmtM(vtoCost));
+    s('yr'+yr+'-pay','−'+fmtM(payCost));
+    s('yr'+yr+'-fraud','−'+fmtM(fraudCost));
+    var nEl=document.getElementById('yr'+yr+'-net');
+    if(nEl){nEl.textContent=(smthgNet>=0?'+':'')+fmtM(Math.abs(smthgNet));nEl.style.color=netCol;}
+    var qEl=document.getElementById('yr'+yr+'-qavg');
+    if(qEl){var qa=smthgNet/4;qEl.textContent=(qa>=0?'+':'')+fmtM(Math.abs(qa));qEl.style.color=netCol;}
+    // costs
+    var opsTeam=Y_OPS[yr];
+    var coreTeam=yr===1?Y1_CORE:getCTC(yr)*ctRate*12;
+    var ga=Y_GA[yr];
+    var totalCosts=varTotal+opsTeam+coreTeam+ga;
+    var ebit=smthgNet-opsTeam-coreTeam-ga;
+    var ebitCol=ebit>=0?'#1A7A4A':'var(--tf)';
+    cumEbit+=ebit;
+    s('yc'+yr+'-var','−'+fmtM(varTotal));
+    s('yc'+yr+'-ops','−'+fmtM(opsTeam));
+    s('yc'+yr+'-core','−'+fmtM(coreTeam));
+    s('yc'+yr+'-ga','−'+fmtM(ga));
+    s('yc'+yr+'-tot','−'+fmtM(totalCosts));
+    var cnEl=document.getElementById('yc'+yr+'-net');
+    if(cnEl){cnEl.textContent=(smthgNet>=0?'+':'')+fmtM(Math.abs(smthgNet));cnEl.style.color=netCol;}
+    var eEl=document.getElementById('yc'+yr+'-ebit');
+    if(eEl){eEl.textContent=(ebit>=0?'+':'')+fmtM(Math.abs(ebit));eEl.style.color=ebitCol;}
+    if(yr>1){var hEl=document.getElementById('yc'+yr+'-hdr');if(hEl)hEl.textContent=getCTC(yr)+' people × $'+(ctRate/1000).toFixed(0)+'K/mo';}
+    // P&L table
+    s('yt-des-'+yr,designers.toLocaleString());
+    s('yt-freq-'+yr,(freq/12).toFixed(2).replace('.00','').replace(/\.?0+$/,'')+'×/mo');
+    s('yt-drops-'+yr,drops.toLocaleString());
+    s('yt-gmv-'+yr,fmtM(gmv));
+    s('yt-tfr-'+yr,fmtM(platformFee));
+    s('yt-sub-'+yr,fmtM(subs));
+    s('yt-rev-'+yr,fmtM(rev));
+    s('yt-var-'+yr,fmtM(varTotal));
+    s('yt-ops-'+yr,fmtM(opsTeam));
+    s('yt-core-'+yr,fmtM(coreTeam));
+    s('yt-ga-'+yr,fmtM(ga));
+    s('yt-tot-'+yr,fmtM(totalCosts));
+    var teEl=document.getElementById('yt-ebit-'+yr);
+    if(teEl){teEl.textContent=(ebit>=0?'+':'')+fmtM(Math.abs(ebit));teEl.style.color=ebit>=0?'#7AE3B2':'#FF8A80';}
+    var tmEl=document.getElementById('yt-margin-'+yr);
+    if(tmEl){var m=rev>0?(ebit/rev*100).toFixed(0)+'%':'—';tmEl.textContent=(ebit>=0?'+':'')+m;tmEl.style.color=ebit>=0?'#1A7A4A':'var(--tf)';}
+    var tcEl=document.getElementById('yt-cum-'+yr);
+    if(tcEl){tcEl.textContent=(cumEbit>=0?'+':'')+fmtM(Math.abs(cumEbit));tcEl.style.color=cumEbit>=0?'#1A7A4A':'var(--tf)';}
+  }
 }
 
 proj();
