@@ -161,7 +161,10 @@ input[type=range]{width:100%;height:4px;accent-color:var(--tf);cursor:pointer;di
 .ct .tot td{background:var(--ink);color:white;font-weight:800;font-size:14px;border-top:2px solid var(--tf)}
 .ct td.pos{color:#1A7A4A;font-weight:700}.ct td.neg{color:var(--tf);font-weight:700}
 .ct .note-r{font-size:11px;color:var(--sub);font-weight:400;text-align:left}
-@media(max-width:1100px){.proj-layout{grid-template-columns:1fr}.q-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:1100px){.proj-layout{grid-template-columns:1fr}.q-grid{grid-template-columns:repeat(2,1fr)}.y-grid{grid-template-columns:repeat(3,1fr)}}
+.y-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:28px}
+@media(max-width:900px){.y-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.y-grid{grid-template-columns:1fr}}
 @media(max-width:700px){.proj-sep,.consol-sep{margin-left:-12px;margin-right:-12px;padding:16px 16px}.q-grid{grid-template-columns:1fr}.yr-bar{grid-template-columns:repeat(2,1fr);row-gap:14px}.yr-i{border-right:none;padding-left:0}}
 
 /* Top nav */
@@ -1018,9 +1021,239 @@ input[type=range]{width:100%;height:4px;accent-color:var(--tf);cursor:pointer;di
 </table>
 </div>
 
-<!-- ═══ SECTION 04: APPENDIX ═══ -->
+<!-- ═══ SECTION 04: 5-YEAR EBITDA OUTLOOK ═══ -->
+<div class="consol-sep">
+  <span class="sn" style="font-size:32px;font-weight:800;color:var(--tf)">04</span>
+  <span class="st" style="font-size:20px;font-weight:800">5-Year EBITDA Outlook &amp; Break-Even</span>
+  <span class="ss" style="font-size:11px;color:rgba(255,255,255,.4);margin-left:auto">Same unit economics as Sections 01–02</span>
+</div>
+
+<div class="y-grid">
+
+  <!-- Y1 -->
+  <div class="q-box">
+    <div class="q-head">
+      <div class="q-qlbl">Year 1</div>
+      <div class="q-gmv-h">$2.2M GMV</div>
+    </div>
+    <div class="q-dr-wrap">
+      <div class="q-dr-lbl">Total drops</div>
+      <div style="font-size:20px;font-weight:800;color:var(--ink);line-height:1.1">74</div>
+      <div style="font-size:10px;color:var(--sub);margin-top:2px">10 designers · 0.6×/mo</div>
+    </div>
+    <div class="q-rows">
+      <div class="q-row"><span class="ql">Orders</span><span class="qv">11,100</span></div>
+      <div class="q-row"><span class="ql">GMV</span><span class="qv">$2.22M</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql">Platform fee</span><span class="qv g">+$222K</span></div>
+      <div class="q-row"><span class="ql">Subscriptions</span><span class="qv g">+$60K</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql">VTO cost</span><span class="qv r">−$2.8K</span></div>
+      <div class="q-row"><span class="ql">Payment proc.</span><span class="qv r">−$69K</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">smthg<span style="color:var(--tf)">.</span> Net</span><span class="qv b" style="color:#1A7A4A">+$210K</span></div>
+      <div class="q-row" style="border-top:1px solid var(--rule)"><span class="ql" style="color:var(--sub);font-size:11px">Quarterly avg</span><span class="qv" style="font-size:11px;font-weight:700;color:#1A7A4A">+$53K</span></div>
+    </div>
+  </div>
+
+  <!-- Y2 -->
+  <div class="q-box">
+    <div class="q-head">
+      <div class="q-qlbl">Year 2</div>
+      <div class="q-gmv-h">$9.0M GMV</div>
+    </div>
+    <div class="q-dr-wrap">
+      <div class="q-dr-lbl">Total drops</div>
+      <div style="font-size:20px;font-weight:800;color:var(--ink);line-height:1.1">300</div>
+      <div style="font-size:10px;color:var(--sub);margin-top:2px">25 designers · 1×/mo</div>
+    </div>
+    <div class="q-rows">
+      <div class="q-row"><span class="ql">Orders</span><span class="qv">45,000</span></div>
+      <div class="q-row"><span class="ql">GMV</span><span class="qv">$9.0M</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql">Platform fee</span><span class="qv g">+$900K</span></div>
+      <div class="q-row"><span class="ql">Subscriptions</span><span class="qv g">+$150K</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql">VTO cost</span><span class="qv r">−$11.3K</span></div>
+      <div class="q-row"><span class="ql">Payment proc.</span><span class="qv r">−$279K</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">smthg<span style="color:var(--tf)">.</span> Net</span><span class="qv b" style="color:#1A7A4A">+$760K</span></div>
+      <div class="q-row" style="border-top:1px solid var(--rule)"><span class="ql" style="color:var(--sub);font-size:11px">Quarterly avg</span><span class="qv" style="font-size:11px;font-weight:700;color:#1A7A4A">+$190K</span></div>
+    </div>
+  </div>
+
+  <!-- Y3 -->
+  <div class="q-box">
+    <div class="q-head">
+      <div class="q-qlbl">Year 3</div>
+      <div class="q-gmv-h">$27.0M GMV</div>
+    </div>
+    <div class="q-dr-wrap">
+      <div class="q-dr-lbl">Total drops</div>
+      <div style="font-size:20px;font-weight:800;color:var(--ink);line-height:1.1">900</div>
+      <div style="font-size:10px;color:var(--sub);margin-top:2px">60 designers · 1.25×/mo</div>
+    </div>
+    <div class="q-rows">
+      <div class="q-row"><span class="ql">Orders</span><span class="qv">135,000</span></div>
+      <div class="q-row"><span class="ql">GMV</span><span class="qv">$27.0M</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql">Platform fee</span><span class="qv g">+$2.70M</span></div>
+      <div class="q-row"><span class="ql">Subscriptions</span><span class="qv g">+$360K</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql">VTO cost</span><span class="qv r">−$33.8K</span></div>
+      <div class="q-row"><span class="ql">Payment proc.</span><span class="qv r">−$837K</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">smthg<span style="color:var(--tf)">.</span> Net</span><span class="qv b" style="color:#1A7A4A">+$2.19M</span></div>
+      <div class="q-row" style="border-top:1px solid var(--rule)"><span class="ql" style="color:var(--sub);font-size:11px">Quarterly avg</span><span class="qv" style="font-size:11px;font-weight:700;color:#1A7A4A">+$547K</span></div>
+    </div>
+  </div>
+
+  <!-- Y4 -->
+  <div class="q-box">
+    <div class="q-head">
+      <div class="q-qlbl">Year 4</div>
+      <div class="q-gmv-h">$64.8M GMV</div>
+    </div>
+    <div class="q-dr-wrap">
+      <div class="q-dr-lbl">Total drops</div>
+      <div style="font-size:20px;font-weight:800;color:var(--ink);line-height:1.1">2,160</div>
+      <div style="font-size:10px;color:var(--sub);margin-top:2px">120 designers · 1.5×/mo</div>
+    </div>
+    <div class="q-rows">
+      <div class="q-row"><span class="ql">Orders</span><span class="qv">324,000</span></div>
+      <div class="q-row"><span class="ql">GMV</span><span class="qv">$64.8M</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql">Platform fee</span><span class="qv g">+$6.48M</span></div>
+      <div class="q-row"><span class="ql">Subscriptions</span><span class="qv g">+$720K</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql">VTO cost</span><span class="qv r">−$81K</span></div>
+      <div class="q-row"><span class="ql">Payment proc.</span><span class="qv r">−$2.01M</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">smthg<span style="color:var(--tf)">.</span> Net</span><span class="qv b" style="color:#1A7A4A">+$5.11M</span></div>
+      <div class="q-row" style="border-top:1px solid var(--rule)"><span class="ql" style="color:var(--sub);font-size:11px">Quarterly avg</span><span class="qv" style="font-size:11px;font-weight:700;color:#1A7A4A">+$1.28M</span></div>
+    </div>
+  </div>
+
+  <!-- Y5 -->
+  <div class="q-box">
+    <div class="q-head">
+      <div class="q-qlbl">Year 5</div>
+      <div class="q-gmv-h">$144M GMV</div>
+    </div>
+    <div class="q-dr-wrap">
+      <div class="q-dr-lbl">Total drops</div>
+      <div style="font-size:20px;font-weight:800;color:var(--ink);line-height:1.1">4,800</div>
+      <div style="font-size:10px;color:var(--sub);margin-top:2px">200 designers · 2×/mo</div>
+    </div>
+    <div class="q-rows">
+      <div class="q-row"><span class="ql">Orders</span><span class="qv">720,000</span></div>
+      <div class="q-row"><span class="ql">GMV</span><span class="qv">$144M</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql">Platform fee</span><span class="qv g">+$14.4M</span></div>
+      <div class="q-row"><span class="ql">Subscriptions</span><span class="qv g">+$1.20M</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql">VTO cost</span><span class="qv r">−$180K</span></div>
+      <div class="q-row"><span class="ql">Payment proc.</span><span class="qv r">−$4.46M</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">smthg<span style="color:var(--tf)">.</span> Net</span><span class="qv b" style="color:#1A7A4A">+$10.96M</span></div>
+      <div class="q-row" style="border-top:1px solid var(--rule)"><span class="ql" style="color:var(--sub);font-size:11px">Quarterly avg</span><span class="qv" style="font-size:11px;font-weight:700;color:#1A7A4A">+$2.74M</span></div>
+    </div>
+  </div>
+
+</div><!-- /y-grid -->
+
+<div style="background:#EDFAF3;border:1px solid var(--rule);border-left:4px solid #1A7A4A;padding:16px 22px;margin:28px 0 28px">
+  <div style="font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#1A7A4A;margin-bottom:8px">Break-Even</div>
+  <div style="font-size:14px;color:var(--ink);line-height:1.7">Monthly EBITDA turns positive in <strong>Year 3</strong> — when ~60 active designers each run 1.25 drops per month. Cumulative EBITDA breaks even in <strong>Year 3 Q3–Q4</strong>. Y1–Y2 total deficit ≈$400K — covered by the pre-seed raise. By Year 5: <strong>$6.2M EBITDA on $15.6M revenue (40% margin)</strong>, as GMV scales faster than team headcount.</div>
+</div>
+
+<div class="ctw">
+<table class="ct">
+<thead>
+  <tr>
+    <th style="text-align:left;min-width:210px">Metric</th>
+    <th>Year 1</th><th>Year 2</th><th>Year 3</th><th>Year 4</th><th>Year 5</th>
+  </tr>
+</thead>
+<tbody>
+
+<tr class="cat"><td colspan="6">Scale</td></tr>
+<tr>
+  <td>Active designers (avg)</td>
+  <td>10</td><td>25</td><td>60</td><td>120</td><td>200</td>
+</tr>
+<tr>
+  <td>Drops / designer / month</td>
+  <td>0.6×</td><td>1×</td><td>1.25×</td><td>1.5×</td><td>2×</td>
+</tr>
+<tr>
+  <td>Total drops / year</td>
+  <td>74</td><td>300</td><td>900</td><td>2,160</td><td>4,800</td>
+</tr>
+<tr>
+  <td>Annual GMV <span style="font-size:11px;color:var(--sub)">(150 items × $200 AOV)</span></td>
+  <td>$2.2M</td><td>$9.0M</td><td>$27.0M</td><td>$64.8M</td><td>$144.0M</td>
+</tr>
+
+<tr class="cat"><td colspan="6">Revenue</td></tr>
+<tr>
+  <td>Platform fee (10% of GMV)</td>
+  <td class="pos">$222K</td><td class="pos">$900K</td><td class="pos">$2.70M</td><td class="pos">$6.48M</td><td class="pos">$14.40M</td>
+</tr>
+<tr>
+  <td>Designer subscriptions ($500/mo)</td>
+  <td class="pos">$60K</td><td class="pos">$150K</td><td class="pos">$360K</td><td class="pos">$720K</td><td class="pos">$1.20M</td>
+</tr>
+<tr class="sub">
+  <td>Total Revenue</td>
+  <td class="pos">$282K</td><td class="pos">$1,050K</td><td class="pos">$3,060K</td><td class="pos">$7,200K</td><td class="pos">$15,600K</td>
+</tr>
+
+<tr class="cat"><td colspan="6">Costs</td></tr>
+<tr>
+  <td>Variable <span style="font-size:11px;color:var(--sub)">(VTO + Stripe + Fraud · ~$968/drop)</span></td>
+  <td class="neg">$72K</td><td class="neg">$290K</td><td class="neg">$871K</td><td class="neg">$2,090K</td><td class="neg">$4,644K</td>
+</tr>
+<tr>
+  <td>People · Ops Team <span style="font-size:11px;color:var(--sub)">(<a href="smthg_operationsteam.html" style="color:var(--sub)">Headcount Roadmap</a> · monthly × 12)</span></td>
+  <td class="neg">$138K</td><td class="neg">$516K</td><td class="neg">$1,200K</td><td class="neg">$2,220K</td><td class="neg">$3,840K</td>
+</tr>
+<tr>
+  <td>Core team + G&amp;A <span style="font-size:11px;color:var(--sub)">(founders + tools + marketing + legal)</span></td>
+  <td class="neg">$362K</td><td class="neg">$350K</td><td class="neg">$480K</td><td class="neg">$680K</td><td class="neg">$960K</td>
+</tr>
+<tr class="sub">
+  <td>Total Costs</td>
+  <td class="neg">$572K</td><td class="neg">$1,156K</td><td class="neg">$2,551K</td><td class="neg">$4,990K</td><td class="neg">$9,444K</td>
+</tr>
+
+<tr class="cat"><td colspan="6">Result</td></tr>
+<tr class="tot">
+  <td>EBITDA</td>
+  <td style="color:#FF8A80;font-weight:800">−$290K</td>
+  <td style="color:#FF8A80;font-weight:800">−$106K</td>
+  <td style="color:#7AE3B2;font-weight:800">+$509K</td>
+  <td style="color:#7AE3B2;font-weight:800">+$2.21M</td>
+  <td style="color:#7AE3B2;font-weight:800">+$6.16M</td>
+</tr>
+<tr>
+  <td>EBITDA margin</td>
+  <td class="neg">−103%</td><td class="neg">−10%</td><td class="pos">+17%</td><td class="pos">+31%</td><td class="pos">+39%</td>
+</tr>
+<tr>
+  <td>Cumulative EBITDA</td>
+  <td class="neg">−$290K</td><td class="neg">−$396K</td><td class="pos">+$113K</td><td class="pos">+$2.32M</td><td class="pos">+$8.48M</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+<p style="font-size:11px;color:var(--sub);margin-top:12px;line-height:1.6">Unit economics from Section 02 defaults: 150 items/drop, $200 AOV, 10% platform fee, 50% VTO adoption × 5 tries at $0.10 (Shopify), Stripe 2.9% + $0.30/order, Stripe Radar 0.05%. People costs Y2–Y5 from <a href="smthg_operationsteam.html" style="color:var(--sub)">Operations Team · Headcount Roadmap</a> (monthly × 12): Y2 $43K/mo, Y3 $100K/mo, Y4 $185K/mo, Y5 $320K/mo. Core team + G&amp;A covers founder compensation, tools, marketing, and legal. Y1 uses actual 1st Year Budget ($500K fixed envelope). Designer growth: 10 → 25 → 60 → 120 → 200 active brands. All figures indicative.</p>
+
+
+<!-- ═══ SECTION 05: APPENDIX ═══ -->
 <div class="proj-sep">
-  <span class="sn">04</span>
+  <span class="sn">05</span>
   <span class="st">Appendix · Variable Cost Reference</span>
   <span class="ss">Not included in $500K envelope · scale with GMV</span>
 </div>
@@ -1164,98 +1397,6 @@ input[type=range]{width:100%;height:4px;accent-color:var(--tf);cursor:pointer;di
     </table>
 
   </div>
-
-
-<!-- ═══ SECTION 05: 5-YEAR EBITDA OUTLOOK ═══ -->
-<div class="consol-sep">
-  <span class="sn" style="font-size:32px;font-weight:800;color:var(--tf)">05</span>
-  <span class="st" style="font-size:20px;font-weight:800">5-Year EBITDA Outlook &amp; Break-Even</span>
-  <span class="ss" style="font-size:11px;color:rgba(255,255,255,.4);margin-left:auto">Same unit economics as Sections 01–02 · крупно</span>
-</div>
-
-<div style="background:#EDFAF3;border:1px solid var(--rule);border-left:4px solid #1A7A4A;padding:16px 22px;margin:24px 0 28px">
-  <div style="font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#1A7A4A;margin-bottom:8px">Break-Even</div>
-  <div style="font-size:14px;color:var(--ink);line-height:1.7">Monthly EBITDA turns positive in <strong>Year 2</strong> — at approximately 25 active designers each running 1 drop per month. Cumulative EBITDA turns positive in <strong>Year 3 Q1</strong>. A $200K bridge covers the Year 1 deficit with buffer. By Year 5: <strong>$9.5M EBITDA on $15.6M revenue (61% margin)</strong> — margin expands because platform and people costs grow far slower than GMV.</div>
-</div>
-
-<div class="ctw">
-<table class="ct">
-<thead>
-  <tr>
-    <th style="text-align:left;min-width:210px">Metric</th>
-    <th>Year 1</th><th>Year 2</th><th>Year 3</th><th>Year 4</th><th>Year 5</th>
-  </tr>
-</thead>
-<tbody>
-
-<tr class="cat"><td colspan="6">Scale</td></tr>
-<tr>
-  <td>Active designers (avg)</td>
-  <td>10</td><td>25</td><td>60</td><td>120</td><td>200</td>
-</tr>
-<tr>
-  <td>Drops / designer / month</td>
-  <td>0.6×</td><td>1×</td><td>1.25×</td><td>1.5×</td><td>2×</td>
-</tr>
-<tr>
-  <td>Total drops / year</td>
-  <td>74</td><td>300</td><td>900</td><td>2,160</td><td>4,800</td>
-</tr>
-<tr>
-  <td>Annual GMV <span style="font-size:11px;color:var(--sub)">(150 items × $200 AOV)</span></td>
-  <td>$2.2M</td><td>$9.0M</td><td>$27.0M</td><td>$64.8M</td><td>$144.0M</td>
-</tr>
-
-<tr class="cat"><td colspan="6">Revenue</td></tr>
-<tr>
-  <td>Platform fee (10% of GMV)</td>
-  <td class="pos">$222K</td><td class="pos">$900K</td><td class="pos">$2.70M</td><td class="pos">$6.48M</td><td class="pos">$14.40M</td>
-</tr>
-<tr>
-  <td>Designer subscriptions ($500/mo)</td>
-  <td class="pos">$60K</td><td class="pos">$150K</td><td class="pos">$360K</td><td class="pos">$720K</td><td class="pos">$1.20M</td>
-</tr>
-<tr class="sub">
-  <td>Total Revenue</td>
-  <td class="pos">$282K</td><td class="pos">$1,050K</td><td class="pos">$3,060K</td><td class="pos">$7,200K</td><td class="pos">$15,600K</td>
-</tr>
-
-<tr class="cat"><td colspan="6">Costs</td></tr>
-<tr>
-  <td>Variable <span style="font-size:11px;color:var(--sub)">(VTO + Stripe + Fraud · ~$968/drop)</span></td>
-  <td class="neg">$72K</td><td class="neg">$290K</td><td class="neg">$871K</td><td class="neg">$2,090K</td><td class="neg">$4,644K</td>
-</tr>
-<tr>
-  <td>Fixed operating <span style="font-size:11px;color:var(--sub)">(Y1 incl. $57K one-time · Y2+ scales with team)</span></td>
-  <td class="neg">$500K</td><td class="neg">$520K</td><td class="neg">$700K</td><td class="neg">$1,000K</td><td class="neg">$1,500K</td>
-</tr>
-<tr class="sub">
-  <td>Total Costs</td>
-  <td class="neg">$572K</td><td class="neg">$810K</td><td class="neg">$1,571K</td><td class="neg">$3,090K</td><td class="neg">$6,144K</td>
-</tr>
-
-<tr class="cat"><td colspan="6">Result</td></tr>
-<tr class="tot">
-  <td>EBITDA</td>
-  <td style="color:#FF8A80;font-weight:800">−$290K</td>
-  <td style="color:#7AE3B2;font-weight:800">+$240K</td>
-  <td style="color:#7AE3B2;font-weight:800">+$1.49M</td>
-  <td style="color:#7AE3B2;font-weight:800">+$4.11M</td>
-  <td style="color:#7AE3B2;font-weight:800">+$9.46M</td>
-</tr>
-<tr>
-  <td>EBITDA margin</td>
-  <td class="neg">−103%</td><td class="pos">+23%</td><td class="pos">+49%</td><td class="pos">+57%</td><td class="pos">+61%</td>
-</tr>
-<tr>
-  <td>Cumulative EBITDA</td>
-  <td class="neg">−$290K</td><td class="neg">−$50K</td><td class="pos">+$1.44M</td><td class="pos">+$5.55M</td><td class="pos">+$15.0M</td>
-</tr>
-
-</tbody>
-</table>
-</div>
-<p style="font-size:11px;color:var(--sub);margin-top:12px;line-height:1.6">Assumptions derived from Section 02 defaults: 150 items/drop, $200 AOV, 10% platform fee, 50% VTO adoption × 5 tries at $0.10 (Shopify), Stripe 2.9% + $0.30/order, Stripe Radar 0.05% — giving net platform margin of ~$2,033/drop. Fixed costs Y2–Y5 exclude the $57.2K one-time (Q1 Year 1 only) and reflect team + tool scaling as designer count grows. Designer growth target: 10 → 25 → 60 → 120 → 200 active brands. All figures indicative.</p>
 
 </div><!-- /wrap -->
 <script>
