@@ -78,6 +78,13 @@ tbody td.gmv{color:var(--sub);font-size:14px;white-space:nowrap}
 tbody td.num{text-align:right;white-space:nowrap;font-weight:700}
 tbody td.note{font-size:14px;color:var(--ink);line-height:1.5}
 
+/* ── ROADMAP TABLE — compact, headers wrap ── */
+.roadmap thead th{white-space:normal;padding:8px 10px;font-size:11px;line-height:1.35;vertical-align:bottom}
+.roadmap tbody td{padding:8px 10px;font-size:13px}
+.roadmap tbody td.note{font-size:12px}
+.roadmap tbody td.gmv{font-size:12px}
+.roadmap{font-size:13px;min-width:800px}
+
 /* ── FOOTNOTE ── */
 .footnote{margin-top:28px;font-size:14px;color:var(--sub);line-height:1.65;border-top:1px solid var(--rule);padding-top:18px}
 .footnote a{color:var(--tf);text-decoration:none}
@@ -233,17 +240,17 @@ tbody td.note{font-size:14px;color:var(--ink);line-height:1.5}
   <p style="font-size:15px;color:var(--ink);margin-bottom:8px">FTE equivalents. Contractors noted in parentheses. Monthly cost at US market rates — Year 1 budget uses lower offshore contractor rates (see note below).</p>
 
   <div class="tbl-wrap">
-    <table style="min-width:1000px">
+    <table class="roadmap">
       <thead>
         <tr>
           <th>Stage</th>
           <th>GMV</th>
-          <th class="hi">Customer Service</th>
-          <th class="hi">Influencer Relations</th>
-          <th class="hi">Content</th>
-          <th class="hi">Community</th>
-          <th class="hi">Developers</th>
-          <th>Est. monthly cost</th>
+          <th class="hi">Customer<br>Service</th>
+          <th class="hi">Influencer<br>Relations</th>
+          <th class="hi">Content<br>Creation</th>
+          <th class="hi">Community<br>Manager</th>
+          <th class="hi">Platform<br>Developers</th>
+          <th>Monthly<br>cost</th>
           <th>Key trigger</th>
         </tr>
       </thead>
