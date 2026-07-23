@@ -1816,7 +1816,7 @@ function yrProj(){
     var cnEl=document.getElementById('yc'+yr+'-net');
     if(cnEl){cnEl.textContent=(smthgNet>=0?'+':'')+fmtM(Math.abs(smthgNet));cnEl.style.color=netCol;}
     var eEl=document.getElementById('yc'+yr+'-ebit');
-    if(eEl){eEl.textContent=(ebit>=0?'+':'')+fmtM(Math.abs(ebit));eEl.style.color=ebitCol;}
+    if(eEl){eEl.textContent=(ebit>=0?'+':'−')+fmtM(Math.abs(ebit));eEl.style.color=ebitCol;}
     if(yr>1){
       var hEl=document.getElementById('yc'+yr+'-hdr');
       if(hEl)hEl.textContent=getCTC(yr)+' founders × $'+(ctRate/1000).toFixed(0)+'K/mo';
@@ -1837,11 +1837,11 @@ function yrProj(){
     s('yt-ga-'+yr,fmtM(ga));
     s('yt-tot-'+yr,fmtM(totalCosts));
     var teEl=document.getElementById('yt-ebit-'+yr);
-    if(teEl){teEl.textContent=(ebit>=0?'+':'')+fmtM(Math.abs(ebit));teEl.style.color=ebit>=0?'#7AE3B2':'#FF8A80';}
+    if(teEl){teEl.textContent=(ebit>=0?'+':'−')+fmtM(Math.abs(ebit));teEl.style.color=ebit>=0?'#7AE3B2':'#FF8A80';}
     var tmEl=document.getElementById('yt-margin-'+yr);
     if(tmEl){var m=rev>0?(ebit/rev*100).toFixed(0)+'%':'—';tmEl.textContent=(ebit>=0?'+':'')+m;tmEl.style.color=ebit>=0?'#1A7A4A':'var(--tf)';}
     var tcEl=document.getElementById('yt-cum-'+yr);
-    if(tcEl){tcEl.textContent=(cumEbit>=0?'+':'')+fmtM(Math.abs(cumEbit));tcEl.style.color=cumEbit>=0?'#1A7A4A':'var(--tf)';}
+    if(tcEl){tcEl.textContent=(cumEbit>=0?'+':'−')+fmtM(Math.abs(cumEbit));tcEl.style.color=cumEbit>=0?'#1A7A4A':'var(--tf)';}
   }
 }
 
