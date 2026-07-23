@@ -186,6 +186,11 @@ details[open].cd summary::before{content:'▾'}
 .cd-body{padding:2px 0 6px 10px}
 .cd-r{display:flex;justify-content:space-between;gap:8px;font-size:10px;color:var(--sub);line-height:1.5}
 .cd-tot{font-weight:700;color:var(--ink);border-top:1px solid var(--rule);margin-top:2px;padding-top:2px}
+/* sync dot */
+.sync-dot{width:8px;height:8px;border-radius:50%;background:#bbb;display:inline-block;flex-shrink:0;transition:background .4s;margin-left:8px;vertical-align:middle}
+.sync-dot.live{background:#22c55e}
+.sync-dot.err{background:#ef4444}
+.sync-label{font-size:10px;font-weight:600;color:var(--sub);vertical-align:middle;margin-left:3px}
 </style>
 </head>
 <body>
@@ -199,7 +204,7 @@ details[open].cd summary::before{content:'▾'}
   </div>
 </div>
 <div class="wrap">
-<h1>1st Year Budget</h1>
+<h1>1st Year Budget<span class="sync-dot" id="sync-dot"></span><span class="sync-label" id="sync-label">Connecting…</span></h1>
 <p class="sub">SMTHG · $500K fixed annual envelope · Year 1 post-launch · actual quarterly spend · USD primary · EUR ≈ USD × 0.91 · July 2026 · <a href="smthg_operationsteam.html" style="color:var(--tf);text-decoration:none;font-weight:700">Operations Team →</a></p>
 
 <!-- ── SUMMARY CARDS ── -->
@@ -1207,7 +1212,7 @@ details[open].cd summary::before{content:'▾'}
 </div>
 
 <!-- Cost year boxes -->
-<div style="font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);margin:20px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--rule)">Costs &nbsp;·&nbsp; ops team + core team salary + G&amp;A</div>
+<div style="font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);margin:20px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--rule)">Costs &nbsp;·&nbsp; ops team + core team salary + G&amp;A <span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:9px">(G&amp;A = General &amp; Administrative: office · tools · legal · accounting)</span></div>
 <div class="y-grid">
 
   <!-- Y1 cost -->
@@ -1217,13 +1222,6 @@ details[open].cd summary::before{content:'▾'}
       <div style="font-size:10px;color:var(--sub);margin-top:3px">Section 01 actual</div>
     </div>
     <div class="q-rows">
-      <div class="q-row"><span class="ql">Variable costs</span><span class="qv r" id="yc1-var">—</span></div>
-      <details class="cd"><summary>VTO · payment proc. · fraud prev.</summary><div class="cd-body">
-        <div class="cd-r"><span>VTO (Shopify/Kivisense)</span><span id="ycd1-vto">—</span></div>
-        <div class="cd-r"><span>Payment proc. (Stripe 2.9%+$0.30)</span><span id="ycd1-pay">—</span></div>
-        <div class="cd-r"><span>Fraud prev. (Stripe Radar 0.05%)</span><span id="ycd1-fraud">—</span></div>
-      </div></details>
-      <div class="qdiv"></div>
       <div class="q-row"><span class="ql">Ops team <span style="font-size:10px">(<a href="smthg_operationsteam.html" style="color:var(--sub)">Headcount</a>)</span></span><span class="qv r" id="yc1-ops">—</span></div>
       <details class="cd"><summary>5 part-time contractors · offshore rates · ~$11.5K/mo</summary><div class="cd-body">
         <div class="cd-r"><span>Customer service</span><span>part-time · $1.5K/mo</span></div>
@@ -1258,13 +1256,6 @@ details[open].cd summary::before{content:'▾'}
       <div style="font-size:10px;color:var(--sub);margin-top:3px" id="yc2-hdr">—</div>
     </div>
     <div class="q-rows">
-      <div class="q-row"><span class="ql">Variable costs</span><span class="qv r" id="yc2-var">—</span></div>
-      <details class="cd"><summary>VTO · payment proc. · fraud prev.</summary><div class="cd-body">
-        <div class="cd-r"><span>VTO</span><span id="ycd2-vto">—</span></div>
-        <div class="cd-r"><span>Payment proc.</span><span id="ycd2-pay">—</span></div>
-        <div class="cd-r"><span>Fraud prev.</span><span id="ycd2-fraud">—</span></div>
-      </div></details>
-      <div class="qdiv"></div>
       <div class="q-row"><span class="ql">Ops team</span><span class="qv r" id="yc2-ops">—</span></div>
       <details class="cd"><summary>~8 FTE equivalents · US market rates · ~$43K/mo</summary><div class="cd-body">
         <div class="cd-r"><span>Customer service</span><span>1 FTE</span></div>
@@ -1297,13 +1288,6 @@ details[open].cd summary::before{content:'▾'}
       <div style="font-size:10px;color:var(--sub);margin-top:3px" id="yc3-hdr">—</div>
     </div>
     <div class="q-rows">
-      <div class="q-row"><span class="ql">Variable costs</span><span class="qv r" id="yc3-var">—</span></div>
-      <details class="cd"><summary>VTO · payment proc. · fraud prev.</summary><div class="cd-body">
-        <div class="cd-r"><span>VTO</span><span id="ycd3-vto">—</span></div>
-        <div class="cd-r"><span>Payment proc.</span><span id="ycd3-pay">—</span></div>
-        <div class="cd-r"><span>Fraud prev.</span><span id="ycd3-fraud">—</span></div>
-      </div></details>
-      <div class="qdiv"></div>
       <div class="q-row"><span class="ql">Ops team</span><span class="qv r" id="yc3-ops">—</span></div>
       <details class="cd"><summary>~13 FTE equivalents · US market rates · ~$100K/mo</summary><div class="cd-body">
         <div class="cd-r"><span>Customer service</span><span>2 FTE + lead</span></div>
@@ -1336,13 +1320,6 @@ details[open].cd summary::before{content:'▾'}
       <div style="font-size:10px;color:var(--sub);margin-top:3px" id="yc4-hdr">—</div>
     </div>
     <div class="q-rows">
-      <div class="q-row"><span class="ql">Variable costs</span><span class="qv r" id="yc4-var">—</span></div>
-      <details class="cd"><summary>VTO · payment proc. · fraud prev.</summary><div class="cd-body">
-        <div class="cd-r"><span>VTO</span><span id="ycd4-vto">—</span></div>
-        <div class="cd-r"><span>Payment proc.</span><span id="ycd4-pay">—</span></div>
-        <div class="cd-r"><span>Fraud prev.</span><span id="ycd4-fraud">—</span></div>
-      </div></details>
-      <div class="qdiv"></div>
       <div class="q-row"><span class="ql">Ops team</span><span class="qv r" id="yc4-ops">—</span></div>
       <details class="cd"><summary>~20 FTE equivalents · US market rates · ~$185K/mo</summary><div class="cd-body">
         <div class="cd-r"><span>Customer service</span><span>4 FTE + lead</span></div>
@@ -1375,13 +1352,6 @@ details[open].cd summary::before{content:'▾'}
       <div style="font-size:10px;color:var(--sub);margin-top:3px" id="yc5-hdr">—</div>
     </div>
     <div class="q-rows">
-      <div class="q-row"><span class="ql">Variable costs</span><span class="qv r" id="yc5-var">—</span></div>
-      <details class="cd"><summary>VTO · payment proc. · fraud prev.</summary><div class="cd-body">
-        <div class="cd-r"><span>VTO</span><span id="ycd5-vto">—</span></div>
-        <div class="cd-r"><span>Payment proc.</span><span id="ycd5-pay">—</span></div>
-        <div class="cd-r"><span>Fraud prev.</span><span id="ycd5-fraud">—</span></div>
-      </div></details>
-      <div class="qdiv"></div>
       <div class="q-row"><span class="ql">Ops team</span><span class="qv r" id="yc5-ops">—</span></div>
       <details class="cd"><summary>~35 FTE equivalents · US market rates · ~$320K/mo</summary><div class="cd-body">
         <div class="cd-r"><span>Customer service</span><span>7 FTE + 2 leads (multi-language)</span></div>
@@ -1623,6 +1593,7 @@ function setVTO(m){
   document.getElementById('btn-kivisense').classList.toggle('on',m==='kivisense');
   document.getElementById('cn-vto').textContent=m==='shopify'?'Shopify $0.10/try':'Kivisense $888/mo flat';
   proj();
+  pushInputs();
 }
 function adjD(q,d){
   var el=document.getElementById('d'+q);
@@ -1834,14 +1805,14 @@ function yrProj(){
     var coreTeam=yr===1?Y1_CORE:getCTC(yr)*ctRate*12;
     var ga=Y_GA[yr];
     var totalCosts=varTotal+opsTeam+coreTeam+ga;
+    var opEx=opsTeam+coreTeam+ga;
     var ebit=smthgNet-opsTeam-coreTeam-ga;
     var ebitCol=ebit>=0?'#1A7A4A':'var(--tf)';
     cumEbit+=ebit;
-    s('yc'+yr+'-var','−'+fmtM(varTotal));
     s('yc'+yr+'-ops','−'+fmtM(opsTeam));
     s('yc'+yr+'-core','−'+fmtM(coreTeam));
     s('yc'+yr+'-ga','−'+fmtM(ga));
-    s('yc'+yr+'-tot','−'+fmtM(totalCosts));
+    s('yc'+yr+'-tot','−'+fmtM(opEx));
     var cnEl=document.getElementById('yc'+yr+'-net');
     if(cnEl){cnEl.textContent=(smthgNet>=0?'+':'')+fmtM(Math.abs(smthgNet));cnEl.style.color=netCol;}
     var eEl=document.getElementById('yc'+yr+'-ebit');
@@ -1852,9 +1823,6 @@ function yrProj(){
       var ciEl=document.getElementById('ycd'+yr+'-ct-info');
       if(ciEl)ciEl.textContent=getCTC(yr)+' founders × $'+(ctRate/1000).toFixed(0)+'K/mo × 12 = '+fmtM(getCTC(yr)*ctRate*12)+'/yr';
     }
-    s('ycd'+yr+'-vto','−'+fmtM(vtoCost));
-    s('ycd'+yr+'-pay','−'+fmtM(payCost));
-    s('ycd'+yr+'-fraud','−'+fmtM(fraudCost));
     // P&L table
     s('yt-des-'+yr,designers.toLocaleString());
     s('yt-freq-'+yr,Y_FREQ_LBL[yr]);
@@ -1878,6 +1846,63 @@ function yrProj(){
 }
 
 proj();
+
+// ── Firebase shared-inputs sync ───────────────────────────────────────────
+var DB_BUDGET='https://terra-ferra-1ac34-default-rtdb.firebaseio.com';
+var BUDGET_PATH='/tf-budget/v1/inputs.json';
+var SYNC_IDS=['p-items','p-aov','p-tf-fee','p-designers','p-inf','p-pay','p-vto-a','p-vto-t',
+  'yd1','yd2','yd3','yd4','yd5','ct-rate','ct-y2-count','ct-y3-count','ct-y4-count','ct-y5-count'];
+var dbTimer=null,applying=false,lastSnap='';
+
+function setSyncState(s){
+  var dot=document.getElementById('sync-dot'),lbl=document.getElementById('sync-label');
+  if(!dot)return;
+  dot.className='sync-dot'+(s==='live'?' live':s==='err'?' err':'');
+  if(lbl)lbl.textContent=s==='live'?'Live':s==='err'?'Error':'Connecting…';
+}
+function snapInputs(){
+  var o={vtoMode:vtoMode};
+  SYNC_IDS.forEach(function(id){var el=document.getElementById(id);if(el)o[id]=el.value;});
+  return o;
+}
+function applySnap(data){
+  applying=true;
+  SYNC_IDS.forEach(function(id){if(data[id]!=null){var el=document.getElementById(id);if(el)el.value=data[id];}});
+  if(data.vtoMode&&data.vtoMode!==vtoMode){
+    vtoMode=data.vtoMode;
+    ['shopify','kivisense'].forEach(function(m){var b=document.getElementById('btn-'+m);if(b)b.classList.toggle('on',m===vtoMode);});
+    var cn=document.getElementById('cn-vto');if(cn)cn.textContent=vtoMode==='shopify'?'Shopify $0.10/try':'Kivisense $888/mo flat';
+  }
+  proj();yrProj();
+  applying=false;
+}
+function pushInputs(){
+  if(applying)return;
+  clearTimeout(dbTimer);
+  dbTimer=setTimeout(function(){
+    var data=snapInputs();
+    fetch(DB_BUDGET+BUDGET_PATH,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
+      .then(function(r){setSyncState(r.ok?'live':'err');}).catch(function(){setSyncState('err');});
+  },800);
+}
+function pollFb(){
+  fetch(DB_BUDGET+BUDGET_PATH)
+    .then(function(r){return r.json();})
+    .then(function(data){
+      if(!data){setSyncState('live');return;}
+      var snap=JSON.stringify(data);
+      if(snap!==lastSnap){lastSnap=snap;applySnap(data);}
+      setSyncState('live');
+    }).catch(function(){setSyncState('err');});
+}
+window.addEventListener('DOMContentLoaded',function(){
+  fetch(DB_BUDGET+BUDGET_PATH)
+    .then(function(r){return r.json();})
+    .then(function(data){if(data){lastSnap=JSON.stringify(data);applySnap(data);}setSyncState('live');})
+    .catch(function(){setSyncState('err');});
+  SYNC_IDS.forEach(function(id){var el=document.getElementById(id);if(el)el.addEventListener('input',pushInputs);});
+  setInterval(pollFb,5000);
+});
 </script>
 </body>
 </html>
