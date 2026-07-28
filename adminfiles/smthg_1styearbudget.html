@@ -66,6 +66,10 @@ thead th:last-child{min-width:180px}
 .tr-toggle{background:none;border:none;cursor:pointer;font-size:13px;padding:0 4px;line-height:1;vertical-align:middle;color:var(--sub);transition:color .15s}
 .tr-toggle:hover{color:var(--tf)}
 .tr-sub.tr-hidden{display:none}
+.sec-body.sc-collapsed{display:none}
+.sec-toggle-btn{background:none;border:none;cursor:pointer;font-size:14px;color:rgba(255,255,255,.5);padding:2px 8px;line-height:1;transition:color .15s;flex-shrink:0;margin-left:6px;font-family:monospace}
+.sec-toggle-btn:hover{color:#fff}
+.sec-badge{font-size:11px;color:rgba(255,255,255,.35);margin-left:auto;font-weight:400;letter-spacing:0}
 
 /* Back-to-top */
 .back-to-top{position:fixed;bottom:28px;right:28px;width:40px;height:40px;background:var(--tf);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;text-decoration:none;opacity:0;transition:opacity .3s;z-index:100;border-radius:2px}
@@ -284,10 +288,12 @@ details[open].cd summary::before{content:'▾'}
   <span class="sn">01</span>
   <span class="st">Fixed Operating Budget · Year 1</span>
   <span class="ss">Total fixed costs incl. core team salary · all quarters</span>
+  <span id="s01-badge" class="sec-badge"></span>
+  <button class="sec-toggle-btn" onclick="toggleSec('s01-body',this)" title="collapse/expand">▾</button>
 </div>
 
 <!-- ── MAIN TABLE ── -->
-<div class="tbl-wrap" style="margin-top:24px">
+<div class="tbl-wrap" style="margin-top:24px" id="s01-body">
 <table>
 <thead>
 <tr>
@@ -1004,9 +1010,11 @@ details[open].cd summary::before{content:'▾'}
   <span class="sn">02</span>
   <span class="st">Quarterly Revenue Projections</span>
   <span class="ss">All parameters shared across quarters · only drop count varies per quarter</span>
+  <span id="s02-badge" class="sec-badge"></span>
+  <button class="sec-toggle-btn" onclick="toggleSec('s02-body',this)" title="collapse/expand">▾</button>
 </div>
 
-<div class="proj-layout">
+<div class="proj-layout" id="s02-body">
 
   <!-- LEFT: shared parameters -->
   <div class="param-box">
@@ -1043,8 +1051,8 @@ details[open].cd summary::before{content:'▾'}
     </div>
 
     <div class="psg">
-      <div class="psg-top"><span class="psg-lbl">Active designers on platform</span><span class="psg-val" id="v-designers">8</span></div>
-      <input type="range" id="p-designers" min="1" max="50" step="1" value="8" oninput="proj()"/>
+      <div class="psg-top"><span class="psg-lbl">Active designers on platform</span><span class="psg-val" id="v-designers">10</span></div>
+      <input type="range" id="p-designers" min="1" max="50" step="1" value="10" oninput="proj()"/>
       <div class="psg-hint"><span>1</span><span>50</span></div>
       <div class="psg-note">Platform subscription $500/mo/designer adds to SMTHG revenue.</div>
     </div>
@@ -1052,8 +1060,8 @@ details[open].cd summary::before{content:'▾'}
     <div class="p-cat">Designer Costs (for context)</div>
 
     <div class="psg">
-      <div class="psg-top"><span class="psg-lbl">Influencer commission</span><span class="psg-val" id="v-inf">20%</span></div>
-      <input type="range" id="p-inf" min="5" max="25" step="1" value="20" oninput="proj()"/>
+      <div class="psg-top"><span class="psg-lbl">Influencer commission</span><span class="psg-val" id="v-inf">10%</span></div>
+      <input type="range" id="p-inf" min="5" max="25" step="1" value="10" oninput="proj()"/>
       <div class="psg-hint"><span>5%</span><span>25%</span></div>
       <div class="psg-note">Paid by designer from their revenue — not SMTHG's cost.</div>
     </div>
@@ -1231,9 +1239,11 @@ details[open].cd summary::before{content:'▾'}
   <span class="sn" style="font-size:32px;font-weight:800;color:var(--tf)">03</span>
   <span class="st" style="font-size:20px;font-weight:800">Consolidated Revenue &amp; Costs · Year 1</span>
   <span class="ss" style="font-size:11px;color:rgba(255,255,255,.4);margin-left:auto">Section 01 fixed costs + Section 02 variable projections</span>
+  <span id="s03-badge" class="sec-badge"></span>
+  <button class="sec-toggle-btn" onclick="toggleSec('s03-body',this)" title="collapse/expand">▾</button>
 </div>
 
-<div class="ctw">
+<div class="ctw" id="s03-body">
 <table class="ct">
 <thead>
   <tr>
@@ -1319,8 +1329,10 @@ details[open].cd summary::before{content:'▾'}
   <span class="sn" style="font-size:32px;font-weight:800;color:var(--tf)">04</span>
   <span class="st" style="font-size:20px;font-weight:800">5-Year Revenue &amp; EBIT Outlook</span>
   <span class="ss" style="font-size:11px;color:rgba(255,255,255,.4);margin-left:auto">Drop-led model · same unit economics as Section 02</span>
+  <button class="sec-toggle-btn" onclick="toggleSec('s04-body',this)" title="collapse/expand">▾</button>
 </div>
 
+<div id="s04-body">
 <div style="font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);margin:24px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--rule)">Revenue &nbsp;·&nbsp; smthg<span style="color:var(--tf)">.</span> net (after VTO + payment + fraud)</div>
 <div class="y-grid">
 
@@ -1741,13 +1753,16 @@ details[open].cd summary::before{content:'▾'}
 </div>
 <p style="font-size:11px;color:var(--sub);margin-top:12px;line-height:1.6">Unit economics from Section 02: 150 items/drop, $200 AOV, 10% platform fee, 50% VTO × 5 tries at $0.10 (Shopify), Stripe 2.9% + $0.30/order, Stripe Radar 0.05%. Designer frequency: once/3mo (4 drops/yr per designer) for all years.25×/mo (÷15), Y4 1.5×/mo (÷18), Y5 2×/mo (÷24). Ops team from <a href="smthg_operationsteam.html" style="color:var(--sub)">Headcount Roadmap</a> (mo × 12): Y1 $11.5K, Y2 $43K, Y3 $100K, Y4 $185K, Y5 $320K. Y1 core team $182K + G&amp;A $200.8K from Section 01 actual (incl. $20.8K trade shows: 4 shows, 2 people each). All figures indicative.</p>
 
+</div><!-- /s04-body -->
+
 <!-- ═══ SECTION 05: APPENDIX ═══ -->
 <div class="proj-sep" id="s05">
   <span class="sn">05</span>
   <span class="st">Appendix · Variable Cost Reference</span>
   <span class="ss">Not included in $500K envelope · scale with GMV</span>
+  <button class="sec-toggle-btn" onclick="toggleSec('s05-body',this)" title="collapse/expand">▾</button>
 </div>
-<div class="ni-body" style="background:white;border:1px solid var(--rule);border-radius:8px;margin-top:24px">
+<div class="ni-body" style="background:white;border:1px solid var(--rule);border-radius:8px;margin-top:24px" id="s05-body">
 
     <!-- 3 VARIABLE COST PANELS -->
     <div class="var-panels">
@@ -2213,6 +2228,12 @@ function toggleSubRows(key,btn){
   document.querySelectorAll('.tr-sub-'+key).forEach(function(r){r.classList.toggle('tr-hidden',open);});
   btn.textContent=open?'▸':'▾';
 }
+function toggleSec(bodyId,btn){
+  var body=document.getElementById(bodyId);
+  if(!body)return;
+  var collapsed=body.classList.toggle('sc-collapsed');
+  btn.textContent=collapsed?'▸':'▾';
+}
 
 function proj(){
   var items=g('p-items'), aov=g('p-aov');
@@ -2310,6 +2331,9 @@ function proj(){
   s('yt-var','−'+fmtM(totVar));
   var ytNetEl=document.getElementById('yt-net');
   if(ytNetEl){ytNetEl.textContent=(totRev-totVar>=0?'+':'')+fmtM(Math.abs(totRev-totVar));ytNetEl.className='yr-v '+(totRev-totVar>=0?'g':'r');}
+  var s02b=document.getElementById('s02-badge');
+  if(s02b){var vn=totRev-totVar;s02b.textContent=(vn>=0?'+':'')+fmtM(Math.abs(vn))+' net (var)';}
+
 
   // Consolidated year totals
   var totTFR=totRev-designers*500*3*4; // platform fee only
@@ -2356,6 +2380,8 @@ function proj(){
   var netY=totRev-s1fixY-totVar;
   var netYEl=document.getElementById('c-nety');
   if(netYEl){netYEl.textContent=(netY>=0?'+':'-')+fmtM(Math.abs(netY));netYEl.style.color=netY>=0?'#7AE3B2':'#FF8A80';}
+  var s03b=document.getElementById('s03-badge');
+  if(s03b)s03b.textContent=(netY>=0?'+':'-')+fmtM(Math.abs(netY))+' P&L yr';
   var ybYEl=document.getElementById('yb-nety');
   if(ybYEl){ybYEl.textContent=(netY>=0?'+':'-')+fmtM(Math.abs(netY));ybYEl.className='yr-v '+(netY>=0?'g':'r');}
   yrProj();
@@ -2451,6 +2477,8 @@ function calcS01(){
   if(scHEl)scHEl.textContent=fmt2(htYr);
   var scTEl=document.getElementById('sc-total-yr');
   if(scTEl)scTEl.textContent=fmt2(yrTot);
+  var s01b=document.getElementById('s01-badge');
+  if(s01b)s01b.textContent=fmt2(yrTot)+' yr';
   var scTnEl=document.getElementById('sc-total-note');
   if(scTnEl)scTnEl.textContent='≈€'+Math.round(yrTot*0.91).toLocaleString()+' · total fixed incl. salaries';
   var scOEl=document.getElementById('sc-opex-total');
