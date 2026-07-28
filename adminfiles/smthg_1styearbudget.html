@@ -2232,6 +2232,7 @@ function toggleSec(bodyId,btn){
   var body=document.getElementById(bodyId);
   if(!body)return;
   var collapsed=body.classList.toggle('sc-collapsed');
+  body.style.display=collapsed?'none':'';
   btn.textContent=collapsed?'▸':'▾';
 }
 
