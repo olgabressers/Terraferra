@@ -343,31 +343,58 @@ details[open].cd summary::before{content:'▾'}
     <span style="font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase">Pre-Seed Close · Investor Benchmarks</span>
     <a href="smthg_investors.html" target="_blank" rel="noopener" style="color:rgba(255,255,255,.5);font-size:10px;font-weight:600;text-decoration:none;margin-left:auto">Source: Investor Requirements →</a>
   </div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:0">
-    <div style="padding:14px 18px;border-right:1px solid var(--rule)">
-      <div style="font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#1A7A4A;margin-bottom:12px">✓ On Track</div>
-      <div style="font-size:13px;color:var(--ink);line-height:1.6;border-bottom:1px solid var(--rule);padding-bottom:10px;margin-bottom:10px">
-        <strong>Monthly GMV</strong><br>
-        <span style="color:var(--sub);font-size:12px">Pre-seed target $55–165K/mo</span><br>
-        Y1 projection: <strong>$180K/mo</strong> · exceeds pre-seed; at Seed entry
-      </div>
-      <div style="font-size:13px;color:var(--ink);line-height:1.6">
-        <strong>Monthly net revenue</strong><br>
-        <span style="color:var(--sub);font-size:12px">Seed min $22–45K/mo</span><br>
-        Y1 projection: <strong>$27K/mo</strong> · within Seed min range
-      </div>
-    </div>
-    <div style="padding:14px 18px;background:var(--tf-ghost)">
-      <div style="font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--tf);margin-bottom:12px">✗ Gap / Not Tracked</div>
-      <div style="font-size:13px;color:var(--ink);line-height:1.9">
-        <div style="border-bottom:1px solid var(--rule);padding-bottom:6px;margin-bottom:6px"><strong>Active designers:</strong> 18 budgeted vs 100–300 pre-seed end</div>
-        <div style="border-bottom:1px solid var(--rule);padding-bottom:6px;margin-bottom:6px"><strong>Take rate:</strong> 10% vs 12–20% investor floor</div>
-        <div style="border-bottom:1px solid var(--rule);padding-bottom:6px;margin-bottom:6px"><strong>Registered users:</strong> 5–15K required — not tracked in budget</div>
-        <div style="border-bottom:1px solid var(--rule);padding-bottom:6px;margin-bottom:6px"><strong>90-day repeat purchase:</strong> 25–35% required — not tracked</div>
-        <div style="border-bottom:1px solid var(--rule);padding-bottom:6px;margin-bottom:6px"><strong>Organic acquisition:</strong> 25–40% of new users — not tracked</div>
-        <div><strong>Transaction liquidity:</strong> ≥25% of listings → sales — not tracked</div>
-      </div>
-    </div>
+  <div style="overflow-x:auto">
+  <table style="width:100%;border-collapse:collapse;font-size:13px;color:var(--ink)">
+    <thead>
+      <tr style="border-bottom:2px solid var(--rule)">
+        <th style="padding:10px 16px;text-align:left;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--sub);width:32%">Requirement</th>
+        <th style="padding:10px 16px;text-align:left;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#1A7A4A;width:34%;border-left:1px solid var(--rule)">✓ On Track</th>
+        <th style="padding:10px 16px;text-align:left;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--tf);width:34%;border-left:1px solid var(--rule)">✗ Gap / Not Tracked</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid var(--rule)">
+        <td style="padding:10px 16px;line-height:1.5"><strong>Monthly GMV</strong><br><span style="color:var(--sub);font-size:12px">Pre-seed $55–165K/mo</span></td>
+        <td style="padding:10px 16px;line-height:1.5;border-left:1px solid var(--rule);background:#F0FAF4">Y1 projection <strong>$180K/mo</strong> · exceeds pre-seed; at Seed entry</td>
+        <td style="padding:10px 16px;border-left:1px solid var(--rule)"></td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--rule)">
+        <td style="padding:10px 16px;line-height:1.5"><strong>Monthly net revenue</strong><br><span style="color:var(--sub);font-size:12px">Seed min $22–45K/mo</span></td>
+        <td style="padding:10px 16px;line-height:1.5;border-left:1px solid var(--rule);background:#F0FAF4">Y1 projection <strong>$27K/mo</strong> · within Seed min range</td>
+        <td style="padding:10px 16px;border-left:1px solid var(--rule)"></td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--rule)">
+        <td style="padding:10px 16px;line-height:1.5"><strong>Active designers</strong><br><span style="color:var(--sub);font-size:12px">100–300 by pre-seed end</span></td>
+        <td style="padding:10px 16px;border-left:1px solid var(--rule)"></td>
+        <td style="padding:10px 16px;line-height:1.5;border-left:1px solid var(--rule);background:var(--tf-ghost)">18 budgeted</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--rule)">
+        <td style="padding:10px 16px;line-height:1.5"><strong>Take rate</strong><br><span style="color:var(--sub);font-size:12px">12–20% investor floor</span></td>
+        <td style="padding:10px 16px;border-left:1px solid var(--rule)"></td>
+        <td style="padding:10px 16px;line-height:1.5;border-left:1px solid var(--rule);background:var(--tf-ghost)">~11% effective (10% platform + 20% on 5% organic) — below floor</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--rule)">
+        <td style="padding:10px 16px;line-height:1.5"><strong>Registered users</strong><br><span style="color:var(--sub);font-size:12px">5–15K required</span></td>
+        <td style="padding:10px 16px;border-left:1px solid var(--rule)"></td>
+        <td style="padding:10px 16px;line-height:1.5;border-left:1px solid var(--rule);background:var(--tf-ghost)">Not tracked in budget</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--rule)">
+        <td style="padding:10px 16px;line-height:1.5"><strong>90-day repeat purchase</strong><br><span style="color:var(--sub);font-size:12px">25–35% required</span></td>
+        <td style="padding:10px 16px;border-left:1px solid var(--rule)"></td>
+        <td style="padding:10px 16px;line-height:1.5;border-left:1px solid var(--rule);background:var(--tf-ghost)">Not tracked</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--rule)">
+        <td style="padding:10px 16px;line-height:1.5"><strong>Organic acquisition</strong><br><span style="color:var(--sub);font-size:12px">25–40% of new users</span></td>
+        <td style="padding:10px 16px;border-left:1px solid var(--rule)"></td>
+        <td style="padding:10px 16px;line-height:1.5;border-left:1px solid var(--rule);background:var(--tf-ghost)">Not tracked</td>
+      </tr>
+      <tr>
+        <td style="padding:10px 16px;line-height:1.5"><strong>Transaction liquidity</strong><br><span style="color:var(--sub);font-size:12px">≥25% of listings → sales</span></td>
+        <td style="padding:10px 16px;border-left:1px solid var(--rule)"></td>
+        <td style="padding:10px 16px;line-height:1.5;border-left:1px solid var(--rule);background:var(--tf-ghost)">Not tracked</td>
+      </tr>
+    </tbody>
+  </table>
   </div>
 </div>
 
