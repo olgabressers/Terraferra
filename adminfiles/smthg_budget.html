@@ -177,6 +177,9 @@ input[type=range]{width:100%;height:4px;accent-color:var(--tf);cursor:pointer;di
 .ql{font-size:11px;color:var(--sub);font-weight:500;flex:1;min-width:0}
 .qv{font-size:12px;font-weight:800;color:var(--ink);white-space:nowrap}
 .qv.g{color:#1A7A4A}.qv.r{color:var(--tf)}.qv.b{font-size:14px}
+.q-sub{background:#FAFAF8}
+.q-sub .ql{padding-left:12px;font-size:10px;font-style:italic}
+.q-sub .qv{font-size:10px;font-weight:700}
 .qdiv{height:1px;background:var(--rule);margin:3px 0}
 .yr-bar{background:var(--ink);padding:16px 20px;display:grid;grid-template-columns:repeat(5,1fr);margin-top:14px}
 .yr-i{padding:0 14px;border-right:1px solid rgba(255,255,255,.1)}
@@ -1796,7 +1799,7 @@ details[open].cd summary::before{content:'▾'}
     <label style="font-size:11px;color:var(--ink);display:flex;align-items:center;gap:4px">Y4 <input id="ct-y4-count" type="number" value="4" min="0" max="99" style="width:42px;border:1px solid var(--rule);padding:3px 5px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif" oninput="yrProj()"></label>
     <label style="font-size:11px;color:var(--ink);display:flex;align-items:center;gap:4px">Y5 <input id="ct-y5-count" type="number" value="4" min="0" max="99" style="width:42px;border:1px solid var(--rule);padding:3px 5px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif" oninput="yrProj()"></label>
   </div>
-  <div style="font-size:10px;color:var(--sub)">G&amp;A estimates (incl. trade shows): Y1 $200.8K · Y2 $100K · Y3 $130K · Y4 $200K · Y5 $300K</div>
+  <div style="font-size:10px;color:var(--sub)">G&amp;A incl. trade shows: Y1 from §01 actual · Y2 $120.8K · Y3 $155K · Y4 $235K · Y5 $350K</div>
 </div>
 
 <!-- Cost year boxes -->
@@ -1859,19 +1862,12 @@ details[open].cd summary::before{content:'▾'}
       <details class="cd"><summary>4 founders · rate adjustable above</summary><div class="cd-body">
         <div class="cd-r"><span id="ycd2-ct-info">4 founders × $10K/mo × 12 = $480K/yr</span></div>
       </div></details>
-      <div class="q-row"><span class="ql">G&amp;A</span><span class="qv r" id="yc2-ga">—</span></div>
-      <details class="cd"><summary>Legal · IT · tools · marketing — indicative allocation</summary><div class="cd-body">
-        <div class="cd-r"><span>Legal retainer</span><span>$12,000 · $1K/mo (post-SAFE — less transactional than Y1)</span></div>
-        <div class="cd-r"><span>Tax &amp; accounting</span><span>$4,400 · Pilot.com bookkeeping + filing</span></div>
-        <div class="cd-r"><span>D&amp;O Insurance</span><span>$5,600</span></div>
-        <div class="cd-r"><span>Banking &amp; FX</span><span>$6,600 · same as Y1</span></div>
-        <div class="cd-r"><span>IT infrastructure</span><span>$18,000 · $1.5K/mo — traffic + load growth</span></div>
-        <div class="cd-r"><span>Platform tools</span><span>$7,900 · Shopify Adv + Circle + Vercel + Intercom</span></div>
-        <div class="cd-r"><span>AI tools &amp; APIs</span><span>$14,000 · OpenAI/Anthropic, Insense, Algolia, AI content</span></div>
-        <div class="cd-r"><span>Consumer paid social</span><span>$25,500 · active full year (Y1 started M7)</span></div>
-        <div class="cd-r"><span>CRM · email · PR freelance</span><span>$6,000 · HubSpot + Klaviyo + Apollo + outreach</span></div>
-        <div class="cd-r cd-tot"><span>Total</span><span>$100,000</span></div>
-      </div></details>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">G&amp;A total</span><span class="qv r" id="yc2-ga">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Financial &amp; Legal · legal $12K + tax $4.4K + D&amp;O $5.6K + banking $6.6K</span><span class="qv r" id="yc2-ga-finleg">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Tools &amp; IT · IT infra $18K + platform $7.9K</span><span class="qv r" id="yc2-ga-tools">—</span></div>
+      <div class="q-row q-sub"><span class="ql">AI tools · OpenAI/Anthropic, Algolia, Insense</span><span class="qv r" id="yc2-ga-ai">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Marketing &amp; PR · paid social $25.5K + CRM/email/PR $6K</span><span class="qv r" id="yc2-ga-mktg">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Trade shows &amp; travel · 4 shows (2 US + 2 EU)</span><span class="qv r" id="yc2-ga-shows">—</span></div>
       <div class="qdiv"></div>
       <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">Total Costs</span><span class="qv b r" id="yc2-tot">—</span></div>
       <div class="qdiv"></div>
@@ -1900,18 +1896,12 @@ details[open].cd summary::before{content:'▾'}
       <details class="cd"><summary>4 founders · rate adjustable above</summary><div class="cd-body">
         <div class="cd-r"><span id="ycd3-ct-info">4 founders × $10K/mo × 12 = $480K/yr</span></div>
       </div></details>
-      <div class="q-row"><span class="ql">G&amp;A</span><span class="qv r" id="yc3-ga">—</span></div>
-      <details class="cd"><summary>Legal · IT · tools · marketing — indicative allocation</summary><div class="cd-body">
-        <div class="cd-r"><span>Legal retainer</span><span>$18,000 · $1.5K/mo (Series A prep + more contracts)</span></div>
-        <div class="cd-r"><span>Tax &amp; accounting</span><span>$6,000 · $500/mo — larger revenue, more complex books</span></div>
-        <div class="cd-r"><span>D&amp;O Insurance</span><span>$7,200 · $600/mo — scales with valuation + board seats</span></div>
-        <div class="cd-r"><span>Banking &amp; FX</span><span>$10,000 · US + EU transactions growing</span></div>
-        <div class="cd-r"><span>IT infrastructure</span><span>$25,000 · ~$2K/mo — mobile infra + CDN scaling</span></div>
-        <div class="cd-r"><span>Platform tools</span><span>$9,800 · Shopify + Circle Pro + Vercel + monitoring</span></div>
-        <div class="cd-r"><span>AI tools &amp; APIs</span><span>$19,000 · personalisation + creator intelligence at scale</span></div>
-        <div class="cd-r"><span>Marketing &amp; brand</span><span>$35,000 · consumer acquisition + fashion trade press</span></div>
-        <div class="cd-r cd-tot"><span>Total</span><span>$130,000</span></div>
-      </div></details>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">G&amp;A total</span><span class="qv r" id="yc3-ga">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Financial &amp; Legal · legal $18K + tax $6K + D&amp;O $7.2K + banking $10K</span><span class="qv r" id="yc3-ga-finleg">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Tools &amp; IT · IT infra $25K + platform $9.8K</span><span class="qv r" id="yc3-ga-tools">—</span></div>
+      <div class="q-row q-sub"><span class="ql">AI tools · personalisation + creator intelligence</span><span class="qv r" id="yc3-ga-ai">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Marketing &amp; PR · consumer acquisition + fashion trade press</span><span class="qv r" id="yc3-ga-mktg">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Trade shows &amp; travel · 5 shows (3 US + 2 EU) — estimate</span><span class="qv r" id="yc3-ga-shows">—</span></div>
       <div class="qdiv"></div>
       <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">Total Costs</span><span class="qv b r" id="yc3-tot">—</span></div>
       <div class="qdiv"></div>
@@ -1940,18 +1930,12 @@ details[open].cd summary::before{content:'▾'}
       <details class="cd"><summary>4 founders · rate adjustable above</summary><div class="cd-body">
         <div class="cd-r"><span id="ycd4-ct-info">4 founders × $10K/mo × 12 = $480K/yr</span></div>
       </div></details>
-      <div class="q-row"><span class="ql">G&amp;A</span><span class="qv r" id="yc4-ga">—</span></div>
-      <details class="cd"><summary>Legal · IT · tools · marketing — indicative allocation</summary><div class="cd-body">
-        <div class="cd-r"><span>Legal retainer</span><span>$30,000 · $2.5K/mo (Series A admin + intl expansion legal)</span></div>
-        <div class="cd-r"><span>Tax &amp; accounting</span><span>$10,000 · multi-entity, multi-country complexity</span></div>
-        <div class="cd-r"><span>D&amp;O Insurance</span><span>$12,000 · $1K/mo — post-Series A valuation + expanded board</span></div>
-        <div class="cd-r"><span>Banking &amp; FX</span><span>$15,000 · US + EU + Asia-Pacific</span></div>
-        <div class="cd-r"><span>IT infrastructure</span><span>$40,000 · ~$3.3K/mo — CDN at scale + dedicated DevOps on-call</span></div>
-        <div class="cd-r"><span>Platform tools</span><span>$13,000 · Shopify Plus + enterprise Circle + security tooling</span></div>
-        <div class="cd-r"><span>AI tools &amp; APIs</span><span>$30,000 · full creator intelligence + recommendation stack</span></div>
-        <div class="cd-r"><span>Marketing &amp; brand</span><span>$50,000 · brand-level consumer marketing + fashion press + PR</span></div>
-        <div class="cd-r cd-tot"><span>Total</span><span>$200,000</span></div>
-      </div></details>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">G&amp;A total</span><span class="qv r" id="yc4-ga">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Financial &amp; Legal · legal $30K + tax $10K + D&amp;O $12K + banking $15K</span><span class="qv r" id="yc4-ga-finleg">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Tools &amp; IT · IT infra $40K + platform $13K</span><span class="qv r" id="yc4-ga-tools">—</span></div>
+      <div class="q-row q-sub"><span class="ql">AI tools · full creator intelligence + recommendation stack</span><span class="qv r" id="yc4-ga-ai">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Marketing &amp; PR · brand marketing + fashion press + PR</span><span class="qv r" id="yc4-ga-mktg">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Trade shows &amp; travel · 6–7 shows (US + EU + intl) — estimate</span><span class="qv r" id="yc4-ga-shows">—</span></div>
       <div class="qdiv"></div>
       <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">Total Costs</span><span class="qv b r" id="yc4-tot">—</span></div>
       <div class="qdiv"></div>
@@ -1980,10 +1964,12 @@ details[open].cd summary::before{content:'▾'}
       <details class="cd"><summary>4 founders · rate adjustable above</summary><div class="cd-body">
         <div class="cd-r"><span id="ycd5-ct-info">4 founders × $10K/mo × 12 = $480K/yr</span></div>
       </div></details>
-      <div class="q-row"><span class="ql">G&amp;A</span><span class="qv r" id="yc5-ga">—</span></div>
-      <details class="cd"><summary>Office · tools · legal · admin (indicative)</summary><div class="cd-body">
-        <div class="cd-r cd-tot"><span>Total</span><span>$300K/yr (estimate)</span></div>
-      </div></details>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">G&amp;A total</span><span class="qv r" id="yc5-ga">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Financial &amp; Legal — estimate</span><span class="qv r" id="yc5-ga-finleg">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Tools &amp; IT — estimate</span><span class="qv r" id="yc5-ga-tools">—</span></div>
+      <div class="q-row q-sub"><span class="ql">AI tools — estimate</span><span class="qv r" id="yc5-ga-ai">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Marketing &amp; PR — estimate</span><span class="qv r" id="yc5-ga-mktg">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Trade shows &amp; travel · 8–10 shows — estimate</span><span class="qv r" id="yc5-ga-shows">—</span></div>
       <div class="qdiv"></div>
       <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">Total Costs</span><span class="qv b r" id="yc5-tot">—</span></div>
       <div class="qdiv"></div>
@@ -2052,7 +2038,7 @@ details[open].cd summary::before{content:'▾'}
 </tbody>
 </table>
 </div>
-<p style="font-size:11px;color:var(--sub);margin-top:12px;line-height:1.6">Unit economics from Section 02: 150 items/drop, $200 AOV, 10% platform fee, 50% VTO × 5 tries at $0.10 (Shopify), Stripe 2.9% + $0.30/order, Stripe Radar 0.05%. Designer frequency: once/3mo (4 drops/yr per designer) for all years.25×/mo (÷15), Y4 1.5×/mo (÷18), Y5 2×/mo (÷24). Ops team from <a href="smthg_operationsteam.html" style="color:var(--sub)">Headcount Roadmap</a> (mo × 12): Y1 $11.5K, Y2 $43K, Y3 $100K, Y4 $185K, Y5 $320K. Y1 fixed costs (core team + ops team + G&amp;A) computed dynamically from Section 01 total + contingency buffer — matches Section 02 Net P&amp;L. Organic share per year (retained influencer fee on non-influencer GMV): Y1 5% · Y2 20% · Y3 35% · Y4 50% · Y5 60% — source: <a href="TFmvpcosts.html" style="color:var(--sub)">TFmvpcosts.html</a>. All figures indicative.</p>
+<p style="font-size:11px;color:var(--sub);margin-top:12px;line-height:1.6">Unit economics from Section 02: 150 items/drop, $200 AOV, 10% platform fee, 50% VTO × 5 tries at $0.10 (Shopify), Stripe 2.9% + $0.30/order, Stripe Radar 0.05%. Designer frequency: once/3mo (4 drops/yr per designer) for all years.25×/mo (÷15), Y4 1.5×/mo (÷18), Y5 2×/mo (÷24). Ops team from <a href="smthg_operationsteam.html" style="color:var(--sub)">Headcount Roadmap</a> (mo × 12): Y1 $11.5K, Y2 $43K, Y3 $100K, Y4 $185K, Y5 $320K. Y1 fixed costs computed dynamically from Section 01 total + contingency buffer — matches Section 02 Net P&amp;L. G&amp;A Y2–Y5 includes trade shows: Y2 $20.8K · Y3 $25K · Y4 $35K · Y5 $50K (4–10 shows/yr, US + EU). Designer counts are annual averages; beginning and end of year shown on each revenue card. Organic share per year (retained influencer fee on non-influencer GMV): Y1 5% · Y2 20% · Y3 35% · Y4 50% · Y5 60% — source: <a href="TFmvpcosts.html" style="color:var(--sub)">TFmvpcosts.html</a>. All figures indicative.</p>
 
 </div><!-- /s04-body -->
 
@@ -2946,7 +2932,13 @@ function updateTopSummary(yrTot,htYr,y1yr){
 var Y_FREQ=[0,4,4,4,4,4];
 var Y_FREQ_LBL=['','once/3mo','once/3mo','once/3mo','once/3mo','once/3mo'];
 var Y_OPS=[0,138000,516000,1200000,2220000,3840000];
-var Y_GA=[0,200840,100000,130000,200000,300000];
+var Y_GA=[0,200840,120840,155000,235000,350000]; // Y2-5 include trade shows
+var Y_GA_GROUPS={
+  2:{finleg:28600,tools:25900,ai:14000,mktg:31500,shows:20840},
+  3:{finleg:41200,tools:34800,ai:19000,mktg:35000,shows:25000},
+  4:{finleg:67000,tools:53000,ai:30000,mktg:50000,shows:35000},
+  5:{finleg:100000,tools:80000,ai:45000,mktg:75000,shows:50000}
+};
 var OPS_HC=[0,7,8,13,20,35];
 
 function adjY(yr,d){var el=document.getElementById('yd'+yr);if(!el)return;el.value=Math.max(0,(parseInt(el.value)||0)+d);yrProj();}
@@ -2963,6 +2955,7 @@ function yrProj(){
   function getCTC(yr){var el=document.getElementById('ct-y'+yr+'-count');return parseInt(el?el.value:0)||0;}
   function getCTRate(yr){return yr>=3?ctY3pRate:ctRate;}
   var cumEbit=0;
+  var prevEndDes=0;
   for(var yr=1;yr<=5;yr++){
     var dropEl=document.getElementById('yd'+yr);
     var drops=parseInt(dropEl?dropEl.value:0)||0;
@@ -2979,8 +2972,11 @@ function yrProj(){
     var rev=platformFee+orgInfFee+subs;
     var netCol=smthgNet>=0?'#1A7A4A':'var(--tf)';
     // revenue box
+    var startDes=prevEndDes;
+    var endDes=Math.max(0,Math.round(designers*2-startDes));
+    prevEndDes=endDes;
     s('yr'+yr+'-gmv-h',fmtM(gmv)+' GMV');
-    s('yr'+yr+'-des-lbl',designers.toLocaleString()+' designers · '+Y_FREQ_LBL[yr]);
+    s('yr'+yr+'-des-lbl','Annual avg · '+designers.toLocaleString()+' designers  ·  Jan: '+startDes.toLocaleString()+' → Dec: '+endDes.toLocaleString());
     s('yr'+yr+'-ord',fmtN(orders));
     s('yr'+yr+'-gmv',fmtM(gmv));
     s('yr'+yr+'-tfr','+'+fmtM(platformFee));
@@ -3013,6 +3009,14 @@ function yrProj(){
     s('yc'+yr+'-ops','−'+fmtM(opsTeam));
     s('yc'+yr+'-core','−'+fmtM(coreTeam));
     s('yc'+yr+'-ga','−'+fmtM(ga));
+    if(yr>1){
+      var grp=Y_GA_GROUPS[yr]||{};
+      s('yc'+yr+'-ga-finleg','−'+fmtM(grp.finleg||0));
+      s('yc'+yr+'-ga-tools','−'+fmtM(grp.tools||0));
+      s('yc'+yr+'-ga-ai','−'+fmtM(grp.ai||0));
+      s('yc'+yr+'-ga-mktg','−'+fmtM(grp.mktg||0));
+      s('yc'+yr+'-ga-shows','−'+fmtM(grp.shows||0));
+    }
     s('yc'+yr+'-tot','−'+fmtM(opEx));
     var cnEl=document.getElementById('yc'+yr+'-net');
     if(cnEl){cnEl.textContent=(smthgNet>=0?'+':'')+fmtM(Math.abs(smthgNet));cnEl.style.color=netCol;}
