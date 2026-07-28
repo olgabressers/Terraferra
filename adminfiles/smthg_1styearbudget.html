@@ -44,12 +44,12 @@ thead th:last-child{min-width:180px}
 .sec-hdr.travel td{background:#F0F7F4;color:#1A7A4A;border-top:2px solid #1A7A4A}
 
 /* Table of Contents */
-.toc{background:white;border:1px solid var(--rule);border-radius:8px;padding:18px 22px;margin-bottom:32px}
-.toc-title{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--sub);margin-bottom:10px}
-.toc-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
-.toc-item{text-decoration:none;color:var(--ink);font-size:11px;font-weight:700;padding:8px 10px;border:1px solid var(--rule);border-radius:4px;display:block;transition:border-color .15s,color .15s}
-.toc-item:hover{border-color:var(--tf);color:var(--tf)}
-.toc-num{display:block;font-size:20px;font-weight:800;color:var(--tf);line-height:1;margin-bottom:3px}
+.toc{background:var(--ink);border-radius:8px;padding:20px 24px;margin-bottom:36px}
+.toc-title{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,.45);margin-bottom:14px}
+.toc-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.toc-item{text-decoration:none;color:rgba(255,255,255,.85);font-size:11px;font-weight:700;padding:10px 12px;border:1px solid rgba(255,255,255,.15);border-radius:4px;display:block;transition:border-color .15s,color .15s,background .15s}
+.toc-item:hover{border-color:var(--tf);color:#fff;background:rgba(232,0,45,.15)}
+.toc-num{display:block;font-size:22px;font-weight:800;color:var(--tf);line-height:1;margin-bottom:4px}
 @media(max-width:900px){.toc-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.toc-grid{grid-template-columns:repeat(2,1fr)}}
 
@@ -224,6 +224,18 @@ details[open].cd summary::before{content:'▾'}
 <h1>1st Year Budget<span class="sync-dot" id="sync-dot"></span><span class="sync-label" id="sync-label">Connecting…</span></h1>
 <p class="sub">SMTHG · Year 1 post-launch · all fixed costs incl. core team salary · USD primary · EUR ≈ USD × 0.91 · July 2026 · <a href="smthg_operationsteam.html" style="color:var(--tf);text-decoration:none;font-weight:700">Operations Team →</a></p>
 
+<!-- ── TABLE OF CONTENTS ── -->
+<nav class="toc">
+  <div class="toc-title">Jump to section</div>
+  <div class="toc-grid">
+    <a class="toc-item" href="#s01"><span class="toc-num">01</span>Fixed Operating Budget</a>
+    <a class="toc-item" href="#s02"><span class="toc-num">02</span>Quarterly Revenue</a>
+    <a class="toc-item" href="#s03"><span class="toc-num">03</span>Consolidated P&amp;L</a>
+    <a class="toc-item" href="#s04"><span class="toc-num">04</span>5-Year Outlook</a>
+    <a class="toc-item" href="#s05"><span class="toc-num">05</span>Appendix</a>
+  </div>
+</nav>
+
 <!-- ── SUMMARY CARDS ── -->
 <div class="summary">
   <div class="sc" style="border-top:2px solid var(--tf)">
@@ -252,18 +264,6 @@ details[open].cd summary::before{content:'▾'}
     <div class="sc-note">≈€52,052 · Paid Q1 only</div>
   </div>
 </div>
-
-<!-- ── TABLE OF CONTENTS ── -->
-<nav class="toc">
-  <div class="toc-title">Jump to section</div>
-  <div class="toc-grid">
-    <a class="toc-item" href="#s01"><span class="toc-num">01</span>Fixed Operating Budget</a>
-    <a class="toc-item" href="#s02"><span class="toc-num">02</span>Quarterly Revenue</a>
-    <a class="toc-item" href="#s03"><span class="toc-num">03</span>Consolidated P&amp;L</a>
-    <a class="toc-item" href="#s04"><span class="toc-num">04</span>5-Year Outlook</a>
-    <a class="toc-item" href="#s05"><span class="toc-num">05</span>Appendix</a>
-  </div>
-</nav>
 
 <!-- ── SECTION 01: FIXED OPERATING BUDGET ── -->
 <div class="proj-sep" id="s01">
