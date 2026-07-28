@@ -1799,7 +1799,7 @@ details[open].cd summary::before{content:'▾'}
     <label style="font-size:11px;color:var(--ink);display:flex;align-items:center;gap:4px">Y4 <input id="ct-y4-count" type="number" value="4" min="0" max="99" style="width:42px;border:1px solid var(--rule);padding:3px 5px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif" oninput="yrProj()"></label>
     <label style="font-size:11px;color:var(--ink);display:flex;align-items:center;gap:4px">Y5 <input id="ct-y5-count" type="number" value="4" min="0" max="99" style="width:42px;border:1px solid var(--rule);padding:3px 5px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif" oninput="yrProj()"></label>
   </div>
-  <div style="font-size:10px;color:var(--sub)">G&amp;A incl. trade shows: Y1 from §01 actual · Y2 $120.8K · Y3 $155K · Y4 $235K · Y5 $350K</div>
+  <div style="font-size:10px;color:var(--sub)">G&amp;A: Y1 from §01 actuals · Y2–Y5 = Y1 base × 2<sup>n</sup> per year (doubles annually). Ops team: US market rates all years.</div>
 </div>
 
 <!-- Cost year boxes -->
@@ -1870,6 +1870,8 @@ details[open].cd summary::before{content:'▾'}
       <div class="q-row q-sub"><span class="ql">AI tools · OpenAI/Anthropic, Algolia, Insense</span><span class="qv r" id="yc2-ga-ai">—</span></div>
       <div class="q-row q-sub"><span class="ql">Marketing &amp; PR · paid social $25.5K + CRM/email/PR $6K</span><span class="qv r" id="yc2-ga-mktg">—</span></div>
       <div class="q-row q-sub"><span class="ql">Trade shows &amp; travel · 4 shows (2 US + 2 EU)</span><span class="qv r" id="yc2-ga-shows">—</span></div>
+      <div class="q-row q-sub"><span class="ql" style="opacity:.4">One-time launch costs · Q1 only</span><span class="qv r" style="opacity:.4">—</span></div>
+      <div class="q-row q-sub"><span class="ql" style="opacity:.4">Contingency buffer</span><span class="qv r" style="opacity:.4">—</span></div>
       <div class="qdiv"></div>
       <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">Total Costs</span><span class="qv b r" id="yc2-tot">—</span></div>
       <div class="qdiv"></div>
@@ -1903,7 +1905,9 @@ details[open].cd summary::before{content:'▾'}
       <div class="q-row q-sub"><span class="ql">Tools &amp; IT · IT infra $25K + platform $9.8K</span><span class="qv r" id="yc3-ga-tools">—</span></div>
       <div class="q-row q-sub"><span class="ql">AI tools · personalisation + creator intelligence</span><span class="qv r" id="yc3-ga-ai">—</span></div>
       <div class="q-row q-sub"><span class="ql">Marketing &amp; PR · consumer acquisition + fashion trade press</span><span class="qv r" id="yc3-ga-mktg">—</span></div>
-      <div class="q-row q-sub"><span class="ql">Trade shows &amp; travel · 5 shows (3 US + 2 EU) — estimate</span><span class="qv r" id="yc3-ga-shows">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Trade shows &amp; travel</span><span class="qv r" id="yc3-ga-shows">—</span></div>
+      <div class="q-row q-sub"><span class="ql" style="opacity:.4">One-time launch costs · Q1 only</span><span class="qv r" style="opacity:.4">—</span></div>
+      <div class="q-row q-sub"><span class="ql" style="opacity:.4">Contingency buffer</span><span class="qv r" style="opacity:.4">—</span></div>
       <div class="qdiv"></div>
       <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">Total Costs</span><span class="qv b r" id="yc3-tot">—</span></div>
       <div class="qdiv"></div>
@@ -1937,7 +1941,9 @@ details[open].cd summary::before{content:'▾'}
       <div class="q-row q-sub"><span class="ql">Tools &amp; IT · IT infra $40K + platform $13K</span><span class="qv r" id="yc4-ga-tools">—</span></div>
       <div class="q-row q-sub"><span class="ql">AI tools · full creator intelligence + recommendation stack</span><span class="qv r" id="yc4-ga-ai">—</span></div>
       <div class="q-row q-sub"><span class="ql">Marketing &amp; PR · brand marketing + fashion press + PR</span><span class="qv r" id="yc4-ga-mktg">—</span></div>
-      <div class="q-row q-sub"><span class="ql">Trade shows &amp; travel · 6–7 shows (US + EU + intl) — estimate</span><span class="qv r" id="yc4-ga-shows">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Trade shows &amp; travel</span><span class="qv r" id="yc4-ga-shows">—</span></div>
+      <div class="q-row q-sub"><span class="ql" style="opacity:.4">One-time launch costs · Q1 only</span><span class="qv r" style="opacity:.4">—</span></div>
+      <div class="q-row q-sub"><span class="ql" style="opacity:.4">Contingency buffer</span><span class="qv r" style="opacity:.4">—</span></div>
       <div class="qdiv"></div>
       <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">Total Costs</span><span class="qv b r" id="yc4-tot">—</span></div>
       <div class="qdiv"></div>
@@ -1971,7 +1977,9 @@ details[open].cd summary::before{content:'▾'}
       <div class="q-row q-sub"><span class="ql">Tools &amp; IT — estimate</span><span class="qv r" id="yc5-ga-tools">—</span></div>
       <div class="q-row q-sub"><span class="ql">AI tools — estimate</span><span class="qv r" id="yc5-ga-ai">—</span></div>
       <div class="q-row q-sub"><span class="ql">Marketing &amp; PR — estimate</span><span class="qv r" id="yc5-ga-mktg">—</span></div>
-      <div class="q-row q-sub"><span class="ql">Trade shows &amp; travel · 8–10 shows — estimate</span><span class="qv r" id="yc5-ga-shows">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Trade shows &amp; travel</span><span class="qv r" id="yc5-ga-shows">—</span></div>
+      <div class="q-row q-sub"><span class="ql" style="opacity:.4">One-time launch costs · Q1 only</span><span class="qv r" style="opacity:.4">—</span></div>
+      <div class="q-row q-sub"><span class="ql" style="opacity:.4">Contingency buffer</span><span class="qv r" style="opacity:.4">—</span></div>
       <div class="qdiv"></div>
       <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">Total Costs</span><span class="qv b r" id="yc5-tot">—</span></div>
       <div class="qdiv"></div>
@@ -2040,7 +2048,7 @@ details[open].cd summary::before{content:'▾'}
 </tbody>
 </table>
 </div>
-<p style="font-size:11px;color:var(--sub);margin-top:12px;line-height:1.6">Unit economics from Section 02: 150 items/drop, $200 AOV, 10% platform fee, 50% VTO × 5 tries at $0.10 (Shopify), Stripe 2.9% + $0.30/order, Stripe Radar 0.05%. Designer frequency: once/3mo (4 drops/yr per designer) for all years.25×/mo (÷15), Y4 1.5×/mo (÷18), Y5 2×/mo (÷24). Ops team from <a href="smthg_operationsteam.html" style="color:var(--sub)">Headcount Roadmap</a> (mo × 12): Y1 $11.5K, Y2 $43K, Y3 $100K, Y4 $185K, Y5 $320K. Y1 fixed costs computed dynamically from Section 01 total + contingency buffer — matches Section 02 Net P&amp;L. G&amp;A Y2–Y5 includes trade shows: Y2 $20.8K · Y3 $25K · Y4 $35K · Y5 $50K (4–10 shows/yr, US + EU). Designer counts are annual averages; beginning and end of year shown on each revenue card. Organic share per year (retained influencer fee on non-influencer GMV): Y1 5% · Y2 20% · Y3 35% · Y4 50% · Y5 60% — source: <a href="TFmvpcosts.html" style="color:var(--sub)">TFmvpcosts.html</a>. All figures indicative.</p>
+<p style="font-size:11px;color:var(--sub);margin-top:12px;line-height:1.6">Unit economics from Section 02: 150 items/drop, $200 AOV, 10% platform fee, 50% VTO × 5 tries at $0.10 (Shopify), Stripe 2.9% + $0.30/order, Stripe Radar 0.05%. Designer frequency: once/3mo (4 drops/yr per designer) for all years.25×/mo (÷15), Y4 1.5×/mo (÷18), Y5 2×/mo (÷24). Ops team from <a href="smthg_operationsteam.html" style="color:var(--sub)">Headcount Roadmap</a> (mo × 12): Y1 $11.5K, Y2 $43K, Y3 $100K, Y4 $185K, Y5 $320K. Y1 fixed costs computed dynamically from Section 01 total + contingency buffer — matches Section 02 Net P&amp;L. G&amp;A Y2–Y5 = Y1 §01 base (Financial &amp; Legal + Tools &amp; IT + AI + Marketing + Trade shows) doubled each year: Y2 ×2, Y3 ×4, Y4 ×8, Y5 ×16. Ops team Y1: US market rates (Glassdoor 2025) via Section 01 salary toggle (market mode). Ops team Y2–Y5: US market rates from Headcount Roadmap. Designer counts are annual averages; beginning and end of year shown on each revenue card. Organic share per year (retained influencer fee on non-influencer GMV): Y1 5% · Y2 20% · Y3 35% · Y4 50% · Y5 60% — source: <a href="TFmvpcosts.html" style="color:var(--sub)">TFmvpcosts.html</a>. All figures indicative.</p>
 
 </div><!-- /s04-body -->
 
@@ -2940,13 +2948,7 @@ function updateTopSummary(yrTot,htYr,y1yr){
 var Y_FREQ=[0,4,4,4,4,4];
 var Y_FREQ_LBL=['','once/3mo','once/3mo','once/3mo','once/3mo','once/3mo'];
 var Y_OPS=[0,138000,516000,1200000,2220000,3840000];
-var Y_GA=[0,200840,120840,155000,235000,350000]; // Y2-5 include trade shows
-var Y_GA_GROUPS={
-  2:{finleg:28600,tools:25900,ai:14000,mktg:31500,shows:20840},
-  3:{finleg:41200,tools:34800,ai:19000,mktg:35000,shows:25000},
-  4:{finleg:67000,tools:53000,ai:30000,mktg:50000,shows:35000},
-  5:{finleg:100000,tools:80000,ai:45000,mktg:75000,shows:50000}
-};
+var Y_GA=[0,200840]; // Y1 overridden dynamically; Y2-5 = §01 gaBase × 2^(yr-1)
 var OPS_HC=[0,7,8,13,20,35];
 
 function adjY(yr,d){var el=document.getElementById('yd'+yr);if(!el)return;el.value=Math.max(0,(parseInt(el.value)||0)+d);yrProj();}
@@ -3008,7 +3010,9 @@ function yrProj(){
     var y1cA=parseFloat(document.getElementById('ct-y1-count').value)||0;
     var coreTeam=yr===1?y1rA*y1cA*12:getCTC(yr)*getCTRate(yr)*12;
     var bufPct=(parseFloat((document.getElementById('ct-buf-pct')||{}).value)||0)/100;
-    var ga=yr===1?Math.max(0,g_yrTot*(1+bufPct)-opsTeam-coreTeam):Y_GA[yr];
+    var ga,gaBase=g_s1finleg+g_s1tools+g_s1ai+g_s1mktg+g_s1travel;
+    if(yr===1){ga=Math.max(0,g_yrTot*(1+bufPct)-opsTeam-coreTeam);}
+    else{ga=gaBase*Math.pow(2,yr-1);}
     var totalCosts=varTotal+opsTeam+coreTeam+ga;
     var opEx=opsTeam+coreTeam+ga;
     var ebit=smthgNet-opsTeam-coreTeam-ga;
@@ -3026,12 +3030,12 @@ function yrProj(){
       s('yc1-ga-onetime','−'+fmtM(g_s1onetime));
       s('yc1-ga-buf','−'+fmtM(bufPct*g_yrTot));
     }else{
-      var grp=Y_GA_GROUPS[yr]||{};
-      s('yc'+yr+'-ga-finleg','−'+fmtM(grp.finleg||0));
-      s('yc'+yr+'-ga-tools','−'+fmtM(grp.tools||0));
-      s('yc'+yr+'-ga-ai','−'+fmtM(grp.ai||0));
-      s('yc'+yr+'-ga-mktg','−'+fmtM(grp.mktg||0));
-      s('yc'+yr+'-ga-shows','−'+fmtM(grp.shows||0));
+      var gaScale=Math.pow(2,yr-1);
+      s('yc'+yr+'-ga-finleg','−'+fmtM(g_s1finleg*gaScale));
+      s('yc'+yr+'-ga-tools','−'+fmtM(g_s1tools*gaScale));
+      s('yc'+yr+'-ga-ai','−'+fmtM(g_s1ai*gaScale));
+      s('yc'+yr+'-ga-mktg','−'+fmtM(g_s1mktg*gaScale));
+      s('yc'+yr+'-ga-shows','−'+fmtM(g_s1travel*gaScale));
     }
     s('yc'+yr+'-tot','−'+fmtM(opEx));
     var cnEl=document.getElementById('yc'+yr+'-net');
