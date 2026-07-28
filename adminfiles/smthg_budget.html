@@ -1828,12 +1828,14 @@ details[open].cd summary::before{content:'▾'}
         <div class="cd-r"><span>CEO + CTO + Creative Dir + co-founder</span><span></span></div>
         <div class="cd-r cd-tot"><span>Total</span><span id="ycd1-ct-info">—</span></div>
       </div></details>
-      <div class="q-row"><span class="ql">G&amp;A</span><span class="qv r" id="yc1-ga">—</span></div>
-      <details class="cd"><summary>Office · tools · legal · admin · trade shows</summary><div class="cd-body">
-        <div class="cd-r"><span>G&amp;A (Section 01 actuals)</span><span>$180,000 · Financial/Legal, tools, AI, marketing</span></div>
-        <div class="cd-r"><span>Trade shows · 4 visits (2 US + 2 EU)</span><span>$20,840 · MAGIC LV (Q1) + Who's Next Paris (Q1) + Coterie NYC (Q3) + Premium Berlin (Q3)</span></div>
-        <div class="cd-r cd-tot"><span>Total</span><span>$200,840/yr</span></div>
-      </div></details>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">G&amp;A total</span><span class="qv r" id="yc1-ga">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Financial &amp; Legal (§01 actuals)</span><span class="qv r" id="yc1-ga-finleg">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Tools &amp; IT (§01 actuals)</span><span class="qv r" id="yc1-ga-tools">—</span></div>
+      <div class="q-row q-sub"><span class="ql">AI tools (§01 actuals)</span><span class="qv r" id="yc1-ga-ai">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Marketing &amp; PR (§01 actuals)</span><span class="qv r" id="yc1-ga-mktg">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Trade shows &amp; travel (§01 actuals)</span><span class="qv r" id="yc1-ga-shows">—</span></div>
+      <div class="q-row q-sub"><span class="ql">One-time launch costs · Q1 only</span><span class="qv r" id="yc1-ga-onetime">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Contingency buffer</span><span class="qv r" id="yc1-ga-buf">—</span></div>
       <div class="qdiv"></div>
       <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">Total Costs</span><span class="qv b r" id="yc1-tot">—</span></div>
       <div class="qdiv"></div>
@@ -2763,6 +2765,7 @@ function proj(){
 var MARKET_RATES_HT={dev:4600,cm:4000,ir:4200,smm:3800,ccs:3800,co:3200};
 var BUDGET_DEFAULTS_HT={dev:2000,cm:2500,ir:4200,smm:2500,ccs:2000,co:2500};
 var g_yrTot=0;
+var g_s1finleg=0,g_s1tools=0,g_s1ai=0,g_s1mktg=0,g_s1travel=0,g_s1onetime=0;
 var salaryMode='market';
 function getHtR(key){
   if(salaryMode==='market')return MARKET_RATES_HT[key]||0;
@@ -2817,9 +2820,13 @@ function calcS01(){
   for(var qi=0;qi<4;qi++){
     qTot[qi]=y1qtr+htQtr+FX_FINLEG+FX_OPTOOLS+FX_AI+FX_MKTG[qi]+FX_TRAVEL[qi]+(qi===0?FX_ONETIME:0);
   }
-  var fxOpexYr=(FX_FINLEG+FX_OPTOOLS+FX_AI)*4+(FX_MKTG[0]+FX_MKTG[1]+FX_MKTG[2]+FX_MKTG[3])+(FX_TRAVEL[0]+FX_TRAVEL[1]+FX_TRAVEL[2]+FX_TRAVEL[3]);
+  var fxTravYr=FX_TRAVEL[0]+FX_TRAVEL[1]+FX_TRAVEL[2]+FX_TRAVEL[3];
+  var fxOpexYr=(FX_FINLEG+FX_OPTOOLS+FX_AI)*4+(FX_MKTG[0]+FX_MKTG[1]+FX_MKTG[2]+FX_MKTG[3])+fxTravYr;
   var yrTot=y1yr+htYr+fxOpexYr+FX_ONETIME;
   g_yrTot=yrTot;
+  g_s1finleg=FX_FINLEG*4; g_s1tools=FX_OPTOOLS*4; g_s1ai=FX_AI*4;
+  g_s1mktg=FX_MKTG[0]+FX_MKTG[1]+FX_MKTG[2]+FX_MKTG[3];
+  g_s1travel=fxTravYr; g_s1onetime=FX_ONETIME;
 
   function fmt2(n){return '$'+Math.round(n).toLocaleString();}
   function fmtE(n){return '<span class="eur">≈€'+Math.round(n*0.91).toLocaleString()+'</span>';}
@@ -2906,6 +2913,7 @@ function calcS01(){
 
   updateTopSummary(yrTot,htYr,y1yr);
   proj();
+  yrProj();
   pushInputs();
 }
 
@@ -3009,7 +3017,15 @@ function yrProj(){
     s('yc'+yr+'-ops','−'+fmtM(opsTeam));
     s('yc'+yr+'-core','−'+fmtM(coreTeam));
     s('yc'+yr+'-ga','−'+fmtM(ga));
-    if(yr>1){
+    if(yr===1){
+      s('yc1-ga-finleg','−'+fmtM(g_s1finleg));
+      s('yc1-ga-tools','−'+fmtM(g_s1tools));
+      s('yc1-ga-ai','−'+fmtM(g_s1ai));
+      s('yc1-ga-mktg','−'+fmtM(g_s1mktg));
+      s('yc1-ga-shows','−'+fmtM(g_s1travel));
+      s('yc1-ga-onetime','−'+fmtM(g_s1onetime));
+      s('yc1-ga-buf','−'+fmtM(bufPct*g_yrTot));
+    }else{
       var grp=Y_GA_GROUPS[yr]||{};
       s('yc'+yr+'-ga-finleg','−'+fmtM(grp.finleg||0));
       s('yc'+yr+'-ga-tools','−'+fmtM(grp.tools||0));
