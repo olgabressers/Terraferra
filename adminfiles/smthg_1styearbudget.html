@@ -2630,6 +2630,21 @@ function setSalaryMode(mode){
     ?'US market lower-end · Glassdoor 2025'
     :'Offshore contractor rates (current budget)';
   if(sn&&mode==='market'){sn.innerHTML='US market lower-end · Glassdoor 2025 · <a href="smthg_operationsteam.html" target="_blank" rel="noopener" style="color:var(--tf);text-decoration:none">Source →</a>';}
+  // Sync input field displays with the active mode
+  ['dev','cm','co','smm','ir'].forEach(function(key){
+    var el=document.getElementById('ht-'+key+'-rate');
+    if(!el)return;
+    if(mode==='market'){
+      if(!el.dataset.budget)el.dataset.budget=el.value;
+      el.value=MARKET_RATES_HT[key];
+      el.readOnly=true;
+      el.style.color='var(--tf)';
+    } else {
+      if(el.dataset.budget)el.value=el.dataset.budget;
+      el.readOnly=false;
+      el.style.color='var(--ink)';
+    }
+  });
   calcS01();
 }
 function calcS01(){
@@ -2854,12 +2869,28 @@ function setSyncState(s){
 }
 function snapInputs(){
   var o={vtoMode:vtoMode};
-  SYNC_IDS.forEach(function(id){var el=document.getElementById(id);if(el)o[id]=el.value;});
+  SYNC_IDS.forEach(function(id){
+    var el=document.getElementById(id);
+    if(!el)return;
+    // In market mode, ht-*-rate inputs display market rates — push the cached budget value instead
+    if(salaryMode==='market'&&id.startsWith('ht-')&&id.endsWith('-rate')&&el.dataset.budget!=null){
+      o[id]=el.dataset.budget;
+    } else {
+      o[id]=el.value;
+    }
+  });
   return o;
 }
 function applySnap(data){
   applying=true;
   SYNC_IDS.forEach(function(id){if(data[id]!=null){var el=document.getElementById(id);if(el)el.value=data[id];}});
+  // Re-apply market display — Firebase sync just overwrote the inputs
+  if(salaryMode==='market'){
+    ['dev','cm','co','smm','ir'].forEach(function(key){
+      var el=document.getElementById('ht-'+key+'-rate');
+      if(el){el.dataset.budget=el.value;el.value=MARKET_RATES_HT[key];el.readOnly=true;el.style.color='var(--tf)';}
+    });
+  }
   if(data.vtoMode&&data.vtoMode!==vtoMode){
     vtoMode=data.vtoMode;
     ['shopify','kivisense'].forEach(function(m){var b=document.getElementById('btn-'+m);if(b)b.classList.toggle('on',m===vtoMode);});
