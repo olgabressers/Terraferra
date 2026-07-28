@@ -12,7 +12,7 @@
 <!-- Section structure: Core Team / Hired Team / Financial & Legal / Operational Tools / AI Tools / Marketing Budget & Tools / One-time -->
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--tf:#E8002D;--ink:#161616;--sub:#5C5A56;--rule:#E6E2DA;--bg:#FAFAF8;--card:#FFF}
+:root{--tf:#E8002D;--ink:#161616;--sub:#5C5A56;--rule:#E6E2DA;--bg:#FAFAF8;--card:#FFF;--tf-ghost:#FEF0EE}
 body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);font-size:13px;line-height:1.5}
 .wrap{max-width:1240px;margin:0 auto;padding:40px 48px 80px}
 h1{font-size:26px;font-weight:700;letter-spacing:-0.5px;margin-bottom:4px}
@@ -70,6 +70,8 @@ thead th:last-child{min-width:180px}
 .sec-toggle-btn{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:4px;cursor:pointer;font-size:13px;color:#fff;padding:3px 10px;line-height:1;transition:background .15s;flex-shrink:0;font-family:monospace}
 .sec-toggle-btn:hover{background:rgba(255,255,255,.25)}
 .sec-badge{font-size:11px;color:rgba(255,255,255,.35);margin-left:auto;font-weight:400;letter-spacing:0}
+.grp-toggle-btn{background:rgba(0,0,0,.12);border:1px solid rgba(0,0,0,.2);color:inherit;border-radius:3px;cursor:pointer;font-size:11px;padding:2px 8px;font-family:monospace;flex-shrink:0;line-height:1;margin-left:12px}
+.grp-toggle-btn:hover{background:rgba(0,0,0,.2)}
 
 /* Back-to-top */
 .back-to-top{position:fixed;bottom:28px;right:28px;width:40px;height:40px;background:var(--tf);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;text-decoration:none;opacity:0;transition:opacity .3s;z-index:100;border-radius:2px}
@@ -202,14 +204,21 @@ input[type=range]{width:100%;height:4px;accent-color:var(--tf);cursor:pointer;di
 @media(max-width:700px){.proj-sep,.consol-sep{margin-left:-12px;margin-right:-12px;padding:16px 16px}.q-grid{grid-template-columns:1fr}.yr-bar{grid-template-columns:repeat(2,1fr);row-gap:14px}.yr-i{border-right:none;padding-left:0}}
 
 /* Top nav */
-.topnav{background:#FFF;border-bottom:1px solid var(--rule);padding:12px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
-.topnav-home{font-weight:800;letter-spacing:2px;color:var(--ink);text-decoration:none;font-size:11px}
-.topnav-home:hover{color:#B50023}
+.topnav{background:white;border-bottom:1px solid var(--rule);padding:12px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
+.topnav-home{font-weight:900;letter-spacing:-.5px;color:var(--ink);text-decoration:none;font-size:17px;line-height:1}
+.topnav-home .dot{color:var(--tf)}
+.topnav-home:hover{color:var(--tf)}
 .topnav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
 .topnav-links a{color:var(--sub);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:10px}
-.topnav-links a:hover{color:var(--tf)}
-.topnav-links a.active{color:var(--tf)}
-@media(max-width:700px){.topnav{position:static;padding:10px 14px}.topnav-links{gap:8px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap;width:100%;padding-bottom:2px}.topnav-links a{font-size:9.5px;white-space:nowrap}}
+.topnav-links a:hover,.topnav-links a.active{color:var(--tf)}
+.has-dropdown{position:relative;padding-bottom:10px;margin-bottom:-10px}
+.dropdown-trigger{cursor:pointer;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:10px;user-select:none}
+.dropdown-trigger:hover,.has-dropdown:focus-within .dropdown-trigger{color:var(--tf)}
+.dropdown{display:none;position:absolute;top:100%;right:0;background:white;border:1px solid var(--rule);min-width:200px;box-shadow:0 6px 14px rgba(0,0,0,.08);padding:6px 0;z-index:60}
+.has-dropdown:hover .dropdown,.has-dropdown:focus-within .dropdown{display:block}
+.dropdown a{display:block;padding:9px 16px;font-size:10px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:1px;text-decoration:none}
+.dropdown a:hover{background:var(--tf-ghost);color:var(--tf)}
+@media(max-width:700px){.topnav{position:static;padding:10px 14px}.topnav-links{gap:8px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:2px;width:100%}.topnav-links a{font-size:9.5px;white-space:nowrap}.dropdown-trigger{font-size:9.5px;white-space:nowrap}.has-dropdown{padding-bottom:0;margin-bottom:0}.dropdown{display:none!important}}
 
 /* cost detail foldables */
 .cd{border:none;padding:0;margin:2px 0 0}
@@ -228,16 +237,52 @@ details[open].cd summary::before{content:'▾'}
 </style>
 </head>
 <body>
-<div class="topnav">
-  <a href="https://terraferra.co/adminfiles/" class="topnav-home">← Admin Hub</a>
+<nav class="topnav">
+  <a href="index.html" class="topnav-home">smthg<span class="dot">.</span></a>
   <div class="topnav-links">
-    <a href="smthg_toneofvoice.html">Tone of Voice</a>
-    <a href="smthg_businessmodel.html">Business Model — Circles</a>
-    <a href="TFmvpcosts.html">MVP Scope &amp; Costs</a>
-    <a href="smthg_1styearbudget.html" class="active">1st Year Budget</a>
-    <a href="smthg_investors.html">Investor Requirements</a>
+    <a href="index.html">Files</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Budget ▾</span>
+      <div class="dropdown">
+        <a href="TFmarketsize.html">Market Size &amp; Opportunity</a>
+        <a href="budget.html">Budget &amp; Sales Scenarios</a>
+        <a href="smthg_1styearbudget.html" class="active">1st Year Budget</a>
+        <a href="smthg_investors.html">Investor Requirements</a>
+      </div>
+    </div>
+    <a href="roles.html">Roles</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Business Model ▾</span>
+      <div class="dropdown">
+        <a href="TFbusinessmodel.html">Comparison Matrix</a>
+        <a href="TFaltmodel.html">Alternative Model</a>
+        <a href="TFmvpcosts.html">MVP Scope &amp; Costs</a>
+        <a href="TFgtm.html">GTM</a>
+        <a href="TFwhynow.html">Why Now</a>
+        <a href="TFdropsmarket.html">Drop Market Research</a>
+        <a href="TFunservedmarket.html">Unserved Market</a>
+        <a href="TFreferral.html">Referral &amp; Viral</a>
+        <a href="TFcreatortoken.html">Creator Payments</a>
+        <a href="TFstylists.html">Stylist Layer</a>
+        <a href="/psychology-fashion.html">Psychology + Fashion</a>
+        <a href="TFvisualdiscovery.html">Visual Discovery</a>
+      </div>
+    </div>
+    <a href="TFmarketplaces.html">Operations</a>
+    <a href="architecture.html">Architecture</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Ideas ▾</span>
+      <div class="dropdown">
+        <a href="gamification.html">Gamification</a>
+        <a href="ideas.html">Ideas &amp; AI Research</a>
+        <a href="influencer.html">Influencer Selling</a>
+        <a href="strategic-brief.html">Strategic Brief</a>
+      </div>
+    </div>
+    <a href="TFrussia.html">Legal / Tax</a>
+    <a href="task-tracker.html">Planning</a>
   </div>
-</div>
+</nav>
 <div class="wrap">
 <h1><span style="color:var(--tf)">1st Year Budget</span><span class="sync-dot" id="sync-dot"></span><span class="sync-label" id="sync-label">Connecting…</span></h1>
 <p class="sub">SMTHG · Year 1 post-launch · all fixed costs incl. core team salary · USD primary · EUR ≈ USD × 0.91 · July 2026 · <a href="smthg_operationsteam.html" style="color:var(--tf);text-decoration:none;font-weight:700">Operations Team →</a></p>
@@ -1060,10 +1105,24 @@ details[open].cd summary::before{content:'▾'}
     <div class="p-cat">Designer Costs (for context)</div>
 
     <div class="psg">
-      <div class="psg-top"><span class="psg-lbl">Influencer commission</span><span class="psg-val" id="v-inf">10%</span></div>
-      <input type="range" id="p-inf" min="5" max="25" step="1" value="10" oninput="proj()"/>
+      <div class="psg-top"><span class="psg-lbl">Influencer commission</span><span class="psg-val" id="v-inf">20%</span></div>
+      <input type="range" id="p-inf" min="5" max="25" step="1" value="20" oninput="proj()"/>
       <div class="psg-hint"><span>5%</span><span>25%</span></div>
-      <div class="psg-note">Paid by designer from their revenue — not SMTHG's cost.</div>
+      <div class="psg-note">Standard 10%. Founding Creators: 20%. Benchmarks: LTK ~12%, ShopMy ~20%.</div>
+    </div>
+
+    <div class="p-cat">Revenue Mix · Assumption</div>
+
+    <div class="psg">
+      <div class="psg-top"><span class="psg-lbl">Influencer-driven share</span><span class="psg-val" id="v-inf-share">95%</span></div>
+      <input type="range" id="p-inf-share" min="0" max="100" step="5" value="95" oninput="proj()"/>
+      <div class="psg-hint"><span>0% (all organic)</span><span>100% (all influencer)</span></div>
+      <div class="psg-note">Portion of GMV flowing through influencers and triggering commission payout to them.</div>
+    </div>
+    <div style="background:var(--tf-ghost);border-left:3px solid var(--tf);padding:10px 12px;margin-top:-8px;margin-bottom:16px;font-size:11px;color:var(--ink);line-height:1.9">
+      <div style="font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--tf);margin-bottom:5px">Revenue split</div>
+      <div>Influencer-driven: <strong id="v-inf-pct-label">95%</strong> · commission paid out to influencers</div>
+      <div>Organic / platform: <strong id="v-org-pct-label">5%</strong> · commission retained by SMTHG</div>
     </div>
 
     <div class="p-cat">Variable Platform Costs</div>
@@ -1112,6 +1171,7 @@ details[open].cd summary::before{content:'▾'}
           <div class="q-row"><span class="ql">GMV</span><span class="qv" id="q1-gmv">—</span></div>
           <div class="qdiv"></div>
           <div class="q-row"><span class="ql">Platform fee</span><span class="qv g" id="q1-tfr">—</span></div>
+          <div class="q-row"><span class="ql" style="color:var(--sub);font-size:11px">Organic comm.</span><span class="qv g" style="font-size:11px" id="q1-org">—</span></div>
           <div class="q-row"><span class="ql">Subscriptions</span><span class="qv g" id="q1-sub">—</span></div>
           <div class="qdiv"></div>
           <div class="q-row"><span class="ql">VTO cost</span><span class="qv r" id="q1-vto">—</span></div>
@@ -1142,6 +1202,7 @@ details[open].cd summary::before{content:'▾'}
           <div class="q-row"><span class="ql">GMV</span><span class="qv" id="q2-gmv">—</span></div>
           <div class="qdiv"></div>
           <div class="q-row"><span class="ql">Platform fee</span><span class="qv g" id="q2-tfr">—</span></div>
+          <div class="q-row"><span class="ql" style="color:var(--sub);font-size:11px">Organic comm.</span><span class="qv g" style="font-size:11px" id="q2-org">—</span></div>
           <div class="q-row"><span class="ql">Subscriptions</span><span class="qv g" id="q2-sub">—</span></div>
           <div class="qdiv"></div>
           <div class="q-row"><span class="ql">VTO cost</span><span class="qv r" id="q2-vto">—</span></div>
@@ -1172,6 +1233,7 @@ details[open].cd summary::before{content:'▾'}
           <div class="q-row"><span class="ql">GMV</span><span class="qv" id="q3-gmv">—</span></div>
           <div class="qdiv"></div>
           <div class="q-row"><span class="ql">Platform fee</span><span class="qv g" id="q3-tfr">—</span></div>
+          <div class="q-row"><span class="ql" style="color:var(--sub);font-size:11px">Organic comm.</span><span class="qv g" style="font-size:11px" id="q3-org">—</span></div>
           <div class="q-row"><span class="ql">Subscriptions</span><span class="qv g" id="q3-sub">—</span></div>
           <div class="qdiv"></div>
           <div class="q-row"><span class="ql">VTO cost</span><span class="qv r" id="q3-vto">—</span></div>
@@ -1202,6 +1264,7 @@ details[open].cd summary::before{content:'▾'}
           <div class="q-row"><span class="ql">GMV</span><span class="qv" id="q4-gmv">—</span></div>
           <div class="qdiv"></div>
           <div class="q-row"><span class="ql">Platform fee</span><span class="qv g" id="q4-tfr">—</span></div>
+          <div class="q-row"><span class="ql" style="color:var(--sub);font-size:11px">Organic comm.</span><span class="qv g" style="font-size:11px" id="q4-org">—</span></div>
           <div class="q-row"><span class="ql">Subscriptions</span><span class="qv g" id="q4-sub">—</span></div>
           <div class="qdiv"></div>
           <div class="q-row"><span class="ql">VTO cost</span><span class="qv r" id="q4-vto">—</span></div>
@@ -2235,10 +2298,52 @@ function toggleSec(bodyId,btn){
   body.style.display=collapsed?'none':'';
   btn.textContent=collapsed?'▸':'▾';
 }
+function initGrpToggles(){
+  var tbody=document.querySelector('#s01-body table tbody');
+  if(!tbody)return;
+  var rows=Array.from(tbody.rows);
+  var curGrp=null;
+  var grpMap={};
+  var cls=['ppl','hire','finleg','optools','ai','mktg','travel','onetime'];
+  rows.forEach(function(row){
+    if(row.classList.contains('sec-hdr')){
+      for(var i=0;i<cls.length;i++){
+        if(row.classList.contains(cls[i])){
+          curGrp=cls[i];
+          if(!grpMap[curGrp])grpMap[curGrp]=[];
+          row.dataset.grpKey=curGrp;
+          break;
+        }
+      }
+      var td=row.cells[0];
+      td.style.display='flex';
+      td.style.alignItems='center';
+      td.style.justifyContent='space-between';
+      var btn=document.createElement('button');
+      btn.className='grp-toggle-btn';
+      btn.textContent='▾';
+      td.appendChild(btn);
+      row.style.cursor='pointer';
+      row.addEventListener('click',function(){toggleGrp(this.dataset.grpKey,this);});
+    } else if(curGrp&&!row.classList.contains('total-row')){
+      if(!grpMap[curGrp])grpMap[curGrp]=[];
+      grpMap[curGrp].push(row);
+    }
+  });
+  window._grpMap=grpMap;
+}
+function toggleGrp(grp,headerRow){
+  var rows=(window._grpMap||{})[grp]||[];
+  var nowCollapsed=headerRow.classList.toggle('grp-collapsed');
+  var btn=headerRow.querySelector('.grp-toggle-btn');
+  rows.forEach(function(r){r.style.display=nowCollapsed?'none':'';});
+  if(btn)btn.textContent=nowCollapsed?'▸':'▾';
+}
 
 function proj(){
   var items=g('p-items'), aov=g('p-aov');
   var tfFee=g('p-tf-fee')/100, inf=g('p-inf')/100;
+  var infShare=g('p-inf-share')/100;
   var payPct=g('p-pay')/100, designers=g('p-designers');
   var vtoA=g('p-vto-a')/100, vtoT=g('p-vto-t');
 
@@ -2255,6 +2360,10 @@ function proj(){
   s('cn-pay',(payPct*100).toFixed(1)+'%');
   s('cn-ds',Math.round(designers));
   s('cn-pay',(payPct*100).toFixed(1)+'%');
+  var infSharePct=Math.round(infShare*100);
+  s('v-inf-share',infSharePct+'%');
+  var lbl1=document.getElementById('v-inf-pct-label');if(lbl1)lbl1.textContent=infSharePct+'%';
+  var lbl2=document.getElementById('v-org-pct-label');if(lbl2)lbl2.textContent=(100-infSharePct)+'%';
 
   var subQ=designers*500*3; // subscription revenue per quarter
 
@@ -2270,17 +2379,19 @@ function proj(){
     var orders=drops*items;
     var gmv=orders*aov;
     var tfRev=gmv*tfFee;
+    var orgInfFee=gmv*(1-infShare)*inf; // influencer commission retained by SMTHG on organic/direct sales
     var payCost=gmv*payPct+orders*0.30;
     var vtoTries=orders*vtoA*vtoT;
     var vtoCost=vtoMode==='shopify'?vtoTries*0.10:888*3;
     var fraudCost=gmv*0.0005;
-    var smthgNet=tfRev+subQ-vtoCost-payCost-fraudCost;
+    var smthgNet=tfRev+orgInfFee+subQ-vtoCost-payCost-fraudCost;
     var col=smthgNet>=0?'#1A7A4A':'var(--tf)';
 
     s('q'+q+'h',fmtM(gmv)+' GMV');
     s('q'+q+'-ord',fmtN(orders));
     s('q'+q+'-gmv',fmtM(gmv));
     s('q'+q+'-tfr','+'+fmtM(tfRev));
+    s('q'+q+'-org',orgInfFee>0?'+'+fmtM(orgInfFee):'—');
     s('q'+q+'-sub','+'+fmtM(subQ));
     s('q'+q+'-vto','−'+fmtM(vtoCost));
     s('q'+q+'-pay','−'+fmtM(payCost));
@@ -2291,9 +2402,9 @@ function proj(){
 
     // Consolidated table
     s('c-gmv'+q,fmtM(gmv));
-    s('c-tfr'+q,'+'+fmtM(tfRev));
+    s('c-tfr'+q,'+'+fmtM(tfRev+orgInfFee));
     s('c-sub'+q,'+'+fmtM(subQ));
-    s('c-rev'+q,'+'+fmtM(tfRev+subQ));
+    s('c-rev'+q,'+'+fmtM(tfRev+orgInfFee+subQ));
     vpData.push({tries:vtoTries,vtoCost:vtoCost,gmv:gmv,orders:orders,payCost:payCost,fraudCost:fraudCost});
     totFraud+=fraudCost;
     s('c-vto'+q,'−'+fmtM(vtoCost));
@@ -2304,7 +2415,7 @@ function proj(){
     // Fixed costs from Section 01 Grand Total
     var fixed=s1fixArr[q-1];
     s('c-fix'+q,'$'+Math.round(fixed).toLocaleString());
-    var net=tfRev+subQ-fixed-vtoCost-payCost-fraudCost;
+    var net=tfRev+orgInfFee+subQ-fixed-vtoCost-payCost-fraudCost;
     var netEl2=document.getElementById('c-net'+q);
     if(netEl2){
       netEl2.textContent=(net>=0?'+':'-')+fmtM(Math.abs(net));
@@ -2313,11 +2424,11 @@ function proj(){
     var ybEl=document.getElementById('yb-net'+q);
     if(ybEl){ybEl.textContent=(net>=0?'+':'-')+fmtM(Math.abs(net));ybEl.className='yr-v '+(net>=0?'g':'r');}
     // Variable-only net for Section 03 duplicate row
-    var varNet=tfRev+subQ-vtoCost-payCost-fraudCost;
+    var varNet=tfRev+orgInfFee+subQ-vtoCost-payCost-fraudCost;
     var snetEl=document.getElementById('c-snet'+q);
     if(snetEl){snetEl.textContent=(varNet>=0?'+':'')+fmtM(Math.abs(varNet));snetEl.style.color=varNet>=0?'#7AE3B2':'#FF8A80';}
 
-    totGMV+=gmv; totOrd+=orders; totRev+=tfRev+subQ; totVTO+=vtoCost; totPay+=payCost;
+    totGMV+=gmv; totOrd+=orders; totRev+=tfRev+orgInfFee+subQ; totVTO+=vtoCost; totPay+=payCost;
   });
 
   var totVar=totVTO+totPay+totFraud;
@@ -2601,7 +2712,7 @@ if(btt){window.addEventListener('scroll',function(){btt.classList.toggle('vis',w
 // ── Firebase shared-inputs sync ───────────────────────────────────────────
 var DB_BUDGET='https://terra-ferra-1ac34-default-rtdb.firebaseio.com';
 var BUDGET_PATH='/tf-budget/v1/inputs.json';
-var SYNC_IDS=['p-items','p-aov','p-tf-fee','p-designers','p-inf','p-pay','p-vto-a','p-vto-t',
+var SYNC_IDS=['p-items','p-aov','p-tf-fee','p-designers','p-inf','p-inf-share','p-pay','p-vto-a','p-vto-t',
   'yd1','yd2','yd3','yd4','yd5','ct-rate','ct-y1-rate','ct-y1-count','ct-y2-count','ct-y3-count','ct-y4-count','ct-y5-count',
   'ht-dev-rate','ht-cm-rate','ht-co-rate','ht-smm-rate'];
 var dbTimer=null,applying=false,lastSnap='';
@@ -2648,6 +2759,7 @@ function pollFb(){
     }).catch(function(){setSyncState('err');});
 }
 window.addEventListener('DOMContentLoaded',function(){
+  initGrpToggles();
   fetch(DB_BUDGET+BUDGET_PATH)
     .then(function(r){return r.json();})
     .then(function(data){if(data){lastSnap=JSON.stringify(data);applySnap(data);}setSyncState('live');})
