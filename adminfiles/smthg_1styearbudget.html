@@ -331,6 +331,34 @@ details[open].cd summary::before{content:'▾'}
   </div>
 </div>
 
+<!-- ── REVENUE & NET POSITIONING SUMMARY ── -->
+<div style="margin-bottom:36px;border:1px solid var(--rule);border-radius:8px;overflow:hidden;background:var(--card)">
+  <div style="background:var(--ink);color:#fff;padding:10px 20px;display:flex;align-items:center;gap:10px">
+    <span style="font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase">Revenue &amp; Net Positioning · Year 1 · USD</span>
+    <span style="font-size:10px;color:rgba(255,255,255,.4);margin-left:auto">Fixed costs + variable · full P&amp;L view</span>
+  </div>
+  <div style="display:grid;grid-template-columns:120px repeat(5,1fr);font-variant-numeric:tabular-nums">
+    <div style="padding:8px 14px;font-size:10px;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:.07em;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)"></div>
+    <div style="padding:8px 14px;text-align:right;font-size:10px;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:.07em;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">Q1</div>
+    <div style="padding:8px 14px;text-align:right;font-size:10px;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:.07em;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">Q2</div>
+    <div style="padding:8px 14px;text-align:right;font-size:10px;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:.07em;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">Q3</div>
+    <div style="padding:8px 14px;text-align:right;font-size:10px;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:.07em;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">Q4</div>
+    <div style="padding:8px 14px;text-align:right;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--ink);border-bottom:1px solid var(--rule)">Year 1</div>
+    <div style="padding:12px 14px;font-weight:700;font-size:12px;color:var(--ink);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">Revenue</div>
+    <div id="sc-rev-q1" style="padding:12px 14px;text-align:right;font-weight:700;font-size:13px;color:#1A7A4A;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">—</div>
+    <div id="sc-rev-q2" style="padding:12px 14px;text-align:right;font-weight:700;font-size:13px;color:#1A7A4A;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">—</div>
+    <div id="sc-rev-q3" style="padding:12px 14px;text-align:right;font-weight:700;font-size:13px;color:#1A7A4A;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">—</div>
+    <div id="sc-rev-q4" style="padding:12px 14px;text-align:right;font-weight:700;font-size:13px;color:#1A7A4A;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">—</div>
+    <div id="sc-rev-y" style="padding:12px 14px;text-align:right;font-weight:800;font-size:15px;color:#1A7A4A;border-bottom:1px solid var(--rule)">—</div>
+    <div style="padding:12px 14px;font-weight:700;font-size:12px;color:var(--ink);border-right:1px solid var(--rule)">Net P&amp;L</div>
+    <div id="sc-net-q1" style="padding:12px 14px;text-align:right;font-weight:700;font-size:13px;border-right:1px solid var(--rule)">—</div>
+    <div id="sc-net-q2" style="padding:12px 14px;text-align:right;font-weight:700;font-size:13px;border-right:1px solid var(--rule)">—</div>
+    <div id="sc-net-q3" style="padding:12px 14px;text-align:right;font-weight:700;font-size:13px;border-right:1px solid var(--rule)">—</div>
+    <div id="sc-net-q4" style="padding:12px 14px;text-align:right;font-weight:700;font-size:13px;border-right:1px solid var(--rule)">—</div>
+    <div id="sc-net-y" style="padding:12px 14px;text-align:right;font-weight:800;font-size:15px">—</div>
+  </div>
+</div>
+
 <!-- ── SECTION 01: FIXED OPERATING BUDGET ── -->
 <div class="proj-sep" id="s01">
   <span class="sn">01</span>
@@ -467,7 +495,7 @@ details[open].cd summary::before{content:'▾'}
     <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
       <span style="font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--sub)">Salary view:</span>
       <button id="btn-sal-market" class="sal-btn sal-active" onclick="setSalaryMode('market')">Market (US)</button>
-      <button id="btn-sal-budget" class="sal-btn" onclick="setSalaryMode('budget')">Our budget</button>
+      <button id="btn-sal-budget" class="sal-btn" onclick="setSalaryMode('budget')">Low costs budget</button>
       <span id="sal-note" style="color:var(--sub);font-size:11px;margin-left:4px">US market lower-end · Glassdoor 2025 · <a href="smthg_operationsteam.html" target="_blank" rel="noopener" style="color:var(--tf);text-decoration:none">Source →</a></span>
     </div>
   </td>
@@ -2534,6 +2562,11 @@ function proj(){
       netEl2.textContent=(net>=0?'+':'-')+fmtM(Math.abs(net));
       netEl2.style.color=net>=0?'#7AE3B2':'#FF8A80';
     }
+    // Revenue & Net summary block at top
+    var scRevEl=document.getElementById('sc-rev-q'+q);
+    if(scRevEl)scRevEl.textContent='+'+fmtM(tfRev+orgInfFee+subQ);
+    var scNetEl=document.getElementById('sc-net-q'+q);
+    if(scNetEl){scNetEl.textContent=(net>=0?'+':'-')+fmtM(Math.abs(net));scNetEl.style.color=net>=0?'#1A7A4A':'var(--tf)';}
     var ybEl=document.getElementById('yb-net'+q);
     if(ybEl){ybEl.textContent=(net>=0?'+':'-')+fmtM(Math.abs(net));ybEl.className='yr-v '+(net>=0?'g':'r');}
     // Variable-only net for Section 03 duplicate row
@@ -2605,6 +2638,11 @@ function proj(){
   var netY=totRev-s1fixY-totVar;
   var netYEl=document.getElementById('c-nety');
   if(netYEl){netYEl.textContent=(netY>=0?'+':'-')+fmtM(Math.abs(netY));netYEl.style.color=netY>=0?'#7AE3B2':'#FF8A80';}
+  // Revenue & Net summary block at top — year totals
+  var scRevYEl=document.getElementById('sc-rev-y');
+  if(scRevYEl)scRevYEl.textContent='+'+fmtM(totRev);
+  var scNetYEl=document.getElementById('sc-net-y');
+  if(scNetYEl){scNetYEl.textContent=(netY>=0?'+':'-')+fmtM(Math.abs(netY));scNetYEl.style.color=netY>=0?'#1A7A4A':'var(--tf)';}
   var s03b=document.getElementById('s03-badge');
   if(s03b)s03b.textContent=(netY>=0?'+':'-')+fmtM(Math.abs(netY))+' P&L yr';
   var ybYEl=document.getElementById('yb-nety');
