@@ -57,9 +57,12 @@ thead th:last-child{min-width:180px}
 .tr-cb-lbl{display:inline-flex;align-items:center;gap:5px;cursor:pointer;font-weight:700}
 .tr-cb-lbl input[type=checkbox]{width:14px;height:14px;accent-color:var(--tf);cursor:pointer;flex-shrink:0}
 .tr-n-input{width:36px;border:1px solid var(--rule);padding:2px 4px;font-size:11px;font-weight:700;font-family:'Inter',sans-serif;color:var(--ink);text-align:center;border-radius:2px}
-.tr-all-lbl{float:right;font-size:11px;font-weight:600;color:rgba(255,255,255,.85);cursor:pointer;display:inline-flex;align-items:center;gap:5px;font-weight:400;letter-spacing:.03em}
+.tr-all-lbl{float:right;font-size:11px;color:rgba(255,255,255,.85);cursor:pointer;display:inline-flex;align-items:center;gap:5px;font-weight:400;letter-spacing:.03em}
 .tr-all-lbl input[type=checkbox]{width:13px;height:13px;accent-color:#4ade80;cursor:pointer}
-.tr-unchecked{opacity:.35}
+.tr-ev-hdr td{background:#F4FAF7;font-weight:600}
+.tr-sub td{font-size:11px;color:var(--sub);padding-top:3px;padding-bottom:3px;border-top:none}
+.tr-sub td:first-child{padding-left:26px}
+.tr-unchecked td{opacity:.32}
 
 /* Back-to-top */
 .back-to-top{position:fixed;bottom:28px;right:28px;width:40px;height:40px;background:var(--tf);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;text-decoration:none;opacity:0;transition:opacity .3s;z-index:100;border-radius:2px}
@@ -705,114 +708,212 @@ details[open].cd summary::before{content:'▾'}
   <td></td>
 </tr>
 
-<!-- US: MAGIC Las Vegas Q1 -->
-<tr id="tr-row-magic">
-  <td>
-    <label class="tr-cb-lbl"><input type="checkbox" id="tr-cb-magic" checked onchange="calcTravel()"><strong>MAGIC Las Vegas</strong></label>
-    · Feb <span class="badge qt1">Q1</span>
-    · <input type="number" id="tr-n-magic" value="2" min="1" max="10" class="tr-n-input" oninput="calcTravel()"> pax
-    <details class="cd"><summary>Cost breakdown</summary><div class="cd-body">
-      <div class="cd-r"><span>Show passes</span><span id="tr-d-magic-pass">—</span></div>
-      <div class="cd-r"><span>Flight NL → Las Vegas r/t</span><span id="tr-d-magic-flt-nl">—</span></div>
-      <div class="cd-r"><span>Flights intl → Las Vegas r/t</span><span id="tr-d-magic-flt-intl">—</span></div>
-      <div class="cd-r"><span>Hotel · <span id="tr-d-magic-rooms">—</span> rooms × 4 nights</span><span id="tr-d-magic-hotel">—</span></div>
-      <div class="cd-r"><span>Taxi / Uber</span><span id="tr-d-magic-taxi">—</span></div>
-      <div class="cd-r"><span>Per diem · <span id="tr-d-magic-pax2">—</span> pax × 4 days</span><span id="tr-d-magic-pdiem">—</span></div>
-      <div class="cd-r cd-tot"><span>Subtotal</span><span id="tr-d-magic-tot">—</span></div>
-    </div></details>
-  </td>
-  <td class="desc">$700/pp · $195/night · AMS–LAS econ · Mandalay Bay area</td>
-  <td class="num" id="tr-q1-magic">—</td>
-  <td class="na">—</td>
-  <td class="na">—</td>
-  <td class="na">—</td>
-  <td class="num" id="tr-yr-magic" style="border-left:1px solid var(--rule)">—</td>
-  <td class="desc">Largest US fashion trade show · Las Vegas Convention Center · designer acquisition, partner meetings</td>
+<!-- EU: WHO'S NEXT Paris — Jan 2026 — Q1 -->
+<tr id="tr-row-whonext" class="tr-ev-hdr">
+  <td><label class="tr-cb-lbl"><input type="checkbox" id="tr-cb-whonext" checked onchange="calcS01()"><strong>Who's Next · Première Classe</strong></label> <span class="badge qt1">Q1</span></td>
+  <td class="desc"><input type="number" id="tr-n-whonext" value="2" min="1" max="10" class="tr-n-input" oninput="calcS01()"> people · 17–20 Jan 2026 · Paris, Porte de Versailles</td>
+  <td class="num" id="tr-q1-whonext">$4,440</td>
+  <td class="na">—</td><td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-yr-whonext" style="border-left:1px solid var(--rule)">$4,440</td>
+  <td class="desc">Premier EU contemporary &amp; accessible-luxury fair · Paris · EU designer pipeline, market entry</td>
+</tr>
+<tr class="tr-sub tr-sub-whonext">
+  <td>Show passes</td>
+  <td class="desc" id="tr-sr-whonext-pass">$400/person × 2</td>
+  <td class="num" id="tr-s-whonext-pass">$800</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-sy-whonext-pass" style="border-left:1px solid var(--rule)">$800</td><td></td>
+</tr>
+<tr class="tr-sub tr-sub-whonext">
+  <td>Train / flight NL → Paris r/t</td>
+  <td class="desc">1 person · AMS–CDG Thalys / budget flight</td>
+  <td class="num" id="tr-s-whonext-flt-nl">$200</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-sy-whonext-flt-nl" style="border-left:1px solid var(--rule)">$200</td><td></td>
+</tr>
+<tr class="tr-sub tr-sub-whonext">
+  <td>Flights intl → CDG r/t</td>
+  <td class="desc" id="tr-sr-whonext-flt-intl">1 person × $700 · via Istanbul / Dubai</td>
+  <td class="num" id="tr-s-whonext-flt-intl">$700</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-sy-whonext-flt-intl" style="border-left:1px solid var(--rule)">$700</td><td></td>
+</tr>
+<tr class="tr-sub tr-sub-whonext">
+  <td>Hotel · Porte de Versailles area</td>
+  <td class="desc" id="tr-sr-whonext-hotel">2 rooms × 3 nights × $310/night · Jan show rate</td>
+  <td class="num" id="tr-s-whonext-hotel">$1,860</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-sy-whonext-hotel" style="border-left:1px solid var(--rule)">$1,860</td><td></td>
+</tr>
+<tr class="tr-sub tr-sub-whonext">
+  <td>Taxi / Metro</td>
+  <td class="desc" id="tr-sr-whonext-taxi">$110/person × 2 · airport transfers + venue</td>
+  <td class="num" id="tr-s-whonext-taxi">$220</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-sy-whonext-taxi" style="border-left:1px solid var(--rule)">$220</td><td></td>
+</tr>
+<tr class="tr-sub tr-sub-whonext">
+  <td>Per diem · meals &amp; incidentals</td>
+  <td class="desc" id="tr-sr-whonext-pdiem">$110/person/day × 2 people × 3 days</td>
+  <td class="num" id="tr-s-whonext-pdiem">$660</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-sy-whonext-pdiem" style="border-left:1px solid var(--rule)">$660</td><td></td>
 </tr>
 
-<!-- EU: Who's Next / Première Classe Paris Q1 -->
-<tr id="tr-row-whonext">
-  <td>
-    <label class="tr-cb-lbl"><input type="checkbox" id="tr-cb-whonext" checked onchange="calcTravel()"><strong>Who's Next · Première Classe</strong></label>
-    · Jan <span class="badge qt1">Q1</span>
-    · <input type="number" id="tr-n-whonext" value="2" min="1" max="10" class="tr-n-input" oninput="calcTravel()"> pax
-    <details class="cd"><summary>Cost breakdown</summary><div class="cd-body">
-      <div class="cd-r"><span>Show passes</span><span id="tr-d-whonext-pass">—</span></div>
-      <div class="cd-r"><span>Train / flight NL → Paris r/t</span><span id="tr-d-whonext-flt-nl">—</span></div>
-      <div class="cd-r"><span>Flights intl → CDG r/t</span><span id="tr-d-whonext-flt-intl">—</span></div>
-      <div class="cd-r"><span>Hotel · <span id="tr-d-whonext-rooms">—</span> rooms × 3 nights</span><span id="tr-d-whonext-hotel">—</span></div>
-      <div class="cd-r"><span>Taxi / Metro</span><span id="tr-d-whonext-taxi">—</span></div>
-      <div class="cd-r"><span>Per diem · <span id="tr-d-whonext-pax2">—</span> pax × 3 days</span><span id="tr-d-whonext-pdiem">—</span></div>
-      <div class="cd-r cd-tot"><span>Subtotal</span><span id="tr-d-whonext-tot">—</span></div>
-    </div></details>
-  </td>
-  <td class="desc">$400/pp · $310/night · AMS–CDG train · Porte de Versailles</td>
-  <td class="num" id="tr-q1-whonext">—</td>
-  <td class="na">—</td>
-  <td class="na">—</td>
-  <td class="na">—</td>
-  <td class="num" id="tr-yr-whonext" style="border-left:1px solid var(--rule)">—</td>
-  <td class="desc">Premier European contemporary &amp; accessible-luxury fair · Paris · EU designer pipeline, market entry</td>
+<!-- US: MAGIC Las Vegas — Feb 2026 — Q1 -->
+<tr id="tr-row-magic" class="tr-ev-hdr">
+  <td><label class="tr-cb-lbl"><input type="checkbox" id="tr-cb-magic" checked onchange="calcS01()"><strong>MAGIC Las Vegas</strong></label> <span class="badge qt1">Q1</span></td>
+  <td class="desc"><input type="number" id="tr-n-magic" value="2" min="1" max="10" class="tr-n-input" oninput="calcS01()"> people · 17–19 Feb 2026 · Las Vegas Convention Center</td>
+  <td class="num" id="tr-q1-magic">$6,460</td>
+  <td class="na">—</td><td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-yr-magic" style="border-left:1px solid var(--rule)">$6,460</td>
+  <td class="desc">Largest US fashion trade show · designer acquisition, partner meetings, market intelligence</td>
+</tr>
+<tr class="tr-sub tr-sub-magic">
+  <td>Show passes</td>
+  <td class="desc" id="tr-sr-magic-pass">$700/person × 2 · MAGIC Buyer registration</td>
+  <td class="num" id="tr-s-magic-pass">$1,400</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-sy-magic-pass" style="border-left:1px solid var(--rule)">$1,400</td><td></td>
+</tr>
+<tr class="tr-sub tr-sub-magic">
+  <td>Flight NL → Las Vegas r/t</td>
+  <td class="desc">1 person · AMS–LAS economy via hub</td>
+  <td class="num" id="tr-s-magic-flt-nl">$880</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-sy-magic-flt-nl" style="border-left:1px solid var(--rule)">$880</td><td></td>
+</tr>
+<tr class="tr-sub tr-sub-magic">
+  <td>Flights intl → Las Vegas r/t</td>
+  <td class="desc" id="tr-sr-magic-flt-intl">1 person × $1,420 · via Tbilisi / Istanbul</td>
+  <td class="num" id="tr-s-magic-flt-intl">$1,420</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-sy-magic-flt-intl" style="border-left:1px solid var(--rule)">$1,420</td><td></td>
+</tr>
+<tr class="tr-sub tr-sub-magic">
+  <td>Hotel · Mandalay Bay area</td>
+  <td class="desc" id="tr-sr-magic-hotel">2 rooms × 4 nights × $195/night · show rate Feb</td>
+  <td class="num" id="tr-s-magic-hotel">$1,560</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-sy-magic-hotel" style="border-left:1px solid var(--rule)">$1,560</td><td></td>
+</tr>
+<tr class="tr-sub tr-sub-magic">
+  <td>Taxi / Uber</td>
+  <td class="desc" id="tr-sr-magic-taxi">$200/person × 2 · airport transfers + show venue</td>
+  <td class="num" id="tr-s-magic-taxi">$400</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-sy-magic-taxi" style="border-left:1px solid var(--rule)">$400</td><td></td>
+</tr>
+<tr class="tr-sub tr-sub-magic">
+  <td>Per diem · meals &amp; incidentals</td>
+  <td class="desc" id="tr-sr-magic-pdiem">$100/person/day × 2 people × 4 days</td>
+  <td class="num" id="tr-s-magic-pdiem">$800</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-sy-magic-pdiem" style="border-left:1px solid var(--rule)">$800</td><td></td>
 </tr>
 
-<!-- US: Coterie New York Q3 -->
-<tr id="tr-row-coterie">
-  <td>
-    <label class="tr-cb-lbl"><input type="checkbox" id="tr-cb-coterie" checked onchange="calcTravel()"><strong>Coterie New York</strong></label>
-    · Sep <span class="badge">Q3</span>
-    · <input type="number" id="tr-n-coterie" value="2" min="1" max="10" class="tr-n-input" oninput="calcTravel()"> pax
-    <details class="cd"><summary>Cost breakdown</summary><div class="cd-body">
-      <div class="cd-r"><span>Show passes</span><span id="tr-d-coterie-pass">—</span></div>
-      <div class="cd-r"><span>Flight NL → NYC JFK r/t</span><span id="tr-d-coterie-flt-nl">—</span></div>
-      <div class="cd-r"><span>Flights intl → JFK r/t</span><span id="tr-d-coterie-flt-intl">—</span></div>
-      <div class="cd-r"><span>Hotel · <span id="tr-d-coterie-rooms">—</span> rooms × 4 nights</span><span id="tr-d-coterie-hotel">—</span></div>
-      <div class="cd-r"><span>Taxi / Uber</span><span id="tr-d-coterie-taxi">—</span></div>
-      <div class="cd-r"><span>Per diem · <span id="tr-d-coterie-pax2">—</span> pax × 4 days</span><span id="tr-d-coterie-pdiem">—</span></div>
-      <div class="cd-r cd-tot"><span>Subtotal</span><span id="tr-d-coterie-tot">—</span></div>
-    </div></details>
-  </td>
-  <td class="desc">$600/pp · $275/night · AMS–JFK econ · Midtown Manhattan</td>
+<!-- EU: PREMIUM Berlin — Jul 2026 — Q3 -->
+<tr id="tr-row-premium" class="tr-ev-hdr">
+  <td><label class="tr-cb-lbl"><input type="checkbox" id="tr-cb-premium" checked onchange="calcS01()"><strong>Premium Berlin</strong></label> <span class="badge">Q3</span></td>
+  <td class="desc"><input type="number" id="tr-n-premium" value="2" min="1" max="10" class="tr-n-input" oninput="calcS01()"> people · 2–4 Jul 2026 · Messe Berlin</td>
+  <td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-q3-premium">$3,500</td>
   <td class="na">—</td>
-  <td class="na">—</td>
-  <td class="num" id="tr-q3-coterie">—</td>
-  <td class="na">—</td>
-  <td class="num" id="tr-yr-coterie" style="border-left:1px solid var(--rule)">—</td>
-  <td class="desc">Premier contemporary &amp; accessible-luxury women's show · Javits Center NYC · designer demos, press</td>
+  <td class="num" id="tr-yr-premium" style="border-left:1px solid var(--rule)">$3,500</td>
+  <td class="desc">Premier European premium contemporary fair · EU designer pipeline, accessible-luxury focus</td>
+</tr>
+<tr class="tr-sub tr-sub-premium">
+  <td>Show passes</td>
+  <td class="desc" id="tr-sr-premium-pass">$300/person × 2 · trade visitor registration</td>
+  <td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-s-premium-pass">$600</td><td class="na">—</td>
+  <td class="num" id="tr-sy-premium-pass" style="border-left:1px solid var(--rule)">$600</td><td></td>
+</tr>
+<tr class="tr-sub tr-sub-premium">
+  <td>Flight NL → Berlin r/t</td>
+  <td class="desc">1 person · AMS–BER budget airline</td>
+  <td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-s-premium-flt-nl">$220</td><td class="na">—</td>
+  <td class="num" id="tr-sy-premium-flt-nl" style="border-left:1px solid var(--rule)">$220</td><td></td>
+</tr>
+<tr class="tr-sub tr-sub-premium">
+  <td>Flights intl → Berlin r/t</td>
+  <td class="desc" id="tr-sr-premium-flt-intl">1 person × $680 · via Istanbul</td>
+  <td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-s-premium-flt-intl">$680</td><td class="na">—</td>
+  <td class="num" id="tr-sy-premium-flt-intl" style="border-left:1px solid var(--rule)">$680</td><td></td>
+</tr>
+<tr class="tr-sub tr-sub-premium">
+  <td>Hotel · Messe Berlin area</td>
+  <td class="desc" id="tr-sr-premium-hotel">2 rooms × 3 nights × $210/night · Jul show rate</td>
+  <td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-s-premium-hotel">$1,260</td><td class="na">—</td>
+  <td class="num" id="tr-sy-premium-hotel" style="border-left:1px solid var(--rule)">$1,260</td><td></td>
+</tr>
+<tr class="tr-sub tr-sub-premium">
+  <td>Taxi / U-Bahn</td>
+  <td class="desc" id="tr-sr-premium-taxi">$100/person × 2 · airport + Messe</td>
+  <td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-s-premium-taxi">$200</td><td class="na">—</td>
+  <td class="num" id="tr-sy-premium-taxi" style="border-left:1px solid var(--rule)">$200</td><td></td>
+</tr>
+<tr class="tr-sub tr-sub-premium">
+  <td>Per diem · meals &amp; incidentals</td>
+  <td class="desc" id="tr-sr-premium-pdiem">$90/person/day × 2 people × 3 days</td>
+  <td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-s-premium-pdiem">$540</td><td class="na">—</td>
+  <td class="num" id="tr-sy-premium-pdiem" style="border-left:1px solid var(--rule)">$540</td><td></td>
 </tr>
 
-<!-- EU: Premium Berlin Q3 -->
-<tr id="tr-row-premium">
-  <td>
-    <label class="tr-cb-lbl"><input type="checkbox" id="tr-cb-premium" checked onchange="calcTravel()"><strong>Premium Berlin</strong></label>
-    · Jul <span class="badge">Q3</span>
-    · <input type="number" id="tr-n-premium" value="2" min="1" max="10" class="tr-n-input" oninput="calcTravel()"> pax
-    <details class="cd"><summary>Cost breakdown</summary><div class="cd-body">
-      <div class="cd-r"><span>Show passes</span><span id="tr-d-premium-pass">—</span></div>
-      <div class="cd-r"><span>Flight NL → Berlin r/t</span><span id="tr-d-premium-flt-nl">—</span></div>
-      <div class="cd-r"><span>Flights intl → BER r/t</span><span id="tr-d-premium-flt-intl">—</span></div>
-      <div class="cd-r"><span>Hotel · <span id="tr-d-premium-rooms">—</span> rooms × 3 nights</span><span id="tr-d-premium-hotel">—</span></div>
-      <div class="cd-r"><span>Taxi / U-Bahn</span><span id="tr-d-premium-taxi">—</span></div>
-      <div class="cd-r"><span>Per diem · <span id="tr-d-premium-pax2">—</span> pax × 3 days</span><span id="tr-d-premium-pdiem">—</span></div>
-      <div class="cd-r cd-tot"><span>Subtotal</span><span id="tr-d-premium-tot">—</span></div>
-    </div></details>
-  </td>
-  <td class="desc">$300/pp · $210/night · AMS–BER budget · Messe Berlin area</td>
+<!-- US: COTERIE New York — Sep 2026 — Q3 -->
+<tr id="tr-row-coterie" class="tr-ev-hdr">
+  <td><label class="tr-cb-lbl"><input type="checkbox" id="tr-cb-coterie" checked onchange="calcS01()"><strong>Coterie New York</strong></label> <span class="badge">Q3</span></td>
+  <td class="desc"><input type="number" id="tr-n-coterie" value="2" min="1" max="10" class="tr-n-input" oninput="calcS01()"> people · 13–15 Sep 2026 · Javits Center, NYC</td>
+  <td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-q3-coterie">$6,440</td>
   <td class="na">—</td>
-  <td class="na">—</td>
-  <td class="num" id="tr-q3-premium">—</td>
-  <td class="na">—</td>
-  <td class="num" id="tr-yr-premium" style="border-left:1px solid var(--rule)">—</td>
-  <td class="desc">Premier European premium contemporary fair · Berlin · EU designer pipeline, accessible-luxury focus</td>
+  <td class="num" id="tr-yr-coterie" style="border-left:1px solid var(--rule)">$6,440</td>
+  <td class="desc">Premier contemporary &amp; accessible-luxury women's show · designer demos, platform positioning, press</td>
+</tr>
+<tr class="tr-sub tr-sub-coterie">
+  <td>Show passes</td>
+  <td class="desc" id="tr-sr-coterie-pass">$600/person × 2 · Coterie Buyer registration</td>
+  <td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-s-coterie-pass">$1,200</td><td class="na">—</td>
+  <td class="num" id="tr-sy-coterie-pass" style="border-left:1px solid var(--rule)">$1,200</td><td></td>
+</tr>
+<tr class="tr-sub tr-sub-coterie">
+  <td>Flight NL → NYC JFK r/t</td>
+  <td class="desc">1 person · AMS–JFK economy</td>
+  <td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-s-coterie-flt-nl">$660</td><td class="na">—</td>
+  <td class="num" id="tr-sy-coterie-flt-nl" style="border-left:1px solid var(--rule)">$660</td><td></td>
+</tr>
+<tr class="tr-sub tr-sub-coterie">
+  <td>Flights intl → JFK r/t</td>
+  <td class="desc" id="tr-sr-coterie-flt-intl">1 person × $1,100 · via Istanbul / Dubai</td>
+  <td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-s-coterie-flt-intl">$1,100</td><td class="na">—</td>
+  <td class="num" id="tr-sy-coterie-flt-intl" style="border-left:1px solid var(--rule)">$1,100</td><td></td>
+</tr>
+<tr class="tr-sub tr-sub-coterie">
+  <td>Hotel · Midtown Manhattan</td>
+  <td class="desc" id="tr-sr-coterie-hotel">2 rooms × 4 nights × $275/night · Sep show rate</td>
+  <td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-s-coterie-hotel">$2,200</td><td class="na">—</td>
+  <td class="num" id="tr-sy-coterie-hotel" style="border-left:1px solid var(--rule)">$2,200</td><td></td>
+</tr>
+<tr class="tr-sub tr-sub-coterie">
+  <td>Taxi / Uber</td>
+  <td class="desc" id="tr-sr-coterie-taxi">$200/person × 2 · JFK + Javits Center transfers</td>
+  <td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-s-coterie-taxi">$400</td><td class="na">—</td>
+  <td class="num" id="tr-sy-coterie-taxi" style="border-left:1px solid var(--rule)">$400</td><td></td>
+</tr>
+<tr class="tr-sub tr-sub-coterie">
+  <td>Per diem · meals &amp; incidentals</td>
+  <td class="desc" id="tr-sr-coterie-pdiem">$110/person/day × 2 people × 4 days · NYC rate</td>
+  <td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-s-coterie-pdiem">$880</td><td class="na">—</td>
+  <td class="num" id="tr-sy-coterie-pdiem" style="border-left:1px solid var(--rule)">$880</td><td></td>
 </tr>
 
 <tr class="subtotal">
   <td>Travel &amp; Events subtotal</td>
-  <td id="tr-sub-label"></td>
-  <td class="num" id="tr-sub-q1">—</td>
+  <td></td>
+  <td class="num" id="tr-sub-q1">$10,900</td>
   <td class="na">—</td>
-  <td class="num" id="tr-sub-q3">—</td>
+  <td class="num" id="tr-sub-q3">$9,940</td>
   <td class="na">—</td>
-  <td class="num" id="tr-sub-yr" style="border-left:1px solid var(--rule)">—</td>
+  <td class="num" id="tr-sub-yr" style="border-left:1px solid var(--rule)">$20,840<span class="eur">≈€18,964</span></td>
   <td></td>
 </tr>
 
@@ -1860,27 +1961,51 @@ function calcTravel(){
     var row=document.getElementById('tr-row-'+key);
     if(!cb)return;
     var on=cb.checked, n=parseInt(nEl?nEl.value:2)||2, e=TR_EVENTS[key];
+    var intl=Math.max(0,n-1);
     var cost=on?trCost(key,n):0;
+    // dim main header row and all sub-rows
     if(row)row.classList.toggle('tr-unchecked',!on);
-    // quarter cost cells
+    document.querySelectorAll('.tr-sub-'+key).forEach(function(r){r.classList.toggle('tr-unchecked',!on);});
+    // main header: quarter cost + year total
     var qKey=['q1','q2','q3','q4'][e.q];
     var cEl=document.getElementById('tr-'+qKey+'-'+key);
     if(cEl)cEl.innerHTML=on?fmtD(cost):'<span class="na">—</span>';
     var yEl=document.getElementById('tr-yr-'+key);
     if(yEl)yEl.innerHTML=on?fmtD(cost):'<span class="na">—</span>';
-    // breakdown detail spans
-    if(on){
-      var intl=Math.max(0,n-1);
-      s('tr-d-'+key+'-pass',    fmtD(n*e.pass)+' · $'+e.pass+'/pp');
-      s('tr-d-'+key+'-flt-nl',  fmtD(e.fltNL)+' · 1 person from NL');
-      s('tr-d-'+key+'-flt-intl',intl>0?fmtD(intl*e.fltI)+' · '+intl+' person'+(intl>1?'s':'')+' × $'+e.fltI:'—');
-      s('tr-d-'+key+'-rooms',   n);
-      s('tr-d-'+key+'-hotel',   fmtD(n*e.nights*e.hotel)+' · $'+e.hotel+'/night');
-      s('tr-d-'+key+'-taxi',    fmtD(n*e.taxi)+' · $'+e.taxi+'/pp');
-      s('tr-d-'+key+'-pax2',    n);
-      s('tr-d-'+key+'-pdiem',   fmtD(n*e.days*e.pdiem)+' · $'+e.pdiem+'/pp/day');
-      s('tr-d-'+key+'-tot',     fmtD(cost));
+    // sub-row amount cells — Q column
+    function subQ(id,val){
+      var el=document.getElementById(id); if(!el)return;
+      el.innerHTML=on?fmtD(val):'<span class="na">—</span>';
     }
+    var q=e.q; // quarter index 0-3
+    // passes
+    subQ('tr-s-'+key+'-pass',    n*e.pass);
+    subQ('tr-sy-'+key+'-pass',   n*e.pass);
+    var rPass=document.getElementById('tr-sr-'+key+'-pass');
+    if(rPass)rPass.innerHTML='$'+e.pass+'/person × '+n+' · trade registration';
+    // flt-nl (always 1 person from NL)
+    subQ('tr-s-'+key+'-flt-nl',  e.fltNL);
+    subQ('tr-sy-'+key+'-flt-nl', e.fltNL);
+    // flt-intl
+    subQ('tr-s-'+key+'-flt-intl',  intl>0?intl*e.fltI:0);
+    subQ('tr-sy-'+key+'-flt-intl', intl>0?intl*e.fltI:0);
+    var rIntl=document.getElementById('tr-sr-'+key+'-flt-intl');
+    if(rIntl)rIntl.innerHTML=intl>0?(intl+' person'+(intl>1?'s':'')+' × $'+e.fltI):'1 person from NL only';
+    // hotel
+    subQ('tr-s-'+key+'-hotel',  n*e.nights*e.hotel);
+    subQ('tr-sy-'+key+'-hotel', n*e.nights*e.hotel);
+    var rHotel=document.getElementById('tr-sr-'+key+'-hotel');
+    if(rHotel)rHotel.innerHTML=n+' room'+(n>1?'s':'')+' × '+e.nights+' nights × $'+e.hotel+'/night';
+    // taxi
+    subQ('tr-s-'+key+'-taxi',  n*e.taxi);
+    subQ('tr-sy-'+key+'-taxi', n*e.taxi);
+    var rTaxi=document.getElementById('tr-sr-'+key+'-taxi');
+    if(rTaxi)rTaxi.innerHTML='$'+e.taxi+'/person × '+n;
+    // per diem
+    subQ('tr-s-'+key+'-pdiem',  n*e.days*e.pdiem);
+    subQ('tr-sy-'+key+'-pdiem', n*e.days*e.pdiem);
+    var rPdiem=document.getElementById('tr-sr-'+key+'-pdiem');
+    if(rPdiem)rPdiem.innerHTML='$'+e.pdiem+'/person/day × '+n+' people × '+e.days+' days';
     FX[e.q]+=cost;
   });
   // subtotal row
@@ -1899,7 +2024,6 @@ function calcTravel(){
 }
 function toggleAllTravel(on){
   Object.keys(TR_EVENTS).forEach(function(k){var cb=document.getElementById('tr-cb-'+k);if(cb)cb.checked=on;});
-  calcTravel();
   calcS01();
 }
 
