@@ -453,16 +453,16 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
       <div class="sl-group">
         <div class="sl-top">
           <span class="sl-label">Influencer-driven share of drop revenue</span>
-          <span class="sl-val" id="v-inf-share">60%</span>
+          <span class="sl-val" id="v-inf-share">90%</span>
         </div>
-        <input type="range" id="sl-inf-share" min="0" max="100" step="5" value="60" oninput="calc()"/>
+        <input type="range" id="sl-inf-share" min="0" max="100" step="5" value="90" oninput="calc()"/>
         <div class="sl-hints"><span>0% (fully organic)</span><span>100% (fully influencer)</span></div>
         <div class="sl-note">SMTHG charges designers the 20% influencer program fee on <strong>all GMV</strong> — regardless of how the sale originated. Only the influencer-driven portion is paid out to influencers. The organic portion is retained by SMTHG.</div>
       </div>
       <div style="background:var(--tf-ghost);border-left:3px solid var(--tf);padding:10px 14px;margin-top:-12px;margin-bottom:20px;font-size:12px;color:var(--ink);line-height:1.9">
         <div style="font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--tf);margin-bottom:6px">Revenue split assumption</div>
-        <div>Influencer-driven: <strong id="v-inf-pct-label">60%</strong> · 20% fee paid out to influencers</div>
-        <div>Organic / platform: <strong id="v-org-pct-label">40%</strong> · 20% fee retained by SMTHG</div>
+        <div>Influencer-driven: <strong id="v-inf-pct-label">90%</strong> · 20% fee paid out to influencers</div>
+        <div>Organic / platform: <strong id="v-org-pct-label">10%</strong> · 20% fee retained by SMTHG</div>
       </div>
 
       <div class="sliders-section-label" style="margin-top:20px">VTO Volume</div>
@@ -574,11 +574,11 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         <span class="out-row-val neg" id="o-inf">−$1,050</span>
       </div>
       <div class="out-row" style="padding-top:3px;padding-bottom:3px">
-        <span class="out-row-lbl" style="font-size:11px;padding-left:10px">↳ Paid to influencers (<span id="o-inf-share-pct">60%</span>)</span>
+        <span class="out-row-lbl" style="font-size:11px;padding-left:10px">↳ Paid to influencers (<span id="o-inf-share-pct">90%</span>)</span>
         <span class="out-row-val" style="font-size:12px;color:#FF8A80" id="o-inf-paidout">—</span>
       </div>
       <div class="out-row" style="padding-top:3px;padding-bottom:3px">
-        <span class="out-row-lbl" style="font-size:11px;padding-left:10px">↳ SMTHG keeps (organic <span id="o-org-share-pct">40%</span>)</span>
+        <span class="out-row-lbl" style="font-size:11px;padding-left:10px">↳ SMTHG keeps (organic <span id="o-org-share-pct">10%</span>)</span>
         <span class="out-row-val" style="font-size:12px;color:#7AE3B2" id="o-inf-keep">—</span>
       </div>
       <div class="out-row">
@@ -608,7 +608,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
           <span style="font-size:15px;font-weight:800;color:white" id="o-tf-gross">$2,625</span>
         </div>
         <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px">
-          <span style="font-size:12px;font-weight:700;color:white">Organic inf. fee retained (<span id="o-smthg-keep-pct">40%</span>)</span>
+          <span style="font-size:12px;font-weight:700;color:white">Organic inf. fee retained (<span id="o-smthg-keep-pct">10%</span>)</span>
           <span style="font-size:15px;font-weight:800;color:#7AE3B2" id="o-inf-keep-smthg">+$0</span>
         </div>
         <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px" id="o-vto-tf-row">
@@ -767,7 +767,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 
       <div style="background:var(--tf-ghost);border:1px solid var(--rule);border-top:3px solid var(--tf);padding:20px 22px">
         <div style="font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--tf);margin-bottom:4px">New model</div>
-        <div style="font-size:12px;font-weight:700;color:var(--ink);margin-bottom:14px">Mixed — <span id="cmp-new-mix-lbl">60% inf. / 40% organic</span></div>
+        <div style="font-size:12px;font-weight:700;color:var(--ink);margin-bottom:14px">Mixed — <span id="cmp-new-mix-lbl">90% inf. / 10% organic</span></div>
         <div style="font-size:11px;color:var(--sub);margin-bottom:10px">Organic portion of 20% inf. fee is retained by SMTHG on top of platform fee</div>
         <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--rule);font-size:13px">
           <span style="color:var(--ink)">Platform fee (10%)</span>
@@ -803,6 +803,81 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
       </div>
 
     </div>
+  </div>
+
+  <!-- Organic growth path + benchmark -->
+  <div style="margin-top:36px">
+    <div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);margin-bottom:16px">Organic share — realistic growth path</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:28px">
+      <div style="background:white;border:1px solid var(--rule);border-top:3px solid var(--sub);padding:18px 20px">
+        <div style="font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);margin-bottom:6px">MVP · Year 1</div>
+        <div style="font-size:22px;font-weight:800;color:var(--ink);margin-bottom:6px">5–10% organic</div>
+        <div style="font-size:12px;color:var(--sub);line-height:1.5">No platform community yet. No SEO. No brand recognition. Every visitor arrives via an influencer post. Slider: 90–95% influencer-driven.</div>
+      </div>
+      <div style="background:white;border:1px solid var(--rule);border-top:3px solid var(--orange);padding:18px 20px">
+        <div style="font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--orange);margin-bottom:6px">Growth · Year 2–3</div>
+        <div style="font-size:22px;font-weight:800;color:var(--ink);margin-bottom:6px">20–40% organic</div>
+        <div style="font-size:12px;color:var(--sub);line-height:1.5">Community forming. Some repeat buyers. Word-of-mouth starting. Style Space and Feed driving discovery within the platform.</div>
+      </div>
+      <div style="background:white;border:1px solid var(--rule);border-top:3px solid var(--green);padding:18px 20px">
+        <div style="font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);margin-bottom:6px">Scale · Year 4–5</div>
+        <div style="font-size:22px;font-weight:800;color:var(--ink);margin-bottom:6px">50–70% organic</div>
+        <div style="font-size:12px;color:var(--sub);line-height:1.5">Platform community self-sustaining. Brand recognition in target segment. Community flywheel reduces dependence on paid influencer traffic.</div>
+      </div>
+    </div>
+
+    <div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);margin-bottom:14px">Mature marketplace benchmarks · organic vs. paid</div>
+    <div style="background:white;border:1px solid var(--rule);overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:12px">
+        <thead>
+          <tr style="background:var(--off-white);border-bottom:2px solid var(--rule)">
+            <th style="text-align:left;padding:11px 16px;font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--sub)">Platform</th>
+            <th style="text-align:left;padding:11px 16px;font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--sub)">Organic / direct share</th>
+            <th style="text-align:left;padding:11px 16px;font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--sub)">Marketing as % of revenue</th>
+            <th style="text-align:left;padding:11px 16px;font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--sub)">Stage / note</th>
+            <th style="text-align:left;padding:11px 16px;font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--sub)">Source</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--rule)">
+            <td style="padding:12px 16px;font-weight:700;color:var(--ink)">Airbnb</td>
+            <td style="padding:12px 16px;color:var(--ink)"><strong style="color:var(--green)">~91%</strong> direct / unprompted</td>
+            <td style="padding:12px 16px;color:var(--sub)">~18–20% (brand focus, not perf.)</td>
+            <td style="padding:12px 16px;color:var(--sub)">15-year-old brand. Cut perf. marketing in COVID — traffic unchanged.</td>
+            <td style="padding:12px 16px;color:var(--sub)"><a href="https://news.airbnb.com/airbnb-2022-annual-report/" target="_blank" rel="noopener" style="color:var(--tf)">2022 shareholder letter</a></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);background:var(--off-white)">
+            <td style="padding:12px 16px;font-weight:700;color:var(--ink)">eBay</td>
+            <td style="padding:12px 16px;color:var(--ink)"><strong style="color:var(--green)">~80%+</strong> direct</td>
+            <td style="padding:12px 16px;color:var(--sub)">~8–10%</td>
+            <td style="padding:12px 16px;color:var(--sub)">Mature brand. Buyers come direct from habit.</td>
+            <td style="padding:12px 16px;color:var(--sub)">eBay 10-K (annual report)</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule)">
+            <td style="padding:12px 16px;font-weight:700;color:var(--ink)">Etsy</td>
+            <td style="padding:12px 16px;color:var(--ink)"><strong style="color:var(--orange)">~50–55%</strong> repeat / organic</td>
+            <td style="padding:12px 16px;color:var(--sub)">~21% ($580M on $2.7B revenue)</td>
+            <td style="padding:12px 16px;color:var(--sub)">Organic share declining as paid-growth reliance increases.</td>
+            <td style="padding:12px 16px;color:var(--sub)"><a href="https://investors.etsy.com/sec-filings/annual-reports" target="_blank" rel="noopener" style="color:var(--tf)">Etsy 2023 10-K</a></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);background:var(--off-white)">
+            <td style="padding:12px 16px;font-weight:700;color:var(--ink)">Vinted</td>
+            <td style="padding:12px 16px;color:var(--ink)"><strong style="color:var(--green)">~70%+</strong> community / word-of-mouth</td>
+            <td style="padding:12px 16px;color:var(--sub)">~5–8% est.</td>
+            <td style="padding:12px 16px;color:var(--sub)">Fashion resale. Community-led virality; minimal paid.</td>
+            <td style="padding:12px 16px;color:var(--sub)">Private company — estimated from growth reports</td>
+          </tr>
+          <tr>
+            <td style="padding:12px 16px;font-weight:700;color:var(--ink)">Poshmark</td>
+            <td style="padding:12px 16px;color:var(--ink)"><strong style="color:var(--orange)">~60%</strong> community / organic</td>
+            <td style="padding:12px 16px;color:var(--sub)">~15–20%</td>
+            <td style="padding:12px 16px;color:var(--sub)">Pre-Naver acquisition. Social sharing built organic loop.</td>
+            <td style="padding:12px 16px;color:var(--sub)">Poshmark S-1 / pre-acquisition filings</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="font-size:10px;color:var(--sub);margin-top:8px;line-height:1.5">Mature platforms reach 60–90% organic after 5–15 years. At MVP stage SMTHG starts at near-0% organic — all traffic arrives via influencer posts. The path to 50%+ organic requires an established community and brand recognition.</div>
   </div>
 
 </section>
