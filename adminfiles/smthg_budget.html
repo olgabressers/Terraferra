@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <meta name="robots" content="noindex,nofollow"/>
-<title>1st Year Budget · SMTHG</title>
+<title>SMTHG Budget</title>
 <link rel="icon" type="image/svg+xml" href="smthg_favicon.svg"/>
 <!-- Exchange rate: 1 USD = 0.91 EUR · July 2026 -->
 <!-- Office: 4 core team × $200/month = $800/mo -->
@@ -249,7 +249,7 @@ details[open].cd summary::before{content:'▾'}
       <div class="dropdown">
         <a href="TFmarketsize.html">Market Size &amp; Opportunity</a>
         <a href="budget.html">Budget &amp; Sales Scenarios</a>
-        <a href="smthg_1styearbudget.html" class="active">1st Year Budget</a>
+        <a href="smthg_budget.html" class="active">SMTHG Budget</a>
         <a href="smthg_investors.html">Investor Requirements</a>
       </div>
     </div>
@@ -287,20 +287,30 @@ details[open].cd summary::before{content:'▾'}
   </div>
 </nav>
 <div class="wrap">
-<h1><span style="color:var(--tf)">1st Year Budget</span><span class="sync-dot" id="sync-dot"></span><span class="sync-label" id="sync-label">Connecting…</span></h1>
+<h1>smthg<span style="color:var(--tf)">.</span> budget<span class="sync-dot" id="sync-dot"></span><span class="sync-label" id="sync-label">Connecting…</span></h1>
 <p class="sub">SMTHG · Year 1 post-launch · all fixed costs incl. core team salary · USD primary · EUR ≈ USD × 0.91 · July 2026 · <a href="smthg_operationsteam.html" style="color:var(--tf);text-decoration:none;font-weight:700">Operations Team →</a></p>
 
 <!-- ── TABLE OF CONTENTS ── -->
 <nav class="toc">
   <div class="toc-title">Jump to section</div>
   <div class="toc-grid">
-    <a class="toc-item" href="#s01"><span class="toc-num">01</span>Fixed Operating Budget</a>
+    <a class="toc-item" href="#s01"><span class="toc-num">01</span>1st Year Budget</a>
     <a class="toc-item" href="#s02"><span class="toc-num">02</span>Quarterly Revenue</a>
     <a class="toc-item" href="#s03"><span class="toc-num">03</span>Consolidated P&amp;L</a>
     <a class="toc-item" href="#s04"><span class="toc-num">04</span>5-Year Outlook</a>
     <a class="toc-item" href="#s05"><span class="toc-num">05</span>Appendix</a>
   </div>
 </nav>
+
+<!-- ── SECTION 01: 1ST YEAR BUDGET ── -->
+<div class="proj-sep" id="s01">
+  <span class="sn">01</span>
+  <span class="st">1st Year Budget</span>
+  <span class="ss">Year 1 post-launch · fixed costs · revenue · P&amp;L · <a href="smthg_investors.html" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:2px">Investor requirements →</a></span>
+  <span id="s01-badge" class="sec-badge"></span>
+  <button class="sec-toggle-btn" onclick="toggleSec('s01-all',this)" title="collapse/expand">▾</button>
+</div>
+<div id="s01-all">
 
 <!-- ── SUMMARY CARDS ── -->
 <div class="summary">
@@ -328,6 +338,16 @@ details[open].cd summary::before{content:'▾'}
     <div class="sc-label">Total fixed costs · Year 1</div>
     <div class="sc-val" id="sc-total-yr">—</div>
     <div class="sc-note" id="sc-total-note">all fixed costs incl. salaries</div>
+    <div style="margin-top:10px;border-top:1px solid var(--rule);padding-top:8px;display:flex;align-items:center;gap:5px;flex-wrap:wrap">
+      <span style="font-size:10px;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:.06em">Buffer</span>
+      <input id="ct-buf-pct" type="number" value="10" min="0" max="100" step="1" style="width:38px;border:1px solid var(--rule);border-radius:3px;padding:2px 4px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif;color:var(--ink);text-align:center" oninput="calcS01()">
+      <span style="font-size:10px;color:var(--sub)">%</span>
+      <span id="sc-buf-val" style="font-size:11px;font-weight:700;color:var(--tf);margin-left:auto">—</span>
+    </div>
+    <div style="margin-top:5px;display:flex;justify-content:space-between;align-items:baseline;gap:6px">
+      <span style="font-size:10px;color:var(--sub);font-weight:600;white-space:nowrap">Total + buffer</span>
+      <span id="sc-total-buf" style="font-size:15px;font-weight:800;color:var(--ink)">—</span>
+    </div>
   </div>
 </div>
 
@@ -363,15 +383,6 @@ details[open].cd summary::before{content:'▾'}
     <div id="sc-net-q4" style="padding:12px 14px;text-align:right;font-weight:700;font-size:13px;border-right:1px solid var(--rule)">—</div>
     <div id="sc-net-y" style="padding:12px 14px;text-align:right;font-weight:800;font-size:15px">—</div>
   </div>
-</div>
-
-<!-- ── SECTION 01: FIXED OPERATING BUDGET ── -->
-<div class="proj-sep" id="s01">
-  <span class="sn">01</span>
-  <span class="st">Fixed Operating Budget · Year 1</span>
-  <span class="ss">Total fixed costs incl. core team salary · all quarters · <a href="smthg_investors.html" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:2px">Investor requirements →</a></span>
-  <span id="s01-badge" class="sec-badge"></span>
-  <button class="sec-toggle-btn" onclick="toggleSec('s01-body',this)" title="collapse/expand">▾</button>
 </div>
 
 <!-- ── INVESTOR REQUIREMENTS COMPARISON ── -->
@@ -1176,7 +1187,8 @@ details[open].cd summary::before{content:'▾'}
 
 </tbody>
 </table>
-</div>
+</div><!-- /s01-body -->
+</div><!-- /s01-all -->
 
 <!-- ═══ SECTION 02: QUARTERLY REVENUE PROJECTIONS ═══ -->
 <div class="proj-sep" id="s02">
@@ -2793,6 +2805,13 @@ function calcS01(){
   if(scOEl)scOEl.textContent=fmt2(fxOpexYr);
   var scOnEl=document.getElementById('sc-opex-note');
   if(scOnEl)scOnEl.textContent='≈€'+Math.round(fxOpexYr*0.91).toLocaleString()+' · Financial/Legal + tools + AI + marketing + trade shows';
+  // Contingency buffer
+  var bufPct=(parseFloat((document.getElementById('ct-buf-pct')||{}).value)||0)/100;
+  var buf=yrTot*bufPct;
+  var scBufEl=document.getElementById('sc-buf-val');
+  if(scBufEl)scBufEl.textContent='+'+fmt2(buf);
+  var scTotalBufEl=document.getElementById('sc-total-buf');
+  if(scTotalBufEl)scTotalBufEl.textContent=fmt2(yrTot+buf);
 
   proj();
   pushInputs();
@@ -2906,7 +2925,7 @@ var DB_BUDGET='https://terra-ferra-1ac34-default-rtdb.firebaseio.com';
 var BUDGET_PATH='/tf-budget/v1/inputs.json';
 var SYNC_IDS=['p-items','p-aov','p-tf-fee','p-designers','p-inf','p-inf-share','p-pay','p-vto-a','p-vto-t',
   'yd1','yd2','yd3','yd4','yd5','ct-rate','ct-y1-rate','ct-y1-count','ct-y2-count','ct-y3-count','ct-y4-count','ct-y5-count',
-  'ht-dev-rate','ht-cm-rate','ht-co-rate','ht-smm-rate','ht-ir-rate'];
+  'ht-dev-rate','ht-cm-rate','ht-co-rate','ht-smm-rate','ht-ir-rate','ct-buf-pct'];
 var dbTimer=null,applying=false,lastSnap='';
 
 function setSyncState(s){
