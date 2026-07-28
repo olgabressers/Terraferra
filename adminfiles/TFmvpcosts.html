@@ -733,6 +733,78 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
       </tbody>
     </table>
   </div>
+
+  <!-- MODEL COMPARISON -->
+  <div style="margin-top:24px">
+    <div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);margin-bottom:16px">Platform revenue · old model vs new model</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;align-items:start">
+
+      <div style="background:white;border:1px solid var(--rule);padding:20px 22px">
+        <div style="font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);margin-bottom:4px">Old model</div>
+        <div style="font-size:12px;font-weight:700;color:var(--ink);margin-bottom:14px">100% influencer-driven</div>
+        <div style="font-size:11px;color:var(--sub);margin-bottom:10px">Full 20% inf. fee paid out — SMTHG keeps only the platform fee</div>
+        <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--rule);font-size:13px">
+          <span style="color:var(--ink)">Platform fee (10%)</span>
+          <span style="font-weight:700;color:var(--ink)" id="cmp-old-tf">—</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--rule);font-size:13px">
+          <span style="color:var(--sub)">Organic inf. retained</span>
+          <span style="font-weight:700;color:var(--sub)">$0</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--rule);font-size:13px">
+          <span style="color:var(--sub)">VTO + payment</span>
+          <span style="font-weight:700;color:var(--sub)" id="cmp-old-costs">—</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:10px 0 4px;font-size:16px;font-weight:800">
+          <span style="color:var(--ink)">Net / drop</span>
+          <span id="cmp-old-net" style="color:var(--ink)">—</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:4px 0 0;font-size:12px">
+          <span style="color:var(--sub)">Net / month</span>
+          <span id="cmp-old-month" style="color:var(--sub);font-weight:700">—</span>
+        </div>
+      </div>
+
+      <div style="background:var(--tf-ghost);border:1px solid var(--rule);border-top:3px solid var(--tf);padding:20px 22px">
+        <div style="font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--tf);margin-bottom:4px">New model</div>
+        <div style="font-size:12px;font-weight:700;color:var(--ink);margin-bottom:14px">Mixed — <span id="cmp-new-mix-lbl">60% inf. / 40% organic</span></div>
+        <div style="font-size:11px;color:var(--sub);margin-bottom:10px">Organic portion of 20% inf. fee is retained by SMTHG on top of platform fee</div>
+        <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--rule);font-size:13px">
+          <span style="color:var(--ink)">Platform fee (10%)</span>
+          <span style="font-weight:700;color:var(--ink)" id="cmp-new-tf">—</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--rule);font-size:13px">
+          <span style="color:var(--green)">Organic inf. retained</span>
+          <span style="font-weight:700;color:var(--green)" id="cmp-new-keep">—</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--rule);font-size:13px">
+          <span style="color:var(--sub)">VTO + payment</span>
+          <span style="font-weight:700;color:var(--sub)" id="cmp-new-costs">—</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:10px 0 4px;font-size:16px;font-weight:800">
+          <span style="color:var(--ink)">Net / drop</span>
+          <span id="cmp-new-net" style="color:var(--tf)">—</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:4px 0 0;font-size:12px">
+          <span style="color:var(--sub)">Net / month</span>
+          <span id="cmp-new-month" style="color:var(--tf);font-weight:700">—</span>
+        </div>
+      </div>
+
+      <div style="background:var(--ink);padding:20px 22px">
+        <div style="font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:4px">Difference</div>
+        <div style="font-size:12px;font-weight:700;color:white;margin-bottom:14px">New model earns more</div>
+        <div style="font-size:11px;color:rgba(255,255,255,.5);margin-bottom:6px">Extra per drop</div>
+        <div style="font-size:30px;font-weight:800;color:#7AE3B2;margin-bottom:16px" id="cmp-diff-drop">—</div>
+        <div style="font-size:11px;color:rgba(255,255,255,.5);margin-bottom:6px">Extra per month (<span id="cmp-diff-drops-lbl">—</span> drops)</div>
+        <div style="font-size:24px;font-weight:800;color:#7AE3B2;margin-bottom:14px" id="cmp-diff-month">—</div>
+        <div style="font-size:10px;color:rgba(255,255,255,.35);line-height:1.6">Designer cost is identical in both models — they always pay 20% inf. fee. The difference is how much SMTHG retains vs pays out.</div>
+        <div style="font-size:10px;color:rgba(255,255,255,.5);margin-top:8px">Organic assumption: <span id="cmp-diff-org-pct">—</span> of drop revenue</div>
+      </div>
+
+    </div>
+  </div>
+
 </section>
 
 <!-- 02 MVP COSTS -->
@@ -1889,6 +1961,33 @@ function calc() {
   } else {
     document.getElementById('concl-summary').textContent = 'Revenue per designer is negative at current settings — increase price, reduce VTO tries, or lower influencer commission.';
   }
+
+  // Model comparison block
+  var varCosts = vtoCost + gamiCost + payFee;
+  var tfNetOld = tfFee - varCosts;
+  var monthlyOld = tfNetOld * totalDrops + monthlyTFSubs;
+  var monthlyNew = monthlyTFTotal;
+  var diffDrop  = infKeep;
+  var diffMonth = infKeep * totalDrops;
+
+  document.getElementById('cmp-old-tf').textContent     = '$'+Math.round(tfFee).toLocaleString();
+  document.getElementById('cmp-old-costs').textContent  = fmtNeg(varCosts);
+  document.getElementById('cmp-old-net').textContent    = fmtPos(tfNetOld);
+  document.getElementById('cmp-old-net').style.color    = tfNetOld >= 0 ? 'var(--ink)' : 'var(--red-text)';
+  document.getElementById('cmp-old-month').textContent  = fmtPos(monthlyOld);
+
+  document.getElementById('cmp-new-tf').textContent     = '$'+Math.round(tfFee).toLocaleString();
+  document.getElementById('cmp-new-keep').textContent   = '+$'+Math.round(infKeep).toLocaleString();
+  document.getElementById('cmp-new-costs').textContent  = fmtNeg(varCosts);
+  document.getElementById('cmp-new-net').textContent    = fmtPos(tfNet);
+  document.getElementById('cmp-new-net').style.color    = tfNet >= 0 ? 'var(--tf)' : 'var(--red-text)';
+  document.getElementById('cmp-new-month').textContent  = fmtPos(monthlyNew);
+  document.getElementById('cmp-new-mix-lbl').textContent = Math.round(infRevShare*100)+'% inf. / '+Math.round((1-infRevShare)*100)+'% organic';
+
+  document.getElementById('cmp-diff-drop').textContent   = '+$'+Math.round(diffDrop).toLocaleString();
+  document.getElementById('cmp-diff-month').textContent  = '+$'+Math.round(diffMonth).toLocaleString();
+  document.getElementById('cmp-diff-drops-lbl').textContent = totalDrops;
+  document.getElementById('cmp-diff-org-pct').textContent = Math.round((1-infRevShare)*100)+'%';
 
 }
 
