@@ -1753,6 +1753,12 @@ details[open].cd summary::before{content:'▾'}
     <label style="font-size:11px;color:var(--ink);display:flex;align-items:center;gap:4px">Y5 <input id="ct-y5-count" type="number" value="4" min="0" max="99" style="width:42px;border:1px solid var(--rule);padding:3px 5px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif" oninput="yrProj()"></label>
   </div>
   <div style="font-size:10px;color:var(--sub)">G&amp;A estimates (incl. trade shows): Y1 $200.8K · Y2 $100K · Y3 $130K · Y4 $200K · Y5 $300K</div>
+  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px;padding-top:10px;border-top:1px solid var(--rule);width:100%">
+    <div style="font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);white-space:nowrap">Ops team salary raise · per person / yr</div>
+    <label style="font-size:12px;color:var(--ink);font-weight:600;display:flex;align-items:center;gap:4px">Y2 &nbsp;$<input id="raise-y2" type="number" value="15000" min="0" step="1000" style="width:80px;border:1px solid var(--rule);padding:4px 6px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif;color:var(--ink)" oninput="yrProj()"></label>
+    <label style="font-size:12px;color:var(--ink);font-weight:600;display:flex;align-items:center;gap:4px">Y3–5 / yr &nbsp;$<input id="raise-y3p" type="number" value="20000" min="0" step="1000" style="width:80px;border:1px solid var(--rule);padding:4px 6px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif;color:var(--ink)" oninput="yrProj()"></label>
+    <div style="font-size:10px;color:var(--sub)">Cumulative over base: Y2 +$15K · Y3 +$35K · Y4 +$55K · Y5 +$75K per person · headcount: Y2 8 · Y3 13 · Y4 20 · Y5 35</div>
+  </div>
 </div>
 
 <!-- Cost year boxes -->
@@ -1809,8 +1815,9 @@ details[open].cd summary::before{content:'▾'}
         <div class="cd-r"><span>Content creation</span><span>1 FTE</span></div>
         <div class="cd-r"><span>Community manager</span><span>1.5 FTE</span></div>
         <div class="cd-r"><span>Platform devs</span><span>3 (2 cont + 1 FTE frontend)</span></div>
-        <div class="cd-r cd-tot"><span>Total</span><span>~$43K/mo · $516K/yr</span></div>
+        <div class="cd-r cd-tot"><span>Total base</span><span>~$43K/mo · $516K/yr</span></div>
       </div></details>
+      <div style="font-size:10px;color:var(--sub);padding:2px 10px 6px" id="yc2-ops-raise"></div>
       <div class="q-row"><span class="ql">Core team salary</span><span class="qv r" id="yc2-core">—</span></div>
       <details class="cd"><summary>4 founders · rate adjustable above</summary><div class="cd-body">
         <div class="cd-r"><span id="ycd2-ct-info">4 founders × $10K/mo × 12 = $480K/yr</span></div>
@@ -1850,8 +1857,9 @@ details[open].cd summary::before{content:'▾'}
         <div class="cd-r"><span>Content creation</span><span>2 FTE</span></div>
         <div class="cd-r"><span>Community manager</span><span>2 FTE</span></div>
         <div class="cd-r"><span>Platform devs</span><span>4–5 FTE (mobile + DevOps added)</span></div>
-        <div class="cd-r cd-tot"><span>Total</span><span>~$100K/mo · $1.2M/yr</span></div>
+        <div class="cd-r cd-tot"><span>Total base</span><span>~$100K/mo · $1.2M/yr</span></div>
       </div></details>
+      <div style="font-size:10px;color:var(--sub);padding:2px 10px 6px" id="yc3-ops-raise"></div>
       <div class="q-row"><span class="ql">Core team salary</span><span class="qv r" id="yc3-core">—</span></div>
       <details class="cd"><summary>4 founders · rate adjustable above</summary><div class="cd-body">
         <div class="cd-r"><span id="ycd3-ct-info">4 founders × $10K/mo × 12 = $480K/yr</span></div>
@@ -1890,8 +1898,9 @@ details[open].cd summary::before{content:'▾'}
         <div class="cd-r"><span>Content creation</span><span>3 FTE + Head</span></div>
         <div class="cd-r"><span>Community manager</span><span>3 FTE + Head</span></div>
         <div class="cd-r"><span>Platform devs</span><span>7–8 FTE (senior eng, on-call)</span></div>
-        <div class="cd-r cd-tot"><span>Total</span><span>~$185K/mo · $2.22M/yr</span></div>
+        <div class="cd-r cd-tot"><span>Total base</span><span>~$185K/mo · $2.22M/yr</span></div>
       </div></details>
+      <div style="font-size:10px;color:var(--sub);padding:2px 10px 6px" id="yc4-ops-raise"></div>
       <div class="q-row"><span class="ql">Core team salary</span><span class="qv r" id="yc4-core">—</span></div>
       <details class="cd"><summary>4 founders · rate adjustable above</summary><div class="cd-body">
         <div class="cd-r"><span id="ycd4-ct-info">4 founders × $10K/mo × 12 = $480K/yr</span></div>
@@ -1930,8 +1939,9 @@ details[open].cd summary::before{content:'▾'}
         <div class="cd-r"><span>Content creation</span><span>5 FTE + Director</span></div>
         <div class="cd-r"><span>Community manager</span><span>5 FTE + Director</span></div>
         <div class="cd-r"><span>Platform devs</span><span>12–15 FTE (dedicated mobile team)</span></div>
-        <div class="cd-r cd-tot"><span>Total</span><span>~$320K/mo · $3.84M/yr</span></div>
+        <div class="cd-r cd-tot"><span>Total base</span><span>~$320K/mo · $3.84M/yr</span></div>
       </div></details>
+      <div style="font-size:10px;color:var(--sub);padding:2px 10px 6px" id="yc5-ops-raise"></div>
       <div class="q-row"><span class="ql">Core team salary</span><span class="qv r" id="yc5-core">—</span></div>
       <details class="cd"><summary>4 founders · rate adjustable above</summary><div class="cd-body">
         <div class="cd-r"><span id="ycd5-ct-info">4 founders × $10K/mo × 12 = $480K/yr</span></div>
@@ -2901,6 +2911,7 @@ var Y_FREQ=[0,4,4,4,4,4];
 var Y_FREQ_LBL=['','once/3mo','once/3mo','once/3mo','once/3mo','once/3mo'];
 var Y_OPS=[0,138000,516000,1200000,2220000,3840000];
 var Y_GA=[0,200840,100000,130000,200000,300000];
+var OPS_HC=[0,7,8,13,20,35];
 
 function adjY(yr,d){var el=document.getElementById('yd'+yr);if(!el)return;el.value=Math.max(0,(parseInt(el.value)||0)+d);yrProj();}
 
@@ -2910,6 +2921,9 @@ function yrProj(){
   var ctRateEl=document.getElementById('ct-rate');
   var ctRate=parseFloat(ctRateEl?ctRateEl.value:10000)||10000;
   function getCTC(yr){var el=document.getElementById('ct-y'+yr+'-count');return parseInt(el?el.value:0)||0;}
+  var raiseY2=parseFloat(document.getElementById('raise-y2')?document.getElementById('raise-y2').value:15000)||0;
+  var raiseY3p=parseFloat(document.getElementById('raise-y3p')?document.getElementById('raise-y3p').value:20000)||0;
+  var cumRaise=[0,0,raiseY2,raiseY2+raiseY3p,raiseY2+2*raiseY3p,raiseY2+3*raiseY3p];
   var cumEbit=0;
   for(var yr=1;yr<=5;yr++){
     var dropEl=document.getElementById('yd'+yr);
@@ -2943,7 +2957,13 @@ function yrProj(){
     var opsTeam;
     if(yr===1){
       opsTeam=(getHtR('dev')*2+getHtR('cm')+getHtR('ir')+getHtR('smm')+getHtR('ccs')+getHtR('co'))*12;
-    }else{opsTeam=Y_OPS[yr];}
+    }else{
+      var raiseTotal=OPS_HC[yr]*cumRaise[yr];
+      opsTeam=Y_OPS[yr]+raiseTotal;
+      var raiseEl=document.getElementById('yc'+yr+'-ops-raise');
+      if(raiseEl && raiseTotal>0){raiseEl.textContent='incl. +'+fmtM(raiseTotal)+' salary raises ('+OPS_HC[yr]+' staff × $'+(cumRaise[yr]/1000).toFixed(0)+'K cumul./person)';}
+      else if(raiseEl){raiseEl.textContent='';}
+    }
     var y1rA=parseFloat(document.getElementById('ct-y1-rate').value)||0;
     var y1cA=parseFloat(document.getElementById('ct-y1-count').value)||0;
     var coreTeam=yr===1?y1rA*y1cA*12:getCTC(yr)*ctRate*12;
@@ -3004,7 +3024,7 @@ var DB_BUDGET='https://terra-ferra-1ac34-default-rtdb.firebaseio.com';
 var BUDGET_PATH='/tf-budget/v1/inputs.json';
 var SYNC_IDS=['p-items','p-aov','p-tf-fee','p-designers','p-inf','p-inf-share','p-pay','p-vto-a','p-vto-t',
   'yd1','yd2','yd3','yd4','yd5','ct-rate','ct-y1-rate','ct-y1-count','ct-y2-count','ct-y3-count','ct-y4-count','ct-y5-count',
-  'ht-dev-rate','ht-cm-rate','ht-ir-rate','ht-smm-rate','ht-ccs-rate','ht-co-rate','ct-buf-pct'];
+  'ht-dev-rate','ht-cm-rate','ht-ir-rate','ht-smm-rate','ht-ccs-rate','ht-co-rate','ct-buf-pct','raise-y2','raise-y3p'];
 var dbTimer=null,applying=false,lastSnap='';
 
 function setSyncState(s){
