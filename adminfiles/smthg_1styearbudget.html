@@ -70,8 +70,9 @@ thead th:last-child{min-width:180px}
 .sec-toggle-btn{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:4px;cursor:pointer;font-size:13px;color:#fff;padding:3px 10px;line-height:1;transition:background .15s;flex-shrink:0;font-family:monospace}
 .sec-toggle-btn:hover{background:rgba(255,255,255,.25)}
 .sec-badge{font-size:11px;color:rgba(255,255,255,.35);margin-left:auto;font-weight:400;letter-spacing:0}
-.grp-toggle-btn{background:rgba(0,0,0,.12);border:1px solid rgba(0,0,0,.2);color:inherit;border-radius:3px;cursor:pointer;font-size:11px;padding:2px 8px;font-family:monospace;flex-shrink:0;line-height:1;margin-left:12px}
+.grp-toggle-btn{background:rgba(0,0,0,.12);border:1px solid rgba(0,0,0,.2);color:inherit;border-radius:3px;cursor:pointer;font-size:11px;padding:2px 8px;font-family:monospace;flex-shrink:0;line-height:1;margin-left:8px}
 .grp-toggle-btn:hover{background:rgba(0,0,0,.2)}
+.grp-total-disp{font-size:12px;font-weight:700;font-family:'Inter',sans-serif;text-transform:none;letter-spacing:0;opacity:.85;white-space:nowrap;margin-right:4px;margin-left:auto}
 
 /* Back-to-top */
 .back-to-top{position:fixed;bottom:28px;right:28px;width:40px;height:40px;background:var(--tf);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;text-decoration:none;opacity:0;transition:opacity .3s;z-index:100;border-radius:2px}
@@ -2298,12 +2299,39 @@ function toggleSec(bodyId,btn){
   body.style.display=collapsed?'none':'';
   btn.textContent=collapsed?'▸':'▾';
 }
+function parseUSD(txt){
+  var m=(txt||'').match(/\$([0-9,]+)/);
+  return m?parseInt(m[1].replace(/,/g,''),10):0;
+}
+function updateGrpTotals(){
+  var map=window._grpMap||{};
+  var spans=window._grpTotalSpans||{};
+  Object.keys(spans).forEach(function(grp){
+    var span=spans[grp];
+    if(!span)return;
+    var rows=map[grp]||[];
+    var total=0;
+    var sub=null;
+    rows.forEach(function(r){if(r.classList.contains('subtotal'))sub=r;});
+    if(sub&&sub.cells[6]){
+      total=parseUSD(sub.cells[6].textContent);
+    } else {
+      rows.forEach(function(r){
+        if(r.cells[6]&&!r.classList.contains('core-sub')){
+          total+=parseUSD(r.cells[6].textContent);
+        }
+      });
+    }
+    span.textContent=total>0?'$'+Math.round(total).toLocaleString():'—';
+  });
+}
 function initGrpToggles(){
   var tbody=document.querySelector('#s01-body table tbody');
   if(!tbody)return;
   var rows=Array.from(tbody.rows);
   var curGrp=null;
   var grpMap={};
+  var totalSpans={};
   var cls=['ppl','hire','finleg','optools','ai','mktg','travel','onetime'];
   rows.forEach(function(row){
     if(row.classList.contains('sec-hdr')){
@@ -2318,7 +2346,18 @@ function initGrpToggles(){
       var td=row.cells[0];
       td.style.display='flex';
       td.style.alignItems='center';
-      td.style.justifyContent='space-between';
+      // wrap existing children so flex pushes total+btn to right
+      var textWrapper=document.createElement('span');
+      textWrapper.style.flex='1';
+      while(td.firstChild)textWrapper.appendChild(td.firstChild);
+      td.appendChild(textWrapper);
+      // total display
+      var tspan=document.createElement('span');
+      tspan.className='grp-total-disp';
+      tspan.textContent='—';
+      td.appendChild(tspan);
+      totalSpans[curGrp]=tspan;
+      // toggle button
       var btn=document.createElement('button');
       btn.className='grp-toggle-btn';
       btn.textContent='▾';
@@ -2331,6 +2370,7 @@ function initGrpToggles(){
     }
   });
   window._grpMap=grpMap;
+  window._grpTotalSpans=totalSpans;
 }
 function toggleGrp(grp,headerRow){
   var rows=(window._grpMap||{})[grp]||[];
@@ -2497,6 +2537,7 @@ function proj(){
   var ybYEl=document.getElementById('yb-nety');
   if(ybYEl){ybYEl.textContent=(netY>=0?'+':'-')+fmtM(Math.abs(netY));ybYEl.className='yr-v '+(netY>=0?'g':'r');}
   yrProj();
+  updateGrpTotals();
 }
 
 // ── calcS01: recompute Section 01 fixed costs from inputs ──
@@ -2704,6 +2745,7 @@ function yrProj(){
 }
 
 calcS01();
+updateGrpTotals();
 
 // ── Back-to-top ──
 var btt=document.getElementById('btt');
@@ -2760,6 +2802,7 @@ function pollFb(){
 }
 window.addEventListener('DOMContentLoaded',function(){
   initGrpToggles();
+  updateGrpTotals();
   fetch(DB_BUDGET+BUDGET_PATH)
     .then(function(r){return r.json();})
     .then(function(data){if(data){lastSnap=JSON.stringify(data);applySnap(data);}setSyncState('live');})
