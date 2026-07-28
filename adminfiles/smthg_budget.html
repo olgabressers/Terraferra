@@ -1803,7 +1803,9 @@ details[open].cd summary::before{content:'▾'}
 </div>
 
 <!-- Cost year boxes -->
-<div style="font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);margin:20px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--rule)">Costs &nbsp;·&nbsp; ops team + core team salary + G&amp;A <span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:9px">(G&amp;A = General &amp; Administrative: office · tools · legal · accounting)</span></div>
+<div style="font-size:26px;font-weight:800;color:var(--ink);margin:36px 0 6px;letter-spacing:-0.5px">Costs &nbsp;·&nbsp; ops team + core team salary + G&amp;A</div>
+<div style="font-size:13px;color:var(--sub);margin-bottom:6px">G&amp;A = General &amp; Administrative: office · tools · legal · accounting</div>
+<div style="font-size:12px;color:var(--ink);background:var(--tf-ghost);border-left:3px solid var(--tf);padding:8px 14px;margin-bottom:20px;border-radius:0 4px 4px 0">G&amp;A doubles every year (×2 per year from Y1 base) &nbsp;·&nbsp; 10% contingency buffer applied to every year's total</div>
 <div class="y-grid">
 
   <!-- Y1 cost -->
@@ -1871,7 +1873,7 @@ details[open].cd summary::before{content:'▾'}
       <div class="q-row q-sub"><span class="ql">Marketing &amp; PR · paid social $25.5K + CRM/email/PR $6K</span><span class="qv r" id="yc2-ga-mktg">—</span></div>
       <div class="q-row q-sub"><span class="ql">Trade shows &amp; travel · 4 shows (2 US + 2 EU)</span><span class="qv r" id="yc2-ga-shows">—</span></div>
       <div class="q-row q-sub"><span class="ql" style="opacity:.4">One-time launch costs · Q1 only</span><span class="qv r" style="opacity:.4">—</span></div>
-      <div class="q-row q-sub"><span class="ql" style="opacity:.4">Contingency buffer</span><span class="qv r" style="opacity:.4">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Contingency buffer · 10% of total</span><span class="qv r" id="yc2-ga-buf">—</span></div>
       <div class="qdiv"></div>
       <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">Total Costs</span><span class="qv b r" id="yc2-tot">—</span></div>
       <div class="qdiv"></div>
@@ -1907,7 +1909,7 @@ details[open].cd summary::before{content:'▾'}
       <div class="q-row q-sub"><span class="ql">Marketing &amp; PR · consumer acquisition + fashion trade press</span><span class="qv r" id="yc3-ga-mktg">—</span></div>
       <div class="q-row q-sub"><span class="ql">Trade shows &amp; travel</span><span class="qv r" id="yc3-ga-shows">—</span></div>
       <div class="q-row q-sub"><span class="ql" style="opacity:.4">One-time launch costs · Q1 only</span><span class="qv r" style="opacity:.4">—</span></div>
-      <div class="q-row q-sub"><span class="ql" style="opacity:.4">Contingency buffer</span><span class="qv r" style="opacity:.4">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Contingency buffer · 10% of total</span><span class="qv r" id="yc3-ga-buf">—</span></div>
       <div class="qdiv"></div>
       <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">Total Costs</span><span class="qv b r" id="yc3-tot">—</span></div>
       <div class="qdiv"></div>
@@ -1943,7 +1945,7 @@ details[open].cd summary::before{content:'▾'}
       <div class="q-row q-sub"><span class="ql">Marketing &amp; PR · brand marketing + fashion press + PR</span><span class="qv r" id="yc4-ga-mktg">—</span></div>
       <div class="q-row q-sub"><span class="ql">Trade shows &amp; travel</span><span class="qv r" id="yc4-ga-shows">—</span></div>
       <div class="q-row q-sub"><span class="ql" style="opacity:.4">One-time launch costs · Q1 only</span><span class="qv r" style="opacity:.4">—</span></div>
-      <div class="q-row q-sub"><span class="ql" style="opacity:.4">Contingency buffer</span><span class="qv r" style="opacity:.4">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Contingency buffer · 10% of total</span><span class="qv r" id="yc4-ga-buf">—</span></div>
       <div class="qdiv"></div>
       <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">Total Costs</span><span class="qv b r" id="yc4-tot">—</span></div>
       <div class="qdiv"></div>
@@ -1979,7 +1981,7 @@ details[open].cd summary::before{content:'▾'}
       <div class="q-row q-sub"><span class="ql">Marketing &amp; PR — estimate</span><span class="qv r" id="yc5-ga-mktg">—</span></div>
       <div class="q-row q-sub"><span class="ql">Trade shows &amp; travel</span><span class="qv r" id="yc5-ga-shows">—</span></div>
       <div class="q-row q-sub"><span class="ql" style="opacity:.4">One-time launch costs · Q1 only</span><span class="qv r" style="opacity:.4">—</span></div>
-      <div class="q-row q-sub"><span class="ql" style="opacity:.4">Contingency buffer</span><span class="qv r" style="opacity:.4">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Contingency buffer · 10% of total</span><span class="qv r" id="yc5-ga-buf">—</span></div>
       <div class="qdiv"></div>
       <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">Total Costs</span><span class="qv b r" id="yc5-tot">—</span></div>
       <div class="qdiv"></div>
@@ -3011,8 +3013,14 @@ function yrProj(){
     var coreTeam=yr===1?y1rA*y1cA*12:getCTC(yr)*getCTRate(yr)*12;
     var bufPct=(parseFloat((document.getElementById('ct-buf-pct')||{}).value)||0)/100;
     var ga,gaBase=g_s1finleg+g_s1tools+g_s1ai+g_s1mktg+g_s1travel;
-    if(yr===1){ga=Math.max(0,g_yrTot*(1+bufPct)-opsTeam-coreTeam);}
-    else{ga=gaBase*Math.pow(2,yr-1);}
+    if(yr===1){
+      ga=Math.max(0,g_yrTot*(1+bufPct)-opsTeam-coreTeam);
+    }else{
+      var gaScale=Math.pow(2,yr-1);
+      var gaRaw=gaBase*gaScale;
+      var contingency=(opsTeam+coreTeam+gaRaw)*bufPct;
+      ga=gaRaw+contingency;
+    }
     var totalCosts=varTotal+opsTeam+coreTeam+ga;
     var opEx=opsTeam+coreTeam+ga;
     var ebit=smthgNet-opsTeam-coreTeam-ga;
@@ -3030,12 +3038,12 @@ function yrProj(){
       s('yc1-ga-onetime','−'+fmtM(g_s1onetime));
       s('yc1-ga-buf','−'+fmtM(bufPct*g_yrTot));
     }else{
-      var gaScale=Math.pow(2,yr-1);
       s('yc'+yr+'-ga-finleg','−'+fmtM(g_s1finleg*gaScale));
       s('yc'+yr+'-ga-tools','−'+fmtM(g_s1tools*gaScale));
       s('yc'+yr+'-ga-ai','−'+fmtM(g_s1ai*gaScale));
       s('yc'+yr+'-ga-mktg','−'+fmtM(g_s1mktg*gaScale));
       s('yc'+yr+'-ga-shows','−'+fmtM(g_s1travel*gaScale));
+      s('yc'+yr+'-ga-buf','−'+fmtM(contingency));
     }
     s('yc'+yr+'-tot','−'+fmtM(opEx));
     var cnEl=document.getElementById('yc'+yr+'-net');
