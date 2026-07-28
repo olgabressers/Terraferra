@@ -312,9 +312,9 @@ details[open].cd summary::before{content:'▾'}
     <div class="sc-note" id="sc-core-note">adjustable above · from Q1</div>
   </div>
   <div class="sc">
-    <div class="sc-label">Hired team (5 hires)</div>
+    <div class="sc-label">Hired team (6 hires)</div>
     <div class="sc-val" id="sc-hired-total">—</div>
-    <div class="sc-note">Devs ×2 + Community + Customer Ops + Social Media Mgr</div>
+    <div class="sc-note">Devs ×2 + Community + Customer Ops + Social Media Mgr + Influencer Relations</div>
   </div>
   <div class="sc">
     <div class="sc-label">Operations &amp; marketing</div>
@@ -500,9 +500,19 @@ details[open].cd summary::before{content:'▾'}
   <td class="num" id="s1-smm-yr" style="border-left:1px solid var(--rule)">$30,000</td>
   <td class="desc">Content creation, scheduling, community social posts, influencer outreach; recurring fixed</td>
 </tr>
+<tr>
+  <td>Influencer Relations</td>
+  <td><input id="ht-ir-rate" type="number" value="4200" min="0" step="100" style="width:65px;border:1px solid var(--rule);padding:2px 4px;font-size:11px;font-weight:700;font-family:'Inter',sans-serif;color:var(--ink)" oninput="calcS01()">/mo</td>
+  <td class="num" id="s1-ir-q1">$12,600</td>
+  <td class="num" id="s1-ir-q2">$12,600</td>
+  <td class="num" id="s1-ir-q3">$12,600</td>
+  <td class="num" id="s1-ir-q4">$12,600</td>
+  <td class="num" id="s1-ir-yr" style="border-left:1px solid var(--rule)">$50,400</td>
+  <td class="desc">Recruit + vet influencers, brief drops, track GMV per influencer, manage Founding Creator tier. Benchmark $4,200–6,500/mo · <a href="smthg_operationsteam.html" target="_blank" rel="noopener" style="color:var(--tf)">Source: Ops Team →</a></td>
+</tr>
 <tr class="subtotal">
   <td>Hired team subtotal</td>
-  <td id="s1-ht-rate">$11,500/mo</td>
+  <td id="s1-ht-rate">$15,700/mo</td>
   <td class="num" id="s1-ht-q1">$34,500</td>
   <td class="num" id="s1-ht-q2">$34,500</td>
   <td class="num" id="s1-ht-q3">$34,500</td>
@@ -2599,7 +2609,8 @@ function calcS01(){
   var cmR=parseFloat(document.getElementById('ht-cm-rate').value)||0;
   var coR=parseFloat(document.getElementById('ht-co-rate').value)||0;
   var smmR=parseFloat(document.getElementById('ht-smm-rate').value)||0;
-  var htMo=devR*2+cmR+coR+smmR, htQtr=htMo*3, htYr=htMo*12;
+  var irR=parseFloat(document.getElementById('ht-ir-rate').value)||0;
+  var htMo=devR*2+cmR+coR+smmR+irR, htQtr=htMo*3, htYr=htMo*12;
 
   var FX_FINLEG=8940,FX_OPTOOLS=10743,FX_AI=3198;
   var FX_MKTG=[13629,13629,16929,16929];
@@ -2634,7 +2645,7 @@ function calcS01(){
 
   // Hired team rows
   var htItems=[
-    ['dev',devR*2],['cm',cmR],['co',coR],['smm',smmR]
+    ['dev',devR*2],['cm',cmR],['co',coR],['smm',smmR],['ir',irR]
   ];
   htItems.forEach(function(it){
     var id=it[0],mo=it[1],qtr=mo*3,yr=mo*12;
@@ -2742,7 +2753,8 @@ function yrProj(){
       var cR2=parseFloat(document.getElementById('ht-cm-rate').value)||0;
       var oR2=parseFloat(document.getElementById('ht-co-rate').value)||0;
       var sR2=parseFloat(document.getElementById('ht-smm-rate').value)||0;
-      opsTeam=(dR2*2+cR2+oR2+sR2)*12;
+      var iR2=parseFloat(document.getElementById('ht-ir-rate').value)||0;
+      opsTeam=(dR2*2+cR2+oR2+sR2+iR2)*12;
     }else{opsTeam=Y_OPS[yr];}
     var y1rA=parseFloat(document.getElementById('ct-y1-rate').value)||0;
     var y1cA=parseFloat(document.getElementById('ct-y1-count').value)||0;
@@ -2804,7 +2816,7 @@ var DB_BUDGET='https://terra-ferra-1ac34-default-rtdb.firebaseio.com';
 var BUDGET_PATH='/tf-budget/v1/inputs.json';
 var SYNC_IDS=['p-items','p-aov','p-tf-fee','p-designers','p-inf','p-inf-share','p-pay','p-vto-a','p-vto-t',
   'yd1','yd2','yd3','yd4','yd5','ct-rate','ct-y1-rate','ct-y1-count','ct-y2-count','ct-y3-count','ct-y4-count','ct-y5-count',
-  'ht-dev-rate','ht-cm-rate','ht-co-rate','ht-smm-rate'];
+  'ht-dev-rate','ht-cm-rate','ht-co-rate','ht-smm-rate','ht-ir-rate'];
 var dbTimer=null,applying=false,lastSnap='';
 
 function setSyncState(s){
