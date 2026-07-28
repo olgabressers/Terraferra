@@ -2959,8 +2959,15 @@ function applySnap(data){
   // Re-apply market display — Firebase sync just overwrote the inputs
   if(salaryMode==='market'){
     ['dev','cm','ir','smm','ccs','co'].forEach(function(key){
-      var el=document.getElementById('ht-'+key+'-rate');
-      if(el){el.dataset.budget=el.value;el.value=MARKET_RATES_HT[key];el.readOnly=true;el.style.color='var(--tf)';}
+      var id='ht-'+key+'-rate';
+      var el=document.getElementById(id);
+      if(el){
+        // Only update dataset.budget from Firebase value; if Firebase has no value, keep the HTML default already set by setSalaryMode
+        if(data[id]!=null)el.dataset.budget=data[id];
+        el.value=MARKET_RATES_HT[key];
+        el.readOnly=true;
+        el.style.color='var(--tf)';
+      }
     });
   }
   if(data.vtoMode&&data.vtoMode!==vtoMode){
