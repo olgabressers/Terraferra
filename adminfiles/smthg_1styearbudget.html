@@ -234,6 +234,9 @@ details[open].cd summary::before{content:'▾'}
 .sync-dot.live{background:#22c55e}
 .sync-dot.err{background:#ef4444}
 .sync-label{font-size:10px;font-weight:600;color:var(--sub);vertical-align:middle;margin-left:3px}
+.sal-btn{background:none;border:1px solid var(--rule);border-radius:4px;cursor:pointer;font-size:11px;font-weight:700;color:var(--sub);padding:3px 12px;font-family:'Inter',sans-serif;transition:all .15s}
+.sal-btn.sal-active{background:var(--ink);border-color:var(--ink);color:#fff}
+.sal-btn:hover:not(.sal-active){border-color:var(--tf);color:var(--tf)}
 </style>
 </head>
 <body>
@@ -459,6 +462,16 @@ details[open].cd summary::before{content:'▾'}
 
 <!-- ═══ HIRED TEAM ═══ -->
 <tr class="sec-hdr hire"><td colspan="8">People · Hired Team</td></tr>
+<tr>
+  <td colspan="8" style="padding:8px 16px;border-bottom:1px solid var(--rule);background:#FAFAF8">
+    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+      <span style="font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--sub)">Salary view:</span>
+      <button id="btn-sal-market" class="sal-btn sal-active" onclick="setSalaryMode('market')">Market (US)</button>
+      <button id="btn-sal-budget" class="sal-btn" onclick="setSalaryMode('budget')">Our budget</button>
+      <span id="sal-note" style="color:var(--sub);font-size:11px;margin-left:4px">US market lower-end · Glassdoor 2025 · <a href="smthg_operationsteam.html" target="_blank" rel="noopener" style="color:var(--tf);text-decoration:none">Source →</a></span>
+    </div>
+  </td>
+</tr>
 
 <tr>
   <td>Developers × 2</td>
@@ -2600,16 +2613,35 @@ function proj(){
 }
 
 // ── calcS01: recompute Section 01 fixed costs from inputs ──
+var MARKET_RATES_HT={dev:4600,cm:4000,co:3200,smm:3800,ir:4200};
+var salaryMode='market';
+function getHtR(key){
+  if(salaryMode==='market')return MARKET_RATES_HT[key]||0;
+  return parseFloat((document.getElementById('ht-'+key+'-rate')||{}).value)||0;
+}
+function setSalaryMode(mode){
+  salaryMode=mode;
+  var bm=document.getElementById('btn-sal-market');
+  var bb=document.getElementById('btn-sal-budget');
+  var sn=document.getElementById('sal-note');
+  if(bm)bm.classList.toggle('sal-active',mode==='market');
+  if(bb)bb.classList.toggle('sal-active',mode==='budget');
+  if(sn)sn.textContent=mode==='market'
+    ?'US market lower-end · Glassdoor 2025'
+    :'Offshore contractor rates (current budget)';
+  if(sn&&mode==='market'){sn.innerHTML='US market lower-end · Glassdoor 2025 · <a href="smthg_operationsteam.html" target="_blank" rel="noopener" style="color:var(--tf);text-decoration:none">Source →</a>';}
+  calcS01();
+}
 function calcS01(){
   var y1r=parseFloat(document.getElementById('ct-y1-rate').value)||0;
   var y1c=parseFloat(document.getElementById('ct-y1-count').value)||0;
   var y1qtr=y1r*y1c*3, y1yr=y1r*y1c*12;
 
-  var devR=parseFloat(document.getElementById('ht-dev-rate').value)||0;
-  var cmR=parseFloat(document.getElementById('ht-cm-rate').value)||0;
-  var coR=parseFloat(document.getElementById('ht-co-rate').value)||0;
-  var smmR=parseFloat(document.getElementById('ht-smm-rate').value)||0;
-  var irR=parseFloat(document.getElementById('ht-ir-rate').value)||0;
+  var devR=getHtR('dev');
+  var cmR=getHtR('cm');
+  var coR=getHtR('co');
+  var smmR=getHtR('smm');
+  var irR=getHtR('ir');
   var htMo=devR*2+cmR+coR+smmR+irR, htQtr=htMo*3, htYr=htMo*12;
 
   var FX_FINLEG=8940,FX_OPTOOLS=10743,FX_AI=3198;
@@ -2749,12 +2781,7 @@ function yrProj(){
     // costs
     var opsTeam;
     if(yr===1){
-      var dR2=parseFloat(document.getElementById('ht-dev-rate').value)||0;
-      var cR2=parseFloat(document.getElementById('ht-cm-rate').value)||0;
-      var oR2=parseFloat(document.getElementById('ht-co-rate').value)||0;
-      var sR2=parseFloat(document.getElementById('ht-smm-rate').value)||0;
-      var iR2=parseFloat(document.getElementById('ht-ir-rate').value)||0;
-      opsTeam=(dR2*2+cR2+oR2+sR2+iR2)*12;
+      opsTeam=(getHtR('dev')*2+getHtR('cm')+getHtR('co')+getHtR('smm')+getHtR('ir'))*12;
     }else{opsTeam=Y_OPS[yr];}
     var y1rA=parseFloat(document.getElementById('ct-y1-rate').value)||0;
     var y1cA=parseFloat(document.getElementById('ct-y1-count').value)||0;
@@ -2862,6 +2889,7 @@ function pollFb(){
 }
 window.addEventListener('DOMContentLoaded',function(){
   initGrpToggles();
+  setSalaryMode('market');
   fetch(DB_BUDGET+BUDGET_PATH)
     .then(function(r){return r.json();})
     .then(function(data){if(data){lastSnap=JSON.stringify(data);applySnap(data);}setSyncState('live');})
