@@ -206,24 +206,24 @@ details[open].cd summary::before{content:'▾'}
 </div>
 <div class="wrap">
 <h1>1st Year Budget<span class="sync-dot" id="sync-dot"></span><span class="sync-label" id="sync-label">Connecting…</span></h1>
-<p class="sub">SMTHG · $500K fixed annual envelope · Year 1 post-launch · actual quarterly spend · USD primary · EUR ≈ USD × 0.91 · July 2026 · <a href="smthg_operationsteam.html" style="color:var(--tf);text-decoration:none;font-weight:700">Operations Team →</a></p>
+<p class="sub">SMTHG · Year 1 post-launch · all fixed costs incl. core team salary · USD primary · EUR ≈ USD × 0.91 · July 2026 · <a href="smthg_operationsteam.html" style="color:var(--tf);text-decoration:none;font-weight:700">Operations Team →</a></p>
 
 <!-- ── SUMMARY CARDS ── -->
 <div class="summary">
   <div class="sc" style="border-top:2px solid var(--tf)">
-    <div class="sc-label">Annual envelope</div>
-    <div class="sc-val">$500,000</div>
-    <div class="sc-note">≈€455,000 · Fixed operating budget · Year 1</div>
+    <div class="sc-label">Total fixed costs · Year 1</div>
+    <div class="sc-val" id="sc-total-yr">—</div>
+    <div class="sc-note" id="sc-total-note">all fixed costs incl. salaries</div>
   </div>
   <div class="sc">
     <div class="sc-label">Core team salary (gross)</div>
-    <div class="sc-val">$182,748</div>
-    <div class="sc-note">≈€166,301 · Residual after all costs · 4 people · Q1 deferred · $60,916/qtr Q2–Q4</div>
+    <div class="sc-val" id="sc-core-total">—</div>
+    <div class="sc-note" id="sc-core-note">adjustable above · from Q1</div>
   </div>
   <div class="sc">
-    <div class="sc-label">Hired team (4 hires)</div>
-    <div class="sc-val">$108,000</div>
-    <div class="sc-note">≈€98,280 · Devs ×2 + Community + Customer Ops</div>
+    <div class="sc-label">Hired team (5 hires)</div>
+    <div class="sc-val" id="sc-hired-total">—</div>
+    <div class="sc-note">Devs ×2 + Community + Customer Ops + Social Media Mgr</div>
   </div>
   <div class="sc">
     <div class="sc-label">Operations &amp; marketing</div>
@@ -241,7 +241,7 @@ details[open].cd summary::before{content:'▾'}
 <div class="proj-sep">
   <span class="sn">01</span>
   <span class="st">Fixed Operating Budget · Year 1</span>
-  <span class="ss">$500K annual envelope · recurring fixed costs · all quarters</span>
+  <span class="ss">Total fixed costs incl. core team salary · all quarters</span>
 </div>
 
 <!-- ── MAIN TABLE ── -->
@@ -265,32 +265,32 @@ details[open].cd summary::before{content:'▾'}
 <tr class="sec-hdr ppl"><td colspan="8">People · Core Team</td></tr>
 
 <tr class="core-row">
-  <td><strong>Core team salary budget</strong> <span class="badge qt1">gross</span></td>
-  <td>residual</td>
-  <td class="num">$0</td>
-  <td class="num">$60,916<span class="eur">≈€55,434</span></td>
-  <td class="num">$60,916<span class="eur">≈€55,434</span></td>
-  <td class="num">$60,916<span class="eur">≈€55,434</span></td>
-  <td class="num" style="border-left:1px solid var(--rule)"><strong>$182,748</strong><span class="eur">≈€166,301</span></td>
-  <td class="desc">$500K minus all fixed costs; Q1 deferred — one-time launch costs ($57,200) absorb Q1 allocation; Q2–Q4 equal salary ($60,916/qtr each)</td>
+  <td><strong>Core team salary</strong> <span class="badge qt1">gross</span></td>
+  <td id="s1-core-rate">—</td>
+  <td class="num" id="s1-core-q1">—</td>
+  <td class="num" id="s1-core-q2">—</td>
+  <td class="num" id="s1-core-q3">—</td>
+  <td class="num" id="s1-core-q4">—</td>
+  <td class="num" id="s1-core-yr" style="border-left:1px solid var(--rule)">—</td>
+  <td class="desc">Rate × headcount × 3 months · paid from Q1 · adjust rate &amp; count in panel below</td>
 </tr>
 <tr class="core-sub">
   <td>↳ per person / quarter</td><td></td>
-  <td class="num">$0</td>
-  <td class="num">$15,229<span class="eur">≈€13,858</span></td>
-  <td class="num">$15,229<span class="eur">≈€13,858</span></td>
-  <td class="num">$15,229<span class="eur">≈€13,858</span></td>
-  <td class="num" style="border-left:1px solid var(--rule)">$45,687<span class="eur">≈€41,575</span></td>
-  <td class="desc">Individual gross quarterly — 4 core team members</td>
+  <td class="num" id="s1-ppq1">—</td>
+  <td class="num" id="s1-ppq2">—</td>
+  <td class="num" id="s1-ppq3">—</td>
+  <td class="num" id="s1-ppq4">—</td>
+  <td class="num" id="s1-ppqyr" style="border-left:1px solid var(--rule)">—</td>
+  <td class="desc" id="s1-ppq-desc">—</td>
 </tr>
 <tr class="core-sub">
   <td>↳ per person / month</td><td></td>
-  <td class="num">$0</td>
-  <td class="num">$5,076<span class="eur">≈€4,619</span></td>
-  <td class="num">$5,076<span class="eur">≈€4,619</span></td>
-  <td class="num">$5,076<span class="eur">≈€4,619</span></td>
+  <td class="num" id="s1-ppm-q1">—</td>
+  <td class="num" id="s1-ppm-q2">—</td>
+  <td class="num" id="s1-ppm-q3">—</td>
+  <td class="num" id="s1-ppm-q4">—</td>
   <td style="border-left:1px solid var(--rule)"></td>
-  <td class="desc">Individual gross monthly — 4 core team members</td>
+  <td class="desc" id="s1-ppm-desc">—</td>
 </tr>
 
 <!-- ═══ HIRED TEAM ═══ -->
@@ -298,42 +298,52 @@ details[open].cd summary::before{content:'▾'}
 
 <tr>
   <td>Developers × 2</td>
-  <td>$2,000/person/mo</td>
-  <td class="num">$12,000</td>
-  <td class="num">$12,000</td>
-  <td class="num">$12,000</td>
-  <td class="num">$12,000</td>
-  <td class="num" style="border-left:1px solid var(--rule)">$48,000</td>
+  <td><input id="ht-dev-rate" type="number" value="2000" min="0" step="100" style="width:65px;border:1px solid var(--rule);padding:2px 4px;font-size:11px;font-weight:700;font-family:'Inter',sans-serif;color:var(--ink)" oninput="calcS01()">/person/mo</td>
+  <td class="num" id="s1-dev-q1">$12,000</td>
+  <td class="num" id="s1-dev-q2">$12,000</td>
+  <td class="num" id="s1-dev-q3">$12,000</td>
+  <td class="num" id="s1-dev-q4">$12,000</td>
+  <td class="num" id="s1-dev-yr" style="border-left:1px solid var(--rule)">$48,000</td>
   <td class="desc">Backend + frontend; app maintenance, feature dev; recurring fixed</td>
 </tr>
 <tr>
   <td>Community Manager</td>
-  <td>$2,500/mo</td>
-  <td class="num">$7,500</td>
-  <td class="num">$7,500</td>
-  <td class="num">$7,500</td>
-  <td class="num">$7,500</td>
-  <td class="num" style="border-left:1px solid var(--rule)">$30,000</td>
+  <td><input id="ht-cm-rate" type="number" value="2500" min="0" step="100" style="width:65px;border:1px solid var(--rule);padding:2px 4px;font-size:11px;font-weight:700;font-family:'Inter',sans-serif;color:var(--ink)" oninput="calcS01()">/mo</td>
+  <td class="num" id="s1-cm-q1">$7,500</td>
+  <td class="num" id="s1-cm-q2">$7,500</td>
+  <td class="num" id="s1-cm-q3">$7,500</td>
+  <td class="num" id="s1-cm-q4">$7,500</td>
+  <td class="num" id="s1-cm-yr" style="border-left:1px solid var(--rule)">$30,000</td>
   <td class="desc">Designer onboarding, community growth, platform engagement; recurring fixed</td>
 </tr>
 <tr>
   <td>Customer Operations Manager</td>
-  <td>$2,500/mo</td>
-  <td class="num">$7,500</td>
-  <td class="num">$7,500</td>
-  <td class="num">$7,500</td>
-  <td class="num">$7,500</td>
-  <td class="num" style="border-left:1px solid var(--rule)">$30,000</td>
+  <td><input id="ht-co-rate" type="number" value="2500" min="0" step="100" style="width:65px;border:1px solid var(--rule);padding:2px 4px;font-size:11px;font-weight:700;font-family:'Inter',sans-serif;color:var(--ink)" oninput="calcS01()">/mo</td>
+  <td class="num" id="s1-co-q1">$7,500</td>
+  <td class="num" id="s1-co-q2">$7,500</td>
+  <td class="num" id="s1-co-q3">$7,500</td>
+  <td class="num" id="s1-co-q4">$7,500</td>
+  <td class="num" id="s1-co-yr" style="border-left:1px solid var(--rule)">$30,000</td>
   <td class="desc">Customer support, order logistics, designer ops, escalations; recurring fixed</td>
+</tr>
+<tr>
+  <td>Social Media Manager</td>
+  <td><input id="ht-smm-rate" type="number" value="2500" min="0" step="100" style="width:65px;border:1px solid var(--rule);padding:2px 4px;font-size:11px;font-weight:700;font-family:'Inter',sans-serif;color:var(--ink)" oninput="calcS01()">/mo</td>
+  <td class="num" id="s1-smm-q1">$7,500</td>
+  <td class="num" id="s1-smm-q2">$7,500</td>
+  <td class="num" id="s1-smm-q3">$7,500</td>
+  <td class="num" id="s1-smm-q4">$7,500</td>
+  <td class="num" id="s1-smm-yr" style="border-left:1px solid var(--rule)">$30,000</td>
+  <td class="desc">Content creation, scheduling, community social posts, influencer outreach; recurring fixed</td>
 </tr>
 <tr class="subtotal">
   <td>Hired team subtotal</td>
-  <td>$9,000/mo</td>
-  <td class="num">$27,000</td>
-  <td class="num">$27,000</td>
-  <td class="num">$27,000</td>
-  <td class="num">$27,000</td>
-  <td class="num" style="border-left:1px solid var(--rule)">$108,000<span class="eur">≈€98,280</span></td>
+  <td id="s1-ht-rate">$11,500/mo</td>
+  <td class="num" id="s1-ht-q1">$34,500</td>
+  <td class="num" id="s1-ht-q2">$34,500</td>
+  <td class="num" id="s1-ht-q3">$34,500</td>
+  <td class="num" id="s1-ht-q4">$34,500</td>
+  <td class="num" id="s1-ht-yr" style="border-left:1px solid var(--rule)">$138,000<span class="eur">≈€125,580</span></td>
   <td></td>
 </tr>
 
@@ -710,12 +720,12 @@ details[open].cd summary::before{content:'▾'}
 <!-- ═══ GRAND TOTAL ═══ -->
 <tr class="total-row">
   <td colspan="2"><strong>Grand Total — fixed costs</strong></td>
-  <td class="num" id="s1-q1" data-usd="120563"><strong>$120,563</strong><span class="eur-w">≈€109,712</span></td>
-  <td class="num" id="s1-q2" data-usd="124279"><strong>$124,279</strong><span class="eur-w">≈€113,094</span></td>
-  <td class="num" id="s1-q3" data-usd="127579"><strong>$127,579</strong><span class="eur-w">≈€116,097</span></td>
-  <td class="num" id="s1-q4" data-usd="127579"><strong>$127,579</strong><span class="eur-w">≈€116,097</span></td>
-  <td class="num" id="s1-yr" data-usd="500000" style="border-left:1px solid #555"><strong>$500,000</strong><span class="eur-w">≈€455,000</span></td>
-  <td class="desc" style="color:rgba(255,255,255,0.5);font-size:10px">Q1 includes $57,200 one-time — core team deferred. Q2 salary starts ($60,916). Q3–Q4 higher due to consumer paid social starting. Variable order costs excluded — see below.</td>
+  <td class="num" id="s1-q1" data-usd="248063"><strong>$248,063</strong><span class="eur-w">≈€225,737</span></td>
+  <td class="num" id="s1-q2" data-usd="190863"><strong>$190,863</strong><span class="eur-w">≈€173,685</span></td>
+  <td class="num" id="s1-q3" data-usd="194163"><strong>$194,163</strong><span class="eur-w">≈€176,688</span></td>
+  <td class="num" id="s1-q4" data-usd="194163"><strong>$194,163</strong><span class="eur-w">≈€176,688</span></td>
+  <td class="num" id="s1-yr" data-usd="827252" style="border-left:1px solid #555"><strong>$827,252</strong><span class="eur-w">≈€752,799</span></td>
+  <td class="desc" id="s1-gt-desc" style="color:rgba(255,255,255,0.5);font-size:10px">Core team salary from Q1. Q1 includes $57,200 one-time. Q3–Q4 higher due to consumer paid social starting. Variable order costs excluded — see below.</td>
 </tr>
 
 </tbody>
@@ -1195,21 +1205,36 @@ details[open].cd summary::before{content:'▾'}
 </div><!-- /y-grid revenue -->
 
 <!-- Core team salary controls -->
-<div style="background:#F7F5F2;border:1px solid var(--rule);padding:16px 24px;margin-top:20px;display:flex;gap:20px;align-items:center;flex-wrap:wrap">
-  <div style="font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);white-space:nowrap">Core team salary · Y2–Y5</div>
-  <div style="display:flex;align-items:center;gap:6px">
-    <span style="font-size:12px;color:var(--ink);font-weight:600">Rate</span>
-    <input id="ct-rate" type="number" value="10000" min="0" step="1000" style="width:80px;border:1px solid var(--rule);padding:4px 6px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif;color:var(--ink)" oninput="yrProj()">
-    <span style="font-size:11px;color:var(--sub)">$/mo per person</span>
+<div style="background:#F7F5F2;border:1px solid var(--rule);padding:16px 24px;margin-top:20px;display:flex;flex-direction:column;gap:14px">
+  <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap">
+    <div style="font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--tf);white-space:nowrap">Core team · Y1</div>
+    <div style="display:flex;align-items:center;gap:6px">
+      <span style="font-size:12px;color:var(--ink);font-weight:600">Rate</span>
+      <input id="ct-y1-rate" type="number" value="10000" min="0" step="500" style="width:80px;border:1px solid var(--rule);padding:4px 6px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif;color:var(--ink)" oninput="calcS01()">
+      <span style="font-size:11px;color:var(--sub)">$/mo per person</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+      <span style="font-size:11px;color:var(--sub)">People:</span>
+      <label style="font-size:11px;color:var(--ink);display:flex;align-items:center;gap:4px">Y1 <input id="ct-y1-count" type="number" value="4" min="0" max="99" style="width:42px;border:1px solid var(--rule);padding:3px 5px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif" oninput="calcS01()"></label>
+    </div>
+    <div style="font-size:10px;color:var(--sub)">Paid Q1–Q4 · no deferral</div>
   </div>
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span style="font-size:11px;color:var(--sub)">People:</span>
-    <label style="font-size:11px;color:var(--ink);display:flex;align-items:center;gap:4px">Y2 <input id="ct-y2-count" type="number" value="4" min="0" max="99" style="width:42px;border:1px solid var(--rule);padding:3px 5px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif" oninput="yrProj()"></label>
-    <label style="font-size:11px;color:var(--ink);display:flex;align-items:center;gap:4px">Y3 <input id="ct-y3-count" type="number" value="4" min="0" max="99" style="width:42px;border:1px solid var(--rule);padding:3px 5px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif" oninput="yrProj()"></label>
-    <label style="font-size:11px;color:var(--ink);display:flex;align-items:center;gap:4px">Y4 <input id="ct-y4-count" type="number" value="4" min="0" max="99" style="width:42px;border:1px solid var(--rule);padding:3px 5px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif" oninput="yrProj()"></label>
-    <label style="font-size:11px;color:var(--ink);display:flex;align-items:center;gap:4px">Y5 <input id="ct-y5-count" type="number" value="4" min="0" max="99" style="width:42px;border:1px solid var(--rule);padding:3px 5px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif" oninput="yrProj()"></label>
+  <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap;padding-top:10px;border-top:1px solid var(--rule)">
+    <div style="font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);white-space:nowrap">Core team · Y2–Y5</div>
+    <div style="display:flex;align-items:center;gap:6px">
+      <span style="font-size:12px;color:var(--ink);font-weight:600">Rate</span>
+      <input id="ct-rate" type="number" value="15000" min="0" step="1000" style="width:80px;border:1px solid var(--rule);padding:4px 6px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif;color:var(--ink)" oninput="yrProj()">
+      <span style="font-size:11px;color:var(--sub)">$/mo per person</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+      <span style="font-size:11px;color:var(--sub)">People:</span>
+      <label style="font-size:11px;color:var(--ink);display:flex;align-items:center;gap:4px">Y2 <input id="ct-y2-count" type="number" value="4" min="0" max="99" style="width:42px;border:1px solid var(--rule);padding:3px 5px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif" oninput="yrProj()"></label>
+      <label style="font-size:11px;color:var(--ink);display:flex;align-items:center;gap:4px">Y3 <input id="ct-y3-count" type="number" value="4" min="0" max="99" style="width:42px;border:1px solid var(--rule);padding:3px 5px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif" oninput="yrProj()"></label>
+      <label style="font-size:11px;color:var(--ink);display:flex;align-items:center;gap:4px">Y4 <input id="ct-y4-count" type="number" value="4" min="0" max="99" style="width:42px;border:1px solid var(--rule);padding:3px 5px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif" oninput="yrProj()"></label>
+      <label style="font-size:11px;color:var(--ink);display:flex;align-items:center;gap:4px">Y5 <input id="ct-y5-count" type="number" value="4" min="0" max="99" style="width:42px;border:1px solid var(--rule);padding:3px 5px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif" oninput="yrProj()"></label>
+    </div>
+    <div style="font-size:10px;color:var(--sub)">G&amp;A estimates: Y1 $180K · Y2 $100K · Y3 $130K · Y4 $200K · Y5 $300K</div>
   </div>
-  <div style="font-size:11px;color:var(--sub)">Y1 actual $182K · G&amp;A estimates: Y1 $180K · Y2 $100K · Y3 $130K · Y4 $200K · Y5 $300K</div>
 </div>
 
 <!-- Cost year boxes -->
@@ -1233,9 +1258,9 @@ details[open].cd summary::before{content:'▾'}
         <div class="cd-r cd-tot"><span>Total</span><span>~$11.5K/mo · $138K/yr</span></div>
       </div></details>
       <div class="q-row"><span class="ql">Core team salary</span><span class="qv r" id="yc1-core">—</span></div>
-      <details class="cd"><summary>4 founders · Section 01 actuals</summary><div class="cd-body">
+      <details class="cd"><summary id="yc1-core-sum">4 founders · rate adjustable above</summary><div class="cd-body">
         <div class="cd-r"><span>CEO + CTO + Creative Dir + co-founder</span><span></span></div>
-        <div class="cd-r cd-tot"><span>Total</span><span>$182K/yr (Q1 deferred)</span></div>
+        <div class="cd-r cd-tot"><span>Total</span><span id="ycd1-ct-info">—</span></div>
       </div></details>
       <div class="q-row"><span class="ql">G&amp;A</span><span class="qv r" id="yc1-ga">—</span></div>
       <details class="cd"><summary>Office · tools · legal · admin</summary><div class="cd-body">
@@ -1593,8 +1618,7 @@ function setVTO(m){
   document.getElementById('btn-shopify').classList.toggle('on',m==='shopify');
   document.getElementById('btn-kivisense').classList.toggle('on',m==='kivisense');
   document.getElementById('cn-vto').textContent=m==='shopify'?'Shopify $0.10/try':'Kivisense $888/mo flat';
-  proj();
-  pushInputs();
+  calcS01();
 }
 function adjD(q,d){
   var el=document.getElementById('d'+q);
@@ -1757,12 +1781,108 @@ function proj(){
   yrProj();
 }
 
+// ── calcS01: recompute Section 01 fixed costs from inputs ──
+function calcS01(){
+  var y1r=parseFloat(document.getElementById('ct-y1-rate').value)||0;
+  var y1c=parseFloat(document.getElementById('ct-y1-count').value)||0;
+  var y1qtr=y1r*y1c*3, y1yr=y1r*y1c*12;
+
+  var devR=parseFloat(document.getElementById('ht-dev-rate').value)||0;
+  var cmR=parseFloat(document.getElementById('ht-cm-rate').value)||0;
+  var coR=parseFloat(document.getElementById('ht-co-rate').value)||0;
+  var smmR=parseFloat(document.getElementById('ht-smm-rate').value)||0;
+  var htMo=devR*2+cmR+coR+smmR, htQtr=htMo*3, htYr=htMo*12;
+
+  var FX_FINLEG=8940,FX_OPTOOLS=10743,FX_AI=3198;
+  var FX_MKTG=[13482,13482,16782,16782];
+  var FX_ONETIME=57200;
+  var qTot=[0,0,0,0];
+  for(var qi=0;qi<4;qi++){
+    qTot[qi]=y1qtr+htQtr+FX_FINLEG+FX_OPTOOLS+FX_AI+FX_MKTG[qi]+(qi===0?FX_ONETIME:0);
+  }
+  var yrTot=y1yr+htYr+(FX_FINLEG+FX_OPTOOLS+FX_AI)*4+(FX_MKTG[0]+FX_MKTG[1]+FX_MKTG[2]+FX_MKTG[3])+FX_ONETIME;
+
+  function fmt2(n){return '$'+Math.round(n).toLocaleString();}
+  function fmtE(n){return '<span class="eur">≈€'+Math.round(n*0.91).toLocaleString()+'</span>';}
+  function fmtEW(n){return '<span class="eur-w">≈€'+Math.round(n*0.91).toLocaleString()+'</span>';}
+
+  // Core team rows
+  var rateLabel='$'+(y1r/1000>=1?(y1r/1000).toFixed(0)+'K':y1r)+'/mo × '+y1c;
+  s('s1-core-rate',rateLabel);
+  [1,2,3,4].forEach(function(qi){
+    var el=document.getElementById('s1-core-q'+qi);
+    if(el)el.innerHTML=fmt2(y1qtr)+fmtE(y1qtr);
+    var ppq=document.getElementById('s1-ppq'+qi);
+    if(ppq)ppq.innerHTML=fmt2(y1r*3)+fmtE(y1r*3);
+    var ppm=document.getElementById('s1-ppm-q'+qi);
+    if(ppm)ppm.innerHTML=fmt2(y1r)+fmtE(y1r);
+  });
+  var cyrEl=document.getElementById('s1-core-yr');
+  if(cyrEl)cyrEl.innerHTML='<strong>'+fmt2(y1yr)+'</strong>'+fmtE(y1yr);
+  var ppqyrEl=document.getElementById('s1-ppqyr');
+  if(ppqyrEl)ppqyrEl.innerHTML=fmt2(y1r*12)+fmtE(y1r*12);
+  s('s1-ppq-desc','Individual gross quarterly — '+y1c+' core team members');
+  s('s1-ppm-desc','Individual gross monthly — '+y1c+' core team members');
+
+  // Hired team rows
+  var htItems=[
+    ['dev',devR*2],['cm',cmR],['co',coR],['smm',smmR]
+  ];
+  htItems.forEach(function(it){
+    var id=it[0],mo=it[1],qtr=mo*3,yr=mo*12;
+    [1,2,3,4].forEach(function(qi){
+      var el=document.getElementById('s1-'+id+'-q'+qi);
+      if(el)el.innerHTML=fmt2(qtr);
+    });
+    var yrEl=document.getElementById('s1-'+id+'-yr');
+    if(yrEl)yrEl.innerHTML=fmt2(yr);
+  });
+  s('s1-ht-rate',fmt2(htMo)+'/mo');
+  [1,2,3,4].forEach(function(qi){
+    var el=document.getElementById('s1-ht-q'+qi);
+    if(el)el.innerHTML=fmt2(htQtr);
+  });
+  var htYrEl=document.getElementById('s1-ht-yr');
+  if(htYrEl)htYrEl.innerHTML=fmt2(htYr)+'<span class="eur">≈€'+Math.round(htYr*0.91).toLocaleString()+'</span>';
+
+  // Grand Total
+  var qIds=['q1','q2','q3','q4'];
+  qTot.forEach(function(tot,i){
+    var el=document.getElementById('s1-'+qIds[i]);
+    if(el){
+      el.setAttribute('data-usd',Math.round(tot));
+      el.innerHTML='<strong>'+fmt2(tot)+'</strong>'+fmtEW(tot);
+    }
+  });
+  var yrEl2=document.getElementById('s1-yr');
+  if(yrEl2){
+    yrEl2.setAttribute('data-usd',Math.round(yrTot));
+    yrEl2.innerHTML='<strong>'+fmt2(yrTot)+'</strong>'+fmtEW(yrTot);
+  }
+  var descEl=document.getElementById('s1-gt-desc');
+  if(descEl)descEl.textContent='Core team salary from Q1. Q1 includes $57,200 one-time. Q3–Q4 higher due to consumer paid social starting. Variable order costs excluded — see below.';
+
+  // Summary cards
+  var scCtEl=document.getElementById('sc-core-total');
+  if(scCtEl)scCtEl.textContent=fmt2(y1yr);
+  var scCnEl=document.getElementById('sc-core-note');
+  if(scCnEl)scCnEl.textContent='≈€'+Math.round(y1yr*0.91).toLocaleString()+' · '+y1c+' people · '+fmt2(y1r)+'/mo · Q1–Q4';
+  var scHEl=document.getElementById('sc-hired-total');
+  if(scHEl)scHEl.textContent=fmt2(htYr);
+  var scTEl=document.getElementById('sc-total-yr');
+  if(scTEl)scTEl.textContent=fmt2(yrTot);
+  var scTnEl=document.getElementById('sc-total-note');
+  if(scTnEl)scTnEl.textContent='≈€'+Math.round(yrTot*0.91).toLocaleString()+' · total fixed incl. salaries';
+
+  proj();
+  pushInputs();
+}
+
 // ── 5-Year projection (Section 04) ──
 var Y_FREQ=[0,4,4,4,4,4];
 var Y_FREQ_LBL=['','once/3mo','once/3mo','once/3mo','once/3mo','once/3mo'];
 var Y_OPS=[0,138000,516000,1200000,2220000,3840000];
 var Y_GA=[0,180000,100000,130000,200000,300000];
-var Y1_CORE=182000;
 
 function adjY(yr,d){var el=document.getElementById('yd'+yr);if(!el)return;el.value=Math.max(0,(parseInt(el.value)||0)+d);yrProj();}
 
@@ -1802,8 +1922,17 @@ function yrProj(){
     var qEl=document.getElementById('yr'+yr+'-qavg');
     if(qEl){var qa=smthgNet/4;qEl.textContent=(qa>=0?'+':'')+fmtM(Math.abs(qa));qEl.style.color=netCol;}
     // costs
-    var opsTeam=Y_OPS[yr];
-    var coreTeam=yr===1?Y1_CORE:getCTC(yr)*ctRate*12;
+    var opsTeam;
+    if(yr===1){
+      var dR2=parseFloat(document.getElementById('ht-dev-rate').value)||0;
+      var cR2=parseFloat(document.getElementById('ht-cm-rate').value)||0;
+      var oR2=parseFloat(document.getElementById('ht-co-rate').value)||0;
+      var sR2=parseFloat(document.getElementById('ht-smm-rate').value)||0;
+      opsTeam=(dR2*2+cR2+oR2+sR2)*12;
+    }else{opsTeam=Y_OPS[yr];}
+    var y1rA=parseFloat(document.getElementById('ct-y1-rate').value)||0;
+    var y1cA=parseFloat(document.getElementById('ct-y1-count').value)||0;
+    var coreTeam=yr===1?y1rA*y1cA*12:getCTC(yr)*ctRate*12;
     var ga=Y_GA[yr];
     var totalCosts=varTotal+opsTeam+coreTeam+ga;
     var opEx=opsTeam+coreTeam+ga;
@@ -1818,8 +1947,12 @@ function yrProj(){
     if(cnEl){cnEl.textContent=(smthgNet>=0?'+':'')+fmtM(Math.abs(smthgNet));cnEl.style.color=netCol;}
     var eEl=document.getElementById('yc'+yr+'-ebit');
     if(eEl){eEl.textContent=(ebit>=0?'+':'−')+fmtM(Math.abs(ebit));eEl.style.color=ebitCol;}
-    if(yr>1){
-      var hEl=document.getElementById('yc'+yr+'-hdr');
+    var hEl=document.getElementById('yc'+yr+'-hdr');
+    if(yr===1){
+      var ciEl1=document.getElementById('ycd1-ct-info');
+      if(ciEl1)ciEl1.textContent=y1cA+' founders × $'+(y1rA/1000).toFixed(0)+'K/mo × 12 = '+fmtM(y1rA*y1cA*12)+'/yr';
+      if(hEl)hEl.textContent=y1cA+' founders · $'+(y1rA/1000).toFixed(0)+'K/mo';
+    }else{
       if(hEl)hEl.textContent=getCTC(yr)+' founders × $'+(ctRate/1000).toFixed(0)+'K/mo';
       var ciEl=document.getElementById('ycd'+yr+'-ct-info');
       if(ciEl)ciEl.textContent=getCTC(yr)+' founders × $'+(ctRate/1000).toFixed(0)+'K/mo × 12 = '+fmtM(getCTC(yr)*ctRate*12)+'/yr';
@@ -1846,13 +1979,14 @@ function yrProj(){
   }
 }
 
-proj();
+calcS01();
 
 // ── Firebase shared-inputs sync ───────────────────────────────────────────
 var DB_BUDGET='https://terra-ferra-1ac34-default-rtdb.firebaseio.com';
 var BUDGET_PATH='/tf-budget/v1/inputs.json';
 var SYNC_IDS=['p-items','p-aov','p-tf-fee','p-designers','p-inf','p-pay','p-vto-a','p-vto-t',
-  'yd1','yd2','yd3','yd4','yd5','ct-rate','ct-y2-count','ct-y3-count','ct-y4-count','ct-y5-count'];
+  'yd1','yd2','yd3','yd4','yd5','ct-rate','ct-y1-rate','ct-y1-count','ct-y2-count','ct-y3-count','ct-y4-count','ct-y5-count',
+  'ht-dev-rate','ht-cm-rate','ht-co-rate','ht-smm-rate'];
 var dbTimer=null,applying=false,lastSnap='';
 
 function setSyncState(s){
@@ -1874,7 +2008,7 @@ function applySnap(data){
     ['shopify','kivisense'].forEach(function(m){var b=document.getElementById('btn-'+m);if(b)b.classList.toggle('on',m===vtoMode);});
     var cn=document.getElementById('cn-vto');if(cn)cn.textContent=vtoMode==='shopify'?'Shopify $0.10/try':'Kivisense $888/mo flat';
   }
-  proj();yrProj();
+  calcS01();
   applying=false;
 }
 function pushInputs(){
