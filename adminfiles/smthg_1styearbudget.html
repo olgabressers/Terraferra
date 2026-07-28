@@ -63,6 +63,9 @@ thead th:last-child{min-width:180px}
 .tr-sub td{font-size:11px;color:var(--sub);padding-top:3px;padding-bottom:3px;border-top:none}
 .tr-sub td:first-child{padding-left:26px}
 .tr-unchecked td{opacity:.32}
+.tr-toggle{background:none;border:none;cursor:pointer;font-size:13px;padding:0 4px;line-height:1;vertical-align:middle;color:var(--sub);transition:color .15s}
+.tr-toggle:hover{color:var(--tf)}
+.tr-sub.tr-hidden{display:none}
 
 /* Back-to-top */
 .back-to-top{position:fixed;bottom:28px;right:28px;width:40px;height:40px;background:var(--tf);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;text-decoration:none;opacity:0;transition:opacity .3s;z-index:100;border-radius:2px}
@@ -710,8 +713,8 @@ details[open].cd summary::before{content:'▾'}
 
 <!-- EU: WHO'S NEXT Paris — Jan 2026 — Q1 -->
 <tr id="tr-row-whonext" class="tr-ev-hdr">
-  <td><label class="tr-cb-lbl"><input type="checkbox" id="tr-cb-whonext" checked onchange="calcS01()"><strong>Who's Next · Première Classe</strong></label> <span class="badge qt1">Q1</span></td>
-  <td class="desc"><input type="number" id="tr-n-whonext" value="2" min="1" max="10" class="tr-n-input" oninput="calcS01()"> people · 17–20 Jan 2026 · Paris, Porte de Versailles</td>
+  <td><label class="tr-cb-lbl"><input type="checkbox" id="tr-cb-whonext" checked onchange="calcS01()"><strong>Who's Next · Première Classe</strong></label> <span class="badge qt1">Q1</span> <button class="tr-toggle" onclick="toggleSubRows('whonext',this)" title="show/hide cost breakdown">▾</button></td>
+  <td class="desc"><input type="number" id="tr-n-whonext" value="2" min="1" max="10" class="tr-n-input" oninput="calcS01()"> people · 17–20 Jan 2026 · ~16–19 Jan 2027 · Paris, Porte de Versailles</td>
   <td class="num" id="tr-q1-whonext">$4,440</td>
   <td class="na">—</td><td class="na">—</td><td class="na">—</td>
   <td class="num" id="tr-yr-whonext" style="border-left:1px solid var(--rule)">$4,440</td>
@@ -756,8 +759,8 @@ details[open].cd summary::before{content:'▾'}
 
 <!-- US: MAGIC Las Vegas — Feb 2026 — Q1 -->
 <tr id="tr-row-magic" class="tr-ev-hdr">
-  <td><label class="tr-cb-lbl"><input type="checkbox" id="tr-cb-magic" checked onchange="calcS01()"><strong>MAGIC Las Vegas</strong></label> <span class="badge qt1">Q1</span></td>
-  <td class="desc"><input type="number" id="tr-n-magic" value="2" min="1" max="10" class="tr-n-input" oninput="calcS01()"> people · 17–19 Feb 2026 · Las Vegas Convention Center</td>
+  <td><label class="tr-cb-lbl"><input type="checkbox" id="tr-cb-magic" checked onchange="calcS01()"><strong>MAGIC Las Vegas</strong></label> <span class="badge qt1">Q1</span> <button class="tr-toggle" onclick="toggleSubRows('magic',this)" title="show/hide cost breakdown">▾</button></td>
+  <td class="desc"><input type="number" id="tr-n-magic" value="2" min="1" max="10" class="tr-n-input" oninput="calcS01()"> people · 17–19 Feb 2026 · ~Feb 2027 · Las Vegas Convention Center</td>
   <td class="num" id="tr-q1-magic">$6,460</td>
   <td class="na">—</td><td class="na">—</td><td class="na">—</td>
   <td class="num" id="tr-yr-magic" style="border-left:1px solid var(--rule)">$6,460</td>
@@ -802,8 +805,8 @@ details[open].cd summary::before{content:'▾'}
 
 <!-- EU: PREMIUM Berlin — Jul 2026 — Q3 -->
 <tr id="tr-row-premium" class="tr-ev-hdr">
-  <td><label class="tr-cb-lbl"><input type="checkbox" id="tr-cb-premium" checked onchange="calcS01()"><strong>Premium Berlin</strong></label> <span class="badge">Q3</span></td>
-  <td class="desc"><input type="number" id="tr-n-premium" value="2" min="1" max="10" class="tr-n-input" oninput="calcS01()"> people · 2–4 Jul 2026 · Messe Berlin</td>
+  <td><label class="tr-cb-lbl"><input type="checkbox" id="tr-cb-premium" checked onchange="calcS01()"><strong>Premium Berlin</strong></label> <span class="badge">Q3</span> <button class="tr-toggle" onclick="toggleSubRows('premium',this)" title="show/hide cost breakdown">▾</button></td>
+  <td class="desc"><input type="number" id="tr-n-premium" value="2" min="1" max="10" class="tr-n-input" oninput="calcS01()"> people · 2–4 Jul 2026 · ~Jul 2027 · Messe Berlin</td>
   <td class="na">—</td><td class="na">—</td>
   <td class="num" id="tr-q3-premium">$3,500</td>
   <td class="na">—</td>
@@ -855,8 +858,8 @@ details[open].cd summary::before{content:'▾'}
 
 <!-- US: COTERIE New York — Sep 2026 — Q3 -->
 <tr id="tr-row-coterie" class="tr-ev-hdr">
-  <td><label class="tr-cb-lbl"><input type="checkbox" id="tr-cb-coterie" checked onchange="calcS01()"><strong>Coterie New York</strong></label> <span class="badge">Q3</span></td>
-  <td class="desc"><input type="number" id="tr-n-coterie" value="2" min="1" max="10" class="tr-n-input" oninput="calcS01()"> people · 13–15 Sep 2026 · Javits Center, NYC</td>
+  <td><label class="tr-cb-lbl"><input type="checkbox" id="tr-cb-coterie" checked onchange="calcS01()"><strong>Coterie New York</strong></label> <span class="badge">Q3</span> <button class="tr-toggle" onclick="toggleSubRows('coterie',this)" title="show/hide cost breakdown">▾</button></td>
+  <td class="desc"><input type="number" id="tr-n-coterie" value="2" min="1" max="10" class="tr-n-input" oninput="calcS01()"> people · 13–15 Sep 2026 · ~Sep 2027 · Javits Center, NYC</td>
   <td class="na">—</td><td class="na">—</td>
   <td class="num" id="tr-q3-coterie">$6,440</td>
   <td class="na">—</td>
@@ -1831,85 +1834,264 @@ details[open].cd summary::before{content:'▾'}
     <p class="ni-sub-note">Additional fairs beyond the 4 budgeted shows (MAGIC LV, Who's Next Paris, Coterie NYC, Premium Berlin), plus investor meetings and designer trips. Indicative: ~$3,924/mo (~$47K/year) based on 4 additional trips/year × 2 attendees. Budget to be agreed separately.</p>
 
     <!-- FASHION FAIRS -->
-    <div class="ni-section-title">Fashion Fairs Reference</div>
-    <p class="ni-sub-note">Indicative ticket pricing if T&amp;E budget is approved. Classified as non-retailer / solution provider at industry events.</p>
+    <div class="ni-section-title">Fashion Fairs Reference — Europe &amp; US · 2026–2027</div>
+    <p class="ni-sub-note">Indicative dates and ticket pricing. 2027 dates estimated — confirm 6 months in advance. Classified as non-retailer / solution provider at all events. ★ = budgeted in Year 1 travel above.</p>
 
+    <!-- FRANCE -->
+    <div style="font-size:10px;font-weight:700;color:var(--sub);letter-spacing:.08em;text-transform:uppercase;padding:12px 0 6px">France — Paris</div>
     <table class="ni-tbl">
       <thead>
+        <tr><th>Event</th><th>Dates 2026</th><th>Dates 2027 (est.)</th><th>Pass type</th><th class="num">Price</th></tr>
+      </thead>
+      <tbody>
         <tr>
-          <th>Event</th>
-          <th>Date · Location</th>
-          <th>Pass type</th>
-          <th class="num">Price</th>
+          <td><a href="https://www.whosnext.com/en/whats-next/trade-show" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">★ Who's Next · Première Classe</a></td>
+          <td>17–20 Jan 2026 · Porte de Versailles</td>
+          <td>~16–19 Jan 2027</td>
+          <td>Solution provider / industry visitor</td>
+          <td class="num">€300–€500/pp</td>
         </tr>
+        <tr>
+          <td><a href="https://www.whosnext.com/en/whats-next/trade-show" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Who's Next · Sep edition</a></td>
+          <td>~Sep 2026 · Porte de Versailles</td>
+          <td>~Sep 2027</td>
+          <td>Solution provider / industry visitor</td>
+          <td class="num">€300–€500/pp</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.tranoi.com/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Tranoï Paris</a></td>
+          <td>~18–22 Jan 2026 · Carrousel du Louvre (concurrent with Who's Next)</td>
+          <td>~Jan 2027</td>
+          <td>Trade professional — accredited buyers free</td>
+          <td class="num">Free if accredited</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.tranoi.com/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Tranoï Paris · Sep</a></td>
+          <td>~Sep 2026 · Palais de la Bourse</td>
+          <td>~Sep 2027</td>
+          <td>Trade professional — accredited buyers free</td>
+          <td class="num">Free if accredited</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- GERMANY -->
+    <div style="font-size:10px;font-weight:700;color:var(--sub);letter-spacing:.08em;text-transform:uppercase;padding:12px 0 6px">Germany — Berlin</div>
+    <table class="ni-tbl">
+      <thead>
+        <tr><th>Event</th><th>Dates 2026</th><th>Dates 2027 (est.)</th><th>Pass type</th><th class="num">Price</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="https://www.premiumberlin.com/en/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Premium Berlin · Jan</a></td>
+          <td>~7–9 Jan 2026 · Messe Berlin (Berlin Fashion Week)</td>
+          <td>~Jan 2027</td>
+          <td>Trade visitor — free qualified buyers; solution provider badge</td>
+          <td class="num">Free – €300/pp</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.premiumberlin.com/en/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">★ Premium Berlin · Jul</a></td>
+          <td>2–4 Jul 2026 · Messe Berlin</td>
+          <td>~Jul 2027</td>
+          <td>Trade visitor — free qualified buyers; solution provider badge</td>
+          <td class="num">Free – €300/pp</td>
+        </tr>
+        <tr>
+          <td><a href="https://seekexhibitions.com/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">SEEK Berlin</a></td>
+          <td>2–4 Jul 2026 · Station Berlin (concurrent with Premium)</td>
+          <td>~Jul 2027</td>
+          <td>Trade visitor — sustainability &amp; streetwear focus</td>
+          <td class="num">Free – €150/pp</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.fashionweekberlin.com/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Berlin Fashion Week</a></td>
+          <td>Jan &amp; Jul 2026 · Berlin (umbrella of Premium + SEEK)</td>
+          <td>Jan &amp; Jul 2027</td>
+          <td>Various show passes during the week</td>
+          <td class="num">€200–€800</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- ITALY -->
+    <div style="font-size:10px;font-weight:700;color:var(--sub);letter-spacing:.08em;text-transform:uppercase;padding:12px 0 6px">Italy — Milan &amp; Florence</div>
+    <table class="ni-tbl">
+      <thead>
+        <tr><th>Event</th><th>Dates 2026</th><th>Dates 2027 (est.)</th><th>Pass type</th><th class="num">Price</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="https://www.pittimmagine.com/en/fairs/uomo.html" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Pitti Uomo</a></td>
+          <td>14–17 Jan 2026 · Fortezza da Basso, Florence</td>
+          <td>~Jan 2027</td>
+          <td>Trade visitor — free for qualified operators</td>
+          <td class="num">Free if qualified</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.pittimmagine.com/en/fairs/uomo.html" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Pitti Uomo · Jun</a></td>
+          <td>17–20 Jun 2026 · Fortezza da Basso, Florence</td>
+          <td>~Jun 2027</td>
+          <td>Trade visitor — free for qualified operators</td>
+          <td class="num">Free if qualified</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.whitemilano.com/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">White Milano</a></td>
+          <td>~14–17 Jan 2026 · Superstudio Maxi, Milan (MFW Men's)</td>
+          <td>~Jan 2027</td>
+          <td>Trade professional — contemporary &amp; accessible luxury</td>
+          <td class="num">€200–€400/pp</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.whitemilano.com/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">White Milano · Sep</a></td>
+          <td>~18–22 Sep 2026 · Superstudio Maxi, Milan (MFW Women's)</td>
+          <td>~Sep 2027</td>
+          <td>Trade professional — contemporary &amp; accessible luxury</td>
+          <td class="num">€200–€400/pp</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.milanoUnica.it/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Milano Unica</a></td>
+          <td>~11–13 Feb 2026 · Fiera Milano, Rho (textile &amp; fabric)</td>
+          <td>~Feb 2027</td>
+          <td>Industry professional registration</td>
+          <td class="num">Free if accredited</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.milanoUnica.it/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Milano Unica · Sep</a></td>
+          <td>~Sep 2026 · Fiera Milano, Rho</td>
+          <td>~Sep 2027</td>
+          <td>Industry professional registration</td>
+          <td class="num">Free if accredited</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- NETHERLANDS -->
+    <div style="font-size:10px;font-weight:700;color:var(--sub);letter-spacing:.08em;text-transform:uppercase;padding:12px 0 6px">Netherlands — Amsterdam</div>
+    <table class="ni-tbl">
+      <thead>
+        <tr><th>Event</th><th>Dates 2026</th><th>Dates 2027 (est.)</th><th>Pass type</th><th class="num">Price</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="https://www.modefabriek.nl/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Modefabriek Amsterdam</a></td>
+          <td>25–26 Jan 2026 · Westergasfabriek, Amsterdam</td>
+          <td>~Jan 2027</td>
+          <td>Trade professional — contemporary, sustainable &amp; accessible fashion</td>
+          <td class="num">€95–€195/pp</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.modefabriek.nl/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Modefabriek · Jul</a></td>
+          <td>5–6 Jul 2026 · Westergasfabriek, Amsterdam</td>
+          <td>~Jul 2027</td>
+          <td>Trade professional</td>
+          <td class="num">€95–€195/pp</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.amsterdamfashionweek.com/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Amsterdam Fashion Week</a></td>
+          <td>Jan &amp; Jul 2026 · Amsterdam (concurrent with Modefabriek)</td>
+          <td>Jan &amp; Jul 2027</td>
+          <td>Industry accreditation — runway shows &amp; presentations</td>
+          <td class="num">Free if accredited</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- BELGIUM -->
+    <div style="font-size:10px;font-weight:700;color:var(--sub);letter-spacing:.08em;text-transform:uppercase;padding:12px 0 6px">Belgium — Antwerp</div>
+    <table class="ni-tbl">
+      <thead>
+        <tr><th>Event</th><th>Dates 2026</th><th>Dates 2027 (est.)</th><th>Pass type</th><th class="num">Price</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="https://www.momu.be/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Antwerp Fashion / MoMu</a></td>
+          <td>Year-round · MoMu, Antwerp</td>
+          <td>Year-round</td>
+          <td>No dedicated trade fair — Antwerp is a design &amp; retail hub (Royal Academy graduates). Designer scouting via showrooms, not a fair.</td>
+          <td class="num">—</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.mode2.be/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Mode 2.0 Brussels</a></td>
+          <td>~Feb 2026 · Brussels</td>
+          <td>~Feb 2027</td>
+          <td>Trade visitor — Belgian &amp; Benelux contemporary fashion</td>
+          <td class="num">Free – €100/pp</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- UK -->
+    <div style="font-size:10px;font-weight:700;color:var(--sub);letter-spacing:.08em;text-transform:uppercase;padding:12px 0 6px">UK — London</div>
+    <table class="ni-tbl">
+      <thead>
+        <tr><th>Event</th><th>Dates 2026</th><th>Dates 2027 (est.)</th><th>Pass type</th><th class="num">Price</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="https://purelondon.com/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Pure London</a></td>
+          <td>~9–11 Feb 2026 · Olympia London</td>
+          <td>~Feb 2027</td>
+          <td>Trade professional — contemporary womenswear &amp; accessories</td>
+          <td class="num">Free if registered</td>
+        </tr>
+        <tr>
+          <td><a href="https://purelondon.com/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Pure London · Jul</a></td>
+          <td>~Jul 2026 · Olympia London</td>
+          <td>~Jul 2027</td>
+          <td>Trade professional</td>
+          <td class="num">Free if registered</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.businessoffashion.com/events/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Business of Fashion — VOICES</a></td>
+          <td>~Nov 2026 · UK (Oxfordshire, Soho Farmhouse)</td>
+          <td>~Nov 2027</td>
+          <td>Invitation-only — senior industry only</td>
+          <td class="num">$3,000–$5,000+</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- US -->
+    <div style="font-size:10px;font-weight:700;color:var(--sub);letter-spacing:.08em;text-transform:uppercase;padding:12px 0 6px">US — New York &amp; Las Vegas</div>
+    <table class="ni-tbl" style="margin-bottom:0">
+      <thead>
+        <tr><th>Event</th><th>Dates 2026</th><th>Dates 2027 (est.)</th><th>Pass type</th><th class="num">Price</th></tr>
       </thead>
       <tbody>
         <tr>
           <td><a href="https://nrfbigshow.nrf.com/register" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">NRF Big Show</a></td>
-          <td>Jan · Javits Center, NYC</td>
+          <td>~12–14 Jan 2026 · Javits Center, NYC</td>
+          <td>~Jan 2027</td>
           <td>All-Access — non-retailer NRF member</td>
           <td class="num">$2,500</td>
         </tr>
         <tr>
           <td><a href="https://nrfbigshow.nrf.com/register" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">NRF Big Show</a></td>
-          <td>Jan · NYC</td>
+          <td>~12–14 Jan 2026 · Javits Center, NYC</td>
+          <td>~Jan 2027</td>
           <td>All-Access — non-retailer non-member</td>
           <td class="num">$3,700</td>
         </tr>
         <tr>
-          <td><a href="https://nrfbigshow.nrf.com/register" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">NRF Big Show</a></td>
-          <td>Jan · NYC</td>
-          <td>Expo Pass — non-retailer non-member</td>
-          <td class="num">$3,200</td>
+          <td><a href="https://www.magiconline.com/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">★ MAGIC Las Vegas</a></td>
+          <td>17–19 Feb 2026 · Las Vegas Convention Center</td>
+          <td>~Feb 2027</td>
+          <td>MAGIC Buyer registration</td>
+          <td class="num">$700/pp</td>
         </tr>
         <tr>
-          <td><a href="https://www.coteriefashionevents.com/en/events/coterie-new-york/event-information.html" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Coterie New York</a></td>
-          <td>Feb &amp; Sept · Javits Center, NYC</td>
+          <td><a href="https://www.coteriefashionevents.com/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">★ Coterie New York</a></td>
+          <td>13–15 Sep 2026 · Javits Center, NYC</td>
+          <td>~Sep 2027</td>
           <td>Trade buyer — invitation only, qualified buyers</td>
           <td class="num">Free if qualified</td>
         </tr>
         <tr>
-          <td><a href="https://www.businessoffashion.com/events/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Business of Fashion — VOICES &amp; events</a></td>
-          <td>Various · UK / global</td>
-          <td>Invitation-only</td>
-          <td class="num">$3,000–$5,000+</td>
-        </tr>
-        <tr>
-          <td>Fashion Tech Forum / FTF events</td>
-          <td>Various · NYC</td>
+          <td>Fashion Tech Forum / FTF</td>
+          <td>Various 2026 · NYC</td>
+          <td>Various 2027</td>
           <td>Standard attendee</td>
           <td class="num">$1,500–$3,000</td>
-        </tr>
-        <tr><td colspan="4" style="background:var(--bg);font-size:10px;font-weight:700;color:var(--sub);letter-spacing:.08em;text-transform:uppercase;padding:8px 11px">European Events</td></tr>
-        <tr>
-          <td><a href="https://www.whosnext.com/en/whats-next/trade-show" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Who's Next · Première Classe Paris</a></td>
-          <td>Jan &amp; Sep · Porte de Versailles, Paris</td>
-          <td>Solution provider / industry visitor — registration required</td>
-          <td class="num">€300–€500/pp</td>
-        </tr>
-        <tr>
-          <td><a href="https://www.premiumberlin.com/en/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Premium Berlin</a></td>
-          <td>Jan &amp; Jul · Messe Berlin</td>
-          <td>Trade visitor — free for qualified buyers; solution provider badge available</td>
-          <td class="num">Free – €300/pp</td>
-        </tr>
-        <tr>
-          <td><a href="https://www.tranoi.com/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Tranoï Paris</a></td>
-          <td>Jan &amp; Sep · Palais de la Bourse / Carrousel du Louvre</td>
-          <td>Trade professional — invitation-based, free for accredited buyers</td>
-          <td class="num">Free if accredited</td>
-        </tr>
-        <tr>
-          <td><a href="https://www.pittimmagine.com/en/fairs/uomo.html" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Pitti Uomo Florence</a></td>
-          <td>Jan &amp; Jun · Fortezza da Basso, Florence</td>
-          <td>Trade visitor — free for qualified operators</td>
-          <td class="num">Free if qualified</td>
-        </tr>
-        <tr>
-          <td><a href="https://www.fashionweekberlin.com/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Berlin Fashion Week</a></td>
-          <td>Jan &amp; Jul · Berlin (concurrent with Premium)</td>
-          <td>Show passes — various events during Berlin Fashion Week</td>
-          <td class="num">€200–€800</td>
         </tr>
       </tbody>
     </table>
@@ -2025,6 +2207,11 @@ function calcTravel(){
 function toggleAllTravel(on){
   Object.keys(TR_EVENTS).forEach(function(k){var cb=document.getElementById('tr-cb-'+k);if(cb)cb.checked=on;});
   calcS01();
+}
+function toggleSubRows(key,btn){
+  var open=btn.textContent==='▾';
+  document.querySelectorAll('.tr-sub-'+key).forEach(function(r){r.classList.toggle('tr-hidden',open);});
+  btn.textContent=open?'▸':'▾';
 }
 
 function proj(){
