@@ -178,8 +178,9 @@ input[type=range]{width:100%;height:4px;accent-color:var(--tf);cursor:pointer;di
 .qv{font-size:12px;font-weight:800;color:var(--ink);white-space:nowrap}
 .qv.g{color:#1A7A4A}.qv.r{color:var(--tf)}.qv.b{font-size:14px}
 .q-sub{background:#FAFAF8}
-.q-sub .ql{padding-left:12px;font-size:10px;font-style:italic;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.q-sub .ql{padding-left:12px;font-size:10px;font-style:italic}
 .q-sub .qv{font-size:10px;font-weight:700}
+.y-grid .q-sub{min-height:50px;align-items:flex-start}
 .qdiv{height:1px;background:var(--rule);margin:3px 0}
 .yr-bar{background:var(--ink);padding:16px 20px;display:grid;grid-template-columns:repeat(5,1fr);margin-top:14px}
 .yr-i{padding:0 14px;border-right:1px solid rgba(255,255,255,.1)}
@@ -225,7 +226,7 @@ input[type=range]{width:100%;height:4px;accent-color:var(--tf);cursor:pointer;di
 
 /* cost detail foldables */
 .cd{border:none;padding:0;margin:2px 0 0}
-.cd summary{font-size:10px;color:var(--sub);cursor:pointer;padding:2px 0 4px 13px;list-style:none;position:relative;user-select:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cd summary{font-size:10px;color:var(--sub);cursor:pointer;padding:2px 0 4px 13px;list-style:none;position:relative;user-select:none}
 .cd summary::-webkit-details-marker{display:none}
 .cd summary::before{content:'▸';position:absolute;left:0;top:2px;font-size:9px;line-height:1}
 details[open].cd summary::before{content:'▾'}
@@ -1862,11 +1863,11 @@ details[open].cd summary::before{content:'▾'}
       <div class="q-row"><span class="ql">Core team salary</span><span class="qv r" id="yc2-core">—</span></div>
       <div style="font-size:10px;color:var(--sub);padding:1px 0 5px 0" id="ycd2-ct-info">—</div>
       <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">G&amp;A total</span><span class="qv r" id="yc2-ga">—</span></div>
-      <div class="q-row q-sub"><span class="ql">Financial &amp; Legal (×2 Y1)</span><span class="qv r" id="yc2-ga-finleg">—</span></div>
-      <div class="q-row q-sub"><span class="ql">Tools &amp; IT (×2 Y1)</span><span class="qv r" id="yc2-ga-tools">—</span></div>
-      <div class="q-row q-sub"><span class="ql">AI tools (×2 Y1)</span><span class="qv r" id="yc2-ga-ai">—</span></div>
-      <div class="q-row q-sub"><span class="ql">Marketing &amp; PR (×2 Y1)</span><span class="qv r" id="yc2-ga-mktg">—</span></div>
-      <div class="q-row q-sub"><span class="ql">Trade shows &amp; travel (×2 Y1)</span><span class="qv r" id="yc2-ga-shows">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Financial &amp; Legal · legal $12K + tax $4.4K + D&amp;O $5.6K + banking $6.6K</span><span class="qv r" id="yc2-ga-finleg">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Tools &amp; IT · IT infra $18K + platform $7.9K</span><span class="qv r" id="yc2-ga-tools">—</span></div>
+      <div class="q-row q-sub"><span class="ql">AI tools · OpenAI/Anthropic, Algolia, Insense</span><span class="qv r" id="yc2-ga-ai">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Marketing &amp; PR · paid social $25.5K + CRM/email/PR $6K</span><span class="qv r" id="yc2-ga-mktg">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Trade shows &amp; travel · 4 shows (2 US + 2 EU)</span><span class="qv r" id="yc2-ga-shows">—</span></div>
       <div class="q-row q-sub"><span class="ql" style="opacity:.4">One-time launch costs · Q1 only</span><span class="qv r" style="opacity:.4">—</span></div>
       <div class="q-row q-sub"><span class="ql">Contingency buffer · 10% of total</span><span class="qv r" id="yc2-ga-buf">—</span></div>
       <div class="qdiv"></div>
@@ -1896,11 +1897,11 @@ details[open].cd summary::before{content:'▾'}
       <div class="q-row"><span class="ql">Core team salary</span><span class="qv r" id="yc3-core">—</span></div>
       <div style="font-size:10px;color:var(--sub);padding:1px 0 5px 0" id="ycd3-ct-info">—</div>
       <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">G&amp;A total</span><span class="qv r" id="yc3-ga">—</span></div>
-      <div class="q-row q-sub"><span class="ql">Financial &amp; Legal (×4 Y1)</span><span class="qv r" id="yc3-ga-finleg">—</span></div>
-      <div class="q-row q-sub"><span class="ql">Tools &amp; IT (×4 Y1)</span><span class="qv r" id="yc3-ga-tools">—</span></div>
-      <div class="q-row q-sub"><span class="ql">AI tools (×4 Y1)</span><span class="qv r" id="yc3-ga-ai">—</span></div>
-      <div class="q-row q-sub"><span class="ql">Marketing &amp; PR (×4 Y1)</span><span class="qv r" id="yc3-ga-mktg">—</span></div>
-      <div class="q-row q-sub"><span class="ql">Trade shows &amp; travel (×4 Y1)</span><span class="qv r" id="yc3-ga-shows">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Financial &amp; Legal · legal $18K + tax $6K + D&amp;O $7.2K + banking $10K</span><span class="qv r" id="yc3-ga-finleg">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Tools &amp; IT · IT infra $25K + platform $9.8K</span><span class="qv r" id="yc3-ga-tools">—</span></div>
+      <div class="q-row q-sub"><span class="ql">AI tools · personalisation + creator intelligence</span><span class="qv r" id="yc3-ga-ai">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Marketing &amp; PR · consumer acquisition + fashion trade press</span><span class="qv r" id="yc3-ga-mktg">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Trade shows &amp; travel</span><span class="qv r" id="yc3-ga-shows">—</span></div>
       <div class="q-row q-sub"><span class="ql" style="opacity:.4">One-time launch costs · Q1 only</span><span class="qv r" style="opacity:.4">—</span></div>
       <div class="q-row q-sub"><span class="ql">Contingency buffer · 10% of total</span><span class="qv r" id="yc3-ga-buf">—</span></div>
       <div class="qdiv"></div>
@@ -1930,11 +1931,11 @@ details[open].cd summary::before{content:'▾'}
       <div class="q-row"><span class="ql">Core team salary</span><span class="qv r" id="yc4-core">—</span></div>
       <div style="font-size:10px;color:var(--sub);padding:1px 0 5px 0" id="ycd4-ct-info">—</div>
       <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">G&amp;A total</span><span class="qv r" id="yc4-ga">—</span></div>
-      <div class="q-row q-sub"><span class="ql">Financial &amp; Legal (×8 Y1)</span><span class="qv r" id="yc4-ga-finleg">—</span></div>
-      <div class="q-row q-sub"><span class="ql">Tools &amp; IT (×8 Y1)</span><span class="qv r" id="yc4-ga-tools">—</span></div>
-      <div class="q-row q-sub"><span class="ql">AI tools (×8 Y1)</span><span class="qv r" id="yc4-ga-ai">—</span></div>
-      <div class="q-row q-sub"><span class="ql">Marketing &amp; PR (×8 Y1)</span><span class="qv r" id="yc4-ga-mktg">—</span></div>
-      <div class="q-row q-sub"><span class="ql">Trade shows &amp; travel (×8 Y1)</span><span class="qv r" id="yc4-ga-shows">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Financial &amp; Legal · legal $30K + tax $10K + D&amp;O $12K + banking $15K</span><span class="qv r" id="yc4-ga-finleg">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Tools &amp; IT · IT infra $40K + platform $13K</span><span class="qv r" id="yc4-ga-tools">—</span></div>
+      <div class="q-row q-sub"><span class="ql">AI tools · full creator intelligence + recommendation stack</span><span class="qv r" id="yc4-ga-ai">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Marketing &amp; PR · brand marketing + fashion press + PR</span><span class="qv r" id="yc4-ga-mktg">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Trade shows &amp; travel</span><span class="qv r" id="yc4-ga-shows">—</span></div>
       <div class="q-row q-sub"><span class="ql" style="opacity:.4">One-time launch costs · Q1 only</span><span class="qv r" style="opacity:.4">—</span></div>
       <div class="q-row q-sub"><span class="ql">Contingency buffer · 10% of total</span><span class="qv r" id="yc4-ga-buf">—</span></div>
       <div class="qdiv"></div>
@@ -1964,11 +1965,11 @@ details[open].cd summary::before{content:'▾'}
       <div class="q-row"><span class="ql">Core team salary</span><span class="qv r" id="yc5-core">—</span></div>
       <div style="font-size:10px;color:var(--sub);padding:1px 0 5px 0" id="ycd5-ct-info">—</div>
       <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">G&amp;A total</span><span class="qv r" id="yc5-ga">—</span></div>
-      <div class="q-row q-sub"><span class="ql">Financial &amp; Legal (×16 Y1)</span><span class="qv r" id="yc5-ga-finleg">—</span></div>
-      <div class="q-row q-sub"><span class="ql">Tools &amp; IT (×16 Y1)</span><span class="qv r" id="yc5-ga-tools">—</span></div>
-      <div class="q-row q-sub"><span class="ql">AI tools (×16 Y1)</span><span class="qv r" id="yc5-ga-ai">—</span></div>
-      <div class="q-row q-sub"><span class="ql">Marketing &amp; PR (×16 Y1)</span><span class="qv r" id="yc5-ga-mktg">—</span></div>
-      <div class="q-row q-sub"><span class="ql">Trade shows &amp; travel (×16 Y1)</span><span class="qv r" id="yc5-ga-shows">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Financial &amp; Legal — estimate</span><span class="qv r" id="yc5-ga-finleg">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Tools &amp; IT — estimate</span><span class="qv r" id="yc5-ga-tools">—</span></div>
+      <div class="q-row q-sub"><span class="ql">AI tools — estimate</span><span class="qv r" id="yc5-ga-ai">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Marketing &amp; PR — estimate</span><span class="qv r" id="yc5-ga-mktg">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Trade shows &amp; travel</span><span class="qv r" id="yc5-ga-shows">—</span></div>
       <div class="q-row q-sub"><span class="ql" style="opacity:.4">One-time launch costs · Q1 only</span><span class="qv r" style="opacity:.4">—</span></div>
       <div class="q-row q-sub"><span class="ql">Contingency buffer · 10% of total</span><span class="qv r" id="yc5-ga-buf">—</span></div>
       <div class="qdiv"></div>
