@@ -453,16 +453,16 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
       <div class="sl-group">
         <div class="sl-top">
           <span class="sl-label">Influencer-driven share of drop revenue</span>
-          <span class="sl-val" id="v-inf-share">90%</span>
+          <span class="sl-val" id="v-inf-share">95%</span>
         </div>
-        <input type="range" id="sl-inf-share" min="0" max="100" step="5" value="90" oninput="calc()"/>
+        <input type="range" id="sl-inf-share" min="0" max="100" step="5" value="95" oninput="calc()"/>
         <div class="sl-hints"><span>0% (fully organic)</span><span>100% (fully influencer)</span></div>
         <div class="sl-note">SMTHG charges designers the 20% influencer program fee on <strong>all GMV</strong> — regardless of how the sale originated. Only the influencer-driven portion is paid out to influencers. The organic portion is retained by SMTHG.</div>
       </div>
       <div style="background:var(--tf-ghost);border-left:3px solid var(--tf);padding:10px 14px;margin-top:-12px;margin-bottom:20px;font-size:12px;color:var(--ink);line-height:1.9">
         <div style="font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--tf);margin-bottom:6px">Revenue split assumption</div>
-        <div>Influencer-driven: <strong id="v-inf-pct-label">90%</strong> · 20% fee paid out to influencers</div>
-        <div>Organic / platform: <strong id="v-org-pct-label">10%</strong> · 20% fee retained by SMTHG</div>
+        <div>Influencer-driven: <strong id="v-inf-pct-label">95%</strong> · 20% fee paid out to influencers</div>
+        <div>Organic / platform: <strong id="v-org-pct-label">5%</strong> · 20% fee retained by SMTHG</div>
       </div>
 
       <div class="sliders-section-label" style="margin-top:20px">VTO Volume</div>
@@ -574,11 +574,11 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         <span class="out-row-val neg" id="o-inf">−$1,050</span>
       </div>
       <div class="out-row" style="padding-top:3px;padding-bottom:3px">
-        <span class="out-row-lbl" style="font-size:11px;padding-left:10px">↳ Paid to influencers (<span id="o-inf-share-pct">90%</span>)</span>
+        <span class="out-row-lbl" style="font-size:11px;padding-left:10px">↳ Paid to influencers (<span id="o-inf-share-pct">95%</span>)</span>
         <span class="out-row-val" style="font-size:12px;color:#FF8A80" id="o-inf-paidout">—</span>
       </div>
       <div class="out-row" style="padding-top:3px;padding-bottom:3px">
-        <span class="out-row-lbl" style="font-size:11px;padding-left:10px">↳ SMTHG keeps (organic <span id="o-org-share-pct">10%</span>)</span>
+        <span class="out-row-lbl" style="font-size:11px;padding-left:10px">↳ SMTHG keeps (organic <span id="o-org-share-pct">5%</span>)</span>
         <span class="out-row-val" style="font-size:12px;color:#7AE3B2" id="o-inf-keep">—</span>
       </div>
       <div class="out-row">
@@ -608,7 +608,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
           <span style="font-size:15px;font-weight:800;color:white" id="o-tf-gross">$2,625</span>
         </div>
         <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px">
-          <span style="font-size:12px;font-weight:700;color:white">Organic inf. fee retained (<span id="o-smthg-keep-pct">10%</span>)</span>
+          <span style="font-size:12px;font-weight:700;color:white">Organic inf. fee retained (<span id="o-smthg-keep-pct">5%</span>)</span>
           <span style="font-size:15px;font-weight:800;color:#7AE3B2" id="o-inf-keep-smthg">+$0</span>
         </div>
         <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px" id="o-vto-tf-row">
@@ -767,7 +767,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 
       <div style="background:var(--tf-ghost);border:1px solid var(--rule);border-top:3px solid var(--tf);padding:20px 22px">
         <div style="font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--tf);margin-bottom:4px">New model</div>
-        <div style="font-size:12px;font-weight:700;color:var(--ink);margin-bottom:14px">Mixed — <span id="cmp-new-mix-lbl">90% inf. / 10% organic</span></div>
+        <div style="font-size:12px;font-weight:700;color:var(--ink);margin-bottom:14px">Mixed — <span id="cmp-new-mix-lbl">95% inf. / 5% organic</span></div>
         <div style="font-size:11px;color:var(--sub);margin-bottom:10px">Organic portion of 20% inf. fee is retained by SMTHG on top of platform fee</div>
         <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--rule);font-size:13px">
           <span style="color:var(--ink)">Platform fee (10%)</span>
@@ -822,8 +822,8 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         <tbody>
           <tr style="border-bottom:1px solid var(--rule)">
             <td style="padding:11px 16px;font-weight:700;color:var(--ink)">Y1 · MVP</td>
-            <td style="padding:11px 16px;text-align:center;font-weight:800;color:var(--ink)">90–95%</td>
-            <td style="padding:11px 16px;text-align:center;font-weight:800;color:var(--sub)">5–10%</td>
+            <td style="padding:11px 16px;text-align:center;font-weight:800;color:var(--ink)">95%</td>
+            <td style="padding:11px 16px;text-align:center;font-weight:800;color:var(--sub)">5%</td>
             <td style="padding:11px 16px;color:var(--sub)">No community, no brand recognition. All traffic arrives via influencer posts.</td>
           </tr>
           <tr style="border-bottom:1px solid var(--rule);background:var(--off-white)">
