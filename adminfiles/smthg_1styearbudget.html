@@ -227,8 +227,8 @@ details[open].cd summary::before{content:'▾'}
   </div>
   <div class="sc">
     <div class="sc-label">Operations &amp; marketing</div>
-    <div class="sc-val">$152,052</div>
-    <div class="sc-note">≈€138,367 · Financial/Legal + tools + AI + marketing</div>
+    <div class="sc-val">$152,640</div>
+    <div class="sc-note">≈€138,902 · Financial/Legal + tools + AI + marketing</div>
   </div>
   <div class="sc">
     <div class="sc-label">One-time launch costs</div>
@@ -266,13 +266,13 @@ details[open].cd summary::before{content:'▾'}
 
 <tr class="core-row">
   <td><strong>Core team salary</strong> <span class="badge qt1">gross</span></td>
-  <td id="s1-core-rate">—</td>
+  <td><input id="ct-y1-rate" type="number" value="10000" min="0" step="500" style="width:65px;border:1px solid var(--rule);padding:2px 4px;font-size:11px;font-weight:700;font-family:'Inter',sans-serif;color:var(--ink)" oninput="calcS01()">/mo<div style="margin-top:3px;font-size:10px;color:var(--sub)">× <input id="ct-y1-count" type="number" value="4" min="1" max="99" style="width:38px;border:1px solid var(--rule);padding:2px 4px;font-size:11px;font-weight:700;font-family:'Inter',sans-serif;color:var(--ink)" oninput="calcS01()"> ppl</div></td>
   <td class="num" id="s1-core-q1">—</td>
   <td class="num" id="s1-core-q2">—</td>
   <td class="num" id="s1-core-q3">—</td>
   <td class="num" id="s1-core-q4">—</td>
   <td class="num" id="s1-core-yr" style="border-left:1px solid var(--rule)">—</td>
-  <td class="desc">Rate × headcount × 3 months · paid from Q1 · adjust rate &amp; count in panel below</td>
+  <td class="desc">Rate × headcount × 3 months · paid from Q1 · all 4 quarters</td>
 </tr>
 <tr class="core-sub">
   <td>↳ per person / quarter</td><td></td>
@@ -642,14 +642,24 @@ details[open].cd summary::before{content:'▾'}
   <td class="num" style="border-left:1px solid var(--rule)">$19,800</td>
   <td class="desc">Design, content, PR, demo collateral, ad-hoc campaigns, development surge capacity; recurring</td>
 </tr>
+<tr>
+  <td>Designer outreach (<a href="https://www.apollo.io/pricing" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Apollo.io</a> Basic)</td>
+  <td>$49/mo fixed</td>
+  <td class="num">$147</td>
+  <td class="num">$147</td>
+  <td class="num">$147</td>
+  <td class="num">$147</td>
+  <td class="num" style="border-left:1px solid var(--rule)">$588</td>
+  <td class="desc">Email finder + cold outreach sequences for designer pipeline; 10K credits/mo; recurring</td>
+</tr>
 <tr class="subtotal">
   <td>Marketing subtotal</td>
-  <td>$4,494/mo M1–6<br>$5,594/mo M7+</td>
-  <td class="num">$13,482</td>
-  <td class="num">$13,482</td>
-  <td class="num">$16,782</td>
-  <td class="num">$16,782</td>
-  <td class="num" style="border-left:1px solid var(--rule)">$60,528<span class="eur">≈€55,080</span></td>
+  <td>$4,543/mo M1–6<br>$5,643/mo M7+</td>
+  <td class="num">$13,629</td>
+  <td class="num">$13,629</td>
+  <td class="num">$16,929</td>
+  <td class="num">$16,929</td>
+  <td class="num" style="border-left:1px solid var(--rule)">$61,116<span class="eur">≈€55,616</span></td>
   <td></td>
 </tr>
 
@@ -1204,37 +1214,22 @@ details[open].cd summary::before{content:'▾'}
 
 </div><!-- /y-grid revenue -->
 
-<!-- Core team salary controls -->
-<div style="background:#F7F5F2;border:1px solid var(--rule);padding:16px 24px;margin-top:20px;display:flex;flex-direction:column;gap:14px">
-  <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap">
-    <div style="font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--tf);white-space:nowrap">Core team · Y1</div>
-    <div style="display:flex;align-items:center;gap:6px">
-      <span style="font-size:12px;color:var(--ink);font-weight:600">Rate</span>
-      <input id="ct-y1-rate" type="number" value="10000" min="0" step="500" style="width:80px;border:1px solid var(--rule);padding:4px 6px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif;color:var(--ink)" oninput="calcS01()">
-      <span style="font-size:11px;color:var(--sub)">$/mo per person</span>
-    </div>
-    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-      <span style="font-size:11px;color:var(--sub)">People:</span>
-      <label style="font-size:11px;color:var(--ink);display:flex;align-items:center;gap:4px">Y1 <input id="ct-y1-count" type="number" value="4" min="0" max="99" style="width:42px;border:1px solid var(--rule);padding:3px 5px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif" oninput="calcS01()"></label>
-    </div>
-    <div style="font-size:10px;color:var(--sub)">Paid Q1–Q4 · no deferral</div>
+<!-- Core team Y2–Y5 salary controls -->
+<div style="background:#F7F5F2;border:1px solid var(--rule);padding:16px 24px;margin-top:20px;display:flex;gap:20px;align-items:center;flex-wrap:wrap">
+  <div style="font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);white-space:nowrap">Core team · Y2–Y5</div>
+  <div style="display:flex;align-items:center;gap:6px">
+    <span style="font-size:12px;color:var(--ink);font-weight:600">Rate</span>
+    <input id="ct-rate" type="number" value="15000" min="0" step="1000" style="width:80px;border:1px solid var(--rule);padding:4px 6px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif;color:var(--ink)" oninput="yrProj()">
+    <span style="font-size:11px;color:var(--sub)">$/mo per person</span>
   </div>
-  <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap;padding-top:10px;border-top:1px solid var(--rule)">
-    <div style="font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);white-space:nowrap">Core team · Y2–Y5</div>
-    <div style="display:flex;align-items:center;gap:6px">
-      <span style="font-size:12px;color:var(--ink);font-weight:600">Rate</span>
-      <input id="ct-rate" type="number" value="15000" min="0" step="1000" style="width:80px;border:1px solid var(--rule);padding:4px 6px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif;color:var(--ink)" oninput="yrProj()">
-      <span style="font-size:11px;color:var(--sub)">$/mo per person</span>
-    </div>
-    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-      <span style="font-size:11px;color:var(--sub)">People:</span>
-      <label style="font-size:11px;color:var(--ink);display:flex;align-items:center;gap:4px">Y2 <input id="ct-y2-count" type="number" value="4" min="0" max="99" style="width:42px;border:1px solid var(--rule);padding:3px 5px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif" oninput="yrProj()"></label>
-      <label style="font-size:11px;color:var(--ink);display:flex;align-items:center;gap:4px">Y3 <input id="ct-y3-count" type="number" value="4" min="0" max="99" style="width:42px;border:1px solid var(--rule);padding:3px 5px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif" oninput="yrProj()"></label>
-      <label style="font-size:11px;color:var(--ink);display:flex;align-items:center;gap:4px">Y4 <input id="ct-y4-count" type="number" value="4" min="0" max="99" style="width:42px;border:1px solid var(--rule);padding:3px 5px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif" oninput="yrProj()"></label>
-      <label style="font-size:11px;color:var(--ink);display:flex;align-items:center;gap:4px">Y5 <input id="ct-y5-count" type="number" value="4" min="0" max="99" style="width:42px;border:1px solid var(--rule);padding:3px 5px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif" oninput="yrProj()"></label>
-    </div>
-    <div style="font-size:10px;color:var(--sub)">G&amp;A estimates: Y1 $180K · Y2 $100K · Y3 $130K · Y4 $200K · Y5 $300K</div>
+  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+    <span style="font-size:11px;color:var(--sub)">People:</span>
+    <label style="font-size:11px;color:var(--ink);display:flex;align-items:center;gap:4px">Y2 <input id="ct-y2-count" type="number" value="4" min="0" max="99" style="width:42px;border:1px solid var(--rule);padding:3px 5px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif" oninput="yrProj()"></label>
+    <label style="font-size:11px;color:var(--ink);display:flex;align-items:center;gap:4px">Y3 <input id="ct-y3-count" type="number" value="4" min="0" max="99" style="width:42px;border:1px solid var(--rule);padding:3px 5px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif" oninput="yrProj()"></label>
+    <label style="font-size:11px;color:var(--ink);display:flex;align-items:center;gap:4px">Y4 <input id="ct-y4-count" type="number" value="4" min="0" max="99" style="width:42px;border:1px solid var(--rule);padding:3px 5px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif" oninput="yrProj()"></label>
+    <label style="font-size:11px;color:var(--ink);display:flex;align-items:center;gap:4px">Y5 <input id="ct-y5-count" type="number" value="4" min="0" max="99" style="width:42px;border:1px solid var(--rule);padding:3px 5px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif" oninput="yrProj()"></label>
   </div>
+  <div style="font-size:10px;color:var(--sub)">G&amp;A estimates: Y1 $180K · Y2 $100K · Y3 $130K · Y4 $200K · Y5 $300K</div>
 </div>
 
 <!-- Cost year boxes -->
@@ -1794,7 +1789,7 @@ function calcS01(){
   var htMo=devR*2+cmR+coR+smmR, htQtr=htMo*3, htYr=htMo*12;
 
   var FX_FINLEG=8940,FX_OPTOOLS=10743,FX_AI=3198;
-  var FX_MKTG=[13482,13482,16782,16782];
+  var FX_MKTG=[13629,13629,16929,16929];
   var FX_ONETIME=57200;
   var qTot=[0,0,0,0];
   for(var qi=0;qi<4;qi++){
@@ -1807,8 +1802,6 @@ function calcS01(){
   function fmtEW(n){return '<span class="eur-w">≈€'+Math.round(n*0.91).toLocaleString()+'</span>';}
 
   // Core team rows
-  var rateLabel='$'+(y1r/1000>=1?(y1r/1000).toFixed(0)+'K':y1r)+'/mo × '+y1c;
-  s('s1-core-rate',rateLabel);
   [1,2,3,4].forEach(function(qi){
     var el=document.getElementById('s1-core-q'+qi);
     if(el)el.innerHTML=fmt2(y1qtr)+fmtE(y1qtr);
