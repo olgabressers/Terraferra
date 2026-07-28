@@ -448,6 +448,23 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         <div class="sl-note">Stripe: 2.9% variable + $0.30/order flat. Both included in result.</div>
       </div>
 
+      <div class="sliders-section-label" style="margin-top:20px">Revenue Mix · Assumption</div>
+
+      <div class="sl-group">
+        <div class="sl-top">
+          <span class="sl-label">Influencer-driven share of drop revenue</span>
+          <span class="sl-val" id="v-inf-share">60%</span>
+        </div>
+        <input type="range" id="sl-inf-share" min="0" max="100" step="5" value="60" oninput="calc()"/>
+        <div class="sl-hints"><span>0% (fully organic)</span><span>100% (fully influencer)</span></div>
+        <div class="sl-note">SMTHG charges designers the 20% influencer program fee on <strong>all GMV</strong> — regardless of how the sale originated. Only the influencer-driven portion is paid out to influencers. The organic portion is retained by SMTHG.</div>
+      </div>
+      <div style="background:var(--tf-ghost);border-left:3px solid var(--tf);padding:10px 14px;margin-top:-12px;margin-bottom:20px;font-size:12px;color:var(--ink);line-height:1.9">
+        <div style="font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--tf);margin-bottom:6px">Revenue split assumption</div>
+        <div>Influencer-driven: <strong id="v-inf-pct-label">60%</strong> · 20% fee paid out to influencers</div>
+        <div>Organic / platform: <strong id="v-org-pct-label">40%</strong> · 20% fee retained by SMTHG</div>
+      </div>
+
       <div class="sliders-section-label" style="margin-top:20px">VTO Volume</div>
 
       <div class="sl-group" id="row-browse">
@@ -556,6 +573,14 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         <span class="out-row-lbl" id="o-inf-lbl">Influencer (10%)</span>
         <span class="out-row-val neg" id="o-inf">−$1,050</span>
       </div>
+      <div class="out-row" style="padding-top:3px;padding-bottom:3px">
+        <span class="out-row-lbl" style="font-size:11px;padding-left:10px">↳ Paid to influencers (<span id="o-inf-share-pct">60%</span>)</span>
+        <span class="out-row-val" style="font-size:12px;color:#FF8A80" id="o-inf-paidout">—</span>
+      </div>
+      <div class="out-row" style="padding-top:3px;padding-bottom:3px">
+        <span class="out-row-lbl" style="font-size:11px;padding-left:10px">↳ SMTHG keeps (organic <span id="o-org-share-pct">40%</span>)</span>
+        <span class="out-row-val" style="font-size:12px;color:#7AE3B2" id="o-inf-keep">—</span>
+      </div>
       <div class="out-row">
         <span class="out-row-lbl" id="o-post-lbl">Influencer flat fee (1 × $100/post)</span>
         <span class="out-row-val neg" id="o-post">−$100</span>
@@ -581,6 +606,10 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
         <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px">
           <span style="font-size:12px;font-weight:700;color:white">SMTHG platform fee</span>
           <span style="font-size:15px;font-weight:800;color:white" id="o-tf-gross">$2,625</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px">
+          <span style="font-size:12px;font-weight:700;color:white">Organic inf. fee retained (<span id="o-smthg-keep-pct">40%</span>)</span>
+          <span style="font-size:15px;font-weight:800;color:#7AE3B2" id="o-inf-keep-smthg">+$0</span>
         </div>
         <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px" id="o-vto-tf-row">
           <span style="font-size:12px;font-weight:700;color:white" id="o-vto-lbl">VTO cost (FASHN.AI)</span>
@@ -621,7 +650,7 @@ footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margi
 
       <div class="out-sub-block">
         <div class="out-sub-row">
-          <span class="out-sub-lbl">Influencer earnings</span>
+          <span class="out-sub-lbl">Influencer payout (inf.-driven share)</span>
           <span class="out-sub-val" id="o-inf-net">$1,050</span>
         </div>
         <div class="out-sub-row">
@@ -1670,6 +1699,7 @@ function calc() {
   var cogs            = price * cogsRaw / 100;
   var platPct         = +document.getElementById('sl-platform').value / 100;
   var infPct          = +document.getElementById('sl-inf').value / 100;
+  var infRevShare     = +document.getElementById('sl-inf-share').value / 100;
   var payPct          = +document.getElementById('sl-payment').value / 100;
   var vtoRate         = +document.getElementById('sl-browse').value / 100;
   var tries           = +document.getElementById('sl-tries').value;
@@ -1688,6 +1718,9 @@ function calc() {
   document.getElementById('v-inf').textContent      = parseInt(document.getElementById('sl-inf').value)+'%';
   document.getElementById('v-postfee').textContent  = '$'+document.getElementById('sl-postfee').value;
   document.getElementById('v-payment').textContent  = parseFloat(document.getElementById('sl-payment').value).toFixed(1)+'%';
+  document.getElementById('v-inf-share').textContent = Math.round(infRevShare*100)+'%';
+  document.getElementById('v-inf-pct-label').textContent = Math.round(infRevShare*100)+'%';
+  document.getElementById('v-org-pct-label').textContent = Math.round((1-infRevShare)*100)+'%';
   document.getElementById('v-browse').textContent   = Math.round(vtoRate*100)+'%';
   document.getElementById('v-tries').textContent    = tries+'×';
 
@@ -1702,6 +1735,8 @@ function calc() {
   var revenue    = orders * price;
   var tfFee      = revenue * platPct;
   var infShare   = revenue * infPct;
+  var infPaidOut = infShare * infRevShare;
+  var infKeep    = infShare * (1 - infRevShare);
   var payFee     = revenue * payPct + orders * 0.30;
   var production = orders * cogs;
 
@@ -1746,7 +1781,13 @@ function calc() {
   document.getElementById('o-tf').textContent     = fmtNeg(tfFee);
   document.getElementById('o-tf-lbl').textContent = 'SMTHG Fee ('+parseFloat(document.getElementById('sl-platform').value).toFixed(1)+'%)';
   document.getElementById('o-inf').textContent    = fmtNeg(infShare);
-  document.getElementById('o-inf-lbl').textContent= 'Influencer ('+parseInt(document.getElementById('sl-inf').value)+'%)';
+  document.getElementById('o-inf-lbl').textContent= 'Influencer fee ('+parseInt(document.getElementById('sl-inf').value)+'% · always charged)';
+  document.getElementById('o-inf-share-pct').textContent = Math.round(infRevShare*100)+'%';
+  document.getElementById('o-org-share-pct').textContent = Math.round((1-infRevShare)*100)+'%';
+  document.getElementById('o-inf-paidout').textContent   = fmtNeg(infPaidOut);
+  document.getElementById('o-inf-keep').textContent      = '+$'+Math.round(infKeep).toLocaleString();
+  document.getElementById('o-smthg-keep-pct').textContent = Math.round((1-infRevShare)*100)+'%';
+  document.getElementById('o-inf-keep-smthg').textContent = '+$'+Math.round(infKeep).toLocaleString();
   document.getElementById('o-post-lbl').textContent = 'Post fee ('+numInfluencers+' × $'+perPostFee+')';
   document.getElementById('o-post').textContent   = fmtNeg(infPostCost);
   document.getElementById('o-pay').textContent    = fmtNeg(payFee);
@@ -1761,9 +1802,9 @@ function calc() {
 
   document.getElementById('o-profit').textContent = fmtPos(profit);
   document.getElementById('o-margin').textContent = margin.toFixed(1)+'%';
-  document.getElementById('o-inf-net').textContent= '$'+Math.round(infShare).toLocaleString();
+  document.getElementById('o-inf-net').textContent= '$'+Math.round(infPaidOut).toLocaleString();
 
-  var tfNet = tfFee - vtoCost - gamiCost - payFee;
+  var tfNet = tfFee + infKeep - vtoCost - gamiCost - payFee;
   document.getElementById('o-gami').textContent = fmtNeg(gamiCost);
   document.getElementById('o-tf-gross').textContent = '$'+Math.round(tfFee).toLocaleString();
   document.getElementById('o-tf-net').textContent = fmtPos(tfNet);
@@ -1838,11 +1879,13 @@ function calc() {
     var vtoTip = vtoMode === 'kivisense' ? 'Kivisense $888/mo is split across '+totalDrops+' drops ($'+Math.round(vtoCost)+'/drop).' :
                  vtoPct > 30 ? 'VTO is eating '+vtoPct+'% of SMTHG fee — reduce tries per session or lower the VTO visitor %.' :
                  'VTO cost is '+vtoPct+'% of SMTHG fee — manageable at this setting.';
+    var mixNote = 'Revenue mix assumption: '+Math.round(infRevShare*100)+'% influencer-driven, '+Math.round((1-infRevShare)*100)+'% organic. '
+      +'Organic portion of '+parseInt(document.getElementById('sl-inf').value)+'% inf. fee retained by SMTHG: $'+Math.round(infKeep).toLocaleString()+'/drop.';
     document.getElementById('concl-summary').textContent =
       'SMTHG nets $'+Math.round(tfNet).toLocaleString()+'/drop + $'+designerFee+'/designer/month subscription. '
       +'At 1 drop/designer: '+desNeeded1+' designers reach $10K/mo. '
       +'At 2 drops/designer: '+desAt2+' designers. '
-      +vtoTip;
+      +vtoTip+' '+mixNote;
   } else {
     document.getElementById('concl-summary').textContent = 'Revenue per designer is negative at current settings — increase price, reduce VTO tries, or lower influencer commission.';
   }
