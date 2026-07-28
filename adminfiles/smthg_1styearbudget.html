@@ -304,11 +304,6 @@ details[open].cd summary::before{content:'▾'}
 
 <!-- ── SUMMARY CARDS ── -->
 <div class="summary">
-  <div class="sc" style="border-top:2px solid var(--tf)">
-    <div class="sc-label">Total fixed costs · Year 1</div>
-    <div class="sc-val" id="sc-total-yr">—</div>
-    <div class="sc-note" id="sc-total-note">all fixed costs incl. salaries</div>
-  </div>
   <div class="sc">
     <div class="sc-label">Core team salary (gross)</div>
     <div class="sc-val" id="sc-core-total">—</div>
@@ -328,6 +323,11 @@ details[open].cd summary::before{content:'▾'}
     <div class="sc-label">One-time launch costs</div>
     <div class="sc-val">$57,200</div>
     <div class="sc-note">≈€52,052 · Paid Q1 only</div>
+  </div>
+  <div class="sc" style="border-top:2px solid var(--tf)">
+    <div class="sc-label">Total fixed costs · Year 1</div>
+    <div class="sc-val" id="sc-total-yr">—</div>
+    <div class="sc-note" id="sc-total-note">all fixed costs incl. salaries</div>
   </div>
 </div>
 
@@ -350,6 +350,12 @@ details[open].cd summary::before{content:'▾'}
     <div id="sc-rev-q3" style="padding:12px 14px;text-align:right;font-weight:700;font-size:13px;color:#1A7A4A;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">—</div>
     <div id="sc-rev-q4" style="padding:12px 14px;text-align:right;font-weight:700;font-size:13px;color:#1A7A4A;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">—</div>
     <div id="sc-rev-y" style="padding:12px 14px;text-align:right;font-weight:800;font-size:15px;color:#1A7A4A;border-bottom:1px solid var(--rule)">—</div>
+    <div style="padding:12px 14px;font-weight:700;font-size:12px;color:var(--ink);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">Fixed costs</div>
+    <div id="sc-fix-q1" style="padding:12px 14px;text-align:right;font-weight:700;font-size:13px;color:var(--tf);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">—</div>
+    <div id="sc-fix-q2" style="padding:12px 14px;text-align:right;font-weight:700;font-size:13px;color:var(--tf);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">—</div>
+    <div id="sc-fix-q3" style="padding:12px 14px;text-align:right;font-weight:700;font-size:13px;color:var(--tf);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">—</div>
+    <div id="sc-fix-q4" style="padding:12px 14px;text-align:right;font-weight:700;font-size:13px;color:var(--tf);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">—</div>
+    <div id="sc-fix-y" style="padding:12px 14px;text-align:right;font-weight:800;font-size:15px;color:var(--tf);border-bottom:1px solid var(--rule)">—</div>
     <div style="padding:12px 14px;font-weight:700;font-size:12px;color:var(--ink);border-right:1px solid var(--rule)">Net P&amp;L</div>
     <div id="sc-net-q1" style="padding:12px 14px;text-align:right;font-weight:700;font-size:13px;border-right:1px solid var(--rule)">—</div>
     <div id="sc-net-q2" style="padding:12px 14px;text-align:right;font-weight:700;font-size:13px;border-right:1px solid var(--rule)">—</div>
@@ -2565,6 +2571,8 @@ function proj(){
     // Revenue & Net summary block at top
     var scRevEl=document.getElementById('sc-rev-q'+q);
     if(scRevEl)scRevEl.textContent='+'+fmtM(tfRev+orgInfFee+subQ);
+    var scFixEl=document.getElementById('sc-fix-q'+q);
+    if(scFixEl)scFixEl.textContent='−'+fmtM(fixed+vtoCost+payCost+fraudCost);
     var scNetEl=document.getElementById('sc-net-q'+q);
     if(scNetEl){scNetEl.textContent=(net>=0?'+':'-')+fmtM(Math.abs(net));scNetEl.style.color=net>=0?'#1A7A4A':'var(--tf)';}
     var ybEl=document.getElementById('yb-net'+q);
@@ -2641,6 +2649,8 @@ function proj(){
   // Revenue & Net summary block at top — year totals
   var scRevYEl=document.getElementById('sc-rev-y');
   if(scRevYEl)scRevYEl.textContent='+'+fmtM(totRev);
+  var scFixYEl=document.getElementById('sc-fix-y');
+  if(scFixYEl)scFixYEl.textContent='−'+fmtM(s1fixY+totVar);
   var scNetYEl=document.getElementById('sc-net-y');
   if(scNetYEl){scNetYEl.textContent=(netY>=0?'+':'-')+fmtM(Math.abs(netY));scNetYEl.style.color=netY>=0?'#1A7A4A':'var(--tf)';}
   var s03b=document.getElementById('s03-badge');
