@@ -53,6 +53,14 @@ thead th:last-child{min-width:180px}
 @media(max-width:900px){.toc-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.toc-grid{grid-template-columns:repeat(2,1fr)}}
 
+/* Travel event controls */
+.tr-cb-lbl{display:inline-flex;align-items:center;gap:5px;cursor:pointer;font-weight:700}
+.tr-cb-lbl input[type=checkbox]{width:14px;height:14px;accent-color:var(--tf);cursor:pointer;flex-shrink:0}
+.tr-n-input{width:36px;border:1px solid var(--rule);padding:2px 4px;font-size:11px;font-weight:700;font-family:'Inter',sans-serif;color:var(--ink);text-align:center;border-radius:2px}
+.tr-all-lbl{float:right;font-size:11px;font-weight:600;color:rgba(255,255,255,.85);cursor:pointer;display:inline-flex;align-items:center;gap:5px;font-weight:400;letter-spacing:.03em}
+.tr-all-lbl input[type=checkbox]{width:13px;height:13px;accent-color:#4ade80;cursor:pointer}
+.tr-unchecked{opacity:.35}
+
 /* Back-to-top */
 .back-to-top{position:fixed;bottom:28px;right:28px;width:40px;height:40px;background:var(--tf);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;text-decoration:none;opacity:0;transition:opacity .3s;z-index:100;border-radius:2px}
 .back-to-top.vis{opacity:1}
@@ -255,8 +263,8 @@ details[open].cd summary::before{content:'▾'}
   </div>
   <div class="sc">
     <div class="sc-label">Operations &amp; marketing</div>
-    <div class="sc-val">$165,540</div>
-    <div class="sc-note">≈€150,641 · Financial/Legal + tools + AI + marketing + trade shows</div>
+    <div class="sc-val" id="sc-opex-total">$165,540</div>
+    <div class="sc-note" id="sc-opex-note">≈€150,641 · Financial/Legal + tools + AI + marketing + trade shows</div>
   </div>
   <div class="sc">
     <div class="sc-label">One-time launch costs</div>
@@ -278,7 +286,7 @@ details[open].cd summary::before{content:'▾'}
 <thead>
 <tr>
   <th style="width:220px">Line Item</th>
-  <th style="width:120px">Rate</th>
+  <th style="width:180px">Rate</th>
   <th>Q1</th>
   <th>Q2</th>
   <th>Q3</th>
@@ -692,58 +700,119 @@ details[open].cd summary::before{content:'▾'}
 </tr>
 
 <!-- ═══ TRAVEL & EVENTS ═══ -->
-<tr class="sec-hdr travel"><td colspan="8">Travel &amp; Events · Trade Show Visits</td></tr>
-
-<tr>
-  <td><strong>MAGIC Las Vegas</strong> · February <span class="badge qt1">Q1</span>
-    <details class="cd"><summary>2 people · 4 nights · CEO from NL · co-founder international</summary><div class="cd-body">
-      <div class="cd-r"><span>Show passes × 2</span><span>$1,400 · $700/person · MAGIC Buyer registration</span></div>
-      <div class="cd-r"><span>Flights NL → Las Vegas r/t</span><span>$880 · economy · Amsterdam–LAS via hub</span></div>
-      <div class="cd-r"><span>Flights intl → Las Vegas r/t</span><span>$1,420 · economy · via Tbilisi / Istanbul</span></div>
-      <div class="cd-r"><span>Hotel · 4 nights × 2 rooms</span><span>$1,560 · $195/night · Mandalay Bay area (show hotel)</span></div>
-      <div class="cd-r"><span>Taxi / Uber · both people</span><span>$400 · airport transfers + show venue</span></div>
-      <div class="cd-r"><span>Per diem · 2 people × 4 days</span><span>$800 · $100/person/day · meals &amp; incidentals</span></div>
-      <div class="cd-r cd-tot"><span>Subtotal Visit 1</span><span>$6,460</span></div>
-    </div></details>
-  </td>
-  <td class="desc">Q1 · one-off</td>
-  <td class="num">$6,460</td>
-  <td class="na">—</td>
-  <td class="na">—</td>
-  <td class="na">—</td>
-  <td class="num" style="border-left:1px solid var(--rule)">$6,460</td>
-  <td class="desc">Largest US fashion trade show · Las Vegas Convention Center · designer acquisition, partner meetings, market intelligence</td>
+<tr class="sec-hdr travel">
+  <td colspan="7">Travel &amp; Events · Trade Show Visits <label class="tr-all-lbl"><input type="checkbox" id="tr-all" checked onchange="toggleAllTravel(this.checked)"> all events</label></td>
+  <td></td>
 </tr>
 
-<tr>
-  <td><strong>Coterie New York</strong> · September <span class="badge">Q3</span>
-    <details class="cd"><summary>2 people · 4 nights · CEO from NL · co-founder international</summary><div class="cd-body">
-      <div class="cd-r"><span>Show passes × 2</span><span>$1,200 · $600/person · Coterie Buyer registration</span></div>
-      <div class="cd-r"><span>Flights NL → NYC JFK r/t</span><span>$660 · economy · Amsterdam–JFK via hub</span></div>
-      <div class="cd-r"><span>Flights intl → NYC JFK r/t</span><span>$1,100 · economy · via Istanbul / Dubai</span></div>
-      <div class="cd-r"><span>Hotel · 4 nights × 2 rooms</span><span>$2,200 · $275/night · Midtown Manhattan</span></div>
-      <div class="cd-r"><span>Taxi / Uber · both people</span><span>$400 · JFK + Javits Center transfers</span></div>
-      <div class="cd-r"><span>Per diem · 2 people × 4 days</span><span>$880 · $110/person/day · NYC rate</span></div>
-      <div class="cd-r cd-tot"><span>Subtotal Visit 2</span><span>$6,440</span></div>
+<!-- US: MAGIC Las Vegas Q1 -->
+<tr id="tr-row-magic">
+  <td>
+    <label class="tr-cb-lbl"><input type="checkbox" id="tr-cb-magic" checked onchange="calcTravel()"><strong>MAGIC Las Vegas</strong></label>
+    · Feb <span class="badge qt1">Q1</span>
+    · <input type="number" id="tr-n-magic" value="2" min="1" max="10" class="tr-n-input" oninput="calcTravel()"> pax
+    <details class="cd"><summary>Cost breakdown</summary><div class="cd-body">
+      <div class="cd-r"><span>Show passes</span><span id="tr-d-magic-pass">—</span></div>
+      <div class="cd-r"><span>Flight NL → Las Vegas r/t</span><span id="tr-d-magic-flt-nl">—</span></div>
+      <div class="cd-r"><span>Flights intl → Las Vegas r/t</span><span id="tr-d-magic-flt-intl">—</span></div>
+      <div class="cd-r"><span>Hotel · <span id="tr-d-magic-rooms">—</span> rooms × 4 nights</span><span id="tr-d-magic-hotel">—</span></div>
+      <div class="cd-r"><span>Taxi / Uber</span><span id="tr-d-magic-taxi">—</span></div>
+      <div class="cd-r"><span>Per diem · <span id="tr-d-magic-pax2">—</span> pax × 4 days</span><span id="tr-d-magic-pdiem">—</span></div>
+      <div class="cd-r cd-tot"><span>Subtotal</span><span id="tr-d-magic-tot">—</span></div>
     </div></details>
   </td>
-  <td class="desc">Q3 · one-off</td>
+  <td class="desc">$700/pp · $195/night · AMS–LAS econ · Mandalay Bay area</td>
+  <td class="num" id="tr-q1-magic">—</td>
   <td class="na">—</td>
   <td class="na">—</td>
-  <td class="num">$6,440</td>
   <td class="na">—</td>
-  <td class="num" style="border-left:1px solid var(--rule)">$6,440</td>
-  <td class="desc">Premier contemporary &amp; accessible-luxury women's show · Javits Center NYC · designer demos, platform positioning, press</td>
+  <td class="num" id="tr-yr-magic" style="border-left:1px solid var(--rule)">—</td>
+  <td class="desc">Largest US fashion trade show · Las Vegas Convention Center · designer acquisition, partner meetings</td>
+</tr>
+
+<!-- EU: Who's Next / Première Classe Paris Q1 -->
+<tr id="tr-row-whonext">
+  <td>
+    <label class="tr-cb-lbl"><input type="checkbox" id="tr-cb-whonext" checked onchange="calcTravel()"><strong>Who's Next · Première Classe</strong></label>
+    · Jan <span class="badge qt1">Q1</span>
+    · <input type="number" id="tr-n-whonext" value="2" min="1" max="10" class="tr-n-input" oninput="calcTravel()"> pax
+    <details class="cd"><summary>Cost breakdown</summary><div class="cd-body">
+      <div class="cd-r"><span>Show passes</span><span id="tr-d-whonext-pass">—</span></div>
+      <div class="cd-r"><span>Train / flight NL → Paris r/t</span><span id="tr-d-whonext-flt-nl">—</span></div>
+      <div class="cd-r"><span>Flights intl → CDG r/t</span><span id="tr-d-whonext-flt-intl">—</span></div>
+      <div class="cd-r"><span>Hotel · <span id="tr-d-whonext-rooms">—</span> rooms × 3 nights</span><span id="tr-d-whonext-hotel">—</span></div>
+      <div class="cd-r"><span>Taxi / Metro</span><span id="tr-d-whonext-taxi">—</span></div>
+      <div class="cd-r"><span>Per diem · <span id="tr-d-whonext-pax2">—</span> pax × 3 days</span><span id="tr-d-whonext-pdiem">—</span></div>
+      <div class="cd-r cd-tot"><span>Subtotal</span><span id="tr-d-whonext-tot">—</span></div>
+    </div></details>
+  </td>
+  <td class="desc">$400/pp · $310/night · AMS–CDG train · Porte de Versailles</td>
+  <td class="num" id="tr-q1-whonext">—</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="num" id="tr-yr-whonext" style="border-left:1px solid var(--rule)">—</td>
+  <td class="desc">Premier European contemporary &amp; accessible-luxury fair · Paris · EU designer pipeline, market entry</td>
+</tr>
+
+<!-- US: Coterie New York Q3 -->
+<tr id="tr-row-coterie">
+  <td>
+    <label class="tr-cb-lbl"><input type="checkbox" id="tr-cb-coterie" checked onchange="calcTravel()"><strong>Coterie New York</strong></label>
+    · Sep <span class="badge">Q3</span>
+    · <input type="number" id="tr-n-coterie" value="2" min="1" max="10" class="tr-n-input" oninput="calcTravel()"> pax
+    <details class="cd"><summary>Cost breakdown</summary><div class="cd-body">
+      <div class="cd-r"><span>Show passes</span><span id="tr-d-coterie-pass">—</span></div>
+      <div class="cd-r"><span>Flight NL → NYC JFK r/t</span><span id="tr-d-coterie-flt-nl">—</span></div>
+      <div class="cd-r"><span>Flights intl → JFK r/t</span><span id="tr-d-coterie-flt-intl">—</span></div>
+      <div class="cd-r"><span>Hotel · <span id="tr-d-coterie-rooms">—</span> rooms × 4 nights</span><span id="tr-d-coterie-hotel">—</span></div>
+      <div class="cd-r"><span>Taxi / Uber</span><span id="tr-d-coterie-taxi">—</span></div>
+      <div class="cd-r"><span>Per diem · <span id="tr-d-coterie-pax2">—</span> pax × 4 days</span><span id="tr-d-coterie-pdiem">—</span></div>
+      <div class="cd-r cd-tot"><span>Subtotal</span><span id="tr-d-coterie-tot">—</span></div>
+    </div></details>
+  </td>
+  <td class="desc">$600/pp · $275/night · AMS–JFK econ · Midtown Manhattan</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="num" id="tr-q3-coterie">—</td>
+  <td class="na">—</td>
+  <td class="num" id="tr-yr-coterie" style="border-left:1px solid var(--rule)">—</td>
+  <td class="desc">Premier contemporary &amp; accessible-luxury women's show · Javits Center NYC · designer demos, press</td>
+</tr>
+
+<!-- EU: Premium Berlin Q3 -->
+<tr id="tr-row-premium">
+  <td>
+    <label class="tr-cb-lbl"><input type="checkbox" id="tr-cb-premium" checked onchange="calcTravel()"><strong>Premium Berlin</strong></label>
+    · Jul <span class="badge">Q3</span>
+    · <input type="number" id="tr-n-premium" value="2" min="1" max="10" class="tr-n-input" oninput="calcTravel()"> pax
+    <details class="cd"><summary>Cost breakdown</summary><div class="cd-body">
+      <div class="cd-r"><span>Show passes</span><span id="tr-d-premium-pass">—</span></div>
+      <div class="cd-r"><span>Flight NL → Berlin r/t</span><span id="tr-d-premium-flt-nl">—</span></div>
+      <div class="cd-r"><span>Flights intl → BER r/t</span><span id="tr-d-premium-flt-intl">—</span></div>
+      <div class="cd-r"><span>Hotel · <span id="tr-d-premium-rooms">—</span> rooms × 3 nights</span><span id="tr-d-premium-hotel">—</span></div>
+      <div class="cd-r"><span>Taxi / U-Bahn</span><span id="tr-d-premium-taxi">—</span></div>
+      <div class="cd-r"><span>Per diem · <span id="tr-d-premium-pax2">—</span> pax × 3 days</span><span id="tr-d-premium-pdiem">—</span></div>
+      <div class="cd-r cd-tot"><span>Subtotal</span><span id="tr-d-premium-tot">—</span></div>
+    </div></details>
+  </td>
+  <td class="desc">$300/pp · $210/night · AMS–BER budget · Messe Berlin area</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="num" id="tr-q3-premium">—</td>
+  <td class="na">—</td>
+  <td class="num" id="tr-yr-premium" style="border-left:1px solid var(--rule)">—</td>
+  <td class="desc">Premier European premium contemporary fair · Berlin · EU designer pipeline, accessible-luxury focus</td>
 </tr>
 
 <tr class="subtotal">
   <td>Travel &amp; Events subtotal</td>
-  <td>2 visits · 2 people</td>
-  <td class="num">$6,460</td>
+  <td id="tr-sub-label"></td>
+  <td class="num" id="tr-sub-q1">—</td>
   <td class="na">—</td>
-  <td class="num">$6,440</td>
+  <td class="num" id="tr-sub-q3">—</td>
   <td class="na">—</td>
-  <td class="num" style="border-left:1px solid var(--rule)">$12,900<span class="eur">≈€11,739</span></td>
+  <td class="num" id="tr-sub-yr" style="border-left:1px solid var(--rule)">—</td>
   <td></td>
 </tr>
 
@@ -1313,7 +1382,7 @@ details[open].cd summary::before{content:'▾'}
     <label style="font-size:11px;color:var(--ink);display:flex;align-items:center;gap:4px">Y4 <input id="ct-y4-count" type="number" value="4" min="0" max="99" style="width:42px;border:1px solid var(--rule);padding:3px 5px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif" oninput="yrProj()"></label>
     <label style="font-size:11px;color:var(--ink);display:flex;align-items:center;gap:4px">Y5 <input id="ct-y5-count" type="number" value="4" min="0" max="99" style="width:42px;border:1px solid var(--rule);padding:3px 5px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif" oninput="yrProj()"></label>
   </div>
-  <div style="font-size:10px;color:var(--sub)">G&amp;A estimates (incl. trade shows): Y1 $192.9K · Y2 $100K · Y3 $130K · Y4 $200K · Y5 $300K</div>
+  <div style="font-size:10px;color:var(--sub)">G&amp;A estimates (incl. trade shows): Y1 $200.8K · Y2 $100K · Y3 $130K · Y4 $200K · Y5 $300K</div>
 </div>
 
 <!-- Cost year boxes -->
@@ -1344,8 +1413,8 @@ details[open].cd summary::before{content:'▾'}
       <div class="q-row"><span class="ql">G&amp;A</span><span class="qv r" id="yc1-ga">—</span></div>
       <details class="cd"><summary>Office · tools · legal · admin · trade shows</summary><div class="cd-body">
         <div class="cd-r"><span>G&amp;A (Section 01 actuals)</span><span>$180,000 · Financial/Legal, tools, AI, marketing</span></div>
-        <div class="cd-r"><span>Trade shows · 2 visits</span><span>$12,900 · MAGIC LV (Feb) + Coterie NYC (Sep)</span></div>
-        <div class="cd-r cd-tot"><span>Total</span><span>$192,900/yr</span></div>
+        <div class="cd-r"><span>Trade shows · 4 visits (2 US + 2 EU)</span><span>$20,840 · MAGIC LV (Q1) + Who's Next Paris (Q1) + Coterie NYC (Q3) + Premium Berlin (Q3)</span></div>
+        <div class="cd-r cd-tot"><span>Total</span><span>$200,840/yr</span></div>
       </div></details>
       <div class="qdiv"></div>
       <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">Total Costs</span><span class="qv b r" id="yc1-tot">—</span></div>
@@ -1566,7 +1635,7 @@ details[open].cd summary::before{content:'▾'}
 </tbody>
 </table>
 </div>
-<p style="font-size:11px;color:var(--sub);margin-top:12px;line-height:1.6">Unit economics from Section 02: 150 items/drop, $200 AOV, 10% platform fee, 50% VTO × 5 tries at $0.10 (Shopify), Stripe 2.9% + $0.30/order, Stripe Radar 0.05%. Designer frequency: once/3mo (4 drops/yr per designer) for all years.25×/mo (÷15), Y4 1.5×/mo (÷18), Y5 2×/mo (÷24). Ops team from <a href="smthg_operationsteam.html" style="color:var(--sub)">Headcount Roadmap</a> (mo × 12): Y1 $11.5K, Y2 $43K, Y3 $100K, Y4 $185K, Y5 $320K. Y1 core team $182K + G&amp;A $192.9K from Section 01 actual (incl. $12.9K trade shows). All figures indicative.</p>
+<p style="font-size:11px;color:var(--sub);margin-top:12px;line-height:1.6">Unit economics from Section 02: 150 items/drop, $200 AOV, 10% platform fee, 50% VTO × 5 tries at $0.10 (Shopify), Stripe 2.9% + $0.30/order, Stripe Radar 0.05%. Designer frequency: once/3mo (4 drops/yr per designer) for all years.25×/mo (÷15), Y4 1.5×/mo (÷18), Y5 2×/mo (÷24). Ops team from <a href="smthg_operationsteam.html" style="color:var(--sub)">Headcount Roadmap</a> (mo × 12): Y1 $11.5K, Y2 $43K, Y3 $100K, Y4 $185K, Y5 $320K. Y1 core team $182K + G&amp;A $200.8K from Section 01 actual (incl. $20.8K trade shows: 4 shows, 2 people each). All figures indicative.</p>
 
 <!-- ═══ SECTION 05: APPENDIX ═══ -->
 <div class="proj-sep" id="s05">
@@ -1658,7 +1727,7 @@ details[open].cd summary::before{content:'▾'}
 
     <!-- T&E -->
     <div class="ni-section-title" style="margin-top:8px">Travel &amp; Representation (T&amp;E) — Excluded</div>
-    <p class="ni-sub-note">Fairs, investor meetings, designer trips. Indicative: ~$3,924/mo (~$47K/year) based on 4 trips/year × 2 attendees. Budget to be agreed separately.</p>
+    <p class="ni-sub-note">Additional fairs beyond the 4 budgeted shows (MAGIC LV, Who's Next Paris, Coterie NYC, Premium Berlin), plus investor meetings and designer trips. Indicative: ~$3,924/mo (~$47K/year) based on 4 additional trips/year × 2 attendees. Budget to be agreed separately.</p>
 
     <!-- FASHION FAIRS -->
     <div class="ni-section-title">Fashion Fairs Reference</div>
@@ -1710,6 +1779,37 @@ details[open].cd summary::before{content:'▾'}
           <td>Standard attendee</td>
           <td class="num">$1,500–$3,000</td>
         </tr>
+        <tr><td colspan="4" style="background:var(--bg);font-size:10px;font-weight:700;color:var(--sub);letter-spacing:.08em;text-transform:uppercase;padding:8px 11px">European Events</td></tr>
+        <tr>
+          <td><a href="https://www.whosnext.com/en/whats-next/trade-show" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Who's Next · Première Classe Paris</a></td>
+          <td>Jan &amp; Sep · Porte de Versailles, Paris</td>
+          <td>Solution provider / industry visitor — registration required</td>
+          <td class="num">€300–€500/pp</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.premiumberlin.com/en/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Premium Berlin</a></td>
+          <td>Jan &amp; Jul · Messe Berlin</td>
+          <td>Trade visitor — free for qualified buyers; solution provider badge available</td>
+          <td class="num">Free – €300/pp</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.tranoi.com/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Tranoï Paris</a></td>
+          <td>Jan &amp; Sep · Palais de la Bourse / Carrousel du Louvre</td>
+          <td>Trade professional — invitation-based, free for accredited buyers</td>
+          <td class="num">Free if accredited</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.pittimmagine.com/en/fairs/uomo.html" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Pitti Uomo Florence</a></td>
+          <td>Jan &amp; Jun · Fortezza da Basso, Florence</td>
+          <td>Trade visitor — free for qualified operators</td>
+          <td class="num">Free if qualified</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.fashionweekberlin.com/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Berlin Fashion Week</a></td>
+          <td>Jan &amp; Jul · Berlin (concurrent with Premium)</td>
+          <td>Show passes — various events during Berlin Fashion Week</td>
+          <td class="num">€200–€800</td>
+        </tr>
       </tbody>
     </table>
 
@@ -1739,6 +1839,69 @@ function fmtM(n){
 function fmtN(n){return Math.round(n).toLocaleString();}
 function g(id){return parseFloat(document.getElementById(id).value)||0;}
 function s(id,v){var el=document.getElementById(id);if(el)el.textContent=v;}
+function fmtD(n){return '$'+Math.round(n).toLocaleString();}
+
+// ── Travel event data & logic ──
+var TR_EVENTS={
+  magic:   {q:0,nights:4,days:4,pass:700, fltNL:880, fltI:1420,hotel:195,taxi:200,pdiem:100},
+  whonext: {q:0,nights:3,days:3,pass:400, fltNL:200, fltI:700, hotel:310,taxi:110,pdiem:110},
+  coterie: {q:2,nights:4,days:4,pass:600, fltNL:660, fltI:1100,hotel:275,taxi:200,pdiem:110},
+  premium: {q:2,nights:3,days:3,pass:300, fltNL:220, fltI:680, hotel:210,taxi:100,pdiem:90}
+};
+function trCost(key,n){
+  var e=TR_EVENTS[key],intl=Math.max(0,n-1);
+  return Math.round(n*e.pass + e.fltNL + intl*e.fltI + n*e.nights*e.hotel + n*e.taxi + n*e.days*e.pdiem);
+}
+function calcTravel(){
+  var FX=[0,0,0,0];
+  Object.keys(TR_EVENTS).forEach(function(key){
+    var cb=document.getElementById('tr-cb-'+key);
+    var nEl=document.getElementById('tr-n-'+key);
+    var row=document.getElementById('tr-row-'+key);
+    if(!cb)return;
+    var on=cb.checked, n=parseInt(nEl?nEl.value:2)||2, e=TR_EVENTS[key];
+    var cost=on?trCost(key,n):0;
+    if(row)row.classList.toggle('tr-unchecked',!on);
+    // quarter cost cells
+    var qKey=['q1','q2','q3','q4'][e.q];
+    var cEl=document.getElementById('tr-'+qKey+'-'+key);
+    if(cEl)cEl.innerHTML=on?fmtD(cost):'<span class="na">—</span>';
+    var yEl=document.getElementById('tr-yr-'+key);
+    if(yEl)yEl.innerHTML=on?fmtD(cost):'<span class="na">—</span>';
+    // breakdown detail spans
+    if(on){
+      var intl=Math.max(0,n-1);
+      s('tr-d-'+key+'-pass',    fmtD(n*e.pass)+' · $'+e.pass+'/pp');
+      s('tr-d-'+key+'-flt-nl',  fmtD(e.fltNL)+' · 1 person from NL');
+      s('tr-d-'+key+'-flt-intl',intl>0?fmtD(intl*e.fltI)+' · '+intl+' person'+(intl>1?'s':'')+' × $'+e.fltI:'—');
+      s('tr-d-'+key+'-rooms',   n);
+      s('tr-d-'+key+'-hotel',   fmtD(n*e.nights*e.hotel)+' · $'+e.hotel+'/night');
+      s('tr-d-'+key+'-taxi',    fmtD(n*e.taxi)+' · $'+e.taxi+'/pp');
+      s('tr-d-'+key+'-pax2',    n);
+      s('tr-d-'+key+'-pdiem',   fmtD(n*e.days*e.pdiem)+' · $'+e.pdiem+'/pp/day');
+      s('tr-d-'+key+'-tot',     fmtD(cost));
+    }
+    FX[e.q]+=cost;
+  });
+  // subtotal row
+  var totQ1=FX[0],totQ3=FX[2],totYr=FX[0]+FX[1]+FX[2]+FX[3];
+  var sq1=document.getElementById('tr-sub-q1'),sq3=document.getElementById('tr-sub-q3'),syr=document.getElementById('tr-sub-yr');
+  if(sq1)sq1.innerHTML=totQ1>0?fmtD(totQ1):'<span class="na">—</span>';
+  if(sq3)sq3.innerHTML=totQ3>0?fmtD(totQ3):'<span class="na">—</span>';
+  if(syr)syr.innerHTML=totYr>0?fmtD(totYr)+'<span class="eur">≈€'+Math.round(totYr*0.91).toLocaleString()+'</span>':'<span class="na">—</span>';
+  // "all" master checkbox state
+  var keys=Object.keys(TR_EVENTS);
+  var allOn=keys.every(function(k){var cb=document.getElementById('tr-cb-'+k);return cb&&cb.checked;});
+  var noneOn=keys.every(function(k){var cb=document.getElementById('tr-cb-'+k);return cb&&!cb.checked;});
+  var allCb=document.getElementById('tr-all');
+  if(allCb){allCb.checked=allOn;allCb.indeterminate=!allOn&&!noneOn;}
+  return FX;
+}
+function toggleAllTravel(on){
+  Object.keys(TR_EVENTS).forEach(function(k){var cb=document.getElementById('tr-cb-'+k);if(cb)cb.checked=on;});
+  calcTravel();
+  calcS01();
+}
 
 function proj(){
   var items=g('p-items'), aov=g('p-aov');
@@ -1901,13 +2064,14 @@ function calcS01(){
 
   var FX_FINLEG=8940,FX_OPTOOLS=10743,FX_AI=3198;
   var FX_MKTG=[13629,13629,16929,16929];
-  var FX_TRAVEL=[6460,0,6440,0];
+  var FX_TRAVEL=calcTravel();
   var FX_ONETIME=57200;
   var qTot=[0,0,0,0];
   for(var qi=0;qi<4;qi++){
     qTot[qi]=y1qtr+htQtr+FX_FINLEG+FX_OPTOOLS+FX_AI+FX_MKTG[qi]+FX_TRAVEL[qi]+(qi===0?FX_ONETIME:0);
   }
-  var yrTot=y1yr+htYr+(FX_FINLEG+FX_OPTOOLS+FX_AI)*4+(FX_MKTG[0]+FX_MKTG[1]+FX_MKTG[2]+FX_MKTG[3])+(FX_TRAVEL[0]+FX_TRAVEL[1]+FX_TRAVEL[2]+FX_TRAVEL[3])+FX_ONETIME;
+  var fxOpexYr=(FX_FINLEG+FX_OPTOOLS+FX_AI)*4+(FX_MKTG[0]+FX_MKTG[1]+FX_MKTG[2]+FX_MKTG[3])+(FX_TRAVEL[0]+FX_TRAVEL[1]+FX_TRAVEL[2]+FX_TRAVEL[3]);
+  var yrTot=y1yr+htYr+fxOpexYr+FX_ONETIME;
 
   function fmt2(n){return '$'+Math.round(n).toLocaleString();}
   function fmtE(n){return '<span class="eur">≈€'+Math.round(n*0.91).toLocaleString()+'</span>';}
@@ -1978,6 +2142,10 @@ function calcS01(){
   if(scTEl)scTEl.textContent=fmt2(yrTot);
   var scTnEl=document.getElementById('sc-total-note');
   if(scTnEl)scTnEl.textContent='≈€'+Math.round(yrTot*0.91).toLocaleString()+' · total fixed incl. salaries';
+  var scOEl=document.getElementById('sc-opex-total');
+  if(scOEl)scOEl.textContent=fmt2(fxOpexYr);
+  var scOnEl=document.getElementById('sc-opex-note');
+  if(scOnEl)scOnEl.textContent='≈€'+Math.round(fxOpexYr*0.91).toLocaleString()+' · Financial/Legal + tools + AI + marketing + trade shows';
 
   proj();
   pushInputs();
@@ -1987,7 +2155,7 @@ function calcS01(){
 var Y_FREQ=[0,4,4,4,4,4];
 var Y_FREQ_LBL=['','once/3mo','once/3mo','once/3mo','once/3mo','once/3mo'];
 var Y_OPS=[0,138000,516000,1200000,2220000,3840000];
-var Y_GA=[0,192900,100000,130000,200000,300000];
+var Y_GA=[0,200840,100000,130000,200000,300000];
 
 function adjY(yr,d){var el=document.getElementById('yd'+yr);if(!el)return;el.value=Math.max(0,(parseInt(el.value)||0)+d);yrProj();}
 
