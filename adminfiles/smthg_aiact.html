@@ -513,23 +513,22 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
     <!-- Row C: GDPR intersection -->
     <div class="vto-row">
       <div class="vto-cell row-law">
-        <span class="vto-row-label">GDPR — Processor agreement (Art. 28)</span>
-        GDPR Art. 9 (special category / biometric) applies to data processed <strong>for the purpose of uniquely identifying a person</strong> — e.g. facial recognition, identity matching. VTO overlays clothing on a body shape; it does not identify anyone. Art. 9 does not apply.<br/><br/>
-        GDPR Art. 28 <em>does</em> apply: any time personal data (a user photo) is shared with a third-party processor, a Data Processing Agreement (DPA) is required. This is a standard vendor contract clause.
+        <span class="vto-row-label">GDPR — Data processing terms (Art. 28)</span>
+        GDPR Art. 28 requires a written agreement covering how a third-party vendor processes personal data on your behalf. When you sign up for FASHN.AI or Kivisense and accept their Terms of Service, those terms include their data processing terms. Accepting the ToS at sign-up satisfies Art. 28 — no separate document to negotiate or sign.
       </div>
       <div class="vto-cell row-impact">
         <span class="vto-row-label" style="color:var(--amber)">Impact</span>
-        Not a launch blocker. A DPA is a clause in the vendor services agreement — standard for any SaaS processing user data. Most VTO vendors (including <span class="vendor-tag">FASHN.AI</span> <span class="vendor-tag">Kivisense</span>) have a standard DPA on request.<br/><br/>
-        Zalando, ASOS, and most EU fashion retailers run VTO without Art. 9 treatment.
+        No extra paperwork. The same ToS you accept when creating an account and paying per image already covers this. Standard practice for every API-first SaaS (OpenAI, Stripe, Twilio — same model).<br/><br/>
+        <span class="vendor-tag">FASHN.AI</span> pay-per-image and <span class="vendor-tag">Kivisense</span> monthly plans both work this way.
       </div>
       <div class="vto-cell row-action">
-        <span class="vto-row-label" style="color:var(--green)">Action</span>
+        <span class="vto-row-label" style="color:var(--green)">Action — one check before EU launch</span>
         <ul>
-          <li>Request the vendor's standard DPA when signing the service contract — one document, not a regulatory process.</li>
-          <li>Confirm data residency: EU servers, or SCCs in place for US processing.</li>
-          <li>VTO must remain opt-in; users initiate the photo upload.</li>
+          <li>When signing up: read the vendor's Privacy Policy and confirm what happens to uploaded photos — are they stored after processing, and for how long?</li>
+          <li>If images are not stored after processing: no further action needed.</li>
+          <li>If images are retained: confirm their data residency (EU servers or US with SCCs).</li>
         </ul>
-        <div style="margin-top:10px;font-size:11.5px;color:var(--sub);line-height:1.5">Note: confirm with EU privacy counsel before launch — DPA interpretation can vary by national DPA.</div>
+        <div style="margin-top:10px;font-size:11.5px;color:var(--sub);line-height:1.5">This is a 5-minute read of the vendor's privacy policy — not a legal process.</div>
       </div>
     </div>
 
