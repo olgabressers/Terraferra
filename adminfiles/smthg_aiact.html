@@ -513,21 +513,23 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
     <!-- Row C: GDPR intersection -->
     <div class="vto-row">
       <div class="vto-cell row-law">
-        <span class="vto-row-label">GDPR — Biometric data (Art. 9)</span>
-        Body photos from which physical characteristics are inferred are biometric data under GDPR Art. 9 — a special category requiring explicit consent and a lawful basis. This applies independently of the AI Act. SMTHG must have a Data Processing Agreement (DPA) with any VTO vendor that processes EU user photos.
+        <span class="vto-row-label">GDPR — Processor agreement (Art. 28)</span>
+        GDPR Art. 9 (special category / biometric) applies to data processed <strong>for the purpose of uniquely identifying a person</strong> — e.g. facial recognition, identity matching. VTO overlays clothing on a body shape; it does not identify anyone. Art. 9 does not apply.<br/><br/>
+        GDPR Art. 28 <em>does</em> apply: any time personal data (a user photo) is shared with a third-party processor, a Data Processing Agreement (DPA) is required. This is a standard vendor contract clause.
       </div>
       <div class="vto-cell row-impact">
         <span class="vto-row-label" style="color:var(--amber)">Impact</span>
-        Without a signed DPA with <span class="vendor-tag">FASHN.AI</span> or <span class="vendor-tag">Kivisense</span>, SMTHG cannot lawfully offer VTO to EU users. This is a pre-launch blocker — not a post-launch fix.
+        Not a launch blocker. A DPA is a clause in the vendor services agreement — standard for any SaaS processing user data. Most VTO vendors (including <span class="vendor-tag">FASHN.AI</span> <span class="vendor-tag">Kivisense</span>) have a standard DPA on request.<br/><br/>
+        Zalando, ASOS, and most EU fashion retailers run VTO without Art. 9 treatment.
       </div>
       <div class="vto-cell row-action">
         <span class="vto-row-label" style="color:var(--green)">Action</span>
         <ul>
-          <li>Before EU launch: obtain a signed DPA from the chosen VTO vendor.</li>
-          <li>Confirm their data residency (EU server or SCCs in place for US processing).</li>
-          <li>Add explicit consent checkbox at VTO entry: <strong>"I consent to my photo being processed by AI for try-on purposes."</strong></li>
-          <li>Do not make VTO mandatory — it must be an opt-in feature.</li>
+          <li>Request the vendor's standard DPA when signing the service contract — one document, not a regulatory process.</li>
+          <li>Confirm data residency: EU servers, or SCCs in place for US processing.</li>
+          <li>VTO must remain opt-in; users initiate the photo upload.</li>
         </ul>
+        <div style="margin-top:10px;font-size:11.5px;color:var(--sub);line-height:1.5">Note: confirm with EU privacy counsel before launch — DPA interpretation can vary by national DPA.</div>
       </div>
     </div>
 
