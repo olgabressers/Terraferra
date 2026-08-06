@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow"/>
+<title>smthg. — Instagram Content Plan</title>
+<style>
+  :root{
+    --tf:#E8002D;
+    --tf-dark:#B50023;
+    --off-white:#F8F6F2;
+    --ink:#161616;
+    --sub:#5C5A56;
+    --rule:#E6E2DA;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--off-white);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    padding:40px 48px 80px;
+    max-width:1240px;
+    margin:0 auto;
+  }
+  header{margin-bottom:28px;}
+  .eyebrow{color:var(--sub);font-size:13px;letter-spacing:.04em;text-transform:uppercase;margin:0 0 6px;}
+  h1{font-size:30px;margin:0 0 10px;}
+  .dot{color:var(--tf);}
+  .section-label{
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    color:var(--sub);
+    margin:40px 0 12px;
+    padding-top:24px;
+    border-top:2px solid var(--ink);
+  }
+  .section-label:first-of-type{border-top:none;padding-top:0;margin-top:0;}
+  .week-label{
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    color:var(--sub);
+    margin:28px 0 12px;
+    padding-top:16px;
+    border-top:1px solid var(--rule);
+  }
+  .row-block:first-of-type .week-label{border-top:none;padding-top:0;}
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:4px;
+  }
+  .grid.week-grid{grid-template-columns:repeat(4,1fr);}
+  .tile{
+    position:relative;
+    aspect-ratio:1/1;
+    cursor:pointer;
+    overflow:hidden;
+    border-radius:2px;
+    background-size:cover;
+    background-position:center;
+    background-color:#ddd;
+  }
+  .tile.active{outline:3px solid var(--tf);outline-offset:-3px;}
+  .tile-overlay{
+    position:absolute;inset:0;
+    display:flex;flex-direction:column;justify-content:flex-end;
+    padding:8px;
+    color:#fff;
+    background:linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,.8) 100%);
+  }
+  .tile-format{
+    position:absolute;top:6px;right:6px;
+    font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+    background:rgba(0,0,0,.45);
+    padding:3px 6px;border-radius:10px;
+    color:#fff;
+  }
+  .tile-pillar{font-size:10px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;opacity:.95;}
+  .tile-title{font-size:11px;font-weight:600;line-height:1.2;margin-top:2px;}
+  .tile-day{position:absolute;top:6px;left:6px;font-size:9px;color:rgba(255,255,255,.9);font-weight:600;background:rgba(0,0,0,.35);padding:3px 6px;border-radius:10px;}
+
+  .row-panel{
+    display:none;
+    background:#fff;
+    border:1px solid var(--rule);
+    border-radius:6px;
+    padding:6px;
+    margin:4px 0 4px;
+  }
+  .row-panel.open{display:grid;grid-template-columns:repeat(4,1fr);gap:0;}
+  .row-panel.open.cols-6{grid-template-columns:repeat(6,1fr);}
+  .caption-item{
+    padding:14px 16px;
+    font-size:13px;
+    line-height:1.5;
+    border-right:1px solid var(--rule);
+  }
+  .caption-item:last-child{border-right:none;}
+  .caption-item.highlight{background:var(--off-white);}
+  .caption-meta{
+    display:flex;gap:8px;align-items:center;flex-wrap:wrap;
+    font-size:10px;text-transform:uppercase;letter-spacing:.03em;color:var(--sub);
+    margin-bottom:6px;font-weight:700;
+  }
+  .caption-meta .tag-pillar{color:var(--tf);}
+  .caption-text{color:var(--ink);margin:0 0 6px;}
+  .img-credit{font-size:10px;color:var(--sub);margin:0;}
+  .img-credit a{color:var(--sub);}
+
+  @media (max-width:900px){
+    .row-panel.open, .row-panel.open.cols-6{grid-template-columns:1fr;}
+    .caption-item{border-right:none;border-bottom:1px solid var(--rule);}
+  }
+  @media (max-width:700px){
+    body{padding:24px 18px 60px;}
+    .grid{grid-template-columns:repeat(3,1fr);}
+    h1{font-size:24px;}
+  }
+
+  #back-to-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--tf);color:#fff;border:none;border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900;transition:background .15s}
+  #back-to-top:hover{background:var(--tf-dark)}
+  @media (max-width:700px){#back-to-top{width:38px;height:38px;bottom:18px;right:18px;font-size:17px;}}
+
+  .ig-profile{
+    display:flex;
+    gap:36px;
+    align-items:flex-start;
+    background:#fff;
+    border:1px solid var(--rule);
+    border-radius:12px;
+    padding:28px 32px;
+    margin-bottom:16px;
+    flex-wrap:wrap;
+  }
+  .ig-avatar{
+    width:96px;height:96px;flex:none;
+    border-radius:50%;
+    overflow:hidden;
+    box-shadow:0 0 0 2px var(--rule);
+  }
+  .ig-avatar svg{width:100%;height:100%;display:block;}
+  .ig-main{flex:1;min-width:220px;}
+  .ig-top-row{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:14px;}
+  .ig-username{font-size:20px;font-weight:600;color:var(--ink);}
+  .ig-follow-btn{
+    background:var(--tf);color:#fff;border:none;border-radius:8px;
+    padding:7px 20px;font-size:14px;font-weight:600;cursor:default;
+  }
+  .ig-stats{display:flex;gap:28px;margin-bottom:14px;font-size:14px;}
+  .ig-stats b{font-weight:700;}
+  .ig-category{color:var(--sub);font-size:14px;margin:0 0 4px;}
+  .ig-bio{font-size:14px;line-height:1.5;color:var(--ink);margin:0 0 4px;max-width:520px;}
+  .ig-link{font-size:14px;font-weight:600;color:var(--tf-dark);}
+
+  @media (max-width:600px){
+    .ig-profile{padding:20px;gap:20px;}
+    .ig-avatar{width:72px;height:72px;}
+    .ig-stats{gap:18px;font-size:13px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <p class="eyebrow">Content Plan Example (Alena)</p>
+  <h1>smthg<span class="dot">.</span> Instagram Content Plan</h1>
+</header>
+
+<div class="ig-profile">
+  <div class="ig-avatar">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+      <rect width="64" height="64" fill="#E8002D"/>
+      <text x="32" y="46" text-anchor="middle" font-family="Inter,Helvetica,Arial,sans-serif" font-size="34" font-weight="800" fill="white" letter-spacing="-2">SG</text>
+    </svg>
+  </div>
+  <div class="ig-main">
+    <div class="ig-top-row">
+      <span class="ig-username">smthg.us</span>
+      <button class="ig-follow-btn">Follow</button>
+    </div>
+    <div class="ig-stats">
+      <span><b>0</b> posts</span>
+      <span><b>0</b> followers</span>
+      <span><b>0</b> following</span>
+    </div>
+    <p class="ig-category">Fashion, found, together</p>
+    <p class="ig-bio">Limited drops from designers to discover — found and shared inside a community. Watch the count fall together, and pre-order before it's made.</p>
+    <span class="ig-link">smthg.us</span>
+  </div>
+</div>
+
+<div class="section-label">Content style impressions</div>
+<div id="top-picks"></div>
+
+<div class="section-label" style="margin-top:56px;">Content Plan — Weeks 1–4 (Pre-Launch)</div>
+<div id="plan"></div>
+
+<script>
+const CREDIT = {
+  sketch: "Unsplash",
+  redBlazer: "Nicolas Ladino Silva · Unsplash",
+  greenSuit: "Olena Bohovyk · Unsplash",
+  cropTopPants: "ola szkolda · Unsplash",
+  catwalk: "Raden Prasetya · Unsplash", orangeRunway: "Ben Iwara · Unsplash",
+  leatherStreet: "Kevin Grieve · Unsplash", futuristic: "Marcin Sajur · Unsplash",
+
+  grayMetallic: "mcpeter · Unsplash",
+  leopardBodysuit: "Marina Nazina · Unsplash",
+  whiteSuit: "mcpeter · Unsplash",
+  whiteJumpsuit: "FOTOGRAFÍA EDITORIAL · Unsplash",
+  blackRomper: "ola szkolda · Unsplash",
+  harnessLight: "Ali Choubin · Unsplash",
+  suspenders: "Benoit Vacherie · Unsplash",
+  blackBackdrop: "Dwayne joe · Unsplash",
+  blackDressChair: "Kateryna Hliznitsova · Unsplash",
+  purpleDress: "felicis lim · Unsplash",
+  goldRunway: "Sergio Martins · Unsplash",
+  mannequinScarf: "ün LIU · Unsplash",
+
+  skirtBoots: "Megan Ruth · Unsplash",
+  patentLeather: "ola szkolda · Unsplash",
+  shinyRed: "Orcun Ozturk · Unsplash",
+  oversizedBlack: "Ali Choubin · Unsplash",
+  grayOveralls: "Alex Wright · Unsplash",
+  oneShoulderDress: "Khaled Ghareeb · Unsplash",
+  blackCoat: "Ivan Kazlouskij · Unsplash",
+  runwayModel2: "Sergio Martins · Unsplash"
+};
+const IMG = {
+  sketch:    "https://images.unsplash.com/photo-1753162658542-dd053c2b5196?w=700&h=700&fit=crop&auto=format&q=80",
+  redBlazer: "https://images.unsplash.com/photo-1580478491436-fd6a937acc9e?w=700&h=700&fit=crop&auto=format&q=80",
+  greenSuit: "https://images.unsplash.com/photo-1578432156830-0ca0d7913b7f?w=700&h=700&fit=crop&auto=format&q=80",
+  cropTopPants: "https://images.unsplash.com/photo-1779400204670-3c30d785c396?w=700&h=700&fit=crop&auto=format&q=80",
+  catwalk:   "https://images.unsplash.com/photo-1554882195-8cf792f9a571?w=700&h=700&fit=crop&auto=format&q=80",
+  orangeRunway: "https://images.unsplash.com/photo-1733324961705-97bd6cd7f4ba?w=700&h=700&fit=crop&auto=format&q=80",
+  leatherStreet: "https://images.unsplash.com/photo-1708242355178-d8c929b01a9d?w=700&h=700&fit=crop&auto=format&q=80",
+  futuristic: "https://images.unsplash.com/photo-1765490106170-4322b6cc96fe?w=700&h=700&fit=crop&auto=format&q=80",
+
+  grayMetallic:     "https://images.unsplash.com/photo-1784817552041-5f7d793a92d3?w=700&h=700&fit=crop&auto=format&q=80",
+  leopardBodysuit:  "https://images.unsplash.com/photo-1767535990001-48991c6e4b8b?w=700&h=700&fit=crop&auto=format&q=80",
+  whiteSuit:        "https://images.unsplash.com/photo-1784817552704-9a34b1c50083?w=700&h=700&fit=crop&auto=format&q=80",
+  whiteJumpsuit:    "https://images.unsplash.com/photo-1766193230264-781eacb6f9a3?w=700&h=700&fit=crop&auto=format&q=80",
+  blackRomper:      "https://images.unsplash.com/photo-1779400205156-e21b3d8d1e4f?w=700&h=700&fit=crop&auto=format&q=80",
+  harnessLight:     "https://images.unsplash.com/photo-1783543918700-dee295d5d1ac?w=700&h=700&fit=crop&auto=format&q=80",
+  suspenders:       "https://images.unsplash.com/photo-1753176184982-8d367b8062f2?w=700&h=700&fit=crop&auto=format&q=80",
+  blackBackdrop:    "https://images.unsplash.com/photo-1744846960157-e6d1566370e3?w=700&h=700&fit=crop&auto=format&q=80",
+  blackDressChair:  "https://images.unsplash.com/photo-1739208975212-3b0a0f5743a1?w=700&h=700&fit=crop&auto=format&q=80",
+  purpleDress:      "https://images.unsplash.com/photo-1634047222187-0b830109edfa?w=700&h=700&fit=crop&auto=format&q=80",
+  goldRunway:       "https://images.unsplash.com/photo-1747171503587-5e6c61fc56b5?w=700&h=700&fit=crop&auto=format&q=80",
+  mannequinScarf:   "https://images.unsplash.com/photo-1731578670805-b2b5d3801c06?w=700&h=700&fit=crop&auto=format&q=80",
+
+  skirtBoots:       "https://images.unsplash.com/photo-1682397125309-56077754235d?w=700&h=700&fit=crop&auto=format&q=80",
+  patentLeather:    "https://images.unsplash.com/photo-1779398646547-8fe51e5b5c23?w=700&h=700&fit=crop&auto=format&q=80",
+  shinyRed:         "https://images.unsplash.com/photo-1726829966135-91020bcd8ea2?w=700&h=700&fit=crop&auto=format&q=80",
+  oversizedBlack:   "https://images.unsplash.com/photo-1661110546797-d86cc72a2765?w=700&h=700&fit=crop&auto=format&q=80",
+  grayOveralls:     "https://images.unsplash.com/photo-1538168984978-29833b47ace4?w=700&h=700&fit=crop&auto=format&q=80",
+  oneShoulderDress: "https://images.unsplash.com/photo-1568251863885-adcac989de24?w=700&h=700&fit=crop&auto=format&q=80",
+  blackCoat:        "https://images.unsplash.com/photo-1654765435666-72cb4e1f7ee3?w=700&h=700&fit=crop&auto=format&q=80",
+  runwayModel2:     "https://images.unsplash.com/photo-1747171693481-83f31c375eaa?w=700&h=700&fit=crop&auto=format&q=80"
+};
+const IMG_PAGE = {
+  sketch: "https://unsplash.com/photos/a-fashion-designer-sketching-in-her-atelier-eIeQz11L1ZM",
+  redBlazer: "https://unsplash.com/photos/woman-in-red-blazer-sitting-on-stairs-qUp0UsT89BY",
+  greenSuit: "https://unsplash.com/photos/woman-wearing-green-notched-lapel-suit-jacket-sunglasses-and-white-earring-standing-0huyyKJ2Iog",
+  cropTopPants: "https://unsplash.com/photos/young-woman-sitting-on-floor-in-crop-top-and-pants-RZMxFVXdLnk",
+  catwalk: "https://unsplash.com/photos/woman-wearing-dresses-walking-on-catwalk-CQDkSdPOzYY",
+  orangeRunway: "https://unsplash.com/photos/a-woman-in-an-orange-dress-walking-down-a-runway-NLbnQLY4ZUo",
+  leatherStreet: "https://unsplash.com/photos/a-woman-walking-down-the-street-in-a-short-skirt-and-leather-jacket-bO3Py9X2XD0",
+  futuristic: "https://unsplash.com/photos/woman-in-futuristic-outfit-with-metallic-sheen-sThjdKXXTRw",
+  grayMetallic: "https://unsplash.com/photos/man-in-grey-suit-and-futuristic-metallic-accessories-on-white-CvzOUDjMHtY",
+  leopardBodysuit: "https://unsplash.com/photos/woman-in-a-leopard-print-bodysuit-with-green-hair-buns-UBXcWgnNw9c",
+  whiteSuit: "https://unsplash.com/photos/a-smiling-individual-in-a-unique-white-suit-H9kzfanzzxI",
+  whiteJumpsuit: "https://unsplash.com/photos/woman-in-a-white-jumpsuit-posing-at-night-20eoDjUT8YE",
+  blackRomper: "https://unsplash.com/photos/young-woman-in-black-romper-and-socks-on-white-background-ThZwoUcVQM4",
+  harnessLight: "https://unsplash.com/photos/man-wearing-a-harness-with-abstract-light-refractions-d_C58QgaLE0",
+  suspenders: "https://unsplash.com/photos/a-man-poses-bare-chested-with-suspenders-QS_RPIPXxg8",
+  blackBackdrop: "https://unsplash.com/photos/stylish-person-poses-for-the-camera-against-black-backdrop-fk9I8vLgE_c",
+  blackDressChair: "https://unsplash.com/photos/a-woman-in-a-black-dress-standing-on-a-chair-wlg_Zx1r8ds",
+  purpleDress: "https://unsplash.com/photos/a-woman-in-a-purple-dress-standing-in-the-dark-R1Tg64GVg0k",
+  goldRunway: "https://unsplash.com/photos/a-model-walks-a-runway-wearing-striking-gold-attire-cXhzUro8lqY",
+  mannequinScarf: "https://unsplash.com/photos/a-mannequin-with-a-scarf-on-top-of-it-bHDNnW1sy4E",
+  skirtBoots: "https://unsplash.com/photos/a-woman-in-a-skirt-and-boots-is-posing-for-a-picture-dCEm2MVcTmc",
+  patentLeather: "https://unsplash.com/photos/woman-in-black-patent-leather-on-checkered-floor-xUpUXjY8da0",
+  shinyRed: "https://unsplash.com/photos/a-woman-in-a-shiny-red-outfit-posing-for-a-picture-cemTjgT5zdk",
+  oversizedBlack: "https://unsplash.com/photos/a-woman-wearing-a-black-shirt-jeeVeM86xKw",
+  grayOveralls: "https://unsplash.com/photos/mens-gray-overalls-l95SmcTeKV8",
+  oneShoulderDress: "https://unsplash.com/photos/woman-in-gray-one-shouldered-mini-dress-upepKTbwm3A",
+  blackCoat: "https://unsplash.com/photos/a-woman-in-a-black-coat-posing-for-a-picture-E5kkpfZQ710",
+  runwayModel2: "https://unsplash.com/photos/a-fashion-model-walks-the-runway-4rw7DbYxgYY"
+};
+
+const topPicks = [
+  {img:"grayMetallic", pillar:"drop", title:"Material of the future", caption:"Metal and textile in one silhouette."},
+  {img:"leopardBodysuit", pillar:"attitude", title:"A print that isn't afraid of attention", caption:"Style that doesn't wait for approval."},
+  {img:"whiteSuit", pillar:"discover", title:"A silhouette that stands out", caption:"A cut that's noticeable without a logo."},
+  {img:"whiteJumpsuit", pillar:"drop", title:"One color, full form", caption:"A simple silhouette — a strong statement."},
+  {img:"blackRomper", pillar:"discover", title:"Minimalism as a position", caption:"Fewer details — more form."},
+  {img:"harnessLight", pillar:"manifesto", title:"Form as construction", caption:"Straps and light turn the body into architecture."},
+  {img:"suspenders", pillar:"attitude", title:"Utility as style", caption:"A functional detail becomes a look."},
+  {img:"blackBackdrop", pillar:"behind", title:"One silhouette, black backdrop", caption:"The form reads clearly with no distractions."},
+  {img:"blackDressChair", pillar:"attitude", title:"Pose as part of the look", caption:"How a piece is worn is part of the look too."},
+  {img:"purpleDress", pillar:"drop", title:"Color against a dark backdrop", caption:"A saturated tone holds focus without extra noise."},
+  {img:"goldRunway", pillar:"collab", title:"The runway as collaborative work", caption:"The material reads in the first frame."},
+  {img:"mannequinScarf", pillar:"discover", title:"Clothing without a model", caption:"Form and drape — no model, no extra context."}
+];
+
+const posts = [
+  // Week 1
+  {week:1, day:"MON", pillar:"manifesto", format:"Reel", title:"We're not a marketplace", img:"futuristic",
+   caption:"smthg. is a movement, not a clothing showcase. It's so me."},
+  {week:1, day:"WED", pillar:"discover", format:"Carousel", title:"The first resident brands on smthg", img:"redBlazer",
+   caption:"Brands you haven't seen in your feed yet. The first smthg. residents are here."},
+  {week:1, day:"FRI", pillar:"attitude", format:"Reel", title:"What does the youth think of luxury?", img:"leatherStreet",
+   caption:"Luxury isn't a logo. We asked the street what style means to them."},
+  {week:1, day:"SUN", pillar:"behind", format:"Reel", title:"How we choose brands", img:"sketch",
+   caption:"Brand selection isn't a popularity test. Here's what the process looks like from the inside."},
+
+  // Week 2
+  {week:2, day:"MON", pillar:"drop", format:"Reel", title:"soon (no details)", img:"catwalk",
+   caption:"Something's coming. No details yet."},
+  {week:2, day:"WED", pillar:"collab", format:"Co-post", title:"Co-post with the first brand", img:"greenSuit",
+   caption:"The first collaboration. A joint post with a resident brand."},
+  {week:2, day:"FRI", pillar:"attitude", format:"Meme", title:"When you land on a boring marketplace", img:"orangeRunway",
+   caption:"Recognize yourself? We're tired of scrolling through the same thing too."},
+  {week:2, day:"SUN", pillar:"discover", format:"Reel", title:"Mini-interview with a designer", img:"cropTopPants",
+   caption:"A designer, not a brand bio. Three questions, zero formality."},
+
+  // Week 3
+  {week:3, day:"MON", pillar:"drop", format:"Reel", title:"The first capsule", img:"runwayModel2",
+   caption:"The first smthg. capsule is out. Limited run — collecting, not racing."},
+  {week:3, day:"WED", pillar:"attitude", format:"Carousel", title:"5 rules of mindful consumption", img:"oneShoulderDress",
+   caption:"5 principles behind what we choose to show in the feed."},
+  {week:3, day:"FRI", pillar:"collab", format:"Reel", title:"Influencer + brand", img:"patentLeather",
+   caption:"An influencer and a brand — one capsule, one shared point of view on style."},
+  {week:3, day:"SUN", pillar:"discover", format:"Reel", title:"Brand #2", img:"grayOveralls",
+   caption:"The second smthg. resident brand. A different hand, the same level."},
+
+  // Week 4
+  {week:4, day:"MON", pillar:"manifesto", format:"Reel", title:"What is smthg?", img:"oversizedBlack",
+   caption:"smthg isn't a ready-made answer. It's what everyone defines for themselves."},
+  {week:4, day:"WED", pillar:"drop", format:"Countdown", title:"Countdown + Stories", img:"shinyRed",
+   caption:"Countdown to the next drop — on Stories."},
+  {week:4, day:"FRI", pillar:"attitude", format:"Reel", title:"Ask me smthg (Q&A)", img:"skirtBoots",
+   caption:"Ask me smthg. — answering questions about the brand, the selection process, and what's next."},
+  {week:4, day:"SUN", pillar:"behind", format:"Reel", title:"The smthg team", img:"blackCoat",
+   caption:"The people building smthg. piece by piece. Meet the team."}
+];
+
+const pillarLabels = {
+  manifesto:"Manifesto", discover:"Discover", attitude:"Attitude",
+  behind:"Behind", drop:"Drop", collab:"Collab"
+};
+
+// Renders one "row" — a fixed set of tiles (a week, or a chunk of top picks) that always
+// stays intact. Captions are visible by default; clicking a tile highlights its caption.
+function buildRow(root, rowItems, cols, rowLabel){
+  const wrap = document.createElement('div');
+  wrap.className = 'row-block';
+
+  if (rowLabel){
+    const label = document.createElement('div');
+    label.className = 'week-label';
+    label.textContent = rowLabel;
+    wrap.appendChild(label);
+  }
+
+  const gridEl = document.createElement('div');
+  gridEl.className = 'grid ' + (cols === 4 ? 'week-grid' : '');
+
+  const panel = document.createElement('div');
+  panel.className = 'row-panel open' + (cols === 6 ? ' cols-6' : '');
+
+  const tiles = [];
+  rowItems.forEach((item) => {
+    const tile = document.createElement('div');
+    tile.className = 'tile';
+    tile.style.backgroundImage = `url('${IMG[item.img]}')`;
+    tile.innerHTML = `
+      ${item.day ? `<span class="tile-day">${item.day}</span>` : ''}
+      <span class="tile-format">${item.format}</span>
+      <div class="tile-overlay">
+        <span class="tile-pillar">${pillarLabels[item.pillar]}</span>
+        <span class="tile-title">${item.title}</span>
+      </div>`;
+    gridEl.appendChild(tile);
+    tiles.push(tile);
+
+    const capItem = document.createElement('div');
+    capItem.className = 'caption-item';
+    capItem.innerHTML = `
+      <div class="caption-meta">
+        <span class="tag-pillar">${pillarLabels[item.pillar]}</span>
+        <span>${item.format}</span>
+        ${item.week ? `<span>Week ${item.week} · ${item.day}</span>` : ''}
+      </div>
+      <p class="caption-text">${item.caption}</p>
+      <p class="img-credit">Photo: ${CREDIT[item.img]} — <a href="${IMG_PAGE[item.img]}" target="_blank" rel="noopener">open ↗</a></p>`;
+    panel.appendChild(capItem);
+
+    tile.addEventListener('click', () => {
+      const isActive = tile.classList.contains('active');
+      tiles.forEach(t => t.classList.remove('active'));
+      panel.querySelectorAll('.caption-item').forEach(c => c.classList.remove('highlight'));
+      if (!isActive){
+        tile.classList.add('active');
+        capItem.classList.add('highlight');
+        panel.classList.add('open');
+      }
+    });
+  });
+
+  wrap.appendChild(gridEl);
+  wrap.appendChild(panel);
+  root.appendChild(wrap);
+}
+
+// Top picks: two rows of 6
+const topRoot = document.getElementById('top-picks');
+const topFormatted = topPicks.map(p => ({...p, format:"Photo"}));
+buildRow(topRoot, topFormatted.slice(0,6), 6, null);
+buildRow(topRoot, topFormatted.slice(6,12), 6, null);
+
+// Weeks: one row of 4 per week
+const planRoot = document.getElementById('plan');
+[1,2,3,4].forEach(weekNum => {
+  const weekPosts = posts.filter(p => p.week === weekNum);
+  buildRow(planRoot, weekPosts, 4, 'Week ' + weekNum);
+});
+</script>
+
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" title="Back to top">↑</button>
+<script>window.addEventListener('scroll',function(){var b=document.getElementById('back-to-top');b.style.display=window.scrollY>400?'flex':'none';});</script>
+
+</body>
+</html>
