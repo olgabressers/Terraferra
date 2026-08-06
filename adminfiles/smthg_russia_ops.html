@@ -188,59 +188,37 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
 
     <div class="box box-amber" style="margin-top:16px">Not verified: EU/UK import-side restrictions on Russian-origin goods, and whether Boxberry/CDEK/Russian Post provide in-house brokerage the way DHL does. Only RU→US via DHL is confirmed end-to-end.</div>
 
-    <div style="font-size:14px;font-weight:800;margin:24px 0 10px">Who is the broker, and what does it cost — RU, EU, UK all follow the same two paths</div>
+    <div style="font-size:14px;font-weight:800;margin:24px 0 10px">Who is the broker, and what does it cost — applies identically to RU, EU, and UK</div>
     <table class="dtable">
       <thead>
         <tr>
-          <th style="width:12%">Origin</th>
-          <th>Path</th>
+          <th>Carrier used</th>
           <th>Who files with CBP</th>
-          <th>Bond</th>
+          <th>Bond cost</th>
           <th>Broker fee</th>
-          <th>Duty</th>
-          <th>Extra effort</th>
+          <th>Duty owed</th>
+          <th>Who has to arrange it</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>RU</td>
-          <td>DHL Express</td>
-          <td class="yes">DHL — they are the broker</td>
-          <td class="yes">Covered by DHL's own bond</td>
-          <td class="warn">Folded into DHL clearance fee, exact amount unconfirmed</td>
-          <td>~12–20% of value, billed separately (DDU) unless DTP booked</td>
-          <td class="yes">None</td>
+          <td>DHL, FedEx, or UPS</td>
+          <td class="yes">The carrier — all three are licensed US customs brokers</td>
+          <td class="yes">$0 — covered by the carrier's own bond</td>
+          <td class="warn">Included in the carrier's clearance charge; exact amount not confirmed for EU/UK (RU→US DHL price of $540–720 is confirmed)</td>
+          <td>~12–20% of item value, billed separately (DDU) unless DTP is booked</td>
+          <td class="yes">Nobody — the carrier does it automatically</td>
         </tr>
         <tr style="background:#fafafa">
-          <td>RU</td>
-          <td>Boxberry / Russian Post / CDEK</td>
-          <td class="no">TF or brand, as importer of record</td>
-          <td class="no">$50–100 single-entry, or ~$500–700/yr continuous</td>
-          <td class="no">$75–150/entry if a broker is hired</td>
-          <td>Same ~12–20%, no threshold</td>
-          <td class="no">Real — source a broker, manage per shipment</td>
-        </tr>
-        <tr>
-          <td>EU / UK</td>
-          <td>DHL / FedEx / UPS</td>
-          <td class="yes">Carrier — all three are licensed US brokers, no restriction on EU/UK routes</td>
-          <td class="yes">Covered by carrier's own bond</td>
-          <td class="warn">Folded into carrier clearance fee, not quoted — no live calculator run for EU/UK yet</td>
-          <td>~12–20% of value, billed separately unless DTP/DDP booked</td>
-          <td class="yes">None</td>
-        </tr>
-        <tr style="background:#fafafa">
-          <td>EU / UK</td>
-          <td>National post (Royal Mail, Deutsche Post, etc.) or regional couriers</td>
-          <td class="no">TF or brand, as importer of record</td>
-          <td class="no">Same $50–100 / ~$500–700/yr</td>
-          <td class="no">Same $75–150/entry if a broker is hired</td>
-          <td>Same ~12–20%, no threshold</td>
-          <td class="no">Same — real, per-shipment burden</td>
+          <td>Any other carrier (Boxberry, Russian Post, CDEK, national post, regional couriers)</td>
+          <td class="no">TF or the brand, as importer of record</td>
+          <td class="no">$50–100 for one shipment, or ~$500–700/year if importing regularly</td>
+          <td class="no">$75–150 per shipment if a customs broker is hired to file it</td>
+          <td>~12–20% of item value, no threshold</td>
+          <td class="no">TF or the brand — has to find a broker and file for every shipment, or do it themselves</td>
         </tr>
       </tbody>
     </table>
-    <div class="box box-amber" style="margin-top:12px">EU/UK freight cost not yet quoted — only the RU→US DHL price was pulled from a live calculator. Bond/broker/duty figures are US CBP rules and apply the same regardless of origin; only the freight number changes by lane.</div>
     <div class="src">Sources: <a href="https://customsbrokerindex.com/blog/how-much-does-a-customs-broker-cost/" target="_blank" rel="noopener">customsbrokerindex.com ↗</a> · <a href="https://borderbuddy.com/blog/single-entry-customs-bond" target="_blank" rel="noopener">borderbuddy.com — bond costs ↗</a> · <a href="https://www.dhl.com/us-en/home/express/products-and-solutions/products-and-services-overview/customs-services.html" target="_blank" rel="noopener">DHL customs services ↗</a></div>
 
     <div class="box box-green" style="margin-top:16px"><strong>Global-e / similar MoR services — not worth it yet.</strong> Global-e would remove this problem entirely (they become the legal importer, handle duty + brokerage), but per the original platform research they don't natively support multi-vendor drop-ship, have no documented Russia-origin support, and price on a custom revenue-share with no public rate. Right call for later, at real volume — not for one Russia-origin brand at MVP. Use DHL's bundled brokerage instead.</div>
