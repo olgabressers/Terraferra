@@ -54,6 +54,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .box{padding:14px 18px;margin-bottom:16px;font-size:13px;color:var(--ink);line-height:1.6;border:1px solid;border-left-width:4px}
 .box-green{background:var(--green-bg);border-color:#6EE7B7;border-left-color:var(--green)}
 .box-amber{background:var(--amber-bg);border-color:#FCD34D;border-left-color:var(--amber)}
+.box-red{background:var(--red-bg);border-color:#f0b4b0;border-left-color:var(--red)}
 
 /* TABLES */
 .dtable{width:100%;border-collapse:collapse;font-size:13px;margin-top:4px}
@@ -108,9 +109,13 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <h1 class="pg-title">Russia → US Shipping Operations — MVP Route</h1>
   <div class="pg-sub">Research current as of August 2026 — re-verify carrier status before a live launch.</div>
 
-  <div class="concl-box">
-    <div class="concl-label">Verdict</div>
-    <div class="concl-verdict">Works on the platform as-is. Brand ships direct via DHL, order stays under $800 goods value, TF does zero customs paperwork.</div>
+  <div class="concl-box" style="border-top-color:var(--red)">
+    <div class="concl-label" style="color:var(--red)">Verdict — updated</div>
+    <div class="concl-verdict">Works on the platform, but not paperwork-free. Section 321 de minimis was suspended for all countries (Aug 2025, codified June 2026) — every shipment now needs a customs entry filed by the brand or a licensed broker, plus a customs bond, plus duty on the full value. DHL's price already includes their in-house brokerage; other carriers do not.</div>
+  </div>
+
+  <div class="box box-red">Section 321 de minimis (duty-free, paperwork-free under $800) is <strong>gone</strong> — suspended for all origins since 29 Aug 2025, codified by CBP 24 Jun 2026, no restoration date set. This applies to every route on this page (RU, EU, UK → US). Every shipment now requires formal or informal customs entry and duty is owed regardless of value.
+    <div class="src">Sources: <a href="https://www.federalregister.gov/documents/2026/06/24/2026-12670/indefinite-suspension-of-the-de-minimis-exemption-for-merchandise-arriving-through-all-modes-other" target="_blank" rel="noopener">Federal Register, 24 Jun 2026 ↗</a> · <a href="https://kpmg.com/us/en/taxnewsflash/news/2026/06/cbp-suspends-de-minimis-exemption.html" target="_blank" rel="noopener">KPMG summary ↗</a></div>
   </div>
 
   <div class="stat-grid">
@@ -124,15 +129,15 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
     </div>
     <div class="stat-card">
       <div class="stat-label">Shipping cost</div>
-      <div class="stat-val">$540–$720<br><span style="font-size:11px;font-weight:400;color:var(--sub)">per parcel</span></div>
+      <div class="stat-val">$540–$720<br><span style="font-size:11px;font-weight:400;color:var(--sub)">per parcel, brokerage included</span></div>
     </div>
-    <div class="stat-card">
-      <div class="stat-label">TF paperwork</div>
-      <div class="stat-val">None<br><span style="font-size:11px;font-weight:400;color:var(--sub)">under $800/item</span></div>
+    <div class="stat-card" style="border-left-color:var(--red)">
+      <div class="stat-label">Customs entry</div>
+      <div class="stat-val">Required, always<br><span style="font-size:11px;font-weight:400;color:var(--sub)">broker or licensed filer + bond</span></div>
     </div>
     <div class="stat-card">
       <div class="stat-label">Returns</div>
-      <div class="stat-val">CDEK Global<br><span style="font-size:11px;font-weight:400;color:var(--sub)">$27, 4–6 days</span></div>
+      <div class="stat-val">CDEK Global<br><span style="font-size:11px;font-weight:400;color:var(--sub)">$27, 4–6 days — broker status unverified</span></div>
     </div>
   </div>
 
@@ -140,7 +145,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <div class="section" id="s01">
     <div class="sec-heading"><span class="sec-num">01</span>Customs &amp; Compliance — by Route</div>
 
-    <div class="box box-green">RU, EU, and UK have no US free trade agreement — same MFN tariff treatment for all three. Below $800 goods value, all clear automatically with zero formal customs entry.</div>
+    <div class="box box-amber">RU, EU, and UK all have no US free trade agreement — same MFN tariff treatment, no origin certificate available at any value. All three now require customs entry on every shipment (de minimis suspended, see above).</div>
 
     <table class="dtable">
       <thead>
@@ -157,31 +162,31 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         <tr>
           <td>Russia</td>
           <td>US</td>
-          <td><strong>Under $800/item:</strong> no duty, no formal entry, carrier clears automatically.<br><strong>$800+/item:</strong> formal entry + US MFN duty (~12–20% typical apparel range). No RU-US FTA — no origin certificate at any value.</td>
-          <td><span class="warn">Brand:</span> commercial invoice, packing list, country-of-origin label — auto-generated by DHL at booking.<br><span class="yes">TF:</span> nothing.</td>
-          <td><span class="yes">Zero</span> under $800. US sales tax = Stripe Tax toggle.</td>
-          <td><span class="green">Low</span></td>
+          <td>Duty owed on full value (US MFN rate, ~12–20% typical apparel). Informal entry (Type 11) for shipments ≤$2,500 — filed by owner/purchaser or a licensed customs broker, plus a customs bond. No RU-US FTA.</td>
+          <td><span class="warn">Brand:</span> commercial invoice, packing list, label.<br><span class="no">Broker:</span> files entry, holds/arranges bond — DHL provides this in-house; other carriers may not.<br><span class="yes">TF:</span> nothing, if carrier handles brokerage.</td>
+          <td><span class="yes">Zero</span> if using a carrier with in-house brokerage (DHL). Otherwise TF or brand must arrange a broker + bond directly.</td>
+          <td><span class="warn">Medium</span></td>
         </tr>
         <tr style="background:#fafafa">
           <td>EU</td>
           <td>US</td>
-          <td>Same $800 de minimis. No US-EU FTA — same MFN duty above threshold.</td>
-          <td><span class="warn">Brand:</span> same documents, carrier-generated.<br><span class="yes">TF:</span> nothing.</td>
-          <td><span class="yes">Zero</span> under $800.</td>
-          <td><span class="green">Low</span></td>
+          <td>Same informal entry + duty rule. No US-EU FTA.</td>
+          <td>Same as above.</td>
+          <td>Same as above.</td>
+          <td><span class="warn">Medium</span></td>
         </tr>
         <tr>
           <td>UK</td>
           <td>US</td>
-          <td>Same $800 de minimis. No US-UK FTA — same MFN duty above threshold.</td>
-          <td><span class="warn">Brand:</span> same documents, carrier-generated.<br><span class="yes">TF:</span> nothing.</td>
-          <td><span class="yes">Zero</span> under $800.</td>
-          <td><span class="green">Low</span></td>
+          <td>Same informal entry + duty rule. No US-UK FTA.</td>
+          <td>Same as above.</td>
+          <td>Same as above.</td>
+          <td><span class="warn">Medium</span></td>
         </tr>
       </tbody>
     </table>
 
-    <div class="box box-amber" style="margin-top:16px">Not verified: EU/UK import-side restrictions on Russian-origin goods. Only RU→US is confirmed here.</div>
+    <div class="box box-amber" style="margin-top:16px">Not verified: EU/UK import-side restrictions on Russian-origin goods, and whether Boxberry/CDEK/Russian Post provide in-house brokerage the way DHL does. Only RU→US via DHL is confirmed end-to-end.</div>
   </div>
 
   <!-- SECTION 02 -->
@@ -313,9 +318,14 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
           <td class="warn">Brand enters item + value at DHL booking; DHL generates the documents</td>
         </tr>
         <tr style="background:#fafafa">
-          <td>Customs clearance</td>
+          <td>Customs entry + broker/bond</td>
           <td>—</td>
-          <td class="yes">Automatic via DHL under $800 de minimis</td>
+          <td class="warn">Required on every shipment. DHL provides this in-house (priced in §02). Other carriers: not yet confirmed who arranges it.</td>
+        </tr>
+        <tr>
+          <td>Import duty</td>
+          <td>—</td>
+          <td class="warn">Owed on full value, no threshold — not yet added to any quoted price on this page</td>
         </tr>
         <tr>
           <td>Physical shipping</td>
