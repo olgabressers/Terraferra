@@ -261,6 +261,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
       <li><a href="#clarification">What must be disclosed — and how?</a></li>
       <li><a href="#vto">Virtual Try-On (VTO)</a></li>
       <li><a href="#penalties">Penalties &amp; Scope</a></li>
+      <li style="color:var(--sub);font-style:italic">Other paragraphs — not applicable at MVP: Emotion Recognition · AI Audio · Disclosure Timing · Art. 50.6 · Art. 50.7</li>
     </ol>
   </nav>
 
@@ -527,6 +528,141 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
     </div>
 
   </div><!-- /vto-section -->
+
+  <!-- REMAINING PARAGRAPHS — complete coverage -->
+  <div style="margin-top:32px">
+    <div style="font-size:10px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--sub);margin-bottom:14px;opacity:.7">Other Article 50 Paragraphs — Complete Coverage</div>
+    <div class="cards-grid">
+
+      <!-- Emotion Recognition — NOT APPLICABLE -->
+      <div class="area-card" style="border-top-color:var(--sub);opacity:.8">
+        <div class="area-card-header">
+          <div class="area-card-num" style="color:var(--sub)">Art. 50.3</div>
+          <div class="area-card-title">Emotion Recognition</div>
+          <span class="area-card-badge" style="background:#F3F4F6;color:#6B7280">Not applicable — MVP</span>
+        </div>
+        <div class="card-row row-law">
+          <div class="card-row-label law">Law — Art. 50.3</div>
+          <div class="card-row-body">Deployers of AI systems that <strong>recognise emotions</strong> (from facial expressions, voice, body language, or text) must inform individuals before the system processes them. Separate from biometric categorisation — emotion recognition is its own named category.</div>
+        </div>
+        <div class="card-row row-impact">
+          <div class="card-row-label impact">Why not applicable at MVP</div>
+          <div class="card-row-body">SMTHG does not plan to deploy emotion recognition in MVP scope. No tool that infers shopper emotional state (joy, frustration, interest) from face, voice, or behaviour is in the architecture. If this changes — for example, AI engagement scoring that reads facial reactions to product images — the obligation activates immediately.</div>
+        </div>
+        <div class="card-row row-action">
+          <div class="card-row-label action">When to revisit</div>
+          <div class="card-row-body">Before adding any AI feature that analyses <em>how</em> users react to content (heatmaps using face tracking, video engagement AI, sentiment inferred from facial expression). At that point: pre-session disclosure required, same format as VTO biometric notice.</div>
+        </div>
+      </div>
+
+      <!-- AI Audio — APPLICABLE -->
+      <div class="area-card">
+        <div class="area-card-header">
+          <div class="area-card-num">Art. 50.2 (audio)</div>
+          <div class="area-card-title">AI-Generated Audio &amp; Voiceovers</div>
+          <span class="area-card-badge badge-action">Applicable if used</span>
+        </div>
+        <div class="card-row row-law">
+          <div class="card-row-label law">Law — Art. 50.2</div>
+          <div class="card-row-body">Art. 50.2 covers <strong>audio</strong> alongside images and video. AI tool providers must embed machine-readable C2PA metadata in synthetic audio outputs. Art. 50.4 applies to AI-generated audio that could be mistaken for a real person's voice (audio deepfake) — visible disclosure required.</div>
+        </div>
+        <div class="card-row row-impact">
+          <div class="card-row-label impact">What this means for SMTHG</div>
+          <div class="card-row-body">Applies if SMTHG uses AI voiceovers for video content, Reels, ads, or platform audio. Tools like ElevenLabs, Murf, or Descript AI voices do not currently embed C2PA by default. A realistic AI voice that sounds like a real person is a "deepfake" under 50.4 and requires visible disclosure.</div>
+        </div>
+        <div class="card-row row-action">
+          <div class="card-row-label action">How to solve it</div>
+          <div class="card-row-body">
+            <ul>
+              <li>If using AI voiceover in any video: add <strong>"AI voiceover"</strong> in the video description or end credits.</li>
+              <li>For Instagram Reels: add text overlay or caption note "AI-generated voice".</li>
+              <li>Check whether the audio tool in use supports C2PA export — if yes, enable it.</li>
+              <li>If no AI audio planned at launch: no action needed now.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Disclosure Timing & Accessibility — APPLICABLE -->
+      <div class="area-card">
+        <div class="area-card-header">
+          <div class="area-card-num">Art. 50.5</div>
+          <div class="area-card-title">Timing &amp; Accessibility of Disclosures</div>
+          <span class="area-card-badge badge-required">Required</span>
+        </div>
+        <div class="card-row row-law">
+          <div class="card-row-label law">Law — Art. 50.5</div>
+          <div class="card-row-body">All disclosures under Art. 50.1–50.4 must be delivered <strong>at the time of first interaction or first exposure</strong> — not buried in ToS, privacy policy, or a help article. They must also meet EU accessibility requirements (equivalent to WCAG 2.1 AA: readable, sufficient contrast, screen-reader compatible).</div>
+        </div>
+        <div class="card-row row-impact">
+          <div class="card-row-label impact">What this means for SMTHG</div>
+          <div class="card-row-body">
+            <ul>
+              <li><strong>Chatbot:</strong> AI disclosure must be message #1 — not after the user asks a question.</li>
+              <li><strong>VTO:</strong> Biometric notice must appear before the photo upload step, not after processing.</li>
+              <li><strong>AI image labels:</strong> must be visible at the moment the image loads, not only on hover or scroll.</li>
+              <li><strong>Accessibility:</strong> AI label text must have sufficient contrast; add alt text to any AI badge icon.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-row row-action">
+          <div class="card-row-label action">How to solve it</div>
+          <div class="card-row-body">
+            <ul>
+              <li>In product design: position all AI disclosures at the start of each user flow — validate in QA.</li>
+              <li>AI badge on images: minimum contrast ratio 4.5:1 (WCAG AA). Add <code>aria-label="AI-generated image"</code> to the badge element.</li>
+              <li>Chatbot: first message is hardcoded, not triggered by user input.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Art. 50.6 — Other EU laws -->
+      <div class="area-card" style="border-top-color:var(--sub);opacity:.8">
+        <div class="area-card-header">
+          <div class="area-card-num" style="color:var(--sub)">Art. 50.6</div>
+          <div class="area-card-title">Relationship to Other EU Laws</div>
+          <span class="area-card-badge" style="background:#F3F4F6;color:#6B7280">Context — no new obligation</span>
+        </div>
+        <div class="card-row row-law">
+          <div class="card-row-label law">Law — Art. 50.6</div>
+          <div class="card-row-body">Art. 50 does not replace or reduce obligations under other EU laws. GDPR, the Digital Services Act (DSA), the ePrivacy Directive, and national laws all continue to apply independently. AI Act transparency is the <em>floor</em>, not the full picture.</div>
+        </div>
+        <div class="card-row row-impact">
+          <div class="card-row-label impact">What this means for SMTHG</div>
+          <div class="card-row-body">Complying with Art. 50 alone is not sufficient for full EU legal compliance. GDPR applies to all personal data (covered in VTO section). DSA applies to online platforms — but the heavy obligations (algorithmic transparency reports, independent audits) only apply to "Very Large Online Platforms" with &gt;45M EU monthly active users. SMTHG is far below that threshold.</div>
+        </div>
+        <div class="card-row row-action">
+          <div class="card-row-label action">Why not separately applicable</div>
+          <div class="card-row-body">Art. 50.6 is a cross-reference clause — it creates no new obligation on its own. GDPR compliance (consent, DPA with VTO vendor) is covered in the VTO section. DSA does not impose specific obligations on SMTHG at MVP scale. No separate action required from this paragraph.</div>
+        </div>
+      </div>
+
+      <!-- Art. 50.7 — Codes of Practice -->
+      <div class="area-card" style="border-top-color:var(--sub);opacity:.8">
+        <div class="area-card-header">
+          <div class="area-card-num" style="color:var(--sub)">Art. 50.7</div>
+          <div class="area-card-title">Codes of Practice (Regulatory)</div>
+          <span class="area-card-badge" style="background:#F3F4F6;color:#6B7280">No operator obligation</span>
+        </div>
+        <div class="card-row row-law">
+          <div class="card-row-label law">Law — Art. 50.7</div>
+          <div class="card-row-body">The EU AI Office will develop voluntary codes of practice to help companies implement C2PA detection, labelling standards, and verification methods. The European Commission may later adopt implementing acts that make specific technical standards mandatory.</div>
+        </div>
+        <div class="card-row row-impact">
+          <div class="card-row-label impact">What this means for SMTHG</div>
+          <div class="card-row-body">Nothing actionable today. The codes of practice are not yet published (as of August 2026). When released, they will provide more specific guidance on what "machine-readable format" means in practice — which technical standards count as compliant. Following them will be best practice, not a legal requirement unless the Commission converts them into binding implementing acts.</div>
+        </div>
+        <div class="card-row row-action">
+          <div class="card-row-label action">When to revisit</div>
+          <div class="card-row-body">Monitor EU AI Office publications. When codes of practice for C2PA and content labelling are published, review against current SMTHG implementation. The AI Office also runs an innovation sandbox — potentially useful for early-stage platforms building compliant AI features.
+            <span class="src"><a href="https://digital-strategy.ec.europa.eu/en/policies/ai-office" target="_blank" rel="noopener">EU AI Office</a></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /remaining paragraphs -->
 
   <!-- PENALTIES — full width -->
   <div class="penalty-card" id="penalties">
