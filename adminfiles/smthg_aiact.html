@@ -253,16 +253,34 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
 
   <nav class="toc-box">
     <strong style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub)">On this page</strong>
-    <ol>
+    <ol style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px 24px;margin:10px 0 0;padding-left:18px">
       <li><a href="#cs">Customer Service &amp; Chatbots</a></li>
       <li><a href="#content">Campaign Images &amp; Video</a></li>
       <li><a href="#copy">Marketing Copy</a></li>
       <li><a href="#creators">Creator Content on Platform</a></li>
-      <li><a href="#clarification">Disclosure — what, how, visible or not?</a></li>
+      <li><a href="#clarification">Disclosure — visible or not?</a></li>
       <li><a href="#vto">Virtual Try-On (VTO)</a></li>
       <li><a href="#penalties">Penalties</a></li>
     </ol>
   </nav>
+
+  <!-- IMPACT SUMMARY -->
+  <div style="background:white;border:1px solid var(--rule);border-left:4px solid var(--green);padding:18px 24px;margin-top:20px">
+    <div style="font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:12px">5 actions before EU launch</div>
+    <table style="width:100%;border-collapse:collapse;font-size:13px">
+      <tr style="border-bottom:1px solid var(--rule)"><td style="padding:7px 16px 7px 0;font-weight:700;white-space:nowrap;color:var(--sub);font-size:11px">Chatbots</td><td style="padding:7px 0;color:var(--ink)">First message: <strong>"Hi, I'm SMTHG's AI assistant."</strong> — one config change, no code</td></tr>
+      <tr style="border-bottom:1px solid var(--rule)"><td style="padding:7px 16px 7px 0;font-weight:700;white-space:nowrap;color:var(--sub);font-size:11px">AI images</td><td style="padding:7px 0;color:var(--ink)">Instagram AI label on every publicly posted AI image — mandatory, not case-by-case</td></tr>
+      <tr style="border-bottom:1px solid var(--rule)"><td style="padding:7px 16px 7px 0;font-weight:700;white-space:nowrap;color:var(--sub);font-size:11px">Copy</td><td style="padding:7px 0;color:var(--ink)">Edit all AI-drafted text before posting — a real edit removes the disclosure obligation entirely</td></tr>
+      <tr style="border-bottom:1px solid var(--rule)"><td style="padding:7px 16px 7px 0;font-weight:700;white-space:nowrap;color:var(--sub);font-size:11px">Creators</td><td style="padding:7px 0;color:var(--ink)">AI disclosure clause in Creator Agreement + one-page onboarding guide</td></tr>
+      <tr><td style="padding:7px 16px 7px 0;font-weight:700;white-space:nowrap;color:var(--sub);font-size:11px">VTO</td><td style="padding:7px 0;color:var(--ink)">Text notice above upload button + check vendor privacy policy on photo retention</td></tr>
+    </table>
+  </div>
+
+  <!-- APPLICABLE HEADING -->
+  <div style="display:flex;align-items:center;gap:14px;margin:36px 0 16px">
+    <div style="font-size:clamp(17px,2.5vw,22px);font-weight:800;color:var(--green);letter-spacing:-.3px">Applicable to SMTHG — action required</div>
+    <div style="height:2px;flex:1;background:var(--green);opacity:.25"></div>
+  </div>
 
   <div class="cards-grid">
 
@@ -499,31 +517,10 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
 
     <!-- APPLICABLE GROUP -->
     <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px">
-      <div style="font-size:clamp(17px,2.5vw,22px);font-weight:800;color:var(--green);letter-spacing:-.3px">2 paragraphs applicable to SMTHG</div>
+      <div style="font-size:clamp(17px,2.5vw,22px);font-weight:800;color:var(--green);letter-spacing:-.3px">1 paragraph applicable to SMTHG</div>
       <div style="height:2px;flex:1;background:var(--green);opacity:.25"></div>
     </div>
     <div class="cards-grid">
-
-      <!-- AI Audio — APPLICABLE -->
-      <div class="area-card" id="audio">
-        <div class="area-card-header">
-          <div class="area-card-num">Art. 50.2 (audio)</div>
-          <div class="area-card-title">AI-Generated Audio &amp; Voiceovers</div>
-          <span class="area-card-badge badge-action">Applicable if used</span>
-        </div>
-        <div class="card-row row-law">
-          <div class="card-row-label law">Law — Art. 50.2 + 50.4</div>
-          <div class="card-row-body">AI-generated audio that could be mistaken for a real person's voice requires visible disclosure.</div>
-        </div>
-        <div class="card-row row-impact">
-          <div class="card-row-label impact">What this means for SMTHG</div>
-          <div class="card-row-body">Applies if SMTHG uses AI voiceovers in video, Reels, or ads. No AI audio at launch = no action needed.</div>
-        </div>
-        <div class="card-row row-action">
-          <div class="card-row-label action">Action</div>
-          <div class="card-row-body">If using AI voiceover: add <strong>"AI voiceover"</strong> in video description, end credits, or caption.</div>
-        </div>
-      </div>
 
       <!-- Disclosure Timing & Accessibility — APPLICABLE -->
       <div class="area-card" id="timing">
@@ -550,10 +547,27 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
 
     <!-- NOT APPLICABLE GROUP -->
     <div style="display:flex;align-items:center;gap:14px;margin:40px 0 16px">
-      <div style="font-size:clamp(17px,2.5vw,22px);font-weight:800;color:var(--sub);letter-spacing:-.3px">3 paragraphs — NOT applicable for SMTHG at current scope</div>
+      <div style="font-size:clamp(17px,2.5vw,22px);font-weight:800;color:var(--sub);letter-spacing:-.3px">4 paragraphs — NOT applicable for SMTHG at current scope</div>
       <div style="height:2px;flex:1;background:var(--sub);opacity:.2"></div>
     </div>
     <div class="cards-grid">
+
+      <!-- AI Audio — NOT APPLICABLE -->
+      <div class="area-card" id="audio" style="border-top-color:var(--sub)">
+        <div class="area-card-header">
+          <div class="area-card-num" style="color:var(--sub)">Art. 50.2 (audio)</div>
+          <div class="area-card-title">AI-Generated Audio &amp; Voiceovers</div>
+          <span class="area-card-badge" style="background:#F3F4F6;color:#6B7280;font-weight:800">NOT APPLICABLE — SMTHG current scope</span>
+        </div>
+        <div class="card-row row-law">
+          <div class="card-row-label law">Law — Art. 50.2 + 50.4</div>
+          <div class="card-row-body">AI-generated audio that could be mistaken for a real person's voice requires visible disclosure.</div>
+        </div>
+        <div class="card-row row-impact">
+          <div class="card-row-label impact">Why not applicable</div>
+          <div class="card-row-body">SMTHG does not use AI voiceovers at launch.</div>
+        </div>
+      </div>
 
       <!-- Emotion Recognition — NOT APPLICABLE -->
       <div class="area-card" id="emotion" style="border-top-color:var(--sub)">
