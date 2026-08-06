@@ -122,6 +122,13 @@ details[open] summary::after{transform:rotate(45deg)}
 @media(max-width:768px){.faq-list{grid-template-columns:1fr}}
 @media(max-width:600px){.faq-section{padding:48px 0}}
 
+/* ── BANNER ── */
+.banner-section{padding:56px 0;background:var(--cream)}
+.banner-photo{position:relative;border-radius:14px;min-height:360px;background-size:cover;background-position:center;overflow:hidden;box-shadow:0 18px 44px rgba(22,22,22,.1)}
+.banner-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,22,22,0) 45%,rgba(22,22,22,.78) 100%);display:flex;align-items:flex-end;padding:32px 40px}
+.banner-text{color:var(--white);font-size:clamp(19px,2.3vw,27px);font-weight:800;letter-spacing:-.5px;max-width:600px;line-height:1.25}
+@media(max-width:600px){.banner-section{padding:44px 0}.banner-photo{min-height:260px}.banner-overlay{padding:22px 22px}}
+
 /* ── CTA ── */
 .cta-section{background:var(--cream);padding:64px 0;text-align:center;border-top:1px solid var(--border)}
 .cta-section .container{display:flex;flex-direction:column;align-items:center}
@@ -186,7 +193,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.07);padding:
           <a href="#conditions" class="btn btn-outline">See Conditions</a>
         </div>
       </div>
-      <div class="hero-photo" style="background-image:url('https://images.unsplash.com/photo-1587225655162-bdde17e8efa0?w=900&q=80&auto=format&fit=crop')"></div>
+      <div class="hero-photo" style="background-image:url('https://images.unsplash.com/photo-1675773517513-1816e0fb6132?w=900&q=80&auto=format&fit=crop')"></div>
     </div>
   </div>
 </section>
@@ -195,7 +202,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.07);padding:
 <section class="space-section" id="space">
   <div class="container">
     <div class="space-grid">
-      <div class="space-photo" style="background-image:url('https://images.unsplash.com/photo-1603189343302-e603f7add05a?w=900&q=80&auto=format&fit=crop')"></div>
+      <div class="space-photo" style="background-image:url('https://images.unsplash.com/photo-1740564014446-f07ea2da269c?w=900&q=80&auto=format&fit=crop')"></div>
       <div>
         <span class="sec-label">Your Brand Space</span>
         <h2 class="sec-h2">A dedicated home inside smthg.</h2>
@@ -311,6 +318,17 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.07);padding:
           <summary>How do I apply?</summary>
           <p class="faq-body">smthg is selecting its first cohort of Founding Brands now. Apply below for priority placement and the $250/mo founding rate.</p>
         </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BANNER -->
+<section class="banner-section">
+  <div class="container">
+    <div class="banner-photo" style="background-image:url('https://images.unsplash.com/photo-1751973016433-377b96694b0a?w=1400&q=80&auto=format&fit=crop')">
+      <div class="banner-overlay">
+        <div class="banner-text">Every consumer who finds you here already wanted to.</div>
       </div>
     </div>
   </div>
