@@ -252,20 +252,15 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   </div>
 
   <nav class="toc-box">
-    <strong style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub)">Areas Covered</strong>
+    <strong style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub)">On this page</strong>
     <ol>
       <li><a href="#cs">Customer Service &amp; Chatbots</a></li>
       <li><a href="#content">Campaign Images &amp; Video</a></li>
-      <li><a href="#copy">Marketing Copy &amp; Product Descriptions</a></li>
-      <li><a href="#creators">Creator &amp; Influencer Content on Platform</a></li>
-      <li><a href="#clarification">What must be disclosed — and how?</a></li>
+      <li><a href="#copy">Marketing Copy</a></li>
+      <li><a href="#creators">Creator Content on Platform</a></li>
+      <li><a href="#clarification">Disclosure — what, how, visible or not?</a></li>
       <li><a href="#vto">Virtual Try-On (VTO)</a></li>
-      <li><a href="#penalties">Penalties &amp; Scope</a></li>
-      <li><a href="#emotion">Art. 50.3 — Emotion Recognition</a></li>
-      <li><a href="#audio">Art. 50.2 (audio) — AI Audio &amp; Voiceovers</a></li>
-      <li><a href="#timing">Art. 50.5 — Timing &amp; Accessibility of Disclosures</a></li>
-      <li><a href="#art506">Art. 50.6 — Relationship to Other EU Laws</a></li>
-      <li><a href="#art507">Art. 50.7 — Codes of Practice</a></li>
+      <li><a href="#penalties">Penalties</a></li>
     </ol>
   </nav>
 
@@ -280,21 +275,15 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
       </div>
       <div class="card-row row-law">
         <div class="card-row-label law">Law — Art. 50.1</div>
-        <div class="card-row-body">Any AI system designed to interact directly with people must inform the user they are talking to AI. This must happen at the first interaction, before the conversation continues. Exception: only if it is "obvious" to any reasonable person that the interaction is with an AI.</div>
+        <div class="card-row-body">Any AI chatbot must tell the user it is AI at the first message — before the conversation continues.</div>
       </div>
       <div class="card-row row-impact">
         <div class="card-row-label impact">What this means for SMTHG</div>
-        <div class="card-row-body">Every AI chatbot deployed for CS — on website, in-app, or via Instagram DM automation — must identify itself as AI in its first message. Applies whether the bot handles designer onboarding, shopper queries, or order tracking.</div>
+        <div class="card-row-body">All chatbots — CS, onboarding, Instagram DM automation — must open with an AI identification.</div>
       </div>
       <div class="card-row row-action">
-        <div class="card-row-label action">How to solve it</div>
-        <div class="card-row-body">
-          <ul>
-            <li>Configure the bot's opening message to include: <strong>"Hi, I'm SMTHG's AI assistant."</strong></li>
-            <li>In Intercom / Zendesk / any CS tool: set this in the bot's welcome step — one config change, no code.</li>
-            <li>Add this as a mandatory line in the bot script template before any SMTHG chatbot goes live.</li>
-          </ul>
-        </div>
+        <div class="card-row-label action">Action</div>
+        <div class="card-row-body">Set the bot's opening message to: <strong>"Hi, I'm SMTHG's AI assistant."</strong> One config change in Intercom / Zendesk — no code required.</div>
       </div>
     </div>
 
@@ -307,21 +296,19 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
       </div>
       <div class="card-row row-law">
         <div class="card-row-label law">Law — Art. 50.2 + 50.4</div>
-        <div class="card-row-body"><strong>Art. 50.2:</strong> AI tool providers (OpenAI, Midjourney) must embed machine-readable metadata (C2PA standard) in generated images and video. <strong>Art. 50.4:</strong> Deployers publishing that content must add a visible, human-readable disclosure if the content could be mistaken for real photography or footage.</div>
+        <div class="card-row-body">Realistic AI-generated images need a visible disclosure if they could be mistaken for real photography. Machine-readable metadata (C2PA) is the AI tool's obligation — visible label is SMTHG's.</div>
       </div>
       <div class="card-row row-impact">
         <div class="card-row-label impact">What this means for SMTHG</div>
-        <div class="card-row-body">Any AI-generated campaign image, product visual, or lookbook shot posted to Instagram, the website, or the app needs a visible disclosure if it looks like real photography. Machine-readable metadata is the AI tool's obligation — visible disclosure is SMTHG's responsibility as publisher.</div>
+        <div class="card-row-body">Any AI image posted publicly — Instagram, website, app — needs a label if it looks like real photography.</div>
       </div>
       <div class="card-row row-action">
-        <div class="card-row-label action">How to solve it — no Adobe</div>
+        <div class="card-row-label action">Action</div>
         <div class="card-row-body">
           <ul>
-            <li><strong>ChatGPT / DALL-E:</strong> OpenAI embeds C2PA metadata automatically. Machine-readable requirement met by the tool.</li>
-            <li><strong>Midjourney:</strong> No C2PA embedded. Use Instagram's native <strong>AI label</strong> (Advanced Settings when posting) + add "Created with AI" in caption.</li>
-            <li><strong>Internal rule:</strong> AI label is mandatory on every AI-generated image posted publicly — not case-by-case.</li>
+            <li><strong>ChatGPT / DALL-E:</strong> C2PA embedded automatically — no action needed.</li>
+            <li><strong>Midjourney:</strong> Use Instagram's native <strong>AI label</strong> (Advanced Settings when posting) + "Created with AI" in caption. Mandatory on every AI image posted publicly.</li>
           </ul>
-          <span class="src">C2PA standard: <a href="https://c2pa.org/" target="_blank" rel="noopener">c2pa.org</a></span>
         </div>
       </div>
     </div>
@@ -335,21 +322,15 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
       </div>
       <div class="card-row row-law">
         <div class="card-row-label law">Law — Art. 50.4</div>
-        <div class="card-row-body">AI-generated text published for public consumption must disclose its AI origin. <strong>Exception:</strong> if a human applied substantive editorial review before publication, disclosure is not required. The review must be genuine editing — not just approving an AI draft unchanged.</div>
+        <div class="card-row-body">AI-generated text published publicly must disclose AI origin. <strong>Exception:</strong> substantive human editorial review before posting removes the requirement entirely.</div>
       </div>
       <div class="card-row row-impact">
         <div class="card-row-label impact">What this means for SMTHG</div>
-        <div class="card-row-body">AI-drafted Instagram captions, brand descriptions, campaign copy, email subject lines, and app UI text all fall under this rule when published to EU users. Auto-publishing AI copy without human review requires a disclosure label.</div>
+        <div class="card-row-body">Edit AI-drafted copy before publishing. A real edit — not a rubber-stamp — removes the disclosure obligation.</div>
       </div>
       <div class="card-row row-action">
-        <div class="card-row-label action">How to solve it</div>
-        <div class="card-row-body">
-          <ul>
-            <li><strong>Apply human review to all AI-drafted copy</strong> before posting — a real edit, not rubber-stamp. This removes the disclosure requirement entirely.</li>
-            <li>Add a "copy reviewed" checkpoint to the content SOP: AI drafts → edit → approve → post.</li>
-            <li>Never schedule AI-generated captions to auto-post without a review step in the workflow.</li>
-          </ul>
-        </div>
+        <div class="card-row-label action">Action</div>
+        <div class="card-row-body">Workflow: AI draft → human edit → post. Never auto-publish AI copy without a review step.</div>
       </div>
     </div>
 
@@ -362,20 +343,18 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
       </div>
       <div class="card-row row-law">
         <div class="card-row-label law">Law — Art. 50.4</div>
-        <div class="card-row-body">Creators and influencers who post AI-generated content are themselves deployers and must disclose it. SMTHG as a platform hosting that content is not directly liable for creator uploads — but should have policy in place and tools to support disclosure.</div>
+        <div class="card-row-body">Creators posting AI-generated content are responsible for disclosing it. SMTHG as host is not directly liable — but must have a policy in place.</div>
       </div>
       <div class="card-row row-impact">
         <div class="card-row-label impact">What this means for SMTHG</div>
-        <div class="card-row-body">Influencers posting AI-generated looks, brand collabs, or product videos on SMTHG must label them. Without platform policy and tooling, SMTHG could face reputational and operational risk if the platform becomes associated with unlabeled synthetic content.</div>
+        <div class="card-row-body">Add an AI disclosure clause to the Creator Agreement before launch.</div>
       </div>
       <div class="card-row row-action">
-        <div class="card-row-label action">How to solve it</div>
+        <div class="card-row-label action">Action</div>
         <div class="card-row-body">
           <ul>
-            <li><strong>Creator Agreement:</strong> Add clause requiring influencers to disclose AI-generated content at upload — before launch.</li>
-            <li><strong>Onboarding:</strong> Include one-page guide on what requires disclosure and how to label it.</li>
-            <li><strong>Product roadmap:</strong> Add an "AI-generated" toggle to the post creation flow. Creator checks it; platform shows the label automatically.</li>
-            <li><strong>No enforcement burden today</strong> — policy + roadmap item is sufficient at MVP stage.</li>
+            <li><strong>Creator Agreement:</strong> Add clause — creators must label AI-generated content at upload.</li>
+            <li><strong>Onboarding:</strong> One-page guide on what requires a label and how to add it.</li>
           </ul>
         </div>
       </div>
@@ -401,9 +380,8 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
       <div class="clarif-a">
         <div style="font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:10px">Answer</div>
         <div style="font-size:13px;color:var(--ink);line-height:1.65">
-          <strong>Machine-readable only (Art. 50.2)</strong> — the AI tool's obligation, not SMTHG's. OpenAI, Midjourney, etc. must embed C2PA metadata in the image file. Consumers cannot see it. SMTHG benefits from this automatically when using compliant tools.<br/><br/>
-          <strong>Visible to consumers (Art. 50.4)</strong> — only required for content that <em>could be mistaken for real</em>: realistic images of real people, faces, or scenes that create a false impression. This is the "deepfake" clause. If the AI image is clearly stylized or abstract, visible disclosure is <em>not required</em>.<br/><br/>
-          <strong>Bottom line:</strong> Stylized AI fashion visuals on your website → machine-readable metadata (handled by the tool). Realistic AI model photos that look like real people → add a visible label.
+          <strong>Machine-readable (Art. 50.2)</strong> — the AI tool's obligation, not SMTHG's. OpenAI etc. embed C2PA metadata in the file. Handled automatically when using compliant tools.<br/><br/>
+          <strong>Visible to consumers (Art. 50.4)</strong> — only for content that <em>could be mistaken for real</em>: realistic images of people or scenes that create a false impression. Stylized or abstract AI visuals: no visible disclosure required.
         </div>
       </div>
     </div>
@@ -424,7 +402,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
             <li><strong>Site-wide footer note:</strong> "Some visuals on this site were created with AI" — acceptable for general stylized imagery.</li>
             <li><strong>Instagram AI label:</strong> Instagram's native label is small and non-intrusive. Already standard in fashion.</li>
           </ul>
-          <br/>For realistic model images: the badge or caption approach is cleanest. Small, tasteful, legally sufficient.
+          <br/>For realistic model images: badge or caption is cleanest.
         </div>
       </div>
     </div>
@@ -438,11 +416,11 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
       <div class="clarif-a">
         <div style="font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:10px">Answer</div>
         <div style="font-size:13px;color:var(--ink);line-height:1.65">
-          Yes — the law distinguishes between "generated" and "manipulated."<br/><br/>
-          <strong>100% AI-generated:</strong> no real photo input → machine-readable metadata required (tool's obligation). Visible disclosure if result is realistic.<br/><br/>
-          <strong>AI-modified real product photo</strong> (background swap, color enhancement, lighting fix): minor editing that doesn't create a false impression about a person → no visible disclosure required. Good practice to add "AI-enhanced" in small text.<br/><br/>
-          <strong>AI clothing swap on a real person's photo</strong> (e.g. VTO result, or placing AI clothing on a real model): this is manipulation of a real person → treated as deepfake → visible disclosure required.<br/><br/>
-          <strong>Practical rule for SMTHG:</strong> if a real person's likeness is involved and AI changed what they appear to be wearing or doing → disclose. If it's product-only editing (no person, or clearly abstract) → no visible disclosure required.
+          Yes — the law distinguishes "generated" from "manipulated."<br/><br/>
+          <strong>100% AI-generated image:</strong> machine-readable metadata (tool's job). Visible label if result looks realistic.<br/><br/>
+          <strong>AI-modified product photo</strong> (background swap, lighting fix): no visible disclosure required — minor editing, no false impression of a person.<br/><br/>
+          <strong>AI clothing swap on a real person</strong> (VTO result, AI styling on a real model): treated as deepfake — visible disclosure required.<br/><br/>
+          <strong>Rule:</strong> real person's likeness + AI changed what they appear to wear or do → disclose. Product-only editing, no person → no visible disclosure.
         </div>
       </div>
     </div>
@@ -467,21 +445,15 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
     <div class="vto-row">
       <div class="vto-cell row-law">
         <span class="vto-row-label">Art. 50.2 + 50.4 — Synthetic image disclosure</span>
-        VTO outputs are AI-generated images of a person wearing clothes. The VTO tool provider must embed C2PA machine-readable metadata. The deployer (SMTHG) must add a visible disclosure wherever those images are shown publicly.
+        VTO output is an AI-generated image. Visible disclosure is required wherever it is shown publicly.
       </div>
       <div class="vto-cell row-impact">
         <span class="vto-row-label" style="color:var(--amber)">Impact</span>
-        VTO result images shown to the shopper are private — no disclosure needed there. But if VTO results are shown in product reviews, social proof sections, or shared by users on social media, visible disclosure is required.
-        <br/><br/>
-        <span class="vendor-tag">FASHN.AI</span><span class="vendor-tag">Kivisense</span> — confirm with each vendor whether C2PA is embedded in their output images.
+        VTO result shown only to the shopper = private, no disclosure needed. VTO result in reviews, social proof sections, or shareable links = visible label required.
       </div>
       <div class="vto-cell row-action">
         <span class="vto-row-label" style="color:var(--green)">Action</span>
-        <ul>
-          <li>Add an <strong>"AI Try-On Preview"</strong> label on any VTO image shown in a public context (reviews, social proof, shared links).</li>
-          <li>Ask FASHN.AI and Kivisense for their C2PA compliance status.</li>
-          <li>If users can share VTO results externally: auto-append "Created with AI try-on" watermark or caption before sharing.</li>
-        </ul>
+        Add <strong>"AI Try-On Preview"</strong> label on any VTO image shown in a public context. If users can share results: append "Created with AI try-on" to the caption automatically.
       </div>
     </div>
 
@@ -489,46 +461,31 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
     <div class="vto-row">
       <div class="vto-cell row-law">
         <span class="vto-row-label">Art. 50.3 — Biometric processing disclosure</span>
-        Deployers of AI systems used for biometric categorisation must inform individuals before their biometric data is processed. VTO requires a user photo — body shape, proportions, and appearance data are inferred. This is biometric categorisation under Art. 50.3.
+        Before processing a user's photo with AI, SMTHG must inform them: photo is processed by AI, which vendor, what for.
       </div>
       <div class="vto-cell row-impact">
         <span class="vto-row-label" style="color:var(--amber)">Impact</span>
-        Before a shopper uploads a photo to VTO, SMTHG must tell them:
-        <ul style="margin-top:8px">
-          <li>Their photo is processed by an AI system</li>
-          <li>Which third-party vendor processes it (<span class="vendor-tag">FASHN.AI</span> or <span class="vendor-tag">Kivisense</span>)</li>
-          <li>What the data is used for and how long it is stored</li>
-        </ul>
+        A short text notice must appear above the photo upload button — before the shopper can upload.
       </div>
       <div class="vto-cell row-action">
         <span class="vto-row-label" style="color:var(--green)">Action</span>
-        <ul>
-          <li>Add a disclosure screen before the photo upload step: <strong>"Your photo is processed by AI (FASHN.AI) to generate a try-on preview. The image is not stored after your session."</strong></li>
-          <li>Include a link to the VTO vendor's privacy policy.</li>
-          <li>Confirm with FASHN.AI / Kivisense: are user photos stored after processing? If yes — explicit GDPR consent required before upload.</li>
-        </ul>
+        Add text above the upload button: <strong>"Your photo is sent to [vendor] AI to generate a try-on preview and is not stored after processing."</strong> Include a link to the vendor's privacy policy.
       </div>
     </div>
 
     <!-- Row C: GDPR intersection -->
     <div class="vto-row">
       <div class="vto-cell row-law">
-        <span class="vto-row-label">GDPR — Data processing terms (Art. 28)</span>
-        GDPR Art. 28 requires a written agreement covering how a third-party vendor processes personal data on your behalf. When you sign up for FASHN.AI or Kivisense and accept their Terms of Service, those terms include their data processing terms. Accepting the ToS at sign-up satisfies Art. 28 — no separate document to negotiate or sign.
+        <span class="vto-row-label">GDPR — Data processing (Art. 28)</span>
+        Accepting the vendor's ToS at sign-up satisfies GDPR Art. 28. No separate contract to negotiate or sign.
       </div>
       <div class="vto-cell row-impact">
         <span class="vto-row-label" style="color:var(--amber)">Impact</span>
-        No extra paperwork. The same ToS you accept when creating an account and paying per image already covers this. Standard practice for every API-first SaaS (OpenAI, Stripe, Twilio — same model).<br/><br/>
-        <span class="vendor-tag">FASHN.AI</span> pay-per-image and <span class="vendor-tag">Kivisense</span> monthly plans both work this way.
+        No extra paperwork. Sign up, accept ToS — same as OpenAI, Stripe, any SaaS API.
       </div>
       <div class="vto-cell row-action">
-        <span class="vto-row-label" style="color:var(--green)">Action — one check before EU launch</span>
-        <ul>
-          <li>When signing up: read the vendor's Privacy Policy and confirm what happens to uploaded photos — are they stored after processing, and for how long?</li>
-          <li>If images are not stored after processing: no further action needed.</li>
-          <li>If images are retained: confirm their data residency (EU servers or US with SCCs).</li>
-        </ul>
-        <div style="margin-top:10px;font-size:11.5px;color:var(--sub);line-height:1.5">This is a 5-minute read of the vendor's privacy policy — not a legal process.</div>
+        <span class="vto-row-label" style="color:var(--green)">Action</span>
+        When signing up: check the vendor's Privacy Policy — are photos stored after processing? If not stored: nothing else to do. If retained: confirm data residency (EU servers or SCCs).
       </div>
     </div>
 
@@ -555,23 +512,16 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
           <span class="area-card-badge badge-action">Applicable if used</span>
         </div>
         <div class="card-row row-law">
-          <div class="card-row-label law">Law — Art. 50.2</div>
-          <div class="card-row-body">Art. 50.2 covers <strong>audio</strong> alongside images and video. AI tool providers must embed machine-readable C2PA metadata in synthetic audio outputs. Art. 50.4 applies to AI-generated audio that could be mistaken for a real person's voice (audio deepfake) — visible disclosure required.</div>
+          <div class="card-row-label law">Law — Art. 50.2 + 50.4</div>
+          <div class="card-row-body">AI-generated audio that could be mistaken for a real person's voice requires visible disclosure.</div>
         </div>
         <div class="card-row row-impact">
           <div class="card-row-label impact">What this means for SMTHG</div>
-          <div class="card-row-body">Applies if SMTHG uses AI voiceovers for video content, Reels, ads, or platform audio. Tools like ElevenLabs, Murf, or Descript AI voices do not currently embed C2PA by default. A realistic AI voice that sounds like a real person is a "deepfake" under 50.4 and requires visible disclosure.</div>
+          <div class="card-row-body">Applies if SMTHG uses AI voiceovers in video, Reels, or ads. No AI audio at launch = no action needed.</div>
         </div>
         <div class="card-row row-action">
-          <div class="card-row-label action">How to solve it</div>
-          <div class="card-row-body">
-            <ul>
-              <li>If using AI voiceover in any video: add <strong>"AI voiceover"</strong> in the video description or end credits.</li>
-              <li>For Instagram Reels: add text overlay or caption note "AI-generated voice".</li>
-              <li>Check whether the audio tool in use supports C2PA export — if yes, enable it.</li>
-              <li>If no AI audio planned at launch: no action needed now.</li>
-            </ul>
-          </div>
+          <div class="card-row-label action">Action</div>
+          <div class="card-row-body">If using AI voiceover: add <strong>"AI voiceover"</strong> in video description, end credits, or caption.</div>
         </div>
       </div>
 
@@ -584,28 +534,15 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         </div>
         <div class="card-row row-law">
           <div class="card-row-label law">Law — Art. 50.5</div>
-          <div class="card-row-body">All disclosures under Art. 50.1–50.4 must be delivered <strong>at the time of first interaction or first exposure</strong> — not buried in ToS, privacy policy, or a help article. They must also meet EU accessibility requirements (equivalent to WCAG 2.1 AA: readable, sufficient contrast, screen-reader compatible).</div>
+          <div class="card-row-body">All disclosures must be shown at first interaction — not buried in ToS or a help article. Must be readable and accessible (sufficient contrast).</div>
         </div>
         <div class="card-row row-impact">
           <div class="card-row-label impact">What this means for SMTHG</div>
-          <div class="card-row-body">
-            <ul>
-              <li><strong>Chatbot:</strong> AI disclosure must be message #1 — not after the user asks a question.</li>
-              <li><strong>VTO:</strong> Biometric notice must appear before the photo upload step, not after processing.</li>
-              <li><strong>AI image labels:</strong> must be visible at the moment the image loads, not only on hover or scroll.</li>
-              <li><strong>Accessibility:</strong> AI label text must have sufficient contrast; add alt text to any AI badge icon.</li>
-            </ul>
-          </div>
+          <div class="card-row-body">Disclosures cannot be in a footer or settings page. Chatbot disclosure = message #1. VTO notice = before the upload button. Image labels = visible on load, not hover-only.</div>
         </div>
         <div class="card-row row-action">
-          <div class="card-row-label action">How to solve it</div>
-          <div class="card-row-body">
-            <ul>
-              <li>In product design: position all AI disclosures at the start of each user flow — validate in QA.</li>
-              <li>AI badge on images: minimum contrast ratio 4.5:1 (WCAG AA). Add <code>aria-label="AI-generated image"</code> to the badge element.</li>
-              <li>Chatbot: first message is hardcoded, not triggered by user input.</li>
-            </ul>
-          </div>
+          <div class="card-row-label action">Action</div>
+          <div class="card-row-body">This is a placement rule — no extra work beyond implementing each disclosure correctly per the cards above.</div>
         </div>
       </div>
 
@@ -627,15 +564,11 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         </div>
         <div class="card-row row-law">
           <div class="card-row-label law">Law — Art. 50.3</div>
-          <div class="card-row-body">Deployers of AI systems that <strong>recognise emotions</strong> (from facial expressions, voice, body language, or text) must inform individuals before the system processes them. Separate from biometric categorisation — emotion recognition is its own named category.</div>
+          <div class="card-row-body">AI systems that infer emotions from face, voice, or behaviour must disclose this before processing the user.</div>
         </div>
         <div class="card-row row-impact">
           <div class="card-row-label impact">Why not applicable</div>
-          <div class="card-row-body">SMTHG does not deploy emotion recognition at MVP. No tool that infers shopper emotional state (joy, frustration, interest) from face, voice, or behaviour is in the architecture. If this changes — for example, AI engagement scoring that reads facial reactions to product images — the obligation activates immediately.</div>
-        </div>
-        <div class="card-row row-action">
-          <div class="card-row-label action">When to revisit</div>
-          <div class="card-row-body">Before adding any AI feature that analyses <em>how</em> users react to content (heatmaps using face tracking, video engagement AI, sentiment inferred from facial expression). At that point: pre-session disclosure required, same format as VTO biometric notice.</div>
+          <div class="card-row-body">SMTHG does not use emotion recognition. No tool infers shopper emotional state in the current architecture.</div>
         </div>
       </div>
 
@@ -648,15 +581,11 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         </div>
         <div class="card-row row-law">
           <div class="card-row-label law">Law — Art. 50.6</div>
-          <div class="card-row-body">Art. 50 does not replace or reduce obligations under other EU laws. GDPR, the Digital Services Act (DSA), the ePrivacy Directive, and national laws all continue to apply independently. AI Act transparency is the <em>floor</em>, not the full picture.</div>
+          <div class="card-row-body">Cross-reference clause — Art. 50 does not replace GDPR, DSA, or other EU laws. They all apply independently.</div>
         </div>
         <div class="card-row row-impact">
           <div class="card-row-label impact">Why not applicable</div>
-          <div class="card-row-body">Art. 50.6 is a cross-reference clause — it creates no new obligation on its own. DSA heavy obligations (algorithmic transparency reports, independent audits) apply only to Very Large Online Platforms with &gt;45M EU monthly active users. SMTHG is far below that threshold. GDPR and DPA obligations are covered in the VTO section.</div>
-        </div>
-        <div class="card-row row-action">
-          <div class="card-row-label action">When to revisit</div>
-          <div class="card-row-body">No separate action required. Review if SMTHG crosses DSA thresholds (45M EU MAU) — at that scale, algorithmic transparency and independent audit obligations activate.</div>
+          <div class="card-row-body">No new obligation created by this paragraph. GDPR is covered in the VTO section. DSA heavy obligations (audits, transparency reports) only apply to platforms with &gt;45M EU MAU — not SMTHG.</div>
         </div>
       </div>
 
@@ -669,17 +598,11 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         </div>
         <div class="card-row row-law">
           <div class="card-row-label law">Law — Art. 50.7</div>
-          <div class="card-row-body">The EU AI Office will develop voluntary codes of practice to help companies implement C2PA detection, labelling standards, and verification methods. The European Commission may later adopt implementing acts that make specific technical standards mandatory.</div>
+          <div class="card-row-body">The EU AI Office will publish voluntary codes of practice on C2PA and labelling standards. Not yet published as of August 2026.</div>
         </div>
         <div class="card-row row-impact">
           <div class="card-row-label impact">Why not applicable</div>
-          <div class="card-row-body">The codes of practice are not yet published (as of August 2026). When released, they will provide more specific guidance on compliant technical standards. Following them will be best practice, not a legal requirement unless the Commission converts them into binding implementing acts.</div>
-        </div>
-        <div class="card-row row-action">
-          <div class="card-row-label action">When to revisit</div>
-          <div class="card-row-body">Monitor EU AI Office publications. When codes of practice for C2PA and content labelling are published, review against current SMTHG implementation.
-            <span class="src"><a href="https://digital-strategy.ec.europa.eu/en/policies/ai-office" target="_blank" rel="noopener">EU AI Office</a></span>
-          </div>
+          <div class="card-row-body">Nothing actionable until codes are published. They are voluntary unless the Commission converts them to binding implementing acts.</div>
         </div>
       </div>
 
