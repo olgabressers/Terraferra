@@ -187,6 +187,41 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
     </table>
 
     <div class="box box-amber" style="margin-top:16px">Not verified: EU/UK import-side restrictions on Russian-origin goods, and whether Boxberry/CDEK/Russian Post provide in-house brokerage the way DHL does. Only RU→US via DHL is confirmed end-to-end.</div>
+
+    <div style="font-size:14px;font-weight:800;margin:24px 0 10px">Who is the broker, and what does it cost</div>
+    <table class="dtable">
+      <thead>
+        <tr>
+          <th>Path</th>
+          <th>Who files with CBP</th>
+          <th>Bond</th>
+          <th>Broker fee</th>
+          <th>Duty</th>
+          <th>Extra effort beyond freight</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>DHL Express</td>
+          <td class="yes">DHL — they are the broker</td>
+          <td class="yes">Covered by DHL's own bond</td>
+          <td class="warn">Not broken out — folded into DHL clearance fee, exact amount unconfirmed</td>
+          <td>~12–20% of value, billed separately (DDU) unless DTP is booked</td>
+          <td class="yes">None — DHL handles filing</td>
+        </tr>
+        <tr style="background:#fafafa">
+          <td>Boxberry / Russian Post / CDEK</td>
+          <td class="no">TF or brand, as importer of record — self-file or hire a broker</td>
+          <td class="no">$50–100 single-entry, or ~$500–700/yr continuous (breakeven ~4–5 shipments/yr)</td>
+          <td class="no">$75–150/entry if a broker is hired</td>
+          <td>Same ~12–20%, no threshold</td>
+          <td class="no">Real — someone has to source a broker and manage this per shipment</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="src">Sources: <a href="https://customsbrokerindex.com/blog/how-much-does-a-customs-broker-cost/" target="_blank" rel="noopener">customsbrokerindex.com ↗</a> · <a href="https://borderbuddy.com/blog/single-entry-customs-bond" target="_blank" rel="noopener">borderbuddy.com — bond costs ↗</a> · <a href="https://www.dhl.com/us-en/home/express/products-and-solutions/products-and-services-overview/customs-services.html" target="_blank" rel="noopener">DHL customs services ↗</a></div>
+
+    <div class="box box-green" style="margin-top:16px"><strong>Global-e / similar MoR services — not worth it yet.</strong> Global-e would remove this problem entirely (they become the legal importer, handle duty + brokerage), but per the original platform research they don't natively support multi-vendor drop-ship, have no documented Russia-origin support, and price on a custom revenue-share with no public rate. Right call for later, at real volume — not for one Russia-origin brand at MVP. Use DHL's bundled brokerage instead.</div>
   </div>
 
   <!-- SECTION 02 -->
