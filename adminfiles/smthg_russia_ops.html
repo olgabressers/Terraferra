@@ -22,6 +22,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 /* NAV */
 .topnav{background:white;border-bottom:1px solid var(--rule);padding:12px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
 .topnav-home{font-weight:800;letter-spacing:2px;color:var(--ink);text-decoration:none;font-size:11px}
+.topnav-home:hover{color:var(--ink)}
 .topnav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
 .topnav-links a{color:var(--sub);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:10px}
 .topnav-links a:hover{color:var(--tf)}
@@ -53,8 +54,6 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .box{padding:14px 18px;margin-bottom:16px;font-size:13px;color:var(--ink);line-height:1.6;border:1px solid;border-left-width:4px}
 .box-green{background:var(--green-bg);border-color:#6EE7B7;border-left-color:var(--green)}
 .box-amber{background:var(--amber-bg);border-color:#FCD34D;border-left-color:var(--amber)}
-.box-red{background:var(--red-bg);border-color:#f0b4b0;border-left-color:var(--red)}
-.box-tf{background:var(--tf-ghost);border-color:var(--rule);border-left-color:var(--tf)}
 
 /* TABLES */
 .dtable{width:100%;border-collapse:collapse;font-size:13px;margin-top:4px}
@@ -79,7 +78,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 
 /* FLOW STEPS */
 .flow{counter-reset:step;margin-top:8px}
-.flow-step{display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--rule)}
+.flow-step{display:flex;gap:16px;padding:12px 0;border-bottom:1px solid var(--rule)}
 .flow-step:last-child{border-bottom:none}
 .flow-num{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--tf);color:white;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
 .flow-body{font-size:13px;color:var(--ink);line-height:1.6;padding-top:3px}
@@ -107,7 +106,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
 
   <div class="pg-eyebrow">Operations · Internal</div>
   <h1 class="pg-title">Russia → US Shipping Operations — MVP Route</h1>
-  <div class="pg-sub">How a Russia-based brand sells on the platform and ships direct to a US consumer at MVP. Costs, carriers, documents, and returns. Research current as of August 2026 — carrier status changes fast for Russia routes, re-verify before relying on this for a live launch.</div>
+  <div class="pg-sub">Research current as of August 2026 — re-verify carrier status before a live launch.</div>
 
   <div class="concl-box">
     <div class="concl-label">Verdict</div>
@@ -117,7 +116,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <div class="stat-grid">
     <div class="stat-card">
       <div class="stat-label">Model</div>
-      <div class="stat-val">Marketplace<br><span style="font-size:11px;font-weight:400;color:var(--sub)">TF collects payment, brand ships</span></div>
+      <div class="stat-val">Marketplace<br><span style="font-size:11px;font-weight:400;color:var(--sub)">TF collects, brand ships</span></div>
     </div>
     <div class="stat-card">
       <div class="stat-label">Carrier (outbound)</div>
@@ -125,15 +124,15 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
     </div>
     <div class="stat-card">
       <div class="stat-label">Shipping cost</div>
-      <div class="stat-val">$540–$720<br><span style="font-size:11px;font-weight:400;color:var(--sub)">1kg parcel, per shipment</span></div>
+      <div class="stat-val">$540–$720<br><span style="font-size:11px;font-weight:400;color:var(--sub)">per parcel</span></div>
     </div>
     <div class="stat-card">
       <div class="stat-label">TF paperwork</div>
-      <div class="stat-val">None<br><span style="font-size:11px;font-weight:400;color:var(--sub)">under $800/item — de minimis</span></div>
+      <div class="stat-val">None<br><span style="font-size:11px;font-weight:400;color:var(--sub)">under $800/item</span></div>
     </div>
     <div class="stat-card">
       <div class="stat-label">Returns</div>
-      <div class="stat-val">CDEK Global<br><span style="font-size:11px;font-weight:400;color:var(--sub)">$27, 4–6 days · not DHL/FedEx</span></div>
+      <div class="stat-val">CDEK Global<br><span style="font-size:11px;font-weight:400;color:var(--sub)">$27, 4–6 days</span></div>
     </div>
   </div>
 
@@ -141,7 +140,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <div class="section" id="s01">
     <div class="sec-heading"><span class="sec-num">01</span>Customs &amp; Compliance — by Route</div>
 
-    <div class="box box-green">RU→US and EU→US carry the same customs logic: neither has a US free trade agreement, so both fall under standard MFN tariff treatment. Below $800 goods value, both clear automatically with zero formal customs entry.</div>
+    <div class="box box-green">RU, EU, and UK have no US free trade agreement — same MFN tariff treatment for all three. Below $800 goods value, all clear automatically with zero formal customs entry.</div>
 
     <table class="dtable">
       <thead>
@@ -158,72 +157,37 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         <tr>
           <td>Russia</td>
           <td>US</td>
-          <td><strong>Under $800/item:</strong> Section 321 de minimis — no duty, no formal entry, carrier clears automatically.<br><strong>$800+/item:</strong> formal customs entry + US MFN duty (~12–20% typical apparel range).<br>No FTA exists between Russia and the US — no origin certificate available at any value.</td>
-          <td><span class="warn">Brand:</span> commercial invoice, packing list, country-of-origin label — all auto-generated by DHL at booking.<br><span class="yes">TF:</span> nothing.</td>
-          <td><span class="yes">Zero</span> under $800. US state sales tax is a Stripe Tax toggle, not a filing.</td>
-          <td><span class="green">Low</span> (under $800)</td>
+          <td><strong>Under $800/item:</strong> no duty, no formal entry, carrier clears automatically.<br><strong>$800+/item:</strong> formal entry + US MFN duty (~12–20% typical apparel range). No RU-US FTA — no origin certificate at any value.</td>
+          <td><span class="warn">Brand:</span> commercial invoice, packing list, country-of-origin label — auto-generated by DHL at booking.<br><span class="yes">TF:</span> nothing.</td>
+          <td><span class="yes">Zero</span> under $800. US sales tax = Stripe Tax toggle.</td>
+          <td><span class="green">Low</span></td>
         </tr>
         <tr style="background:#fafafa">
           <td>EU</td>
           <td>US</td>
-          <td>Same $800 de minimis logic. No US-EU FTA — same MFN duty above threshold.</td>
-          <td><span class="warn">Brand:</span> same document set, DHL/FedEx generate automatically.<br><span class="yes">TF:</span> nothing.</td>
+          <td>Same $800 de minimis. No US-EU FTA — same MFN duty above threshold.</td>
+          <td><span class="warn">Brand:</span> same documents, carrier-generated.<br><span class="yes">TF:</span> nothing.</td>
           <td><span class="yes">Zero</span> under $800.</td>
-          <td><span class="green">Low</span> (under $800)</td>
+          <td><span class="green">Low</span></td>
         </tr>
         <tr>
+          <td>UK</td>
           <td>US</td>
-          <td>Russia <span style="font-weight:400;color:var(--sub);font-size:11px">(returns)</span></td>
-          <td>DHL/FedEx/UPS do not accept inbound-to-Russia shipments — suspended since 2022, unchanged as of Aug 2026. Russian Post resumed US-origin mail/parcels via "Pochta Global" (late May 2026). CDEK Global operates a weekly consolidated freight route.</td>
-          <td><span class="warn">Brand or TF:</span> whoever books the return label, via CDEK or Russian Post — not DHL/FedEx/UPS.</td>
-          <td><span class="yes">Zero</span> — same de minimis logic once a working carrier is used.</td>
-          <td><span class="warn">Medium</span> — carrier choice is the constraint, not customs</td>
+          <td>Same $800 de minimis. No US-UK FTA — same MFN duty above threshold.</td>
+          <td><span class="warn">Brand:</span> same documents, carrier-generated.<br><span class="yes">TF:</span> nothing.</td>
+          <td><span class="yes">Zero</span> under $800.</td>
+          <td><span class="green">Low</span></td>
         </tr>
       </tbody>
     </table>
 
-    <div class="box box-amber" style="margin-top:16px"><strong>Not verified in this research:</strong> EU/UK import-side restrictions on goods of Russian origin. TFrussia.html covers US sanctions law (OFAC/BIS) only — it does not confirm whether Russian-origin goods can lawfully enter the EU or UK. Only the RU→US route is cleared here.</div>
+    <div class="box box-amber" style="margin-top:16px">Not verified: EU/UK import-side restrictions on Russian-origin goods. Only RU→US is confirmed here.</div>
   </div>
 
   <!-- SECTION 02 -->
   <div class="section" id="s02">
-    <div class="sec-heading"><span class="sec-num">02</span>Marketplace vs Affiliate — Which Model for This Route</div>
-
-    <div class="box box-tf">TF can operate as a <strong>marketplace</strong> (owns the transaction, collects payment, handles tax, pays co-creator revenue shares automatically) or as an <strong>affiliate network</strong> (links out to the brand's own site, brand handles checkout and compliance, TF earns a tracked commission). Cross-border routes into the EU/UK force the affiliate model because TF becomes the VAT deemed supplier the moment it collects payment. The US route does not have this problem — the $800 de minimis means there's nothing for TF to be deemed supplier of below that value.</div>
-
-    <table class="dtable">
-      <thead>
-        <tr>
-          <th>Model</th>
-          <th>Who collects payment</th>
-          <th>TF's VAT/customs obligation</th>
-          <th>Co-creator payout automation</th>
-          <th>Right for RU→US MVP?</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Marketplace</td>
-          <td>TF (Stripe)</td>
-          <td class="yes">None under $800 — no IOSS/UK-VAT equivalent exists for the US</td>
-          <td class="yes">Automatic, per-order (Stripe Connect)</td>
-          <td class="yes">Yes — this is the route to use</td>
-        </tr>
-        <tr style="background:#fafafa">
-          <td>Affiliate</td>
-          <td>Brand, on their own site</td>
-          <td class="yes">None — TF never touches the transaction</td>
-          <td class="no">Manual, delayed, based on brand-reported sales</td>
-          <td class="warn">Unnecessary here — only needed for EU/UK-bound orders</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- SECTION 03 -->
-  <div class="section" id="s03">
-    <div class="sec-heading"><span class="sec-num">03</span>Shipping Cost — Outbound (Brand → US Consumer)</div>
-    <div class="box box-green">Real quotes pulled directly from carrier calculators for a 1kg / 30×10×40cm parcel, Moscow → New York, August 2026. RUB converted at ≈81₽/$1.</div>
+    <div class="sec-heading"><span class="sec-num">02</span>Shipping Cost — Outbound (Brand → US Consumer)</div>
+    <div class="box box-green">1kg / 30×10×40cm parcel, Moscow → New York, August 2026. RUB at ≈81₽/$1.</div>
 
     <table class="dtable">
       <thead>
@@ -238,47 +202,47 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
       <tbody>
         <tr>
           <td>DHL Express</td>
-          <td>Drop off at DHL office (online booking rate)</td>
+          <td>Drop off at DHL office</td>
           <td><strong>43,718 ₽ · ≈$540</strong></td>
           <td>7 business days</td>
-          <td class="yes">Recommended — cheaper of the two DHL options, meets the 7–14 day window</td>
+          <td class="yes">Recommended</td>
         </tr>
         <tr style="background:#fafafa">
           <td>DHL Express</td>
           <td>Online courier pickup</td>
           <td><strong>58,291 ₽ · ≈$720</strong></td>
           <td>7 business days</td>
-          <td class="warn">Same speed, ~33% more expensive for pickup convenience</td>
+          <td>~33% more for pickup convenience</td>
         </tr>
         <tr>
           <td>Russian Post</td>
           <td>"Посылка" (parcel), air</td>
           <td><strong>4,285 ₽ · ≈$53</strong></td>
-          <td class="no">15–90 days (general postal estimate, not order-specific)</td>
-          <td class="no">10x cheaper but misses the 7–14 day target — not viable for MVP speed requirement</td>
+          <td class="no">15–90 days</td>
+          <td class="no">Too slow for MVP window</td>
         </tr>
       </tbody>
     </table>
     <div class="src">Sources: DHL Express Russia live calculator (express.dhl.ru) · <a href="https://postprice.ru/international/" target="_blank" rel="noopener">postprice.ru Russian Post calculator ↗</a></div>
   </div>
 
-  <!-- SECTION 04 -->
-  <div class="section" id="s04">
-    <div class="sec-heading"><span class="sec-num">04</span>Order Flow</div>
+  <!-- SECTION 03 -->
+  <div class="section" id="s03">
+    <div class="sec-heading"><span class="sec-num">03</span>Order Flow</div>
     <div class="flow">
-      <div class="flow-step"><div class="flow-num">1</div><div class="flow-body"><strong>Customer pays on the SMTHG platform.</strong> Stripe collects payment and US sales tax (Stripe Tax, automatic toggle).</div></div>
-      <div class="flow-step"><div class="flow-num">2</div><div class="flow-body"><strong>SMTHG notifies the Russian brand</strong> of the order — standard drop-ship notification, same as any other brand on the platform.</div></div>
-      <div class="flow-step"><div class="flow-num">3</div><div class="flow-body"><strong>Brand packs the item and books DHL</strong> themselves via the DHL Express Russia site or office.</div></div>
-      <div class="flow-step"><div class="flow-num">4</div><div class="flow-body"><strong>DHL generates the commercial invoice, packing list, and waybill</strong> automatically at booking, and clears US customs itself under the $800 de minimis — no formal entry, no license.</div></div>
-      <div class="flow-step"><div class="flow-num">5</div><div class="flow-body"><strong>Brand ships direct to the US customer.</strong> SMTHG never touches the physical goods.</div></div>
-      <div class="flow-step"><div class="flow-num">6</div><div class="flow-body"><strong>Stripe splits the payment</strong> — brand's share goes to their non-Russian bank account (Georgian, Armenian, or EU — required since Russian accounts can't receive Stripe/Wise payouts), SMTHG keeps commission.</div></div>
+      <div class="flow-step"><div class="flow-num">1</div><div class="flow-body">Customer pays on the platform. Stripe collects payment + US sales tax (Stripe Tax, automatic).</div></div>
+      <div class="flow-step"><div class="flow-num">2</div><div class="flow-body">SMTHG notifies the brand of the order.</div></div>
+      <div class="flow-step"><div class="flow-num">3</div><div class="flow-body">Brand packs the item and books DHL.</div></div>
+      <div class="flow-step"><div class="flow-num">4</div><div class="flow-body">DHL generates the invoice, packing list, and waybill, and clears US customs under the $800 de minimis.</div></div>
+      <div class="flow-step"><div class="flow-num">5</div><div class="flow-body">Brand ships direct to the customer. SMTHG never touches the goods.</div></div>
+      <div class="flow-step"><div class="flow-num">6</div><div class="flow-body">Stripe splits the payment — brand's share to their non-Russian bank account (Georgian, Armenian, or EU), SMTHG keeps commission.</div></div>
     </div>
   </div>
 
-  <!-- SECTION 05 -->
-  <div class="section" id="s05">
-    <div class="sec-heading"><span class="sec-num">05</span>Returns (US Consumer → Russia Brand)</div>
-    <div class="box box-amber">DHL, FedEx, and UPS do not accept shipments <em>into</em> Russia — suspended since 2022, still true in August 2026. This is the opposite direction from outbound (§03), which never stopped. Returns need a different carrier.</div>
+  <!-- SECTION 04 -->
+  <div class="section" id="s04">
+    <div class="sec-heading"><span class="sec-num">04</span>Returns (US Consumer → Russia Brand)</div>
+    <div class="box box-amber">DHL, FedEx, and UPS do not accept shipments into Russia — suspended since 2022. Outbound (§02) is unaffected; only this direction is blocked for those three carriers.</div>
 
     <table class="dtable">
       <thead>
@@ -292,31 +256,30 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
       <tbody>
         <tr>
           <td>DHL / FedEx / UPS</td>
-          <td class="no">Not available — inbound to Russia suspended since 2022</td>
+          <td class="no">Not available</td>
           <td>—</td>
           <td>—</td>
         </tr>
         <tr style="background:#fafafa">
           <td>CDEK Global</td>
-          <td class="yes">Available — weekly consolidated freight from the US</td>
-          <td><strong>2,209 ₽ · ≈$27</strong> (Standard tariff, to-door, Zone 1)</td>
+          <td class="yes">Available — weekly consolidated freight</td>
+          <td><strong>2,209 ₽ · ≈$27</strong></td>
           <td>4–6 days</td>
         </tr>
         <tr>
           <td>Russian Post / Pochta Global</td>
-          <td class="yes">Resumed late May 2026 after 2022 suspension</td>
-          <td class="warn">Not quoted — needs a live calculator run</td>
+          <td class="yes">Resumed late May 2026</td>
+          <td class="warn">Not quoted</td>
           <td class="warn">Not verified</td>
         </tr>
       </tbody>
     </table>
     <div class="src">Sources: <a href="https://global.cdek.ru/price" target="_blank" rel="noopener">CDEK Global pricing ↗</a> · <a href="https://www.themoscowtimes.com/2026/06/04/russian-post-resumes-us-mail-and-package-deliveries-a92930" target="_blank" rel="noopener">Moscow Times — Russian Post resumes US deliveries ↗</a></div>
-    <div class="box box-tf" style="margin-top:16px">Recommendation: route returns through <strong>CDEK Global</strong> — cheapest verified option and fastest, well inside a workable return window. Who pays (consumer vs brand vs TF-absorbed) is a policy decision, not a compliance one — no customs paperwork either way under $800.</div>
   </div>
 
-  <!-- SECTION 06 -->
-  <div class="section" id="s06">
-    <div class="sec-heading"><span class="sec-num">06</span>What TF Does vs What the Brand Does</div>
+  <!-- SECTION 05 -->
+  <div class="section" id="s05">
+    <div class="sec-heading"><span class="sec-num">05</span>What TF Does vs What the Brand Does</div>
     <table class="dtable">
       <thead>
         <tr>
@@ -333,33 +296,33 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         </tr>
         <tr style="background:#fafafa">
           <td>US sales tax</td>
-          <td class="yes">Yes — Stripe Tax, automatic toggle, no filing</td>
+          <td class="yes">Yes — Stripe Tax, automatic</td>
           <td>—</td>
         </tr>
         <tr>
-          <td>Commercial invoice / packing list / waybill</td>
+          <td>Invoice / packing list / waybill</td>
           <td>—</td>
-          <td class="warn">Brand enters item + value when booking DHL; DHL generates the documents</td>
+          <td class="warn">Brand enters item + value at DHL booking; DHL generates the documents</td>
         </tr>
         <tr style="background:#fafafa">
           <td>Customs clearance</td>
           <td>—</td>
-          <td class="yes">Automatic via DHL under $800 de minimis — no action needed</td>
+          <td class="yes">Automatic via DHL under $800 de minimis</td>
         </tr>
         <tr>
           <td>Physical shipping</td>
           <td>—</td>
-          <td class="yes">Brand books and ships direct — TF never touches goods</td>
+          <td class="yes">Brand books and ships direct</td>
         </tr>
         <tr style="background:#fafafa">
           <td>Non-Russian bank account for payout</td>
           <td>—</td>
-          <td class="warn">Required — Georgian, Armenian, or EU account. Russian accounts can't receive Stripe/Wise payouts.</td>
+          <td class="warn">Required — Georgian, Armenian, or EU account</td>
         </tr>
         <tr>
           <td>IOSS / UK VAT / origin certificates</td>
-          <td class="yes">None needed — US-only route</td>
-          <td class="yes">None needed</td>
+          <td class="yes">None — US-only route</td>
+          <td class="yes">None</td>
         </tr>
       </tbody>
     </table>
