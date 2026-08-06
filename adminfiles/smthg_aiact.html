@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>EU AI Act — Transparency Requirements · SMTHG</title>
+<link rel="icon" type="image/svg+xml" href="smthg_favicon.svg"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --tf:#E8002D;--tf-dark:#B50023;--tf-ghost:#F1EEE9;
+  --orange:#E8002D;--off-white:#F8F6F2;--ink:#161616;
+  --sub:#5C5A56;--rule:#E6E2DA;
+  --green:#1A7A4A;--green-bg:#EDFAF3;--green-border:#A7E3C4;
+  --amber:#B45309;--amber-bg:#FFFBEB;--amber-border:#FCD34D;
+  --red:#C0392B;--red-bg:#FDF2F1;--red-border:#F5B7B1;
+  --blue:#1D4ED8;--blue-bg:#EFF6FF;--blue-border:#BFDBFE;
+}
+body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)}
+
+/* NAV */
+.topnav{background:white;border-bottom:1px solid var(--rule);padding:12px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
+.topnav-home{font-weight:800;letter-spacing:2px;color:var(--ink);text-decoration:none;font-size:11px}
+.topnav-links{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:var(--sub);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:10px}
+.topnav-links a:hover{color:var(--tf)}
+.topnav-links a.active{color:var(--orange)}
+.has-dropdown{position:relative;padding-bottom:10px;margin-bottom:-10px}
+.dropdown-trigger{cursor:pointer;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:10px;user-select:none}
+.dropdown-trigger:hover,.has-dropdown:focus-within .dropdown-trigger{color:var(--tf)}
+.dropdown{display:none;position:absolute;top:100%;right:0;background:white;border:1px solid var(--rule);min-width:210px;box-shadow:0 6px 14px rgba(0,0,0,.08);padding:6px 0;z-index:60}
+.has-dropdown:hover .dropdown,.has-dropdown:focus-within .dropdown{display:block}
+.dropdown a{display:block;padding:9px 16px;font-size:10px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:1px;text-decoration:none}
+.dropdown a:hover{background:var(--tf-ghost);color:var(--tf)}
+@media(max-width:700px){
+  .topnav{position:static;padding:10px 14px}
+  .topnav-links{gap:8px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:2px;width:100%}
+  .topnav-links a,.dropdown-trigger{font-size:9.5px;white-space:nowrap}
+  .has-dropdown{padding-bottom:0;margin-bottom:0}
+  .dropdown{display:none!important}
+}
+
+/* LAYOUT */
+.pg-wrap{max-width:1240px;margin:0 auto;padding:40px 48px 80px}
+@media(max-width:700px){.pg-wrap{padding:24px 16px 60px}}
+.pg-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--sub);opacity:.6}
+.pg-title{font-size:clamp(22px,4vw,34px);font-weight:800;letter-spacing:-1px;color:var(--ink);margin-top:14px;line-height:1.15}
+.pg-sub{font-size:13px;color:var(--ink);margin-top:8px;line-height:1.6;max-width:780px}
+
+/* SUMMARY BOX */
+.summary-box{background:white;border:1px solid var(--rule);border-left:4px solid var(--tf);padding:20px 24px;margin-top:24px;font-size:13px;color:var(--ink);line-height:1.7}
+.summary-box ul{list-style:none;padding:0;margin:0}
+.summary-box li{padding:2px 0}
+.summary-box strong{color:var(--tf)}
+
+/* TOC */
+.toc-box{background:white;border:1px solid var(--rule);border-left:4px solid var(--tf);padding:18px 24px;margin:24px 0 0;font-size:13px}
+.toc-box ol{margin:10px 0 0 18px;line-height:2.1}
+.toc-box a{color:var(--tf);text-decoration:none;font-weight:600}
+.toc-box a:hover{color:var(--tf-dark);text-decoration:underline}
+
+/* CARDS GRID */
+.cards-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:32px}
+@media(max-width:900px){.cards-grid{grid-template-columns:1fr}}
+
+/* AREA CARD */
+.area-card{background:white;border:1px solid var(--rule);border-top:3px solid var(--ink);overflow:hidden}
+.area-card-header{padding:20px 24px 16px;border-bottom:1px solid var(--rule)}
+.area-card-num{font-size:10px;font-weight:800;letter-spacing:2px;color:var(--tf);margin-bottom:8px}
+.area-card-title{font-size:17px;font-weight:800;letter-spacing:-.3px;line-height:1.2;color:var(--ink)}
+.area-card-badge{display:inline-block;margin-top:8px;padding:2px 9px;border-radius:3px;font-size:9.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}
+.badge-required{background:var(--red-bg);color:var(--red)}
+.badge-action{background:var(--amber-bg);color:var(--amber)}
+.badge-policy{background:var(--blue-bg);color:var(--blue)}
+
+/* CARD ROWS */
+.card-row{padding:16px 24px;border-bottom:1px solid var(--rule)}
+.card-row:last-child{border-bottom:none}
+.card-row-label{font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:7px}
+.card-row-label.law{color:var(--sub)}
+.card-row-label.impact{color:var(--amber)}
+.card-row-label.action{color:var(--green)}
+.card-row-body{font-size:13px;line-height:1.65;color:var(--ink)}
+.card-row-body ul{margin:6px 0 0 16px}
+.card-row-body li{margin-bottom:4px}
+.card-row-body strong{font-weight:700}
+
+/* ROW TINTS */
+.row-law{background:#FAFAF9}
+.row-impact{background:var(--amber-bg)}
+.row-action{background:var(--green-bg)}
+
+/* PENALTY CARD — full width */
+.penalty-card{background:white;border:1px solid var(--rule);border-top:3px solid var(--red);margin-top:20px;padding:24px}
+.penalty-card-title{font-size:15px;font-weight:800;color:var(--red);margin-bottom:16px}
+.penalty-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:700px){.penalty-grid{grid-template-columns:1fr}}
+.penalty-item{border:1px solid var(--rule);padding:16px}
+.penalty-item-label{font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);margin-bottom:6px}
+.penalty-item-value{font-size:15px;font-weight:800;color:var(--ink);line-height:1.3}
+.penalty-item-note{font-size:11.5px;color:var(--sub);margin-top:5px;line-height:1.5}
+
+/* SOURCE */
+.src{font-size:11px;color:var(--sub);margin-top:5px;display:block}
+.src a{color:var(--tf);text-decoration:none;font-weight:600}
+.src a:hover{text-decoration:underline}
+
+/* BACK TO TOP */
+.back-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--tf);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity .25s;z-index:100;border:none}
+.back-top.visible{opacity:1}
+.back-top:hover{background:var(--tf-dark)}
+.back-top svg{fill:white;width:18px;height:18px;display:block}
+@media(max-width:700px){.back-top{bottom:16px;right:16px;width:38px;height:38px}}
+
+footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);opacity:.5}
+@media(max-width:700px){footer{padding:16px}}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="index.html" class="topnav-home">smthg<span style="color:var(--tf)">.</span></a>
+  <div class="topnav-links">
+    <a href="index.html">Files</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Budget ▾</span>
+      <div class="dropdown">
+        <a href="TFmarketsize.html">Market Size &amp; Opportunity</a>
+        <a href="budget.html">Budget &amp; Sales Scenarios</a>
+      </div>
+    </div>
+    <a href="roles.html">Roles</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Business Model ▾</span>
+      <div class="dropdown">
+        <a href="TFbusinessmodel.html">Comparison Matrix</a>
+        <a href="TFaltmodel.html">Alternative Model</a>
+        <a href="TFmvpcosts.html">MVP Scope &amp; Costs</a>
+        <a href="TFgtm.html">GTM</a>
+        <a href="TFwhynow.html">Why Now</a>
+        <a href="TFdropsmarket.html">Drop Market Research</a>
+        <a href="TFunservedmarket.html">Unserved Market</a>
+        <a href="TFreferral.html">Referral &amp; Viral</a>
+        <a href="TFcreatortoken.html">Creator Payments</a>
+        <a href="TFstylists.html">Stylist Layer</a>
+        <a href="TFvisualdiscovery.html">Visual Discovery</a>
+        <a href="TFbrandsworldwide.html">Fashion Brands Worldwide</a>
+        <a href="TFcommunities.html">Fashion Communities</a>
+      </div>
+    </div>
+    <a href="TFmarketplaces.html" class="active">Operations</a>
+    <a href="architecture.html">Architecture &amp; Tools</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Ideas ▾</span>
+      <div class="dropdown">
+        <a href="gamification.html">Gamification</a>
+        <a href="ideas.html">Ideas &amp; AI Research</a>
+        <a href="influencer.html">Influencer Selling</a>
+        <a href="strategic-brief.html">Strategic Brief</a>
+      </div>
+    </div>
+    <a href="TFnewname.html">Design</a>
+    <a href="TFrussia.html">Legal / Tax</a>
+    <a href="task-tracker.html">Planning</a>
+  </div>
+</nav>
+
+<div class="pg-wrap">
+
+  <div class="pg-eyebrow">Operations · Legal Compliance · Internal</div>
+  <h1 class="pg-title">EU AI Act — Transparency Requirements</h1>
+  <p class="pg-sub">Article 50 applies from 2 August 2026. Covers any company whose products or services are used by EU users — including US-incorporated platforms.</p>
+
+  <div class="summary-box">
+    <ul>
+      <li><strong>In force:</strong> 2 August 2026</li>
+      <li><strong>Regulation:</strong> EU AI Act, Article 50 — Transparency Obligations for Providers and Deployers</li>
+      <li><strong>Who is covered:</strong> Any platform, brand, or tool used by people in the EU — including non-EU companies</li>
+      <li><strong>Penalty:</strong> Up to €15,000,000 or 3% of global annual turnover (whichever is higher) — Article 99.4(g)</li>
+      <li><strong>SMTHG role:</strong> Deployer — using AI tools built by others (ChatGPT, Midjourney, etc.) and publishing the outputs</li>
+    </ul>
+  </div>
+
+  <nav class="toc-box">
+    <strong style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub)">Areas Covered</strong>
+    <ol>
+      <li><a href="#cs">Customer Service &amp; Chatbots</a></li>
+      <li><a href="#content">Campaign Images &amp; Video</a></li>
+      <li><a href="#copy">Marketing Copy &amp; Product Descriptions</a></li>
+      <li><a href="#creators">Creator &amp; Influencer Content on Platform</a></li>
+      <li><a href="#penalties">Penalties &amp; Scope</a></li>
+    </ol>
+  </nav>
+
+  <div class="cards-grid">
+
+    <!-- CARD 1: Customer Service -->
+    <div class="area-card" id="cs">
+      <div class="area-card-header">
+        <div class="area-card-num">01</div>
+        <div class="area-card-title">Customer Service &amp; Chatbots</div>
+        <span class="area-card-badge badge-required">Required</span>
+      </div>
+
+      <div class="card-row row-law">
+        <div class="card-row-label law">Law — Art. 50.1</div>
+        <div class="card-row-body">Any AI system designed to interact directly with people must inform the user they are talking to AI. This must happen at the first interaction, before the conversation continues. Exception: only if it is "obvious" to any reasonable person that the interaction is with an AI.</div>
+      </div>
+
+      <div class="card-row row-impact">
+        <div class="card-row-label impact">What this means for SMTHG</div>
+        <div class="card-row-body">Every AI chatbot deployed for CS — on website, in-app, or via Instagram DM automation — must identify itself as AI in its first message. Applies whether the bot handles designer onboarding, shopper queries, or order tracking.</div>
+      </div>
+
+      <div class="card-row row-action">
+        <div class="card-row-label action">How to solve it</div>
+        <div class="card-row-body">
+          <ul>
+            <li>Configure the bot's opening message to include: <strong>"Hi, I'm SMTHG's AI assistant."</strong></li>
+            <li>In Intercom / Zendesk / any CS tool: set this in the bot's welcome step — one config change, no code.</li>
+            <li>Add this as a mandatory line in the bot script template before any SMTHG chatbot goes live.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 2: Campaign Images & Video -->
+    <div class="area-card" id="content">
+      <div class="area-card-header">
+        <div class="area-card-num">02</div>
+        <div class="area-card-title">Campaign Images &amp; Video</div>
+        <span class="area-card-badge badge-required">Required</span>
+      </div>
+
+      <div class="card-row row-law">
+        <div class="card-row-label law">Law — Art. 50.2 + 50.4</div>
+        <div class="card-row-body"><strong>Art. 50.2:</strong> AI tool providers (OpenAI, Midjourney, Canva) must embed machine-readable metadata (C2PA standard) in generated images and video. <strong>Art. 50.4:</strong> Deployers — including brands publishing that content — must add a visible, human-readable disclosure if the content could be mistaken for real photography or footage.</div>
+      </div>
+
+      <div class="card-row row-impact">
+        <div class="card-row-label impact">What this means for SMTHG</div>
+        <div class="card-row-body">Any AI-generated campaign image, product visual, or lookbook shot posted to Instagram, the website, or the app needs a visible disclosure if it looks like real photography. The machine-readable side is the AI tool's obligation — but visible disclosure (caption or label) is SMTHG's responsibility as the publisher.</div>
+      </div>
+
+      <div class="card-row row-action">
+        <div class="card-row-label action">How to solve it — no Adobe</div>
+        <div class="card-row-body">
+          <ul>
+            <li><strong>ChatGPT / DALL-E:</strong> OpenAI embeds C2PA metadata automatically. Machine-readable requirement met by the tool.</li>
+            <li><strong>Midjourney:</strong> No C2PA embedded. Use Instagram's native <strong>AI label</strong> (Advanced Settings when posting) + add "Created with AI" in caption.</li>
+            <li><strong>All AI images posted publicly:</strong> Add Instagram AI label — always, not case-by-case.</li>
+            <li><strong>Internal rule:</strong> Any image where a real person or product photograph could be assumed → AI label is mandatory before posting.</li>
+          </ul>
+          <span class="src">C2PA standard: <a href="https://c2pa.org/" target="_blank" rel="noopener">c2pa.org</a></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 3: Marketing Copy -->
+    <div class="area-card" id="copy">
+      <div class="area-card-header">
+        <div class="area-card-num">03</div>
+        <div class="area-card-title">Marketing Copy &amp; Product Descriptions</div>
+        <span class="area-card-badge badge-action">Action needed</span>
+      </div>
+
+      <div class="card-row row-law">
+        <div class="card-row-label law">Law — Art. 50.4</div>
+        <div class="card-row-body">AI-generated text published for public consumption must disclose its AI origin. <strong>Exception:</strong> if a human applied substantive editorial review before publication, disclosure is not required. The review must be genuine editing — not just approving the AI draft unchanged.</div>
+      </div>
+
+      <div class="card-row row-impact">
+        <div class="card-row-label impact">What this means for SMTHG</div>
+        <div class="card-row-body">AI-drafted Instagram captions, brand descriptions, campaign copy, email subject lines, and app UI text all fall under this rule when published to EU users. Auto-publishing AI copy without human review requires a disclosure label.</div>
+      </div>
+
+      <div class="card-row row-action">
+        <div class="card-row-label action">How to solve it</div>
+        <div class="card-row-body">
+          <ul>
+            <li><strong>Apply human review to all AI-drafted copy</strong> before posting — a real edit, not rubber-stamp. This removes the disclosure requirement entirely.</li>
+            <li>Add a "copy reviewed" checkpoint to the content SOP: AI drafts → edit → approve → post.</li>
+            <li>Never schedule AI-generated captions to auto-post without a review step in the workflow.</li>
+            <li>For designer-facing copy (onboarding emails, platform notifications): same rule — human reviews before send.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 4: Creator Content -->
+    <div class="area-card" id="creators">
+      <div class="area-card-header">
+        <div class="area-card-num">04</div>
+        <div class="area-card-title">Creator &amp; Influencer Content on Platform</div>
+        <span class="area-card-badge badge-policy">Platform policy</span>
+      </div>
+
+      <div class="card-row row-law">
+        <div class="card-row-label law">Law — Art. 50.4</div>
+        <div class="card-row-body">Creators and influencers who post AI-generated content are themselves deployers and must disclose it. SMTHG as a platform hosting that content is not directly liable for creator uploads — but should have policy in place and tools to support disclosure.</div>
+      </div>
+
+      <div class="card-row row-impact">
+        <div class="card-row-label impact">What this means for SMTHG</div>
+        <div class="card-row-body">Influencers posting AI-generated looks, brand collabs, or product videos on SMTHG must label them. Without a platform policy and tooling, SMTHG could face reputational and operational risk if the platform becomes associated with unlabeled synthetic content — especially in the EU fashion market.</div>
+      </div>
+
+      <div class="card-row row-action">
+        <div class="card-row-label action">How to solve it</div>
+        <div class="card-row-body">
+          <ul>
+            <li><strong>Creator Agreement:</strong> Add clause requiring influencers to disclose AI-generated content at upload — before launch.</li>
+            <li><strong>Onboarding:</strong> Include one-page guide on what requires disclosure and how to label it (Instagram label + caption note).</li>
+            <li><strong>Product roadmap:</strong> Add an "AI-generated" toggle to the post creation flow — same pattern as Instagram. Creator checks it; platform shows the label automatically.</li>
+            <li><strong>No enforcement burden today</strong> — policy + roadmap item is sufficient at MVP stage.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /cards-grid -->
+
+  <!-- PENALTIES — full width -->
+  <div class="penalty-card" id="penalties">
+    <div class="penalty-card-title">05 — Penalties &amp; Scope</div>
+    <div class="penalty-grid">
+      <div class="penalty-item">
+        <div class="penalty-item-label">Maximum fine</div>
+        <div class="penalty-item-value">€15,000,000</div>
+        <div class="penalty-item-note">Or 3% of global annual turnover — whichever is higher. Article 99.4(g).</div>
+      </div>
+      <div class="penalty-item">
+        <div class="penalty-item-label">Who is covered</div>
+        <div class="penalty-item-value">Any company with EU users</div>
+        <div class="penalty-item-note">Applies to non-EU incorporated companies (US, UK, etc.) if their product is used in the EU. SMTHG is covered from day one of EU user activity.</div>
+      </div>
+      <div class="penalty-item">
+        <div class="penalty-item-label">In force since</div>
+        <div class="penalty-item-value">2 August 2026</div>
+        <div class="penalty-item-note">These transparency obligations applied first among all AI Act requirements. No grace period for Article 50.</div>
+      </div>
+    </div>
+    <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--rule);font-size:12.5px;color:var(--sub);line-height:1.7">
+      <strong style="color:var(--ink)">Note on SMEs:</strong> Article 99.6 caps fines for SMEs and startups at the lower of the standard amounts. At SMTHG's current revenue stage, the 3% global turnover threshold would be substantially lower than €15M — but enforcement action, reputational exposure, and EU market access risk remain.
+      <span class="src" style="margin-top:8px">Source: <a href="https://artificialintelligenceact.eu/article/50/" target="_blank" rel="noopener">EU AI Act Art. 50</a> · <a href="https://artificialintelligenceact.eu/article/99/" target="_blank" rel="noopener">Art. 99 (penalties)</a></span>
+    </div>
+  </div>
+
+</div><!-- /pg-wrap -->
+
+<footer>Private · noindex · Not for distribution</footer>
+
+<button class="back-top" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+  <svg viewBox="0 0 24 24"><path d="M12 4l-8 8h5v8h6v-8h5z"/></svg>
+</button>
+
+<script>
+var btt=document.getElementById('btt');
+window.addEventListener('scroll',function(){btt.classList.toggle('visible',window.scrollY>400)});
+</script>
+</body>
+</html>
