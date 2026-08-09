@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Roles &amp; Responsibilities · smthg.</title>
+<link rel="icon" type="image/svg+xml" href="smthg_favicon.svg"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --tf:#E8002D;--tf-dark:#B50023;--tf-ghost:#F1EEE9;
+  --off-white:#F8F6F2;--ink:#161616;--sub:#5C5A56;--rule:#E6E2DA;--card:#FFF;
+}
+body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink);min-height:100vh}
+
+/* NAV */
+.topnav{background:white;border-bottom:1px solid var(--rule);padding:12px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
+.topnav-home{font-weight:800;letter-spacing:2px;color:var(--ink);text-decoration:none;font-size:12px}
+.topnav-home:hover{color:var(--tf-dark)}
+.topnav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:var(--sub);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:11px}
+.topnav-links a:hover{color:var(--tf)}
+.topnav-links a.active{color:var(--tf)}
+.topnav-links .has-dropdown{position:relative;padding-bottom:10px;margin-bottom:-10px}
+.topnav-links .dropdown-trigger{cursor:pointer;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:11px;user-select:none}
+.topnav-links .dropdown-trigger:hover,.topnav-links .has-dropdown:focus-within .dropdown-trigger{color:var(--tf)}
+.topnav-links .dropdown{display:none;position:absolute;top:100%;right:0;background:white;border:1px solid var(--rule);min-width:220px;box-shadow:0 6px 14px rgba(0,0,0,.08);padding:6px 0;z-index:60}
+.topnav-links .has-dropdown:hover .dropdown,.topnav-links .has-dropdown:focus-within .dropdown{display:block}
+.topnav-links .dropdown a{display:block;padding:9px 16px;font-size:11px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:1px;text-decoration:none}
+.topnav-links .dropdown a:hover{background:var(--tf-ghost);color:var(--tf)}
+@media(max-width:700px){
+  .topnav{position:static;padding:10px 14px}
+  .topnav-links{gap:8px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:2px;width:100%}
+  .topnav-links a,.topnav-links .dropdown-trigger{font-size:10.5px;white-space:nowrap}
+  .has-dropdown{padding-bottom:0;margin-bottom:0}
+  .dropdown{display:none!important}
+}
+
+/* WRAP */
+.wrap{max-width:1240px;margin:0 auto;padding:40px 48px 80px}
+@media(max-width:1000px){.wrap{padding:24px 18px 60px}}
+@media(max-width:700px){.wrap{padding:16px 12px 48px}}
+
+/* PAGE HEADER */
+.page-hd{margin-bottom:28px}
+.page-hd h1{font-size:28px;font-weight:800;letter-spacing:-.5px;color:var(--ink);margin-bottom:6px}
+.page-hd p{font-size:15px;color:var(--ink);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.sync-dot{width:8px;height:8px;border-radius:50%;background:#ccc;display:inline-block;flex-shrink:0;transition:background .4s}
+.sync-dot.live{background:#22c55e}
+.sync-dot.err{background:#ef4444}
+.sync-label{font-size:13px;font-weight:700;color:var(--sub)}
+
+/* R&R CARDS */
+.rr-list{display:flex;flex-direction:column;gap:2px}
+.rr-card{background:var(--card);border:1px solid var(--rule);border-left:3px solid var(--tf);padding:16px 20px;display:flex;gap:16px;align-items:flex-start}
+.rr-num{font-size:12px;font-weight:800;color:var(--sub);width:22px;flex-shrink:0;padding-top:3px}
+.rr-body{flex:1;min-width:0}
+.rr-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px;margin-bottom:6px}
+.rr-role{font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--tf);outline:none;cursor:text;border-radius:2px}
+.rr-dash{color:var(--sub);font-weight:700}
+.rr-title{font-size:15px;font-weight:700;color:var(--ink);outline:none;cursor:text;border-radius:2px}
+.rr-desc{font-size:14px;line-height:1.6;color:var(--ink);outline:none;cursor:text;border-radius:2px}
+.rr-role:focus,.rr-title:focus,.rr-desc:focus{background:#FAFAFE;box-shadow:inset 0 0 0 1.5px var(--ink);padding:2px 4px;margin:-2px -4px}
+
+/* SAVING FLASH */
+.saving-flash{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;font-size:12px;font-weight:700;padding:7px 16px;border-radius:4px;letter-spacing:.5px;opacity:0;transition:opacity .3s;pointer-events:none;z-index:999;white-space:nowrap}
+.saving-flash.show{opacity:1}
+
+/* FOOTER */
+footer{border-top:1px solid var(--rule);padding:24px 36px;text-align:center}
+.footer-inner{font-size:11px;color:var(--sub);letter-spacing:.5px}
+
+/* BACK TO TOP */
+#back-to-top{position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:var(--tf);color:#fff;border:none;font-size:18px;display:none;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,.18);z-index:200}
+#back-to-top:hover{background:var(--tf-dark)}
+@media(max-width:700px){#back-to-top{width:38px;height:38px;bottom:16px;right:16px;font-size:16px}}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="index.html" class="topnav-home">smthg<span style="color:var(--tf)">.</span></a>
+  <div class="topnav-links">
+    <a href="index.html">Files</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Budget ▾</span>
+      <div class="dropdown">
+        <a href="TFmarketsize.html">Market Size &amp; Opportunity</a>
+        <a href="budget.html">Budget &amp; Sales Scenarios</a>
+      </div>
+    </div>
+    <a href="roles.html">Roles</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Business Model ▾</span>
+      <div class="dropdown">
+        <a href="TFbusinessmodel.html">Comparison Matrix</a>
+        <a href="TFaltmodel.html">Alternative Model</a>
+        <a href="TFmvpcosts.html">MVP Scope &amp; Costs</a>
+        <a href="TFgtm.html">GTM</a>
+        <a href="TFwhynow.html">Why Now</a>
+        <a href="TFdropsmarket.html">Drop Market Research</a>
+        <a href="TFunservedmarket.html">Unserved Market</a>
+        <a href="TFreferral.html">Referral &amp; Viral</a>
+        <a href="TFcreatortoken.html">Creator Payments</a>
+        <a href="TFstylists.html">Stylist Layer</a>
+        <a href="/psychology-fashion.html">Psychology + Fashion</a>
+        <a href="TFvisualdiscovery.html">Visual Discovery</a>
+        <a href="TFbrandsworldwide.html">Fashion Brands Worldwide</a>
+        <a href="TFcommunities.html">Fashion Communities</a>
+      </div>
+    </div>
+    <a href="TFmarketplaces.html">Operations</a>
+    <a href="architecture.html">Architecture &amp; Tools</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Ideas ▾</span>
+      <div class="dropdown">
+        <a href="gamification.html">Gamification</a>
+        <a href="ideas.html">Ideas &amp; AI Research</a>
+        <a href="influencer.html">Influencer Selling</a>
+        <a href="strategic-brief.html">Strategic Brief</a>
+      </div>
+    </div>
+    <a href="TFsmthgbrands.html">Brands</a>
+    <a href="TFnewname.html">Design</a>
+    <a href="TFrussia.html">Legal / Tax</a>
+    <a href="task-tracker.html">Planning</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <div class="page-hd">
+    <h1>Roles &amp; Responsibilities</h1>
+    <p>smthg<span style="color:var(--tf)">.</span> · shared, editable · changes sync live across all participants
+      &nbsp;<span class="sync-dot" id="sync-dot"></span><span class="sync-label" id="sync-label">Connecting…</span>
+    </p>
+  </div>
+
+  <div class="rr-list" id="rr-list"></div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">Private · noindex · Not for distribution</div>
+</footer>
+
+<div class="saving-flash" id="saving-flash">Saving…</div>
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" title="Back to top">↑</button>
+
+<script>
+(function(){
+var DB   = 'https://terra-ferra-1ac34-default-rtdb.firebaseio.com';
+var ROOT = '/tf-rr/v1';
+
+var fbEntries = {};
+var fbOrder   = [];
+var writeTimers = {};
+
+var DEFAULTS = {
+  order: ['rr-01','rr-02','rr-03','rr-04','rr-05','rr-06','rr-07','rr-08','rr-09','rr-10','rr-11','rr-12','rr-13','rr-14','rr-15','rr-16','rr-17','rr-18','rr-19'],
+  entries: {
+    'rr-01':{role:'Founder',title:'Fundraising, Strategy & Brand Direction',desc:'Brand vision & positioning, capital strategy, investors listing & warm intros, board management, strategic partnerships, advisory.'},
+    'rr-02':{role:'CEO',title:'Fundraising & Investors',desc:'Investor deck, investor relationships & reporting.'},
+    'rr-03':{role:'Founder',title:'Finance & Legal',desc:'C-corp governance, banking setup, budget approval, IP registration US and Worldwide'},
+    'rr-04':{role:'CEO',title:'Finance, Legal & Compliance',desc:'Budgeting, bookkeeping, T&Cs/privacy, KYC/AML compliance, US accounting firm & tax arrangements'},
+    'rr-05':{role:'CTO',title:'Product, Engineering, & Vendors',desc:'Product build, testing/QA, infrastructure, security audit, vendor selection & integration (e-commerce, payment, anti-fraud, CRM, VTO/AI), vendors contracts & management.'},
+    'rr-06':{role:'CTO',title:'Maintenance, Support & Analytics',desc:'Ongoing maintenance, IT users support, ticketing systems mgt, analytics tools & reporting set-up'},
+    'rr-07':{role:'CTO',title:'Shopify',desc:'Setting up ecom, brands technical onboarding, merchandising standards'},
+    'rr-08':{role:'CEO',title:'Operating model set-up',desc:'Operating model design, scope definition, community mechanics definition (need to speak to Circles), MVP target setting and progress monitoring'},
+    'rr-09':{role:'CEO',title:'Operations',desc:'Operations set-up and orders day-to-day operations, consumers support, tickets management, non-IT vendor management, instagram content posting.'},
+    'rr-10':{role:'CEO',title:'Outsourcing',desc:'Establish and manage outsourced services, e.g. Customer support, email marketing, accounting, influencers mgt freelances etc.'},
+    'rr-11':{role:'CEO',title:'Sales',desc:'Commercial positioning (pricing, messaging), target customer profile, demo & pitch process set-up'},
+    'rr-12':{role:'CEO',title:'Marketing',desc:'digital marketing, email marketing, SMM, AI search optimization'},
+    'rr-13':{role:'Creative Director',title:'Creativity & PR',desc:'Brand identity, website look & feel, PR launch, content marketing, US PR agency for press'},
+    'rr-14':{role:'Creative Director',title:'Social Media & Content management',desc:'Content strategy, content plan, content creation (visuals for website, instagram and community).'},
+    'rr-15':{role:'Creative Director',title:'Designers Engagement & Assortment',desc:'Long lists of designers, designer recruitment, drops & assortment definition, digital merchandising, designers retention'},
+    'rr-16':{role:'CEO',title:'Designers Operations',desc:'Short list of designers, onboarding, ongoing support, pay-out management'},
+    'rr-17':{role:'Creative Director',title:'Community',desc:'Establishing community, setting up themes, recruiting founding members, events, community facilitation and support, consumer insights.'},
+    'rr-18':{role:'CEO',title:'Influencers',desc:'Influencers platforms selections, pay-out management. Managing freelancer who will - influencer search, influencer recruitment, daily operations, support.'},
+    'rr-19':{role:'CEO',title:'Business insights',desc:'Reporting cadence, analytics, business directions.'}
+  }
+};
+
+// ── Firebase ──────────────────────────────────────────────
+function furl(path){ return DB+ROOT+(path||'')+'.json'; }
+function fput(path,data){
+  return fetch(furl(path),{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).catch(function(){});
+}
+
+async function init(){
+  setSyncStatus('connecting');
+  try{
+    var r = await fetch(furl());
+    var saved = await r.json();
+    if(saved && saved.entries && saved.order && saved.order.length){
+      fbEntries = saved.entries;
+      fbOrder   = saved.order;
+      var changed = false;
+      DEFAULTS.order.forEach(function(id){
+        if(!fbEntries[id]){ fbEntries[id]=DEFAULTS.entries[id]; changed=true; }
+        if(fbOrder.indexOf(id)<0){ fbOrder.push(id); changed=true; }
+      });
+      if(changed) fput('',{entries:fbEntries,order:fbOrder});
+    } else {
+      fbEntries = JSON.parse(JSON.stringify(DEFAULTS.entries));
+      fbOrder   = DEFAULTS.order.slice();
+      fput('',{entries:fbEntries,order:fbOrder});
+    }
+    setSyncStatus('live');
+  } catch(e){
+    fbEntries = JSON.parse(JSON.stringify(DEFAULTS.entries));
+    fbOrder   = DEFAULTS.order.slice();
+    setSyncStatus('err');
+  }
+  render();
+  startSSE();
+}
+
+function startSSE(){
+  var src = new EventSource(furl()+'?accept=text/event-stream');
+  src.addEventListener('put',   function(e){ try{ handleSSE(JSON.parse(e.data)); }catch(ex){} });
+  src.addEventListener('patch', function(e){ try{ handleSSE(JSON.parse(e.data)); }catch(ex){} });
+  src.onopen  = function(){ setSyncStatus('live'); };
+  src.onerror = function(){ setSyncStatus('err');  };
+}
+
+function handleSSE(p){
+  var path  = (p.path||'/').replace(/^\/+/,'');
+  var val   = p.data;
+  var parts = path.split('/').filter(Boolean);
+  if(parts.length===0){
+    if(val && val.entries) fbEntries = val.entries;
+    if(val && val.order)   fbOrder   = val.order;
+    render(); return;
+  }
+  if(parts[0]==='entries' && parts.length>=2){
+    var id = parts[1];
+    if(!fbEntries[id]) fbEntries[id]={role:'',title:'',desc:''};
+    if(parts.length===2){ fbEntries[id]=val; }
+    else if(parts.length===3){ fbEntries[id][parts[2]]=val; }
+    updateCard(id);
+    return;
+  }
+  if(parts[0]==='order'){ fbOrder = val || []; render(); return; }
+}
+
+// ── Render ────────────────────────────────────────────────
+function render(){
+  var list = document.getElementById('rr-list');
+  list.innerHTML='';
+  fbOrder.forEach(function(id,idx){
+    var e = fbEntries[id]; if(!e) return;
+    var card = document.createElement('div'); card.className='rr-card'; card.id='card-'+id;
+
+    var num = document.createElement('div'); num.className='rr-num';
+    num.textContent = String(idx+1).padStart(2,'0');
+    card.appendChild(num);
+
+    var body = document.createElement('div'); body.className='rr-body';
+
+    var head = document.createElement('div'); head.className='rr-head';
+    var role = document.createElement('span'); role.className='rr-role'; role.contentEditable='true'; role.id='role-'+id;
+    role.textContent = e.role||'';
+    role.addEventListener('blur',function(){ saveField(id,'role',this.textContent.trim()); });
+    role.addEventListener('keydown',function(ev){ if(ev.key==='Enter'){ev.preventDefault();this.blur();} });
+    head.appendChild(role);
+
+    var dash = document.createElement('span'); dash.className='rr-dash'; dash.textContent='—';
+    head.appendChild(dash);
+
+    var title = document.createElement('span'); title.className='rr-title'; title.contentEditable='true'; title.id='title-'+id;
+    title.textContent = e.title||'';
+    title.addEventListener('blur',function(){ saveField(id,'title',this.textContent.trim()); });
+    title.addEventListener('keydown',function(ev){ if(ev.key==='Enter'){ev.preventDefault();this.blur();} });
+    head.appendChild(title);
+
+    body.appendChild(head);
+
+    var desc = document.createElement('div'); desc.className='rr-desc'; desc.contentEditable='true'; desc.id='desc-'+id;
+    desc.textContent = e.desc||'';
+    desc.addEventListener('blur',function(){ saveField(id,'desc',this.textContent.trim()); });
+    body.appendChild(desc);
+
+    card.appendChild(body);
+    list.appendChild(card);
+  });
+}
+
+function updateCard(id){
+  var card = document.getElementById('card-'+id);
+  if(!card){ render(); return; }
+  var e = fbEntries[id]; if(!e) return;
+  ['role','title','desc'].forEach(function(field){
+    var el = document.getElementById(field+'-'+id);
+    if(el && !el.matches(':focus')) el.textContent = e[field]||'';
+  });
+}
+
+function saveField(id,field,value){
+  if(!fbEntries[id]) fbEntries[id]={role:'',title:'',desc:''};
+  fbEntries[id][field]=value;
+  clearTimeout(writeTimers[id+'_'+field]);
+  writeTimers[id+'_'+field]=setTimeout(function(){
+    flashSaving();
+    fput('/entries/'+id+'/'+field,value);
+  },500);
+}
+
+function flashSaving(){
+  var el=document.getElementById('saving-flash'); if(!el) return;
+  el.classList.add('show');
+  clearTimeout(flashSaving._t);
+  flashSaving._t=setTimeout(function(){ el.classList.remove('show'); },900);
+}
+
+function setSyncStatus(state){
+  var dot=document.getElementById('sync-dot'), label=document.getElementById('sync-label');
+  if(!dot) return;
+  dot.classList.remove('live','err');
+  if(state==='live'){ dot.classList.add('live'); label.textContent='Live'; }
+  else if(state==='err'){ dot.classList.add('err'); label.textContent='Offline — edits saved locally'; }
+  else { label.textContent='Connecting…'; }
+}
+
+window.addEventListener('scroll',function(){
+  var b=document.getElementById('back-to-top');
+  b.style.display=window.scrollY>400?'flex':'none';
+});
+
+init();
+})();
+</script>
+</body>
+</html>
