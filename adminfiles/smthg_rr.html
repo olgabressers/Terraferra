@@ -52,9 +52,11 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .sync-dot.err{background:#ef4444}
 .sync-label{font-size:13px;font-weight:700;color:var(--sub)}
 
-.pdf-btn{margin-left:auto;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--tf);background:white;border:1.5px solid var(--tf);border-radius:3px;padding:8px 16px;cursor:pointer;white-space:nowrap}
+.pdf-btn{font-family:'Inter',sans-serif;font-size:12px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--tf);background:white;border:1.5px solid var(--tf);border-radius:3px;padding:8px 16px;cursor:pointer;white-space:nowrap}
 .pdf-btn:hover{background:var(--tf);color:white}
 .page-hd-row{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.pdf-col{margin-left:auto;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.sync-line{display:flex;align-items:center;gap:6px}
 
 /* R&R CARDS */
 .rr-list{display:flex;flex-direction:column;gap:2px}
@@ -84,11 +86,12 @@ footer{border-top:1px solid var(--rule);padding:24px 36px;text-align:center}
 /* PRINT — fit on one A4 page */
 @media print{
   @page{size:A4;margin:10mm}
-  .topnav,footer,#back-to-top,.saving-flash,.pdf-btn,.sync-dot,.sync-label,.page-hd p{display:none!important}
+  .topnav,footer,#back-to-top,.saving-flash,.pdf-col{display:none!important}
   body{background:white}
   .wrap{max-width:none;padding:0;margin:0}
   .page-hd{margin-bottom:8px}
   .page-hd h1{font-size:16px}
+  .page-hd p{font-size:9px;color:var(--sub)}
   .rr-list{column-count:2;column-gap:14px}
   .rr-card{break-inside:avoid;border:none;border-bottom:1px solid var(--rule);padding:5px 0;gap:8px}
   .rr-num{display:none}
@@ -157,7 +160,10 @@ footer{border-top:1px solid var(--rule);padding:24px 36px;text-align:center}
       <h1>smthg<span style="color:var(--tf)">.</span> Roles &amp; Responsibilities</h1>
       <p id="rr-count"></p>
     </div>
-    <button class="pdf-btn" onclick="window.print()">Download PDF</button>
+    <div class="pdf-col">
+      <button class="pdf-btn" onclick="window.print()">Download PDF</button>
+      <p class="sync-line"><span class="sync-dot" id="sync-dot"></span><span class="sync-label" id="sync-label">Connecting…</span></p>
+    </div>
   </div>
 
   <div class="rr-list" id="rr-list"></div>
@@ -178,6 +184,7 @@ var ROOT = '/tf-rr/v1';
 
 var fbEntries = {};
 var fbOrder   = [];
+var fbCreatedAt = null;
 var writeTimers = {};
 
 var DEFAULTS = {
@@ -205,6 +212,12 @@ var DEFAULTS = {
   }
 };
 
+function fmtDate(iso){
+  var d = new Date(iso);
+  var months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  return d.getDate()+' '+months[d.getMonth()]+' '+d.getFullYear();
+}
+
 // ── Firebase ──────────────────────────────────────────────
 function furl(path){ return DB+ROOT+(path||'')+'.json'; }
 function fput(path,data){
@@ -224,11 +237,14 @@ async function init(){
         if(!fbEntries[id]){ fbEntries[id]=DEFAULTS.entries[id]; changed=true; }
         if(fbOrder.indexOf(id)<0){ fbOrder.push(id); changed=true; }
       });
-      if(changed) fput('',{entries:fbEntries,order:fbOrder});
+      if(saved.createdAt){ fbCreatedAt = saved.createdAt; }
+      else { fbCreatedAt = new Date().toISOString(); changed=true; }
+      if(changed) fput('',{entries:fbEntries,order:fbOrder,createdAt:fbCreatedAt});
     } else {
       fbEntries = JSON.parse(JSON.stringify(DEFAULTS.entries));
       fbOrder   = DEFAULTS.order.slice();
-      fput('',{entries:fbEntries,order:fbOrder});
+      fbCreatedAt = new Date().toISOString();
+      fput('',{entries:fbEntries,order:fbOrder,createdAt:fbCreatedAt});
     }
     setSyncStatus('live');
   } catch(e){
@@ -253,27 +269,47 @@ function handleSSE(p){
   var val   = p.data;
   var parts = path.split('/').filter(Boolean);
   if(parts.length===0){
-    if(val && val.entries) fbEntries = val.entries;
-    if(val && val.order)   fbOrder   = val.order;
+    if(val && val.entries)   fbEntries   = val.entries;
+    if(val && val.order)     fbOrder     = val.order;
+    if(val && val.createdAt) fbCreatedAt = val.createdAt;
     render(); return;
   }
+  if(parts[0]==='createdAt'){ fbCreatedAt = val; render(); return; }
   if(parts[0]==='entries' && parts.length>=2){
     var id = parts[1];
     if(!fbEntries[id]) fbEntries[id]={role:'',title:'',desc:''};
     if(parts.length===2){ fbEntries[id]=val; }
     else if(parts.length===3){ fbEntries[id][parts[2]]=val; }
     updateCard(id);
+    if(parts.length===2 || parts[2]==='role') updateCount();
     return;
   }
   if(parts[0]==='order'){ fbOrder = val || []; render(); return; }
 }
 
 // ── Render ────────────────────────────────────────────────
+function updateCount(){
+  var countEl = document.getElementById('rr-count');
+  if(!countEl) return;
+  var roleOrder = ['Founder','CTO','CEO','Creative Director'];
+  var counts = {}, seenOrder = [];
+  fbOrder.forEach(function(id){
+    var r = ((fbEntries[id]&&fbEntries[id].role)||'').trim();
+    if(!r) return;
+    if(!counts[r]){ counts[r]=0; seenOrder.push(r); }
+    counts[r]++;
+  });
+  var ordered = roleOrder.filter(function(r){return counts[r];})
+    .concat(seenOrder.filter(function(r){return roleOrder.indexOf(r)<0;}));
+  var text = 'Areas of responsibilities: '+ordered.map(function(r){return r+' '+counts[r];}).join(' · ');
+  if(fbCreatedAt) text += ' · Created '+fmtDate(fbCreatedAt);
+  countEl.textContent = text;
+}
+
 function render(){
   var list = document.getElementById('rr-list');
   list.innerHTML='';
-  var countEl = document.getElementById('rr-count');
-  if(countEl) countEl.textContent = fbOrder.length+' responsibilities';
+  updateCount();
   fbOrder.forEach(function(id,idx){
     var e = fbEntries[id]; if(!e) return;
     var card = document.createElement('div'); card.className='rr-card'; card.id='card-'+id;
@@ -325,6 +361,7 @@ function updateCard(id){
 function saveField(id,field,value){
   if(!fbEntries[id]) fbEntries[id]={role:'',title:'',desc:''};
   fbEntries[id][field]=value;
+  if(field==='role') updateCount();
   clearTimeout(writeTimers[id+'_'+field]);
   writeTimers[id+'_'+field]=setTimeout(function(){
     flashSaving();
