@@ -57,6 +57,12 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .page-hd-row{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .pdf-col{margin-left:auto;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
 .sync-line{display:flex;align-items:center;gap:6px}
+.sync-date{font-size:11px;color:var(--sub);margin-right:2px}
+
+.role-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.role-pill{display:inline-flex;align-items:center;gap:6px;background:var(--tf-ghost);border:1px solid var(--rule);border-radius:999px;padding:6px 14px 6px 16px;font-size:12px;font-weight:700;color:var(--ink);letter-spacing:.2px;transition:border-color .15s,transform .1s}
+.role-pill:hover{border-color:var(--tf);transform:translateY(-1px)}
+.role-pill b{background:var(--tf);color:#fff;font-size:11px;font-weight:800;border-radius:999px;padding:1px 8px;line-height:1.5}
 
 /* R&R CARDS */
 .rr-list{display:flex;flex-direction:column;gap:2px}
@@ -91,7 +97,9 @@ footer{border-top:1px solid var(--rule);padding:24px 36px;text-align:center}
   .wrap{max-width:none;padding:0;margin:0}
   .page-hd{margin-bottom:8px}
   .page-hd h1{font-size:16px}
-  .page-hd p{font-size:9px;color:var(--sub)}
+  .role-pills{gap:5px;margin-top:5px}
+  .role-pill{font-size:8px;padding:2px 8px 2px 9px;border-radius:8px}
+  .role-pill b{font-size:7.5px;padding:0 5px}
   .rr-list{column-count:2;column-gap:14px}
   .rr-card{break-inside:avoid;border:none;border-bottom:1px solid var(--rule);padding:5px 0;gap:8px}
   .rr-num{display:none}
@@ -158,11 +166,11 @@ footer{border-top:1px solid var(--rule);padding:24px 36px;text-align:center}
   <div class="page-hd-row">
     <div class="page-hd">
       <h1>smthg<span style="color:var(--tf)">.</span> Roles &amp; Responsibilities</h1>
-      <p id="rr-count"></p>
+      <div class="role-pills" id="role-pills"></div>
     </div>
     <div class="pdf-col">
       <button class="pdf-btn" onclick="window.print()">Download PDF</button>
-      <p class="sync-line"><span class="sync-dot" id="sync-dot"></span><span class="sync-label" id="sync-label">Connecting…</span></p>
+      <p class="sync-line"><span class="sync-date" id="sync-date"></span><span class="sync-dot" id="sync-dot"></span><span class="sync-label" id="sync-label">Connecting…</span></p>
     </div>
   </div>
 
@@ -281,16 +289,17 @@ function handleSSE(p){
     if(parts.length===2){ fbEntries[id]=val; }
     else if(parts.length===3){ fbEntries[id][parts[2]]=val; }
     updateCard(id);
-    if(parts.length===2 || parts[2]==='role') updateCount();
+    if(parts.length===2 || parts[2]==='role') updateRolePills();
     return;
   }
   if(parts[0]==='order'){ fbOrder = val || []; render(); return; }
 }
 
 // ── Render ────────────────────────────────────────────────
-function updateCount(){
-  var countEl = document.getElementById('rr-count');
-  if(!countEl) return;
+function updateRolePills(){
+  var wrap = document.getElementById('role-pills');
+  if(!wrap) return;
+  wrap.innerHTML='';
   var roleOrder = ['Founder','CTO','CEO','Creative Director'];
   var counts = {}, seenOrder = [];
   fbOrder.forEach(function(id){
@@ -301,15 +310,25 @@ function updateCount(){
   });
   var ordered = roleOrder.filter(function(r){return counts[r];})
     .concat(seenOrder.filter(function(r){return roleOrder.indexOf(r)<0;}));
-  var text = 'Areas of responsibilities: '+ordered.map(function(r){return r+' '+counts[r];}).join(' · ');
-  if(fbCreatedAt) text += ' · Created '+fmtDate(fbCreatedAt);
-  countEl.textContent = text;
+  ordered.forEach(function(r){
+    var pill = document.createElement('span'); pill.className='role-pill';
+    var name = document.createTextNode(r+' ');
+    var b = document.createElement('b'); b.textContent = counts[r];
+    pill.appendChild(name); pill.appendChild(b);
+    wrap.appendChild(pill);
+  });
+}
+
+function updateSyncDate(){
+  var el = document.getElementById('sync-date');
+  if(el && fbCreatedAt) el.textContent = fmtDate(fbCreatedAt);
 }
 
 function render(){
   var list = document.getElementById('rr-list');
   list.innerHTML='';
-  updateCount();
+  updateRolePills();
+  updateSyncDate();
   fbOrder.forEach(function(id,idx){
     var e = fbEntries[id]; if(!e) return;
     var card = document.createElement('div'); card.className='rr-card'; card.id='card-'+id;
@@ -361,7 +380,7 @@ function updateCard(id){
 function saveField(id,field,value){
   if(!fbEntries[id]) fbEntries[id]={role:'',title:'',desc:''};
   fbEntries[id][field]=value;
-  if(field==='role') updateCount();
+  if(field==='role') updateRolePills();
   clearTimeout(writeTimers[id+'_'+field]);
   writeTimers[id+'_'+field]=setTimeout(function(){
     flashSaving();
