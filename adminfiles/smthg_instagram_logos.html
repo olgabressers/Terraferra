@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Instagram Logos · smthg.</title>
+<link rel="icon" type="image/svg+xml" href="smthg_favicon.svg"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --tf:#E8002D;--tf-dark:#B50023;--tf-ghost:#F1EEE9;
+  --off-white:#F8F6F2;--ink:#161616;--sub:#5C5A56;--rule:#E6E2DA;--card:#FFF;
+}
+body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink);min-height:100vh}
+
+/* NAV */
+.topnav{background:white;border-bottom:1px solid var(--rule);padding:12px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
+.topnav-home{font-weight:800;letter-spacing:2px;color:var(--ink);text-decoration:none;font-size:12px}
+.topnav-home:hover{color:var(--tf-dark)}
+.topnav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:var(--sub);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:11px}
+.topnav-links a:hover{color:var(--tf)}
+.topnav-links .has-dropdown{position:relative;padding-bottom:10px;margin-bottom:-10px}
+.topnav-links .dropdown-trigger{cursor:pointer;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:11px;user-select:none}
+.topnav-links .dropdown-trigger:hover,.topnav-links .has-dropdown:focus-within .dropdown-trigger{color:var(--tf)}
+.topnav-links .dropdown{display:none;position:absolute;top:100%;right:0;background:white;border:1px solid var(--rule);min-width:220px;box-shadow:0 6px 14px rgba(0,0,0,.08);padding:6px 0;z-index:60}
+.topnav-links .has-dropdown:hover .dropdown,.topnav-links .has-dropdown:focus-within .dropdown{display:block}
+.topnav-links .dropdown a{display:block;padding:9px 16px;font-size:11px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:1px;text-decoration:none}
+.topnav-links .dropdown a:hover{background:var(--tf-ghost);color:var(--tf)}
+@media(max-width:700px){
+  .topnav{position:static;padding:10px 14px}
+  .topnav-links{gap:8px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:2px;width:100%}
+  .topnav-links a,.topnav-links .dropdown-trigger{font-size:10.5px;white-space:nowrap}
+  .has-dropdown{padding-bottom:0;margin-bottom:0}
+  .dropdown{display:none!important}
+}
+
+/* WRAP */
+.wrap{max-width:1240px;margin:0 auto;padding:40px 48px 80px}
+@media(max-width:1000px){.wrap{padding:24px 18px 60px}}
+@media(max-width:700px){.wrap{padding:16px 12px 48px}}
+
+/* PAGE HEADER */
+.page-hd{margin-bottom:28px}
+.page-hd h1{font-size:28px;font-weight:800;letter-spacing:-.5px;color:var(--ink);margin-bottom:6px}
+.page-hd p{font-size:14px;color:var(--sub)}
+
+/* GRID */
+.logo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:20px}
+.logo-card{background:var(--card);border:1px solid var(--rule);overflow:hidden;display:flex;flex-direction:column}
+.logo-card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;border-bottom:1px solid var(--rule)}
+.logo-meta{padding:12px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.logo-name{font-size:13px;font-weight:700;color:var(--ink)}
+.logo-dl{font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:var(--tf);text-decoration:none;white-space:nowrap}
+.logo-dl:hover{color:var(--tf-dark)}
+
+/* FOOTER */
+footer{border-top:1px solid var(--rule);padding:24px 36px;text-align:center}
+.footer-inner{font-size:11px;color:var(--sub);letter-spacing:.5px}
+
+/* BACK TO TOP */
+#back-to-top{position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:var(--tf);color:#fff;border:none;font-size:18px;display:none;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,.18);z-index:200}
+#back-to-top:hover{background:var(--tf-dark)}
+@media(max-width:700px){#back-to-top{width:38px;height:38px;bottom:16px;right:16px;font-size:16px}}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="index.html" class="topnav-home">smthg<span style="color:var(--tf)">.</span></a>
+  <div class="topnav-links">
+    <a href="index.html">Files</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Budget ▾</span>
+      <div class="dropdown">
+        <a href="TFmarketsize.html">Market Size &amp; Opportunity</a>
+        <a href="budget.html">Budget &amp; Sales Scenarios</a>
+      </div>
+    </div>
+    <a href="roles.html">Roles</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Business Model ▾</span>
+      <div class="dropdown">
+        <a href="TFbusinessmodel.html">Comparison Matrix</a>
+        <a href="TFaltmodel.html">Alternative Model</a>
+        <a href="TFmvpcosts.html">MVP Scope &amp; Costs</a>
+        <a href="TFgtm.html">GTM</a>
+        <a href="TFwhynow.html">Why Now</a>
+        <a href="TFdropsmarket.html">Drop Market Research</a>
+        <a href="TFunservedmarket.html">Unserved Market</a>
+        <a href="TFreferral.html">Referral &amp; Viral</a>
+        <a href="TFcreatortoken.html">Creator Payments</a>
+        <a href="TFstylists.html">Stylist Layer</a>
+        <a href="/psychology-fashion.html">Psychology + Fashion</a>
+        <a href="TFvisualdiscovery.html">Visual Discovery</a>
+        <a href="TFbrandsworldwide.html">Fashion Brands Worldwide</a>
+        <a href="TFcommunities.html">Fashion Communities</a>
+      </div>
+    </div>
+    <a href="TFmarketplaces.html">Operations</a>
+    <a href="architecture.html">Architecture &amp; Tools</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Ideas ▾</span>
+      <div class="dropdown">
+        <a href="gamification.html">Gamification</a>
+        <a href="ideas.html">Ideas &amp; AI Research</a>
+        <a href="influencer.html">Influencer Selling</a>
+        <a href="strategic-brief.html">Strategic Brief</a>
+      </div>
+    </div>
+    <a href="TFsmthgbrands.html">Brands</a>
+    <a href="TFnewname.html">Design</a>
+    <a href="TFrussia.html">Legal / Tax</a>
+    <a href="task-tracker.html">Planning</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <div class="page-hd">
+    <h1>Instagram Logos</h1>
+    <p>Avatar + Highlight covers · 512×512 · click any tile to download</p>
+  </div>
+
+  <div class="logo-grid">
+    <div class="logo-card">
+      <a href="instagram-logos/smthg-avatar.jpg" download><img src="instagram-logos/smthg-avatar.jpg" alt="smthg. Instagram avatar"/></a>
+      <div class="logo-meta"><span class="logo-name">Avatar</span><a class="logo-dl" href="instagram-logos/smthg-avatar.jpg" download>Download</a></div>
+    </div>
+    <div class="logo-card">
+      <a href="instagram-logos/smthg-highlight-S.jpg" download><img src="instagram-logos/smthg-highlight-S.jpg" alt="Highlight cover S"/></a>
+      <div class="logo-meta"><span class="logo-name">Highlight · S</span><a class="logo-dl" href="instagram-logos/smthg-highlight-S.jpg" download>Download</a></div>
+    </div>
+    <div class="logo-card">
+      <a href="instagram-logos/smthg-highlight-M.jpg" download><img src="instagram-logos/smthg-highlight-M.jpg" alt="Highlight cover M"/></a>
+      <div class="logo-meta"><span class="logo-name">Highlight · M</span><a class="logo-dl" href="instagram-logos/smthg-highlight-M.jpg" download>Download</a></div>
+    </div>
+    <div class="logo-card">
+      <a href="instagram-logos/smthg-highlight-T.jpg" download><img src="instagram-logos/smthg-highlight-T.jpg" alt="Highlight cover T"/></a>
+      <div class="logo-meta"><span class="logo-name">Highlight · T</span><a class="logo-dl" href="instagram-logos/smthg-highlight-T.jpg" download>Download</a></div>
+    </div>
+    <div class="logo-card">
+      <a href="instagram-logos/smthg-highlight-H.jpg" download><img src="instagram-logos/smthg-highlight-H.jpg" alt="Highlight cover H"/></a>
+      <div class="logo-meta"><span class="logo-name">Highlight · H</span><a class="logo-dl" href="instagram-logos/smthg-highlight-H.jpg" download>Download</a></div>
+    </div>
+    <div class="logo-card">
+      <a href="instagram-logos/smthg-highlight-G.jpg" download><img src="instagram-logos/smthg-highlight-G.jpg" alt="Highlight cover G"/></a>
+      <div class="logo-meta"><span class="logo-name">Highlight · G</span><a class="logo-dl" href="instagram-logos/smthg-highlight-G.jpg" download>Download</a></div>
+    </div>
+    <div class="logo-card">
+      <a href="instagram-logos/smthg-highlight-point.jpg" download><img src="instagram-logos/smthg-highlight-point.jpg" alt="Highlight cover, point"/></a>
+      <div class="logo-meta"><span class="logo-name">Highlight · Point</span><a class="logo-dl" href="instagram-logos/smthg-highlight-point.jpg" download>Download</a></div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">Private · noindex · Not for distribution</div>
+</footer>
+
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" title="Back to top">↑</button>
+<script>window.addEventListener('scroll',function(){var b=document.getElementById('back-to-top');b.style.display=window.scrollY>400?'flex':'none';});</script>
+</body>
+</html>
