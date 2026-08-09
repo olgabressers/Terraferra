@@ -52,6 +52,10 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .sync-dot.err{background:#ef4444}
 .sync-label{font-size:13px;font-weight:700;color:var(--sub)}
 
+.pdf-btn{margin-left:auto;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--tf);background:white;border:1.5px solid var(--tf);border-radius:3px;padding:8px 16px;cursor:pointer;white-space:nowrap}
+.pdf-btn:hover{background:var(--tf);color:white}
+.page-hd-row{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
 /* R&R CARDS */
 .rr-list{display:flex;flex-direction:column;gap:2px}
 .rr-card{background:var(--card);border:1px solid var(--rule);border-left:3px solid var(--tf);padding:16px 20px;display:flex;gap:16px;align-items:flex-start}
@@ -76,6 +80,23 @@ footer{border-top:1px solid var(--rule);padding:24px 36px;text-align:center}
 #back-to-top{position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:var(--tf);color:#fff;border:none;font-size:18px;display:none;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,.18);z-index:200}
 #back-to-top:hover{background:var(--tf-dark)}
 @media(max-width:700px){#back-to-top{width:38px;height:38px;bottom:16px;right:16px;font-size:16px}}
+
+/* PRINT — fit on one A4 page */
+@media print{
+  @page{size:A4;margin:10mm}
+  .topnav,footer,#back-to-top,.saving-flash,.pdf-btn,.sync-dot,.sync-label,.page-hd p{display:none!important}
+  body{background:white}
+  .wrap{max-width:none;padding:0;margin:0}
+  .page-hd{margin-bottom:8px}
+  .page-hd h1{font-size:16px}
+  .rr-list{column-count:2;column-gap:14px}
+  .rr-card{break-inside:avoid;border:none;border-bottom:1px solid var(--rule);padding:5px 0;gap:8px}
+  .rr-num{display:none}
+  .rr-role{font-size:7px}
+  .rr-title{font-size:7.5px}
+  .rr-desc{font-size:7px;line-height:1.25}
+  .rr-role:focus,.rr-title:focus,.rr-desc:focus{background:none;box-shadow:none;padding:0;margin:0}
+}
 </style>
 </head>
 <body>
@@ -131,11 +152,12 @@ footer{border-top:1px solid var(--rule);padding:24px 36px;text-align:center}
 
 <div class="wrap">
 
-  <div class="page-hd">
-    <h1>Roles &amp; Responsibilities</h1>
-    <p>smthg<span style="color:var(--tf)">.</span> · shared, editable · changes sync live across all participants
-      &nbsp;<span class="sync-dot" id="sync-dot"></span><span class="sync-label" id="sync-label">Connecting…</span>
-    </p>
+  <div class="page-hd-row">
+    <div class="page-hd">
+      <h1>smthg<span style="color:var(--tf)">.</span> Roles &amp; Responsibilities</h1>
+      <p id="rr-count"></p>
+    </div>
+    <button class="pdf-btn" onclick="window.print()">Download PDF</button>
   </div>
 
   <div class="rr-list" id="rr-list"></div>
@@ -250,6 +272,8 @@ function handleSSE(p){
 function render(){
   var list = document.getElementById('rr-list');
   list.innerHTML='';
+  var countEl = document.getElementById('rr-count');
+  if(countEl) countEl.textContent = fbOrder.length+' responsibilities';
   fbOrder.forEach(function(id,idx){
     var e = fbEntries[id]; if(!e) return;
     var card = document.createElement('div'); card.className='rr-card'; card.id='card-'+id;
