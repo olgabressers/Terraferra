@@ -101,6 +101,9 @@ td{padding:3px 6px;vertical-align:top;padding-top:4px;white-space:normal}
 
 /* URL / Instagram display cells */
 .link-cell{position:relative}
+.followers-inp{display:block;width:100%;border:none;background:transparent;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;color:var(--ink);padding:0 8px 6px;outline:none}
+.followers-inp::placeholder{color:var(--rule);font-weight:400;font-size:11px}
+.followers-inp:focus{background:var(--tf-ghost);border-radius:2px}
 .link-disp{display:flex;align-items:center;gap:6px;padding:6px 8px;cursor:text;min-height:36px}
 .link-disp-text{font-size:13px;color:var(--tf);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;text-decoration:none}
 .link-disp-text:hover{text-decoration:underline}
@@ -320,7 +323,7 @@ tr:hover .del-btn{opacity:1}
           <th class="th-num">#</th>
           <th style="min-width:150px">Brand</th>
           <th style="min-width:140px">URL</th>
-          <th style="min-width:130px">Instagram</th>
+          <th style="min-width:130px">Instagram · Followers</th>
           <th style="min-width:110px">Annual Revenue</th>
           <th style="min-width:190px">Positioning</th>
           <th style="min-width:100px">Country origin</th>
@@ -353,7 +356,7 @@ var VOTER_KEYS = {alena:'va', chris:'vc', maxim:'vm', alex:'vx', claude:'vl'};
 var DEFAULTS = [];
 
 function blankItem(src){
-  var base = {name:'',url:'',instagram:'',revenue:'',positioning:'',origin:'',sellsTo:'',whyRelevant:'',contactEmail:'',linkedinContacts:'',comments:'',isExample:false,va:false,vc:false,vm:false,vx:false,vl:false};
+  var base = {name:'',url:'',instagram:'',followers:'',revenue:'',positioning:'',origin:'',sellsTo:'',whyRelevant:'',contactEmail:'',linkedinContacts:'',comments:'',isExample:false,va:false,vc:false,vm:false,vx:false,vl:false};
   if(src){ Object.keys(src).forEach(function(k){ base[k]=src[k]; }); }
   return base;
 }
@@ -380,6 +383,22 @@ function cleanInstagram(url){
   var m = url.match(/instagram\.com\/([^\/\?#]+)/);
   return m ? '@'+m[1].replace(/\/+$/,'') : url.replace(/^https?:\/\/(www\.)?/,'');
 }
+function makeFollowersInput(id, value){
+  var inp = document.createElement('input');
+  inp.type = 'text';
+  inp.className = 'followers-inp'+(value ? ' has-text' : '');
+  inp.id = 'inp-followers-'+id;
+  inp.value = value || '';
+  inp.placeholder = 'followers…';
+  inp.autocomplete = 'off';
+  inp.spellcheck = false;
+  inp.addEventListener('input', function(){
+    inp.classList.toggle('has-text', !!inp.value);
+    updateField(id, 'followers', inp.value);
+  });
+  return inp;
+}
+
 function makeLinkCell(id, field, value, openId, cleanFn, openTitle){
   var cell = document.createElement('div');
   cell.className = 'link-cell';
@@ -848,6 +867,11 @@ function renderRow(id, fid){
       if(iglink){ iglink.href = item.instagram||'#'; iglink.style.display = item.instagram ? 'inline' : 'none'; }
       var tElI = document.getElementById('ltext-instagram-'+id);
       if(tElI){ var ci=cleanInstagram(item.instagram||''); tElI.textContent=ci||'Add link…'; tElI.className='link-disp-text'+(ci?'':' empty'); if(item.instagram){tElI.href=item.instagram;tElI.target='_blank';}else{tElI.removeAttribute('href');} }
+      var fEl = document.getElementById('inp-followers-'+id);
+      if(fEl && document.activeElement !== fEl){
+        fEl.value = item.followers || '';
+        fEl.classList.toggle('has-text', !!(item.followers && item.followers.length > 0));
+      }
     }
   });
   // Update contact fields (not in FIELDS loop)
@@ -923,6 +947,7 @@ function buildRow(id, num){
       td.appendChild(makeLinkCell(id, 'url', item.url, 'url-link-'+id, cleanUrl, 'Open URL'));
     } else if(fc.key === 'instagram'){
       td.appendChild(makeLinkCell(id, 'instagram', item.instagram, 'ig-link-'+id, cleanInstagram, 'Open Instagram'));
+      td.appendChild(makeFollowersInput(id, item.followers));
     } else {
       td.appendChild(makeInput(id, fc.key, item[fc.key], fc.ph));
     }
