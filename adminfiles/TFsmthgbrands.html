@@ -748,8 +748,8 @@ var NON_EU_ORDER = ['Russia']; // US and Canada are pinned before EU in renderFi
 function originRank(o){
   if(o==='US') return 1;
   if(o==='Canada') return 2;
-  if(EU_COUNTRIES.indexOf(o)>=0) return 3;
-  if(o) return 4;
+  if(EU_COUNTRIES.indexOf(o)>=0) return 4; // EU last, matching the filter bar
+  if(o) return 3;
   return 99;
 }
 
@@ -799,19 +799,19 @@ function renderFilter(){
     var count = country === 'EU'
       ? Object.keys(fbData).filter(function(id){ return fbData[id] && EU_COUNTRIES.indexOf((fbData[id].origin||'').trim()) >= 0; }).length
       : Object.keys(fbData).filter(function(id){ return fbData[id] && (fbData[id].origin||'').trim() === country; }).length;
-    btn.innerHTML = country + '<span class="filter-count">' + count + '</span>';
+    btn.innerHTML = country + '<span class="filter-count">(' + count + ')</span>';
     (function(c){ btn.onclick = function(){ setFilter(c); }; })(country);
     bar.appendChild(btn);
   }
 
-  // Order: US → Canada → EU group + EU countries alphabetically → others (Russia first, then alpha)
+  // Order: US → Canada → others (Russia first, then alpha) → EU group + EU countries last
   if(origins['US'])     addBtn('US');
   if(origins['Canada']) addBtn('Canada');
+  otherInData.forEach(function(o){ addBtn(o); });
   if(euInData.length > 0){
     addBtn('EU', 'eu-group');
     euInData.forEach(function(o){ addBtn(o); });
   }
-  otherInData.forEach(function(o){ addBtn(o); });
 }
 
 function renderAll(fid){
