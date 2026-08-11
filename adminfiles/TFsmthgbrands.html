@@ -154,6 +154,7 @@ tr:hover .del-btn{opacity:1}
 
 /* Filter bar */
 .filter-bar{display:flex;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.filter-break{flex-basis:100%;height:0;margin:0}
 .filter-label{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub)}
 .filter-btn{padding:5px 13px;border:1.5px solid var(--rule);background:white;color:var(--ink);font-family:'Inter',sans-serif;font-size:12px;font-weight:700;cursor:pointer;transition:all .12s;border-radius:3px}
 .filter-btn:hover{border-color:var(--tf);color:var(--tf)}
@@ -809,6 +810,10 @@ function renderFilter(){
   if(origins['Canada']) addBtn('Canada');
   otherInData.forEach(function(o){ addBtn(o); });
   if(euInData.length > 0){
+    var brk = document.createElement('div');
+    brk.className = 'filter-break';
+    brk.dataset.country = '__break';
+    bar.appendChild(brk);
     addBtn('EU', 'eu-group');
     euInData.forEach(function(o){ addBtn(o); });
   }
