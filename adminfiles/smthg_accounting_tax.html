@@ -11,11 +11,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --tf:#E8002D;--tf-dark:#B50023;--tf-ghost:#F1EEE9;
-  --orange:#E8002D;--off-white:#F8F6F2;--ink:#161616;
-  --sub:#5C5A56;--rule:#E6E2DA;
-  --green:#1A7A4A;--green-bg:#EDFAF3;
-  --red:#C0392B;--red-bg:#FDF2F1;
-  --amber:#B45309;--amber-bg:#FFFBEB;
+  --ink:#161616;--sub:#5C5A56;--rule:#D9D4C9;--off-white:#F8F6F2;
 }
 body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)}
 
@@ -26,7 +22,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .topnav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
 .topnav-links a{color:var(--sub);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:10px}
 .topnav-links a:hover{color:var(--tf)}
-.topnav-links a.active{color:var(--orange)}
+.topnav-links a.active{color:var(--tf)}
 .has-dropdown{position:relative;padding-bottom:10px;margin-bottom:-10px}
 .dropdown-trigger{cursor:pointer;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:10px;user-select:none}
 .dropdown-trigger:hover,.has-dropdown:focus-within .dropdown-trigger{color:var(--tf)}
@@ -45,60 +41,30 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 
 /* LAYOUT */
 .pg-wrap{max-width:1240px;margin:0 auto;padding:40px 48px 80px}
-.pg-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--sub);opacity:.6}
-.pg-title{font-size:clamp(22px,5vw,38px);font-weight:800;letter-spacing:-1px;color:var(--ink);margin-top:14px;line-height:1.15}
-.pg-sub{font-size:13px;color:var(--ink);margin-top:8px;line-height:1.6}
+.pg-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--sub)}
+.pg-title{font-size:clamp(22px,5vw,34px);font-weight:800;letter-spacing:-1px;color:var(--ink);margin-top:12px;line-height:1.15}
+.pg-sub{font-size:13px;color:var(--sub);margin-top:8px;line-height:1.6}
+
+.doc-link{display:inline-flex;align-items:center;gap:10px;margin-top:18px;background:white;border:1px solid var(--ink);padding:10px 18px;text-decoration:none;color:var(--ink);font-size:12.5px;font-weight:700}
+.doc-link:hover{background:var(--ink);color:white}
 
 .section{padding:36px 0}
 .section+.section{border-top:1px solid var(--rule)}
-.sec-num{font-size:18px;font-weight:800;color:var(--orange);margin-right:10px}
-.sec-heading{font-size:18px;font-weight:800;color:var(--ink);margin-bottom:18px;line-height:1.2;display:flex;align-items:baseline;gap:0}
+.sec-heading{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:4px}
+.sec-note{font-size:12px;color:var(--sub);margin-bottom:16px}
 
-/* CONCLUSION HERO */
-.concl-box{background:white;border:1px solid var(--rule);border-top:4px solid var(--orange);padding:28px 32px;margin-top:28px}
-.concl-label{font-size:10px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:16px}
-.action-item{font-size:13px;color:var(--ink);line-height:1.55;display:flex;gap:12px;padding:12px 0;border-top:1px solid var(--rule)}
-.action-item:first-of-type{border-top:none;padding-top:4px}
-.action-num{color:white;background:var(--orange);font-weight:800;flex-shrink:0;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px}
-.action-date{display:inline-block;font-weight:800;color:var(--tf);font-size:11.5px;letter-spacing:.3px;margin-left:8px;white-space:nowrap}
-
-/* TABLES */
-.dtable{width:100%;border-collapse:collapse;font-size:13px;margin-top:4px}
-.dtable th{text-align:left;font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);border-bottom:2px solid var(--rule);padding:8px 14px 8px 0}
-.dtable td{border-bottom:1px solid var(--rule);padding:12px 14px 12px 0;color:var(--ink);vertical-align:top;line-height:1.5}
-.dtable td:first-child{font-weight:700}
-.yes{color:var(--green);font-weight:800}
-.no{color:var(--red);font-weight:800}
-.warn{color:var(--amber);font-weight:800}
-
-/* CARDS */
-.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:4px}
-.icard{background:white;border:1px solid var(--rule);border-left:3px solid var(--tf);padding:20px 22px;display:flex;flex-direction:column}
-.icard-num{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:8px}
-.icard-title{font-size:15px;font-weight:800;color:var(--ink);margin-bottom:4px}
-.icard-price{font-size:13px;font-weight:800;color:var(--tf);margin-bottom:10px}
-.icard-body{font-size:12.5px;color:var(--ink);line-height:1.6;flex:1}
-.icard.best{border-left-color:var(--green)}
-.icard-contact{margin-top:14px;padding-top:12px;border-top:1px solid var(--rule);font-size:11.5px}
-.icard-contact a{color:var(--tf);text-decoration:none;font-weight:700}
-.icard-contact a:hover{color:var(--orange);text-decoration:underline}
-
-/* ALERT BOX */
-.alert{background:var(--amber-bg);border:1px solid #FCD34D;border-left:4px solid var(--amber);padding:14px 18px;font-size:13px;color:var(--ink);line-height:1.6;margin-top:16px}
-.alert strong{color:var(--amber)}
-.alert-green{background:var(--green-bg);border-color:#6EE7B7;border-left-color:var(--green)}
-.alert-green strong{color:var(--green)}
-
-.src{font-size:11px;color:var(--sub);display:block;margin-top:4px}
-.src a{color:var(--tf);text-decoration:none;font-weight:600}
-.src a:hover{color:var(--orange);text-decoration:underline}
-
-.doc-link{display:flex;align-items:center;gap:14px;background:white;border:1px solid var(--rule);border-left:3px solid var(--tf);padding:18px 22px;margin-top:16px;text-decoration:none}
-.doc-link:hover{border-left-color:var(--tf-dark)}
-.doc-icon{font-size:22px}
-.doc-name{font-size:13.5px;font-weight:800;color:var(--ink)}
-.doc-meta{font-size:11.5px;color:var(--sub);margin-top:2px}
-.doc-cta{margin-left:auto;font-size:11px;font-weight:800;color:var(--tf);text-transform:uppercase;letter-spacing:1px}
+/* GRID TABLE — full borders, visible vertical bars */
+.gtable-wrap{overflow-x:auto;margin-top:6px;border:1px solid var(--ink)}
+.gtable{width:100%;border-collapse:collapse;font-size:12.5px}
+.gtable th{background:var(--ink);color:white;text-align:left;font-size:10px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;padding:10px 14px;border-right:1px solid rgba(255,255,255,.2)}
+.gtable th:last-child{border-right:none}
+.gtable td{padding:10px 14px;border-top:1px solid var(--rule);border-right:1px solid var(--rule);color:var(--ink);vertical-align:top;line-height:1.5}
+.gtable td:last-child{border-right:none}
+.gtable tr:nth-child(even) td{background:#FBFAF7}
+.gtable td.num{font-weight:800;color:var(--tf);text-align:center;width:28px}
+.gtable td strong{font-weight:700}
+.gtable a{color:var(--tf);text-decoration:none;font-weight:700}
+.gtable a:hover{text-decoration:underline}
 
 footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);opacity:.5}
 
@@ -108,16 +74,12 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
 
 @media(max-width:800px){
   .pg-wrap{padding:28px 20px 60px}
-  .card-grid{grid-template-columns:1fr;gap:12px}
-  .dtable{display:block;overflow-x:auto}
-  .doc-link{flex-wrap:wrap}
-  .doc-cta{margin-left:0}
+  .gtable{font-size:11.5px}
+  .gtable th,.gtable td{padding:8px 10px}
 }
 @media(max-width:500px){
   .pg-wrap{padding:20px 14px 48px}
-  .concl-box{padding:20px 18px}
   footer{padding:16px 14px}
-  .sec-heading{font-size:16px}
   #back-to-top{bottom:20px;right:20px;width:40px;height:40px;font-size:17px}
 }
 </style>
@@ -173,184 +135,121 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
 
   <div class="pg-eyebrow">Legal / Tax · Accounting · Internal</div>
   <div class="pg-title">US Accounting &amp; Tax Compliance Guide</div>
-  <div class="pg-sub">SMTHG INC. · Delaware C-Corp · State File Number 10687481 · Formed July 6, 2026 · Fiscal year: calendar year</div>
+  <div class="pg-sub">SMTHG INC. · Delaware C-Corp · File #10687481 · Formed July 6, 2026</div>
 
-  <!-- ACTIONS -->
-  <div class="concl-box">
-    <div class="concl-label">Actions — By When</div>
+  <a class="doc-link" href="SMTHG_INC_10687481.pdf" target="_blank" rel="noopener">📄 Certificate of Incorporation (PDF) →</a>
 
-    <div class="action-item">
-      <span class="action-num">1</span>
-      <span><strong>Confirm Federal EIN (Tax ID) status.</strong> No EIN is recorded in the incorporation paperwork on file. An EIN is required before a US bank account can be opened, before any accounting firm can be engaged, and before any tax return can be filed. Do this first — everything below depends on it.<span class="action-date">Immediate</span></span>
-    </div>
-
-    <div class="action-item">
-      <span class="action-num">2</span>
-      <span><strong>Engage a US accounting/tax firm.</strong> Onboarding and bookkeeping catch-up takes 2–4 weeks — start well ahead of the March/April 2027 filings. See firm comparison below.<span class="action-date">By Jan 2027</span></span>
-    </div>
-
-    <div class="action-item">
-      <span class="action-num">3</span>
-      <span><strong>File Delaware Annual Report + pay Delaware Franchise Tax.</strong> First filing since incorporation. Missed deadline = $200 penalty + 1.5% interest per month; two consecutive missed years void the company.<span class="action-date">Due Mar 1, 2027</span></span>
-    </div>
-
-    <div class="action-item">
-      <span class="action-num">4</span>
-      <span><strong>File first Federal Form 1120</strong> (corporate income tax, short period July 6 – Dec 31, 2026), even with zero revenue.<span class="action-date">Due Apr 15, 2027</span></span>
-    </div>
-
-    <div class="action-item">
-      <span class="action-num">5</span>
-      <span><strong>Pay the Delaware Registered Agent annual fee ($50).</strong> Due every year in the incorporation anniversary month.<span class="action-date">Due Jul 2027</span></span>
-    </div>
-
-    <div class="action-item">
-      <span class="action-num">6</span>
-      <span><strong>File an 83(b) election (IRS Form 15620) within 30 calendar days of any stock grant subject to vesting</strong> — for any founder, co-founder, or early employee. No extensions exist under IRS rules; a missed deadline cannot be fixed. Applies separately to every restricted stock grant.<span class="action-date">Standing rule — 30 days from each grant</span></span>
-    </div>
-
-    <div class="action-item">
-      <span class="action-num">7</span>
-      <span><strong>Confirm California nexus with the accountant.</strong> If the company is treated as "doing business" in California, foreign qualification plus an $800/year minimum California franchise tax applies starting the first full tax year.<span class="action-date">Confirm by Dec 2026</span></span>
-    </div>
-  </div>
-
-  <!-- SECTION 01: REGISTRATION -->
+  <!-- SECTION 01: ACTIONS -->
   <div class="section" id="s01">
-    <div class="sec-heading"><span class="sec-num">01</span>Company Registration</div>
-    <div class="alert alert-green"><strong>Filed and on record.</strong> Certificate of Incorporation filed with the Delaware Secretary of State on July 6, 2026. No compliance action was due at filing — the first ongoing obligations start March 2027 (see Section 02).</div>
-
-    <table class="dtable" style="margin-top:20px">
-      <tbody>
-        <tr><td>Legal name</td><td>SMTHG INC.</td></tr>
-        <tr><td>Entity type</td><td>Delaware corporation (C-Corp)</td></tr>
-        <tr><td>Delaware State File Number</td><td>10687481</td></tr>
-        <tr><td>Date of formation</td><td>July 6, 2026</td></tr>
-        <tr><td>Registered agent</td><td>Harvard Business Services, Inc. — 16192 Coastal Highway, Lewes, DE 19958 · (800) 345-2677</td></tr>
-        <tr><td>Authorized shares</td><td>1,500 common shares, $0.01 par value, one class</td></tr>
-        <tr><td>Fiscal year</td><td>Calendar year (per By-Laws Article X, Section 2)</td></tr>
-      </tbody>
-    </table>
-
-    <a class="doc-link" href="SMTHG_INC_10687481.pdf" target="_blank" rel="noopener">
-      <span class="doc-icon">📄</span>
-      <span>
-        <span class="doc-name">Certificate of Incorporation + By-Laws — SMTHG INC.</span>
-        <span class="doc-meta">Filed with the Delaware Secretary of State · File #10687481 · PDF</span>
-      </span>
-      <span class="doc-cta">Open PDF →</span>
-    </a>
+    <div class="sec-heading">Actions — By When</div>
+    <div class="gtable-wrap">
+      <table class="gtable">
+        <thead>
+          <tr><th style="width:30px">#</th><th style="width:62%">Action</th><th>By When</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="num">1</td><td><strong>Confirm Federal EIN status.</strong> Required before a US bank account, an accounting firm, or any tax filing.</td><td>Immediate</td></tr>
+          <tr><td class="num">2</td><td><strong>Engage a US accounting/tax firm.</strong> Onboarding takes 2–4 weeks.</td><td>By Jan 2027</td></tr>
+          <tr><td class="num">3</td><td><strong>File Delaware Annual Report + pay Franchise Tax.</strong> First filing since incorporation.</td><td>Mar 1, 2027</td></tr>
+          <tr><td class="num">4</td><td><strong>File first Federal Form 1120</strong> (short year Jul 6–Dec 31, 2026), even at $0 revenue.</td><td>Apr 15, 2027</td></tr>
+          <tr><td class="num">5</td><td><strong>Pay Delaware Registered Agent fee</strong> ($50/year).</td><td>Jul 2027</td></tr>
+          <tr><td class="num">6</td><td><strong>File 83(b) election</strong> (IRS Form 15620) for any stock grant with vesting. No extensions.</td><td>Within 30 days of each grant</td></tr>
+          <tr><td class="num">7</td><td><strong>Confirm California nexus</strong> with the accountant — may trigger $800/yr CA franchise tax.</td><td>By Dec 2026</td></tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
   <!-- SECTION 02: COMPLIANCE CALENDAR -->
   <div class="section" id="s02">
-    <div class="sec-heading"><span class="sec-num">02</span>Ongoing Compliance Calendar</div>
-    <div class="alert"><strong>No quarterly filing obligation exists for a pre-revenue Delaware C-Corp with no payroll yet.</strong> Federal quarterly estimated tax payments (Form 1120-W) only apply once the company expects to owe $500+ in tax for the year — pre-revenue, that threshold is not reached. The obligations below are annual until the company has payroll or taxable income.</div>
-
-    <table class="dtable" style="margin-top:20px">
-      <thead>
-        <tr>
-          <th style="width:22%">Obligation</th>
-          <th style="width:12%">Frequency</th>
-          <th style="width:14%">First / next due</th>
-          <th style="width:14%">Amount</th>
-          <th>If missed</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Delaware Annual Report + Franchise Tax</td>
-          <td>Annual</td>
-          <td class="warn">Mar 1, 2027</td>
-          <td>$175–$400 tax (Authorized Shares method, min. $175 at this share count) + $50 report fee</td>
-          <td>$200 late penalty + 1.5%/month interest. Two consecutive missed years void the company.
-            <span class="src"><a href="https://corp.delaware.gov/frtaxcalc/" target="_blank" rel="noopener">Delaware Division of Corporations — franchise tax calculator ↗</a></span>
-          </td>
-        </tr>
-        <tr>
-          <td>Delaware Registered Agent fee</td>
-          <td>Annual</td>
-          <td class="warn">Jul 2027 (anniversary month)</td>
-          <td>$50</td>
-          <td>Agent may resign; company loses registered agent standing in Delaware.</td>
-        </tr>
-        <tr>
-          <td>Federal corporate income tax — Form 1120</td>
-          <td>Annual</td>
-          <td class="warn">Apr 15, 2027 (first return, short year Jul 6–Dec 31, 2026)</td>
-          <td>Tax on net income (likely $0 pre-revenue) + late-filing penalty risk regardless of tax owed</td>
-          <td>Failure-to-file penalty even at zero tax due. 6-month extension available via Form 7004 filed by the original deadline.
-            <span class="src"><a href="https://www.irs.gov/publications/p509" target="_blank" rel="noopener">IRS Publication 509 — Tax Calendars ↗</a></span>
-          </td>
-        </tr>
-        <tr>
-          <td>California foreign qualification + franchise tax</td>
-          <td>Annual, if CA nexus applies</td>
-          <td class="warn">Confirm applicability — first full tax year (2027) if triggered</td>
-          <td>$800/year minimum (waived for the first taxable year only, per CA rule effective 2020)</td>
-          <td>Back taxes, penalties, and inability to enforce contracts in California courts until registered.
-            <span class="src"><a href="https://www.ftb.ca.gov/file/business/types/corporations/index.html" target="_blank" rel="noopener">California FTB — Corporations ↗</a></span>
-          </td>
-        </tr>
-        <tr>
-          <td>83(b) election (per stock grant with vesting)</td>
-          <td>Once per grant</td>
-          <td class="warn">30 calendar days from each grant date</td>
-          <td>$0 to file, no fee</td>
-          <td>Permanent — no extension, no late-filing relief, no exceptions under IRS rules. Filed on IRS Form 15620, submitted via IRS online account or by mail.
-            <span class="src"><a href="https://www.irs.gov/pub/irs-pdf/f15620.pdf" target="_blank" rel="noopener">IRS Form 15620 — Section 83(b) Election ↗</a></span>
-          </td>
-        </tr>
-        <tr>
-          <td>Beneficial Ownership Information (BOI/FinCEN)</td>
-          <td>—</td>
-          <td class="yes">Not currently required</td>
-          <td>$0</td>
-          <td>FinCEN removed the BOI reporting requirement for US-formed companies in March 2025. Applies only to foreign companies registered to do business in a US state — re-check if this rule reverses.
-            <span class="src"><a href="https://www.fincen.gov/news/news-releases/fincen-removes-beneficial-ownership-reporting-requirements-us-companies-and-us" target="_blank" rel="noopener">FinCEN — BOI rule change, Mar 2025 ↗</a></span>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="sec-heading">Compliance Calendar</div>
+    <div class="sec-note">No quarterly filings apply pre-revenue with no payroll. All obligations below are annual.</div>
+    <div class="gtable-wrap">
+      <table class="gtable">
+        <thead>
+          <tr><th>Obligation</th><th>Due</th><th>Amount</th><th>If Missed</th><th>Source</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Delaware Annual Report + Franchise Tax</td>
+            <td>Mar 1, 2027</td>
+            <td>$175–$400 tax + $50 report fee</td>
+            <td>$200 penalty + 1.5%/mo interest. 2 missed years voids the company.</td>
+            <td><a href="https://corp.delaware.gov/frtaxcalc/" target="_blank" rel="noopener">DE Corp ↗</a></td>
+          </tr>
+          <tr>
+            <td>Delaware Registered Agent fee</td>
+            <td>Jul 2027</td>
+            <td>$50</td>
+            <td>Agent may resign; company loses DE registered-agent standing.</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>Federal Form 1120 (first return)</td>
+            <td>Apr 15, 2027</td>
+            <td>Tax on net income (likely $0)</td>
+            <td>Failure-to-file penalty even at $0 tax due. 6-mo extension via Form 7004.</td>
+            <td><a href="https://www.irs.gov/publications/p509" target="_blank" rel="noopener">IRS Pub 509 ↗</a></td>
+          </tr>
+          <tr>
+            <td>California foreign qualification + franchise tax</td>
+            <td>Confirm — 2027 if triggered</td>
+            <td>$800/yr min (waived year 1)</td>
+            <td>Back taxes + penalties; can't enforce contracts in CA courts unregistered.</td>
+            <td><a href="https://www.ftb.ca.gov/file/business/types/corporations/index.html" target="_blank" rel="noopener">CA FTB ↗</a></td>
+          </tr>
+          <tr>
+            <td>83(b) election (per stock grant)</td>
+            <td>30 days from grant</td>
+            <td>$0</td>
+            <td>Permanent — no extension, no exceptions.</td>
+            <td><a href="https://www.irs.gov/pub/irs-pdf/f15620.pdf" target="_blank" rel="noopener">IRS Form 15620 ↗</a></td>
+          </tr>
+          <tr>
+            <td>Beneficial Ownership Info (BOI/FinCEN)</td>
+            <td>Not currently required</td>
+            <td>$0</td>
+            <td>Exempted for US-formed companies since Mar 2025. Re-check if reversed.</td>
+            <td><a href="https://www.fincen.gov/news/news-releases/fincen-removes-beneficial-ownership-reporting-requirements-us-companies-and-us" target="_blank" rel="noopener">FinCEN ↗</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
   <!-- SECTION 03: FIRMS -->
   <div class="section" id="s03">
-    <div class="sec-heading"><span class="sec-num">03</span>US Accounting &amp; Tax Firms</div>
-    <div class="alert alert-green"><strong>All three handle Delaware C-Corp bookkeeping, Form 1120, and Delaware franchise tax filing.</strong> Fondo is the closest fit for the company's current pre-revenue, pre-seed stage. Kruze only accepts companies that have raised $500K+ in funding — revisit once the next round closes.</div>
-
-    <div class="card-grid" style="margin-top:20px">
-
-      <div class="icard best">
-        <div class="icard-num">Best fit now</div>
-        <div class="icard-title">Fondo</div>
-        <div class="icard-price">$950/yr bookkeeping + $1,450/yr TaxPass</div>
-        <div class="icard-body">
-          Annual bookkeeping plan built for pre-seed startups: dedicated accountant, finance dashboard, annual close and reporting. TaxPass covers federal Form 1120, one state return, and Delaware Franchise Tax filing in one package. Additional states, R&amp;D credit filing, and foreign-shareholder forms are add-ons.
-        </div>
-        <div class="icard-contact">Contact: <a href="https://fondo.com/pricing" target="_blank" rel="noopener">fondo.com/pricing ↗</a></div>
-      </div>
-
-      <div class="icard">
-        <div class="icard-num">Best known brand</div>
-        <div class="icard-title">Pilot</div>
-        <div class="icard-price">$99/mo bookkeeping (Essentials) + $2,450/yr C-Corp tax plan</div>
-        <div class="icard-body">
-          Essentials covers monthly reconciliation and a year-end tax package up to $100K/mo in expenses. The separate C-Corp tax plan covers federal/state filing, Delaware franchise tax, and up to 10 1099-NEC filings. Higher tiers add a dedicated bookkeeper and CFO advisory as the company scales.
-        </div>
-        <div class="icard-contact">Contact: <a href="https://pilot.com/talk-to-expert" target="_blank" rel="noopener">pilot.com/talk-to-expert ↗</a> · info@pilot.com</div>
-      </div>
-
-      <div class="icard">
-        <div class="icard-num">Best for after next round</div>
-        <div class="icard-title">Kruze Consulting</div>
-        <div class="icard-price">$650–$850/mo (from, requires $500K+ raised)</div>
-        <div class="icard-body">
-          Specialist for venture-funded Delaware C-Corps, Pre-Seed through Series C. Accrual-basis bookkeeping, dedicated accounting manager, and full tax service including 409A valuations and CFO support. Requires at least $500K in venture funding raised; ~$315K raised to date is below that threshold.
-        </div>
-        <div class="icard-contact">Contact: <a href="https://kruzeconsulting.com/free-consultation/" target="_blank" rel="noopener">kruzeconsulting.com/free-consultation ↗</a> · (415) 322-1610</div>
-      </div>
-
+    <div class="sec-heading">US Accounting &amp; Tax Firms</div>
+    <div class="sec-note">All three cover Delaware C-Corp bookkeeping, Form 1120, and Delaware Franchise Tax filing.</div>
+    <div class="gtable-wrap">
+      <table class="gtable">
+        <thead>
+          <tr><th>Firm</th><th>Best Fit</th><th>Cost</th><th>Includes</th><th>Contact</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Fondo</td>
+            <td>Pre-seed, now</td>
+            <td>$950/yr bookkeeping<br/>$1,450/yr tax (TaxPass)</td>
+            <td>Form 1120, 1 state return, DE Franchise Tax</td>
+            <td><a href="https://fondo.com/pricing" target="_blank" rel="noopener">fondo.com/pricing ↗</a></td>
+          </tr>
+          <tr>
+            <td>Pilot</td>
+            <td>Known brand, scales up</td>
+            <td>$99/mo bookkeeping<br/>$2,450/yr C-Corp tax</td>
+            <td>Federal/state filing, DE Franchise Tax, up to 10 1099s</td>
+            <td><a href="https://pilot.com/talk-to-expert" target="_blank" rel="noopener">pilot.com/talk-to-expert ↗</a><br/>info@pilot.com</td>
+          </tr>
+          <tr>
+            <td>Kruze Consulting</td>
+            <td>After next round (requires $500K+ raised; ~$315K raised to date)</td>
+            <td>$650–$850/mo</td>
+            <td>Bookkeeping, tax, 409A valuations, CFO support</td>
+            <td><a href="https://kruzeconsulting.com/free-consultation/" target="_blank" rel="noopener">kruzeconsulting.com/free-consultation ↗</a><br/>(415) 322-1610</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
