@@ -326,6 +326,7 @@ tr:hover .del-btn{opacity:1}
           <th style="min-width:140px">URL</th>
           <th style="min-width:130px">Instagram · Followers</th>
           <th style="min-width:110px">Annual Revenue</th>
+          <th style="min-width:120px">Category</th>
           <th style="min-width:190px">Positioning</th>
           <th style="min-width:100px">Country origin</th>
           <th style="min-width:120px">Sells to</th>
@@ -357,7 +358,7 @@ var VOTER_KEYS = {alena:'va', chris:'vc', maxim:'vm', alex:'vx', claude:'vl'};
 var DEFAULTS = [];
 
 function blankItem(src){
-  var base = {name:'',url:'',instagram:'',followers:'',revenue:'',positioning:'',origin:'',sellsTo:'',whyRelevant:'',contactEmail:'',linkedinContacts:'',comments:'',isExample:false,va:false,vc:false,vm:false,vx:false,vl:false};
+  var base = {name:'',url:'',instagram:'',followers:'',revenue:'',category:'',positioning:'',origin:'',sellsTo:'',whyRelevant:'',contactEmail:'',linkedinContacts:'',comments:'',isExample:false,va:false,vc:false,vm:false,vx:false,vl:false};
   if(src){ Object.keys(src).forEach(function(k){ base[k]=src[k]; }); }
   return base;
 }
@@ -367,6 +368,7 @@ var FIELDS = [
   {key:'url',         ph:'https://…',             w:'140px'},
   {key:'instagram',   ph:'https://instagram.com/…', w:'130px'},
   {key:'revenue',     ph:'e.g. $2M…',            w:'110px'},
+  {key:'category',    ph:'Apparel, jewellery…',   w:'120px'},
   {key:'positioning', ph:'What they make…',       w:'190px'},
   {key:'origin',      ph:'UK, US…',              w:'100px'},
   {key:'sellsTo',     ph:'Global, US, EU…',      w:'120px'},
