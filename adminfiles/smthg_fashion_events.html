@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <meta name="robots" content="noindex, nofollow"/>
-<title>Fashion Events — Netherlands &amp; Belgium — SMTHG</title>
+<title>Fashion Events — Meet Designers — SMTHG</title>
 <link rel="icon" type="image/svg+xml" href="smthg_favicon.svg"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
@@ -45,8 +45,18 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .pg-title{font-size:clamp(22px,5vw,34px);font-weight:800;letter-spacing:-1px;color:var(--ink);margin-top:12px;line-height:1.15}
 .pg-sub{font-size:13px;color:var(--sub);margin-top:8px;line-height:1.6}
 
+/* TOC */
+.toc{margin-top:24px;border:1px solid var(--ink);background:white}
+.toc-label{background:var(--ink);color:white;font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:9px 16px}
+.toc-list{display:flex;flex-wrap:wrap}
+.toc-list a{flex:1 1 180px;padding:12px 16px;font-size:12.5px;font-weight:700;color:var(--ink);text-decoration:none;border-top:1px solid var(--rule);border-right:1px solid var(--rule)}
+.toc-list a:last-child{border-right:none}
+.toc-list a:hover{background:var(--tf-ghost);color:var(--tf)}
+.toc-list a .toc-date{display:block;font-size:10.5px;font-weight:700;color:var(--sub);margin-top:2px;text-transform:none;letter-spacing:0}
+
 .section{padding:36px 0}
 .section+.section{border-top:1px solid var(--rule)}
+.sec-country{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);margin-bottom:4px}
 .sec-heading{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:4px}
 .sec-note{font-size:12px;color:var(--sub);margin-bottom:16px}
 
@@ -62,10 +72,10 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .gtable td strong{font-weight:700}
 .gtable a{color:var(--tf);text-decoration:none;font-weight:700}
 .gtable a:hover{text-decoration:underline}
-.gtable td.best{background:#FBFAF7}
 
 .tag{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;padding:2px 7px;border:1px solid var(--ink);color:var(--ink)}
 .tag.public{border-color:var(--tf);color:var(--tf)}
+.tag.caution{border-color:var(--sub);color:var(--sub)}
 
 footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);opacity:.5}
 
@@ -77,11 +87,14 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   .pg-wrap{padding:28px 20px 60px}
   .gtable{font-size:11.5px}
   .gtable th,.gtable td{padding:8px 10px}
+  .toc-list a{flex:1 1 140px}
 }
 @media(max-width:500px){
   .pg-wrap{padding:20px 14px 48px}
   footer{padding:16px 14px}
   #back-to-top{bottom:20px;right:20px;width:40px;height:40px;font-size:17px}
+  .toc-list{flex-direction:column}
+  .toc-list a{border-right:none}
 }
 </style>
 </head>
@@ -138,91 +151,125 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
 <div class="pg-wrap">
 
   <div class="pg-eyebrow">Brands · Networking · Internal</div>
-  <div class="pg-title">Fashion Events — Netherlands &amp; Belgium</div>
-  <div class="pg-sub">Upcoming events for designer and brand scouting, sorted by next relevant date.</div>
+  <div class="pg-title">Fashion Events — Meet Designers</div>
+  <div class="pg-sub">Events selected for one purpose: direct access to fashion and accessories designers, beyond their product on a runway. Grouped by country, each table sorted by next relevant date.</div>
 
-  <!-- SECTION 01: SCHEDULE -->
-  <div class="section" id="s01">
-    <div class="sec-heading">Schedule</div>
-    <div class="sec-note">Ongoing exhibitions are sorted by their closing date.</div>
+  <div class="toc">
+    <div class="toc-label">Table of Contents</div>
+    <div class="toc-list">
+      <a href="#turkey">Turkey <span class="toc-date">from Aug 19, 2026</span></a>
+      <a href="#thailand">Thailand <span class="toc-date">from Aug 22, 2026</span></a>
+      <a href="#netherlands">Netherlands <span class="toc-date">from Sep 1, 2026</span></a>
+      <a href="#russia">Russia <span class="toc-date">from Sep 1, 2026</span></a>
+      <a href="#belgium">Belgium <span class="toc-date">ongoing now</span></a>
+    </div>
+  </div>
+
+  <!-- TURKEY -->
+  <div class="section" id="turkey">
+    <div class="sec-country">Turkey</div>
+    <div class="sec-heading">Istanbul</div>
     <div class="gtable-wrap">
       <table class="gtable">
         <thead>
-          <tr><th style="width:30px">#</th><th style="width:14%">Dates</th><th style="width:16%">Event</th><th style="width:6%">Country</th><th>Context</th><th style="width:12%">Link</th></tr>
+          <tr><th style="width:14%">Dates</th><th style="width:20%">Event</th><th>Context</th><th style="width:12%">Link</th></tr>
         </thead>
         <tbody>
           <tr>
-            <td class="num">1</td>
-            <td>Sep 1–5, 2026</td>
-            <td><strong>Amsterdam Fashion Week</strong></td>
-            <td>NL</td>
-            <td>City-wide program, 40+ shows/presentations. Mostly press/buyer-invite catwalk — see breakdown below for the events actually open to meeting designers.</td>
-            <td><a href="https://amsterdamfashionweek.nl/schedule/" target="_blank" rel="noopener">Schedule ↗</a></td>
+            <td>Aug 19–21, 2026</td>
+            <td><strong>IFCO</strong> — Istanbul Fashion Connection</td>
+            <td>Istanbul Expo Center. 400+ exhibitors across womenswear, menswear, kids, accessories, denim, footwear; 30,000+ trade visitors expected. Built specifically as a B2B platform connecting buyers directly with designers/manufacturers, with a filtering system to find and contact exhibitors. Best fit in this section.</td>
+            <td><a href="https://www.ifco.com.tr/fair" target="_blank" rel="noopener">ifco.com.tr ↗</a></td>
           </tr>
           <tr>
-            <td class="num">2</td>
-            <td>Sep 6–8, 2026</td>
-            <td><strong>Comfortable Fashion Days</strong></td>
-            <td>NL</td>
-            <td>CAST, Buizerdlaan 6, Nieuwegein. Footwear/comfort-accessories trade show — brands present collections directly to buyers, meetings and orders on the spot.</td>
-            <td><a href="https://www.cast.nl/nl/events/comfortable-fashion-days-2026-2" target="_blank" rel="noopener">cast.nl ↗</a></td>
-          </tr>
-          <tr>
-            <td class="num">3</td>
-            <td>Oct 7–11, 2026</td>
-            <td><strong>Dutch Sustainable Fashion Week</strong></td>
-            <td>NL</td>
-            <td>Multiple NL cities. Runway shows, workshops, exhibitions, retail events, repair cafés — Dutch fashion brands and upcycling designers featured; exact meet-the-designer format not confirmed on the program page.</td>
-            <td><a href="https://transition-pathways.europa.eu/textiles/events-and-trainings/dutch-sustainable-fashion-week-2026" target="_blank" rel="noopener">Programme ↗</a></td>
-          </tr>
-          <tr>
-            <td class="num">4</td>
-            <td>Oct 14–15, 2026</td>
-            <td><strong>Kingpins Amsterdam</strong></td>
-            <td>NL</td>
-            <td>Sugar Factory, Kristalpromenade 7, Halfweg. World's foremost denim-industry gathering — mills, suppliers, and fashion brands together, direct trade-floor access.</td>
-            <td><a href="https://kingpinsshow.com/shows/amsterdam/" target="_blank" rel="noopener">kingpinsshow.com ↗</a></td>
-          </tr>
-          <tr>
-            <td class="num">5</td>
-            <td>Oct 31, 2026</td>
-            <td><strong>Lingerie Fashion Week Amsterdam</strong></td>
-            <td>NL</td>
-            <td>De Koning, Amsterdam. Self-described gathering of lingerie designers, models, buyers, retailers, and press mixed on the floor — designer-facing.</td>
-            <td><a href="https://www.eventbrite.nl/e/lingerie-fashion-week-amsterdam-tickets-452977456767" target="_blank" rel="noopener">Eventbrite ↗</a></td>
-          </tr>
-          <tr>
-            <td class="num">6</td>
-            <td>Closes Nov 8, 2026</td>
-            <td><strong>LOOKS, LOOKS, LOOKS</strong> — Antwerp Fashion Dept.</td>
-            <td>BE</td>
-            <td>MoMu, Antwerp. Work of current students/graduates of the Royal Academy of Fine Arts Antwerp — the school that produced the Antwerp Six. Closest access to emerging Belgian designer talent right now.</td>
-            <td><a href="https://www.momu.be/en/exhibitions/looks-looks-looks-antwerp-fashion-department" target="_blank" rel="noopener">momu.be ↗</a></td>
-          </tr>
-          <tr>
-            <td class="num">7</td>
-            <td>Closes Jan 17, 2027</td>
-            <td><strong>"The Antwerp Six" exhibition</strong></td>
-            <td>BE</td>
-            <td>MoMu, Antwerp. 40th-anniversary retrospective on the six designers (Bikkembergs, Demeulemeester, Van Beirendonck, Van Noten, Van Saene, Yee). Historical retrospective; no live designer meetings.</td>
-            <td><a href="https://www.momu.be/en/exhibitions/the-antwerp-six" target="_blank" rel="noopener">momu.be ↗</a></td>
-          </tr>
-          <tr>
-            <td class="num">8</td>
-            <td>Jan 24–25, 2027</td>
-            <td><strong>Modefabriek Winter</strong> + EU FashionMatch</td>
-            <td>NL</td>
-            <td>EXPO Greater Amsterdam. 600+ fashion &amp; accessories brands exhibiting; EU FashionMatch runs free pre-arranged 30-min meetings between designers/brands and buyers, agents, investors. Best fit overall for structured designer meetings.</td>
-            <td><a href="https://www.modefabriek.nl/en/news/modefabriek-winter-2026-lets-come-together" target="_blank" rel="noopener">modefabriek.nl ↗</a></td>
+            <td>Oct 12–15, 2026</td>
+            <td><strong>Fashion Week Istanbul</strong></td>
+            <td>Digital/online format for this edition — no in-person designer access. Included for awareness only.</td>
+            <td><a href="https://fashionweek.istanbul/" target="_blank" rel="noopener">fashionweek.istanbul ↗</a></td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
 
-  <!-- SECTION 02: AFW BREAKDOWN -->
-  <div class="section" id="s02">
-    <div class="sec-heading">Amsterdam Fashion Week — Where to Meet Designers</div>
+  <!-- THAILAND -->
+  <div class="section" id="thailand">
+    <div class="sec-country">Thailand</div>
+    <div class="sec-heading">Bangkok</div>
+    <div class="gtable-wrap">
+      <table class="gtable">
+        <thead>
+          <tr><th style="width:14%">Dates</th><th style="width:20%">Event</th><th>Context</th><th style="width:12%">Link</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Aug 22, 2026, 5–10PM</td>
+            <td><strong>Thailand International Fashion Week</strong></td>
+            <td>Baiyoke Sky Hotel. Single-evening showcase. Designer presence is implied in the event description but not independently confirmed as a structured meet-the-designer format. Organizer contact is via WhatsApp only, which limits independent verification — treat as lower-confidence pending direct confirmation.</td>
+            <td><span class="tag caution">Limited verification</span></td>
+          </tr>
+          <tr>
+            <td>Nov 25–26, 2026</td>
+            <td><strong>Thailand Fashion Week</strong> SS'27</td>
+            <td>The Halls Bangkok. Official bi-annual trade + public event. Separate designer registration, buyer registration, and booth spaces; program explicitly lists runway presentations, designer showcases, exhibitions, and networking. Best fit in this section.</td>
+            <td><a href="https://www.thailandfashionweek.org/" target="_blank" rel="noopener">thailandfashionweek.org ↗</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NETHERLANDS -->
+  <div class="section" id="netherlands">
+    <div class="sec-country">Netherlands</div>
+    <div class="sec-heading">Schedule</div>
+    <div class="gtable-wrap">
+      <table class="gtable">
+        <thead>
+          <tr><th style="width:14%">Dates</th><th style="width:18%">Event</th><th>Context</th><th style="width:12%">Link</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Sep 1–5, 2026</td>
+            <td><strong>Amsterdam Fashion Week</strong></td>
+            <td>City-wide program, 40+ shows/presentations. Mostly press/buyer-invite catwalk — see breakdown below for the events actually open to meeting designers.</td>
+            <td><a href="https://amsterdamfashionweek.nl/schedule/" target="_blank" rel="noopener">Schedule ↗</a></td>
+          </tr>
+          <tr>
+            <td>Sep 6–8, 2026</td>
+            <td><strong>Comfortable Fashion Days</strong></td>
+            <td>CAST, Buizerdlaan 6, Nieuwegein. Footwear/comfort-accessories trade show — brands present collections directly to buyers, meetings and orders on the spot.</td>
+            <td><a href="https://www.cast.nl/nl/events/comfortable-fashion-days-2026-2" target="_blank" rel="noopener">cast.nl ↗</a></td>
+          </tr>
+          <tr>
+            <td>Oct 7–11, 2026</td>
+            <td><strong>Dutch Sustainable Fashion Week</strong></td>
+            <td>Multiple NL cities. Runway shows, workshops, exhibitions, retail events, repair cafés — Dutch fashion brands and upcycling designers featured; exact meet-the-designer format not confirmed on the program page.</td>
+            <td><a href="https://transition-pathways.europa.eu/textiles/events-and-trainings/dutch-sustainable-fashion-week-2026" target="_blank" rel="noopener">Programme ↗</a></td>
+          </tr>
+          <tr>
+            <td>Oct 14–15, 2026</td>
+            <td><strong>Kingpins Amsterdam</strong></td>
+            <td>Sugar Factory, Kristalpromenade 7, Halfweg. World's foremost denim-industry gathering — mills, suppliers, and fashion brands together, direct trade-floor access.</td>
+            <td><a href="https://kingpinsshow.com/shows/amsterdam/" target="_blank" rel="noopener">kingpinsshow.com ↗</a></td>
+          </tr>
+          <tr>
+            <td>Oct 31, 2026</td>
+            <td><strong>Lingerie Fashion Week Amsterdam</strong></td>
+            <td>De Koning, Amsterdam. Self-described gathering of lingerie designers, models, buyers, retailers, and press mixed on the floor — designer-facing.</td>
+            <td><a href="https://www.eventbrite.nl/e/lingerie-fashion-week-amsterdam-tickets-452977456767" target="_blank" rel="noopener">Eventbrite ↗</a></td>
+          </tr>
+          <tr>
+            <td>Jan 24–25, 2027</td>
+            <td><strong>Modefabriek Winter</strong> + EU FashionMatch</td>
+            <td>EXPO Greater Amsterdam. 600+ fashion &amp; accessories brands exhibiting; EU FashionMatch runs free pre-arranged 30-min meetings between designers/brands and buyers, agents, investors. Best fit overall for structured designer meetings.</td>
+            <td><a href="https://www.modefabriek.nl/en/news/modefabriek-winter-2026-lets-come-together" target="_blank" rel="noopener">modefabriek.nl ↗</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sec-heading" style="margin-top:28px">Amsterdam Fashion Week — Where to Meet Designers</div>
     <div class="sec-note">Nearly all individual runway shows on the AFW schedule (Sep 1–5) are marked "Closed" — press/buyer accreditation only, no public entry. The three exceptions below are the actual access points.</div>
     <div class="gtable-wrap">
       <table class="gtable">
@@ -259,6 +306,69 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
             <td>Individual brand/designer runway shows (Dolly Sports, Wandler, Camiel Fortgens, Natan, etc.)</td>
             <td><span class="tag">Closed</span></td>
             <td>Press/buyer accreditation required — apply via info@amsterdamfashionweek.nl if industry access is worth pursuing.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- RUSSIA -->
+  <div class="section" id="russia">
+    <div class="sec-country">Russia</div>
+    <div class="sec-heading">Moscow &amp; Saint Petersburg</div>
+    <div class="gtable-wrap">
+      <table class="gtable">
+        <thead>
+          <tr><th style="width:14%">Dates</th><th style="width:10%">City</th><th style="width:18%">Event</th><th>Context</th><th style="width:12%">Link</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Sep 1–4, 2026</td>
+            <td>Moscow</td>
+            <td><strong>CPM</strong> — Collection Première Moscow, Autumn</td>
+            <td>Crocus Expo IEC. 46th season. B2B trade show for women's, men's, and children's clothing — Russian and international designers/brands present directly to buyers on the trade floor.</td>
+            <td><a href="https://cpm-moscow.com/" target="_blank" rel="noopener">cpm-moscow.com ↗</a></td>
+          </tr>
+          <tr>
+            <td>Oct 8–11, 2026</td>
+            <td>Saint Petersburg</td>
+            <td><strong>St. Petersburg Fashion Week</strong></td>
+            <td>Eastern Europe's key fashion week, listed on the International Fashion Week Calendar. Designers and industry experts featured on the runway; exact meet-the-designer format not confirmed on the official site.</td>
+            <td><a href="https://spbfw.ru/" target="_blank" rel="noopener">spbfw.ru ↗</a></td>
+          </tr>
+          <tr>
+            <td>Oct 22–25, 2026</td>
+            <td>Saint Petersburg</td>
+            <td><strong>Fashion Industry</strong> exhibition</td>
+            <td>EXPOFORUM, Pavilion H. ~200 exhibitors, ~13,000 expected attendees. Trade fair spanning women's/men's/children's wear, footwear, textiles, fur/leather, lingerie — designers and industry leaders present on the floor.</td>
+            <td><a href="https://en.fi-expo.ru/" target="_blank" rel="noopener">en.fi-expo.ru ↗</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- BELGIUM -->
+  <div class="section" id="belgium">
+    <div class="sec-country">Belgium</div>
+    <div class="sec-heading">Antwerp</div>
+    <div class="gtable-wrap">
+      <table class="gtable">
+        <thead>
+          <tr><th style="width:16%">Dates</th><th style="width:22%">Event</th><th>Context</th><th style="width:12%">Link</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Closes Nov 8, 2026</td>
+            <td><strong>LOOKS, LOOKS, LOOKS</strong> — Antwerp Fashion Dept.</td>
+            <td>MoMu, Antwerp. Work of current students/graduates of the Royal Academy of Fine Arts Antwerp — the school that produced the Antwerp Six. Closest access to emerging Belgian designer talent right now.</td>
+            <td><a href="https://www.momu.be/en/exhibitions/looks-looks-looks-antwerp-fashion-department" target="_blank" rel="noopener">momu.be ↗</a></td>
+          </tr>
+          <tr>
+            <td>Closes Jan 17, 2027</td>
+            <td><strong>"The Antwerp Six" exhibition</strong></td>
+            <td>MoMu, Antwerp. 40th-anniversary retrospective on the six designers (Bikkembergs, Demeulemeester, Van Beirendonck, Van Noten, Van Saene, Yee). Historical retrospective; no live designer meetings.</td>
+            <td><a href="https://www.momu.be/en/exhibitions/the-antwerp-six" target="_blank" rel="noopener">momu.be ↗</a></td>
           </tr>
         </tbody>
       </table>
