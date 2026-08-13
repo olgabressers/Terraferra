@@ -118,13 +118,13 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         </thead>
         <tbody>
           <tr><td>Russia</td><td>US</td><td class="yes">Zero</td><td class="no">No — freight breaks the economics</td></tr>
-          <tr><td>EU</td><td>US</td><td class="yes">Zero</td><td class="warn">Pending — freight not yet quoted</td></tr>
-          <tr><td>UK</td><td>US</td><td class="yes">Zero</td><td class="warn">Pending — freight not yet quoted</td></tr>
+          <tr><td>EU</td><td>US</td><td class="yes">Zero</td><td class="warn">Pending — freight confirmed ($124–143), landed-cost verdict not yet run</td></tr>
+          <tr><td>UK</td><td>US</td><td class="yes">Zero</td><td class="warn">Pending — DHL UK quote tool returned no results on two valid attempts</td></tr>
           <tr><td>Turkey</td><td>EU</td><td class="no">EU IOSS registration required</td><td class="no">No — fails the zero-paperwork rule</td></tr>
           <tr><td>Turkey</td><td>US</td><td class="yes">Zero</td><td class="no">No — tariffs alone rule it out</td></tr>
           <tr><td>Japan</td><td>EU</td><td class="no">EU IOSS registration required</td><td class="no">No — fails the zero-paperwork rule</td></tr>
           <tr><td>Japan</td><td>UK</td><td class="no">UK VAT registration required</td><td class="no">No — fails the zero-paperwork rule</td></tr>
-          <tr><td>Japan</td><td>US</td><td class="yes">Zero</td><td class="warn">Pending — freight not yet quoted</td></tr>
+          <tr><td>Japan</td><td>US</td><td class="yes">Zero</td><td class="warn">Pending — freight confirmed ($105–175), landed-cost verdict not yet run</td></tr>
         </tbody>
       </table>
     </div>
@@ -196,7 +196,8 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
       <table class="gtable">
         <tbody>
           <tr><td style="width:22%"><strong>Outbound carrier</strong></td><td>DHL Express — $540 (office drop-off) to $720 (pickup), 7 business days, broker included</td></tr>
-          <tr><td><strong>Cheaper, unverified</strong></td><td>Boxberry from ~$20, 12–25 days — not yet quoted for a real parcel. Russian Post $53, 15–90 days — too slow for MVP.</td></tr>
+          <tr><td><strong>Cheaper, unverified</strong></td><td>Boxberry from ~$20, 12–25 days — not yet quoted for a real parcel, broker/bond arrangement unconfirmed (falls under the "any other carrier" row in §02).</td></tr>
+          <tr><td><strong>Russian Post — customs</strong></td><td>$53, 15–90 days — too slow for the MVP window, but customs mechanism is different from Boxberry: US mail shipments clear through CBP's postal informal entry process (effective 24 Jul 2026), not general freight entry. Filer must still be the owner/purchaser or a licensed broker, and a customs bond is still required — same underlying obligation as §02, via a different filing channel.</td></tr>
           <tr><td><strong>Returns</strong></td><td>DHL/FedEx/UPS do not accept inbound-to-Russia shipments (suspended since 2022). Use CDEK Global — $27, 4–6 days.</td></tr>
           <tr><td><strong>Payout</strong></td><td>Brand needs a non-Russian bank account (Georgian, Armenian, or EU) — Russian accounts cannot receive Stripe/Wise payouts.</td></tr>
         </tbody>
@@ -207,28 +208,29 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <!-- SECTION 04 -->
   <div class="section" id="s04">
     <div class="sec-heading">04 · EU → US</div>
-    <div class="sec-note"><strong>Conclusion:</strong> ~12–20% MFN duty applies — no US-EU free trade agreement. DHL, FedEx, and UPS all operate normally on this route with no restrictions. Only gap is a live freight quote.</div>
+    <div class="sec-note"><strong>Conclusion:</strong> ~12–20% MFN duty applies — no US-EU free trade agreement. DHL, FedEx, and UPS all operate normally on this route with no restrictions.</div>
     <div class="gtable-wrap">
       <table class="gtable">
         <tbody>
           <tr><td style="width:22%"><strong>Duty</strong></td><td>~12–20% MFN — no US-EU Free Trade Agreement (FTA) exists</td></tr>
           <tr><td><strong>Carriers</strong></td><td>DHL, FedEx, UPS all operate normally — no restrictions on this route, broker included in their price</td></tr>
-          <tr><td><strong>Freight cost</strong></td><td class="warn">Not yet quoted — no live calculator run for this lane</td></tr>
+          <tr><td><strong>Freight cost</strong></td><td>DHL Express, Berlin to New York, 1kg / 40x30x10cm parcel — 107.53 to 124.03 EUR (approximately 124 to 143 USD at 1.1543 USD/EUR), 4 business days</td></tr>
         </tbody>
       </table>
     </div>
+    <div class="src">Source: DHL Express Germany live calculator (mydhl.express.dhl), 13 Aug 2026</div>
   </div>
 
   <!-- SECTION 05 -->
   <div class="section" id="s05">
     <div class="sec-heading">05 · UK → US</div>
-    <div class="sec-note"><strong>Conclusion:</strong> ~12–20% MFN duty applies — no US-UK free trade agreement. DHL, FedEx, and UPS all operate normally on this route with no restrictions. Only gap is a live freight quote.</div>
+    <div class="sec-note"><strong>Conclusion:</strong> ~12–20% MFN duty applies — no US-UK free trade agreement. DHL, FedEx, and UPS all operate normally on this route with no restrictions.</div>
     <div class="gtable-wrap">
       <table class="gtable">
         <tbody>
           <tr><td style="width:22%"><strong>Duty</strong></td><td>~12–20% MFN — no US-UK Free Trade Agreement (FTA) exists</td></tr>
           <tr><td><strong>Carriers</strong></td><td>DHL, FedEx, UPS all operate normally, broker included in their price</td></tr>
-          <tr><td><strong>Freight cost</strong></td><td class="warn">Not yet quoted — no live calculator run for this lane</td></tr>
+          <tr><td><strong>Freight cost</strong></td><td class="no">Attempted twice with two different valid London addresses and correct package details. DHL's own UK quote tool returned "No delivery options available" both times — a genuine site-side issue, not a data problem. Needs a retry later or a direct DHL UK contact.</td></tr>
         </tbody>
       </table>
     </div>
@@ -257,7 +259,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         <tbody>
           <tr><td style="width:22%" class="yes">Japan → EU</td><td>0% duty — EU-Japan Economic Partnership Agreement (EPA), in force Feb 2019. Origin proof required (EUR.1 certificate or invoice declaration).</td></tr>
           <tr><td class="yes">Japan → UK</td><td>0% duty — UK-Japan Comprehensive Economic Partnership Agreement (CEPA), in force Jan 2021. Origin proof required (EUR.1 certificate or invoice declaration).</td></tr>
-          <tr><td class="warn">Japan → US</td><td>No Free Trade Agreement (FTA) with the US. ~12–20% MFN. Informal customs entry required, broker and bond required — exact cost breakdown in §02. Freight cost not yet quoted.</td></tr>
+          <tr><td class="warn">Japan → US</td><td>No Free Trade Agreement (FTA) with the US. ~12–20% MFN. Informal customs entry required, broker and bond required — exact cost breakdown in §02. Freight confirmed: DHL Express, Tokyo to New York, 1kg / 40x30x10cm parcel — 16,700 to 27,882 JPY (approximately 105 to 175 USD at 159.5 JPY/USD), delivered within 3-4 business days.</td></tr>
         </tbody>
       </table>
     </div>
