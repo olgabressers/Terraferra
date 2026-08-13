@@ -66,6 +66,10 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .gtable a{color:var(--tf);text-decoration:none;font-weight:700}
 .gtable a:hover{text-decoration:underline}
 
+.tag-path,.tag-deadline{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;padding:2px 7px;margin-bottom:4px}
+.tag-path{border:1px solid var(--ink);color:var(--ink)}
+.tag-deadline{background:var(--tf);color:white}
+
 footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);opacity:.5}
 
 #back-to-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--tf);color:white;border:none;border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900;transition:background .15s}
@@ -142,20 +146,20 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <!-- SECTION 01: ACTIONS -->
   <div class="section" id="s01">
     <div class="sec-heading">Actions — By When</div>
-    <div class="sec-note">"Who" reflects signing authority on file today: Founder is the sole director/officer named in the Statement of Incorporator. CEO gains equal signing authority once a co-founder/services agreement is executed.</div>
+    <div class="sec-note">"Who" reflects signing authority on file today: Founder is the sole director/officer named in the Statement of Incorporator. CEO gains equal signing authority once a co-founder/services agreement is executed.<br/><span class="tag-path">Critical Path</span> = no government deadline or penalty; urgent only because it blocks a later item. <span class="tag-deadline">Statutory Deadline</span> = real date, real penalty if missed.</div>
     <div class="gtable-wrap">
       <table class="gtable">
         <thead>
           <tr><th style="width:30px">#</th><th style="width:52%">Action</th><th style="width:14%">Who</th><th>By When</th></tr>
         </thead>
         <tbody>
-          <tr><td class="num">1</td><td><strong>Confirm Federal EIN status.</strong> Required before a US bank account, an accounting firm, or any tax filing.</td><td>Founder</td><td>Immediate</td></tr>
-          <tr><td class="num">2</td><td><strong>Engage a US accounting/tax firm.</strong> Onboarding takes 2–4 weeks.</td><td>Founder</td><td>By Jan 2027</td></tr>
-          <tr><td class="num">3</td><td><strong>File Delaware Annual Report + pay Franchise Tax.</strong> First filing since incorporation.</td><td>Founder</td><td>Mar 1, 2027</td></tr>
-          <tr><td class="num">4</td><td><strong>File first Federal Form 1120</strong> (short year Jul 6–Dec 31, 2026), even at $0 revenue.</td><td>Founder</td><td>Apr 15, 2027</td></tr>
-          <tr><td class="num">5</td><td><strong>Pay Delaware Registered Agent fee</strong> ($50/year).</td><td>Founder</td><td>Jul 2027</td></tr>
-          <tr><td class="num">6</td><td><strong>File 83(b) election</strong> (IRS Form 15620) for any stock grant with vesting. No extensions.</td><td>Whoever receives the grant</td><td>Within 30 days of each grant</td></tr>
-          <tr><td class="num">7</td><td><strong>Confirm California nexus</strong> with the accountant — may trigger $800/yr CA franchise tax.</td><td>Founder</td><td>By Dec 2026</td></tr>
+          <tr><td class="num">1</td><td><strong>Confirm Federal EIN status.</strong> Required before a US bank account, an accounting firm, or any tax filing.</td><td>Founder</td><td><span class="tag-path">Critical Path</span><br/>Immediate</td></tr>
+          <tr><td class="num">2</td><td><strong>Engage a US accounting/tax firm.</strong> Onboarding takes 2–4 weeks.</td><td>Founder</td><td><span class="tag-path">Critical Path</span><br/>By Jan 2027</td></tr>
+          <tr><td class="num">3</td><td><strong>File Delaware Annual Report + pay Franchise Tax.</strong> First filing since incorporation.</td><td>Founder</td><td><span class="tag-deadline">Statutory Deadline</span><br/>Mar 1, 2027</td></tr>
+          <tr><td class="num">4</td><td><strong>File first Federal Form 1120</strong> (short year Jul 6–Dec 31, 2026), even at $0 revenue.</td><td>Founder</td><td><span class="tag-deadline">Statutory Deadline</span><br/>Apr 15, 2027</td></tr>
+          <tr><td class="num">5</td><td><strong>Pay Delaware Registered Agent fee</strong> ($50/year).</td><td>Founder</td><td><span class="tag-deadline">Statutory Deadline</span><br/>Jul 2027</td></tr>
+          <tr><td class="num">6</td><td><strong>File 83(b) election</strong> (IRS Form 15620) for any stock grant with vesting. No extensions.</td><td>Whoever receives the grant</td><td><span class="tag-deadline">Statutory Deadline</span><br/>Within 30 days of each grant</td></tr>
+          <tr><td class="num">7</td><td><strong>Confirm California nexus</strong> with the accountant — may trigger $800/yr CA franchise tax.</td><td>Founder</td><td><span class="tag-path">Critical Path</span><br/>By Dec 2026</td></tr>
         </tbody>
       </table>
     </div>
