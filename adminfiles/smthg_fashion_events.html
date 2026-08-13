@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Fashion Events — Netherlands &amp; Belgium — SMTHG</title>
+<link rel="icon" type="image/svg+xml" href="smthg_favicon.svg"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --tf:#E8002D;--tf-dark:#B50023;--tf-ghost:#F1EEE9;
+  --ink:#161616;--sub:#5C5A56;--rule:#D9D4C9;--off-white:#F8F6F2;
+}
+body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)}
+
+/* NAV */
+.topnav{background:white;border-bottom:1px solid var(--rule);padding:12px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
+.topnav-home{font-weight:800;letter-spacing:2px;color:var(--ink);text-decoration:none;font-size:11px}
+.topnav-home:hover{color:var(--ink)}
+.topnav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:var(--sub);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:10px}
+.topnav-links a:hover{color:var(--tf)}
+.topnav-links a.active{color:var(--tf)}
+.has-dropdown{position:relative;padding-bottom:10px;margin-bottom:-10px}
+.dropdown-trigger{cursor:pointer;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:10px;user-select:none}
+.dropdown-trigger:hover,.has-dropdown:focus-within .dropdown-trigger{color:var(--tf)}
+.dropdown{display:none;position:absolute;top:100%;right:0;background:white;border:1px solid var(--rule);min-width:210px;box-shadow:0 6px 14px rgba(0,0,0,.08);padding:6px 0;z-index:60}
+.has-dropdown:hover .dropdown,.has-dropdown:focus-within .dropdown{display:block}
+.dropdown a{display:block;padding:9px 16px;font-size:10px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:1px;text-decoration:none}
+.dropdown a:hover{background:var(--tf-ghost);color:var(--tf)}
+@media(max-width:700px){
+  .topnav{position:static;padding:10px 14px}
+  .topnav-links{gap:8px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:2px;width:100%}
+  .topnav-links a{font-size:9.5px;white-space:nowrap}
+  .dropdown-trigger{font-size:9.5px;white-space:nowrap}
+  .has-dropdown{padding-bottom:0;margin-bottom:0}
+  .dropdown{display:none!important}
+}
+
+/* LAYOUT */
+.pg-wrap{max-width:1240px;margin:0 auto;padding:40px 48px 80px}
+.pg-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--sub)}
+.pg-title{font-size:clamp(22px,5vw,34px);font-weight:800;letter-spacing:-1px;color:var(--ink);margin-top:12px;line-height:1.15}
+.pg-sub{font-size:13px;color:var(--sub);margin-top:8px;line-height:1.6}
+
+.section{padding:36px 0}
+.section+.section{border-top:1px solid var(--rule)}
+.sec-heading{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:4px}
+.sec-note{font-size:12px;color:var(--sub);margin-bottom:16px}
+
+/* GRID TABLE — full borders, visible vertical bars */
+.gtable-wrap{overflow-x:auto;margin-top:6px;border:1px solid var(--ink)}
+.gtable{width:100%;border-collapse:collapse;font-size:12.5px}
+.gtable th{background:var(--ink);color:white;text-align:left;font-size:10px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;padding:10px 14px;border-right:1px solid rgba(255,255,255,.2)}
+.gtable th:last-child{border-right:none}
+.gtable td{padding:10px 14px;border-top:1px solid var(--rule);border-right:1px solid var(--rule);color:var(--ink);vertical-align:top;line-height:1.5}
+.gtable td:last-child{border-right:none}
+.gtable tr:nth-child(even) td{background:#FBFAF7}
+.gtable td.num{font-weight:800;color:var(--tf);text-align:center;width:28px}
+.gtable td strong{font-weight:700}
+.gtable a{color:var(--tf);text-decoration:none;font-weight:700}
+.gtable a:hover{text-decoration:underline}
+.gtable td.best{background:#FBFAF7}
+
+.tag{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;padding:2px 7px;border:1px solid var(--ink);color:var(--ink)}
+.tag.public{border-color:var(--tf);color:var(--tf)}
+
+footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);opacity:.5}
+
+#back-to-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--tf);color:white;border:none;border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900;transition:background .15s}
+#back-to-top:hover{background:var(--tf-dark)}
+#back-to-top.show{display:flex}
+
+@media(max-width:800px){
+  .pg-wrap{padding:28px 20px 60px}
+  .gtable{font-size:11.5px}
+  .gtable th,.gtable td{padding:8px 10px}
+}
+@media(max-width:500px){
+  .pg-wrap{padding:20px 14px 48px}
+  footer{padding:16px 14px}
+  #back-to-top{bottom:20px;right:20px;width:40px;height:40px;font-size:17px}
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="index.html" class="topnav-home">smthg<span style="color:var(--tf)">.</span></a>
+  <div class="topnav-links">
+    <a href="index.html">Files</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Budget ▾</span>
+      <div class="dropdown">
+        <a href="TFmarketsize.html">Market Size &amp; Opportunity</a>
+        <a href="budget.html">Budget &amp; Sales Scenarios</a>
+      </div>
+    </div>
+    <a href="roles.html">Roles</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Business Model ▾</span>
+      <div class="dropdown">
+        <a href="TFbusinessmodel.html">Comparison Matrix</a>
+        <a href="TFaltmodel.html">Alternative Model</a>
+        <a href="TFmvpcosts.html">MVP Scope &amp; Costs</a>
+        <a href="TFgtm.html">GTM</a>
+        <a href="TFwhynow.html">Why Now</a>
+        <a href="TFdropsmarket.html">Drop Market Research</a>
+        <a href="TFunservedmarket.html">Unserved Market</a>
+        <a href="TFreferral.html">Referral &amp; Viral</a>
+        <a href="TFcreatortoken.html">Creator Payments</a>
+        <a href="TFstylists.html">Stylist Layer</a>
+        <a href="TFvisualdiscovery.html">Visual Discovery</a>
+        <a href="TFbrandsworldwide.html">Fashion Brands Worldwide</a>
+        <a href="TFcommunities.html">Fashion Communities</a>
+      </div>
+    </div>
+    <a href="TFmarketplaces.html">Operations</a>
+    <a href="architecture.html">Architecture &amp; Tools</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Ideas ▾</span>
+      <div class="dropdown">
+        <a href="gamification.html">Gamification</a>
+        <a href="ideas.html">Ideas &amp; AI Research</a>
+        <a href="influencer.html">Influencer Selling</a>
+        <a href="strategic-brief.html">Strategic Brief</a>
+      </div>
+    </div>
+    <a href="TFsmthgbrands.html" class="active">Brands</a>
+    <a href="TFnewname.html">Design</a>
+    <a href="TFrussia.html">Legal / Tax</a>
+    <a href="task-tracker.html">Planning</a>
+  </div>
+</nav>
+
+<div class="pg-wrap">
+
+  <div class="pg-eyebrow">Brands · Networking · Internal</div>
+  <div class="pg-title">Fashion Events — Netherlands &amp; Belgium</div>
+  <div class="pg-sub">Upcoming events for designer and brand scouting, sorted by next relevant date.</div>
+
+  <!-- SECTION 01: SCHEDULE -->
+  <div class="section" id="s01">
+    <div class="sec-heading">Schedule</div>
+    <div class="sec-note">Ongoing exhibitions are sorted by their closing date.</div>
+    <div class="gtable-wrap">
+      <table class="gtable">
+        <thead>
+          <tr><th style="width:30px">#</th><th style="width:14%">Dates</th><th style="width:16%">Event</th><th style="width:6%">Country</th><th>Context</th><th style="width:12%">Link</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="num">1</td>
+            <td>Sep 1–5, 2026</td>
+            <td><strong>Amsterdam Fashion Week</strong></td>
+            <td>NL</td>
+            <td>City-wide program, 40+ shows/presentations. Mostly press/buyer-invite catwalk — see breakdown below for the events actually open to meeting designers.</td>
+            <td><a href="https://amsterdamfashionweek.nl/schedule/" target="_blank" rel="noopener">Schedule ↗</a></td>
+          </tr>
+          <tr>
+            <td class="num">2</td>
+            <td>Sep 6–8, 2026</td>
+            <td><strong>Comfortable Fashion Days</strong></td>
+            <td>NL</td>
+            <td>CAST, Buizerdlaan 6, Nieuwegein. Footwear/comfort-accessories trade show — brands present collections directly to buyers, meetings and orders on the spot.</td>
+            <td><a href="https://www.cast.nl/nl/events/comfortable-fashion-days-2026-2" target="_blank" rel="noopener">cast.nl ↗</a></td>
+          </tr>
+          <tr>
+            <td class="num">3</td>
+            <td>Oct 7–11, 2026</td>
+            <td><strong>Dutch Sustainable Fashion Week</strong></td>
+            <td>NL</td>
+            <td>Multiple NL cities. Runway shows, workshops, exhibitions, retail events, repair cafés — Dutch fashion brands and upcycling designers featured; exact meet-the-designer format not confirmed on the program page.</td>
+            <td><a href="https://transition-pathways.europa.eu/textiles/events-and-trainings/dutch-sustainable-fashion-week-2026" target="_blank" rel="noopener">Programme ↗</a></td>
+          </tr>
+          <tr>
+            <td class="num">4</td>
+            <td>Oct 14–15, 2026</td>
+            <td><strong>Kingpins Amsterdam</strong></td>
+            <td>NL</td>
+            <td>Sugar Factory, Kristalpromenade 7, Halfweg. World's foremost denim-industry gathering — mills, suppliers, and fashion brands together, direct trade-floor access.</td>
+            <td><a href="https://kingpinsshow.com/shows/amsterdam/" target="_blank" rel="noopener">kingpinsshow.com ↗</a></td>
+          </tr>
+          <tr>
+            <td class="num">5</td>
+            <td>Oct 31, 2026</td>
+            <td><strong>Lingerie Fashion Week Amsterdam</strong></td>
+            <td>NL</td>
+            <td>De Koning, Amsterdam. Self-described gathering of lingerie designers, models, buyers, retailers, and press mixed on the floor — designer-facing.</td>
+            <td><a href="https://www.eventbrite.nl/e/lingerie-fashion-week-amsterdam-tickets-452977456767" target="_blank" rel="noopener">Eventbrite ↗</a></td>
+          </tr>
+          <tr>
+            <td class="num">6</td>
+            <td>Closes Nov 8, 2026</td>
+            <td><strong>LOOKS, LOOKS, LOOKS</strong> — Antwerp Fashion Dept.</td>
+            <td>BE</td>
+            <td>MoMu, Antwerp. Work of current students/graduates of the Royal Academy of Fine Arts Antwerp — the school that produced the Antwerp Six. Closest access to emerging Belgian designer talent right now.</td>
+            <td><a href="https://www.momu.be/en/exhibitions/looks-looks-looks-antwerp-fashion-department" target="_blank" rel="noopener">momu.be ↗</a></td>
+          </tr>
+          <tr>
+            <td class="num">7</td>
+            <td>Closes Jan 17, 2027</td>
+            <td><strong>"The Antwerp Six" exhibition</strong></td>
+            <td>BE</td>
+            <td>MoMu, Antwerp. 40th-anniversary retrospective on the six designers (Bikkembergs, Demeulemeester, Van Beirendonck, Van Noten, Van Saene, Yee). Historical retrospective; no live designer meetings.</td>
+            <td><a href="https://www.momu.be/en/exhibitions/the-antwerp-six" target="_blank" rel="noopener">momu.be ↗</a></td>
+          </tr>
+          <tr>
+            <td class="num">8</td>
+            <td>Jan 24–25, 2027</td>
+            <td><strong>Modefabriek Winter</strong> + EU FashionMatch</td>
+            <td>NL</td>
+            <td>EXPO Greater Amsterdam. 600+ fashion &amp; accessories brands exhibiting; EU FashionMatch runs free pre-arranged 30-min meetings between designers/brands and buyers, agents, investors. Best fit overall for structured designer meetings.</td>
+            <td><a href="https://www.modefabriek.nl/en/news/modefabriek-winter-2026-lets-come-together" target="_blank" rel="noopener">modefabriek.nl ↗</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION 02: AFW BREAKDOWN -->
+  <div class="section" id="s02">
+    <div class="sec-heading">Amsterdam Fashion Week — Where to Meet Designers</div>
+    <div class="sec-note">Nearly all individual runway shows on the AFW schedule (Sep 1–5) are marked "Closed" — press/buyer accreditation only, no public entry. The three exceptions below are the actual access points.</div>
+    <div class="gtable-wrap">
+      <table class="gtable">
+        <thead>
+          <tr><th style="width:16%">Date</th><th style="width:20%">Event</th><th style="width:10%">Access</th><th>Why it's relevant</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Sep 3–4, 12PM–7PM</td>
+            <td><strong>THE HUB by AFW</strong></td>
+            <td><span class="tag public">Open to public</span></td>
+            <td>AFW's flagship public event, ~30 forward-thinking NL/BE brands in one pop-up, plus talks, workshops, a shopping floor. ~500 visitors/day. Historically free entry (2022–2024 editions), no ticket link published yet for 2026. Confirmed on the schedule for Sep 3–4, 2026 at the same recurring format.</td>
+          </tr>
+          <tr>
+            <td>Sep 2, 12PM–4:30PM</td>
+            <td><strong>Wouters &amp; Hendrix</strong> presentation</td>
+            <td><span class="tag public">Open to public</span></td>
+            <td>Museum Van Loon. Public presentation by an established Dutch accessories/jewelry design duo — direct access to the designers themselves, alongside their product.</td>
+          </tr>
+          <tr>
+            <td>Sep 3, 7PM–10:30PM</td>
+            <td><strong>OSCAM x Bevan Agyemang</strong></td>
+            <td><span class="tag public">Open to public</span></td>
+            <td>Performance &amp; exhibition, public entry. Designer-attached event, informal setting.</td>
+          </tr>
+          <tr>
+            <td>Sep 1–20, 10AM–6PM</td>
+            <td><strong>ARCATYPE</strong> exhibition</td>
+            <td><span class="tag public">Open to public</span></td>
+            <td>Runs the full month — worth a visit; it's a static exhibition rather than a live designer-meeting opportunity.</td>
+          </tr>
+          <tr>
+            <td>All other shows</td>
+            <td>Individual brand/designer runway shows (Dolly Sports, Wandler, Camiel Fortgens, Natan, etc.)</td>
+            <td><span class="tag">Closed</span></td>
+            <td>Press/buyer accreditation required — apply via info@amsterdamfashionweek.nl if industry access is worth pursuing.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div>Private · noindex · Not for distribution</div>
+</footer>
+
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" title="Back to top">↑</button>
+<script>
+window.addEventListener('scroll',function(){
+  var btn=document.getElementById('back-to-top');
+  if(window.scrollY>400){btn.classList.add('show')}else{btn.classList.remove('show')}
+});
+</script>
+
+</body>
+</html>
