@@ -99,6 +99,57 @@ a{text-decoration:none;color:inherit}
   .shell{grid-template-columns:240px minmax(0,1fr)}
   .rail{display:none}
 }
+/* ===== EXAMPLES (moved from circleexamples.html) ===== */
+.pg-wrap{max-width:1400px;margin:0 auto;padding:10px 20px 80px}
+.hero{padding:28px 0 6px}
+.pg-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--sub)}
+.pg-title{font-size:clamp(30px,4.2vw,46px);font-weight:800;letter-spacing:-1.5px;color:var(--ink);margin-top:14px;line-height:1.08}
+.pg-sub{font-size:14px;color:var(--ink);margin-top:12px;line-height:1.6;max-width:780px}
+.pg-sub a{color:var(--tf);font-weight:600;text-decoration:none}
+.pg-sub a:hover{text-decoration:underline}
+.cols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px;margin-top:44px}
+.zone{position:relative;background:white;border:2px solid var(--ink);border-radius:20px;padding:30px 22px 18px}
+.zone-tab{position:absolute;top:-16px;left:20px;background:var(--ink);color:white;border-radius:30px;padding:7px 20px;font-size:13px;font-weight:800;letter-spacing:1px;text-transform:uppercase;white-space:nowrap}
+.zone-sub{font-size:11px;color:var(--sub);margin:0 0 14px 2px}
+.shot{display:block;border:1px solid var(--rule);border-radius:12px;overflow:hidden;margin-bottom:14px}
+.shot img{display:block;width:100%;height:340px;object-fit:cover;object-position:top}
+.shot:hover{border-color:var(--tf)}
+.visit{display:inline-block;margin:0 0 14px;font-size:12px;font-weight:700;color:var(--tf);text-decoration:none}
+.visit:hover{text-decoration:underline}
+.mel2{background:var(--off-white);border:1px solid var(--rule);border-radius:10px;padding:13px 15px;margin-bottom:10px}
+.mel2-t{font-size:12.5px;font-weight:800;color:var(--ink);line-height:1.25}
+.mel2-d{font-size:12px;color:var(--ink);line-height:1.55;margin-top:4px}
+.mel2-d a{color:var(--tf);text-decoration:none}
+.mel2-d a:hover{text-decoration:underline}
+.tr-sec{margin-top:64px}
+.tr-title{font-size:clamp(24px,3.4vw,36px);font-weight:800;letter-spacing:-1.2px;color:var(--ink)}
+.tr-sub{font-size:13px;color:var(--ink);margin-top:10px;line-height:1.6;max-width:780px}
+.tr-sub a{color:var(--tf);font-weight:600;text-decoration:none}
+.tr-sub a:hover{text-decoration:underline}
+.tr-block{display:grid;grid-template-columns:1fr 46px 1fr;gap:0;align-items:stretch;margin-top:26px}
+.tr-side{background:white;border:1px solid var(--rule);border-radius:14px;padding:22px 24px}
+.tr-side-gg{background:var(--off-white)}
+.tr-side-sg{border-top:3px solid var(--tf)}
+.tr-arrow{display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;color:var(--tf)}
+.tr-label{font-size:9.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);margin-bottom:8px}
+.tr-name{font-size:17px;font-weight:800;letter-spacing:-.3px;color:var(--ink);line-height:1.2}
+.tr-desc{font-size:12.5px;color:var(--ink);line-height:1.6;margin-top:8px}
+.tr-quote{margin-top:10px;padding:10px 12px;background:white;border:1px solid var(--rule);border-radius:8px;font-size:12px;line-height:1.6;color:var(--ink);font-style:italic}
+.tr-side-sg .tr-quote{background:var(--off-white);font-style:normal}
+.tr-quote b{font-size:9px;font-weight:700;font-style:normal;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);display:block;margin-bottom:3px}
+.tr-src{font-size:10.5px;color:var(--sub);margin-top:8px}
+.tr-src a{color:var(--tf);text-decoration:none}
+.tr-src a:hover{text-decoration:underline}
+@media(max-width:1000px){
+  .cols{grid-template-columns:1fr}
+  .tr-block{grid-template-columns:1fr}
+  .tr-arrow{padding:8px 0;transform:rotate(90deg)}
+}
+@media(max-width:700px){
+  .pg-wrap{padding:10px 12px 60px}
+  .shot img{height:260px}
+}
+
 /* ===== ORIGINAL REFERENCE ===== */
 .orig{max-width:1400px;margin:0 auto;padding:10px 20px 80px}
 .orig-card{background:white;border:1px solid var(--rule);border-radius:14px;padding:26px 28px}
@@ -125,7 +176,7 @@ a{text-decoration:none;color:inherit}
 
 <div class="internal">
   <span>SMTHG Circle — community mockup · sections translated from the Glucose Guide community</span>
-  <a href="circleexamples.html">← Circle Community Examples</a>
+  <a href="index.html">← Files</a>
 </div>
 
 <!-- COMMUNITY TOP BAR -->
@@ -341,6 +392,146 @@ a{text-decoration:none;color:inherit}
     <div class="orig-sub">Login: olga@smthg.us · Password: smthg2026!us</div>
     <a class="orig-shot" href="https://community.glucoseguide.app/c/start-here" target="_blank" rel="noopener"><img src="ss-gg-starthere.png" alt="Glucose Guide community — Start Here page, logged-in view"/></a>
   </div>
+</div>
+
+<!-- ===== CIRCLE COMMUNITY EXAMPLES (moved from circleexamples.html) ===== -->
+<div class="pg-wrap">
+
+  <div class="hero">
+    <div class="pg-eyebrow">SMTHG Community · Reference Cases</div>
+    <div class="pg-title">Circle Community Examples</div>
+    <div class="pg-sub">Three live communities running on <a href="https://circle.so/" target="_blank" rel="noopener">Circle</a> — a media brand, a health coach, and a founder network. Each screenshot opens the live page.</div>
+  </div>
+
+  <div class="cols">
+
+    <!-- OPRAH -->
+    <div class="zone">
+      <div class="zone-tab">Oprah Daily Insider</div>
+      <div class="zone-sub">Media brand · paid membership</div>
+      <a class="shot" href="https://membership.oprahdaily.com/oprah-daily-insider-membership-all-access-3499.html" target="_blank" rel="noopener"><img src="ss-oprah-insider.png" alt="Oprah Daily Insider membership page"/></a>
+      <a class="visit" href="https://membership.oprahdaily.com/oprah-daily-insider-membership-all-access-3499.html" target="_blank" rel="noopener">Open the membership page →</a>
+      <div class="mel2">
+        <div class="mel2-t">The model</div>
+        <div class="mel2-d">All Access membership at $34.99/year (from $55). The members-only Oprah Insider Community is sold as one benefit in a bundle: weekly intention videos, "The Life You Want" classes, the magazine archive, a printed annual edition.</div>
+      </div>
+      <div class="mel2">
+        <div class="mel2-t">The community's role</div>
+        <div class="mel2-d">"An inviting online space rooted in connection where you can share, learn and grow alongside like-minded Insiders" — daily prompts, weekly intentions, conversations around the brand's editorial topics.</div>
+      </div>
+      <div class="mel2">
+        <div class="mel2-t">Read for SMTHG</div>
+        <div class="mel2-d">Community as part of a paid bundle around content and classes — the classroom + community + calendar set, under a strong consumer brand.</div>
+      </div>
+    </div>
+
+    <!-- BUY WOMEN BUILT -->
+    <div class="zone">
+      <div class="zone-tab">Buy Women Built</div>
+      <div class="zone-sub">Founder network · brand movement</div>
+      <a class="shot" href="https://www.buywomenbuilt.com/community" target="_blank" rel="noopener"><img src="ss-buywomenbuilt.png" alt="Buy Women Built community app on Google Play"/></a>
+      <a class="visit" href="https://www.buywomenbuilt.com/community" target="_blank" rel="noopener">Open the community page →</a>
+      <div class="mel2">
+        <div class="mel2-t">The model</div>
+        <div class="mel2-d">A UK movement of 2,000+ female founders of consumer brands. Membership costs "the price of two coffees" a month and includes all events plus the BWB Kitemark licence — a mark shown on member brands' products.</div>
+      </div>
+      <div class="mel2">
+        <div class="mel2-t">The community's role</div>
+        <div class="mel2-d">Founders-only: advice channels by industry, local and virtual meet-ups, expert sessions, challenges. The app is Circle-built (app package: co.circle.buywomenbuilt) with the BWB brand on it.</div>
+      </div>
+      <div class="mel2">
+        <div class="mel2-t">Read for SMTHG</div>
+        <div class="mel2-d">The closest analogue to the designer side: a paid, badge-bearing community of brand founders — peer advice, events, and a visibility mark that doubles purchase intent per <a href="https://www.buywomenbuilt.com/community" target="_blank" rel="noopener">buywomenbuilt.com</a>.</div>
+      </div>
+    </div>
+
+    <!-- GLUCOSE GUIDE -->
+    <div class="zone">
+      <div class="zone-tab">Glucose Guide</div>
+      <div class="zone-sub">Solo expert · free access + pay-what-you-can</div>
+      <a class="shot" href="https://community.glucoseguide.app/" target="_blank" rel="noopener"><img src="ss-glucoseguide.png" alt="Glucose Guide community page on Circle Discover"/></a>
+      <a class="visit" href="https://community.glucoseguide.app/" target="_blank" rel="noopener">Open the community →</a>
+      <div class="mel2">
+        <div class="mel2-t">The model</div>
+        <div class="mel2-d">A diabetes coaching community where a lot is accessible free — including portions of the app: recipes, challenges, cooking classes, group coaching chat. Joining is free; subscriptions are pay-what-you-can ($5–50/month or $100 one-time), plus brand partnerships.</div>
+      </div>
+      <div class="mel2">
+        <div class="mel2-t">The community's role</div>
+        <div class="mel2-d">The community is the product: spaces for daily check-ins, wins, news and events, courses and playbooks — delivered through its own branded mobile app on Circle.</div>
+      </div>
+      <div class="mel2">
+        <div class="mel2-t">Member onboarding — profile setup</div>
+        <div class="mel2-d">New members enter through a profile-setup flow on the nutrition portal before reaching coaching: <a href="https://nutrition.glucoseguide.app/ProfileSetup" target="_blank" rel="noopener">nutrition.glucoseguide.app/ProfileSetup →</a></div>
+      </div>
+      <div class="mel2">
+        <div class="mel2-t">Read for SMTHG</div>
+        <div class="mel2-d">The free layer builds scale and habit; payment is optional and funds coaching. Daily check-in spaces are the come-back mechanic. Sources: <a href="https://circle.so/blog/glucose-guide-diabetes-support-community" target="_blank" rel="noopener">Circle spotlight</a> · <a href="https://discover.circle.so/products/glucose-guide" target="_blank" rel="noopener">Circle Discover</a>.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===== TRANSLATION: GLUCOSE GUIDE → SMTHG ===== -->
+  <div class="tr-sec">
+    <div class="tr-title">The master example, translated to SMTHG</div>
+    <div class="tr-sub">Section by section: how the <a href="https://community.glucoseguide.app/c/say-hello" target="_blank" rel="noopener">Glucose Guide community</a> is built, and what the same section becomes on SMTHG. Structure per <a href="https://circle.so/blog/glucose-guide-diabetes-support-community" target="_blank" rel="noopener">Circle's community spotlight</a>. First three sections — SMTHG side suggested · under research.</div>
+
+    <!-- BLOCK 1 -->
+    <div class="tr-block">
+      <div class="tr-side tr-side-gg">
+        <div class="tr-label">Glucose Guide · Section 1</div>
+        <div class="tr-name">New Member Hub — "Say hello 👋"</div>
+        <div class="tr-desc">A start-here space plus a discussion area for introductions. A new member's first action is a post about themself — before any coaching, before any payment. The community answers, and the member has a reason to return the same day.</div>
+        <div class="tr-quote">"A start here space, as well as a discussion area for introductions."</div>
+        <div class="tr-src"><a href="https://community.glucoseguide.app/c/say-hello" target="_blank" rel="noopener">community.glucoseguide.app/c/say-hello →</a></div>
+      </div>
+      <div class="tr-arrow">→</div>
+      <div class="tr-side tr-side-sg">
+        <div class="tr-label">SMTHG · Section 1</div>
+        <div class="tr-name">Start Here — "Show your style"</div>
+        <div class="tr-desc">The first action is a look, and words come second. A new member posts one photo of the outfit that feels most like them, plus three style tags. Designers introduce the brand with a video and its story; influencers introduce their audience. Every intro post feeds the style tribes and the tag library.</div>
+        <div class="tr-quote"><b>Pinned post — draft copy</b>Welcome to SMTHG. Post one look that feels most like you — one photo, three style words. Your tags decide which drops and tribes we show you first.</div>
+      </div>
+    </div>
+
+    <!-- BLOCK 2 -->
+    <div class="tr-block">
+      <div class="tr-side tr-side-gg">
+        <div class="tr-label">Glucose Guide · Section 2</div>
+        <div class="tr-name">Health &amp; Wellness Coaching</div>
+        <div class="tr-desc">The expert layer: courses, playbooks, and a group coaching chat. Advice is delivered as community content — one coach answers where everyone reads, so each answer teaches many members at once. Member subscriptions fund this layer.</div>
+        <div class="tr-quote">"Courses, playbooks, group coaching chat, and more."</div>
+        <div class="tr-src"><a href="https://circle.so/blog/glucose-guide-diabetes-support-community" target="_blank" rel="noopener">Circle spotlight →</a></div>
+      </div>
+      <div class="tr-arrow">→</div>
+      <div class="tr-side tr-side-sg">
+        <div class="tr-label">SMTHG · Section 2</div>
+        <div class="tr-name">Style Coaching</div>
+        <div class="tr-desc">The same expert layer with stylists in the coach's seat: styling courses for members, brand-building playbooks for designers, a creator school for influencers — and a group styling chat where one stylist's answer about fit, colour or occasion is read by the whole tribe. Fashion-psychology advice sits here as a service.</div>
+        <div class="tr-quote"><b>Space description — draft copy</b>Ask a stylist anything: what fits, what matches, what to wear where. One question, answered for everyone.</div>
+      </div>
+    </div>
+
+    <!-- BLOCK 3 -->
+    <div class="tr-block">
+      <div class="tr-side tr-side-gg">
+        <div class="tr-label">Glucose Guide · Section 3</div>
+        <div class="tr-name">Recipes</div>
+        <div class="tr-desc">A library of recipes, from daily meals to tactical glucose advice. The recipe is the community's unit of value: small, useful, endlessly shareable — and each one keeps working long after it is posted. 30 new recipes a month with meal plans for paying members.</div>
+        <div class="tr-quote">"A library of recipes, ranging from daily meals to tactical glucose advice."</div>
+        <div class="tr-src"><a href="https://circle.so/blog/glucose-guide-diabetes-support-community" target="_blank" rel="noopener">Circle spotlight →</a></div>
+      </div>
+      <div class="tr-arrow">→</div>
+      <div class="tr-side tr-side-sg">
+        <div class="tr-label">SMTHG · Section 3</div>
+        <div class="tr-name">Looks Library</div>
+        <div class="tr-desc">The recipe becomes the look. A library of outfit formulas — daily looks, occasion looks, one-piece-three-ways — each built from drop pieces and a member's own wardrobe. Looks carry the style names members coin, and the library doubles as the discovery vocabulary of the platform. New looks arrive with every drop.</div>
+        <div class="tr-quote"><b>Entry format — draft copy</b>The look: [style name]. Built from: [drop piece] + what you own. Worn by: [member]. Save it, wear it, name your own version.</div>
+      </div>
+    </div>
+
+  </div>
+
 </div>
 
 </body>
