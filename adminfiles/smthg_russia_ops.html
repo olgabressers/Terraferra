@@ -110,25 +110,27 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <!-- TOP CONCLUSION -->
   <div class="section" style="padding-top:6px">
     <div class="sec-heading">Which Countries Work for MVP — Right Now</div>
-    <div class="sec-note"><strong>Direct answer: no route on this page is ready to launch today.</strong> Russia has real numbers and they are broken. Every other route is missing a required freight quote, so it cannot be confirmed ready either — duty alone is not sufficient to approve a launch.</div>
+    <div class="sec-note"><strong>MVP requirement: SMTHG holds zero registrations and files zero paperwork. All VAT, customs, and duty obligations sit on the brand.</strong> Detail for each route is in the sections below — this table is the gate, not a repeat of it.</div>
     <div class="gtable-wrap">
       <table class="gtable">
         <thead>
-          <tr><th style="width:10%">From</th><th style="width:8%">To</th><th style="width:14%">Works for MVP today?</th><th>Why</th></tr>
+          <tr><th style="width:10%">From</th><th style="width:8%">To</th><th style="width:20%">SMTHG paperwork</th><th style="width:12%">In MVP?</th></tr>
         </thead>
         <tbody>
-          <tr><td>Russia</td><td>US</td><td class="no">No — proven too expensive</td><td>DHL freight alone ($540–720) is 180–240% of a $300 item's value, before ~12–20% duty on top. Confirmed with a real quote, not an estimate.</td></tr>
-          <tr><td>EU</td><td>US</td><td class="no">No — freight not quoted</td><td>Duty confirmed at ~12–20% MFN. No live freight quote exists for this lane, so total landed cost is unknown. This route cannot launch without it.</td></tr>
-          <tr><td>UK</td><td>US</td><td class="no">No — freight not quoted</td><td>Duty confirmed at ~12–20% MFN. No live freight quote exists for this lane, so total landed cost is unknown. This route cannot launch without it.</td></tr>
-          <tr><td>Turkey</td><td>EU</td><td class="no">No — freight not quoted</td><td>Duty confirmed at 0% via the EU-Turkey customs union. Freight itself has not been quoted for this lane yet — the best fundamentals on this page, but still unverified.</td></tr>
-          <tr><td>Turkey</td><td>US</td><td class="no">No — tariffs alone rule it out</td><td>~35–37% stacked tariffs confirmed (MFN + Section 301 + Section 122). Disqualified on duty alone, regardless of freight cost.</td></tr>
-          <tr><td>Japan</td><td>EU</td><td class="no">No — freight not quoted</td><td>Duty confirmed at 0% via the EU-Japan Economic Partnership Agreement. Freight itself has not been quoted for this lane yet.</td></tr>
-          <tr><td>Japan</td><td>UK</td><td class="no">No — freight not quoted</td><td>Duty confirmed at 0% via the UK-Japan Comprehensive Economic Partnership Agreement. Freight itself has not been quoted for this lane yet.</td></tr>
-          <tr><td>Japan</td><td>US</td><td class="no">No — freight not quoted</td><td>Duty confirmed at ~12–20% MFN. No live freight quote exists for this lane, so total landed cost is unknown. This route cannot launch without it.</td></tr>
+          <tr><td>Russia</td><td>US</td><td class="yes">Zero</td><td class="no">No — freight breaks the economics</td></tr>
+          <tr><td>EU</td><td>US</td><td class="yes">Zero</td><td class="warn">Pending — freight not yet quoted</td></tr>
+          <tr><td>UK</td><td>US</td><td class="yes">Zero</td><td class="warn">Pending — freight not yet quoted</td></tr>
+          <tr><td>Turkey</td><td>EU</td><td class="no">EU IOSS registration required</td><td class="no">No — fails the zero-paperwork rule</td></tr>
+          <tr><td>Turkey</td><td>US</td><td class="yes">Zero</td><td class="no">No — tariffs alone rule it out</td></tr>
+          <tr><td>Japan</td><td>EU</td><td class="no">EU IOSS registration required</td><td class="no">No — fails the zero-paperwork rule</td></tr>
+          <tr><td>Japan</td><td>UK</td><td class="no">UK VAT registration required</td><td class="no">No — fails the zero-paperwork rule</td></tr>
+          <tr><td>Japan</td><td>US</td><td class="yes">Zero</td><td class="warn">Pending — freight not yet quoted</td></tr>
         </tbody>
       </table>
     </div>
-    <div class="sec-note" style="margin-top:10px"><strong>Next step to get any route to "Yes":</strong> run a live freight quote for that lane. Turkey→EU and Japan→EU/UK need the least work — duty is already 0%, freight is the only missing number.</div>
+    <div class="sec-note" style="margin-top:10px"><strong>Why EU/UK destinations fail on paperwork alone:</strong> the moment SMTHG collects payment on-platform, EU and UK law make the platform the VAT deemed supplier for that sale — SMTHG becomes the party legally required to register and file, regardless of the 0% customs duty. The only way to keep these routes at zero SMTHG paperwork is for the brand to run its own checkout (SMTHG never touches the payment) — not the current on-platform model.
+      <div class="src">Sources: <a href="https://ec.europa.eu/taxation_customs/business/vat/ioss_en" target="_blank" rel="noopener">European Commission — IOSS ↗</a> · <a href="https://www.gov.uk/guidance/vat-overseas-goods-sold-to-customers-in-the-uk-using-online-marketplaces" target="_blank" rel="noopener">gov.uk — VAT on overseas goods via online marketplaces ↗</a></div>
+    </div>
   </div>
 
   <!-- SECTION 01 -->
