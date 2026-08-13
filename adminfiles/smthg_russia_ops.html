@@ -11,11 +11,8 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --tf:#E8002D;--tf-dark:#B50023;--tf-ghost:#F1EEE9;
-  --orange:#E8002D;--off-white:#F8F6F2;--ink:#161616;
-  --sub:#5C5A56;--rule:#E6E2DA;
-  --green:#1A7A4A;--green-bg:#EDFAF3;
-  --red:#C0392B;--red-bg:#FDF2F1;
-  --amber:#B45309;--amber-bg:#FFFBEB;
+  --ink:#161616;--sub:#5C5A56;--rule:#D9D4C9;--off-white:#F8F6F2;
+  --green:#1A7A4A;--red:#C0392B;--amber:#B45309;
 }
 body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)}
 
@@ -26,7 +23,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .topnav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
 .topnav-links a{color:var(--sub);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:10px}
 .topnav-links a:hover{color:var(--tf)}
-.topnav-links a.active{color:var(--orange)}
+.topnav-links a.active{color:var(--tf)}
 @media(max-width:700px){
   .topnav{position:static;padding:10px 14px}
   .topnav-links{gap:8px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:2px;width:100%}
@@ -36,57 +33,54 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 /* LAYOUT */
 .pg-wrap{max-width:1240px;margin:0 auto;padding:40px 48px 80px}
 @media(max-width:700px){.pg-wrap{padding:24px 16px 60px}}
-.pg-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--sub);opacity:.6}
-.pg-title{font-size:clamp(22px,4vw,34px);font-weight:800;letter-spacing:-1px;color:var(--ink);margin-top:14px;line-height:1.15}
+.pg-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--sub)}
+.pg-title{font-size:clamp(22px,5vw,34px);font-weight:800;letter-spacing:-1px;color:var(--ink);margin-top:12px;line-height:1.15}
 .pg-sub{font-size:13px;color:var(--sub);margin-top:8px;line-height:1.6}
 
 .section{padding:32px 0}
 .section+.section{border-top:1px solid var(--rule)}
-.sec-heading{font-size:17px;font-weight:800;color:var(--ink);margin-bottom:14px;line-height:1.2;display:flex;align-items:baseline;gap:0}
-.sec-num{font-size:17px;font-weight:800;color:var(--orange);margin-right:8px}
+.sec-heading{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:4px}
+.sec-note{font-size:12.5px;color:var(--sub);margin-bottom:14px;line-height:1.5}
+.sec-note strong{color:var(--ink)}
 
-/* CONCLUSION HERO */
-.concl-box{background:white;border:1px solid var(--rule);border-top:4px solid var(--orange);padding:26px 30px;margin:24px 0 8px}
-.concl-label{font-size:10px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:14px}
-.concl-verdict{font-size:19px;font-weight:800;color:var(--ink);line-height:1.4}
-
-/* BOX */
-.box{padding:12px 16px;margin-bottom:12px;font-size:13px;color:var(--ink);line-height:1.6;border:1px solid;border-left-width:4px}
-.box-green{background:var(--green-bg);border-color:#6EE7B7;border-left-color:var(--green)}
-.box-amber{background:var(--amber-bg);border-color:#FCD34D;border-left-color:var(--amber)}
-.box-red{background:var(--red-bg);border-color:#f0b4b0;border-left-color:var(--red)}
-
-/* TABLES */
-.dtable{width:100%;border-collapse:collapse;font-size:13px;margin-top:4px}
-.dtable th{text-align:left;font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);border-bottom:2px solid var(--rule);padding:8px 14px 8px 0}
-.dtable td{border-bottom:1px solid var(--rule);padding:11px 14px 11px 0;color:var(--ink);vertical-align:top;line-height:1.5}
-.dtable td:first-child{font-weight:700}
+/* GRID TABLE — full borders, visible vertical bars */
+.gtable-wrap{overflow-x:auto;margin-top:6px;border:1px solid var(--ink)}
+.gtable{width:100%;border-collapse:collapse;font-size:12.5px}
+.gtable th{background:var(--ink);color:white;text-align:left;font-size:10px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;padding:10px 14px;border-right:1px solid rgba(255,255,255,.2)}
+.gtable th:last-child{border-right:none}
+.gtable td{padding:10px 14px;border-top:1px solid var(--rule);border-right:1px solid var(--rule);color:var(--ink);vertical-align:top;line-height:1.5}
+.gtable td:last-child{border-right:none}
+.gtable tr:nth-child(even) td{background:#FBFAF7}
+.gtable td strong{font-weight:700}
+.gtable a{color:var(--tf);text-decoration:none;font-weight:700}
+.gtable a:hover{text-decoration:underline}
 .yes{color:var(--green);font-weight:800}
 .no{color:var(--red);font-weight:800}
 .warn{color:var(--amber);font-weight:800}
-@media(max-width:800px){.dtable{display:block;overflow-x:auto}}
 
-.src{font-size:11px;color:var(--sub);display:block;margin-top:4px}
+.src{font-size:11px;color:var(--sub);display:block;margin-top:6px}
 .src a{color:var(--tf);text-decoration:none;font-weight:600}
-.src a:hover{color:var(--orange);text-decoration:underline}
+.src a:hover{text-decoration:underline}
 
-/* STAT CARDS */
-.stat-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:20px}
-.stat-card{background:white;border:1px solid var(--rule);border-left:3px solid var(--tf);padding:16px 18px}
-.stat-label{font-size:9.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);margin-bottom:8px}
-.stat-val{font-size:16px;font-weight:800;color:var(--ink);line-height:1.3}
-@media(max-width:900px){.stat-grid{grid-template-columns:repeat(2,1fr)}}
-
-/* FLOW STEPS */
-.flow{counter-reset:step;margin-top:8px}
-.flow-step{display:flex;gap:16px;padding:12px 0;border-bottom:1px solid var(--rule)}
-.flow-step:last-child{border-bottom:none}
-.flow-num{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--tf);color:white;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
-.flow-body{font-size:13px;color:var(--ink);line-height:1.6;padding-top:3px}
-.flow-body strong{color:var(--ink)}
+.alert{padding:12px 16px;margin:20px 0;font-size:13px;color:var(--ink);line-height:1.6;border:1px solid var(--red);border-left-width:4px;background:#FDF2F1}
+.alert strong{color:var(--red)}
 
 footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);opacity:.5}
-@media(max-width:700px){footer{padding:16px}}
+
+#back-to-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--tf);color:white;border:none;border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900;transition:background .15s}
+#back-to-top:hover{background:var(--tf-dark)}
+#back-to-top.show{display:flex}
+
+@media(max-width:800px){
+  .pg-wrap{padding:28px 20px 60px}
+  .gtable{font-size:11.5px}
+  .gtable th,.gtable td{padding:8px 10px}
+}
+@media(max-width:500px){
+  .pg-wrap{padding:20px 14px 48px}
+  footer{padding:16px 14px}
+  #back-to-top{bottom:20px;right:20px;width:40px;height:40px;font-size:17px}
+}
 </style>
 </head>
 <body>
@@ -106,271 +100,202 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
 <div class="pg-wrap">
 
   <div class="pg-eyebrow">Operations · Internal</div>
-  <h1 class="pg-title">Cross-Border Shipments — MVP</h1>
-  <div class="pg-sub">Russia, EU, UK, and Turkey → US and EU. Research current as of August 2026 — re-verify carrier status before a live launch.</div>
+  <div class="pg-title">Cross-Border Shipments — MVP</div>
+  <div class="pg-sub">Russia, EU, UK, Turkey → US and EU. Research current as of August 2026.</div>
 
-  <div class="concl-box" style="border-top-color:var(--red)">
-    <div class="concl-label" style="color:var(--red)">Verdict</div>
-    <div class="concl-verdict">Works on the platform, but not paperwork-free for any origin. Section 321 de minimis is suspended for all countries — every US-bound shipment now needs a customs entry, a broker, and a bond. Turkey→EU is the one clean exception (0% duty, one certificate).</div>
-  </div>
-
-  <div class="box box-red">Section 321 de minimis (duty-free, paperwork-free under $800) is <strong>gone</strong> — suspended for all origins since 29 Aug 2025, codified by CBP 24 Jun 2026, no restoration date set. Applies to every US-bound route on this page. Full breakdown in §02.
+  <div class="alert"><strong>De minimis is gone.</strong> Section 321 (duty-free, paperwork-free under $800) was suspended for all countries — 29 Aug 2025, codified by CBP 24 Jun 2026, no restoration date. Every US-bound shipment on this page now needs a customs entry, a broker, and a bond. Detail in §02.
     <div class="src">Sources: <a href="https://www.federalregister.gov/documents/2026/06/24/2026-12670/indefinite-suspension-of-the-de-minimis-exemption-for-merchandise-arriving-through-all-modes-other" target="_blank" rel="noopener">Federal Register, 24 Jun 2026 ↗</a> · <a href="https://kpmg.com/us/en/taxnewsflash/news/2026/06/cbp-suspends-de-minimis-exemption.html" target="_blank" rel="noopener">KPMG summary ↗</a></div>
   </div>
 
-  <div class="stat-grid">
-    <div class="stat-card">
-      <div class="stat-label">Model</div>
-      <div class="stat-val">Marketplace<br><span style="font-size:11px;font-weight:400;color:var(--sub)">TF collects, brand ships</span></div>
-    </div>
-    <div class="stat-card" style="border-left-color:var(--red)">
-      <div class="stat-label">Customs, every origin</div>
-      <div class="stat-val">Broker + bond required<br><span style="font-size:11px;font-weight:400;color:var(--sub)">de minimis suspended</span></div>
-    </div>
-    <div class="stat-card" style="border-left-color:var(--green)">
-      <div class="stat-label">Cheapest route</div>
-      <div class="stat-val">Turkey → EU<br><span style="font-size:11px;font-weight:400;color:var(--sub)">0% duty, A.TR certificate</span></div>
-    </div>
-    <div class="stat-card" style="border-left-color:var(--red)">
-      <div class="stat-label">Most expensive route</div>
-      <div class="stat-val">Turkey → US<br><span style="font-size:11px;font-weight:400;color:var(--sub)">~35–37% stacked tariffs</span></div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">Only freight fully quoted</div>
-      <div class="stat-val">Russia → US<br><span style="font-size:11px;font-weight:400;color:var(--sub)">DHL, $540–720</span></div>
+  <!-- TOP CONCLUSION -->
+  <div class="section" style="padding-top:6px">
+    <div class="sec-heading">Which Countries Work for MVP — Right Now</div>
+    <div class="sec-note">Everything below is workable on the platform as-is. The difference is cost and how much is already confirmed vs. still needs a live quote.</div>
+    <div class="gtable-wrap">
+      <table class="gtable">
+        <thead>
+          <tr><th style="width:10%">From</th><th style="width:8%">To</th><th style="width:14%">MVP status</th><th>Why</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Russia</td><td>US</td><td class="yes">Ready</td><td>Fully priced — DHL $540–720, 7 days, broker included. Slower/cheaper carriers exist but unverified.</td></tr>
+          <tr><td>EU</td><td>US</td><td class="warn">Ready, unpriced</td><td>Same duty rule as Russia. DHL/FedEx/UPS all operate normally. Freight cost not yet quoted.</td></tr>
+          <tr><td>UK</td><td>US</td><td class="warn">Ready, unpriced</td><td>Same as EU — no restrictions, freight cost not yet quoted.</td></tr>
+          <tr><td>Turkey</td><td>EU</td><td class="yes">Best route</td><td>0% duty via EU-Turkey customs union. One certificate (A.TR), no broker needed — not a US route.</td></tr>
+          <tr><td>Turkey</td><td>US</td><td class="no">Not recommended</td><td>~35–37% stacked tariffs (MFN + Section 301 + Section 122). Sell these brands into the EU instead.</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
   <!-- SECTION 01 -->
   <div class="section" id="s01">
-    <div class="sec-heading"><span class="sec-num">01</span>Customs &amp; Duty — by Route</div>
-    <table class="dtable">
-      <thead>
-        <tr>
-          <th style="width:8%">From</th>
-          <th style="width:8%">To</th>
-          <th>Duty</th>
-          <th>Requirement</th>
-          <th style="width:10%">Verdict</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Russia</td>
-          <td>US</td>
-          <td>~12–20% MFN — no FTA, no origin certificate</td>
-          <td>Informal entry, every shipment. Broker + bond (§02).</td>
-          <td><span class="warn">Standard</span></td>
-        </tr>
-        <tr style="background:#fafafa">
-          <td>EU</td>
-          <td>US</td>
-          <td>~12–20% MFN — no FTA</td>
-          <td>Same as Russia.</td>
-          <td><span class="warn">Standard</span></td>
-        </tr>
-        <tr>
-          <td>UK</td>
-          <td>US</td>
-          <td>~12–20% MFN — no FTA</td>
-          <td>Same as Russia.</td>
-          <td><span class="warn">Standard</span></td>
-        </tr>
-        <tr style="background:#fafafa">
-          <td>Turkey</td>
-          <td>EU</td>
-          <td class="yes">0% — EU-Turkey customs union</td>
-          <td>A.TR certificate (status document, not an origin cert). Excludes agricultural goods.</td>
-          <td><span class="green">Best on this page</span></td>
-        </tr>
-        <tr>
-          <td>Turkey</td>
-          <td>US</td>
-          <td class="no">MFN 12–14.5% + 12.5% Section 301 (Turkish apparel) + 10% Section 122 ≈ 35–37%</td>
-          <td>No FTA. Excluded from the 2026 textile quota relief given to Bangladesh, Cambodia, Indonesia, Malaysia.</td>
-          <td><span class="no">Worst on this page</span></td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="sec-heading">01 · Customs &amp; Duty — by Route</div>
+    <div class="sec-note"><strong>Conclusion:</strong> Russia, EU, and UK cost the same to land in the US (~12–20% duty, no free trade agreement). Turkey is the outlier both ways — free into the EU, penalized into the US.</div>
+    <div class="gtable-wrap">
+      <table class="gtable">
+        <thead>
+          <tr><th style="width:8%">From</th><th style="width:8%">To</th><th>Duty</th><th>Requirement</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Russia</td><td>US</td><td>~12–20% MFN — no FTA, no origin certificate</td><td>Informal customs entry, every shipment. Broker + bond (§02).</td></tr>
+          <tr><td>EU</td><td>US</td><td>~12–20% MFN — no FTA</td><td>Same as Russia.</td></tr>
+          <tr><td>UK</td><td>US</td><td>~12–20% MFN — no FTA</td><td>Same as Russia.</td></tr>
+          <tr><td>Turkey</td><td>EU</td><td class="yes">0% — EU-Turkey customs union</td><td>A.TR certificate (status document, not an origin cert). Excludes agricultural goods.</td></tr>
+          <tr><td>Turkey</td><td>US</td><td class="no">MFN 12–14.5% + 12.5% Section 301 + 10% Section 122 ≈ 35–37%</td><td>No FTA. Excluded from the 2026 textile quota relief given to Bangladesh, Cambodia, Indonesia, Malaysia.</td></tr>
+        </tbody>
+      </table>
+    </div>
     <div class="src">Sources: <a href="https://www.kvk.nl/en/international/turkiye-duty-free-import-with-an-atr-certificate/" target="_blank" rel="noopener">A.TR certificate — KVK ↗</a> · <a href="https://knittingviews.com/us-imposes-additional-12-5-percent-tariff-on-turkish-apparel/" target="_blank" rel="noopener">US Section 301 on Turkish apparel ↗</a></div>
   </div>
 
   <!-- SECTION 02 -->
   <div class="section" id="s02">
-    <div class="sec-heading"><span class="sec-num">02</span>Broker &amp; Bond — Who Arranges It, What It Costs</div>
-    <div class="box box-amber">Applies to every US-bound route (RU, EU, UK, Turkey→US). Turkey→EU does not need this — no US customs involved.</div>
-    <table class="dtable">
-      <thead>
-        <tr>
-          <th>Carrier used</th>
-          <th>Who files with CBP</th>
-          <th>Bond cost</th>
-          <th>Broker fee</th>
-          <th>Who arranges it</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>DHL, FedEx, or UPS</td>
-          <td class="yes">The carrier — all three are licensed US customs brokers</td>
-          <td class="yes">$0 — covered by the carrier's own bond</td>
-          <td class="warn">Folded into the carrier's clearance charge (confirmed for RU→US DHL: $540–720 total; not confirmed for EU/UK/Turkey)</td>
-          <td class="yes">Nobody — automatic</td>
-        </tr>
-        <tr style="background:#fafafa">
-          <td>Any other carrier (Boxberry, Russian Post, national post, regional couriers)</td>
-          <td class="no">TF or the brand, as importer of record</td>
-          <td class="no">$50–100 single shipment, or ~$500–700/year continuous</td>
-          <td class="no">$75–150 per shipment if a broker is hired</td>
-          <td class="no">TF or the brand, every shipment</td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="box box-green" style="margin-top:12px"><strong>Global-e / similar MoR — not worth it yet.</strong> Would remove this problem entirely, but doesn't support multi-vendor drop-ship, has no documented Russia-origin support, and prices on an opaque custom revenue-share. Right for later, at real volume.</div>
+    <div class="sec-heading">02 · Broker &amp; Bond — Who Arranges It, What It Costs</div>
+    <div class="sec-note"><strong>Conclusion:</strong> Ship with DHL, FedEx, or UPS and this problem doesn't exist — it's bundled into their price automatically. Any other carrier means sourcing a broker and a bond yourself. Applies to every US-bound route; Turkey→EU doesn't need this at all.</div>
+    <div class="gtable-wrap">
+      <table class="gtable">
+        <thead>
+          <tr><th>Carrier used</th><th>Who files with CBP</th><th>Bond cost</th><th>Broker fee</th><th>Who arranges it</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>DHL, FedEx, or UPS</td>
+            <td class="yes">The carrier — all three are licensed US customs brokers</td>
+            <td class="yes">$0 — covered by the carrier's own bond</td>
+            <td>Folded into the carrier's clearance charge (confirmed for RU→US DHL: $540–720 total; not confirmed for EU/UK/Turkey)</td>
+            <td class="yes">Nobody — automatic</td>
+          </tr>
+          <tr>
+            <td>Any other carrier (Boxberry, Russian Post, national post, regional couriers)</td>
+            <td class="no">TF or the brand, as importer of record</td>
+            <td class="no">$50–100 single shipment, or ~$500–700/year continuous</td>
+            <td class="no">$75–150 per shipment if a broker is hired</td>
+            <td class="no">TF or the brand, every shipment</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sec-note" style="margin-top:12px"><strong>Global-e / similar MoR:</strong> not worth it yet — would remove this entirely, but doesn't support multi-vendor drop-ship or Russia as an origin, and prices on an opaque custom revenue-share. Right call later, at real volume.</div>
     <div class="src">Sources: <a href="https://customsbrokerindex.com/blog/how-much-does-a-customs-broker-cost/" target="_blank" rel="noopener">customsbrokerindex.com ↗</a> · <a href="https://borderbuddy.com/blog/single-entry-customs-bond" target="_blank" rel="noopener">borderbuddy.com ↗</a></div>
   </div>
 
   <!-- SECTION 03 -->
   <div class="section" id="s03">
-    <div class="sec-heading"><span class="sec-num">03</span>Russia → US</div>
-    <table class="dtable">
-      <thead>
-        <tr><th>Item</th><th>Detail</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Outbound carrier</td><td>DHL Express — $540 (office drop-off) to $720 (pickup), 7 business days, broker included</td></tr>
-        <tr style="background:#fafafa"><td>Cheaper, unverified</td><td>Boxberry from ~$20, 12–25 days — not yet quoted for a real parcel. Russian Post $53, 15–90 days — too slow for MVP.</td></tr>
-        <tr><td>Returns</td><td>DHL/FedEx/UPS do not accept inbound-to-Russia shipments (suspended since 2022). Use CDEK Global — $27, 4–6 days.</td></tr>
-        <tr style="background:#fafafa"><td>Payout</td><td>Brand needs a non-Russian bank account (Georgian, Armenian, or EU) — Russian accounts can't receive Stripe/Wise payouts.</td></tr>
-      </tbody>
-    </table>
+    <div class="sec-heading">03 · Russia → US</div>
+    <div class="sec-note"><strong>Conclusion:</strong> DHL is the only fully-priced, MVP-ready option. Cheaper carriers exist but aren't verified for speed or brokerage.</div>
+    <div class="gtable-wrap">
+      <table class="gtable">
+        <tbody>
+          <tr><td style="width:22%"><strong>Outbound carrier</strong></td><td>DHL Express — $540 (office drop-off) to $720 (pickup), 7 business days, broker included</td></tr>
+          <tr><td><strong>Cheaper, unverified</strong></td><td>Boxberry from ~$20, 12–25 days — not yet quoted for a real parcel. Russian Post $53, 15–90 days — too slow for MVP.</td></tr>
+          <tr><td><strong>Returns</strong></td><td>DHL/FedEx/UPS do not accept inbound-to-Russia shipments (suspended since 2022). Use CDEK Global — $27, 4–6 days.</td></tr>
+          <tr><td><strong>Payout</strong></td><td>Brand needs a non-Russian bank account (Georgian, Armenian, or EU) — Russian accounts can't receive Stripe/Wise payouts.</td></tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
   <!-- SECTION 04 -->
   <div class="section" id="s04">
-    <div class="sec-heading"><span class="sec-num">04</span>EU → US</div>
-    <table class="dtable">
-      <thead>
-        <tr><th>Item</th><th>Detail</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Duty</td><td>~12–20% MFN, no FTA — same as Russia</td></tr>
-        <tr style="background:#fafafa"><td>Carriers</td><td>DHL, FedEx, UPS all operate normally — no restrictions on this route, broker included in their price</td></tr>
-        <tr><td>Freight cost</td><td class="warn">Not yet quoted — no live calculator run for this lane</td></tr>
-      </tbody>
-    </table>
+    <div class="sec-heading">04 · EU → US</div>
+    <div class="sec-note"><strong>Conclusion:</strong> Same economics as Russia, easier logistics — no carrier restrictions. Only gap is a live freight quote.</div>
+    <div class="gtable-wrap">
+      <table class="gtable">
+        <tbody>
+          <tr><td style="width:22%"><strong>Duty</strong></td><td>~12–20% MFN, no FTA — same as Russia</td></tr>
+          <tr><td><strong>Carriers</strong></td><td>DHL, FedEx, UPS all operate normally — no restrictions on this route, broker included in their price</td></tr>
+          <tr><td><strong>Freight cost</strong></td><td class="warn">Not yet quoted — no live calculator run for this lane</td></tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
   <!-- SECTION 05 -->
   <div class="section" id="s05">
-    <div class="sec-heading"><span class="sec-num">05</span>UK → US</div>
-    <table class="dtable">
-      <thead>
-        <tr><th>Item</th><th>Detail</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Duty</td><td>~12–20% MFN, no FTA — same as Russia and EU</td></tr>
-        <tr style="background:#fafafa"><td>Carriers</td><td>DHL, FedEx, UPS all operate normally, broker included in their price</td></tr>
-        <tr><td>Freight cost</td><td class="warn">Not yet quoted — no live calculator run for this lane</td></tr>
-      </tbody>
-    </table>
+    <div class="sec-heading">05 · UK → US</div>
+    <div class="sec-note"><strong>Conclusion:</strong> Identical to EU→US — same duty, same carrier freedom, same missing freight quote.</div>
+    <div class="gtable-wrap">
+      <table class="gtable">
+        <tbody>
+          <tr><td style="width:22%"><strong>Duty</strong></td><td>~12–20% MFN, no FTA — same as Russia and EU</td></tr>
+          <tr><td><strong>Carriers</strong></td><td>DHL, FedEx, UPS all operate normally, broker included in their price</td></tr>
+          <tr><td><strong>Freight cost</strong></td><td class="warn">Not yet quoted — no live calculator run for this lane</td></tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
   <!-- SECTION 06 -->
   <div class="section" id="s06">
-    <div class="sec-heading"><span class="sec-num">06</span>Turkey → EU &amp; US</div>
-    <table class="dtable">
-      <thead>
-        <tr><th>Route</th><th>Detail</th></tr>
-      </thead>
-      <tbody>
-        <tr><td class="yes">Turkey → EU</td><td>0% duty — full customs union since 1995. One document (A.TR certificate) instead of an origin cert. Without it: standard MFN 3–20%+.</td></tr>
-        <tr style="background:#fafafa"><td class="no">Turkey → US</td><td>No FTA. MFN 12–14.5% + 12.5% Section 301 (Turkish apparel specifically) + 10% Section 122 ≈ 35–37% combined. Turkey was excluded from the 2026 textile quota relief given to other countries.</td></tr>
-      </tbody>
-    </table>
+    <div class="sec-heading">06 · Turkey → EU &amp; US</div>
+    <div class="sec-note"><strong>Conclusion:</strong> Same brand, two completely different outcomes depending on destination. Route Turkish brands to the EU, not the US.</div>
+    <div class="gtable-wrap">
+      <table class="gtable">
+        <tbody>
+          <tr><td style="width:22%" class="yes">Turkey → EU</td><td>0% duty — full customs union since 1995. One document (A.TR certificate) instead of an origin cert. Without it: standard MFN 3–20%+.</td></tr>
+          <tr><td class="no">Turkey → US</td><td>No FTA. MFN 12–14.5% + 12.5% Section 301 (Turkish apparel specifically) + 10% Section 122 ≈ 35–37% combined. Excluded from the 2026 textile quota relief given to other countries.</td></tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
   <!-- SECTION 07 -->
   <div class="section" id="s07">
-    <div class="sec-heading"><span class="sec-num">07</span>Order Flow</div>
-    <div class="pg-sub" style="margin-bottom:8px">Worked example using Russia → US — same flow for every origin, only the carrier and payout account change.</div>
-    <div class="flow">
-      <div class="flow-step"><div class="flow-num">1</div><div class="flow-body">Customer pays on the platform. Stripe collects payment + US sales tax (Stripe Tax, automatic).</div></div>
-      <div class="flow-step"><div class="flow-num">2</div><div class="flow-body">SMTHG notifies the brand of the order.</div></div>
-      <div class="flow-step"><div class="flow-num">3</div><div class="flow-body">Brand packs the item and books DHL.</div></div>
-      <div class="flow-step"><div class="flow-num">4</div><div class="flow-body">DHL generates the invoice, packing list, and waybill, and files the customs entry (broker included, §02).</div></div>
-      <div class="flow-step"><div class="flow-num">5</div><div class="flow-body">Brand ships direct to the customer. SMTHG never touches the goods.</div></div>
-      <div class="flow-step"><div class="flow-num">6</div><div class="flow-body">Stripe splits the payment — brand's share to their payout account (non-Russian account required for Russia-based brands), SMTHG keeps commission.</div></div>
+    <div class="sec-heading">07 · Order Flow</div>
+    <div class="sec-note">Worked example using Russia → US — same flow for every origin, only the carrier and payout account change.</div>
+    <div class="gtable-wrap">
+      <table class="gtable">
+        <thead>
+          <tr><th style="width:6%">#</th><th>Step</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Customer pays on the platform. Stripe collects payment + US sales tax (Stripe Tax, automatic).</td></tr>
+          <tr><td>2</td><td>SMTHG notifies the brand of the order.</td></tr>
+          <tr><td>3</td><td>Brand packs the item and books DHL.</td></tr>
+          <tr><td>4</td><td>DHL generates the invoice, packing list, and waybill, and files the customs entry (broker included, §02).</td></tr>
+          <tr><td>5</td><td>Brand ships direct to the customer. SMTHG never touches the goods.</td></tr>
+          <tr><td>6</td><td>Stripe splits the payment — brand's share to their payout account (non-Russian account required for Russia-based brands), SMTHG keeps commission.</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
   <!-- SECTION 08 -->
   <div class="section" id="s08">
-    <div class="sec-heading"><span class="sec-num">08</span>What TF Does vs What the Brand Does</div>
-    <table class="dtable">
-      <thead>
-        <tr>
-          <th style="width:30%">Task</th>
-          <th>TF</th>
-          <th>Brand</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Collect payment</td>
-          <td class="yes">Yes — Stripe, on-platform checkout</td>
-          <td>—</td>
-        </tr>
-        <tr style="background:#fafafa">
-          <td>US sales tax</td>
-          <td class="yes">Yes — Stripe Tax, automatic</td>
-          <td>—</td>
-        </tr>
-        <tr>
-          <td>Invoice / packing list / waybill</td>
-          <td>—</td>
-          <td class="warn">Brand enters item + value at carrier booking; carrier generates the documents</td>
-        </tr>
-        <tr style="background:#fafafa">
-          <td>Customs entry + broker/bond</td>
-          <td>—</td>
-          <td class="warn">Required on every shipment. Carrier-included with DHL/FedEx/UPS; not confirmed with other carriers (§02)</td>
-        </tr>
-        <tr>
-          <td>Import duty</td>
-          <td>—</td>
-          <td class="warn">Owed on full value, no threshold — see §01 by route</td>
-        </tr>
-        <tr style="background:#fafafa">
-          <td>Physical shipping</td>
-          <td>—</td>
-          <td class="yes">Brand books and ships direct</td>
-        </tr>
-        <tr>
-          <td>Non-domestic bank account for payout</td>
-          <td>—</td>
-          <td class="warn">Russia only — Georgian, Armenian, or EU account required</td>
-        </tr>
-        <tr style="background:#fafafa">
-          <td>IOSS / UK VAT / origin certificates</td>
-          <td class="yes">None for US-bound routes</td>
-          <td class="warn">Turkey→EU: A.TR certificate only</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="sec-heading">08 · What TF Does vs What the Brand Does</div>
+    <div class="sec-note"><strong>Conclusion:</strong> TF's job stops at payment and tax. Everything physical — documents, customs, shipping — is the brand's, on every origin.</div>
+    <div class="gtable-wrap">
+      <table class="gtable">
+        <thead>
+          <tr><th style="width:28%">Task</th><th>TF</th><th>Brand</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Collect payment</td><td class="yes">Yes — Stripe, on-platform checkout</td><td>—</td></tr>
+          <tr><td>US sales tax</td><td class="yes">Yes — Stripe Tax, automatic</td><td>—</td></tr>
+          <tr><td>Invoice / packing list / waybill</td><td>—</td><td class="warn">Brand enters item + value at carrier booking; carrier generates the documents</td></tr>
+          <tr><td>Customs entry + broker/bond</td><td>—</td><td class="warn">Required on every shipment. Carrier-included with DHL/FedEx/UPS; not confirmed with other carriers (§02)</td></tr>
+          <tr><td>Import duty</td><td>—</td><td class="warn">Owed on full value, no threshold — see §01 by route</td></tr>
+          <tr><td>Physical shipping</td><td>—</td><td class="yes">Brand books and ships direct</td></tr>
+          <tr><td>Non-domestic bank account for payout</td><td>—</td><td class="warn">Russia only — Georgian, Armenian, or EU account required</td></tr>
+          <tr><td>IOSS / UK VAT / origin certificates</td><td class="yes">None for US-bound routes</td><td class="warn">Turkey→EU: A.TR certificate only</td></tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
 </div>
 
-<footer>Private · noindex · Not for distribution · Research current as of August 2026</footer>
+<footer>
+  <div>Private · noindex · Not for distribution · Research current as of August 2026</div>
+</footer>
 
-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" title="Back to top">&#8593;</button>
-<style>
-#back-to-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--tf);color:white;border:1px solid var(--tf-dark);border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900;transition:background .2s}
-#back-to-top:hover{background:var(--tf-dark)}
-@media(max-width:700px){#back-to-top{bottom:16px;right:16px;width:38px;height:38px}}
-</style>
-<script>window.addEventListener('scroll',function(){var b=document.getElementById('back-to-top');b.style.display=window.scrollY>400?'flex':'none'})</script>
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" title="Back to top">↑</button>
+<script>
+window.addEventListener('scroll',function(){
+  var btn=document.getElementById('back-to-top');
+  if(window.scrollY>400){btn.classList.add('show')}else{btn.classList.remove('show')}
+});
+</script>
 
 </body>
 </html>
