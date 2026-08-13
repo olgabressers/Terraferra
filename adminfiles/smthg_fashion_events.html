@@ -18,18 +18,22 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 /* NAV */
 .topnav{background:white;border-bottom:1px solid var(--rule);padding:12px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
 .topnav-home{font-weight:800;letter-spacing:2px;color:var(--ink);text-decoration:none;font-size:11px}
-.topnav-home:hover{color:var(--ink)}
 .topnav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
 .topnav-links a{color:var(--sub);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:10px}
-.topnav-links a:hover{color:var(--tf)}
 .topnav-links a.active{color:var(--tf)}
 .has-dropdown{position:relative;padding-bottom:10px;margin-bottom:-10px}
 .dropdown-trigger{cursor:pointer;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:10px;user-select:none}
-.dropdown-trigger:hover,.has-dropdown:focus-within .dropdown-trigger{color:var(--tf)}
+.has-dropdown:focus-within .dropdown-trigger{color:var(--tf)}
 .dropdown{display:none;position:absolute;top:100%;right:0;background:white;border:1px solid var(--rule);min-width:210px;box-shadow:0 6px 14px rgba(0,0,0,.08);padding:6px 0;z-index:60}
-.has-dropdown:hover .dropdown,.has-dropdown:focus-within .dropdown{display:block}
+.has-dropdown:focus-within .dropdown{display:block}
 .dropdown a{display:block;padding:9px 16px;font-size:10px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:1px;text-decoration:none}
-.dropdown a:hover{background:var(--tf-ghost);color:var(--tf)}
+@media(hover:hover) and (pointer:fine){
+  .topnav-home:hover{color:var(--ink)}
+  .topnav-links a:hover{color:var(--tf)}
+  .dropdown-trigger:hover{color:var(--tf)}
+  .has-dropdown:hover .dropdown{display:block}
+  .dropdown a:hover{background:var(--tf-ghost);color:var(--tf)}
+}
 @media(max-width:700px){
   .topnav{position:static;padding:10px 14px}
   .topnav-links{gap:8px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:2px;width:100%}
@@ -51,8 +55,10 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .toc-list{display:flex;flex-wrap:nowrap;overflow-x:auto}
 .toc-list a{flex:1 1 180px;padding:12px 16px;font-size:12.5px;font-weight:700;color:var(--ink);text-decoration:none;border-top:1px solid var(--rule);border-right:1px solid var(--rule);white-space:nowrap}
 .toc-list a:last-child{border-right:none}
-.toc-list a:hover{background:var(--tf-ghost);color:var(--tf)}
 .toc-list a .toc-date{display:block;font-size:10.5px;font-weight:700;color:var(--sub);margin-top:2px;text-transform:none;letter-spacing:0;white-space:nowrap}
+@media(hover:hover) and (pointer:fine){
+  .toc-list a:hover{background:var(--tf-ghost);color:var(--tf)}
+}
 
 /* RUBRIC */
 .rubric{margin-top:14px;border:1px solid var(--rule);background:white}
@@ -77,7 +83,9 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .gtable td.num{font-weight:800;color:var(--tf);text-align:center;width:28px}
 .gtable td strong{font-weight:700}
 .gtable a{color:var(--tf);text-decoration:none;font-weight:700}
-.gtable a:hover{text-decoration:underline}
+@media(hover:hover) and (pointer:fine){
+  .gtable a:hover{text-decoration:underline}
+}
 
 .tag{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;padding:2px 7px;border:1px solid var(--ink);color:var(--ink)}
 .tag.public{border-color:var(--tf);color:var(--tf)}
@@ -91,8 +99,10 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);opacity:.5}
 
 #back-to-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--tf);color:white;border:none;border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900;transition:background .15s}
-#back-to-top:hover{background:var(--tf-dark)}
 #back-to-top.show{display:flex}
+@media(hover:hover) and (pointer:fine){
+  #back-to-top:hover{background:var(--tf-dark)}
+}
 
 @media(max-width:800px){
   .pg-wrap{padding:28px 20px 60px}
