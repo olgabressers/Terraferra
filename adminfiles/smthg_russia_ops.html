@@ -114,17 +114,17 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
     <div class="gtable-wrap">
       <table class="gtable">
         <thead>
-          <tr><th style="width:10%">From</th><th style="width:8%">To</th><th style="width:20%">SMTHG paperwork</th><th style="width:12%">In MVP?</th></tr>
+          <tr><th style="width:10%">From</th><th style="width:8%">To</th><th style="width:18%">SMTHG paperwork</th><th style="width:19%">Approximate cost per shipment</th><th style="width:12%">In MVP?</th></tr>
         </thead>
         <tbody>
-          <tr><td>Russia</td><td>US</td><td class="yes">Zero</td><td class="no">No — freight breaks the economics</td></tr>
-          <tr><td>EU</td><td>US</td><td class="yes">Zero</td><td class="warn">Pending — broker-rate freight confirmed ($33–44), landed-cost verdict not yet run</td></tr>
-          <tr><td>UK</td><td>US</td><td class="yes">Zero</td><td class="warn">Pending — DHL UK quote tool returned no results on two valid attempts</td></tr>
-          <tr><td>Turkey</td><td>EU</td><td class="no">EU IOSS registration required</td><td class="no">No — fails the zero-paperwork rule</td></tr>
-          <tr><td>Turkey</td><td>US</td><td class="yes">Zero</td><td class="no">No — tariffs alone rule it out</td></tr>
-          <tr><td>Japan</td><td>EU</td><td class="no">EU IOSS registration required</td><td class="no">No — fails the zero-paperwork rule</td></tr>
-          <tr><td>Japan</td><td>UK</td><td class="no">UK VAT registration required</td><td class="no">No — fails the zero-paperwork rule</td></tr>
-          <tr><td>Japan</td><td>US</td><td class="yes">Zero</td><td class="warn">Pending — only retail freight quoted ($105–175), likely inflated, needs broker-rate check</td></tr>
+          <tr><td>Russia</td><td>US</td><td class="yes">Zero</td><td>Freight $540–720 (DHL, broker included) + ~12–20% duty on item value</td><td class="no">No — freight breaks the economics</td></tr>
+          <tr><td>EU</td><td>US</td><td class="yes">Zero</td><td>Freight $15–95 (PostNL letterbox to FedEx/UPS express, broker included) + ~12–20% duty on item value</td><td class="warn">Pending — broker-rate freight confirmed, landed-cost verdict not yet run</td></tr>
+          <tr><td>UK</td><td>US</td><td class="yes">Zero</td><td>Freight £16–30 (Royal Mail to express courier, broker included) + ~12–20% duty on item value</td><td class="warn">Pending — freight confirmed, landed-cost verdict not yet run</td></tr>
+          <tr><td>Turkey</td><td>EU</td><td class="no">EU IOSS registration required</td><td>0% duty (A.TR certificate) — cost moot, route fails on paperwork</td><td class="no">No — fails the zero-paperwork rule</td></tr>
+          <tr><td>Turkey</td><td>US</td><td class="yes">Zero</td><td>~35–37% combined tariffs (MFN + Section 301 + Section 122) on item value, freight not yet quoted</td><td class="no">No — tariffs alone rule it out</td></tr>
+          <tr><td>Japan</td><td>EU</td><td class="no">EU IOSS registration required</td><td>0% duty (EPA) — cost moot, route fails on paperwork</td><td class="no">No — fails the zero-paperwork rule</td></tr>
+          <tr><td>Japan</td><td>UK</td><td class="no">UK VAT registration required</td><td>0% duty (CEPA) — cost moot, route fails on paperwork</td><td class="no">No — fails the zero-paperwork rule</td></tr>
+          <tr><td>Japan</td><td>US</td><td class="yes">Zero</td><td>Freight $105–175 (DHL retail, likely inflated) + ~12–20% duty on item value</td><td class="warn">Pending — only retail freight quoted, likely inflated, needs broker-rate check</td></tr>
         </tbody>
       </table>
     </div>
@@ -191,18 +191,20 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <!-- SECTION 03 -->
   <div class="section" id="s03">
     <div class="sec-heading">03 · Russia → US</div>
-    <div class="sec-note"><strong>Conclusion:</strong> DHL is the only fully-priced option — and the price itself ($540–720 freight + ~12–20% duty) breaks the economics for any item under roughly $1,000. Cheaper carriers exist but are not verified for speed or brokerage.</div>
+    <div class="sec-note"><strong>Conclusion:</strong> DHL is the only fully-priced door-to-door option — $540–720 freight + ~12–20% duty breaks the economics for any item under roughly $1,000. Forwarder and postal routes run far cheaper but are slower and their broker/bond arrangement is unconfirmed.</div>
     <div class="gtable-wrap">
       <table class="gtable">
         <tbody>
           <tr><td style="width:22%"><strong>Outbound carrier</strong></td><td>DHL Express — $540 (office drop-off) to $720 (pickup), 7 business days, broker included</td></tr>
+          <tr><td><strong>Freight forwarder / proxy shipping</strong></td><td>Specialized forwarding and consolidation warehouses routing out of Russia: approximately 65 to 90 EUR (approximately $70–100) for a 1.5–2 kg parcel to the United States. Broker/bond arrangement unconfirmed — falls under the "any other carrier" row in §02.</td></tr>
           <tr><td><strong>Cheaper, unverified</strong></td><td>Boxberry from ~$20, 12–25 days — not yet quoted for a real parcel, broker/bond arrangement unconfirmed (falls under the "any other carrier" row in §02).</td></tr>
-          <tr><td><strong>Russian Post — customs</strong></td><td>$53, 15–90 days — too slow for the MVP window, but customs mechanism is different from Boxberry: US mail shipments clear through CBP's postal informal entry process (effective 24 Jul 2026), not general freight entry. Filer must still be the owner/purchaser or a licensed broker, and a customs bond is still required — same underlying obligation as §02, via a different filing channel.</td></tr>
+          <tr><td><strong>Russian Post — customs</strong></td><td>Rate depends on exact weight, ground vs air-routed transit, and tracking add-on — not a single fixed number. Small Packet/standard parcel up to 2 kg via local post office; EMS Russian Post (expedited, up to 20–30 kg) starts around 20–40 EUR base before international weight scaling. 15–90 days transit, too slow for the MVP window. Customs mechanism differs from Boxberry: US mail shipments clear through CBP's postal informal entry process (effective 24 Jul 2026), not general freight entry. Filer must still be the owner/purchaser or a licensed broker, and a customs bond is still required — same underlying obligation as §02, via a different filing channel.</td></tr>
           <tr><td><strong>Returns</strong></td><td>DHL/FedEx/UPS do not accept inbound-to-Russia shipments (suspended since 2022). Use CDEK Global — $27, 4–6 days.</td></tr>
           <tr><td><strong>Payout</strong></td><td>Brand needs a non-Russian bank account (Georgian, Armenian, or EU) — Russian accounts cannot receive Stripe/Wise payouts.</td></tr>
         </tbody>
       </table>
     </div>
+    <div class="src">Sources: DHL Express Russia live calculator (express.dhl.ru), 13 Aug 2026 · Forwarder/proxy-shipping and Russian Post/EMS rate ranges from third-party shipping comparison research, 14 Aug 2026 — not independently verified against a named provider's live calculator</div>
   </div>
 
   <!-- SECTION 04 -->
@@ -214,23 +216,23 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         <tbody>
           <tr><td style="width:22%"><strong>Duty</strong></td><td>~12–20% MFN — no US-EU Free Trade Agreement (FTA) exists</td></tr>
           <tr><td><strong>Carriers</strong></td><td>DHL, FedEx, UPS all operate normally — no restrictions on this route, broker included in their price</td></tr>
-          <tr><td><strong>Freight cost</strong></td><td>DHL retail (no account): 107.53 to 124.03 EUR. Real cost via a discount broker (e.g. ParcelParcel, negotiates up to 70% off list with DHL/FedEx/UPS/PostNL): 29 to 38 EUR economy-to-express (approximately 33 to 44 USD), 1 to 5 business days depending on service. The retail number is not what an actual shipper pays.</td></tr>
+          <tr><td><strong>Freight cost</strong></td><td>DHL retail (no account): 107.53 to 124.03 EUR — not what an actual shipper pays. PostNL letterbox parcel (fits 38 x 26.5 x 3.2 cm, up to 2 kg): 14.00 EUR without tracking, 21.00 EUR with tracking. PostNL standard parcel (over letterbox size, up to 2 kg): from 21.00 EUR. FedEx or UPS economy service via a discount broker (e.g. ParcelParcel): 30.00 to 38.00 EUR. FedEx or UPS express priority service (1 to 3 days): 45.00 to 85.00 EUR.</td></tr>
         </tbody>
       </table>
     </div>
-    <div class="src">Source: DHL Express Germany live calculator (mydhl.express.dhl), 13 Aug 2026</div>
+    <div class="src">Sources: DHL Express Germany live calculator (mydhl.express.dhl), 13 Aug 2026 · PostNL published rates and ParcelParcel discount-broker rates for a 1 to 2 kg parcel, Netherlands to United States</div>
   </div>
 
   <!-- SECTION 05 -->
   <div class="section" id="s05">
     <div class="sec-heading">05 · UK → US</div>
-    <div class="sec-note"><strong>Conclusion:</strong> ~12–20% MFN duty applies — no US-UK free trade agreement. DHL, FedEx, and UPS all operate normally on this route with no restrictions.</div>
+    <div class="sec-note"><strong>Conclusion:</strong> ~12–20% MFN duty applies — no US-UK free trade agreement. Royal Mail, UPS, and FedEx all operate normally on this route with no restrictions.</div>
     <div class="gtable-wrap">
       <table class="gtable">
         <tbody>
           <tr><td style="width:22%"><strong>Duty</strong></td><td>~12–20% MFN — no US-UK Free Trade Agreement (FTA) exists</td></tr>
-          <tr><td><strong>Carriers</strong></td><td>DHL, FedEx, UPS all operate normally, broker included in their price</td></tr>
-          <tr><td><strong>Freight cost</strong></td><td class="no">Attempted twice with two different valid London addresses and correct package details. DHL's own UK quote tool returned "No delivery options available" both times — a genuine site-side issue, not a data problem. Needs a retry later or a direct DHL UK contact.</td></tr>
+          <tr><td><strong>Carriers</strong></td><td>Royal Mail, UPS, FedEx all operate normally, broker included in courier price</td></tr>
+          <tr><td><strong>Freight cost</strong></td><td>Royal Mail International Standard: 19.05 GBP online (14.90 GBP at Post Office) for 1 kg, 20.95 GBP online (16.35 GBP at Post Office) for 2 kg, 6 to 7 working days. Discounted courier via broker (UPS Worldwide Economy, FedEx via third-party broker): 16 to 20 GBP for 1 kg, up to 25 to 30 GBP for 2 kg. Express (UPS Express Saver, FedEx International Connect): 19 to 30 GBP, 3 to 5 business days.</td></tr>
         </tbody>
       </table>
     </div>
