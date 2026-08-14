@@ -113,21 +113,22 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <div class="section" style="padding-top:6px">
     <div class="sec-heading">Which Countries Work for MVP — Right Now</div>
     <div class="sec-note"><strong>MVP requirement: SMTHG holds zero registrations and files zero paperwork. All VAT, customs, and duty obligations sit on the brand.</strong> This table is the MVP gate. Full detail for each route is in the sections below.</div>
+    <div class="sec-note"><strong>Broker, with vs. without:</strong> under $2,500 per shipment, hiring a customs broker is optional, no law requires it. Without one, the brand files the customs entry itself through CBP's online system (ACE) or at a port of entry — no fee, but it takes brand time on every shipment. With one, the broker handles the filing for $75–150 per shipment. DHL, FedEx, and UPS already include a broker in their price automatically; PostNL, Royal Mail, Russian Post, and Japan Post do not — the brand chooses either path with those carriers. The landed-cost column below assumes the brand self-files (no broker fee); add $75–150 per shipment if it hires one instead.</div>
     <div class="gtable-wrap">
       <table class="gtable">
         <thead>
-          <tr><th style="width:10%">From</th><th style="width:8%">To</th><th style="width:18%">SMTHG paperwork</th><th style="width:19%">Approximate cost per shipment</th><th style="width:12%">In MVP?</th></tr>
+          <tr><th style="width:9%">From</th><th style="width:7%">To</th><th style="width:15%">SMTHG paperwork</th><th style="width:17%">Freight + duty</th><th style="width:16%">Landed cost, $150 item</th><th style="width:12%">In MVP?</th></tr>
         </thead>
         <tbody>
-          <tr><td>Russia</td><td>US</td><td class="yes">Zero</td><td>Russian Post freight $20–40 + $75–150 broker (optional) + ~12–20% duty</td><td class="no">No — unless the brand holds a non-Russian bank account and has its own negotiated rate with a local carrier below DHL retail</td></tr>
-          <tr class="row-yes"><td>EU</td><td>US</td><td class="yes">Zero</td><td>PostNL freight $15–41 + ~12–20% duty (broker optional, $75–150 if used)</td><td class="yes">Yes — exact landed cost per item still to be confirmed</td></tr>
-          <tr class="row-yes"><td>UK</td><td>US</td><td class="yes">Zero</td><td>Royal Mail freight $19–27 + ~12–20% duty (broker optional, $75–150 if used)</td><td class="yes">Yes — exact landed cost per item still to be confirmed</td></tr>
-          <tr><td>Turkey</td><td>EU</td><td class="no">EU IOSS registration required</td><td>0% duty (A.TR certificate) — cost moot, route fails on paperwork</td><td class="no">No — fails the zero-paperwork rule</td></tr>
-          <tr><td>Turkey</td><td>US</td><td class="yes">Zero</td><td>~35–37% combined tariffs (MFN + Section 301 + Section 122) on item value, freight not yet quoted</td><td class="no">No — tariffs alone rule it out</td></tr>
-          <tr><td>Japan</td><td>EU</td><td class="no">EU IOSS registration required</td><td>0% duty (EPA) — cost moot, route fails on paperwork</td><td class="no">No — fails the zero-paperwork rule</td></tr>
-          <tr><td>Japan</td><td>UK</td><td class="no">UK VAT registration required</td><td>0% duty (CEPA) — cost moot, route fails on paperwork</td><td class="no">No — fails the zero-paperwork rule</td></tr>
-          <tr class="row-warn"><td>Japan</td><td>US</td><td class="yes">Zero</td><td>Japan Post freight $19–65 + ~12–20% duty (broker optional, $75–150 if used)</td><td class="warn">Pending — freight confirmed, landed-cost verdict not yet run</td></tr>
-          <tr class="row-yes"><td>US</td><td>US</td><td class="yes">Zero</td><td>USPS Ground Advantage $7.90–10.20, USPS Priority Mail $11.00–15.66, UPS/FedEx Ground $9.75–15.00 — no duty, no customs, no broker, no bond</td><td class="yes">Yes — domestic, already fully confirmed</td></tr>
+          <tr><td>Russia</td><td>US</td><td class="yes">Zero</td><td>Russian Post freight $20–40 + ~12–20% duty</td><td>$38–70</td><td class="no">No — unless the brand holds a non-Russian bank account and has its own negotiated rate with a local carrier below DHL retail</td></tr>
+          <tr class="row-yes"><td>EU</td><td>US</td><td class="yes">Zero</td><td>PostNL freight $15–41 + ~12–20% duty</td><td>$33–71</td><td class="yes">Yes — exact landed cost per item still to be confirmed</td></tr>
+          <tr class="row-yes"><td>UK</td><td>US</td><td class="yes">Zero</td><td>Royal Mail freight $19–27 + ~12–20% duty</td><td>$37–57</td><td class="yes">Yes — exact landed cost per item still to be confirmed</td></tr>
+          <tr><td>Turkey</td><td>EU</td><td class="no">EU IOSS registration required</td><td>0% duty (A.TR certificate)</td><td>— route fails on paperwork</td><td class="no">No — fails the zero-paperwork rule</td></tr>
+          <tr><td>Turkey</td><td>US</td><td class="yes">Zero</td><td>~35–37% combined tariffs (MFN + Section 301 + Section 122), freight not yet quoted</td><td>$53–56 duty alone, freight unknown</td><td class="no">No — tariffs alone rule it out</td></tr>
+          <tr><td>Japan</td><td>EU</td><td class="no">EU IOSS registration required</td><td>0% duty (EPA)</td><td>— route fails on paperwork</td><td class="no">No — fails the zero-paperwork rule</td></tr>
+          <tr><td>Japan</td><td>UK</td><td class="no">UK VAT registration required</td><td>0% duty (CEPA)</td><td>— route fails on paperwork</td><td class="no">No — fails the zero-paperwork rule</td></tr>
+          <tr class="row-warn"><td>Japan</td><td>US</td><td class="yes">Zero</td><td>Japan Post freight $19–65 + ~12–20% duty</td><td>$37–95</td><td class="warn">Pending — freight confirmed, landed-cost verdict not yet run</td></tr>
+          <tr class="row-yes"><td>US</td><td>US</td><td class="yes">Zero</td><td>USPS Ground Advantage $7.90–10.20, USPS Priority Mail $11.00–15.66, UPS/FedEx Ground $9.75–15.00 — no duty, no customs, no broker, no bond</td><td>$8–16</td><td class="yes">Yes — domestic, already fully confirmed</td></tr>
         </tbody>
       </table>
     </div>
