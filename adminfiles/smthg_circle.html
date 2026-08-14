@@ -177,6 +177,21 @@ a{text-decoration:none;color:inherit}
   .shot img{height:260px}
 }
 
+/* ===== GROWTH DYNAMICS TABLE ===== */
+.gd-sec{margin-top:64px}
+.gd-title{font-size:clamp(24px,3.4vw,36px);font-weight:800;letter-spacing:-1.2px;color:var(--ink)}
+.gd-sub{font-size:13px;color:var(--ink);margin-top:10px;line-height:1.6;max-width:820px}
+.gd-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:22px;background:white;border:1px solid var(--rule);border-radius:14px}
+.gd{width:100%;border-collapse:collapse;font-size:12.5px;min-width:980px}
+.gd th{text-align:left;font-size:9.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);padding:12px 16px;border-bottom:2px solid var(--rule);background:var(--tf-ghost);white-space:nowrap}
+.gd td{padding:14px 16px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.6;color:var(--ink)}
+.gd tr:last-child td{border-bottom:none}
+.gd b{font-weight:800}
+.gd-num{font-weight:800;color:var(--tf);white-space:nowrap}
+.gd-src{font-size:10.5px;color:var(--sub)}
+.gd-src a{color:var(--tf);text-decoration:none}
+.gd-src a:hover{text-decoration:underline}
+
 /* ===== ORIGINAL REFERENCE ===== */
 .orig{max-width:1400px;margin:0 auto;padding:10px 20px 80px}
 .orig-card{background:white;border:1px solid var(--rule);border-radius:14px;padding:26px 28px}
@@ -605,6 +620,77 @@ a{text-decoration:none;color:inherit}
       </div>
     </div>
 
+  </div>
+
+  <!-- ===== GROWTH DYNAMICS ===== -->
+  <div class="gd-sec">
+    <div class="gd-title">Growth dynamics — smthg.us ↔ community</div>
+    <div class="gd-sub">How consumers move between the shop and the community, and how each loop turns into sales. Pattern observed in the Glucose Guide community (logged-in view) and translated to SMTHG. All dynamics suggested · under research.</div>
+    <div class="gd-scroll">
+      <table class="gd">
+        <thead>
+          <tr><th>#</th><th>Dynamic</th><th>How it moves people</th><th>How it becomes sales</th><th>Source</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="gd-num">1</td>
+            <td><b>Tool first</b></td>
+            <td>Virtual try-on and the wardrobe tool are free inside the community — the useful thing one tab from the feed, like Carb Counter in Glucose Guide's nav. Try the look on your own photo before any purchase; the result posts to the tribe.</td>
+            <td>Every tried-on piece links to its live drop on smthg.us. The tool visit starts before intent; checkout is one click after it.</td>
+            <td class="gd-src">Deck v18, slide 6 · GG nav, observed</td>
+          </tr>
+          <tr>
+            <td class="gd-num">2</td>
+            <td><b>Visible padlock</b></td>
+            <td>Early-access and next-drop preview spaces sit in every member's sidebar with a 🔒 — like GG's Subscriber Bonuses. The padlock opens by level (points) or by owning a previous drop.</td>
+            <td>The padlock sells position: 24h early access to a window that closes. Participation and purchases are the two keys.</td>
+            <td class="gd-src">GG sidebar, observed · Skool levels</td>
+          </tr>
+          <tr>
+            <td class="gd-num">3</td>
+            <td><b>Daily ritual</b></td>
+            <td>Today's-look check-in with unread badges — the reason to open today, and to open now. GG runs the same loop with the Daily Blood Sugar Check-in.</td>
+            <td>Every posted look carries its shoppable pieces; the daily ritual doubles as a daily shop window between drops.</td>
+            <td class="gd-src">GG check-in [2] badge, observed · <a href="TFreferral.html">Referral §04</a></td>
+          </tr>
+          <tr>
+            <td class="gd-num">4</td>
+            <td><b>Drop as live event</b></td>
+            <td>The drop runs as an event inside the community — countdown watched together, live stock counter, "join 47 others" — like GG's summit with its own chat and speakers.</td>
+            <td>The thread feeds checkout on smthg.us in the moment of highest urgency; the sold-out card posts back and warms the next drop.</td>
+            <td class="gd-src">GG summit spaces, observed · <a href="TFreferral.html">Referral §04</a></td>
+          </tr>
+          <tr>
+            <td class="gd-num">5</td>
+            <td><b>Owner looks &amp; wins</b></td>
+            <td>Sold-out posts, owner cards and member looks — GG's Product Recs and Share-your-wins, translated. Buying grants community identity: the owner badge and the designer's circle.</td>
+            <td>Every win and owner look links to that designer's next-drop waitlist. Yesterday's buyer recruits tomorrow's.</td>
+            <td class="gd-src">GG spaces, observed · <a href="TFreferral.html">Referral §04</a></td>
+          </tr>
+          <tr>
+            <td class="gd-num">6</td>
+            <td><b>Calendar &amp; waitlists in the sidebar</b></td>
+            <td>The drop calendar and waitlists live where the member already is daily — like GG's Update Membership link set. Drops land at set moments, the Breeze 19:00 rhythm.</td>
+            <td>Commerce intent is parked one click away every day; the waitlist converts the moment the window opens.</td>
+            <td class="gd-src">GG Links, observed · <a href="https://breeze.social/nl" target="_blank" rel="noopener">breeze.social</a></td>
+          </tr>
+          <tr>
+            <td class="gd-num">7</td>
+            <td><b>Shareable proof outward</b></td>
+            <td>What leaves the platform: sold-out cards, owner badges, super-fan try-on videos. Each lands outside with a link to the tribe and the waitlist.</td>
+            <td>One share recruits a community member and a future buyer at once — the closed pain produces the share, the share lands on smthg.us.</td>
+            <td class="gd-src"><a href="closethepain.html">Close the Pain</a> · <a href="gamification.html">Gamification §01</a></td>
+          </tr>
+          <tr>
+            <td class="gd-num">8</td>
+            <td><b>One account, two surfaces</b></td>
+            <td>Every smthg.us product page links into its drop thread; every community post showing clothing carries "the pieces in this look" back to smthg.us. Single sign-on both ways.</td>
+            <td>No seam between reading and buying — the member never chooses between the community and the shop.</td>
+            <td class="gd-src">Circle Plus SSO, <a href="https://circle.so/pricing" target="_blank" rel="noopener">circle.so/pricing</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
 </div>
