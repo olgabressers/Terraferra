@@ -177,6 +177,33 @@ a{text-decoration:none;color:inherit}
   .shot img{height:260px}
 }
 
+/* ===== FLOWS ===== */
+.fl-sec{margin-top:64px}
+.fl-title{font-size:clamp(24px,3.4vw,36px);font-weight:800;letter-spacing:-1.2px;color:var(--ink)}
+.fl-sub{font-size:13px;color:var(--ink);margin-top:8px;line-height:1.6;max-width:820px}
+.flow{background:white;border:1px solid var(--rule);border-radius:14px;padding:22px 24px;margin-top:20px}
+.flow-name{font-size:15px;font-weight:800;color:var(--ink);margin-bottom:4px}
+.flow-name span{color:var(--tf)}
+.flow-trigger{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--amber);margin-bottom:14px}
+.chain{display:flex;align-items:stretch;gap:0;flex-wrap:wrap}
+.fstep{background:var(--off-white);border:1px solid var(--rule);border-radius:10px;padding:10px 14px;min-width:150px;flex:1}
+.fstep-w{font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub)}
+.fstep-t{font-size:12.5px;font-weight:700;color:var(--ink);line-height:1.35;margin-top:3px}
+.farrow{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 8px;min-width:86px}
+.farrow i{font-style:normal;font-size:16px;font-weight:800;color:var(--tf)}
+.farrow b{font-size:10.5px;font-weight:800;color:var(--green);background:var(--green-bg);border-radius:10px;padding:2px 8px;margin-top:3px;white-space:nowrap}
+.farrow s{text-decoration:none;font-size:9px;color:var(--sub);margin-top:2px;white-space:nowrap}
+.flow-result{margin-top:14px;padding:9px 14px;background:var(--green-bg);border-left:3px solid var(--green);font-size:12px;font-weight:700;color:var(--ink);border-radius:0 8px 8px 0}
+.fl-src{font-size:10.5px;color:var(--sub);margin-top:16px;line-height:1.7}
+.fl-src a{color:var(--tf);text-decoration:none}
+.fl-src a:hover{text-decoration:underline}
+@media(max-width:1000px){
+  .chain{flex-direction:column}
+  .fstep{min-width:0}
+  .farrow{flex-direction:row;gap:8px;padding:6px 0;min-width:0}
+  .farrow i{transform:rotate(90deg)}
+}
+
 /* ===== GROWTH DYNAMICS TABLE ===== */
 .gd-sec{margin-top:64px}
 .gd-title{font-size:clamp(24px,3.4vw,36px);font-weight:800;letter-spacing:-1.2px;color:var(--ink)}
@@ -620,6 +647,62 @@ a{text-decoration:none;color:inherit}
       </div>
     </div>
 
+  </div>
+
+  <!-- ===== FLOWS ===== -->
+  <div class="fl-sec">
+    <div class="fl-title">The flows — smthg.us ↔ community, with numbers</div>
+    <div class="fl-sub">Three loops. Percentages are external benchmarks (sources below) — SMTHG targets TBD, measured from drop one.</div>
+
+    <!-- FLOW A -->
+    <div class="flow">
+      <div class="flow-name">Flow A · <span>Stranger → Member</span></div>
+      <div class="flow-trigger">Trigger: a creator or member shares a look outside the platform</div>
+      <div class="chain">
+        <div class="fstep"><div class="fstep-w">Outside</div><div class="fstep-t">Taps the shared look</div></div>
+        <div class="farrow"><i>→</i><s>measure · no benchmark</s></div>
+        <div class="fstep"><div class="fstep-w">smthg.us</div><div class="fstep-t">Tries the piece on their own photo — free, no account</div></div>
+        <div class="farrow"><i>→</i><b>2.4× buy-likelihood</b><s>AR try-on users, Snap</s></div>
+        <div class="fstep"><div class="fstep-w">Community</div><div class="fstep-t">Posts the try-on to a Style Space · picks 3 style tags</div></div>
+        <div class="farrow"><i>→</i><s>designer replies &lt;24h</s></div>
+        <div class="fstep"><div class="fstep-w">Result</div><div class="fstep-t">Member with style tags + a reason to return</div></div>
+      </div>
+      <div class="flow-result">Result: a member acquired at zero ad cost, tagged for drop matching.</div>
+    </div>
+
+    <!-- FLOW B -->
+    <div class="flow">
+      <div class="flow-name">Flow B · <span>Member → Buyer</span></div>
+      <div class="flow-trigger">Trigger: member joins the waitlist of a matched drop</div>
+      <div class="chain">
+        <div class="fstep"><div class="fstep-w">Community</div><div class="fstep-t">On the waitlist · sees the drop calendar weekly</div></div>
+        <div class="farrow"><i>→</i><b>65–75% open</b><s>waitlist alerts, Storebeep</s></div>
+        <div class="fstep"><div class="fstep-w">Drop night 19:00</div><div class="fstep-t">Countdown thread — watched together</div></div>
+        <div class="farrow"><i>→</i><b>5–35% convert</b><s>back-in-stock range, Storebeep</s></div>
+        <div class="fstep"><div class="fstep-w">smthg.us</div><div class="fstep-t">Deposit holds the piece · window closes in 48–72h</div></div>
+        <div class="farrow"><i>→</i><b>−25–40% returns</b><s>try-on before buying, McKinsey</s></div>
+        <div class="fstep"><div class="fstep-w">Result</div><div class="fstep-t">Pre-order paid · production matches demand</div></div>
+      </div>
+      <div class="flow-result">Result: waitlist buyers convert at multiples of cold traffic (fashion e-com baseline: 1.9–3.3%).</div>
+    </div>
+
+    <!-- FLOW C -->
+    <div class="flow">
+      <div class="flow-name">Flow C · <span>Buyer → Recruiter</span></div>
+      <div class="flow-trigger">Trigger: the drop sells out / the piece is theirs</div>
+      <div class="chain">
+        <div class="fstep"><div class="fstep-w">Community</div><div class="fstep-t">Owner card "1 of 150" + win post in the tribe</div></div>
+        <div class="farrow"><i>→</i><s>owner-initiated only</s></div>
+        <div class="fstep"><div class="fstep-w">Community</div><div class="fstep-t">Early access opens for that designer's next drop</div></div>
+        <div class="farrow"><i>→</i><s>measure share rate</s></div>
+        <div class="fstep"><div class="fstep-w">Outside</div><div class="fstep-t">Shares the owner look / sold-out card</div></div>
+        <div class="farrow"><i>→</i><s>= Flow A trigger</s></div>
+        <div class="fstep"><div class="fstep-w">Result</div><div class="fstep-t">The next stranger taps the look</div></div>
+      </div>
+      <div class="flow-result">Result: the loop closes — each buyer seeds Flow A. Share-rate is the one number to watch from day one.</div>
+    </div>
+
+    <div class="fl-src">Benchmark sources: AR try-on 2.4× buy-likelihood &amp; 80% confidence — <a href="https://wwd.com/sourcing-journal/industry-news/snapchat-publicis-alteragents-ecommerce-augmented-reality-returns-narvar-1238797382/" target="_blank" rel="noopener">Snap/Publicis study 2025</a> · waitlist/back-in-stock 65–75% open, 5.3–6.5% convert (up to 25–35% best case) — <a href="https://storebeep.com/blog/back-in-stock-notification-benchmarks-2026" target="_blank" rel="noopener">Storebeep benchmarks 2026</a> · fashion e-com baseline CVR 1.9% Shopify avg / 2.9–3.3% industry — <a href="https://www.nostra.ai/blogs-collection/average-ecommerce-conversion-rate-by-industry" target="_blank" rel="noopener">Nostra 2026</a>, <a href="https://3dlook.ai/content-hub/average-conversion-rate-for-fashion-ecommerce/" target="_blank" rel="noopener">3DLOOK</a> · returns −25–40% with virtual try-on — McKinsey digital-fitting research via <a href="https://www.clothingbrands.org/virtual-fitting-room-conversion-rate-statistics/" target="_blank" rel="noopener">clothingbrands.org</a>.</div>
   </div>
 
   <!-- ===== GROWTH DYNAMICS ===== -->
