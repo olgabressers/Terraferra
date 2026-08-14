@@ -121,7 +121,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
           <tr><th style="width:9%">From</th><th style="width:7%">To</th><th style="width:15%">SMTHG paperwork</th><th style="width:17%">Freight + duty</th><th style="width:16%">Landed cost, $150 item</th><th style="width:12%">In MVP?</th></tr>
         </thead>
         <tbody>
-          <tr><td>Russia</td><td>US</td><td class="yes">Zero</td><td>Russian Post freight $20–40 + ~12–20% duty</td><td>$38–70</td><td class="no">No — unless the brand holds a non-Russian bank account and has its own negotiated rate with a local carrier below DHL retail</td></tr>
+          <tr class="row-warn"><td>Russia</td><td>US</td><td class="yes">Zero</td><td>Russian Post freight $20–40 + ~12–20% duty</td><td>$38–70</td><td class="warn">Pending — requires a non-Russian bank account for payout; landed cost otherwise in line with EU/UK</td></tr>
           <tr class="row-yes"><td>EU</td><td>US</td><td class="yes">Zero</td><td>PostNL freight $15–41 + ~12–20% duty</td><td>$33–71</td><td class="yes">Yes — exact landed cost per item still to be confirmed</td></tr>
           <tr class="row-yes"><td>UK</td><td>US</td><td class="yes">Zero</td><td>Royal Mail freight $19–27 + ~12–20% duty</td><td>$37–57</td><td class="yes">Yes — exact landed cost per item still to be confirmed</td></tr>
           <tr><td>Turkey</td><td>EU</td><td class="no">EU IOSS registration required</td><td>0% duty (A.TR certificate)</td><td>— route fails on paperwork</td><td class="no">No — fails the zero-paperwork rule</td></tr>
@@ -203,7 +203,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <!-- SECTION 03 -->
   <div class="section" id="s03">
     <div class="sec-heading">03 · Russia → US</div>
-    <div class="sec-note"><strong>Conclusion:</strong> Not in MVP by default — DHL is the only fully-priced, fully reliable door-to-door option and $540–720 freight + ~12–20% duty breaks the economics for any item under roughly $1,000. Forwarder and Boxberry freight ($20–100) is not blocked by broker or bond cost — under $2,500 per shipment, neither is required. The blocker is that neither has been quoted for a real parcel or verified for delivery speed. Exception: a brand qualifies if it holds a non-Russian bank account (required regardless, see Payout row) and can confirm one of these cheaper options for its own shipment.</div>
+    <div class="sec-note"><strong>Conclusion:</strong> Landed cost on Russian Post ($38–70 on a $150 item) is in line with EU/UK. The one requirement is the Payout row below — a non-Russian bank account, since Stripe/Wise cannot pay out to Russian accounts.</div>
     <div class="gtable-wrap">
       <table class="gtable">
         <tbody>
