@@ -121,8 +121,8 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
           <tr><th style="width:9%">From</th><th style="width:7%">To</th><th style="width:15%">SMTHG paperwork</th><th style="width:17%">Freight + duty</th><th style="width:16%">Landed cost, $150 item</th><th style="width:12%">In MVP?</th></tr>
         </thead>
         <tbody>
-          <tr class="row-warn"><td>Russia</td><td>US</td><td class="yes">Zero</td><td>Russian Post freight $20–40 + ~12–20% duty</td><td>$38–70</td><td class="warn">Pending — requires a non-Russian bank account for payout; landed cost otherwise in line with EU/UK</td></tr>
-          <tr class="row-yes"><td>EU</td><td>US</td><td class="yes">Zero</td><td>PostNL freight $15–41 + ~12–20% duty</td><td>$33–71</td><td class="yes">Yes — exact landed cost per item still to be confirmed</td></tr>
+          <tr class="row-warn"><td>Russia</td><td>US</td><td class="yes">Zero</td><td>Russian Post EMS freight ~$22–44 (converted from a 20–40 EUR base rate, before final weight scaling) + ~12–20% duty</td><td>$40–74</td><td class="warn">Pending — requires a non-Russian bank account for payout; freight still needs a real per-parcel quote beyond the base rate</td></tr>
+          <tr class="row-yes"><td>EU</td><td>US</td><td class="yes">Zero</td><td>Postal/discount-broker freight $15–41 (PostNL to FedEx/UPS economy) + ~12–20% duty</td><td>$33–71</td><td class="yes">Yes — exact landed cost per item still to be confirmed</td></tr>
           <tr class="row-yes"><td>UK</td><td>US</td><td class="yes">Zero</td><td>Royal Mail freight $19–27 + ~12–20% duty</td><td>$37–57</td><td class="yes">Yes — exact landed cost per item still to be confirmed</td></tr>
           <tr><td>Turkey</td><td>EU</td><td class="no">EU IOSS registration required</td><td>0% duty (A.TR certificate)</td><td>— route fails on paperwork</td><td class="no">No — fails the zero-paperwork rule</td></tr>
           <tr><td>Turkey</td><td>US</td><td class="yes">Zero</td><td>~35–37% combined tariffs (MFN + Section 301 + Section 122), freight not yet quoted</td><td>$53–56 duty alone, freight unknown</td><td class="no">No — tariffs alone rule it out</td></tr>
@@ -203,7 +203,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <!-- SECTION 03 -->
   <div class="section" id="s03">
     <div class="sec-heading">03 · Russia → US</div>
-    <div class="sec-note"><strong>Conclusion:</strong> Landed cost on Russian Post ($38–70 on a $150 item) is in line with EU/UK. The one requirement is the Payout row below — a non-Russian bank account, since Stripe/Wise cannot pay out to Russian accounts.</div>
+    <div class="sec-note"><strong>Conclusion:</strong> Landed cost on Russian Post (~$40–74 on a $150 item, using the published EMS base rate) is in the same range as EU/UK. That base rate is before final weight scaling, so it still needs a real per-parcel quote. The other requirement is the Payout row below — a non-Russian bank account, since Stripe/Wise cannot pay out to Russian accounts.</div>
     <div class="gtable-wrap">
       <table class="gtable">
         <tbody>
