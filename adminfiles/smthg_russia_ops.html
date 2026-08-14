@@ -105,7 +105,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <div class="pg-title">Cross-Border Shipments — MVP</div>
   <div class="pg-sub">Russia, EU, UK, Turkey, Japan, and the US as brand origins, shipping to the US, EU, and UK. Research current as of August 2026.</div>
 
-  <div class="alert"><strong>De minimis is gone.</strong> Section 321 (duty-free, paperwork-free under $800) was suspended for all countries — 29 Aug 2025, codified by CBP 24 Jun 2026, no restoration date. Every US-bound shipment on this page now needs a customs entry, a broker, and a bond. Detail in §02.
+  <div class="alert"><strong>De minimis is gone.</strong> Section 321 (duty-free, paperwork-free under $800) was suspended for all countries — 29 Aug 2025, codified by CBP 24 Jun 2026, no restoration date. Every US-bound shipment on this page now needs a customs entry with CBP, even at low value. A broker is optional and a bond is not required at typical per-item order values (under $2,500). Detail in §02.
     <div class="src">Sources: <a href="https://www.federalregister.gov/documents/2026/06/24/2026-12670/indefinite-suspension-of-the-de-minimis-exemption-for-merchandise-arriving-through-all-modes-other" target="_blank" rel="noopener">Federal Register, 24 Jun 2026 ↗</a> · <a href="https://kpmg.com/us/en/taxnewsflash/news/2026/06/cbp-suspends-de-minimis-exemption.html" target="_blank" rel="noopener">KPMG summary ↗</a></div>
   </div>
 
@@ -119,14 +119,14 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
           <tr><th style="width:10%">From</th><th style="width:8%">To</th><th style="width:18%">SMTHG paperwork</th><th style="width:19%">Approximate cost per shipment</th><th style="width:12%">In MVP?</th></tr>
         </thead>
         <tbody>
-          <tr><td>Russia</td><td>US</td><td class="yes">Zero</td><td>DHL (broker included): $540–720 + ~12–20% duty. Forwarder/Boxberry/Russian Post freight $20–100, plus broker/bond $125–250 (§02) since none of them bundle it = $145–350 + duty.</td><td class="no">No — unless the brand holds a non-Russian bank account and has its own negotiated rate with a local carrier below DHL retail</td></tr>
-          <tr class="row-yes"><td>EU</td><td>US</td><td class="yes">Zero</td><td>DHL/FedEx/UPS (broker included): $33–135 + ~12–20% duty. PostNL freight $15–41, plus broker/bond $125–250 (§02) = $140–291 + duty.</td><td class="yes">Yes — exact landed cost per item still to be confirmed. Economics depend on the brand already having its own negotiated broker rate; at the $125–250 per-shipment broker/bond cost above, PostNL is not automatically cheaper than DHL/FedEx/UPS.</td></tr>
-          <tr class="row-yes"><td>UK</td><td>US</td><td class="yes">Zero</td><td>UPS/FedEx (broker included): $20–38 + ~12–20% duty. Royal Mail freight $19–27, plus broker/bond $125–250 (§02) = $144–277 + duty.</td><td class="yes">Yes — exact landed cost per item still to be confirmed. Economics depend on the brand already having its own negotiated broker rate; at the $125–250 per-shipment broker/bond cost above, Royal Mail is not automatically cheaper than UPS/FedEx.</td></tr>
+          <tr><td>Russia</td><td>US</td><td class="yes">Zero</td><td>DHL (broker included): $540–720 + ~12–20% duty. Forwarder/Boxberry/Russian Post freight $20–100 + ~12–20% duty — no bond (order value under $2,500), $0 if the brand self-files with CBP or $75–150 if it hires a broker for convenience.</td><td class="no">No — unless the brand holds a non-Russian bank account and has its own negotiated rate with a local carrier below DHL retail</td></tr>
+          <tr class="row-yes"><td>EU</td><td>US</td><td class="yes">Zero</td><td>DHL/FedEx/UPS (broker included): $33–135 + ~12–20% duty. PostNL freight $15–41 + ~12–20% duty — no bond (order value under $2,500), $0 if the brand self-files or $75–150 if it hires a broker for convenience.</td><td class="yes">Yes — exact landed cost per item still to be confirmed</td></tr>
+          <tr class="row-yes"><td>UK</td><td>US</td><td class="yes">Zero</td><td>UPS/FedEx (broker included): $20–38 + ~12–20% duty. Royal Mail freight $19–27 + ~12–20% duty — no bond (order value under $2,500), $0 if the brand self-files or $75–150 if it hires a broker for convenience.</td><td class="yes">Yes — exact landed cost per item still to be confirmed</td></tr>
           <tr><td>Turkey</td><td>EU</td><td class="no">EU IOSS registration required</td><td>0% duty (A.TR certificate) — cost moot, route fails on paperwork</td><td class="no">No — fails the zero-paperwork rule</td></tr>
           <tr><td>Turkey</td><td>US</td><td class="yes">Zero</td><td>~35–37% combined tariffs (MFN + Section 301 + Section 122) on item value, freight not yet quoted</td><td class="no">No — tariffs alone rule it out</td></tr>
           <tr><td>Japan</td><td>EU</td><td class="no">EU IOSS registration required</td><td>0% duty (EPA) — cost moot, route fails on paperwork</td><td class="no">No — fails the zero-paperwork rule</td></tr>
           <tr><td>Japan</td><td>UK</td><td class="no">UK VAT registration required</td><td>0% duty (CEPA) — cost moot, route fails on paperwork</td><td class="no">No — fails the zero-paperwork rule</td></tr>
-          <tr class="row-warn"><td>Japan</td><td>US</td><td class="yes">Zero</td><td>Private courier (broker included): $45–75 + ~12–20% duty. Japan Post freight $19–65, plus broker/bond $125–250 (§02) = $144–315 + duty.</td><td class="warn">Pending — freight confirmed, landed-cost verdict not yet run</td></tr>
+          <tr class="row-warn"><td>Japan</td><td>US</td><td class="yes">Zero</td><td>Private courier (broker included): $45–75 + ~12–20% duty. Japan Post freight $19–65 + ~12–20% duty — no bond (order value under $2,500), $0 if the brand self-files or $75–150 if it hires a broker for convenience.</td><td class="warn">Pending — freight confirmed, landed-cost verdict not yet run</td></tr>
           <tr class="row-yes"><td>US</td><td>US</td><td class="yes">Zero</td><td>USPS Ground Advantage $7.90–10.20, USPS Priority Mail $11.00–15.66, UPS/FedEx Ground $9.75–15.00 — no duty, no customs, no broker, no bond</td><td class="yes">Yes — domestic, already fully confirmed</td></tr>
         </tbody>
       </table>
@@ -139,7 +139,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <!-- SECTION 01 -->
   <div class="section" id="s01">
     <div class="sec-heading">01 · Customs &amp; Duty — by Route</div>
-    <div class="sec-note"><strong>One rule covers every US-bound route on this page, stated once here:</strong> Russia→US, EU→US, UK→US, and Japan→US all require informal customs entry on every shipment regardless of value, plus a broker and a bond — exact cost breakdown in §02. What differs by route is the duty rate and whether a trade agreement exists, shown below.</div>
+    <div class="sec-note"><strong>One rule covers every US-bound route on this page, stated once here:</strong> Russia→US, EU→US, UK→US, and Japan→US all require a customs entry with CBP on every shipment regardless of value. Individual fashion items are almost always under the $2,500 informal-entry threshold, which does not require a customs bond — exact breakdown in §02. What differs by route is the duty rate and whether a trade agreement exists, shown below.</div>
     <div class="gtable-wrap">
       <table class="gtable">
         <thead>
@@ -162,47 +162,53 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
 
   <!-- SECTION 02 -->
   <div class="section" id="s02">
-    <div class="sec-heading">02 · Broker &amp; Bond — Who Arranges It, What It Costs</div>
-    <div class="sec-note"><strong>Conclusion:</strong> Ship with DHL, FedEx, or UPS and this problem is eliminated — it is bundled into their price automatically. Any other carrier requires sourcing a broker and a bond separately. Applies to every US-bound route; Turkey→EU does not require this at all.</div>
+    <div class="sec-heading">02 · Customs Entry — Who Files It, What It Costs</div>
+    <div class="sec-note"><strong>Conclusion:</strong> Under 19 CFR 142.4, a shipment valued at $2,500 or less clears as an informal entry — no customs bond required, and no legal requirement to hire a broker. A shipment over $2,500 is a formal entry and does require a bond. Individual fashion items are almost always under $2,500, so this is the informal case on every route unless an order bundles multiple high-value pieces.</div>
     <div class="gtable-wrap">
       <table class="gtable">
         <thead>
-          <tr><th>Carrier used</th><th>Who files with CBP</th><th>Bond cost</th><th>Broker fee</th><th>Who arranges it</th></tr>
+          <tr><th>Path</th><th>Who files with CBP</th><th>Bond required?</th><th>Broker fee</th><th>Notes</th></tr>
         </thead>
         <tbody>
           <tr>
             <td>DHL, FedEx, or UPS</td>
             <td class="yes">The carrier — all three are licensed US customs brokers</td>
-            <td class="yes">$0 — covered by the carrier's own bond</td>
+            <td class="yes">No — informal entry, under $2,500</td>
             <td>Folded into the carrier's clearance charge — confirmed for RU→US DHL ($540–720 total) and EU→US DHL retail (107.53–124.03 EUR total). UK and Japan DHL/FedEx/UPS totals unconfirmed; Turkey unconfirmed.</td>
-            <td class="yes">Nobody — automatic</td>
+            <td class="yes">Automatic — the carrier's own in-house broker clears it, which is the convenience they are paid for</td>
           </tr>
           <tr>
-            <td>Any other carrier (Boxberry, Russian Post, national post, regional couriers)</td>
-            <td class="no">TF or the brand, as importer of record</td>
-            <td class="no">$50–100 single shipment, or ~$500–700/year continuous</td>
-            <td class="no">$75–150 per shipment if a broker is hired</td>
-            <td class="no">TF or the brand, every shipment</td>
+            <td>National post (PostNL, Royal Mail, Japan Post, Russian Post) or regional courier (Boxberry)</td>
+            <td class="warn">The brand, as owner/purchaser — self-filing through CBP's Automated Commercial Environment (ACE) or at the port of entry is legally permitted but operationally impractical for a regular shipper</td>
+            <td class="yes">No — informal entry, under $2,500</td>
+            <td>$0 if the brand self-files. $75–150 per shipment if the brand chooses to hire a broker for convenience instead — this fee is optional.</td>
+            <td>Self-filing avoids the fee but requires navigating ACE or visiting a port of entry per shipment — DHL/FedEx/UPS exist specifically to remove this step</td>
+          </tr>
+          <tr>
+            <td>Any carrier, formal entry (order value over $2,500)</td>
+            <td class="no">A licensed customs broker — required by law above this threshold</td>
+            <td class="no">Yes — Entry Type 01, bond required</td>
+            <td>Broker fee plus bond cost — unpriced here; unlikely at typical per-item order values</td>
+            <td>Applies only if a single shipment's declared value exceeds $2,500</td>
           </tr>
         </tbody>
       </table>
     </div>
-    <div class="sec-note" style="margin-top:12px"><strong>Applies to national postal services too:</strong> PostNL (§04), Royal Mail (§05), and Japan Post (§07) are all "any other carrier" for this purpose — their freight rates below are cheaper than DHL/FedEx/UPS, but do not include a broker or bond. Add the second row's cost when using one of them.</div>
     <div class="sec-note" style="margin-top:12px"><strong>Global-e / similar MoR:</strong> not justified yet. Would remove this entirely, but does not support multi-vendor drop-ship or Russia as an origin, and prices on an opaque custom revenue-share. Reconsider at real volume.</div>
-    <div class="src">Sources: <a href="https://customsbrokerindex.com/blog/how-much-does-a-customs-broker-cost/" target="_blank" rel="noopener">customsbrokerindex.com ↗</a> · <a href="https://borderbuddy.com/blog/single-entry-customs-bond" target="_blank" rel="noopener">borderbuddy.com ↗</a></div>
+    <div class="src">Sources: <a href="https://www.help.cbp.gov/s/article/Article-1077?language=en_US" target="_blank" rel="noopener">CBP — filing an informal entry under $2,500 ↗</a> · <a href="https://www.greenwich-mercantile.com/resources/guides/when-is-customs-bond-required" target="_blank" rel="noopener">When a customs bond is required — 19 CFR 142.4 ↗</a></div>
   </div>
 
   <!-- SECTION 03 -->
   <div class="section" id="s03">
     <div class="sec-heading">03 · Russia → US</div>
-    <div class="sec-note"><strong>Conclusion:</strong> Not in MVP by default — DHL is the only fully-priced door-to-door option and $540–720 freight + ~12–20% duty breaks the economics for any item under roughly $1,000. Exception: a brand qualifies if it holds a non-Russian bank account (required regardless, see Payout row) and has its own negotiated rate with a local carrier or forwarder below DHL retail — the cheaper unverified options below would need to be confirmed and priced by that specific brand.</div>
+    <div class="sec-note"><strong>Conclusion:</strong> Not in MVP by default — DHL is the only fully-priced, fully reliable door-to-door option and $540–720 freight + ~12–20% duty breaks the economics for any item under roughly $1,000. Forwarder and Boxberry freight ($20–100) is not blocked by broker or bond cost — under $2,500 per shipment, neither is required. The blocker is that neither has been quoted for a real parcel or verified for delivery speed. Exception: a brand qualifies if it holds a non-Russian bank account (required regardless, see Payout row) and can confirm one of these cheaper options for its own shipment.</div>
     <div class="gtable-wrap">
       <table class="gtable">
         <tbody>
           <tr><td style="width:22%"><strong>Outbound carrier</strong></td><td>DHL Express — $540 (office drop-off) to $720 (pickup), 7 business days, broker included</td></tr>
-          <tr><td><strong>Freight forwarder / proxy shipping</strong></td><td>Specialized forwarding and consolidation warehouses routing out of Russia: approximately 65 to 90 EUR (approximately $70–100) for a 1.5–2 kg parcel to the United States. Broker/bond arrangement unconfirmed — falls under the "any other carrier" row in §02.</td></tr>
-          <tr><td><strong>Cheaper, unverified</strong></td><td>Boxberry from ~$20, 12–25 days. Not yet quoted for a real parcel; broker/bond arrangement unconfirmed (falls under the "any other carrier" row in §02).</td></tr>
-          <tr><td><strong>Russian Post — customs</strong></td><td>Rate varies by exact weight, ground vs air-routed transit, and tracking add-on. Small Packet/standard parcel up to 2 kg via local post office; EMS Russian Post (expedited, up to 20–30 kg) starts around 20–40 EUR base before international weight scaling. 15–90 days transit, too slow for the MVP window. Customs mechanism differs from Boxberry: US mail shipments clear through CBP's postal informal entry process (effective 24 Jul 2026) instead of general freight entry. Filer must still be the owner/purchaser or a licensed broker, and a customs bond is still required — same underlying obligation as §02, via a different filing channel.</td></tr>
+          <tr><td><strong>Freight forwarder / proxy shipping</strong></td><td>Specialized forwarding and consolidation warehouses routing out of Russia: approximately 65 to 90 EUR (approximately $70–100) for a 1.5–2 kg parcel to the United States. Falls under the "national post or regional courier" row in §02 — no bond required (order value under $2,500), broker optional.</td></tr>
+          <tr><td><strong>Cheaper, unverified</strong></td><td>Boxberry from ~$20, 12–25 days. Not yet quoted for a real parcel; falls under the "national post or regional courier" row in §02 — no bond required, broker optional.</td></tr>
+          <tr><td><strong>Russian Post — customs</strong></td><td>Rate varies by exact weight, ground vs air-routed transit, and tracking add-on. Small Packet/standard parcel up to 2 kg via local post office; EMS Russian Post (expedited, up to 20–30 kg) starts around 20–40 EUR base before international weight scaling. 15–90 days transit, too slow for the MVP window. US mail shipments clear through CBP's postal informal entry process (effective 24 Jul 2026). Filer is the owner/purchaser (self-filing via ACE or at the port of entry) or a licensed broker hired for convenience — no bond required, order value under $2,500.</td></tr>
           <tr><td><strong>Returns</strong></td><td>DHL/FedEx/UPS do not accept inbound-to-Russia shipments (suspended since 2022). Use CDEK Global — $27, 4–6 days.</td></tr>
           <tr><td><strong>Payout</strong></td><td>Brand needs a non-Russian bank account (Georgian, Armenian, or EU) — Russian accounts cannot receive Stripe/Wise payouts.</td></tr>
         </tbody>
@@ -219,7 +225,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
       <table class="gtable">
         <tbody>
           <tr><td style="width:22%"><strong>Duty</strong></td><td>~12–20% MFN — no US-EU Free Trade Agreement (FTA) exists</td></tr>
-          <tr><td><strong>Carriers</strong></td><td>DHL, FedEx, UPS all operate normally — no restrictions on this route, broker included in their price. PostNL is also available but is a national postal service outside this group — its broker/bond status follows the "any other carrier" row in §02.</td></tr>
+          <tr><td><strong>Carriers</strong></td><td>DHL, FedEx, UPS all operate normally — no restrictions on this route, broker included in their price. PostNL is also available but is a national postal service outside this group — no bond required either way (order value under $2,500), broker optional if using PostNL, see §02.</td></tr>
           <tr><td><strong>Freight cost</strong></td><td>DHL retail (no account): 107.53 to 124.03 EUR (approximately $117–135), broker included — full list price, well above a negotiated-account rate. PostNL letterbox parcel (fits 38 x 26.5 x 3.2 cm, up to 2 kg): 14.00 EUR without tracking, 21.00 EUR with tracking (approximately $15–23). PostNL standard parcel (over letterbox size, up to 2 kg): from 21.00 EUR (from approximately $23). FedEx or UPS economy service via a discount broker (e.g. ParcelParcel): 30.00 to 38.00 EUR (approximately $33–41). FedEx or UPS express priority service (1 to 3 days): 45.00 to 85.00 EUR (approximately $49–93).</td></tr>
         </tbody>
       </table>
@@ -235,7 +241,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
       <table class="gtable">
         <tbody>
           <tr><td style="width:22%"><strong>Duty</strong></td><td>~12–20% MFN — no US-UK Free Trade Agreement (FTA) exists</td></tr>
-          <tr><td><strong>Carriers</strong></td><td>UPS and FedEx operate normally, broker included in courier price. Royal Mail is also available but is a national postal service outside this group — its broker/bond status follows the "any other carrier" row in §02.</td></tr>
+          <tr><td><strong>Carriers</strong></td><td>UPS and FedEx operate normally, broker included in courier price. Royal Mail is also available but is a national postal service outside this group — no bond required either way (order value under $2,500), broker optional if using Royal Mail, see §02.</td></tr>
           <tr><td><strong>Freight cost</strong></td><td>Royal Mail International Standard: 19.05 GBP online (14.90 GBP at Post Office) for 1 kg, 20.95 GBP online (16.35 GBP at Post Office) for 2 kg (approximately $19–27), 6 to 7 working days. Discounted courier via broker (UPS Worldwide Economy, FedEx via third-party broker): 16 to 20 GBP for 1 kg, up to 25 to 30 GBP for 2 kg (approximately $20–38). Express (UPS Express Saver, FedEx International Connect): 19 to 30 GBP (approximately $24–38), 3 to 5 business days.</td></tr>
         </tbody>
       </table>
@@ -265,7 +271,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         <tbody>
           <tr><td style="width:22%" class="yes">Japan → EU</td><td>0% duty — EU-Japan Economic Partnership Agreement (EPA), in force Feb 2019. Origin proof required (EUR.1 certificate or invoice declaration).</td></tr>
           <tr><td class="yes">Japan → UK</td><td>0% duty — UK-Japan Comprehensive Economic Partnership Agreement (CEPA), in force Jan 2021. Origin proof required (EUR.1 certificate or invoice declaration).</td></tr>
-          <tr><td class="warn">Japan → US</td><td>No Free Trade Agreement (FTA) with the US. ~12–20% MFN. Informal customs entry required, broker and bond required — exact cost breakdown in §02. Japan Post EMS: 5,300 JPY (~$33.28) for 1 kg, 7,900 to 10,350 JPY (~$49.61–65.00) for 2 kg, 3–5 days. Japan Post Airmail/International Parcel: 3,850 to 6,000 JPY (~$24.18–37.68), 5–10 days. Japan Post Surface Mail: ~2,980 JPY (~$18.71) for 2 kg, 1–3 months. Japan Post is a national postal service — its broker/bond status follows the "any other carrier" row in §02, add that cost on top of the freight rate above. Private courier (FedEx/DHL, broker included): $45–75 (~6,000–11,000 JPY).</td></tr>
+          <tr><td class="warn">Japan → US</td><td>No Free Trade Agreement (FTA) with the US. ~12–20% MFN. Informal customs entry required on every shipment — no bond, order value under $2,500 (§02). Japan Post EMS: 5,300 JPY (~$33.28) for 1 kg, 7,900 to 10,350 JPY (~$49.61–65.00) for 2 kg, 3–5 days. Japan Post Airmail/International Parcel: 3,850 to 6,000 JPY (~$24.18–37.68), 5–10 days. Japan Post Surface Mail: ~2,980 JPY (~$18.71) for 2 kg, 1–3 months. Japan Post is a national postal service — hiring a broker there is optional, see §02. Private courier (FedEx/DHL, broker included): $45–75 (~6,000–11,000 JPY).</td></tr>
         </tbody>
       </table>
     </div>
@@ -319,7 +325,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
           <tr><td>Collect payment</td><td class="yes">Yes — Stripe, on-platform checkout</td><td>—</td></tr>
           <tr><td>US sales tax</td><td class="yes">Yes — Stripe Tax, automatic</td><td>—</td></tr>
           <tr><td>Invoice / packing list / waybill</td><td>—</td><td class="warn">Brand enters item + value at carrier booking; carrier generates the documents</td></tr>
-          <tr><td>Customs entry + broker/bond</td><td>—</td><td class="warn">Required on every shipment. Carrier-included with DHL/FedEx/UPS; not confirmed with other carriers (§02)</td></tr>
+          <tr><td>Customs entry</td><td>—</td><td class="warn">Required on every shipment. No bond at typical per-item order values (under $2,500). Broker is bundled automatically with DHL/FedEx/UPS, optional with any other carrier (§02)</td></tr>
           <tr><td>Import duty</td><td>—</td><td class="warn">Owed on full value, no threshold — see §01 by route</td></tr>
           <tr><td>Physical shipping</td><td>—</td><td class="yes">Brand books and ships direct</td></tr>
           <tr><td>Non-domestic bank account for payout</td><td>—</td><td class="warn">Russia only — Georgian, Armenian, or EU account required</td></tr>
