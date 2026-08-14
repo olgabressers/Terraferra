@@ -51,6 +51,8 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .gtable td{padding:10px 14px;border-top:1px solid var(--rule);border-right:1px solid var(--rule);color:var(--ink);vertical-align:top;line-height:1.5}
 .gtable td:last-child{border-right:none}
 .gtable tr:nth-child(even) td{background:#FBFAF7}
+.gtable tr.row-yes td{background:#F0F8F0}
+.gtable tr.row-warn td{background:#FDF6E8}
 .gtable td strong{font-weight:700}
 .gtable a{color:var(--tf);text-decoration:none;font-weight:700}
 .gtable a:hover{text-decoration:underline}
@@ -118,13 +120,14 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         </thead>
         <tbody>
           <tr><td>Russia</td><td>US</td><td class="yes">Zero</td><td>DHL $540–720 + ~12–20% duty on item value. Cheaper local-carrier/forwarder options exist (§03) but are unverified for broker/bond arrangement.</td><td class="no">No — unless the brand holds a non-Russian bank account (Stripe/Wise cannot pay out to Russian accounts) and has its own negotiated rate with a local carrier below DHL retail</td></tr>
-          <tr><td>EU</td><td>US</td><td class="yes">Zero</td><td>Freight $15–95 (PostNL letterbox to FedEx/UPS express, broker included) + ~12–20% duty on item value</td><td class="yes">Yes — exact landed cost per item still to be confirmed</td></tr>
-          <tr><td>UK</td><td>US</td><td class="yes">Zero</td><td>Freight £16–30 (Royal Mail to express courier, broker included) + ~12–20% duty on item value</td><td class="yes">Yes — exact landed cost per item still to be confirmed</td></tr>
+          <tr class="row-yes"><td>EU</td><td>US</td><td class="yes">Zero</td><td>Freight $15–95 (PostNL letterbox to FedEx/UPS express, broker included) + ~12–20% duty on item value</td><td class="yes">Yes — exact landed cost per item still to be confirmed</td></tr>
+          <tr class="row-yes"><td>UK</td><td>US</td><td class="yes">Zero</td><td>Freight £16–30 (Royal Mail to express courier, broker included) + ~12–20% duty on item value</td><td class="yes">Yes — exact landed cost per item still to be confirmed</td></tr>
           <tr><td>Turkey</td><td>EU</td><td class="no">EU IOSS registration required</td><td>0% duty (A.TR certificate) — cost moot, route fails on paperwork</td><td class="no">No — fails the zero-paperwork rule</td></tr>
           <tr><td>Turkey</td><td>US</td><td class="yes">Zero</td><td>~35–37% combined tariffs (MFN + Section 301 + Section 122) on item value, freight not yet quoted</td><td class="no">No — tariffs alone rule it out</td></tr>
           <tr><td>Japan</td><td>EU</td><td class="no">EU IOSS registration required</td><td>0% duty (EPA) — cost moot, route fails on paperwork</td><td class="no">No — fails the zero-paperwork rule</td></tr>
           <tr><td>Japan</td><td>UK</td><td class="no">UK VAT registration required</td><td>0% duty (CEPA) — cost moot, route fails on paperwork</td><td class="no">No — fails the zero-paperwork rule</td></tr>
-          <tr><td>Japan</td><td>US</td><td class="yes">Zero</td><td>Freight $19–75 (Japan Post surface/air/EMS to private courier) + ~12–20% duty on item value</td><td class="warn">Pending — freight confirmed, landed-cost verdict not yet run</td></tr>
+          <tr class="row-warn"><td>Japan</td><td>US</td><td class="yes">Zero</td><td>Freight $19–75 (Japan Post surface/air/EMS to private courier) + ~12–20% duty on item value</td><td class="warn">Pending — freight confirmed, landed-cost verdict not yet run</td></tr>
+          <tr class="row-yes"><td>US</td><td>US</td><td class="yes">Zero</td><td>USPS Ground Advantage $7.90–10.20, USPS Priority Mail $11.00–15.66, UPS/FedEx Ground $9.75–15.00 — no duty, no customs, no broker, no bond</td><td class="yes">Yes — domestic, already fully confirmed</td></tr>
         </tbody>
       </table>
     </div>
