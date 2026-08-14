@@ -117,9 +117,9 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
           <tr><th style="width:10%">From</th><th style="width:8%">To</th><th style="width:18%">SMTHG paperwork</th><th style="width:19%">Approximate cost per shipment</th><th style="width:12%">In MVP?</th></tr>
         </thead>
         <tbody>
-          <tr><td>Russia</td><td>US</td><td class="yes">Zero</td><td>Freight $540–720 (DHL, broker included) + ~12–20% duty on item value</td><td class="no">No — freight breaks the economics</td></tr>
-          <tr><td>EU</td><td>US</td><td class="yes">Zero</td><td>Freight $15–95 (PostNL letterbox to FedEx/UPS express, broker included) + ~12–20% duty on item value</td><td class="warn">Pending — broker-rate freight confirmed, landed-cost verdict not yet run</td></tr>
-          <tr><td>UK</td><td>US</td><td class="yes">Zero</td><td>Freight £16–30 (Royal Mail to express courier, broker included) + ~12–20% duty on item value</td><td class="warn">Pending — freight confirmed, landed-cost verdict not yet run</td></tr>
+          <tr><td>Russia</td><td>US</td><td class="yes">Zero</td><td>DHL $540–720 + ~12–20% duty on item value. Cheaper local-carrier/forwarder options exist (§03) but are unverified for broker/bond arrangement.</td><td class="no">No — unless the brand holds a non-Russian bank account (Stripe/Wise cannot pay out to Russian accounts) and has its own negotiated rate with a local carrier below DHL retail</td></tr>
+          <tr><td>EU</td><td>US</td><td class="yes">Zero</td><td>Freight $15–95 (PostNL letterbox to FedEx/UPS express, broker included) + ~12–20% duty on item value</td><td class="yes">Yes — exact landed cost per item still to be confirmed</td></tr>
+          <tr><td>UK</td><td>US</td><td class="yes">Zero</td><td>Freight £16–30 (Royal Mail to express courier, broker included) + ~12–20% duty on item value</td><td class="yes">Yes — exact landed cost per item still to be confirmed</td></tr>
           <tr><td>Turkey</td><td>EU</td><td class="no">EU IOSS registration required</td><td>0% duty (A.TR certificate) — cost moot, route fails on paperwork</td><td class="no">No — fails the zero-paperwork rule</td></tr>
           <tr><td>Turkey</td><td>US</td><td class="yes">Zero</td><td>~35–37% combined tariffs (MFN + Section 301 + Section 122) on item value, freight not yet quoted</td><td class="no">No — tariffs alone rule it out</td></tr>
           <tr><td>Japan</td><td>EU</td><td class="no">EU IOSS registration required</td><td>0% duty (EPA) — cost moot, route fails on paperwork</td><td class="no">No — fails the zero-paperwork rule</td></tr>
@@ -191,7 +191,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <!-- SECTION 03 -->
   <div class="section" id="s03">
     <div class="sec-heading">03 · Russia → US</div>
-    <div class="sec-note"><strong>Conclusion:</strong> DHL is the only fully-priced door-to-door option — $540–720 freight + ~12–20% duty breaks the economics for any item under roughly $1,000. Forwarder and postal routes run far cheaper but are slower and their broker/bond arrangement is unconfirmed.</div>
+    <div class="sec-note"><strong>Conclusion:</strong> Not in MVP by default — DHL is the only fully-priced door-to-door option and $540–720 freight + ~12–20% duty breaks the economics for any item under roughly $1,000. Exception: a brand qualifies if it holds a non-Russian bank account (required regardless, see Payout row) and has its own negotiated rate with a local carrier or forwarder below DHL retail — the cheaper unverified options below would need to be confirmed and priced by that specific brand.</div>
     <div class="gtable-wrap">
       <table class="gtable">
         <tbody>
