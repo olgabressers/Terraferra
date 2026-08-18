@@ -1,6 +1,6 @@
 (function(){
   var KEY = 'smthg_unlocked_v1';
-  var PASSWORD = 'Maximonly';
+  var PASSWORD = 'smthg2026!us';
   if (sessionStorage.getItem(KEY) === '1') return;
   document.documentElement.style.visibility = 'hidden';
   document.addEventListener('DOMContentLoaded', function(){
