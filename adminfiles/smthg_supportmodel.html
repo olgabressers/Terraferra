@@ -36,52 +36,63 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 h1{font-size:clamp(24px,3.8vw,40px);font-weight:900;letter-spacing:-1.2px;margin-top:10px;line-height:1.1;color:var(--ink)}
 .lede{font-size:15.5px;color:var(--ink);margin-top:10px;max-width:860px;line-height:1.65}
 
-.sec-h2{font-size:clamp(16px,2vw,21px);font-weight:900;letter-spacing:-.5px;margin:44px 0 14px;color:var(--ink)}
-.sec-h2 span{color:var(--tf)}
+.sec-h2{font-size:clamp(16px,2vw,21px);font-weight:900;letter-spacing:-.5px;margin:44px 0 14px;color:var(--ink);display:flex;align-items:baseline;gap:10px}
+.sec-num{color:var(--tf)}
 
-/* HIGHLIGHT MAP */
-.map-box{background:white;border:1px solid var(--rule);border-top:4px solid var(--tf);border-radius:10px;padding:6px 6px 10px}
-.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
-table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:640px}
-thead th{background:var(--ink);color:white;text-align:left;padding:10px 16px;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;white-space:nowrap}
-tbody td{padding:9px 16px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.4;color:var(--ink)}
-tbody tr.pillar td{background:var(--tf-ghost);font-weight:900;color:var(--tf);text-transform:uppercase;letter-spacing:.5px;font-size:11px;padding:8px 16px}
-tbody td.vol{white-space:nowrap;font-weight:700}
-.tag{display:inline-block;padding:2px 9px;border-radius:20px;font-size:10.5px;font-weight:700;white-space:nowrap}
+/* CONCLUSION BOX — house rule: every section opens with conclusion before any table */
+.concl{border-radius:8px;padding:14px 18px;font-size:13.5px;line-height:1.6;margin-bottom:18px}
+.concl.green{background:var(--green-bg);border-left:4px solid var(--green);color:var(--ink)}
+.concl.amber{background:var(--amber-bg);border-left:4px solid var(--amber);color:var(--ink)}
+.concl strong{color:var(--ink)}
+
+/* 3-COLUMN PILLAR COMPARISON */
+.pillar3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+@media(max-width:900px){.pillar3{grid-template-columns:1fr}}
+.pcol{background:white;border:1px solid var(--rule);border-top:4px solid var(--tf);border-radius:10px;padding:20px 22px}
+.pcol h3{font-size:16px;font-weight:900;margin-bottom:14px;letter-spacing:-.2px}
+.pcol .grp{margin-bottom:14px}
+.pcol .grp:last-child{margin-bottom:0}
+.pcol .lbl{font-size:9.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);margin-bottom:5px}
+.pcol ul{list-style:none;padding:0}
+.pcol li{font-size:12.5px;line-height:1.55;color:var(--ink);padding:2px 0}
+.pcol li::before{content:'– ';color:var(--sub)}
+.vol-num{font-size:20px;font-weight:900;color:var(--tf);line-height:1.1}
+.vol-calc{font-size:11px;color:var(--sub);line-height:1.5;margin-top:3px}
+.tag{display:inline-block;padding:2px 9px;border-radius:20px;font-size:10.5px;font-weight:700;white-space:nowrap;margin:2px 4px 0 0}
 .tag-faq{background:var(--green-bg);color:var(--green)}
 .tag-rel{background:#EAF0F6;color:var(--navy)}
 .tag-tx{background:#F1EEE9;color:var(--sub)}
 .tag-esc{background:var(--amber-bg);color:var(--amber)}
 
-/* PILLAR DETAIL CARDS */
-.pillar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-@media(max-width:1000px){.pillar-grid{grid-template-columns:1fr}}
-.pcard{background:white;border:1px solid var(--rule);border-top:3px solid var(--tf);border-radius:10px;padding:18px 20px}
-.pcard h3{font-size:15px;font-weight:900;margin-bottom:10px}
-.pcard .row{margin-bottom:10px}
-.pcard .lbl{font-size:9.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);margin-bottom:3px}
-.pcard .val{font-size:13px;line-height:1.5;color:var(--ink)}
-.pcard ul{list-style:none;padding:0}
-.pcard li{font-size:13px;line-height:1.5;padding:2px 0}
-.pcard li::before{content:'– ';color:var(--sub)}
-.model-badge{display:inline-block;font-size:11px;font-weight:800;padding:3px 10px;border-radius:5px;margin-top:2px}
+/* PILLAR DETAIL */
+.pdetail{background:white;border:1px solid var(--rule);border-radius:10px;padding:18px 22px;margin-bottom:14px}
+.pdetail h4{font-size:14px;font-weight:900;margin-bottom:10px;color:var(--tf)}
+.pdetail .row{display:grid;grid-template-columns:140px 1fr;gap:10px;padding:6px 0;border-bottom:1px solid var(--rule);font-size:13px}
+.pdetail .row:last-child{border-bottom:none}
+.pdetail .k{font-weight:700;color:var(--sub);font-size:11px;text-transform:uppercase;letter-spacing:.5px}
+.pdetail .v{color:var(--ink);line-height:1.5}
+.model-badge{display:inline-block;font-size:11px;font-weight:800;padding:3px 10px;border-radius:5px}
 .mb-internal{background:var(--green-bg);color:var(--green)}
-.mb-split{background:var(--amber-bg);color:var(--amber)}
+
+/* TECH TABLE */
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:640px;background:white;border:1px solid var(--rule);border-radius:8px;overflow:hidden}
+thead th{background:var(--ink);color:white;text-align:left;padding:10px 16px;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;white-space:nowrap}
+tbody td{padding:9px 16px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.45;color:var(--ink)}
+tbody tr:last-child td{border-bottom:none}
+tbody td.cost{white-space:nowrap;font-weight:700}
+.reject-row td{color:var(--sub)}
+.reject-row .x{color:var(--tf);font-weight:800}
 
 /* RECOMMENDATION */
-.rec-box{background:var(--ink);color:white;border-radius:10px;padding:24px 28px;margin-top:16px}
+.rec-box{background:var(--ink);color:white;border-radius:10px;padding:24px 28px;margin-top:4px}
 .rec-box .lbl{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#C4B5FF;margin-bottom:8px}
 .rec-box p{font-size:14px;line-height:1.6;color:white;margin-bottom:6px}
 .rec-box p strong{color:#7AE3B2}
-
-.tbl-wrap2{overflow-x:auto;margin-top:14px}
-table.trig{width:100%;border-collapse:collapse;font-size:13px;background:white;border-radius:8px;overflow:hidden;border:1px solid var(--rule)}
+table.trig{width:100%;border-collapse:collapse;font-size:13px;background:white;border-radius:8px;overflow:hidden;border:1px solid var(--rule);margin-top:14px}
 table.trig th{background:var(--ink);color:white;padding:9px 14px;text-align:left;font-size:10.5px;text-transform:uppercase;letter-spacing:.5px}
 table.trig td{padding:9px 14px;border-bottom:1px solid var(--rule)}
 table.trig tr:last-child td{border-bottom:none}
-
-.reject-box{background:var(--tf-ghost);border-left:3px solid var(--tf);padding:12px 16px;margin-top:16px;font-size:13px;line-height:1.6;color:var(--ink)}
-.reject-box strong{color:var(--tf)}
 
 .footnote{margin-top:28px;font-size:12px;color:var(--sub);line-height:1.6;border-top:1px solid var(--rule);padding-top:14px}
 .footnote a{color:var(--tf);text-decoration:none}
@@ -108,106 +119,119 @@ table.trig tr:last-child td{border-bottom:none}
 <div class="wrap">
 
   <h1>smthg<span style="color:var(--tf)">.</span> Support Model</h1>
-  <p class="lede">Activities, MVP volume, and staffing/technology model per operational pillar.</p>
+  <p class="lede">Activities, MVP volume, staffing model, and technology per operational pillar.</p>
 
-  <!-- ═══ CONDENSED ACTIVITY MAP ═══ -->
-  <h2 class="sec-h2">Activity Map · <span>MVP</span></h2>
-  <div class="map-box">
-    <div class="tbl-wrap">
-      <table>
-        <thead><tr><th>Activity</th><th>MVP volume / mo</th><th>Type</th></tr></thead>
-        <tbody>
-          <tr class="pillar"><td colspan="3">Consumers</td></tr>
-          <tr><td>Order status / tracking</td><td class="vol">~2–4</td><td><span class="tag tag-faq">FAQ</span></td></tr>
-          <tr><td>Returns</td><td class="vol">~2–4</td><td><span class="tag tag-faq">FAQ</span></td></tr>
-          <tr><td>Payment disputes</td><td class="vol">&lt;1</td><td><span class="tag tag-esc">Escalation</span></td></tr>
-          <tr><td>Platform how-to (drops, VTO, sizing)</td><td class="vol">~2–4</td><td><span class="tag tag-faq">FAQ</span></td></tr>
-
-          <tr class="pillar"><td colspan="3">Designers</td></tr>
-          <tr><td>Pilot onboarding</td><td class="vol">3–5 total</td><td><span class="tag tag-rel">Relationship</span></td></tr>
-          <tr><td>Drop submission errors</td><td class="vol">3–5</td><td><span class="tag tag-esc">Judgment</span></td></tr>
-          <tr><td>Payout queries</td><td class="vol">3–5</td><td><span class="tag tag-tx">Transactional</span></td></tr>
-          <tr><td>So-Me-Space curation</td><td class="vol">ongoing</td><td><span class="tag tag-rel">Relationship</span></td></tr>
-
-          <tr class="pillar"><td colspan="3">Influencers</td></tr>
-          <tr><td>Recruiting / outreach</td><td class="vol">15–25 active</td><td><span class="tag tag-rel">Relationship</span></td></tr>
-          <tr><td>Drop briefing</td><td class="vol">15–25</td><td><span class="tag tag-rel">Relationship</span></td></tr>
-          <tr><td>Commission / payout queries</td><td class="vol">15–25</td><td><span class="tag tag-tx">Transactional</span></td></tr>
-          <tr><td>Founding Creator applications</td><td class="vol">&lt;5</td><td><span class="tag tag-esc">Judgment</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-  <div class="footnote" style="margin-top:10px;border-top:none;padding-top:0">
-    Volume derived from: MVP GMV $0–50K / 6mo ÷ $200 AOV ≈ 250 orders ≈ 42/mo avg × 4–9 tickets/100 orders (<a href="https://www.zendesk.com/blog/ecommerce-customer-service/" target="_blank" rel="noopener">Zendesk Ecomm CX</a>) → consumer volume. Designer count = pilot trigger (<a href="smthg_operationsteam.html">Operations Team</a>). Influencer count = 5/drop default (<a href="TFmvpcosts.html">MVP Costs calculator</a>) × 3–5 pilot drops/mo.
+  <!-- ═══ CONCLUSION — TOP ═══ -->
+  <div class="concl green" style="margin-top:28px">
+    <strong>One combined internal contractor covers all three pillars at MVP</strong> — reactive consumer tickets stay low (order volume is small pre-launch), but designer onboarding and influencer recruiting are relationship-heavy from day one regardless of GMV. No new tech spend required: Intercom and Stripe Connect are already budgeted; everything else is a free shared tracker until a split trigger fires.
   </div>
 
-  <!-- ═══ PILLAR DETAIL ═══ -->
-  <h2 class="sec-h2">Support Model · <span>Per Pillar</span></h2>
-  <div class="pillar-grid">
+  <!-- ═══ 01 — 3-COLUMN PILLAR VIEW ═══ -->
+  <h2 class="sec-h2"><span class="sec-num">01</span> Support Activities · <span style="color:var(--tf)">by Pillar</span></h2>
 
-    <div class="pcard">
-      <h3>Consumers</h3>
-      <div class="row">
-        <div class="lbl">Model</div>
-        <span class="model-badge mb-internal">Internal — combined role</span>
-      </div>
-      <div class="row">
-        <div class="lbl">Split trigger</div>
-        <div class="val">150 tickets/mo → dedicated part-time CS</div>
-      </div>
-      <div class="row">
-        <div class="lbl">Technology</div>
-        <ul>
-          <li>Intercom Essential — already budgeted, $29/mo (<a href="architecture.html">Architecture</a>)</li>
-          <li>Intercom Fin AI — draft-and-approve layer for FAQ tickets, pricing TBC (usage-based)</li>
-        </ul>
-      </div>
-    </div>
+  <div class="pillar3">
 
-    <div class="pcard">
-      <h3>Designers</h3>
-      <div class="row">
-        <div class="lbl">Model</div>
-        <span class="model-badge mb-internal">Internal — combined role</span>
-      </div>
-      <div class="row">
-        <div class="lbl">Split trigger</div>
-        <div class="val">Community count needs real curation → dedicated Community Manager (existing trigger already Day-1-at-3-designers)</div>
-      </div>
-      <div class="row">
-        <div class="lbl">Technology</div>
-        <ul>
-          <li>Stripe Connect dashboard — payouts, already in stack</li>
-          <li>Shared tracker (Notion / Sheets) — onboarding + curation notes</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="pcard">
+    <div class="pcol">
       <h3>Influencers</h3>
-      <div class="row">
-        <div class="lbl">Model</div>
-        <span class="model-badge mb-internal">Internal — combined role</span>
-      </div>
-      <div class="row">
-        <div class="lbl">Split trigger</div>
-        <div class="val">Outreach goes daily/systematic, or 25+ active influencers → dedicated Influencer Relations FTE</div>
-      </div>
-      <div class="row">
-        <div class="lbl">Technology</div>
+      <div class="grp">
+        <div class="lbl">Activities</div>
         <ul>
-          <li>Shared tracker (Notion / Sheets) — outreach + response log</li>
-          <li>Stripe Connect — commission payout data</li>
-          <li>Influencer discovery platform (Influencity / Upfluence, ~$700–1,000/mo) — deferred until outreach volume justifies cost</li>
+          <li>Recruiting / outreach <span class="tag tag-rel">Relationship</span></li>
+          <li>Drop briefing <span class="tag tag-rel">Relationship</span></li>
+          <li>Commission / payout queries <span class="tag tag-tx">Transactional</span></li>
+          <li>Founding Creator applications <span class="tag tag-esc">Judgment</span></li>
         </ul>
+      </div>
+      <div class="grp">
+        <div class="lbl">MVP volume</div>
+        <div class="vol-num">15–25 active <span style="font-size:13px;color:var(--sub);font-weight:700">+ tens of outreach msgs/mo</span></div>
+        <div class="vol-calc">Active count: 5 influencers/drop default (MVP Costs calculator) × 3–5 pilot drops/mo. Outreach volume: small-batch testing per pilot approach — tens/mo, not the 200–300/day full-recruiting rate, until outreach goes systematic (split trigger below).</div>
+      </div>
+    </div>
+
+    <div class="pcol">
+      <h3>Designers</h3>
+      <div class="grp">
+        <div class="lbl">Activities</div>
+        <ul>
+          <li>Pilot onboarding <span class="tag tag-rel">Relationship</span></li>
+          <li>Drop submission errors <span class="tag tag-esc">Judgment</span></li>
+          <li>Payout queries <span class="tag tag-tx">Transactional</span></li>
+          <li>So-Me-Space curation <span class="tag tag-rel">Relationship</span></li>
+        </ul>
+      </div>
+      <div class="grp">
+        <div class="lbl">MVP volume</div>
+        <div class="vol-num">3–5 designers <span style="font-size:13px;color:var(--sub);font-weight:700">· ~3–5 touches/mo each category</span></div>
+        <div class="vol-calc">Pilot cohort size = Day-1 hire trigger (Operations Team). 1 drop/designer/mo → onboarding + drop-support + payout touch per designer per month.</div>
+      </div>
+    </div>
+
+    <div class="pcol">
+      <h3>Consumers</h3>
+      <div class="grp">
+        <div class="lbl">Activities</div>
+        <ul>
+          <li>Order status / tracking <span class="tag tag-faq">FAQ</span></li>
+          <li>Returns <span class="tag tag-faq">FAQ</span></li>
+          <li>Payment disputes <span class="tag tag-esc">Escalation</span></li>
+          <li>Platform how-to (drops, VTO, sizing) <span class="tag tag-faq">FAQ</span></li>
+        </ul>
+      </div>
+      <div class="grp">
+        <div class="lbl">MVP volume</div>
+        <div class="vol-num">~6–12 tickets/mo</div>
+        <div class="vol-calc">$0–50K GMV / 6mo ÷ $200 AOV ≈ 42 orders/mo avg × 4–9 tickets/100 orders (Zendesk Ecomm CX) ≈ 2–4/mo. Doesn't include pre-launch general inquiries (waitlist, "how does this work") — no sourced benchmark exists for that volume; treat as unquantified addition, not zero.</div>
       </div>
     </div>
 
   </div>
 
-  <!-- ═══ OVERALL RECOMMENDATION ═══ -->
-  <h2 class="sec-h2">Recommendation</h2>
+  <!-- ═══ 02 — PER-PILLAR DETAIL ═══ -->
+  <h2 class="sec-h2"><span class="sec-num">02</span> Support Model · <span style="color:var(--tf)">per Pillar</span></h2>
+  <div class="concl amber">
+    <strong>Same internal hire, three different split triggers.</strong> Influencer work scales fastest (outreach volume, not headcount, is the risk) — watch that one first.
+  </div>
+
+  <div class="pdetail">
+    <h4>Influencers</h4>
+    <div class="row"><div class="k">Model</div><div class="v"><span class="model-badge mb-internal">Internal — combined role</span></div></div>
+    <div class="row"><div class="k">Split trigger</div><div class="v">Outreach goes daily/systematic, or 25+ active influencers → dedicated Influencer Relations FTE</div></div>
+  </div>
+  <div class="pdetail">
+    <h4>Designers</h4>
+    <div class="row"><div class="k">Model</div><div class="v"><span class="model-badge mb-internal">Internal — combined role</span></div></div>
+    <div class="row"><div class="k">Split trigger</div><div class="v">Community needs real curation → dedicated Community Manager (existing trigger already Day-1-at-3-designers)</div></div>
+  </div>
+  <div class="pdetail">
+    <h4>Consumers</h4>
+    <div class="row"><div class="k">Model</div><div class="v"><span class="model-badge mb-internal">Internal — combined role</span></div></div>
+    <div class="row"><div class="k">Split trigger</div><div class="v">150 tickets/mo → dedicated part-time CS</div></div>
+  </div>
+
+  <!-- ═══ 03 — TECHNOLOGY ═══ -->
+  <h2 class="sec-h2"><span class="sec-num">03</span> Technology</h2>
+  <div class="concl green">
+    <strong>No new vendor spend at MVP.</strong> Intercom and Stripe Connect are already in the budgeted stack; the rest is a free shared tracker. Chatdesk and Grok Bot were evaluated and rejected — see bottom two rows.
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Tool</th><th>Purpose</th><th>Pillar</th><th>Cost</th></tr></thead>
+      <tbody>
+        <tr><td>Intercom Essential</td><td>Consumer support inbox</td><td>Consumers</td><td class="cost">$29/mo — already budgeted</td></tr>
+        <tr><td>Intercom Fin AI</td><td>Draft-and-approve layer for FAQ tickets</td><td>Consumers</td><td class="cost">Usage-based, TBC</td></tr>
+        <tr><td>Stripe Connect</td><td>Payout / commission data</td><td>Designers, Influencers</td><td class="cost">Already in stack</td></tr>
+        <tr><td>Shared tracker (Notion / Sheets)</td><td>Outreach log, onboarding notes, curation</td><td>Designers, Influencers</td><td class="cost">$0</td></tr>
+        <tr><td>Influencer discovery platform (Influencity / Upfluence)</td><td>Sourcing candidates at scale</td><td>Influencers</td><td class="cost">~$700–1,000/mo — deferred past pilot</td></tr>
+        <tr class="reject-row"><td><span class="x">✕</span> Chatdesk</td><td>Outsourced CS agency</td><td>—</td><td class="cost">Rejected — supported integrations are Zendesk/Gorgias/Front/Freshdesk/Shopify/Magento, not Intercom; needs ticket history SMTHG doesn't have; priced for 2,000+ tickets/mo</td></tr>
+        <tr class="reject-row"><td><span class="x">✕</span> Grok Bot</td><td>General AI agent</td><td>—</td><td class="cost">Rejected — redundant with Fin AI, which is native to the tool already in the stack</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══ 04 — RECOMMENDATION ═══ -->
+  <h2 class="sec-h2"><span class="sec-num">04</span> Recommendation</h2>
 
   <div class="rec-box">
     <div class="lbl">Support model</div>
@@ -215,24 +239,19 @@ table.trig tr:last-child td{border-bottom:none}
     <p>Cost: <strong>~$1,500/mo</strong> — already inside the Year 1 offshore-contractor rate in <a href="smthg_budget.html" style="color:#C4B5FF">Budget</a>, brought forward and consolidated into one role.</p>
   </div>
 
-  <div class="tbl-wrap2">
+  <div class="tbl-wrap">
     <table class="trig">
       <thead><tr><th>Split trigger</th><th>Action</th></tr></thead>
       <tbody>
-        <tr><td>Consumer tickets ≥ 150/mo</td><td>Dedicated part-time CS hire</td></tr>
         <tr><td>Influencer outreach becomes daily/systematic, or 25+ active influencers</td><td>Dedicated Influencer Relations hire</td></tr>
         <tr><td>Designer count needs real curation</td><td>Dedicated Community Manager hire</td></tr>
+        <tr><td>Consumer tickets ≥ 150/mo</td><td>Dedicated part-time CS hire</td></tr>
       </tbody>
     </table>
   </div>
 
-  <div class="reject-box">
-    <strong>Chatdesk — rejected for now.</strong> Supported integrations are Zendesk, Gorgias, Front, Freshdesk, Shopify, Magento — Intercom (SMTHG's chosen tool) is not among them. Requires historical ticket data to build its response guide; SMTHG has none pre-launch. Pricing only competitive past ~2,000 tickets/mo — beyond Year 1 volume.<br/><br/>
-    <strong>Grok Bot — not needed.</strong> Same draft-and-approve function Intercom Fin AI already provides natively on the tool already in the stack. No separate purchase.
-  </div>
-
   <p class="footnote">
-    Sources: <a href="smthg_operationsteam.html">Operations Team</a> (role triggers, CS benchmarks), <a href="TFmvpcosts.html">MVP Costs</a> (drop economics, AOV), <a href="architecture.html">Architecture</a> (Intercom, Stripe Connect stack), <a href="smthg_budget.html">Budget</a> (Year 1 contractor rate). Consumer/influencer/designer support tooling evaluation: Chatdesk (chatdesk.com) and Grok Bot (x.ai) reviewed and rejected — see internal chat log.
+    Sources: <a href="smthg_operationsteam.html">Operations Team</a> (role triggers, CS benchmarks), <a href="TFmvpcosts.html">MVP Costs</a> (drop economics, AOV), <a href="architecture.html">Architecture</a> (Intercom, Stripe Connect stack), <a href="smthg_budget.html">Budget</a> (Year 1 contractor rate), <a href="https://www.zendesk.com/blog/ecommerce-customer-service/" target="_blank" rel="noopener">Zendesk Ecomm CX Report</a> (tickets per 100 orders).
   </p>
 
 </div>
