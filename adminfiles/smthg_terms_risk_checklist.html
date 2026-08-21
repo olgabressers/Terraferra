@@ -47,10 +47,13 @@ h1{font-size:clamp(24px,3.8vw,40px);font-weight:900;letter-spacing:-1.2px;margin
 .toc li span{font-size:12px;font-weight:600;color:var(--sub)}
 
 /* PROGRESS BAR */
-.progress-box{background:white;border:1px solid var(--rule);border-radius:10px;padding:18px 22px;margin-top:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
-.progress-count{font-size:15px;font-weight:800;color:var(--ink)}
-.progress-track{flex:1;min-width:180px;height:8px;background:var(--tf-ghost);border-radius:6px;overflow:hidden}
+.progress-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:16px}
+.progress-box{background:white;border:1px solid var(--rule);border-radius:10px;padding:16px 20px;flex:1;min-width:220px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.progress-count{font-size:14px;font-weight:800;color:var(--ink);white-space:nowrap}
+.progress-track{flex:1;min-width:80px;height:8px;background:var(--tf-ghost);border-radius:6px;overflow:hidden}
 .progress-fill{height:100%;background:var(--green);width:0%;transition:width .2s}
+.progress-fill.must{background:var(--tf)}
+.progress-fill.nice{background:var(--sub)}
 
 /* RISK TABLE */
 .risktable{width:100%;border-collapse:collapse;font-size:12.5px;background:white;border:1px solid var(--rule);border-radius:8px;overflow:hidden;margin-bottom:20px}
@@ -106,9 +109,19 @@ a{color:var(--ink);text-decoration:underline}
     </ol>
   </div>
 
-  <div class="progress-box">
-    <div class="progress-count"><span id="doneCount">0</span> / <span id="totalCount">0</span> covered</div>
-    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+  <div class="progress-row">
+    <div class="progress-box">
+      <div class="progress-count"><span id="doneCount">0</span> / <span id="totalCount">0</span> covered</div>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+    <div class="progress-box">
+      <div class="progress-count"><span id="mustDone">0</span> / <span id="mustTotal">0</span> Must-Have</div>
+      <div class="progress-track"><div class="progress-fill must" id="mustFill"></div></div>
+    </div>
+    <div class="progress-box">
+      <div class="progress-count"><span id="niceDone">0</span> / <span id="niceTotal">0</span> Nice-to-Have</div>
+      <div class="progress-track"><div class="progress-fill nice" id="niceFill"></div></div>
+    </div>
   </div>
 
   <!-- ═══ A. GENERAL ═══ -->
@@ -121,7 +134,7 @@ a{color:var(--ink);text-decoration:underline}
       <tr data-id="privacy-policy"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Privacy Policy <span class="doc-status doc-missing">Doc missing</span></td><td class="priority"><span class="priority-pill priority-must">Must-Have</span></td><td class="notes">Doesn't exist yet — needed before any real Customer/Designer/Influencer data is collected.</td></tr>
       <tr data-id="ccpa"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">CCPA/CPRA and other state privacy laws</td><td class="priority"><span class="priority-pill priority-must">Must-Have</span></td><td class="notes">Feeds directly into the Privacy Policy above — not addressed yet.</td></tr>
       <tr data-id="dmca-agent"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">DMCA safe-harbor designated agent</td><td class="priority"><span class="priority-pill priority-must">Must-Have</span></td><td class="notes">Needed for safe-harbor protection on any uploaded content (Designer listings, Influencer posts) — not registered or referenced.</td></tr>
-      <tr data-id="code-of-ethics"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Code of Ethics <span class="doc-status doc-missing">Doc missing</span></td><td class="priority"><span class="priority-pill priority-nice">Nice-to-Have</span></td><td class="notes">Referenced by name in the Designer T&amp;C (Section 3, 5) but the document itself doesn't exist.</td></tr>
+      <tr data-id="code-of-ethics"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Code of Ethics <span class="doc-status doc-missing">Doc missing</span></td><td class="priority"><span class="priority-pill priority-must">Must-Have</span></td><td class="notes">Already referenced as an enforceable termination trigger in the live Designer T&amp;C (Section 3, 5) — the contract depends on it existing.</td></tr>
       <tr data-id="community-guidelines"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Community Guidelines / So-Me-Space Rules <span class="doc-status doc-missing">Doc missing</span></td><td class="priority"><span class="priority-pill priority-nice">Nice-to-Have</span></td><td class="notes">Doesn't exist yet.</td></tr>
       <tr data-id="cookie-policy"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Cookie Policy <span class="doc-status doc-missing">Doc missing</span></td><td class="priority"><span class="priority-pill priority-nice">Nice-to-Have</span></td><td class="notes">Not referenced anywhere yet — standard companion to a Privacy Policy.</td></tr>
       <tr data-id="can-spam"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">CAN-SPAM / TCPA</td><td class="priority"><span class="priority-pill priority-nice">Nice-to-Have</span></td><td class="notes">Email and SMS marketing to any audience — not addressed.</td></tr>
@@ -132,38 +145,39 @@ a{color:var(--ink);text-decoration:underline}
   <!-- ═══ B. DESIGNER T&C ═══ -->
   <h2 class="sec-h2" id="sec-designer"><span class="sec-num">B.</span> Designer / Brand Terms &amp; Conditions <span class="doc-status doc-live">Live</span></h2>
   <p class="sec-sub"><a href="smthg_designer_terms.html">Internal reference</a> · <a href="smthg_designer_terms_public.html">Consumer/designer-facing</a></p>
+  <p class="sec-sub"><strong>Must-Have</strong> = required by US law to operate legally. <strong>Nice-to-Have</strong> = not legally required — discretionary.</p>
   <table class="risktable" data-cat="designer">
-    <thead><tr><th style="width:34px"></th><th>Topic</th><th>Notes</th></tr></thead>
+    <thead><tr><th style="width:34px"></th><th>Topic</th><th style="width:130px">Priority (US Law)</th><th>Notes</th></tr></thead>
     <tbody>
-      <tr data-id="chargeback-windows"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Chargeback dispute windows by payment method</td><td class="notes">Table added — Visa/Mastercard/Discover 120 days, Amex 120+, PayPal 180/30 days.</td></tr>
-      <tr data-id="payout-timing"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Payout timing</td><td class="notes">Held until Return Period + Chargeback Period both expire; open disputes stay withheld regardless.</td></tr>
-      <tr data-id="us-sales-tax"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">US sales tax</td><td class="notes">Rewritten to marketplace-facilitator model — SMTHG collects/remits, not the Designer.</td></tr>
-      <tr data-id="arbitration"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Binding arbitration / class-action waiver</td><td class="notes">Added to Dispute Resolution — not present in the W&amp;B source at all.</td></tr>
-      <tr data-id="chargeback-shortfall"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Chargeback shortfall recovery</td><td class="notes">SMTHG can invoice / deduct from Statement / charge card on file if a dispute exceeds held funds.</td></tr>
-      <tr data-id="shipping-inclusive"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Shipping-inclusive designer pricing</td><td class="notes">Designer's retail price must include shipping — no separate shipping line at checkout.</td></tr>
-      <tr data-id="return-shipping-cost"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Return shipping cost</td><td class="notes">Paid by the Customer, not the Designer.</td></tr>
-      <tr data-id="ip-ownership"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Designer IP ownership + license to SMTHG</td><td class="notes">Designer retains IP; grants SMTHG a listing/marketing license.</td></tr>
-      <tr data-id="general-compliance"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">General product-safety / labelling / textile compliance</td><td class="notes">Generic catch-all clause — same level of specificity as the W&amp;B source, not itemized further yet.</td></tr>
-      <tr data-id="confidentiality"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Confidentiality</td><td class="notes">Standard mutual confidentiality clause.</td></tr>
-      <tr data-id="force-majeure"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Force Majeure</td><td class="notes">Standard clause.</td></tr>
-      <tr data-id="data-roles"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Data protection roles</td><td class="notes">SMTHG = controller, Designer = processor for Customer shipping data only.</td></tr>
-      <tr data-id="non-fulfilment-fee"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Non-Fulfilment Fee rate</td><td class="notes">W&amp;B charges a flat fee for late/cancelled/wrong-item orders. SMTHG needs a rate.</td></tr>
-      <tr data-id="late-payment-rate"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Late-payment interest rate</td><td class="notes">W&amp;B uses a UK base-rate formula. SMTHG needs a US-equivalent rate — check state usury caps first.</td></tr>
-      <tr data-id="liability-cap"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Liability cap (USD)</td><td class="notes">W&amp;B caps its own liability at £1,000. SMTHG needs a USD figure.</td></tr>
-      <tr data-id="indemnity-scope"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Indemnity scope / caps</td><td class="notes">Designer indemnifies SMTHG for product/IP/injury claims — exact scope and any cap not set.</td></tr>
-      <tr data-id="breach-penalty"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Data-breach / no-solicitation penalty (USD)</td><td class="notes">W&amp;B charges £1,000 per breach of the no-solicitation clause. Needs a USD figure.</td></tr>
-      <tr data-id="mor-structure"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Merchant-of-record / entity structure mechanics</td><td class="notes">W&amp;B uses an "undisclosed agent" structure for UK VAT. Whether SMTHG needs an equivalent structural mechanism beyond the sales-tax fix isn't resolved.</td></tr>
-      <tr data-id="governing-law"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Governing law finalization</td><td class="notes">Public page states Delaware law as fact; internal page still flags it "not finalized" — the two pages currently disagree.</td></tr>
-      <tr data-id="eu-entity"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Contracting entity for EU designers</td><td class="notes">W&amp;B runs separate US/EU/AU/UK entities. Whether SMTHG needs a second entity is unresolved.</td></tr>
-      <tr data-id="photo-ownership"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Photography ownership rule</td><td class="notes">Who owns product photography when SMTHG or a partner shoots it — not decided.</td></tr>
-      <tr data-id="model-likeness"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Model-likeness rights</td><td class="notes">W&amp;B's "Product Information" definition requires the Seller to hold "the right to use model likeness" in product photography. Not currently in SMTHG's IP section.</td></tr>
-      <tr data-id="textile-labeling"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Textile / Wool / Fur labeling</td><td class="notes">Only a generic compliance catch-all today — not itemized to the specific FTC acts.</td></tr>
-      <tr data-id="care-labeling"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Care Labeling Rule</td><td class="notes">Not addressed specifically.</td></tr>
-      <tr data-id="flammable-fabrics"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Flammable Fabrics Act</td><td class="notes">Not addressed specifically.</td></tr>
-      <tr data-id="cpsia"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">CPSIA (children's apparel)</td><td class="notes">Only relevant if any designer sells children's products.</td></tr>
-      <tr data-id="prop65"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">California Prop 65 warnings</td><td class="notes">Common for apparel/accessories with certain dyes or metal components sold to CA residents.</td></tr>
-      <tr data-id="aml-kyc"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">AML / KYC on designers</td><td class="notes">Currently relies entirely on Stripe Connect's onboarding checks — not stated in the T&amp;C.</td></tr>
-      <tr data-id="auto-renewal"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Auto-renewal disclosure</td><td class="notes">Platform Fee renews monthly. Lower risk since the Designer is a business, not a consumer, but not addressed.</td></tr>
+      <tr data-id="us-sales-tax"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">US sales tax</td><td class="priority"><span class="priority-pill priority-must">Must-Have</span></td><td class="notes">Rewritten to marketplace-facilitator model — SMTHG collects/remits, not the Designer.</td></tr>
+      <tr data-id="ip-ownership"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Designer IP ownership + license to SMTHG</td><td class="priority"><span class="priority-pill priority-must">Must-Have</span></td><td class="notes">Designer retains IP; grants SMTHG a listing/marketing license. Without it, reusing designer content is infringement exposure.</td></tr>
+      <tr data-id="general-compliance"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">General product-safety / labelling / textile compliance</td><td class="priority"><span class="priority-pill priority-must">Must-Have</span></td><td class="notes">Keeps federal product-safety/labelling liability with the Designer, not SMTHG.</td></tr>
+      <tr data-id="data-roles"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Data protection roles</td><td class="priority"><span class="priority-pill priority-must">Must-Have</span></td><td class="notes">SMTHG = controller, Designer = processor for Customer shipping data only — ties to state privacy-law obligations.</td></tr>
+      <tr data-id="liability-cap"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Liability cap (USD)</td><td class="priority"><span class="priority-pill priority-must">Must-Have</span></td><td class="notes">Unset today — SMTHG carries unlimited liability exposure to the Designer until a figure is picked.</td></tr>
+      <tr data-id="indemnity-scope"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Indemnity scope / caps</td><td class="priority"><span class="priority-pill priority-must">Must-Have</span></td><td class="notes">Designer indemnifies SMTHG for product/IP/injury claims — exact scope and any cap not set, real exposure until it is.</td></tr>
+      <tr data-id="mor-structure"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Merchant-of-record / entity structure mechanics</td><td class="priority"><span class="priority-pill priority-must">Must-Have</span></td><td class="notes">The sales-tax fix above rests on this — needs to be nailed down, not just assumed.</td></tr>
+      <tr data-id="governing-law"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Governing law finalization</td><td class="priority"><span class="priority-pill priority-must">Must-Have</span></td><td class="notes">Public page states Delaware law as fact; internal page still flags it "not finalized" — the two pages currently disagree.</td></tr>
+      <tr data-id="model-likeness"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Model-likeness rights</td><td class="priority"><span class="priority-pill priority-must">Must-Have</span></td><td class="notes">W&amp;B's "Product Information" definition requires the Seller to hold "the right to use model likeness" in product photography. Not currently in SMTHG's IP section.</td></tr>
+      <tr data-id="chargeback-windows"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Chargeback dispute windows by payment method</td><td class="priority"><span class="priority-pill priority-nice">Nice-to-Have</span></td><td class="notes">Table added — Visa/Mastercard/Discover 120 days, Amex 120+, PayPal 180/30 days.</td></tr>
+      <tr data-id="payout-timing"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Payout timing</td><td class="priority"><span class="priority-pill priority-nice">Nice-to-Have</span></td><td class="notes">Held until Return Period + Chargeback Period both expire; open disputes stay withheld regardless.</td></tr>
+      <tr data-id="arbitration"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Binding arbitration / class-action waiver</td><td class="priority"><span class="priority-pill priority-nice">Nice-to-Have</span></td><td class="notes">Added to Dispute Resolution — not present in the W&amp;B source at all. Optional protective clause, not legally mandated.</td></tr>
+      <tr data-id="chargeback-shortfall"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Chargeback shortfall recovery</td><td class="priority"><span class="priority-pill priority-nice">Nice-to-Have</span></td><td class="notes">SMTHG can invoice / deduct from Statement / charge card on file if a dispute exceeds held funds.</td></tr>
+      <tr data-id="shipping-inclusive"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Shipping-inclusive designer pricing</td><td class="priority"><span class="priority-pill priority-nice">Nice-to-Have</span></td><td class="notes">Designer's retail price must include shipping — no separate shipping line at checkout.</td></tr>
+      <tr data-id="return-shipping-cost"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Return shipping cost</td><td class="priority"><span class="priority-pill priority-nice">Nice-to-Have</span></td><td class="notes">Paid by the Customer, not the Designer.</td></tr>
+      <tr data-id="confidentiality"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Confidentiality</td><td class="priority"><span class="priority-pill priority-nice">Nice-to-Have</span></td><td class="notes">Standard mutual confidentiality clause.</td></tr>
+      <tr data-id="force-majeure"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Force Majeure</td><td class="priority"><span class="priority-pill priority-nice">Nice-to-Have</span></td><td class="notes">Standard clause.</td></tr>
+      <tr data-id="non-fulfilment-fee"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Non-Fulfilment Fee rate</td><td class="priority"><span class="priority-pill priority-nice">Nice-to-Have</span></td><td class="notes">W&amp;B charges a flat fee for late/cancelled/wrong-item orders. SMTHG needs a rate.</td></tr>
+      <tr data-id="late-payment-rate"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Late-payment interest rate</td><td class="priority"><span class="priority-pill priority-nice">Nice-to-Have</span></td><td class="notes">W&amp;B uses a UK base-rate formula. SMTHG needs a US-equivalent rate — check state usury caps first.</td></tr>
+      <tr data-id="breach-penalty"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Data-breach / no-solicitation penalty (USD)</td><td class="priority"><span class="priority-pill priority-nice">Nice-to-Have</span></td><td class="notes">W&amp;B charges £1,000 per breach of the no-solicitation clause. Needs a USD figure.</td></tr>
+      <tr data-id="eu-entity"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Contracting entity for EU designers</td><td class="priority"><span class="priority-pill priority-nice">Nice-to-Have</span></td><td class="notes">W&amp;B runs separate US/EU/AU/UK entities. Only relevant once EU designers are actually onboarded.</td></tr>
+      <tr data-id="photo-ownership"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Photography ownership rule</td><td class="priority"><span class="priority-pill priority-nice">Nice-to-Have</span></td><td class="notes">Who owns product photography when SMTHG or a partner shoots it — not decided.</td></tr>
+      <tr data-id="textile-labeling"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Textile / Wool / Fur labeling</td><td class="priority"><span class="priority-pill priority-nice">Nice-to-Have</span></td><td class="notes">Already covered by the general-compliance catch-all above — this would just itemize the specific FTC acts.</td></tr>
+      <tr data-id="care-labeling"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Care Labeling Rule</td><td class="priority"><span class="priority-pill priority-nice">Nice-to-Have</span></td><td class="notes">Same — covered generically already.</td></tr>
+      <tr data-id="flammable-fabrics"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Flammable Fabrics Act</td><td class="priority"><span class="priority-pill priority-nice">Nice-to-Have</span></td><td class="notes">Same — covered generically already.</td></tr>
+      <tr data-id="cpsia"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">CPSIA (children's apparel)</td><td class="priority"><span class="priority-pill priority-nice">Nice-to-Have</span></td><td class="notes">Only relevant if any designer sells children's products.</td></tr>
+      <tr data-id="prop65"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">California Prop 65 warnings</td><td class="priority"><span class="priority-pill priority-nice">Nice-to-Have</span></td><td class="notes">Common for apparel/accessories with certain dyes or metal components sold to CA residents.</td></tr>
+      <tr data-id="aml-kyc"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">AML / KYC on designers</td><td class="priority"><span class="priority-pill priority-nice">Nice-to-Have</span></td><td class="notes">Stripe Connect carries the actual regulatory duty here — low direct SMTHG exposure.</td></tr>
+      <tr data-id="auto-renewal"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Auto-renewal disclosure</td><td class="priority"><span class="priority-pill priority-nice">Nice-to-Have</span></td><td class="notes">Platform Fee renews monthly. Lower risk since the Designer is a business, not a consumer.</td></tr>
     </tbody>
   </table>
 
@@ -244,6 +258,18 @@ function updateProgress(){
     const el=document.getElementById('toc-'+cat);
     if(el) el.textContent=done+' / '+rows.length;
   });
+
+  const mustRows=document.querySelectorAll('tr[data-id]:has(.priority-must)');
+  const mustDone=document.querySelectorAll('tr[data-id].done:has(.priority-must)').length;
+  document.getElementById('mustDone').textContent=mustDone;
+  document.getElementById('mustTotal').textContent=mustRows.length;
+  document.getElementById('mustFill').style.width=(mustRows.length?Math.round(mustDone/mustRows.length*100):0)+'%';
+
+  const niceRows=document.querySelectorAll('tr[data-id]:has(.priority-nice)');
+  const niceDone=document.querySelectorAll('tr[data-id].done:has(.priority-nice)').length;
+  document.getElementById('niceDone').textContent=niceDone;
+  document.getElementById('niceTotal').textContent=niceRows.length;
+  document.getElementById('niceFill').style.width=(niceRows.length?Math.round(niceDone/niceRows.length*100):0)+'%';
 }
 
 const state=loadState();
