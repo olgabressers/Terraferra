@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<script src="/site-lock.js"></script>
+<title>Designer Terms & Conditions</title>
+<link rel="icon" type="image/svg+xml" href="smthg_favicon.svg"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --tf:#E8002D;--tf-dark:#B50023;--tf-ghost:#F1EEE9;
+  --off-white:#F8F6F2;--ink:#161616;--sub:#5C5A56;--rule:#E6E2DA;
+  --green:#1A7A4A;--green-bg:#EDFAF3;
+  --amber:#B45309;--amber-bg:#FEF3C7;
+  --navy:#1D2B3A;
+}
+body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink);overflow-x:hidden}
+
+.topnav{background:white;border-bottom:1px solid var(--rule);padding:14px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
+.topnav-home{font-weight:800;letter-spacing:2px;color:var(--ink);text-decoration:none;font-size:13px}
+.topnav-links{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:var(--sub);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:12px}
+.topnav-links a:hover{color:var(--tf)}
+@media(max-width:700px){
+  .topnav{position:static;padding:10px 14px}
+  .topnav-links{gap:8px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%}
+  .topnav-links a{font-size:11px;white-space:nowrap}
+}
+
+.wrap{max-width:1240px;margin:0 auto;padding:40px 48px 80px}
+@media(max-width:700px){.wrap{padding:24px 16px 60px}}
+
+h1{font-size:clamp(24px,3.8vw,40px);font-weight:900;letter-spacing:-1.2px;margin-top:10px;line-height:1.1;color:var(--ink)}
+.lede{font-size:15.5px;color:var(--ink);margin-top:10px;max-width:860px;line-height:1.65}
+
+.sec-h2{font-size:clamp(15px,1.8vw,19px);font-weight:900;letter-spacing:-.3px;margin:36px 0 12px;color:var(--ink);display:flex;align-items:baseline;gap:8px}
+.sec-num{color:var(--tf);font-size:15px}
+
+/* SOURCE BOX */
+.source-box{background:white;border:1px solid var(--rule);border-top:4px solid var(--tf);border-radius:10px;padding:22px 26px;margin-top:24px}
+.source-box .lbl{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);margin-bottom:10px}
+.source-box p{font-size:13.5px;line-height:1.65;color:var(--ink);margin-bottom:8px}
+.source-box a{color:var(--tf);text-decoration:none;font-weight:700}
+.source-box a:hover{text-decoration:underline}
+.source-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.source-tag{display:inline-block;font-size:11.5px;font-weight:700;padding:5px 12px;border-radius:6px;background:var(--tf-ghost);color:var(--tf)}
+.source-tag.pending{background:var(--amber-bg);color:var(--amber)}
+
+/* CLAUSE BLOCKS */
+.clause{background:white;border:1px solid var(--rule);border-radius:8px;padding:16px 20px;margin-bottom:10px}
+.clause h4{font-size:13.5px;font-weight:800;color:var(--ink);margin-bottom:6px}
+.clause p{font-size:13px;line-height:1.65;color:var(--ink);margin-bottom:6px}
+.clause p:last-child{margin-bottom:0}
+.clause ul{margin:6px 0 0 18px}
+.clause li{font-size:13px;line-height:1.65;color:var(--ink);margin-bottom:3px}
+.adapt-tag{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;padding:2px 8px;border-radius:20px;margin-left:6px;vertical-align:middle}
+.adapt-wb{background:#EAF0F6;color:var(--navy)}
+.adapt-az{background:var(--tf-ghost);color:var(--tf)}
+.adapt-smthg{background:var(--green-bg);color:var(--green)}
+.adapt-tbd{background:var(--amber-bg);color:var(--amber)}
+
+/* RELATED DOCS */
+.reldocs{background:white;border:1px solid var(--rule);border-radius:10px;padding:18px 22px}
+.reldocs li{list-style:none;font-size:13.5px;color:var(--sub);padding:9px 0;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center}
+.reldocs li:last-child{border-bottom:none}
+.reldocs .coming{font-size:10.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--amber);background:var(--amber-bg);padding:3px 10px;border-radius:20px}
+
+.footnote{margin-top:28px;font-size:12px;color:var(--sub);line-height:1.7;border-top:1px solid var(--rule);padding-top:14px}
+.footnote a{color:var(--tf);text-decoration:none}
+.footnote a:hover{text-decoration:underline}
+
+#btt{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--tf);color:white;border:none;border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900}
+#btt:hover{background:var(--tf-dark)}
+@media(max-width:700px){#btt{width:38px;height:38px;font-size:17px;bottom:16px;right:16px}}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a class="topnav-home" href="index.html">smthg<span style="color:var(--tf)">.</span></a>
+  <div class="topnav-links">
+    <a href="smthg_businessmodel.html">Business Model</a>
+    <a href="TFmvpcosts.html">MVP Costs</a>
+    <a href="smthg_operationsteam.html">Operations Team</a>
+    <a href="smthg_supportmodel.html">Support Model</a>
+    <a href="index.html">← Index</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <h1>smthg<span style="color:var(--tf)">.</span> Designer Terms &amp; Conditions</h1>
+  <p class="lede">Draft seller agreement between SMTHG and designers/brands. Adapted from Wolf &amp; Badger's seller terms (closest real-world comparable — curated indie-designer marketplace, seller ships direct) and Amazon's Business Solutions Agreement (fulfillment/liability language), rewritten for SMTHG's pre-order drop model and commercial terms.</p>
+
+  <!-- ═══ SOURCE REFERENCE BOX ═══ -->
+  <div class="source-box">
+    <div class="lbl">Source Reference</div>
+    <p><strong>Wolf &amp; Badger — Seller Terms &amp; Conditions:</strong> <a href="https://www.wolfandbadger.com/eu/pages/sellerterms/" target="_blank" rel="noopener">wolfandbadger.com/eu/pages/sellerterms/ ↗</a></p>
+    <p><strong>Amazon — Services Business Solutions Agreement</strong> (Section S-2, Seller-Fulfilled Products): <a href="https://www.abilityone.gov/laws,_regulations_and_policy/documents/Amazon%20Services%20Business%20Solutions%20Agreement.pdf" target="_blank" rel="noopener">public copy ↗</a></p>
+    <p>PDF snapshot of the live W&amp;B page: <em>pending — Wolf &amp; Badger's site blocks automated capture (Cloudflare); to be added once manually saved.</em> Kept here so a future change on their end doesn't erase what this page was adapted from.</p>
+    <div class="source-row">
+      <span class="source-tag">W&amp;B-derived clause</span>
+      <span class="source-tag adapt-az" style="background:var(--tf-ghost);color:var(--tf)">Amazon BSA-derived clause</span>
+      <span class="source-tag" style="background:var(--green-bg);color:var(--green)">SMTHG-specific term</span>
+      <span class="source-tag pending">Placeholder — needs confirmation</span>
+    </div>
+  </div>
+
+  <!-- ═══ 1. PARTIES ═══ -->
+  <h2 class="sec-h2"><span class="sec-num">1.</span> Parties &amp; Scope</h2>
+  <div class="clause">
+    <h4>1.1 Contracting Entity <span class="adapt-tag adapt-tbd">Placeholder</span></h4>
+    <p>This Agreement is between SMTHG INC. (Delaware C-corp) and the Designer named at sign-up. Whether SMTHG needs a separate contracting entity for EU-based designers (as Wolf &amp; Badger does — a Delaware entity for US sellers, an Ireland entity for EU sellers) is a separate, open corporate-structure question — not resolved by this page. Confirm with US startup counsel before this clause is finalized.</p>
+  </div>
+  <div class="clause">
+    <h4>1.2 What This Covers <span class="adapt-tag adapt-smthg">SMTHG-specific</span></h4>
+    <p>Applies to any designer/brand listing products for sale through SMTHG drops. Does not cover influencer agreements, consumer/buyer terms, or advertising add-ons — each gets its own document (see Related Documents below).</p>
+  </div>
+
+  <!-- ═══ 2. ONBOARDING ═══ -->
+  <h2 class="sec-h2"><span class="sec-num">2.</span> Onboarding</h2>
+  <div class="clause">
+    <h4>2.1 Onboarding Fee <span class="adapt-tag adapt-smthg">SMTHG-specific</span></h4>
+    <p>$250 one-time onboarding fee, payable at sign-up. Source: <a href="TFmvpcosts.html">MVP Costs</a> / <a href="smthg_budget.html">Budget</a>.</p>
+  </div>
+  <div class="clause">
+    <h4>2.2 Platform Fee <span class="adapt-tag adapt-smthg">SMTHG-specific</span></h4>
+    <p>$500/month recurring platform fee, in addition to the commission in Section 4. Source: <a href="TFmvpcosts.html">MVP Costs</a>.</p>
+  </div>
+  <div class="clause">
+    <h4>2.3 Designer Warranties <span class="adapt-tag adapt-az">Amazon BSA-derived</span></h4>
+    <p>Designer confirms it owns or has the right to sell each product listed, and that nothing is counterfeit, stolen, or subject to a third party's claim.</p>
+  </div>
+
+  <!-- ═══ 3. LISTINGS & DROPS ═══ -->
+  <h2 class="sec-h2"><span class="sec-num">3.</span> Product Listings &amp; Drops</h2>
+  <div class="clause">
+    <h4>3.1 Pre-Order Model <span class="adapt-tag adapt-smthg">SMTHG-specific</span></h4>
+    <p>Unlike Wolf & Badger (continuous in-stock listings) or Amazon (ship-by-date on any order any day), SMTHG runs fixed-window drops. Products are made-to-order — production starts only once the drop window closes and orders are confirmed. Designer sets the drop window, item count, and Expected Ship Date (from drop close, not from order date).</p>
+  </div>
+  <div class="clause">
+    <h4>3.2 Pricing <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <p>Designer sets the retail price, after consultation with SMTHG where SMTHG's experience and quality-mix requirements for the platform are relevant. SMTHG does not set price unilaterally.</p>
+  </div>
+  <div class="clause">
+    <h4>3.3 Curation <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <p>SMTHG maintains editorial discretion over which designers and drops appear on the platform, to keep a consistent standard of design quality across So-Me-Space.</p>
+  </div>
+
+  <!-- ═══ 4. FEES & COMMISSION ═══ -->
+  <h2 class="sec-h2"><span class="sec-num">4.</span> Fees &amp; Commission</h2>
+  <div class="clause">
+    <h4>4.1 Platform Commission <span class="adapt-tag adapt-smthg">SMTHG-specific</span></h4>
+    <p>10% of GMV on every sale, deducted before payout. Source: <a href="TFmvpcosts.html">MVP Costs</a>.</p>
+  </div>
+  <div class="clause">
+    <h4>4.2 Influencer Program Fee <span class="adapt-tag adapt-smthg">SMTHG-specific</span></h4>
+    <p>10% standard / 20% Founding Creator tier, charged on GMV attributed to that influencer's drop involvement, paid out to the influencer. Source: <a href="TFmvpcosts.html">MVP Costs</a>.</p>
+  </div>
+  <div class="clause">
+    <h4>4.3 Non-Fulfilment / Late Cancellation Fee <span class="adapt-tag adapt-wb">W&amp;B-derived</span> <span class="adapt-tag adapt-tbd">Placeholder</span></h4>
+    <p>Wolf &amp; Badger charges a fee when a seller is late fulfilling or cancels a confirmed sale. SMTHG should have an equivalent — exact fee/percentage not yet set, needs a business decision before this clause is final.</p>
+  </div>
+
+  <!-- ═══ 5. PAYMENT ═══ -->
+  <h2 class="sec-h2"><span class="sec-num">5.</span> Payment</h2>
+  <div class="clause">
+    <h4>5.1 Processor <span class="adapt-tag adapt-smthg">SMTHG-specific</span></h4>
+    <p>Payments processed via Stripe. Standard processing fee (2.9% + $0.30/order) applies against gross sale proceeds before payout. Source: <a href="smthg_budget.html">Budget</a>.</p>
+  </div>
+  <div class="clause">
+    <h4>5.2 Payout Schedule <span class="adapt-tag adapt-wb">W&amp;B-derived</span> <span class="adapt-tag adapt-tbd">Placeholder</span></h4>
+    <p>Modeled on Wolf & Badger's pattern (payout within 7 days of statement date) as a starting point. SMTHG's actual payout cadence has not been decided — confirm before this becomes binding.</p>
+  </div>
+  <div class="clause">
+    <h4>5.3 Withholding for Risk <span class="adapt-tag adapt-az">Amazon BSA-derived</span></h4>
+    <p>SMTHG may withhold payout, or offset amounts owed, if it determines a designer's account presents a fraud, chargeback, or dispute risk.</p>
+  </div>
+
+  <!-- ═══ 6. FULFILLMENT ═══ -->
+  <h2 class="sec-h2"><span class="sec-num">6.</span> Fulfillment &amp; Shipping</h2>
+  <div class="clause">
+    <h4>6.1 Designer Ships Direct <span class="adapt-tag adapt-az">Amazon BSA-derived</span></h4>
+    <p>Designer sources, packages, and ships every order directly to the customer — SMTHG holds no inventory. Designer packages products in a commercially reasonable manner complying with applicable packaging/labeling law, and ships by the Expected Ship Date (Section 3.1).</p>
+  </div>
+  <div class="clause">
+    <h4>6.2 Packing Slip &amp; Identification <span class="adapt-tag adapt-az">Amazon BSA-derived</span></h4>
+    <p>Each shipment includes an order-specific packing slip identifying the designer as seller and as the party to which the customer may return the product.</p>
+  </div>
+
+  <!-- ═══ 7. RETURNS ═══ -->
+  <h2 class="sec-h2"><span class="sec-num">7.</span> Returns &amp; Refunds</h2>
+  <div class="clause">
+    <h4>7.1 Commission Clawback Model <span class="adapt-tag adapt-smthg">SMTHG-specific</span></h4>
+    <p>Unlike Wolf & Badger (returns fee as % of chargeable price) or Amazon (physical returns processed by the seller or via FBA), SMTHG has no physical return path — returns are handled financially through commission clawback on the SMTHG platform fee. Source: <a href="architecture.html">Architecture</a>.</p>
+  </div>
+
+  <!-- ═══ 8. PROBLEMS & LIABILITY ═══ -->
+  <h2 class="sec-h2"><span class="sec-num">8.</span> Problems, Defects &amp; Liability</h2>
+  <div class="clause">
+    <h4>8.1 Designer Responsibility <span class="adapt-tag adapt-az">Amazon BSA-derived</span></h4>
+    <p>Designer is solely responsible for non-delivery, misdelivery, defects, or recalls of its products, except where caused by SMTHG's own system failure. Designer notifies SMTHG promptly of any product recall.</p>
+  </div>
+  <div class="clause">
+    <h4>8.2 Indemnification <span class="adapt-tag adapt-az">Amazon BSA-derived</span> <span class="adapt-tag adapt-tbd">Placeholder</span></h4>
+    <p>Designer indemnifies SMTHG against claims arising from its products. Exact scope/caps need counsel drafting — not a clause to finalize from a template alone.</p>
+  </div>
+
+  <!-- ═══ 9. IP ═══ -->
+  <h2 class="sec-h2"><span class="sec-num">9.</span> Intellectual Property</h2>
+  <div class="clause">
+    <h4>9.1 Designer Retains Design IP <span class="adapt-tag adapt-smthg">SMTHG-specific</span></h4>
+    <p>Designer retains all IP in its designs and products. Designer grants SMTHG a license to use product images and descriptions for marketing, the drop listing, and So-Me-Space content.</p>
+  </div>
+  <div class="clause">
+    <h4>9.2 Photography Ownership <span class="adapt-tag adapt-wb">W&amp;B-derived</span> <span class="adapt-tag adapt-tbd">Placeholder</span></h4>
+    <p>Needs a clear rule on who owns product photography when SMTHG or a partner shoots it (a gap the PuppetVendors consignment template flags too) — not yet decided.</p>
+  </div>
+
+  <!-- ═══ 10. TERM & TERMINATION ═══ -->
+  <h2 class="sec-h2"><span class="sec-num">10.</span> Term &amp; Termination</h2>
+  <div class="clause">
+    <h4>10.1 Termination <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <p>Either party may terminate. No compensation or indemnity is payable by SMTHG to the designer on termination or expiry (matching Wolf & Badger's position that the relationship is not a commercial-agency relationship under agency-compensation law).</p>
+  </div>
+  <div class="clause">
+    <h4>10.2 Wind-Down Period <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <p>Any outstanding balance owed to the designer is paid out within a wind-down period following termination, consistent with normal payout timing (Section 5.2).</p>
+  </div>
+
+  <!-- ═══ RELATED DOCUMENTS ═══ -->
+  <h2 class="sec-h2"><span class="sec-num">11.</span> Related Documents</h2>
+  <div class="reldocs">
+    <ul>
+      <li>Designer Terms &amp; Conditions (this page) <span style="color:var(--green);font-weight:800;font-size:11px;text-transform:uppercase">Live</span></li>
+      <li>Code of Ethics <span class="coming">Coming</span></li>
+      <li>Community Guidelines / So-Me-Space Rules <span class="coming">Coming</span></li>
+      <li>Buyer / Consumer Terms <span class="coming">Coming</span></li>
+      <li>Influencer Agreement <span class="coming">Coming</span></li>
+      <li>Privacy Policy <span class="coming">Coming</span></li>
+    </ul>
+  </div>
+
+  <p class="footnote">
+    <strong>Draft status:</strong> this is a first working draft for internal use, not a document ready to send to a designer. Placeholder clauses (tagged above) need real business decisions before drafting; the whole document needs US startup counsel review before use. Sources: <a href="https://www.wolfandbadger.com/eu/pages/sellerterms/" target="_blank" rel="noopener">Wolf &amp; Badger Seller Terms ↗</a>, <a href="https://www.abilityone.gov/laws,_regulations_and_policy/documents/Amazon%20Services%20Business%20Solutions%20Agreement.pdf" target="_blank" rel="noopener">Amazon Business Solutions Agreement ↗</a>, <a href="TFmvpcosts.html">MVP Costs</a>, <a href="smthg_budget.html">Budget</a>, <a href="architecture.html">Architecture</a>.
+  </p>
+
+</div>
+
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('btt').style.display=window.scrollY>400?'flex':'none'});
+</script>
+
+</body>
+</html>
