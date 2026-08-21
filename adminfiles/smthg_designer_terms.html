@@ -62,11 +62,19 @@ h1{font-size:clamp(24px,3.8vw,40px);font-weight:900;letter-spacing:-1.2px;margin
 .adapt-smthg{background:var(--green-bg);color:var(--green)}
 .adapt-tbd{background:var(--amber-bg);color:var(--amber)}
 
+/* DEFINITIONS TABLE */
+.deftbl{width:100%;border-collapse:collapse;font-size:12.5px;background:white;border:1px solid var(--rule);border-radius:8px;overflow:hidden;margin-bottom:14px}
+.deftbl th{background:var(--ink);color:white;text-align:left;padding:8px 12px;font-size:10px;text-transform:uppercase;letter-spacing:.5px}
+.deftbl td{padding:8px 12px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.5}
+.deftbl tr:last-child td{border-bottom:none}
+.deftbl td.term{font-weight:800;white-space:nowrap;color:var(--ink)}
+
 /* RELATED DOCS */
 .reldocs{background:white;border:1px solid var(--rule);border-radius:10px;padding:18px 22px}
 .reldocs li{list-style:none;font-size:13.5px;color:var(--sub);padding:9px 0;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center}
 .reldocs li:last-child{border-bottom:none}
 .reldocs .coming{font-size:10.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--amber);background:var(--amber-bg);padding:3px 10px;border-radius:20px}
+.reldocs .live{font-size:10.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--green);background:var(--green-bg);padding:3px 10px;border-radius:20px}
 
 .footnote{margin-top:28px;font-size:12px;color:var(--sub);line-height:1.7;border-top:1px solid var(--rule);padding-top:14px}
 .footnote a{color:var(--tf);text-decoration:none}
@@ -93,149 +101,307 @@ h1{font-size:clamp(24px,3.8vw,40px);font-weight:900;letter-spacing:-1.2px;margin
 <div class="wrap">
 
   <h1>smthg<span style="color:var(--tf)">.</span> Designer Terms &amp; Conditions</h1>
-  <p class="lede">Draft seller agreement between SMTHG and designers/brands. Adapted from Wolf &amp; Badger's seller terms (closest real-world comparable — curated indie-designer marketplace, seller ships direct) and Amazon's Business Solutions Agreement (fulfillment/liability language), rewritten for SMTHG's pre-order drop model and commercial terms.</p>
+  <p class="lede">Draft seller agreement between SMTHG and designers/brands. Structurally adapted from Wolf &amp; Badger's Seller Terms &amp; Conditions (closest real-world comparable — curated indie-designer marketplace, seller ships direct) — full 21-clause structure, rewritten for SMTHG's pre-order drop model, commercial terms, and Delaware/US governing law.</p>
 
   <!-- ═══ SOURCE REFERENCE BOX ═══ -->
   <div class="source-box">
     <div class="lbl">Source Reference</div>
-    <p><strong>Wolf &amp; Badger — Seller Terms &amp; Conditions:</strong> <a href="https://www.wolfandbadger.com/eu/pages/sellerterms/" target="_blank" rel="noopener">wolfandbadger.com/eu/pages/sellerterms/ ↗</a></p>
-    <p><strong>Amazon — Services Business Solutions Agreement</strong> (Section S-2, Seller-Fulfilled Products): <a href="https://www.abilityone.gov/laws,_regulations_and_policy/documents/Amazon%20Services%20Business%20Solutions%20Agreement.pdf" target="_blank" rel="noopener">public copy ↗</a></p>
-    <p>PDF snapshot of the live W&amp;B page: <em>pending — Wolf &amp; Badger's site blocks automated capture (Cloudflare); to be added once manually saved.</em> Kept here so a future change on their end doesn't erase what this page was adapted from.</p>
+    <p><strong>Wolf &amp; Badger — Terms &amp; Conditions (For Sellers).</strong> Effective 26 March 2026, last updated 24.02.2026. Live page: <a href="https://www.wolfandbadger.com/eu/pages/sellerterms/" target="_blank" rel="noopener">wolfandbadger.com/eu/pages/sellerterms/ ↗</a></p>
+    <p><strong>Original copy preserved:</strong> <a href="wb_sellerterms_source.pdf" target="_blank" rel="noopener">wb_sellerterms_source.pdf ↗</a> — captured 21 Aug 2026, saved here so a future change on W&amp;B's end doesn't erase what this page was adapted from.</p>
     <div class="source-row">
       <span class="source-tag">W&amp;B-derived clause</span>
-      <span class="source-tag adapt-az" style="background:var(--tf-ghost);color:var(--tf)">Amazon BSA-derived clause</span>
       <span class="source-tag" style="background:var(--green-bg);color:var(--green)">SMTHG-specific term</span>
       <span class="source-tag pending">Placeholder — needs confirmation</span>
     </div>
   </div>
 
-  <!-- ═══ 1. PARTIES ═══ -->
-  <h2 class="sec-h2"><span class="sec-num">1.</span> Parties &amp; Scope</h2>
+  <!-- ═══ 1. DEFINITIONS ═══ -->
+  <h2 class="sec-h2"><span class="sec-num">1.</span> Definitions</h2>
+  <table class="deftbl">
+    <thead><tr><th style="width:22%">Term</th><th>Meaning</th></tr></thead>
+    <tbody>
+      <tr><td class="term">Agreement</td><td>These Terms plus the Designer's sign-up form and any incorporated policies (Code of Ethics, Community Guidelines, Privacy Policy — see Section 21).</td></tr>
+      <tr><td class="term">Drop</td><td>A fixed-window, pre-order sale event for a Designer's products on SMTHG. Replaces W&amp;B's "Sales Area" / continuous listing concept — SMTHG has no standing inventory.</td></tr>
+      <tr><td class="term">GMV</td><td>Gross value of all confirmed pre-orders in a Drop, before any Fees.</td></tr>
+      <tr><td class="term">Platform Commission</td><td>10% of GMV, payable to SMTHG on every sale.</td></tr>
+      <tr><td class="term">Influencer Program Fee</td><td>10% (standard) or 20% (Founding Creator tier) of GMV attributed to influencer involvement in a Drop, paid out to the influencer.</td></tr>
+      <tr><td class="term">Platform Fee</td><td>$500/month recurring fee.</td></tr>
+      <tr><td class="term">Onboarding Fee</td><td>$250 one-time fee at sign-up.</td></tr>
+      <tr><td class="term">Statement</td><td>Monthly statement of Drop sales, Fees, and amount due to Designer, available on the Designer Dashboard.</td></tr>
+      <tr><td class="term">Non-Fulfilment Fee <span class="adapt-tag adapt-tbd">Placeholder</span></td><td>Fee payable by Designer for late fulfillment, cancellation after drop close, or incorrect item shipped. Rate not yet set.</td></tr>
+      <tr><td class="term">Customer</td><td>A buyer on the SMTHG platform.</td></tr>
+    </tbody>
+  </table>
+
+  <!-- ═══ 2. BECOMING A DESIGNER ═══ -->
+  <h2 class="sec-h2"><span class="sec-num">2.</span> Becoming a Designer on SMTHG</h2>
   <div class="clause">
-    <h4>1.1 Contracting Entity <span class="adapt-tag adapt-tbd">Placeholder</span></h4>
-    <p>This Agreement is between SMTHG INC. (Delaware C-corp) and the Designer named at sign-up. Whether SMTHG needs a separate contracting entity for EU-based designers (as Wolf &amp; Badger does — a Delaware entity for US sellers, an Ireland entity for EU sellers) is a separate, open corporate-structure question — not resolved by this page. Confirm with US startup counsel before this clause is finalized.</p>
+    <h4>2.1 Application <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <p>Designer applies via the sign-up process and provides accurate business information (legal name, registered address, tax registration status, company number) on request.</p>
   </div>
   <div class="clause">
-    <h4>1.2 What This Covers <span class="adapt-tag adapt-smthg">SMTHG-specific</span></h4>
-    <p>Applies to any designer/brand listing products for sale through SMTHG drops. Does not cover influencer agreements, consumer/buyer terms, or advertising add-ons — each gets its own document (see Related Documents below).</p>
+    <h4>2.2 Term <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <p>The Agreement takes effect once SMTHG accepts the application, and continues for the Subscription Term, auto-renewing for equal-length Renewal Periods unless terminated (Section 3).</p>
   </div>
 
-  <!-- ═══ 2. ONBOARDING ═══ -->
-  <h2 class="sec-h2"><span class="sec-num">2.</span> Onboarding</h2>
+  <!-- ═══ 3. SUSPENSION & TERMINATION ═══ -->
+  <h2 class="sec-h2"><span class="sec-num">3.</span> Suspension &amp; Termination</h2>
   <div class="clause">
-    <h4>2.1 Onboarding Fee <span class="adapt-tag adapt-smthg">SMTHG-specific</span></h4>
-    <p>$250 one-time onboarding fee, payable at sign-up. Source: <a href="TFmvpcosts.html">MVP Costs</a> / <a href="smthg_budget.html">Budget</a>.</p>
+    <h4>3.1 Suspension of a Drop <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <p>SMTHG may suspend or restrict a Drop if product information is inaccurate, or the listing breaches this Agreement, SMTHG's policies, or the law.</p>
   </div>
   <div class="clause">
-    <h4>2.2 Platform Fee <span class="adapt-tag adapt-smthg">SMTHG-specific</span></h4>
-    <p>$500/month recurring platform fee, in addition to the commission in Section 4. Source: <a href="TFmvpcosts.html">MVP Costs</a>.</p>
+    <h4>3.2 Grounds for Termination by SMTHG <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <ul>
+      <li>Non-trivial or repeated breach of this Agreement</li>
+      <li>Unpaid invoice past due date</li>
+      <li>Designer becomes insolvent or its ability to fulfil orders is at risk</li>
+      <li>Continuing the relationship could expose SMTHG to reputational harm</li>
+      <li>SMTHG decides to stop operating SMTHG or stop selling the Designer's product category</li>
+      <li>Tax authority notice that Designer isn't meeting tax obligations</li>
+      <li>Breach of the Code of Ethics (Section 21)</li>
+      <li>SMTHG's own discretion</li>
+    </ul>
   </div>
   <div class="clause">
-    <h4>2.3 Designer Warranties <span class="adapt-tag adapt-az">Amazon BSA-derived</span></h4>
-    <p>Designer confirms it owns or has the right to sell each product listed, and that nothing is counterfeit, stolen, or subject to a third party's claim.</p>
-  </div>
-
-  <!-- ═══ 3. LISTINGS & DROPS ═══ -->
-  <h2 class="sec-h2"><span class="sec-num">3.</span> Product Listings &amp; Drops</h2>
-  <div class="clause">
-    <h4>3.1 Pre-Order Model <span class="adapt-tag adapt-smthg">SMTHG-specific</span></h4>
-    <p>Unlike Wolf & Badger (continuous in-stock listings) or Amazon (ship-by-date on any order any day), SMTHG runs fixed-window drops. Products are made-to-order — production starts only once the drop window closes and orders are confirmed. Designer sets the drop window, item count, and Expected Ship Date (from drop close, not from order date).</p>
+    <h4>3.3 Notice Period <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <p>SMTHG gives 30 days' notice of termination, except where a legal/regulatory obligation, fraud, unsafe/counterfeit products, or repeated breach requires immediate termination.</p>
   </div>
   <div class="clause">
-    <h4>3.2 Pricing <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
-    <p>Designer sets the retail price, after consultation with SMTHG where SMTHG's experience and quality-mix requirements for the platform are relevant. SMTHG does not set price unilaterally.</p>
+    <h4>3.4 Designer-Initiated Termination <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <p>Designer may terminate on 30 days' notice, effective at the end of the then-current Subscription Term.</p>
   </div>
   <div class="clause">
-    <h4>3.3 Curation <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
-    <p>SMTHG maintains editorial discretion over which designers and drops appear on the platform, to keep a consistent standard of design quality across So-Me-Space.</p>
-  </div>
-
-  <!-- ═══ 4. FEES & COMMISSION ═══ -->
-  <h2 class="sec-h2"><span class="sec-num">4.</span> Fees &amp; Commission</h2>
-  <div class="clause">
-    <h4>4.1 Platform Commission <span class="adapt-tag adapt-smthg">SMTHG-specific</span></h4>
-    <p>10% of GMV on every sale, deducted before payout. Source: <a href="TFmvpcosts.html">MVP Costs</a>.</p>
-  </div>
-  <div class="clause">
-    <h4>4.2 Influencer Program Fee <span class="adapt-tag adapt-smthg">SMTHG-specific</span></h4>
-    <p>10% standard / 20% Founding Creator tier, charged on GMV attributed to that influencer's drop involvement, paid out to the influencer. Source: <a href="TFmvpcosts.html">MVP Costs</a>.</p>
-  </div>
-  <div class="clause">
-    <h4>4.3 Non-Fulfilment / Late Cancellation Fee <span class="adapt-tag adapt-wb">W&amp;B-derived</span> <span class="adapt-tag adapt-tbd">Placeholder</span></h4>
-    <p>Wolf &amp; Badger charges a fee when a seller is late fulfilling or cancels a confirmed sale. SMTHG should have an equivalent — exact fee/percentage not yet set, needs a business decision before this clause is final.</p>
+    <h4>3.5 Effect of Termination <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <ul>
+      <li>The Platform Fee for the then-current term remains payable</li>
+      <li>No Fees already paid are refunded</li>
+      <li>Any amount owed by Designer to SMTHG remains payable; a late-payment fee applies after 7 days unpaid <span class="adapt-tag adapt-tbd">Placeholder — amount TBD</span></li>
+      <li>SMTHG removes the Designer's listings within 14 days</li>
+      <li>No compensation or indemnity is payable by SMTHG to the Designer on termination or expiry</li>
+    </ul>
   </div>
 
-  <!-- ═══ 5. PAYMENT ═══ -->
-  <h2 class="sec-h2"><span class="sec-num">5.</span> Payment</h2>
+  <!-- ═══ 4. SERVICES ═══ -->
+  <h2 class="sec-h2"><span class="sec-num">4.</span> The Services</h2>
   <div class="clause">
-    <h4>5.1 Processor <span class="adapt-tag adapt-smthg">SMTHG-specific</span></h4>
-    <p>Payments processed via Stripe. Standard processing fee (2.9% + $0.30/order) applies against gross sale proceeds before payout. Source: <a href="smthg_budget.html">Budget</a>.</p>
+    <h4>4.1 Service Level <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <p>SMTHG provides the Designer Dashboard and Drop infrastructure with reasonable skill and care, and aims for 24/7 availability subject to routine/emergency maintenance.</p>
   </div>
   <div class="clause">
-    <h4>5.2 Payout Schedule <span class="adapt-tag adapt-wb">W&amp;B-derived</span> <span class="adapt-tag adapt-tbd">Placeholder</span></h4>
-    <p>Modeled on Wolf & Badger's pattern (payout within 7 days of statement date) as a starting point. SMTHG's actual payout cadence has not been decided — confirm before this becomes binding.</p>
+    <h4>4.2 Curation <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <p>SMTHG uses reasonable endeavours to keep So-Me-Space a consistent standard of design quality across designers.</p>
   </div>
   <div class="clause">
-    <h4>5.3 Withholding for Risk <span class="adapt-tag adapt-az">Amazon BSA-derived</span></h4>
-    <p>SMTHG may withhold payout, or offset amounts owed, if it determines a designer's account presents a fraud, chargeback, or dispute risk.</p>
-  </div>
-
-  <!-- ═══ 6. FULFILLMENT ═══ -->
-  <h2 class="sec-h2"><span class="sec-num">6.</span> Fulfillment &amp; Shipping</h2>
-  <div class="clause">
-    <h4>6.1 Designer Ships Direct <span class="adapt-tag adapt-az">Amazon BSA-derived</span></h4>
-    <p>Designer sources, packages, and ships every order directly to the customer — SMTHG holds no inventory. Designer packages products in a commercially reasonable manner complying with applicable packaging/labeling law, and ships by the Expected Ship Date (Section 3.1).</p>
-  </div>
-  <div class="clause">
-    <h4>6.2 Packing Slip &amp; Identification <span class="adapt-tag adapt-az">Amazon BSA-derived</span></h4>
-    <p>Each shipment includes an order-specific packing slip identifying the designer as seller and as the party to which the customer may return the product.</p>
+    <h4>4.3 Changes to Services <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <p>SMTHG may change the Services on 30 days' written notice. Designer may terminate if it objects within that window.</p>
   </div>
 
-  <!-- ═══ 7. RETURNS ═══ -->
-  <h2 class="sec-h2"><span class="sec-num">7.</span> Returns &amp; Refunds</h2>
+  <!-- ═══ 5. DESIGNER OBLIGATIONS ═══ -->
+  <h2 class="sec-h2"><span class="sec-num">5.</span> Designer Obligations</h2>
   <div class="clause">
-    <h4>7.1 Commission Clawback Model <span class="adapt-tag adapt-smthg">SMTHG-specific</span></h4>
-    <p>Unlike Wolf & Badger (returns fee as % of chargeable price) or Amazon (physical returns processed by the seller or via FBA), SMTHG has no physical return path — returns are handled financially through commission clawback on the SMTHG platform fee. Source: <a href="architecture.html">Architecture</a>.</p>
+    <h4>5.1 Account Security <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <p>Designer is responsible for password/account security, must notify SMTHG immediately of any suspected unauthorized access, and keeps Dashboard content confidential.</p>
+  </div>
+  <div class="clause">
+    <h4>5.2 No Circumvention <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <p>Designer must not include its own contact details, website links, or any means for a Customer to communicate or transact outside SMTHG, in listings or shipments.</p>
+  </div>
+  <div class="clause">
+    <h4>5.3 Product Information &amp; Conduct <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <p>Designer keeps product information accurate and current, abides by the Code of Ethics, and must not expose SMTHG to reputational harm.</p>
+  </div>
+  <div class="clause">
+    <h4>5.4 Pricing <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <p>Designer sets the retail price, after consultation with SMTHG where SMTHG's curation/quality-mix requirements are relevant. Designer may not price the same product lower on its own site or other direct channels than on SMTHG.</p>
   </div>
 
-  <!-- ═══ 8. PROBLEMS & LIABILITY ═══ -->
-  <h2 class="sec-h2"><span class="sec-num">8.</span> Problems, Defects &amp; Liability</h2>
+  <!-- ═══ 6. DROPS ═══ -->
+  <h2 class="sec-h2"><span class="sec-num">6.</span> Drops &amp; Pre-Order Model</h2>
   <div class="clause">
-    <h4>8.1 Designer Responsibility <span class="adapt-tag adapt-az">Amazon BSA-derived</span></h4>
-    <p>Designer is solely responsible for non-delivery, misdelivery, defects, or recalls of its products, except where caused by SMTHG's own system failure. Designer notifies SMTHG promptly of any product recall.</p>
-  </div>
-  <div class="clause">
-    <h4>8.2 Indemnification <span class="adapt-tag adapt-az">Amazon BSA-derived</span> <span class="adapt-tag adapt-tbd">Placeholder</span></h4>
-    <p>Designer indemnifies SMTHG against claims arising from its products. Exact scope/caps need counsel drafting — not a clause to finalize from a template alone.</p>
+    <h4>6.1 Pre-Order, Made-to-Order <span class="adapt-tag adapt-smthg">SMTHG-specific</span></h4>
+    <p>Unlike Wolf & Badger (continuous in-stock listings) this Agreement has no standing-inventory or in-store-stock clauses — SMTHG holds no physical product. Production starts only once the Drop window closes and orders are confirmed. Designer sets the Drop window, item count, and Expected Ship Date measured from Drop close.</p>
   </div>
 
-  <!-- ═══ 9. IP ═══ -->
-  <h2 class="sec-h2"><span class="sec-num">9.</span> Intellectual Property</h2>
+  <!-- ═══ 7. FEES ═══ -->
+  <h2 class="sec-h2"><span class="sec-num">7.</span> Fees</h2>
   <div class="clause">
-    <h4>9.1 Designer Retains Design IP <span class="adapt-tag adapt-smthg">SMTHG-specific</span></h4>
-    <p>Designer retains all IP in its designs and products. Designer grants SMTHG a license to use product images and descriptions for marketing, the drop listing, and So-Me-Space content.</p>
+    <h4>7.1 Onboarding &amp; Platform Fee <span class="adapt-tag adapt-smthg">SMTHG-specific</span></h4>
+    <p>$250 one-time onboarding fee at sign-up, plus $500/month recurring Platform Fee. Source: <a href="TFmvpcosts.html">MVP Costs</a>.</p>
   </div>
   <div class="clause">
-    <h4>9.2 Photography Ownership <span class="adapt-tag adapt-wb">W&amp;B-derived</span> <span class="adapt-tag adapt-tbd">Placeholder</span></h4>
-    <p>Needs a clear rule on who owns product photography when SMTHG or a partner shoots it (a gap the PuppetVendors consignment template flags too) — not yet decided.</p>
+    <h4>7.2 Commission &amp; Influencer Program Fee <span class="adapt-tag adapt-smthg">SMTHG-specific</span></h4>
+    <p>10% Platform Commission on GMV, plus a 10% (standard) / 20% (Founding Creator) Influencer Program Fee on GMV attributed to influencer involvement, paid out to the influencer. Source: <a href="TFmvpcosts.html">MVP Costs</a>.</p>
+  </div>
+  <div class="clause">
+    <h4>7.3 Non-Fulfilment Fee <span class="adapt-tag adapt-wb">W&amp;B-derived</span> <span class="adapt-tag adapt-tbd">Placeholder</span></h4>
+    <p>W&amp;B charges this for late fulfillment, pre-fulfillment cancellation, or wrong item shipped. SMTHG needs an equivalent — rate not yet set.</p>
+  </div>
+  <div class="clause">
+    <h4>7.4 Fee Changes <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <p>SMTHG may change Fees with 15 days' notice; Designer may terminate within that window if it objects.</p>
+  </div>
+  <div class="clause">
+    <h4>7.5 Late Payment <span class="adapt-tag adapt-wb">W&amp;B-derived</span> <span class="adapt-tag adapt-tbd">Placeholder</span></h4>
+    <p>W&amp;B charges 4% over the Bank of England base rate on overdue sums. SMTHG needs a US-equivalent rate (e.g., over the Fed funds rate) — not yet set, needs counsel input.</p>
   </div>
 
-  <!-- ═══ 10. TERM & TERMINATION ═══ -->
-  <h2 class="sec-h2"><span class="sec-num">10.</span> Term &amp; Termination</h2>
+  <!-- ═══ 8. STATEMENT & PAYMENT ═══ -->
+  <h2 class="sec-h2"><span class="sec-num">8.</span> Statement &amp; Payment to Designer</h2>
   <div class="clause">
-    <h4>10.1 Termination <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
-    <p>Either party may terminate. No compensation or indemnity is payable by SMTHG to the designer on termination or expiry (matching Wolf & Badger's position that the relationship is not a commercial-agency relationship under agency-compensation law).</p>
+    <h4>8.1 Monthly Statement <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <p>Within 21 days of each calendar month's end, SMTHG posts a Statement on the Dashboard: GMV, Fees, and net amount due per Drop.</p>
   </div>
   <div class="clause">
-    <h4>10.2 Wind-Down Period <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
-    <p>Any outstanding balance owed to the designer is paid out within a wind-down period following termination, consistent with normal payout timing (Section 5.2).</p>
+    <h4>8.2 Payout Schedule <span class="adapt-tag adapt-wb">W&amp;B-derived</span> <span class="adapt-tag adapt-tbd">Placeholder</span></h4>
+    <p>Modeled on W&amp;B's pattern — payout within 7 days of the Statement Date. SMTHG's actual payout cadence hasn't been decided; confirm before this is binding.</p>
+  </div>
+  <div class="clause">
+    <h4>8.3 Processor <span class="adapt-tag adapt-smthg">SMTHG-specific</span></h4>
+    <p>Payments processed via Stripe. Standard processing fee (2.9% + $0.30/order) applies before payout. Source: <a href="smthg_budget.html">Budget</a>.</p>
+  </div>
+  <div class="clause">
+    <h4>8.4 Withholding for Risk <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <p>SMTHG may withhold payout, or offset amounts owed, where it determines a Designer's account presents fraud, chargeback, or dispute risk.</p>
   </div>
 
-  <!-- ═══ RELATED DOCUMENTS ═══ -->
-  <h2 class="sec-h2"><span class="sec-num">11.</span> Related Documents</h2>
+  <!-- ═══ 9. SALE OF PRODUCTS ═══ -->
+  <h2 class="sec-h2"><span class="sec-num">9.</span> Sale of Products</h2>
+  <div class="clause">
+    <h4>9.1 Merchant of Record <span class="adapt-tag adapt-wb">W&amp;B-derived</span> <span class="adapt-tag adapt-tbd">Placeholder</span></h4>
+    <p>W&amp;B acts as an "undisclosed agent" and merchant of record for UK VAT purposes (a specific mechanism under s.47 VAT Act 1994 — First Supply/Second Supply). Whether SMTHG adopts an equivalent merchant-of-record structure, or a simpler marketplace-facilitator model, is an open question tied to the VAT/entity-structure decisions already flagged elsewhere in this project — not resolved by this page.</p>
+  </div>
+  <div class="clause">
+    <h4>9.2 Designer Warranties <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <p>Designer warrants it owns/has rights to the products and their IP, is authorized to sell them, and that the products are safe, of satisfactory quality, and comply with applicable law.</p>
+  </div>
+  <div class="clause">
+    <h4>9.3 Regulatory Compliance Stays with Designer <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <p>Nothing in this Agreement shifts product-safety, labelling, or manufacturing compliance obligations to SMTHG. Designer provides compliance documentation on request.</p>
+  </div>
+
+  <!-- ═══ 10. FULFILLMENT ═══ -->
+  <h2 class="sec-h2"><span class="sec-num">10.</span> Delivery of Products</h2>
+  <div class="clause">
+    <h4>10.1 Designer Ships Direct <span class="adapt-tag adapt-smthg">SMTHG-specific</span></h4>
+    <p>Unlike W&amp;B (which offers Store Delivery, Store Fulfilment from stock, or Direct Delivery), SMTHG has only one path: Designer ships every order directly to the Customer within a set number of business days of Drop close. SMTHG holds no stock and offers no store-fulfilment option.</p>
+  </div>
+  <div class="clause">
+    <h4>10.2 Packing Slip <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <p>Each shipment includes an order-specific packing slip identifying the Designer as seller and as the party to which the Customer may return the product.</p>
+  </div>
+
+  <!-- ═══ 11. RETURNS ═══ -->
+  <h2 class="sec-h2"><span class="sec-num">11.</span> Returns &amp; Refunds</h2>
+  <div class="clause">
+    <h4>11.1 Commission Clawback Model <span class="adapt-tag adapt-smthg">SMTHG-specific</span></h4>
+    <p>Unlike W&amp;B (Returns Fee as % of chargeable price, physical return to store), SMTHG has no physical return path — returns are handled financially via commission clawback on the Platform Commission. Source: <a href="architecture.html">Architecture</a>.</p>
+  </div>
+
+  <!-- ═══ 12. DATA PROTECTION ═══ -->
+  <h2 class="sec-h2"><span class="sec-num">12.</span> Data Protection</h2>
+  <div class="clause">
+    <h4>12.1 Roles <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <p>SMTHG is controller; Designer is processor for Customer order/delivery data received to fulfil a shipment.</p>
+  </div>
+  <div class="clause">
+    <h4>12.2 Use Restrictions <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <p>Designer uses Customer data only to fulfil the order, does not solicit the Customer directly or include outside promotional material in the shipment, and securely deletes the data 30 days after dispatch.</p>
+  </div>
+  <div class="clause">
+    <h4>12.3 Breach Penalty <span class="adapt-tag adapt-wb">W&amp;B-derived</span> <span class="adapt-tag adapt-tbd">Placeholder</span></h4>
+    <p>W&amp;B charges £1,000 per breach of the no-solicitation clause. SMTHG needs a USD-equivalent figure — not yet set.</p>
+  </div>
+
+  <!-- ═══ 13. IP ═══ -->
+  <h2 class="sec-h2"><span class="sec-num">13.</span> Intellectual Property</h2>
+  <div class="clause">
+    <h4>13.1 Designer Retains Design IP <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <p>SMTHG acknowledges the IP in the Designer's products and materials belongs to the Designer.</p>
+  </div>
+  <div class="clause">
+    <h4>13.2 License to SMTHG <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <p>Designer grants SMTHG a non-exclusive, worldwide, royalty-free license to host, reproduce, and publish product images/descriptions for listing, marketing, and So-Me-Space content.</p>
+  </div>
+  <div class="clause">
+    <h4>13.3 Photography Ownership <span class="adapt-tag adapt-tbd">Placeholder</span></h4>
+    <p>Needs a clear rule on who owns product photography when SMTHG or a partner shoots it — not yet decided (a gap the PuppetVendors consignment template flags too).</p>
+  </div>
+
+  <!-- ═══ 14. INDEMNITY & LIABILITY ═══ -->
+  <h2 class="sec-h2"><span class="sec-num">14.</span> Indemnity &amp; Liability</h2>
+  <div class="clause">
+    <h4>14.1 Designer Indemnifies SMTHG <span class="adapt-tag adapt-wb">W&amp;B-derived</span> <span class="adapt-tag adapt-tbd">Placeholder</span></h4>
+    <p>Designer indemnifies SMTHG against losses from breach of this Agreement, product defects, IP infringement claims, or third-party injury/property claims arising from its products. Exact scope/caps need counsel drafting.</p>
+  </div>
+  <div class="clause">
+    <h4>14.2 Limitation of Liability <span class="adapt-tag adapt-wb">W&amp;B-derived</span> <span class="adapt-tag adapt-tbd">Placeholder</span></h4>
+    <p>W&amp;B caps its own aggregate liability to the seller at £1,000 (excluding fraud, death/personal injury). SMTHG needs an equivalent cap, in USD, set with counsel.</p>
+  </div>
+
+  <!-- ═══ 15. FORCE MAJEURE ═══ -->
+  <h2 class="sec-h2"><span class="sec-num">15.</span> Force Majeure</h2>
+  <div class="clause">
+    <h4>15.1 <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <p>Neither party is liable for failure or delay caused by events beyond its reasonable control (natural disaster, civil unrest, infrastructure failure).</p>
+  </div>
+
+  <!-- ═══ 16. TAX ═══ -->
+  <h2 class="sec-h2"><span class="sec-num">16.</span> Sales Tax</h2>
+  <div class="clause">
+    <h4>16.1 Designer's Own Tax Obligations <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <p>All Fees are exclusive of sales tax. Designer is responsible for its own sales tax obligations on the First Supply (or SMTHG's equivalent structure, per Section 9.1).</p>
+  </div>
+  <div class="clause">
+    <h4>16.2 EU/UK Customer Sales <span class="adapt-tag adapt-smthg">SMTHG-specific</span></h4>
+    <p>Per <a href="smthg_russia_ops.html">Cross-Border Shipments</a>, SMTHG collecting payment on-platform for a sale to an EU/UK Customer makes SMTHG the VAT deemed supplier for that sale — a separate, already-flagged constraint on which routes are in scope at MVP.</p>
+  </div>
+
+  <!-- ═══ 17. CONFIDENTIALITY ═══ -->
+  <h2 class="sec-h2"><span class="sec-num">17.</span> Confidentiality</h2>
+  <div class="clause">
+    <h4>17.1 <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <p>Each party keeps the other's confidential information confidential, disclosing only to those who need it to perform this Agreement or as required by law.</p>
+  </div>
+
+  <!-- ═══ 18. MEDIATION ═══ -->
+  <h2 class="sec-h2"><span class="sec-num">18.</span> Dispute Resolution</h2>
+  <div class="clause">
+    <h4>18.1 Mediation Before Litigation <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <p>Either party may request mediation via a preferred independent mediator before escalating a dispute.</p>
+  </div>
+
+  <!-- ═══ 19. GOVERNING LAW ═══ -->
+  <h2 class="sec-h2"><span class="sec-num">19.</span> Governing Law</h2>
+  <div class="clause">
+    <h4>19.1 Delaware/US Law <span class="adapt-tag adapt-smthg">SMTHG-specific</span> <span class="adapt-tag adapt-tbd">Placeholder</span></h4>
+    <p>W&amp;B's terms are governed by English law with exclusive jurisdiction in England &amp; Wales, reflecting its UK incorporation. SMTHG INC. is a Delaware C-corp — this Agreement would default to Delaware/US governing law and jurisdiction, to be confirmed with US startup counsel.</p>
+  </div>
+  <div class="clause">
+    <h4>19.2 Contracting Entity <span class="adapt-tag adapt-tbd">Placeholder</span></h4>
+    <p>Whether SMTHG needs a separate contracting entity for EU-based designers (as W&amp;B does — separate US, EU, AU, and UK/rest-of-world entities) is a distinct, open corporate-structure question, not resolved by this page.</p>
+  </div>
+
+  <!-- ═══ 20. GENERAL ═══ -->
+  <h2 class="sec-h2"><span class="sec-num">20.</span> General</h2>
+  <div class="clause">
+    <h4>20.1 Amendments <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <p>SMTHG may amend these Terms on 30 days' notice, except for regulatory or urgent security/fraud reasons. Designer may terminate before the change takes effect if it disagrees; continued use after that date is acceptance.</p>
+  </div>
+  <div class="clause">
+    <h4>20.2 Assignment <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <p>Designer may not assign its rights/obligations without SMTHG's consent. SMTHG may assign freely.</p>
+  </div>
+  <div class="clause">
+    <h4>20.3 Entire Agreement <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <p>This Agreement (plus incorporated policies) is the entire agreement between the parties, superseding prior discussions.</p>
+  </div>
+
+  <!-- ═══ 21. RELATED DOCUMENTS ═══ -->
+  <h2 class="sec-h2"><span class="sec-num">21.</span> Related Documents</h2>
   <div class="reldocs">
     <ul>
-      <li>Designer Terms &amp; Conditions (this page) <span style="color:var(--green);font-weight:800;font-size:11px;text-transform:uppercase">Live</span></li>
+      <li>Designer Terms &amp; Conditions (this page) <span class="live">Live</span></li>
       <li>Code of Ethics <span class="coming">Coming</span></li>
       <li>Community Guidelines / So-Me-Space Rules <span class="coming">Coming</span></li>
       <li>Buyer / Consumer Terms <span class="coming">Coming</span></li>
@@ -245,7 +411,7 @@ h1{font-size:clamp(24px,3.8vw,40px);font-weight:900;letter-spacing:-1.2px;margin
   </div>
 
   <p class="footnote">
-    <strong>Draft status:</strong> this is a first working draft for internal use, not a document ready to send to a designer. Placeholder clauses (tagged above) need real business decisions before drafting; the whole document needs US startup counsel review before use. Sources: <a href="https://www.wolfandbadger.com/eu/pages/sellerterms/" target="_blank" rel="noopener">Wolf &amp; Badger Seller Terms ↗</a>, <a href="https://www.abilityone.gov/laws,_regulations_and_policy/documents/Amazon%20Services%20Business%20Solutions%20Agreement.pdf" target="_blank" rel="noopener">Amazon Business Solutions Agreement ↗</a>, <a href="TFmvpcosts.html">MVP Costs</a>, <a href="smthg_budget.html">Budget</a>, <a href="architecture.html">Architecture</a>.
+    <strong>Draft status:</strong> this is a first working draft for internal use, not a document ready to send to a designer. Placeholder clauses (tagged above) need real business decisions before drafting; the whole document needs US startup counsel review before use — particularly Sections 9.1 (merchant-of-record structure), 14 (indemnity/liability caps), and 19 (governing law/entity). Sources: <a href="https://www.wolfandbadger.com/eu/pages/sellerterms/" target="_blank" rel="noopener">Wolf &amp; Badger Seller Terms ↗</a> (<a href="wb_sellerterms_source.pdf" target="_blank" rel="noopener">PDF copy ↗</a>), <a href="TFmvpcosts.html">MVP Costs</a>, <a href="smthg_budget.html">Budget</a>, <a href="architecture.html">Architecture</a>, <a href="smthg_russia_ops.html">Cross-Border Shipments</a>.
   </p>
 
 </div>
