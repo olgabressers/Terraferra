@@ -35,6 +35,10 @@ a{color:var(--ink);text-decoration:underline}
 .deflist dt{font-weight:800;margin-top:10px}
 .deflist dd{margin:2px 0 0 0;line-height:1.7}
 
+table.risktbl{width:100%;border-collapse:collapse;font-size:13.5px;margin:8px 0 16px}
+table.risktbl th{text-align:left;font-weight:800;padding:8px 10px;border-bottom:2px solid var(--rule)}
+table.risktbl td{padding:8px 10px;border-bottom:1px solid var(--rule);line-height:1.5}
+
 hr{border:none;border-top:1px solid var(--rule);margin:40px 0}
 .footer-note{font-size:12px;color:var(--sub);line-height:1.7}
 
@@ -64,6 +68,8 @@ hr{border:none;border-top:1px solid var(--rule);margin:40px 0}
     <dt>Platform Fee</dt><dd>$500 per month. $250 per month for Founding Designers.</dd>
     <dt>Onboarding Fee</dt><dd>$250, one-time, at sign-up. Waived for Founding Designers.</dd>
     <dt>Statement</dt><dd>The monthly statement of Drop sales, Fees, and amount due, available on your Designer Dashboard.</dd>
+    <dt>Return Period</dt><dd>The window during which a Customer may return a Product, set out on your Designer Dashboard.</dd>
+    <dt>Chargeback Period</dt><dd>The window during which a Customer's card issuer may accept a chargeback claim — up to 120 days from the transaction or delivery date under standard US card network rules.</dd>
     <dt>Customer</dt><dd>A buyer on smthg.</dd>
   </dl>
 
@@ -99,9 +105,11 @@ hr{border:none;border-top:1px solid var(--rule);margin:40px 0}
   <h2>7. Fees</h2>
   <p>You pay a one-time $250 Onboarding Fee at sign-up, and a $500/month Platform Fee. Founding Designers pay no Onboarding Fee and a $250/month Platform Fee. On every sale, you pay a 30% Platform Commission on GMV, which covers SMTHG's share and any influencer involvement in that sale.</p>
   <p>Any additional fee not listed above (including any fee for late fulfilment, cancellation, or an incorrect item shipped) will be set out on your Designer Dashboard before it applies, as updated from time to time. We may change Fees with 15 days' notice; you may terminate within that window if you object.</p>
+  <p>If you want to enter into an additional or custom agreement with an influencer beyond what your Platform Commission already covers, an additional fee applies, agreed with you case-by-case.</p>
 
   <h2>8. Statement &amp; Payment</h2>
-  <p>Within 21 days of each calendar month's end, we post a Statement on your Dashboard covering GMV, Fees, and the net amount due to you per Drop. Payments are processed via Stripe; Stripe's standard processing fee (2.9% + $0.30 per order) applies before payout. Your payout schedule is set out on your Dashboard. We may withhold or offset a payout where we determine your account presents a fraud, chargeback, or dispute risk.</p>
+  <p>Within 21 days of each calendar month's end, we post a Statement on your Dashboard covering GMV, Fees, and the net amount due to you per Drop. Payments are processed via Stripe; Stripe's standard processing fee is included in your Platform Fee — we don't charge it to you separately. Return processing costs are different: a fee applies per returned order, set out on your Dashboard.</p>
+  <p>We release your payout for an order only once both the Return Period and the Chargeback Period for that order have expired, whichever is later. Until then, it shows on your Statement as pending. We may withhold or offset a payout where we determine your account presents a fraud, chargeback, or dispute risk.</p>
 
   <h2>9. Sale of Products</h2>
   <p>SMTHG collects payment from Customers directly and acts as merchant of record for sales made through smthg. You warrant that you own or have the right to sell your products and their intellectual property, that you're authorized to sell them, and that they are safe, of satisfactory quality, and comply with applicable law. Nothing in this Agreement shifts product-safety, labelling, or manufacturing compliance obligations to SMTHG — that responsibility stays with you, and you'll provide compliance documentation on request.</p>
@@ -115,6 +123,18 @@ hr{border:none;border-top:1px solid var(--rule);margin:40px 0}
   <h2>12. Customer Chargebacks</h2>
   <p>If a Customer files a chargeback for any reason related to your product or its delivery, that is your risk. We defend the chargeback through our integrated dispute system, but if the card issuer rules against us, the resulting loss is passed to you.</p>
   <p>Chargebacks caused by a platform issue are covered by SMTHG, not you. This includes: a duplicate or incorrect charge caused by a checkout error; a payment authorization or fraud-screening failure on our side; our failure to process an approved refund; or an order that failed to reach you because of a technical fault in our system.</p>
+  <table class="risktbl">
+    <thead><tr><th>Cause</th><th>Risk</th></tr></thead>
+    <tbody>
+      <tr><td>Product defective, wrong item, not as described, or damaged</td><td>You</td></tr>
+      <tr><td>Late shipping, or lost/damaged in transit via the carrier you chose</td><td>You</td></tr>
+      <tr><td>Non-delivery caused by your own fulfillment failure</td><td>You</td></tr>
+      <tr><td>Duplicate or incorrect charge from a checkout error</td><td>SMTHG</td></tr>
+      <tr><td>Payment authorization / fraud-screening failure on our side</td><td>SMTHG</td></tr>
+      <tr><td>Approved refund not processed, or processed late, by us</td><td>SMTHG</td></tr>
+      <tr><td>Order never transmitted to you due to a platform technical fault</td><td>SMTHG</td></tr>
+    </tbody>
+  </table>
 
   <h2>13. Data Protection</h2>
   <p>SMTHG is the data controller; you are the processor for Customer order and delivery data you receive to fulfil a shipment. You will use that data only to fulfil the order, will not solicit the Customer directly or include your own promotional material in the shipment, and will securely delete the data 30 days after dispatch.</p>

@@ -131,6 +131,8 @@ h1{font-size:clamp(24px,3.8vw,40px);font-weight:900;letter-spacing:-1.2px;margin
       <tr><td class="term">Onboarding Fee</td><td>$250 one-time fee at sign-up. Waived for Founding Designers.</td></tr>
       <tr><td class="term">Statement</td><td>Monthly statement of Drop sales, Fees, and amount due to Designer, on the Designer Dashboard.</td></tr>
       <tr><td class="term">Non-Fulfilment Fee <span class="adapt-tag adapt-tbd">Not decided</span></td><td>Fee for late fulfillment, cancellation after drop close, or incorrect item shipped. Rate not set.</td></tr>
+      <tr><td class="term">Return Period</td><td>The window during which a Customer may return a Product, as set out on the Designer Dashboard.</td></tr>
+      <tr><td class="term">Chargeback Period</td><td>The window during which a Customer's card issuer may accept a chargeback claim — up to 120 days from the transaction or delivery date under standard US card network rules (Visa, Mastercard, Amex, Discover).</td></tr>
       <tr><td class="term">Customer</td><td>A buyer on the SMTHG platform.</td></tr>
     </tbody>
   </table>
@@ -161,7 +163,7 @@ h1{font-size:clamp(24px,3.8vw,40px);font-weight:900;letter-spacing:-1.2px;margin
       <li>Continuing the relationship could expose SMTHG to reputational harm</li>
       <li>SMTHG decides to stop operating SMTHG or stop selling the Designer's product category</li>
       <li>Tax authority notice that Designer isn't meeting tax obligations</li>
-      <li>Breach of the Code of Ethics (Section 21)</li>
+      <li>Breach of the Code of Ethics (Section 22)</li>
       <li>SMTHG's own discretion</li>
     </ul>
   </div>
@@ -247,6 +249,10 @@ h1{font-size:clamp(24px,3.8vw,40px);font-weight:900;letter-spacing:-1.2px;margin
     <h4>7.5 Late Payment <span class="adapt-tag adapt-wb">W&amp;B-derived</span> <span class="adapt-tag adapt-tbd">Not decided</span></h4>
     <p>W&amp;B charges 4% over the Bank of England base rate on overdue sums. SMTHG needs a US-equivalent rate — not set.</p>
   </div>
+  <div class="clause">
+    <h4>7.6 Additional Influencer Agreements <span class="adapt-tag adapt-smthg">SMTHG-specific</span></h4>
+    <p>If the Designer wants to enter into an additional or custom agreement with an influencer beyond what the standard Platform Commission already covers, an additional fee applies, agreed case-by-case.</p>
+  </div>
 
   <!-- ═══ 8. STATEMENT & PAYMENT ═══ -->
   <h2 class="sec-h2"><span class="sec-num">8.</span> Statement &amp; Payment to Designer</h2>
@@ -255,15 +261,19 @@ h1{font-size:clamp(24px,3.8vw,40px);font-weight:900;letter-spacing:-1.2px;margin
     <p>Within 21 days of each calendar month's end, SMTHG posts a Statement on the Dashboard: GMV, Fees, and net amount due per Drop.</p>
   </div>
   <div class="clause">
-    <h4>8.2 Payout Schedule <span class="adapt-tag adapt-wb">W&amp;B-derived</span> <span class="adapt-tag adapt-tbd">Not decided</span></h4>
-    <p>Modeled on W&amp;B's pattern — payout within 7 days of the Statement Date. SMTHG's actual payout cadence hasn't been decided.</p>
+    <h4>8.2 Payout Timing <span class="adapt-tag adapt-smthg">SMTHG-specific</span></h4>
+    <p>SMTHG releases payout for an order only after both the Return Period and the Chargeback Period for that order have expired, whichever is later. Held funds are shown on the Statement as pending, not paid.</p>
   </div>
   <div class="clause">
     <h4>8.3 Processor <span class="adapt-tag adapt-smthg">SMTHG-specific</span></h4>
-    <p>Payments processed via Stripe. Standard processing fee (2.9% + $0.30/order) applies before payout.</p>
+    <p>Payments are processed via Stripe. Stripe's standard payment processing fee is included in the Platform Fee — it is not charged to the Designer separately.</p>
   </div>
   <div class="clause">
-    <h4>8.4 Withholding for Risk <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <h4>8.4 Return Processing Fee <span class="adapt-tag adapt-smthg">SMTHG-specific</span></h4>
+    <p>Unlike standard payment processing, return processing costs are charged to the Designer — a fee applies per returned order, as set out on the Designer Dashboard.</p>
+  </div>
+  <div class="clause">
+    <h4>8.5 Withholding for Risk <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
     <p>SMTHG may withhold payout, or offset amounts owed, where it determines a Designer's account presents fraud, chargeback, or dispute risk.</p>
   </div>
 
@@ -310,103 +320,115 @@ h1{font-size:clamp(24px,3.8vw,40px);font-weight:900;letter-spacing:-1.2px;margin
     <h4>12.2 Platform-Caused Chargebacks <span class="adapt-tag adapt-smthg">SMTHG-specific</span></h4>
     <p>Chargebacks caused by a platform issue are covered by SMTHG, not the Designer. Platform issues include: a duplicate or incorrect charge caused by a checkout error; a payment authorization or fraud-screening failure on SMTHG's side; SMTHG's failure to process an approved refund; or an order that failed to reach the Designer because of a technical fault in SMTHG's system.</p>
   </div>
+  <table class="deftbl">
+    <thead><tr><th>Cause</th><th>Risk</th></tr></thead>
+    <tbody>
+      <tr><td>Product defective, wrong item, not as described, or damaged</td><td>Designer</td></tr>
+      <tr><td>Late shipping, or lost/damaged in transit via the carrier the Designer chose</td><td>Designer</td></tr>
+      <tr><td>Non-delivery caused by the Designer's own fulfillment failure</td><td>Designer</td></tr>
+      <tr><td>Duplicate or incorrect charge from a checkout error</td><td>SMTHG</td></tr>
+      <tr><td>Payment authorization / fraud-screening failure on SMTHG's side</td><td>SMTHG</td></tr>
+      <tr><td>Approved refund not processed, or processed late, by SMTHG</td><td>SMTHG</td></tr>
+      <tr><td>Order never transmitted to the Designer due to a platform technical fault</td><td>SMTHG</td></tr>
+    </tbody>
+  </table>
 
   <!-- ═══ 13. DATA PROTECTION ═══ -->
   <h2 class="sec-h2"><span class="sec-num">13.</span> Data Protection</h2>
   <div class="clause">
-    <h4>12.1 Roles <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <h4>13.1 Roles <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
     <p>SMTHG is controller; Designer is processor for Customer order/delivery data received to fulfil a shipment.</p>
   </div>
   <div class="clause">
-    <h4>12.2 Use Restrictions <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <h4>13.2 Use Restrictions <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
     <p>Designer uses Customer data only to fulfil the order, does not solicit the Customer directly or include outside promotional material in the shipment, and securely deletes the data 30 days after dispatch.</p>
   </div>
   <div class="clause">
-    <h4>12.3 Breach Penalty <span class="adapt-tag adapt-wb">W&amp;B-derived</span> <span class="adapt-tag adapt-tbd">Not decided</span></h4>
+    <h4>13.3 Breach Penalty <span class="adapt-tag adapt-wb">W&amp;B-derived</span> <span class="adapt-tag adapt-tbd">Not decided</span></h4>
     <p>W&amp;B charges £1,000 per breach of the no-solicitation clause. SMTHG needs a USD-equivalent figure — not set.</p>
   </div>
 
   <!-- ═══ 13. IP ═══ -->
   <h2 class="sec-h2"><span class="sec-num">14.</span> Intellectual Property</h2>
   <div class="clause">
-    <h4>13.1 Designer Retains Design IP <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <h4>14.1 Designer Retains Design IP <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
     <p>SMTHG acknowledges the IP in the Designer's products and materials belongs to the Designer.</p>
   </div>
   <div class="clause">
-    <h4>13.2 License to SMTHG <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <h4>14.2 License to SMTHG <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
     <p>Designer grants SMTHG a non-exclusive, worldwide, royalty-free license to host, reproduce, and publish product images/descriptions for listing, marketing, and So-Me-Space content.</p>
   </div>
   <div class="clause">
-    <h4>13.3 Photography Ownership <span class="adapt-tag adapt-tbd">Not decided</span></h4>
+    <h4>14.3 Photography Ownership <span class="adapt-tag adapt-tbd">Not decided</span></h4>
     <p>Needs a clear rule on who owns product photography when SMTHG or a partner shoots it — not yet decided.</p>
   </div>
 
   <!-- ═══ 14. INDEMNITY & LIABILITY ═══ -->
   <h2 class="sec-h2"><span class="sec-num">15.</span> Indemnity &amp; Liability</h2>
   <div class="clause">
-    <h4>14.1 Designer Indemnifies SMTHG <span class="adapt-tag adapt-wb">W&amp;B-derived</span> <span class="adapt-tag adapt-tbd">Not decided</span></h4>
+    <h4>15.1 Designer Indemnifies SMTHG <span class="adapt-tag adapt-wb">W&amp;B-derived</span> <span class="adapt-tag adapt-tbd">Not decided</span></h4>
     <p>Designer indemnifies SMTHG against losses from breach of this Agreement, product defects, IP infringement claims, or third-party injury/property claims arising from its products. Exact scope/caps not set.</p>
   </div>
   <div class="clause">
-    <h4>14.2 Limitation of Liability <span class="adapt-tag adapt-wb">W&amp;B-derived</span> <span class="adapt-tag adapt-tbd">Not decided</span></h4>
+    <h4>15.2 Limitation of Liability <span class="adapt-tag adapt-wb">W&amp;B-derived</span> <span class="adapt-tag adapt-tbd">Not decided</span></h4>
     <p>W&amp;B caps its own aggregate liability to the seller at £1,000 (excluding fraud, death/personal injury). SMTHG needs an equivalent cap, in USD — not set.</p>
   </div>
 
   <!-- ═══ 15. FORCE MAJEURE ═══ -->
   <h2 class="sec-h2"><span class="sec-num">16.</span> Force Majeure</h2>
   <div class="clause">
-    <h4>15.1 <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <h4>16.1 <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
     <p>Neither party is liable for failure or delay caused by events beyond its reasonable control (natural disaster, civil unrest, infrastructure failure).</p>
   </div>
 
   <!-- ═══ 16. TAX ═══ -->
   <h2 class="sec-h2"><span class="sec-num">17.</span> Sales Tax</h2>
   <div class="clause">
-    <h4>16.1 Designer's Own Tax Obligations <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <h4>17.1 Designer's Own Tax Obligations <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
     <p>All Fees are exclusive of sales tax. Designer is responsible for its own sales tax obligations on the First Supply (or SMTHG's equivalent structure, per Section 9.1).</p>
   </div>
   <div class="clause">
-    <h4>16.2 EU/UK Customer Sales <span class="adapt-tag adapt-smthg">SMTHG-specific</span></h4>
+    <h4>17.2 EU/UK Customer Sales <span class="adapt-tag adapt-smthg">SMTHG-specific</span></h4>
     <p>SMTHG collecting payment on-platform for a sale to an EU/UK Customer makes SMTHG the VAT deemed supplier for that sale — a separate constraint on which routes are in scope at MVP.</p>
   </div>
 
   <!-- ═══ 17. CONFIDENTIALITY ═══ -->
   <h2 class="sec-h2"><span class="sec-num">18.</span> Confidentiality</h2>
   <div class="clause">
-    <h4>17.1 <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <h4>18.1 <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
     <p>Each party keeps the other's confidential information confidential, disclosing only to those who need it to perform this Agreement or as required by law.</p>
   </div>
 
   <!-- ═══ 18. MEDIATION ═══ -->
   <h2 class="sec-h2"><span class="sec-num">19.</span> Dispute Resolution</h2>
   <div class="clause">
-    <h4>18.1 Mediation Before Litigation <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <h4>19.1 Mediation Before Litigation <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
     <p>Either party may request mediation via a preferred independent mediator before escalating a dispute.</p>
   </div>
 
   <!-- ═══ 19. GOVERNING LAW ═══ -->
   <h2 class="sec-h2"><span class="sec-num">20.</span> Governing Law</h2>
   <div class="clause">
-    <h4>19.1 Delaware/US Law <span class="adapt-tag adapt-smthg">SMTHG-specific</span> <span class="adapt-tag adapt-tbd">Not decided</span></h4>
+    <h4>20.1 Delaware/US Law <span class="adapt-tag adapt-smthg">SMTHG-specific</span> <span class="adapt-tag adapt-tbd">Not decided</span></h4>
     <p>W&amp;B's terms are governed by English law with exclusive jurisdiction in England &amp; Wales, reflecting its UK incorporation. SMTHG INC. is a Delaware C-corp — this Agreement would default to Delaware/US governing law and jurisdiction — not finalized.</p>
   </div>
   <div class="clause">
-    <h4>19.2 Contracting Entity <span class="adapt-tag adapt-tbd">Not decided</span></h4>
+    <h4>20.2 Contracting Entity <span class="adapt-tag adapt-tbd">Not decided</span></h4>
     <p>Whether SMTHG needs a separate contracting entity for EU-based designers (as W&amp;B does — separate US, EU, AU, and UK/rest-of-world entities) is a distinct, open question, not resolved by this page.</p>
   </div>
 
   <!-- ═══ 20. GENERAL ═══ -->
   <h2 class="sec-h2"><span class="sec-num">21.</span> General</h2>
   <div class="clause">
-    <h4>20.1 Amendments <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <h4>21.1 Amendments <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
     <p>SMTHG may amend these Terms on 30 days' notice, except for regulatory or urgent security/fraud reasons. Designer may terminate before the change takes effect if it disagrees; continued use after that date is acceptance.</p>
   </div>
   <div class="clause">
-    <h4>20.2 Assignment <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <h4>21.2 Assignment <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
     <p>Designer may not assign its rights/obligations without SMTHG's consent. SMTHG may assign freely.</p>
   </div>
   <div class="clause">
-    <h4>20.3 Entire Agreement <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
+    <h4>21.3 Entire Agreement <span class="adapt-tag adapt-wb">W&amp;B-derived</span></h4>
     <p>This Agreement (plus incorporated policies) is the entire agreement between the parties, superseding prior discussions.</p>
   </div>
 
