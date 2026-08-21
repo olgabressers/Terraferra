@@ -109,7 +109,7 @@ hr{border:none;border-top:1px solid var(--rule);margin:40px 0}
 
   <h2>8. Statement &amp; Payment</h2>
   <p>Within 21 days of each calendar month's end, we post a Statement on your Dashboard covering GMV, Fees, and the net amount due to you per Drop. Payments are processed via Stripe; Stripe's standard processing fee is included in your Platform Fee — we don't charge it to you separately. Return processing costs are different: a fee applies per returned order, set out on your Dashboard.</p>
-  <p>We release your payout for an order only once both the Return Period and the Chargeback Period for that order have expired, whichever is later. Until then, it shows on your Statement as pending. We may withhold or offset a payout where we determine your account presents a fraud, chargeback, or dispute risk.</p>
+  <p>We release your payout for an order only once both the Return Period and the Chargeback Period for that order have expired, whichever is later. Until then, it shows on your Statement as pending. This does not include any amount or order still subject to an open chargeback or dispute — we continue to withhold that amount until the dispute is resolved, even after the Return Period and Chargeback Period have otherwise expired. We may also withhold or offset a payout where we determine your account presents a fraud, chargeback, or dispute risk.</p>
 
   <h2>9. Sale of Products</h2>
   <p>SMTHG collects payment from Customers directly and acts as merchant of record for sales made through smthg. You warrant that you own or have the right to sell your products and their intellectual property, that you're authorized to sell them, and that they are safe, of satisfactory quality, and comply with applicable law. Nothing in this Agreement shifts product-safety, labelling, or manufacturing compliance obligations to SMTHG — that responsibility stays with you, and you'll provide compliance documentation on request.</p>
@@ -133,6 +133,17 @@ hr{border:none;border-top:1px solid var(--rule);margin:40px 0}
       <tr><td>Payment authorization / fraud-screening failure on our side</td><td>SMTHG</td></tr>
       <tr><td>Approved refund not processed, or processed late, by us</td><td>SMTHG</td></tr>
       <tr><td>Order never transmitted to you due to a platform technical fault</td><td>SMTHG</td></tr>
+    </tbody>
+  </table>
+  <p>Standard US card network / processor dispute windows, for reference:</p>
+  <table class="risktbl">
+    <thead><tr><th>Payment Method</th><th>Dispute Window</th></tr></thead>
+    <tbody>
+      <tr><td>Visa</td><td>120 days from the transaction or delivery date</td></tr>
+      <tr><td>Mastercard</td><td>120 days from the transaction or delivery date</td></tr>
+      <tr><td>American Express</td><td>120 days (can extend further under some reason codes)</td></tr>
+      <tr><td>Discover</td><td>120 days from the transaction or delivery date</td></tr>
+      <tr><td>PayPal</td><td>180 days for Item Not Received; 30 days from delivery or 180 days from payment (whichever is sooner) for Significantly Not as Described</td></tr>
     </tbody>
   </table>
 

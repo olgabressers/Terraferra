@@ -262,7 +262,7 @@ h1{font-size:clamp(24px,3.8vw,40px);font-weight:900;letter-spacing:-1.2px;margin
   </div>
   <div class="clause">
     <h4>8.2 Payout Timing <span class="adapt-tag adapt-smthg">SMTHG-specific</span></h4>
-    <p>SMTHG releases payout for an order only after both the Return Period and the Chargeback Period for that order have expired, whichever is later. Held funds are shown on the Statement as pending, not paid.</p>
+    <p>SMTHG releases payout for an order only after both the Return Period and the Chargeback Period for that order have expired, whichever is later. Held funds are shown on the Statement as pending, not paid. This excludes any amount or order still subject to an open chargeback or dispute — that amount remains withheld until the dispute is resolved, even after the Return Period and Chargeback Period have otherwise expired.</p>
   </div>
   <div class="clause">
     <h4>8.3 Processor <span class="adapt-tag adapt-smthg">SMTHG-specific</span></h4>
@@ -330,6 +330,20 @@ h1{font-size:clamp(24px,3.8vw,40px);font-weight:900;letter-spacing:-1.2px;margin
       <tr><td>Payment authorization / fraud-screening failure on SMTHG's side</td><td>SMTHG</td></tr>
       <tr><td>Approved refund not processed, or processed late, by SMTHG</td><td>SMTHG</td></tr>
       <tr><td>Order never transmitted to the Designer due to a platform technical fault</td><td>SMTHG</td></tr>
+    </tbody>
+  </table>
+  <div class="clause">
+    <h4>12.3 Chargeback Windows by Payment Method <span class="adapt-tag adapt-smthg">SMTHG-specific</span></h4>
+    <p>Standard US card network / processor dispute windows, for reference:</p>
+  </div>
+  <table class="deftbl">
+    <thead><tr><th>Payment Method</th><th>Dispute Window</th></tr></thead>
+    <tbody>
+      <tr><td class="term">Visa</td><td>120 days from the transaction or delivery date</td></tr>
+      <tr><td class="term">Mastercard</td><td>120 days from the transaction or delivery date</td></tr>
+      <tr><td class="term">American Express</td><td>120 days (can extend further under some reason codes)</td></tr>
+      <tr><td class="term">Discover</td><td>120 days from the transaction or delivery date</td></tr>
+      <tr><td class="term">PayPal</td><td>180 days for Item Not Received; 30 days from delivery or 180 days from payment (whichever is sooner) for Significantly Not as Described</td></tr>
     </tbody>
   </table>
 
