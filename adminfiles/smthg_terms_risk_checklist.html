@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <meta name="robots" content="noindex, nofollow"/>
 <script src="/site-lock.js"></script>
-<title>Terms &amp; Conditions — Risk Checklist</title>
+<title>Terms &amp; Conditions — Must-Have Risks</title>
 <link rel="icon" type="image/svg+xml" href="smthg_favicon.svg"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
@@ -14,8 +14,6 @@
   --tf:#E8002D;--tf-dark:#B50023;--tf-ghost:#F1EEE9;
   --off-white:#F8F6F2;--ink:#161616;--sub:#5C5A56;--rule:#E6E2DA;
   --green:#1A7A4A;--green-bg:#EDFAF3;
-  --amber:#B45309;--amber-bg:#FEF3C7;
-  --navy:#1D2B3A;
 }
 body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink);overflow-x:hidden}
 
@@ -35,38 +33,26 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 
 h1{font-size:clamp(24px,3.8vw,40px);font-weight:900;letter-spacing:-1.2px;margin-top:10px;line-height:1.1;color:var(--ink)}
 
-.sec-h2{font-size:clamp(15px,1.8vw,19px);font-weight:900;letter-spacing:-.3px;margin:36px 0 12px;color:var(--ink);display:flex;align-items:baseline;gap:8px;scroll-margin-top:80px}
-.sec-num{color:var(--tf);font-size:15px}
-.sec-sub{font-size:12.5px;font-weight:600;color:var(--sub);margin:-8px 0 14px}
-
-/* TABLE OF CONTENTS */
-.toc{background:white;border:1px solid var(--rule);border-radius:10px;padding:18px 22px;margin-top:22px}
-.toc-title{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--sub);margin-bottom:10px}
-.toc ol{list-style:none;display:flex;flex-direction:column;gap:6px}
-.toc li a{display:flex;justify-content:space-between;gap:10px;font-size:13.5px;font-weight:700;color:var(--ink)}
-.toc li span{font-size:12px;font-weight:600;color:var(--sub)}
-
-/* PROGRESS BAR */
-.progress-box{background:white;border:1px solid var(--rule);border-radius:10px;padding:18px 22px;margin-top:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
-.progress-count{font-size:15px;font-weight:800;color:var(--ink)}
-.progress-track{flex:1;min-width:180px;height:8px;background:var(--tf-ghost);border-radius:6px;overflow:hidden}
+.progress-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:22px}
+.progress-box{background:white;border:1px solid var(--rule);border-radius:10px;padding:18px 22px;flex:1;min-width:260px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+.progress-count{font-size:15px;font-weight:800;color:var(--ink);white-space:nowrap}
+.progress-track{flex:1;min-width:100px;height:8px;background:var(--tf-ghost);border-radius:6px;overflow:hidden}
 .progress-fill{height:100%;background:var(--green);width:0%;transition:width .2s}
+.doclist{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.doc-pill{font-size:11.5px;font-weight:700;padding:4px 11px;border-radius:20px}
+.doc-pill.live{background:var(--green-bg);color:var(--green)}
+.doc-pill.missing{background:#FEF3C7;color:#B45309}
 
-/* RISK TABLE */
-.risktable{width:100%;border-collapse:collapse;font-size:12.5px;background:white;border:1px solid var(--rule);border-radius:8px;overflow:hidden;margin-bottom:20px}
-.risktable th{background:var(--ink);color:white;text-align:left;padding:8px 12px;font-size:10px;text-transform:uppercase;letter-spacing:.5px}
-.risktable td{padding:9px 12px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.55}
+.risktable{width:100%;border-collapse:collapse;font-size:13px;background:white;border:1px solid var(--rule);border-radius:8px;overflow:hidden;margin-top:20px}
+.risktable th{background:var(--ink);color:white;text-align:left;padding:9px 12px;font-size:10px;text-transform:uppercase;letter-spacing:.5px}
+.risktable td{padding:11px 12px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.55}
 .risktable tr:last-child td{border-bottom:none}
-.risktable td.topic{font-weight:700;color:var(--ink);width:26%}
-.risktable td.notes{color:var(--sub);font-size:12px}
+.risktable td.topic{font-weight:800;color:var(--ink);width:22%}
+.risktable td.notes{color:var(--sub);font-size:12.5px}
 .risktable td.chk{width:34px;text-align:center}
 .risktable tr.done td{background:var(--green-bg)}
 .risktable tr.done td.topic{color:var(--green)}
-input.rowchk{width:17px;height:17px;accent-color:var(--green);cursor:pointer}
-
-.doc-status{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;padding:2px 9px;border-radius:20px;white-space:nowrap;margin-left:8px;vertical-align:middle}
-.doc-live{background:var(--green-bg);color:var(--green)}
-.doc-missing{background:var(--amber-bg);color:var(--amber)}
+input.rowchk{width:18px;height:18px;accent-color:var(--green);cursor:pointer}
 
 a{color:var(--ink);text-decoration:underline}
 
@@ -88,124 +74,34 @@ a{color:var(--ink);text-decoration:underline}
 
 <div class="wrap">
 
-  <h1>smthg<span style="color:var(--tf)">.</span> Terms &amp; Conditions — Risk Checklist</h1>
+  <h1>smthg<span style="color:var(--tf)">.</span> Must-Have Legal Risks</h1>
 
-  <div class="toc">
-    <div class="toc-title">Table of Contents</div>
-    <ol>
-      <li><a href="#sec-general"><span>A. General / Platform-Wide Documents</span> <span id="toc-general"></span></a></li>
-      <li><a href="#sec-designer"><span>B. Designer / Brand Terms &amp; Conditions</span> <span id="toc-designer"></span></a></li>
-      <li><a href="#sec-influencer"><span>C. Influencer Terms &amp; Conditions</span> <span id="toc-influencer"></span></a></li>
-      <li><a href="#sec-buyer"><span>D. Buyer / Consumer Terms</span> <span id="toc-buyer"></span></a></li>
-      <li><a href="#sec-corporate"><span>E. Corporate / Internal Compliance</span> <span id="toc-corporate"></span></a></li>
-    </ol>
+  <div class="progress-row">
+    <div class="progress-box">
+      <div class="progress-count"><span id="doneCount">0</span> / <span id="totalCount">0</span> risks covered</div>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+    <div class="progress-box">
+      <div class="progress-count">1 / 3 documents live</div>
+      <div class="doclist">
+        <span class="doc-pill live">Designer T&amp;C</span>
+        <span class="doc-pill missing">Privacy Policy</span>
+        <span class="doc-pill missing">Buyer / Consumer Terms</span>
+      </div>
+    </div>
   </div>
 
-  <div class="progress-box">
-    <div class="progress-count"><span id="doneCount">0</span> / <span id="totalCount">0</span> covered</div>
-    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-  </div>
-
-  <!-- ═══ A. GENERAL ═══ -->
-  <h2 class="sec-h2" id="sec-general"><span class="sec-num">A.</span> General / Platform-Wide Documents</h2>
-  <p class="sec-sub">Apply across all three roles (Designers, Influencers, Consumers) — not specific to one contract. Code of Ethics, Community Guidelines, and Privacy Policy are already listed as "Coming" on the Designer T&amp;C's Related Documents section.</p>
-  <table class="risktable" data-cat="general">
-    <thead><tr><th style="width:34px"></th><th>Topic</th><th>Notes</th></tr></thead>
+  <table class="risktable">
+    <thead><tr><th style="width:34px"></th><th>Topic</th><th>Why it's must-have</th></tr></thead>
     <tbody>
-      <tr data-id="privacy-policy"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Privacy Policy <span class="doc-status doc-missing">Doc missing</span></td><td class="notes">Doesn't exist yet — needed before any real Customer/Designer/Influencer data is collected.</td></tr>
-      <tr data-id="ccpa"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">CCPA/CPRA and other state privacy laws</td><td class="notes">Feeds directly into the Privacy Policy above — not addressed yet.</td></tr>
-      <tr data-id="code-of-ethics"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Code of Ethics <span class="doc-status doc-missing">Doc missing</span></td><td class="notes">Referenced by name in the Designer T&amp;C (Section 3, 5) but the document itself doesn't exist.</td></tr>
-      <tr data-id="community-guidelines"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Community Guidelines / So-Me-Space Rules <span class="doc-status doc-missing">Doc missing</span></td><td class="notes">Doesn't exist yet.</td></tr>
-      <tr data-id="cookie-policy"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Cookie Policy <span class="doc-status doc-missing">Doc missing</span></td><td class="notes">Not referenced anywhere yet — standard companion to a Privacy Policy.</td></tr>
-      <tr data-id="dmca-agent"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">DMCA safe-harbor designated agent</td><td class="notes">Needed for safe-harbor protection on any uploaded content (Designer listings, Influencer posts) — not registered or referenced.</td></tr>
-      <tr data-id="can-spam"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">CAN-SPAM / TCPA</td><td class="notes">Email and SMS marketing to any audience — not addressed.</td></tr>
-      <tr data-id="ada"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">ADA web accessibility</td><td class="notes">Whole-site accessibility — not addressed. Common target of e-commerce accessibility lawsuits.</td></tr>
-    </tbody>
-  </table>
-
-  <!-- ═══ B. DESIGNER T&C ═══ -->
-  <h2 class="sec-h2" id="sec-designer"><span class="sec-num">B.</span> Designer / Brand Terms &amp; Conditions <span class="doc-status doc-live">Live</span></h2>
-  <p class="sec-sub"><a href="smthg_designer_terms.html">Internal reference</a> · <a href="smthg_designer_terms_public.html">Consumer/designer-facing</a></p>
-  <table class="risktable" data-cat="designer">
-    <thead><tr><th style="width:34px"></th><th>Topic</th><th>Notes</th></tr></thead>
-    <tbody>
-      <tr data-id="chargeback-windows"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Chargeback dispute windows by payment method</td><td class="notes">Table added — Visa/Mastercard/Discover 120 days, Amex 120+, PayPal 180/30 days.</td></tr>
-      <tr data-id="payout-timing"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Payout timing</td><td class="notes">Held until Return Period + Chargeback Period both expire; open disputes stay withheld regardless.</td></tr>
-      <tr data-id="us-sales-tax"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">US sales tax</td><td class="notes">Rewritten to marketplace-facilitator model — SMTHG collects/remits, not the Designer.</td></tr>
-      <tr data-id="arbitration"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Binding arbitration / class-action waiver</td><td class="notes">Added to Dispute Resolution — not present in the W&amp;B source at all.</td></tr>
-      <tr data-id="chargeback-shortfall"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Chargeback shortfall recovery</td><td class="notes">SMTHG can invoice / deduct from Statement / charge card on file if a dispute exceeds held funds.</td></tr>
-      <tr data-id="shipping-inclusive"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Shipping-inclusive designer pricing</td><td class="notes">Designer's retail price must include shipping — no separate shipping line at checkout.</td></tr>
-      <tr data-id="return-shipping-cost"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Return shipping cost</td><td class="notes">Paid by the Customer, not the Designer.</td></tr>
-      <tr data-id="ip-ownership"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Designer IP ownership + license to SMTHG</td><td class="notes">Designer retains IP; grants SMTHG a listing/marketing license.</td></tr>
-      <tr data-id="general-compliance"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">General product-safety / labelling / textile compliance</td><td class="notes">Generic catch-all clause — same level of specificity as the W&amp;B source, not itemized further yet.</td></tr>
-      <tr data-id="confidentiality"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Confidentiality</td><td class="notes">Standard mutual confidentiality clause.</td></tr>
-      <tr data-id="force-majeure"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Force Majeure</td><td class="notes">Standard clause.</td></tr>
-      <tr data-id="data-roles"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Data protection roles</td><td class="notes">SMTHG = controller, Designer = processor for Customer shipping data only.</td></tr>
-      <tr data-id="non-fulfilment-fee"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Non-Fulfilment Fee rate</td><td class="notes">W&amp;B charges a flat fee for late/cancelled/wrong-item orders. SMTHG needs a rate.</td></tr>
-      <tr data-id="late-payment-rate"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Late-payment interest rate</td><td class="notes">W&amp;B uses a UK base-rate formula. SMTHG needs a US-equivalent rate — check state usury caps first.</td></tr>
-      <tr data-id="liability-cap"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Liability cap (USD)</td><td class="notes">W&amp;B caps its own liability at £1,000. SMTHG needs a USD figure.</td></tr>
-      <tr data-id="indemnity-scope"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Indemnity scope / caps</td><td class="notes">Designer indemnifies SMTHG for product/IP/injury claims — exact scope and any cap not set.</td></tr>
-      <tr data-id="breach-penalty"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Data-breach / no-solicitation penalty (USD)</td><td class="notes">W&amp;B charges £1,000 per breach of the no-solicitation clause. Needs a USD figure.</td></tr>
-      <tr data-id="mor-structure"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Merchant-of-record / entity structure mechanics</td><td class="notes">W&amp;B uses an "undisclosed agent" structure for UK VAT. Whether SMTHG needs an equivalent structural mechanism beyond the sales-tax fix isn't resolved.</td></tr>
-      <tr data-id="governing-law"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Governing law finalization</td><td class="notes">Public page states Delaware law as fact; internal page still flags it "not finalized" — the two pages currently disagree.</td></tr>
-      <tr data-id="eu-entity"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Contracting entity for EU designers</td><td class="notes">W&amp;B runs separate US/EU/AU/UK entities. Whether SMTHG needs a second entity is unresolved.</td></tr>
-      <tr data-id="photo-ownership"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Photography ownership rule</td><td class="notes">Who owns product photography when SMTHG or a partner shoots it — not decided.</td></tr>
-      <tr data-id="model-likeness"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Model-likeness rights</td><td class="notes">W&amp;B's "Product Information" definition requires the Seller to hold "the right to use model likeness" in product photography. Not currently in SMTHG's IP section.</td></tr>
-      <tr data-id="textile-labeling"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Textile / Wool / Fur labeling</td><td class="notes">Only a generic compliance catch-all today — not itemized to the specific FTC acts.</td></tr>
-      <tr data-id="care-labeling"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Care Labeling Rule</td><td class="notes">Not addressed specifically.</td></tr>
-      <tr data-id="flammable-fabrics"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Flammable Fabrics Act</td><td class="notes">Not addressed specifically.</td></tr>
-      <tr data-id="cpsia"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">CPSIA (children's apparel)</td><td class="notes">Only relevant if any designer sells children's products.</td></tr>
-      <tr data-id="prop65"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">California Prop 65 warnings</td><td class="notes">Common for apparel/accessories with certain dyes or metal components sold to CA residents.</td></tr>
-      <tr data-id="aml-kyc"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">AML / KYC on designers</td><td class="notes">Currently relies entirely on Stripe Connect's onboarding checks — not stated in the T&amp;C.</td></tr>
-      <tr data-id="auto-renewal"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Auto-renewal disclosure</td><td class="notes">Platform Fee renews monthly. Lower risk since the Designer is a business, not a consumer, but not addressed.</td></tr>
-    </tbody>
-  </table>
-
-  <!-- ═══ C. INFLUENCER T&C ═══ -->
-  <h2 class="sec-h2" id="sec-influencer"><span class="sec-num">C.</span> Influencer Terms &amp; Conditions <span class="doc-status doc-missing">Doc missing</span></h2>
-  <p class="sec-sub">Doesn't exist yet — listed as "Coming" on the Designer T&amp;C's Related Documents. Topics below are what a real influencer agreement in this model needs to cover; none of the specific terms are decided.</p>
-  <table class="risktable" data-cat="influencer">
-    <thead><tr><th style="width:34px"></th><th>Topic</th><th>Notes</th></tr></thead>
-    <tbody>
-      <tr data-id="inf-doc-exists"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Influencer Agreement document itself</td><td class="notes">Doesn't exist — needs to be drafted, likely adapted from the Designer T&amp;C structure.</td></tr>
-      <tr data-id="inf-endorsement-guides"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">FTC Endorsement Guides (#ad disclosure)</td><td class="notes">Influencer must disclose material connection on every sponsored post — SMTHG can carry platform liability if it doesn't require this contractually.</td></tr>
-      <tr data-id="inf-compensation"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Compensation / payout structure</td><td class="notes">Needs its own definition — how and when the influencer is paid, mirroring the Designer Statement/Payout mechanism.</td></tr>
-      <tr data-id="inf-chargeback-exposure"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Chargeback exposure on influencer-driven sales</td><td class="notes">If a sale attributed to an influencer is later charged back, does the influencer's earned amount get clawed back? Not decided.</td></tr>
-      <tr data-id="inf-content-license"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Content license to SMTHG</td><td class="notes">Rights for SMTHG to reuse/repost influencer content for marketing — mirrors Designer IP section 14.2, not yet written for influencers.</td></tr>
-      <tr data-id="inf-exclusivity"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Exclusivity / non-compete</td><td class="notes">Whether an influencer can work with competing platforms — not decided.</td></tr>
-      <tr data-id="inf-termination"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Suspension &amp; termination</td><td class="notes">Mirrors Designer T&amp;C Section 3 — not yet written for influencers.</td></tr>
-      <tr data-id="inf-founding-tier"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Founding Creator tier definition</td><td class="notes">Referenced elsewhere in the project as a parallel to Founding Designer — not formally defined in any contract text yet.</td></tr>
-    </tbody>
-  </table>
-
-  <!-- ═══ D. BUYER/CONSUMER TERMS ═══ -->
-  <h2 class="sec-h2" id="sec-buyer"><span class="sec-num">D.</span> Buyer / Consumer Terms <span class="doc-status doc-missing">Doc missing</span></h2>
-  <p class="sec-sub">Doesn't exist yet — listed as "Coming" on the Designer T&amp;C's Related Documents. This is the contract with the actual shopper, distinct from the Designer contract.</p>
-  <table class="risktable" data-cat="buyer">
-    <thead><tr><th style="width:34px"></th><th>Topic</th><th>Notes</th></tr></thead>
-    <tbody>
-      <tr data-id="buyer-doc-exists"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Buyer / Consumer Terms document itself</td><td class="notes">Doesn't exist yet.</td></tr>
-      <tr data-id="ftc-udap"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">FTC Act / state UDAP</td><td class="notes">Deceptive pricing and delivery-time claims to consumers — not addressed.</td></tr>
-      <tr data-id="refund-disclosure"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Refund-policy disclosure laws</td><td class="notes">Some states require conspicuous posting of the refund policy to consumers.</td></tr>
-      <tr data-id="refund-credit-vs-cash"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Refund-as-credit vs. cash refund</td><td class="notes">Returns are handled via commission clawback on the Designer side, not a direct cash refund path to the Consumer — needs to be stated to the Consumer too.</td></tr>
-      <tr data-id="preorder-escrow"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Pre-order funds held before shipment</td><td class="notes">Consumer pays before goods ship — check whether any state's prepayment/trust rules apply, and disclose the Expected Ship Date model clearly.</td></tr>
-      <tr data-id="consumer-arbitration"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Consumer arbitration limits</td><td class="notes">Some states restrict mandatory arbitration in consumer (B2C) contracts more than in the B2B Designer agreement — needs separate review, can't just copy the Designer clause.</td></tr>
-      <tr data-id="warranty-disclaimer"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Warranty disclaimers (Magnuson-Moss)</td><td class="notes">Not addressed.</td></tr>
-      <tr data-id="consumer-tax-disclosure"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Sales tax disclosure to consumer</td><td class="notes">Consumer-facing mirror of the marketplace-facilitator fix already made on the Designer side.</td></tr>
-    </tbody>
-  </table>
-
-  <!-- ═══ E. CORPORATE ═══ -->
-  <h2 class="sec-h2" id="sec-corporate"><span class="sec-num">E.</span> Corporate / Internal Compliance</h2>
-  <p class="sec-sub">Not published documents — internal business actions, not contract clauses.</p>
-  <table class="risktable" data-cat="corporate">
-    <thead><tr><th style="width:34px"></th><th>Topic</th><th>Notes</th></tr></thead>
-    <tbody>
-      <tr data-id="money-transmitter"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Money-transmitter licensing</td><td class="notes">Confirm SMTHG stays a sub-merchant under Stripe Connect, not a licensed money transmitter itself.</td></tr>
-      <tr data-id="foreign-qualification"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Foreign qualification in operating states</td><td class="notes">A Delaware corporation with staff/ops in other states must register there.</td></tr>
-      <tr data-id="contractor-classification"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Contractor vs. employee classification</td><td class="notes">Relevant once ops/support hires are made — federal and state (e.g. CA ABC test) rules differ.</td></tr>
-      <tr data-id="export-ofac"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Export / OFAC sanctions screening</td><td class="notes">Relevant if selling to or onboarding designers/customers outside the US.</td></tr>
-      <tr data-id="liability-insurance"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">General / product liability insurance</td><td class="notes">Separate business action, not a contract clause.</td></tr>
+      <tr data-id="privacy-policy"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Privacy Policy</td><td class="notes">Legally required before collecting any user data — doesn't exist yet.</td></tr>
+      <tr data-id="buyer-terms"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Buyer / Consumer Terms</td><td class="notes">The actual contract with the paying shopper (refund policy, liability limit) — doesn't exist yet. Designer T&amp;C only covers the designer side.</td></tr>
+      <tr data-id="liability-cap"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Designer T&amp;C liability cap + indemnity scope</td><td class="notes">Currently unset — SMTHG has unlimited liability exposure to designers until a number is picked.</td></tr>
+      <tr data-id="governing-law"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Governing law consistency</td><td class="notes">Public Designer T&amp;C states Delaware law as fact; internal page still flags it "not finalized" — the two pages contradict each other.</td></tr>
+      <tr data-id="model-likeness"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Model-likeness rights</td><td class="notes">Real gap vs. the W&amp;B source — Designer must warrant the right to use any model shown in product photos. Cheap, quick fix.</td></tr>
+      <tr data-id="dmca-agent"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">DMCA designated agent</td><td class="notes">Cheap, fast US Copyright Office filing — without it, SMTHG has no safe harbor for copyright claims on designer/influencer uploads.</td></tr>
+      <tr data-id="endorsement-guides"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">FTC Endorsement disclosure (influencers)</td><td class="notes">Active FTC enforcement area — influencers must disclose sponsored posts. Needs to be a real requirement before the influencer program launches.</td></tr>
+      <tr data-id="sales-tax-registration"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Sales tax registration (execution)</td><td class="notes">The T&amp;C clause is fixed — SMTHG still needs to actually register/collect via Stripe Tax before real sales.</td></tr>
     </tbody>
   </table>
 
@@ -215,8 +111,7 @@ a{color:var(--ink);text-decoration:underline}
 <script>
 window.addEventListener('scroll',()=>{document.getElementById('btt').style.display=window.scrollY>400?'flex':'none'});
 
-const STORAGE_KEY='smthg-risk-checklist-v1';
-const DEFAULT_COVERED=['chargeback-windows','payout-timing','us-sales-tax','arbitration','chargeback-shortfall','shipping-inclusive','return-shipping-cost','ip-ownership','general-compliance','confidentiality','force-majeure','data-roles'];
+const STORAGE_KEY='smthg-risk-checklist-v2';
 
 function loadState(){
   try{ return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }catch(e){ return {}; }
@@ -230,21 +125,13 @@ function updateProgress(){
   document.getElementById('doneCount').textContent=done;
   document.getElementById('totalCount').textContent=rows.length;
   document.getElementById('progressFill').style.width=(rows.length?Math.round(done/rows.length*100):0)+'%';
-
-  document.querySelectorAll('table[data-cat]').forEach(tbl=>{
-    const cat=tbl.dataset.cat;
-    const rows=tbl.querySelectorAll('tr[data-id]');
-    const done=tbl.querySelectorAll('tr[data-id].done').length;
-    const el=document.getElementById('toc-'+cat);
-    if(el) el.textContent=done+' / '+rows.length;
-  });
 }
 
 const state=loadState();
 document.querySelectorAll('tr[data-id]').forEach(row=>{
   const id=row.dataset.id;
   const box=row.querySelector('.rowchk');
-  const covered = id in state ? state[id] : DEFAULT_COVERED.includes(id);
+  const covered = state[id] || false;
   box.checked=covered;
   row.classList.toggle('done', covered);
   box.addEventListener('change', ()=>{
