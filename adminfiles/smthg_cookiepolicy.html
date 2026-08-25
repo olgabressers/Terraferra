@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<script src="/site-lock.js"></script>
+<title>Cookie Policy</title>
+<link rel="icon" type="image/svg+xml" href="smthg_favicon.svg"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --tf:#E8002D;--tf-dark:#B50023;
+  --off-white:#F8F6F2;--ink:#161616;--sub:#5C5A56;--rule:#E6E2DA;
+}
+body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink);overflow-x:hidden}
+
+.topnav{background:white;border-bottom:1px solid var(--rule);padding:14px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
+.topnav-home{font-weight:800;letter-spacing:2px;color:var(--ink);text-decoration:none;font-size:13px}
+
+.wrap{max-width:820px;margin:0 auto;padding:48px 32px 90px}
+@media(max-width:700px){.wrap{padding:28px 18px 60px}}
+
+h1{font-size:clamp(24px,3.5vw,34px);font-weight:900;letter-spacing:-1px;line-height:1.15;color:var(--ink);margin-bottom:6px}
+.effective{font-size:13px;color:var(--sub);margin-bottom:32px}
+
+h2{font-size:16px;font-weight:800;color:var(--ink);margin:32px 0 12px}
+p{font-size:14.5px;line-height:1.75;color:var(--ink);margin-bottom:12px}
+ul{margin:0 0 12px 20px}
+li{font-size:14.5px;line-height:1.75;color:var(--ink);margin-bottom:6px}
+strong{font-weight:800}
+a{color:var(--ink);text-decoration:underline}
+
+hr{border:none;border-top:1px solid var(--rule);margin:40px 0}
+.footer-note{font-size:12px;color:var(--sub);line-height:1.7}
+
+#btt{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--tf);color:white;border:none;border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900}
+#btt:hover{background:var(--tf-dark)}
+@media(max-width:700px){#btt{width:38px;height:38px;font-size:17px;bottom:16px;right:16px}}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a class="topnav-home" href="index.html">smthg<span style="color:var(--tf)">.</span></a>
+</nav>
+
+<div class="wrap">
+
+  <h1>Cookie Policy</h1>
+  <p class="effective">smthg.</p>
+
+  <p>This Cookie Policy explains how SMTHG Inc., a Delaware corporation ("SMTHG", "we", "us"), uses cookies and similar tracking technologies on smthg. It should be read together with our <a href="smthg_privacy.html">Privacy Policy</a>, which covers personal information more broadly.</p>
+
+  <h2>1. What Cookies Are</h2>
+  <p>A cookie is a small text file placed on your device when you visit a website. Cookies let a site recognize your device, remember your settings, and understand how the site is used. Some cookies are set directly by us ("first-party"); others are set by a third-party service we use to operate or measure the Services ("third-party").</p>
+
+  <h2>2. Categories of Cookies We Use</h2>
+  <ul>
+    <li><strong>Strictly necessary (first-party).</strong> Required for the Services to function — for example, remembering your cookie preferences, keeping you signed in, and supporting core site navigation. These cannot be disabled, because the Services won't work correctly without them.</li>
+    <li><strong>Analytics (third-party).</strong> Used to count visits, measure site performance, and understand which pages are most used, so we can improve the Services. This information is aggregated and does not identify you individually.</li>
+  </ul>
+  <p>We do not currently use advertising or cross-context behavioral-advertising cookies. As stated in our Privacy Policy, we do not sell personal information or share it for cross-context behavioral advertising. If that changes, we will update this Policy and this section first.</p>
+
+  <h2>3. Specific Cookies</h2>
+  <p>Because the Services are still in development, this Policy describes the categories and purposes of cookies above rather than a fixed list of individual cookie names, providers, and expiration periods. We will publish that detail in this section once each specific cookie is deployed on the live Services.</p>
+
+  <h2>4. Do Not Track</h2>
+  <p>Some browsers offer a "Do Not Track" (DNT) signal. There is no common industry standard for how a website should respond to DNT, so — like most websites — we do not currently change our behavior when we detect one.</p>
+
+  <h2>5. Your Choices</h2>
+  <p>You can control or delete cookies through your browser settings — most browsers let you block cookies entirely, block only third-party cookies, or delete cookies already stored on your device. Blocking strictly necessary cookies may stop parts of the Services from working correctly.</p>
+  <p>Once the Services are live, we will honor a Global Privacy Control (GPC) signal from your browser as a valid opt-out request under the CCPA/CPRA, consistent with the rights described in our Privacy Policy.</p>
+
+  <h2>6. Third-Party Cookies</h2>
+  <p>Where a cookie is set by a third-party service provider on our behalf — for example, an analytics provider — that provider's own privacy and cookie practices apply to the data it collects. We choose service providers that use cookie data only to operate the service they provide to us.</p>
+
+  <h2>7. Changes to This Policy</h2>
+  <p>We may update this Policy from time to time, including as we deploy new cookies to the live Services. We will post the revised Policy here with a new effective date.</p>
+
+  <h2>8. Contact Us</h2>
+  <p>For any question about this Policy, contact us at <a href="mailto:contact@smthg.us">contact@smthg.us</a>.</p>
+
+  <hr/>
+
+</div>
+
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('btt').style.display=window.scrollY>400?'flex':'none'});
+</script>
+
+</body>
+</html>
