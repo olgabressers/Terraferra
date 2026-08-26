@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<script src="/site-lock.js"></script>
+<title>Cookie Policy — Draft v2</title>
+<link rel="icon" type="image/svg+xml" href="smthg_favicon.svg"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --tf:#E8002D;--tf-dark:#B50023;--tf-ghost:#F1EEE9;
+  --off-white:#F8F6F2;--ink:#161616;--sub:#5C5A56;--rule:#E6E2DA;
+  --green:#1A7A4A;--green-bg:#EDFAF3;
+  --amber:#B45309;--amber-bg:#FEF3C7;
+  --navy:#1D2B3A;
+}
+body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink);overflow-x:hidden}
+
+.topnav{background:white;border-bottom:1px solid var(--rule);padding:14px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
+.topnav-home{font-weight:800;letter-spacing:2px;color:var(--ink);text-decoration:none;font-size:13px}
+.topnav-links{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:var(--sub);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:12px}
+.topnav-links a:hover{color:var(--tf)}
+@media(max-width:700px){
+  .topnav{position:static;padding:10px 14px}
+  .topnav-links{gap:8px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%}
+  .topnav-links a{font-size:11px;white-space:nowrap}
+}
+
+.wrap{max-width:900px;margin:0 auto;padding:48px 32px 90px}
+@media(max-width:700px){.wrap{padding:28px 18px 60px}}
+
+h1{font-size:clamp(24px,3.5vw,34px);font-weight:900;letter-spacing:-1px;line-height:1.15;color:var(--ink);margin-bottom:6px}
+.effective{font-size:13px;color:var(--sub);margin-bottom:16px}
+
+.badge{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;padding:4px 12px;border-radius:20px;background:var(--amber-bg);color:var(--amber);margin-bottom:28px}
+
+h2{font-size:16px;font-weight:800;color:var(--ink);margin:32px 0 12px}
+h3{font-size:13.5px;font-weight:800;color:var(--tf-dark);text-transform:uppercase;letter-spacing:.5px;margin:24px 0 10px}
+p{font-size:14.5px;line-height:1.75;color:var(--ink);margin-bottom:12px}
+ul{margin:0 0 12px 20px}
+li{font-size:14.5px;line-height:1.75;color:var(--ink);margin-bottom:6px}
+strong{font-weight:800}
+a{color:var(--ink);text-decoration:underline}
+
+.callout{background:var(--amber-bg);border:1px solid #F3D9A8;border-radius:8px;padding:14px 16px;font-size:13.5px;line-height:1.65;color:var(--ink);margin-bottom:14px}
+.callout strong{color:var(--amber)}
+
+.table-scroll{overflow-x:auto;margin-bottom:16px;border-radius:8px}
+table.doctable{width:100%;border-collapse:collapse;font-size:13px;background:white;border:1px solid var(--rule);border-radius:8px;overflow:hidden;min-width:520px}
+table.doctable th{background:var(--ink);color:white;text-align:left;padding:8px 12px;font-size:10.5px;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap}
+table.doctable td{padding:9px 12px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.55;color:var(--ink)}
+table.doctable tr:last-child td{border-bottom:none}
+code{background:var(--tf-ghost);padding:1px 6px;border-radius:4px;font-size:12.5px}
+
+hr{border:none;border-top:1px solid var(--rule);margin:44px 0}
+
+.compare-pill{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.3px;text-transform:uppercase;padding:3px 10px;border-radius:20px;white-space:nowrap}
+.pill-v1{background:var(--tf-ghost);color:var(--sub)}
+.pill-v2{background:var(--green-bg);color:var(--green)}
+.pill-flag{background:#FCE4E8;color:var(--tf-dark)}
+
+#btt{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--tf);color:white;border:none;border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900}
+#btt:hover{background:var(--tf-dark)}
+@media(max-width:700px){#btt{width:38px;height:38px;font-size:17px;bottom:16px;right:16px}}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a class="topnav-home" href="index.html">smthg<span style="color:var(--tf)">.</span></a>
+  <div class="topnav-links">
+    <a href="smthg_cookiepolicy.html">← Cookie Policy (v1, live)</a>
+    <a href="index.html">Index</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <h1>Cookie Policy — Draft v2</h1>
+  <p class="effective">smthg.</p>
+  <div class="badge">Draft candidate — not published as the site's Cookie Policy</div>
+
+  <p>SMTHG Inc., a Delaware corporation ("SMTHG", "we", "us", or "our"), uses cookies and similar technologies on smthg.us (the "Website"). This Cookie Policy explains how we use them. It should be read together with our <a href="smthg_privacy.html">Privacy Policy</a>, which explains how we process personal information and how to exercise your privacy rights.</p>
+
+  <p>This Cookie Policy applies to the Website only. A shop hosted on a separate domain and the Community website will have their own cookie notices unless those websites expressly state that this Policy applies to them.</p>
+
+  <h2>1. What Are Cookies?</h2>
+  <p>Cookies are small text files that a website places on your device. They can be set by us ("first-party cookies") or by a service provider we use ("third-party cookies").</p>
+  <p>We may also use similar technologies, such as local storage, where they perform the same function as cookies. This Policy refers to all of these technologies as "cookies."</p>
+
+  <h2>2. Strictly Necessary Cookies</h2>
+  <p>Strictly Necessary Cookies are essential to provide the Website and the features you request. They may be used to:</p>
+  <ul>
+    <li>remember your cookie choices;</li>
+    <li>protect the Website and its visitors against abuse or security threats; and</li>
+    <li>support the technical delivery of the Website.</li>
+  </ul>
+  <p>These cookies are always active in our cookie preference manager. You can block them through your browser settings, but doing so may prevent parts of the Website from working correctly.</p>
+
+  <h2>3. Performance Cookies</h2>
+  <p>With your permission, we use Performance Cookies to understand how visitors use the Website and to improve its performance and content. Refusing Performance Cookies does not affect your access to the Website.</p>
+  <p>We do not set Performance Cookies until you select <strong>Accept analytics</strong> in our cookie banner or enable the Analytics category in Cookie Settings. You may withdraw or change your choice at any time through the <strong>Cookie Settings</strong> link in the Website footer.</p>
+  <p>We may use the following providers for this purpose:</p>
+  <div class="table-scroll">
+  <table class="doctable">
+    <thead><tr><th>Provider</th><th>Purpose</th><th>Category</th></tr></thead>
+    <tbody>
+      <tr><td>Google Analytics 4, which may be deployed through Google Tag Manager</td><td>Measures visits and Website interactions</td><td>Performance</td></tr>
+      <tr><td>PostHog</td><td>Helps us understand Website and product interactions while we evaluate and use the service</td><td>Performance</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Google Tag Manager is a tag-management tool. We configure it so that any Performance Cookie or analytics tag it deploys does not run until the visitor has provided the required consent. We will not add another analytics or marketing provider through Google Tag Manager without first updating this Policy and, where required, requesting consent.</p>
+  <p>We do not use advertising cookies or cookies for cross-context behavioural advertising.</p>
+
+  <h2>4. Cookie Inventory</h2>
+  <p>The table below will list each cookie or similar technology that is active on the published Website.</p>
+  <div class="callout"><strong>Pre-publication check required:</strong> Before this Policy is published, we will test the live Website in a clean browser session and complete this table with the actual names, providers, purposes, durations, and categories of every cookie or local-storage key in use. We will remove any provider that is not enabled on the Website.</div>
+  <div class="table-scroll">
+  <table class="doctable">
+    <thead><tr><th>Cookie / storage key</th><th>Provider</th><th>1st/3rd-party</th><th>Purpose</th><th>Duration</th><th>Category</th></tr></thead>
+    <tbody>
+      <tr><td><code>[verify before publication]</code></td><td>Cookie preference manager</td><td>First-party</td><td>Stores the visitor's cookie choice</td><td><code>[verify]</code></td><td>Strictly Necessary</td></tr>
+      <tr><td><code>[verify before publication]</code></td><td>Google Analytics 4, if enabled</td><td><code>[verify]</code></td><td>Website measurement</td><td><code>[verify]</code></td><td>Performance</td></tr>
+      <tr><td><code>[verify before publication]</code></td><td>PostHog, if enabled</td><td><code>[verify]</code></td><td>Website and product measurement</td><td><code>[verify]</code></td><td>Performance</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>5. Managing Cookies</h2>
+  <p>When you first visit the Website, our cookie banner lets you accept or reject optional Performance Cookies, or open Cookie Settings to make a granular choice. Strictly Necessary Cookies remain active because they are required to provide the Website and save your choice.</p>
+  <p>You can revisit your choice at any time through the <strong>Cookie Settings</strong> link in the Website footer. Changing your choice takes effect for future cookie activity. You can also block or delete cookies using your browser settings. Browser controls may not remove cookies that were previously set, and blocking Strictly Necessary Cookies may affect Website functionality.</p>
+
+  <h2>6. Global Privacy Control</h2>
+  <p>We do not sell personal information or share personal information for cross-context behavioural advertising. If our practices change and applicable law treats a processing activity as a sale or sharing of personal information, we will honour a valid Global Privacy Control (GPC) signal as a request to opt out of that activity.</p>
+
+  <h2>7. Third-Party Providers</h2>
+  <p>Google Analytics 4 and PostHog may process information collected through their cookies when you have consented to Performance Cookies. Their processing is also subject to their respective privacy notices:</p>
+  <ul>
+    <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a></li>
+    <li><a href="https://posthog.com/privacy" target="_blank" rel="noopener">PostHog Privacy Notice</a></li>
+  </ul>
+  <p>We remain responsible for providing this notice and obtaining consent where required. We use service providers under appropriate contractual and data-protection arrangements.</p>
+
+  <h2>8. Changes to This Policy</h2>
+  <p>We may update this Cookie Policy when our use of cookies or similar technologies changes. We will post the updated version here and revise the effective date. If a change requires fresh consent, we will ask for it before setting the affected optional cookies.</p>
+
+  <h2>9. Contact Us</h2>
+  <p>If you have questions about this Cookie Policy or our use of cookies, contact us at <a href="mailto:contact@smthg.us">contact@smthg.us</a>.</p>
+
+  <hr/>
+
+  <h2 style="margin-top:0">Comparison — v2 Draft vs. Live v1</h2>
+  <p class="effective" style="margin-bottom:18px">Same substance: intro concept, Strictly Necessary category, third-party-processor language, Changes-to-Policy, Contact. Differences below.</p>
+
+  <h3>Structural — wording/organization only</h3>
+  <ul>
+    <li>9 sections vs. v1's 7 — v2 adds an explicit scope carve-out (Website vs. a separate shop domain vs. the Community website) and a Cookie Inventory table with <code>[verify before publication]</code> placeholders. v1 only states this in prose.</li>
+    <li>v2 calls the Privacy document a "Privacy Notice" linked at smthg.us/privacy; v1 calls it "Privacy Policy" with a relative link. Same document, different naming.</li>
+  </ul>
+
+  <h3>Substantive — different facts, not just wording</h3>
+  <div class="table-scroll">
+  <table class="doctable">
+    <thead><tr><th>Topic</th><th>v2 draft</th><th>v1 live</th><th>Why they differ</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Consent model</strong></td><td>Opt-in — Performance cookies don't fire until "Accept analytics" is clicked in a banner, with a Cookie Settings footer link</td><td>No consent gate — cookies described, controlled via browser settings + GPC only</td><td>v1 was built on the assessment that an opt-in gate is a GDPR/EU requirement, not required under CCPA/CPRA for a US-only business. v2 implements the opt-in gate anyway.</td></tr>
+      <tr><td><strong>Analytics vendor</strong></td><td>Names Google Analytics 4 (via Google Tag Manager) and PostHog specifically, with links to their privacy policies</td><td>Vendor left unnamed</td><td>No project document (architecture.html, budget.html) confirms GA4 or PostHog — the only candidates referenced anywhere are Mixpanel and Amplitude. v1 avoided naming an undecided vendor.</td></tr>
+      <tr><td><strong>Global Privacy Control</strong></td><td>Conditional: "if a future practice is legally treated as sale/sharing, we will honor GPC"</td><td>Unconditional: "we honor GPC signals... under CCPA/CPRA"</td><td>v2's phrasing is more precise — both versions state SMTHG doesn't sell/share today, so there is technically nothing yet for GPC to opt out of.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="margin-top:14px"><strong>Open question:</strong> the opt-in gate and the GA4/PostHog naming reverse a call made when building v1 and introduce a vendor choice not found anywhere else in the project. If this draft reflects an actual decision (counsel-drafted, or a confirmed tech-stack choice), v1 should be rebuilt to match.</p>
+
+</div>
+
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('btt').style.display=window.scrollY>400?'flex':'none'});
+</script>
+
+</body>
+</html>
