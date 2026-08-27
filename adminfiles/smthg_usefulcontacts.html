@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<script src="/site-lock.js"></script>
+<title>Useful Contacts · SMTHG</title>
+<link rel="icon" type="image/svg+xml" href="smthg_favicon.svg"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --tf:#E8002D;--tf-dark:#B50023;--tf-ghost:#F1EEE9;
+  --off-white:#F8F6F2;--ink:#161616;--sub:#5C5A56;--rule:#E6E2DA;
+}
+body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink);line-height:1.6;min-height:100vh}
+
+/* ── NAV ── */
+.topnav{background:#fff;border-bottom:1px solid #D8D4EF;padding:12px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
+.topnav-home{font-weight:800;letter-spacing:2px;color:var(--ink);text-decoration:none;font-size:11px}
+.topnav-home:hover{color:var(--ink)}
+.topnav-links{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:#5B5880;font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:10px}
+.topnav-links a:hover{color:var(--tf)}
+.topnav-links a.active{color:#E86820}
+.topnav-links .has-dropdown{position:relative;padding-bottom:10px;margin-bottom:-10px}
+.topnav-links .dropdown-trigger{cursor:pointer;color:#5B5880;font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:10px;user-select:none}
+.topnav-links .dropdown-trigger:hover,.topnav-links .has-dropdown:focus-within .dropdown-trigger{color:var(--tf)}
+.topnav-links .dropdown{display:none;position:absolute;top:100%;left:0;background:#fff;border:1px solid #D8D4EF;min-width:200px;box-shadow:0 6px 14px rgba(0,0,0,.08);padding:6px 0;z-index:60}
+.topnav-links .has-dropdown:hover .dropdown,.topnav-links .has-dropdown:focus-within .dropdown{display:block}
+.topnav-links .dropdown a{display:block;padding:9px 16px;font-size:10px;font-weight:700;color:#5B5880;text-transform:uppercase;letter-spacing:1px;text-decoration:none}
+.topnav-links .dropdown a:hover{background:#F4F2FC;color:var(--tf)}
+@media(max-width:700px){
+  .topnav{position:static;padding:10px 14px}
+  .topnav-links{gap:8px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%}
+  .topnav-links a,.topnav-links .dropdown-trigger{font-size:9.5px;white-space:nowrap}
+  .topnav-links .has-dropdown{padding-bottom:0;margin-bottom:0}
+  .topnav-links .dropdown{display:none!important}
+}
+
+/* ── PAGE ── */
+.wrap{max-width:1240px;margin:0 auto;padding:40px 48px 80px}
+@media(max-width:700px){.wrap{padding:24px 16px 60px}}
+.page-hd{margin-bottom:24px}
+.page-hd h1{font-size:28px;font-weight:800;color:var(--ink);margin-bottom:8px;line-height:1.2}
+.page-hd p{font-size:12.5px;color:var(--ink);max-width:760px}
+.count-bar{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:12px;letter-spacing:.5px}
+
+/* ── TABLE ── */
+.tbl-wrap{background:#fff;border:1px solid var(--rule);border-top:3px solid var(--tf);overflow-x:auto;-webkit-overflow-scrolling:touch}
+.contacts-tbl{width:100%;border-collapse:collapse;min-width:1080px}
+.contacts-tbl thead th{
+  padding:12px 16px;font-size:10px;font-weight:800;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--ink);border-bottom:2px solid var(--rule);
+  text-align:left;background:#fff;white-space:nowrap;
+}
+.contacts-tbl thead th.th-num{width:38px;text-align:center}
+.contacts-tbl tbody tr{border-bottom:1px solid var(--rule)}
+.contacts-tbl tbody tr:last-child{border-bottom:none}
+.contacts-tbl tbody tr:hover{background:#FAFAF8}
+.contacts-tbl td{padding:16px;font-size:14px;color:var(--ink);vertical-align:top}
+.contacts-tbl td.c-num{font-size:11px;color:#C8C4BC;font-weight:700;text-align:center}
+.c-name{font-weight:800;font-size:15px;display:block;margin-bottom:5px}
+.c-links{display:flex;flex-direction:column;gap:2px}
+.c-links a{font-size:11px;font-weight:700;color:var(--tf);text-decoration:none}
+.c-links a:hover{text-decoration:underline}
+.c-role-main{font-weight:700;display:block;margin-bottom:4px}
+.c-role-sub{font-size:12.5px;color:var(--ink);display:block}
+.c-brands{font-size:11.5px;color:var(--sub);display:block;margin-top:6px;line-height:1.5}
+.contacts-tbl a.li-link{color:var(--tf);font-weight:700;text-decoration:none;font-size:13px}
+.contacts-tbl a.li-link:hover{text-decoration:underline}
+.li-none{font-size:12px;color:var(--sub);display:block}
+.tag-warm{display:inline-block;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;
+  color:#1A7A4A;background:#F0FAF5;border:1px solid #1A7A4A;border-radius:3px;padding:2px 7px;margin-bottom:8px;white-space:nowrap}
+.c-comment{font-size:13px;line-height:1.55}
+@media(max-width:700px){
+  .page-hd h1{font-size:22px}
+  .contacts-tbl{min-width:940px}
+}
+
+/* ── BACK TO TOP ── */
+.back-to-top{position:fixed;bottom:28px;right:28px;width:40px;height:40px;background:var(--tf);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;text-decoration:none;opacity:0;transition:opacity .3s;z-index:100;border-radius:2px}
+.back-to-top.vis{opacity:1}
+@media(max-width:700px){.back-to-top{width:34px;height:34px;font-size:15px;bottom:14px;right:14px}}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="index.html" class="topnav-home">smthg<span style="color:var(--tf)">.</span></a>
+  <div class="topnav-links">
+    <a href="index.html">Files</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Budget ▾</span>
+      <div class="dropdown">
+        <a href="TFmarketsize.html">Market Size &amp; Opportunity</a>
+        <a href="budget.html">Budget &amp; Sales Scenarios</a>
+      </div>
+    </div>
+    <a href="roles.html">Roles</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Business Model ▾</span>
+      <div class="dropdown">
+        <a href="TFbusinessmodel.html">Comparison Matrix</a>
+        <a href="TFaltmodel.html">Alternative Model</a>
+        <a href="TFmvpcosts.html">MVP Scope &amp; Costs</a>
+        <a href="TFgtm.html">GTM</a>
+        <a href="TFwhynow.html">Why Now</a>
+        <a href="TFdropsmarket.html">Drop Market Research</a>
+        <a href="TFunservedmarket.html">Unserved Market</a>
+        <a href="TFreferral.html">Referral &amp; Viral</a>
+        <a href="TFcreatortoken.html">Creator Payments</a>
+        <a href="TFstylists.html">Stylist Layer</a>
+        <a href="/psychology-fashion.html">Psychology + Fashion</a>
+        <a href="TFvisualdiscovery.html">Visual Discovery</a>
+        <a href="TFbrandsworldwide.html">Fashion Brands Worldwide</a>
+        <a href="TFcommunities.html">Fashion Communities</a>
+      </div>
+    </div>
+    <a href="TFmarketplaces.html">Operations</a>
+    <a href="architecture.html">Architecture &amp; Tools</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Ideas ▾</span>
+      <div class="dropdown">
+        <a href="gamification.html">Gamification</a>
+        <a href="ideas.html">Ideas &amp; AI Research</a>
+        <a href="influencer.html">Influencer Selling</a>
+        <a href="strategic-brief.html">Strategic Brief</a>
+      </div>
+    </div>
+    <a href="TFsmthgbrands.html" class="active">Brands</a>
+    <a href="TFnewname.html">Design</a>
+    <a href="TFrussia.html">Legal / Tax</a>
+    <a href="task-tracker.html">Planning</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <div class="page-hd">
+    <h1>Useful Contacts</h1>
+    <p>Industry contacts reachable through the SMTHG network. Each entry carries the person's current role, group and brand portfolio, so the relevance to SMTHG is visible at a glance.</p>
+  </div>
+
+  <div class="count-bar">2 contacts</div>
+
+  <div class="tbl-wrap">
+    <table class="contacts-tbl">
+      <thead>
+        <tr>
+          <th class="th-num">#</th>
+          <th style="min-width:210px">Name</th>
+          <th style="min-width:330px">Role</th>
+          <th style="min-width:190px">LinkedIn</th>
+          <th style="min-width:300px">Comments</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td class="c-num">1</td>
+          <td>
+            <span class="c-name">Renzo Rosso</span>
+            <span class="c-links">
+              <a href="https://www.businessoffashion.com/people/renzo-rosso/" target="_blank" rel="noopener">BoF 500 profile →</a>
+              <a href="https://www.otb.net/en" target="_blank" rel="noopener">otb.net →</a>
+            </span>
+          </td>
+          <td>
+            <span class="c-role-main">Founder &amp; Chairman, OTB Group</span>
+            <span class="c-role-sub">Founded Diesel in 1978. Created OTB (Only The Brave) in 2002. Chairman of Red Circle Investments, his private investment company.</span>
+            <span class="c-brands">OTB portfolio: Diesel · Maison Margiela · Marni · Jil Sander · Viktor&amp;Rolf</span>
+          </td>
+          <td>
+            <span class="li-none">No public personal profile found.</span>
+            <span class="c-links" style="margin-top:6px">
+              <a href="https://www.linkedin.com/company/otb-" target="_blank" rel="noopener">OTB company page →</a>
+            </span>
+          </td>
+          <td class="c-comment">
+            <span class="tag-warm">Warm intro available</span>
+            Owner of a multi-brand luxury group built by acquiring and scaling independent designer labels. Relevant for brand-side introductions and for investor conversations.
+          </td>
+        </tr>
+
+        <tr>
+          <td class="c-num">2</td>
+          <td>
+            <span class="c-name">Claudio Antonioli</span>
+            <span class="c-links">
+              <a href="https://www.businessoffashion.com/people/claudio-antonioli/" target="_blank" rel="noopener">BoF 500 profile →</a>
+              <a href="https://antonioli.eu/" target="_blank" rel="noopener">antonioli.eu →</a>
+            </span>
+          </td>
+          <td>
+            <span class="c-role-main">Founder, ANTONIOLI · Co-founder and former President, New Guards Group</span>
+            <span class="c-role-sub">Opened the first ANTONIOLI store in Milan, Piazza Lima, in 1987. Co-founded New Guards Group in 2015 with Marcelo Burlon and Davide de Giglio. Stepped back from executive roles after Farfetch acquired NGG in 2019. Acquired Ann Demeulemeester in 2020.</span>
+            <span class="c-brands">NGG portfolio: Off-White · Palm Angels · Marcelo Burlon County of Milan · Heron Preston · Alanui · Unravel Project · Kirin</span>
+          </td>
+          <td>
+            <a class="li-link" href="https://www.linkedin.com/in/claudio-antonioli-00216328/" target="_blank" rel="noopener">linkedin.com/in/claudio-antonioli →</a>
+          </td>
+          <td class="c-comment">
+            <span class="tag-warm">Warm intro available</span>
+            Multi-brand luxury retailer with a track record of taking emerging designers to global scale. Relevant for stocking, brand introductions and retail distribution.
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+</div><!-- /wrap -->
+
+<a class="back-to-top" id="btt" href="#" aria-label="Back to top">↑</a>
+<script>
+var btt=document.getElementById('btt');
+window.addEventListener('scroll',function(){btt.classList.toggle('vis',window.scrollY>400);});
+btt.addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});});
+</script>
+</body>
+</html>
