@@ -89,8 +89,9 @@ input.rowchk{width:17px;height:17px;accent-color:var(--green);cursor:pointer}
 .risktable tr.chapter-row td.topic::before{content:"↳ ";color:var(--rule);font-weight:800}
 
 .doc-status{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;padding:2px 9px;border-radius:20px;white-space:nowrap;margin-left:8px;vertical-align:middle}
-.doc-live{background:var(--green-bg);color:var(--green)}
-.doc-missing{background:var(--amber-bg);color:var(--amber)}
+.doc-completed{background:var(--green-bg);color:var(--green)}
+.doc-progress{background:#EAF0F6;color:var(--navy)}
+.doc-notstarted{background:var(--amber-bg);color:var(--amber)}
 .doc-count-pill{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.2px;text-transform:none;padding:2px 9px;border-radius:20px;white-space:nowrap;margin-left:8px;vertical-align:middle;background:#EAF0F6;color:var(--navy)}
 
 .priority-pill{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:800;letter-spacing:.3px;text-transform:uppercase;padding:3px 10px;border-radius:20px;white-space:nowrap}
@@ -127,37 +128,37 @@ a{color:var(--ink);text-decoration:underline}
 
   <h1>smthg<span style="color:var(--tf)">.</span> Terms &amp; Conditions — Risk Checklist</h1>
 
-  <div class="legend"><strong>Must-Have</strong> = required by US law · <strong>Nice-to-Have</strong> = discretionary, greyed out below · <strong>vs. W&amp;B</strong> = same clause found in Wolf &amp; Badger's real Terms · <strong>Live</strong> = published · <strong>Missing</strong> = not written yet · ↳ = chapter inside the document above it.</div>
+  <div class="legend"><strong>Must-Have</strong> = required by US law · <strong>Nice-to-Have</strong> = discretionary, greyed out below · <strong>vs. W&amp;B</strong> = same clause found in Wolf &amp; Badger's real Terms · <strong>Completed</strong> = drafted, no open Must-Have gaps · <strong>In Progress</strong> = drafted, open Must-Have gaps remain · <strong>Not Started</strong> = not written yet · ↳ = chapter inside the document above it.</div>
 
   <div class="toc-title">Table of Contents</div>
   <div class="prop-grid">
     <div class="prop-block">
       <div class="prop-block-title"><a href="#sec-combined">A. Combined Policies</a> <span class="prop-block-count" id="toc-combined"></span></div>
       <div class="prop-block-items">
-        <div class="prop-item"><a href="#row-privacy-policy">Privacy Policy</a> <span class="doc-status doc-live">Live</span></div>
-        <div class="prop-item"><a href="#row-code-of-ethics">Code of Ethics</a> <span class="doc-status doc-live">Live</span></div>
-        <div class="prop-item"><a href="#row-dmca-agent">DMCA / Copyright Policy</a> <span class="doc-status doc-missing">Missing</span></div>
+        <div class="prop-item"><a href="#row-privacy-policy">Privacy Policy</a> <span class="doc-status doc-progress">In Progress</span></div>
+        <div class="prop-item"><a href="#row-code-of-ethics">Code of Ethics</a> <span class="doc-status doc-completed">Completed</span></div>
+        <div class="prop-item"><a href="#row-dmca-agent">DMCA / Copyright Policy</a> <span class="doc-status doc-notstarted">Not Started</span></div>
       </div>
     </div>
     <div class="prop-block">
       <div class="prop-block-title"><a href="#sec-landing">B. Landing</a> <span class="prop-block-count" id="toc-landing"></span></div>
       <div class="prop-block-items">
-        <div class="prop-item"><a href="#row-cookie-policy-landing">Cookie Policy — Landing</a> <span class="doc-status doc-live">Live</span></div>
+        <div class="prop-item"><a href="#row-cookie-policy-landing">Cookie Policy — Landing</a> <span class="doc-status doc-completed">Completed</span></div>
       </div>
     </div>
     <div class="prop-block">
       <div class="prop-block-title"><a href="#sec-shopify">C. Shopify</a> <span class="prop-block-count" id="toc-shopify"></span></div>
       <div class="prop-block-items">
-        <div class="prop-item"><a href="#row-designer-tc">Designer T&amp;C</a> <span class="doc-status doc-live">Live</span></div>
-        <div class="prop-item"><a href="#row-buyer-doc-exists">Buyer / Consumer Terms</a> <span class="doc-status doc-missing">Missing</span></div>
-        <div class="prop-item"><a href="#row-cookie-policy-shopify">Cookie Policy — Shopify</a> <span class="doc-status doc-missing">Missing</span></div>
+        <div class="prop-item"><a href="#row-designer-tc">Designer T&amp;C</a> <span class="doc-status doc-progress">In Progress</span></div>
+        <div class="prop-item"><a href="#row-buyer-doc-exists">Buyer / Consumer Terms</a> <span class="doc-status doc-notstarted">Not Started</span></div>
+        <div class="prop-item"><a href="#row-cookie-policy-shopify">Cookie Policy — Shopify</a> <span class="doc-status doc-notstarted">Not Started</span></div>
       </div>
     </div>
     <div class="prop-block">
       <div class="prop-block-title"><a href="#sec-community">D. Community</a> <span class="prop-block-count" id="toc-community"></span></div>
       <div class="prop-block-items">
-        <div class="prop-item"><a href="#row-inf-doc-exists">Influencer Agreement</a> <span class="doc-status doc-missing">Missing</span></div>
-        <div class="prop-item"><a href="#row-cookie-policy-community">Cookie Policy — Community</a> <span class="doc-status doc-missing">Missing</span></div>
+        <div class="prop-item"><a href="#row-inf-doc-exists">Influencer Agreement</a> <span class="doc-status doc-notstarted">Not Started</span></div>
+        <div class="prop-item"><a href="#row-cookie-policy-community">Cookie Policy — Community</a> <span class="doc-status doc-notstarted">Not Started</span></div>
       </div>
     </div>
     <div class="prop-block">
@@ -193,12 +194,12 @@ a{color:var(--ink);text-decoration:underline}
   <table class="risktable" data-cat="combined">
     <thead><tr><th style="width:34px"></th><th>Topic</th><th style="width:130px">Priority</th><th style="width:120px">vs. W&amp;B</th><th>Notes</th></tr></thead>
     <tbody>
-      <tr class="doc-row" id="row-privacy-policy" data-id="privacy-policy" data-doc="1"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic"><a href="smthg_privacy.html">Privacy Policy</a> <span class="doc-status doc-live">Live</span></td><td class="priority"><span class="priority-pill priority-must">Must-Have</span></td><td class="wb"><span class="wb-pill wb-yes">In W&amp;B</span></td><td class="notes">CCPA/CPRA, children's privacy, no data sale.</td></tr>
+      <tr class="doc-row" id="row-privacy-policy" data-id="privacy-policy" data-doc="1"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic"><a href="smthg_privacy.html">Privacy Policy</a> <span class="doc-status doc-progress">In Progress</span></td><td class="priority"><span class="priority-pill priority-must">Must-Have</span></td><td class="wb"><span class="wb-pill wb-yes">In W&amp;B</span></td><td class="notes">CCPA/CPRA, children's privacy, no data sale.</td></tr>
       <tr class="chapter-row" data-id="ccpa"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">CCPA/CPRA and other state privacy laws</td><td class="priority"><span class="priority-pill priority-must">Must-Have</span></td><td class="wb"><span class="wb-pill wb-yes">In W&amp;B</span></td><td class="notes">Privacy Policy §7.</td></tr>
       <tr class="chapter-row" data-id="can-spam"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">CAN-SPAM / TCPA (marketing consent)</td><td class="priority"><span class="priority-pill priority-nice">Nice-to-Have</span></td><td class="wb"><span class="wb-pill wb-na">Not verified</span></td><td class="notes">Privacy Policy §2 — consent-based, opt-out.</td></tr>
-      <tr class="doc-row" id="row-code-of-ethics" data-id="code-of-ethics" data-doc="1"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic"><a href="smthg_codeofethics.html">Code of Ethics</a> <span class="doc-status doc-live">Live</span></td><td class="priority"><span class="priority-pill priority-must">Must-Have</span></td><td class="wb"><span class="wb-pill wb-yes">In W&amp;B</span></td><td class="notes">FTC Act, FTC Green Guides, FTC Endorsement Guides, FCPA.</td></tr>
-      <tr class="doc-row" id="row-dmca-agent" data-id="dmca-agent" data-doc="1"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">DMCA / Copyright Policy <span class="doc-status doc-missing">Missing</span></td><td class="priority"><span class="priority-pill priority-must">Must-Have</span></td><td class="wb"><span class="wb-pill wb-na">Not verified</span></td><td class="notes">Needs designated-agent registration with US Copyright Office for safe harbor.</td></tr>
-      <tr class="doc-row" data-id="ada" data-doc="1"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Accessibility Statement <span class="doc-status doc-missing">Missing</span></td><td class="priority"><span class="priority-pill priority-nice">Nice-to-Have</span></td><td class="wb"><span class="wb-pill wb-na">Not verified</span></td><td class="notes">ADA web accessibility.</td></tr>
+      <tr class="doc-row" id="row-code-of-ethics" data-id="code-of-ethics" data-doc="1"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic"><a href="smthg_codeofethics.html">Code of Ethics</a> <span class="doc-status doc-completed">Completed</span></td><td class="priority"><span class="priority-pill priority-must">Must-Have</span></td><td class="wb"><span class="wb-pill wb-yes">In W&amp;B</span></td><td class="notes">FTC Act, FTC Green Guides, FTC Endorsement Guides, FCPA.</td></tr>
+      <tr class="doc-row" id="row-dmca-agent" data-id="dmca-agent" data-doc="1"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">DMCA / Copyright Policy <span class="doc-status doc-notstarted">Not Started</span></td><td class="priority"><span class="priority-pill priority-must">Must-Have</span></td><td class="wb"><span class="wb-pill wb-na">Not verified</span></td><td class="notes">Needs designated-agent registration with US Copyright Office for safe harbor.</td></tr>
+      <tr class="doc-row" data-id="ada" data-doc="1"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Accessibility Statement <span class="doc-status doc-notstarted">Not Started</span></td><td class="priority"><span class="priority-pill priority-nice">Nice-to-Have</span></td><td class="wb"><span class="wb-pill wb-na">Not verified</span></td><td class="notes">ADA web accessibility.</td></tr>
     </tbody>
   </table>
   </div>
@@ -209,7 +210,7 @@ a{color:var(--ink);text-decoration:underline}
   <table class="risktable" data-cat="landing">
     <thead><tr><th style="width:34px"></th><th>Topic</th><th style="width:130px">Priority</th><th style="width:120px">vs. W&amp;B</th><th>Notes</th></tr></thead>
     <tbody>
-      <tr class="doc-row" id="row-cookie-policy-landing" data-id="cookie-policy-landing" data-doc="1"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic"><a href="smthg_cookiepolicy_v2.html">Cookie Policy — Landing</a> <span class="doc-status doc-live">Live</span></td><td class="priority"><span class="priority-pill priority-must">Must-Have</span></td><td class="wb"><span class="wb-pill wb-yes">In W&amp;B</span></td><td class="notes">Opt-in consent gate for Performance cookies (GA4, PostHog). Cookie Inventory table pending pre-publication verification.</td></tr>
+      <tr class="doc-row" id="row-cookie-policy-landing" data-id="cookie-policy-landing" data-doc="1"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic"><a href="smthg_cookiepolicy_v2.html">Cookie Policy — Landing</a> <span class="doc-status doc-completed">Completed</span></td><td class="priority"><span class="priority-pill priority-must">Must-Have</span></td><td class="wb"><span class="wb-pill wb-yes">In W&amp;B</span></td><td class="notes">Opt-in consent gate for Performance cookies (GA4, PostHog). Cookie Inventory table pending pre-publication verification.</td></tr>
     </tbody>
   </table>
   </div>
@@ -220,7 +221,7 @@ a{color:var(--ink);text-decoration:underline}
   <table class="risktable" data-cat="shopify">
     <thead><tr><th style="width:34px"></th><th>Topic</th><th style="width:130px">Priority</th><th style="width:120px">vs. W&amp;B</th><th>Notes</th></tr></thead>
     <tbody>
-      <tr class="doc-row" id="row-designer-tc"><td class="chk"></td><td class="topic"><a href="smthg_designer_terms.html">Designer T&amp;C</a> (<a href="smthg_designer_terms_public.html">public</a>) <span class="doc-status doc-live">Live</span></td><td class="priority"><span class="priority-pill priority-must">Must-Have</span></td><td class="wb"><span class="wb-pill wb-yes">In W&amp;B</span></td><td class="notes">29 chapters below.</td></tr>
+      <tr class="doc-row" id="row-designer-tc"><td class="chk"></td><td class="topic"><a href="smthg_designer_terms.html">Designer T&amp;C</a> (<a href="smthg_designer_terms_public.html">public</a>) <span class="doc-status doc-progress">In Progress</span></td><td class="priority"><span class="priority-pill priority-must">Must-Have</span></td><td class="wb"><span class="wb-pill wb-yes">In W&amp;B</span></td><td class="notes">29 chapters below.</td></tr>
       <tr class="chapter-row" data-id="us-sales-tax"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">US sales tax</td><td class="priority"><span class="priority-pill priority-must">Must-Have</span></td><td class="wb"><span class="wb-pill wb-partial">Partial</span></td><td class="notes">Marketplace-facilitator model — SMTHG collects/remits, not the Designer.</td></tr>
       <tr class="chapter-row" data-id="ip-ownership"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Designer IP ownership + license to SMTHG</td><td class="priority"><span class="priority-pill priority-must">Must-Have</span></td><td class="wb"><span class="wb-pill wb-yes">In W&amp;B</span></td><td class="notes">Designer retains IP, licenses to SMTHG.</td></tr>
       <tr class="chapter-row" data-id="general-compliance"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">General product-safety / labelling / textile compliance</td><td class="priority"><span class="priority-pill priority-must">Must-Have</span></td><td class="wb"><span class="wb-pill wb-yes">In W&amp;B</span></td><td class="notes">Federal product-safety/labelling liability stays with Designer.</td></tr>
@@ -250,7 +251,7 @@ a{color:var(--ink);text-decoration:underline}
       <tr class="chapter-row" data-id="prop65"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">California Prop 65 warnings</td><td class="priority"><span class="priority-pill priority-nice">Nice-to-Have</span></td><td class="wb"><span class="wb-pill wb-no">Not in W&amp;B</span></td><td class="notes">Relevant for CA sales with certain dyes/metals.</td></tr>
       <tr class="chapter-row" data-id="aml-kyc"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">AML / KYC on designers</td><td class="priority"><span class="priority-pill priority-nice">Nice-to-Have</span></td><td class="wb"><span class="wb-pill wb-no">Not in W&amp;B</span></td><td class="notes">Stripe Connect carries this duty.</td></tr>
       <tr class="chapter-row" data-id="auto-renewal"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Auto-renewal disclosure</td><td class="priority"><span class="priority-pill priority-nice">Nice-to-Have</span></td><td class="wb"><span class="wb-pill wb-yes">In W&amp;B</span></td><td class="notes">Platform Fee renews monthly.</td></tr>
-      <tr class="doc-row" id="row-buyer-doc-exists" data-id="buyer-doc-exists" data-doc="1"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Buyer / Consumer Terms <span class="doc-status doc-missing">Missing</span></td><td class="priority"><span class="priority-pill priority-must">Must-Have</span></td><td class="wb"><span class="wb-pill wb-yes">In W&amp;B</span></td><td class="notes">Needed for FTC/UDAP + tax-disclosure chapters below.</td></tr>
+      <tr class="doc-row" id="row-buyer-doc-exists" data-id="buyer-doc-exists" data-doc="1"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Buyer / Consumer Terms <span class="doc-status doc-notstarted">Not Started</span></td><td class="priority"><span class="priority-pill priority-must">Must-Have</span></td><td class="wb"><span class="wb-pill wb-yes">In W&amp;B</span></td><td class="notes">Needed for FTC/UDAP + tax-disclosure chapters below.</td></tr>
       <tr class="chapter-row" data-id="ftc-udap"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">FTC Act / state UDAP</td><td class="priority"><span class="priority-pill priority-must">Must-Have</span></td><td class="wb"><span class="wb-pill wb-na">Not verified</span></td><td class="notes">Deceptive pricing/delivery claims — not addressed.</td></tr>
       <tr class="chapter-row" data-id="refund-disclosure"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Refund-policy disclosure laws</td><td class="priority"><span class="priority-pill priority-must">Must-Have</span></td><td class="wb"><span class="wb-pill wb-yes">In W&amp;B</span></td><td class="notes">Some states require conspicuous posting of the refund policy.</td></tr>
       <tr class="chapter-row" data-id="consumer-tax-disclosure"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Sales tax disclosure to consumer</td><td class="priority"><span class="priority-pill priority-must">Must-Have</span></td><td class="wb"><span class="wb-pill wb-partial">Partial</span></td><td class="notes">Consumer-facing mirror of the Designer-side sales-tax fix.</td></tr>
@@ -258,7 +259,7 @@ a{color:var(--ink);text-decoration:underline}
       <tr class="chapter-row" data-id="preorder-escrow"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Pre-order funds held before shipment</td><td class="priority"><span class="priority-pill priority-nice">Nice-to-Have</span></td><td class="wb"><span class="wb-pill wb-na">N/A</span></td><td class="notes">Check state prepayment/trust rules.</td></tr>
       <tr class="chapter-row" data-id="consumer-arbitration"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Consumer arbitration limits</td><td class="priority"><span class="priority-pill priority-nice">Nice-to-Have</span></td><td class="wb"><span class="wb-pill wb-no">Not in W&amp;B</span></td><td class="notes">Some states restrict mandatory B2C arbitration more than B2B.</td></tr>
       <tr class="chapter-row" data-id="warranty-disclaimer"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Warranty disclaimers (Magnuson-Moss)</td><td class="priority"><span class="priority-pill priority-nice">Nice-to-Have</span></td><td class="wb"><span class="wb-pill wb-na">Not verified</span></td><td class="notes">Not addressed.</td></tr>
-      <tr class="doc-row" id="row-cookie-policy-shopify" data-id="cookie-policy-shopify" data-doc="1"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Cookie Policy — Shopify <span class="doc-status doc-missing">Missing</span></td><td class="priority"><span class="priority-pill priority-must">Must-Have</span></td><td class="wb"><span class="wb-pill wb-yes">In W&amp;B</span></td><td class="notes">Separate domain from Landing — own cart/checkout cookies.</td></tr>
+      <tr class="doc-row" id="row-cookie-policy-shopify" data-id="cookie-policy-shopify" data-doc="1"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Cookie Policy — Shopify <span class="doc-status doc-notstarted">Not Started</span></td><td class="priority"><span class="priority-pill priority-must">Must-Have</span></td><td class="wb"><span class="wb-pill wb-yes">In W&amp;B</span></td><td class="notes">Separate domain from Landing — own cart/checkout cookies.</td></tr>
     </tbody>
   </table>
   </div>
@@ -269,7 +270,7 @@ a{color:var(--ink);text-decoration:underline}
   <table class="risktable" data-cat="community">
     <thead><tr><th style="width:34px"></th><th>Topic</th><th style="width:130px">Priority</th><th style="width:120px">vs. W&amp;B</th><th>Notes</th></tr></thead>
     <tbody>
-      <tr class="doc-row" id="row-inf-doc-exists" data-id="inf-doc-exists" data-doc="1"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Influencer Agreement <span class="doc-status doc-missing">Missing</span></td><td class="priority"><span class="priority-pill priority-must">Must-Have</span></td><td class="wb"><span class="wb-pill wb-na">N/A</span></td><td class="notes">Needed to bind FTC disclosure requirement below. W&amp;B has no influencer role.</td></tr>
+      <tr class="doc-row" id="row-inf-doc-exists" data-id="inf-doc-exists" data-doc="1"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Influencer Agreement <span class="doc-status doc-notstarted">Not Started</span></td><td class="priority"><span class="priority-pill priority-must">Must-Have</span></td><td class="wb"><span class="wb-pill wb-na">N/A</span></td><td class="notes">Needed to bind FTC disclosure requirement below. W&amp;B has no influencer role.</td></tr>
       <tr class="chapter-row" data-id="inf-endorsement-guides"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">FTC Endorsement Guides (#ad disclosure)</td><td class="priority"><span class="priority-pill priority-must">Must-Have</span></td><td class="wb"><span class="wb-pill wb-na">N/A</span></td><td class="notes">Influencer must disclose material connection on every sponsored post.</td></tr>
       <tr class="chapter-row" data-id="inf-content-license"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Content license to SMTHG</td><td class="priority"><span class="priority-pill priority-must">Must-Have</span></td><td class="wb"><span class="wb-pill wb-na">N/A</span></td><td class="notes">Needed for SMTHG to reuse/repost influencer content.</td></tr>
       <tr class="chapter-row" data-id="inf-compensation"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Compensation / payout structure</td><td class="priority"><span class="priority-pill priority-nice">Nice-to-Have</span></td><td class="wb"><span class="wb-pill wb-na">N/A</span></td><td class="notes">Not defined.</td></tr>
@@ -277,8 +278,8 @@ a{color:var(--ink);text-decoration:underline}
       <tr class="chapter-row" data-id="inf-exclusivity"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Exclusivity / non-compete</td><td class="priority"><span class="priority-pill priority-nice">Nice-to-Have</span></td><td class="wb"><span class="wb-pill wb-na">N/A</span></td><td class="notes">Not decided.</td></tr>
       <tr class="chapter-row" data-id="inf-termination"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Suspension &amp; termination</td><td class="priority"><span class="priority-pill priority-nice">Nice-to-Have</span></td><td class="wb"><span class="wb-pill wb-na">N/A</span></td><td class="notes">Not written.</td></tr>
       <tr class="chapter-row" data-id="inf-founding-tier"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Founding Creator tier definition</td><td class="priority"><span class="priority-pill priority-nice">Nice-to-Have</span></td><td class="wb"><span class="wb-pill wb-na">N/A</span></td><td class="notes">Not formally defined.</td></tr>
-      <tr class="doc-row" data-id="community-guidelines" data-doc="1"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Community Guidelines / So-Me-Space Rules <span class="doc-status doc-missing">Missing</span></td><td class="priority"><span class="priority-pill priority-nice">Nice-to-Have</span></td><td class="wb"><span class="wb-pill wb-na">N/A</span></td><td class="notes">Doesn't exist yet.</td></tr>
-      <tr class="doc-row" id="row-cookie-policy-community" data-id="cookie-policy-community" data-doc="1"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Cookie Policy — Community <span class="doc-status doc-missing">Missing</span></td><td class="priority"><span class="priority-pill priority-must">Must-Have</span></td><td class="wb"><span class="wb-pill wb-na">N/A</span></td><td class="notes">Circle may already publish its own — confirm before writing one.</td></tr>
+      <tr class="doc-row" data-id="community-guidelines" data-doc="1"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Community Guidelines / So-Me-Space Rules <span class="doc-status doc-notstarted">Not Started</span></td><td class="priority"><span class="priority-pill priority-nice">Nice-to-Have</span></td><td class="wb"><span class="wb-pill wb-na">N/A</span></td><td class="notes">Doesn't exist yet.</td></tr>
+      <tr class="doc-row" id="row-cookie-policy-community" data-id="cookie-policy-community" data-doc="1"><td class="chk"><input type="checkbox" class="rowchk"></td><td class="topic">Cookie Policy — Community <span class="doc-status doc-notstarted">Not Started</span></td><td class="priority"><span class="priority-pill priority-must">Must-Have</span></td><td class="wb"><span class="wb-pill wb-na">N/A</span></td><td class="notes">Circle may already publish its own — confirm before writing one.</td></tr>
     </tbody>
   </table>
   </div>
