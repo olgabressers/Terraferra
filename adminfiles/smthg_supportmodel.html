@@ -64,6 +64,10 @@ h1{font-size:clamp(24px,3.8vw,40px);font-weight:900;letter-spacing:-1.2px;margin
 .tcol .item.reject .t-name{color:var(--sub);text-decoration:line-through;text-decoration-color:var(--tf)}
 .tcol .item.reject .t-note{color:var(--ink)}
 
+/* OPEN QUESTION BOX */
+.info-box{background:var(--amber-bg);border-left:4px solid var(--amber);border-radius:0 8px 8px 0;padding:14px 18px;margin-top:20px;font-size:14px;color:var(--ink);line-height:1.6}
+.info-box strong{color:#92400E}
+
 /* RECOMMENDATION */
 .rec-box{background:var(--ink);color:white;border-radius:10px;padding:24px 28px;margin-top:4px}
 .rec-box .lbl{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#C4B5FF;margin-bottom:8px}
@@ -253,6 +257,10 @@ table.trig tr:last-child td{border-bottom:none}
       </div>
     </div>
 
+  </div>
+
+  <div class="info-box">
+    <strong>Open question — payout sequencing:</strong> Stripe's 2.9% + $0.30/order fee is charged on the order total. Not yet confirmed: does Stripe process the full order first, then the influencer's commission is paid out, then the remaining balance goes to the designer — or does each party's share get processed as a separate transaction with its own fee? This determines who absorbs the Stripe fee and needs to be resolved before payout logic is built.
   </div>
 
   <!-- ═══ RECOMMENDATION ═══ -->
