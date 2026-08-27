@@ -77,6 +77,15 @@ body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--ink);ove
 @media(max-width:900px){.space-grid{grid-template-columns:1fr;gap:28px}.space-photo{min-height:280px;order:-1}}
 @media(max-width:600px){.space-section{padding:48px 0}}
 
+/* ── CREATOR COLLABORATION ── */
+.creator-section{padding:64px 0;background:var(--off)}
+.creator-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
+.creator-photo{border-radius:14px;min-height:380px;background-size:cover;background-position:center;box-shadow:0 18px 44px rgba(22,22,22,.1)}
+.creator-section .sec-lede{margin-bottom:14px}
+.creator-section .sec-lede:last-child{margin-bottom:0}
+@media(max-width:900px){.creator-grid{grid-template-columns:1fr;gap:28px}.creator-photo{min-height:280px;order:-1}}
+@media(max-width:600px){.creator-section{padding:48px 0}}
+
 /* ── 3 VALUE CARDS ── */
 .val-section{padding:64px 0;background:var(--cream)}
 .val-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
@@ -213,6 +222,21 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.07);padding:
   </div>
 </section>
 
+<!-- CREATOR COLLABORATION -->
+<section class="creator-section" id="creators">
+  <div class="container">
+    <div class="creator-grid">
+      <div>
+        <span class="sec-label">Creator Collaboration</span>
+        <h2 class="sec-h2">We find the creator who fits your brand.</h2>
+        <p class="sec-lede">smthg runs the creator side for you — selection, brief, and campaign. We match your drop with creators whose audience already follows labels like yours, so your team stays on the product.</p>
+        <p class="sec-lede">The creator presents your pieces through virtual try-on. Consumers see how a piece sits on a real body before they order, and your drop reaches an audience that was already looking for it.</p>
+      </div>
+      <div class="creator-photo" style="background-image:url('https://images.unsplash.com/photo-1766193230264-781eacb6f9a3?w=900&q=80&auto=format&fit=crop')"></div>
+    </div>
+  </div>
+</section>
+
 <!-- 3 VALUE PROPS -->
 <section class="val-section" id="why">
   <div class="container">
@@ -329,7 +353,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.07);padding:
   <div class="container">
     <div class="banner-photo" style="background-image:url('https://images.unsplash.com/photo-1751973016433-377b96694b0a?w=1400&q=80&auto=format&fit=crop')">
       <div class="banner-overlay">
-        <div class="banner-text">Every consumer who finds you here already wanted to.</div>
+        <div class="banner-text">The people who want your work are already here.</div>
       </div>
     </div>
   </div>
