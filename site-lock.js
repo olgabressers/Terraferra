@@ -1,6 +1,6 @@
 (function(){
   var KEY = 'smthg_unlocked_v1';
-  var PASSWORD = 'smthg2026!us';
+  var PASSWORD = 'us!smthg2026';
   if (sessionStorage.getItem(KEY) === '1') return;
   document.documentElement.style.visibility = 'hidden';
   document.addEventListener('DOMContentLoaded', function(){
