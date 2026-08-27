@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <meta name="robots" content="noindex, nofollow"/>
 <script src="/site-lock.js"></script>
-<title>Cookie Policy — Draft v2</title>
+<title>Cookie Policy</title>
 <link rel="icon" type="image/svg+xml" href="smthg_favicon.svg"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
@@ -36,8 +36,6 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 h1{font-size:clamp(24px,3.5vw,34px);font-weight:900;letter-spacing:-1px;line-height:1.15;color:var(--ink);margin-bottom:6px}
 .effective{font-size:13px;color:var(--sub);margin-bottom:16px}
 
-.badge{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;padding:4px 12px;border-radius:20px;background:var(--amber-bg);color:var(--amber);margin-bottom:28px}
-
 h2{font-size:16px;font-weight:800;color:var(--ink);margin:32px 0 12px}
 h3{font-size:13.5px;font-weight:800;color:var(--tf-dark);text-transform:uppercase;letter-spacing:.5px;margin:24px 0 10px}
 p{font-size:14.5px;line-height:1.75;color:var(--ink);margin-bottom:12px}
@@ -56,13 +54,6 @@ table.doctable td{padding:9px 12px;border-bottom:1px solid var(--rule);vertical-
 table.doctable tr:last-child td{border-bottom:none}
 code{background:var(--tf-ghost);padding:1px 6px;border-radius:4px;font-size:12.5px}
 
-hr{border:none;border-top:1px solid var(--rule);margin:44px 0}
-
-.compare-pill{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.3px;text-transform:uppercase;padding:3px 10px;border-radius:20px;white-space:nowrap}
-.pill-v1{background:var(--tf-ghost);color:var(--sub)}
-.pill-v2{background:var(--green-bg);color:var(--green)}
-.pill-flag{background:#FCE4E8;color:var(--tf-dark)}
-
 #btt{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--tf);color:white;border:none;border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900}
 #btt:hover{background:var(--tf-dark)}
 @media(max-width:700px){#btt{width:38px;height:38px;font-size:17px;bottom:16px;right:16px}}
@@ -72,17 +63,12 @@ hr{border:none;border-top:1px solid var(--rule);margin:44px 0}
 
 <nav class="topnav">
   <a class="topnav-home" href="index.html">smthg<span style="color:var(--tf)">.</span></a>
-  <div class="topnav-links">
-    <a href="smthg_cookiepolicy.html">← Cookie Policy (v1, live)</a>
-    <a href="index.html">Index</a>
-  </div>
 </nav>
 
 <div class="wrap">
 
-  <h1>Cookie Policy — Draft v2</h1>
-  <p class="effective">smthg.</p>
-  <div class="badge">Draft candidate — not published as the site's Cookie Policy</div>
+  <h1>Cookie Policy</h1>
+  <p class="effective">Effective date: [insert publication date] · Applies to: smthg.us</p>
 
   <p>SMTHG Inc., a Delaware corporation ("SMTHG", "we", "us", or "our"), uses cookies and similar technologies on smthg.us (the "Website"). This Cookie Policy explains how we use them. It should be read together with our <a href="smthg_privacy.html">Privacy Policy</a>, which explains how we process personal information and how to exercise your privacy rights.</p>
 
@@ -151,30 +137,6 @@ hr{border:none;border-top:1px solid var(--rule);margin:44px 0}
 
   <h2>9. Contact Us</h2>
   <p>If you have questions about this Cookie Policy or our use of cookies, contact us at <a href="mailto:contact@smthg.us">contact@smthg.us</a>.</p>
-
-  <hr/>
-
-  <h2 style="margin-top:0">Comparison — v2 Draft vs. Live v1</h2>
-  <p class="effective" style="margin-bottom:18px">Same substance: intro concept, Strictly Necessary category, third-party-processor language, Changes-to-Policy, Contact. Differences below.</p>
-
-  <h3>Structural — wording/organization only</h3>
-  <ul>
-    <li>9 sections vs. v1's 7 — v2 adds an explicit scope carve-out (Website vs. a separate shop domain vs. the Community website) and a Cookie Inventory table with <code>[verify before publication]</code> placeholders. v1 only states this in prose.</li>
-    <li>v2 calls the Privacy document a "Privacy Notice" linked at smthg.us/privacy; v1 calls it "Privacy Policy" with a relative link. Same document, different naming.</li>
-  </ul>
-
-  <h3>Substantive — different facts, not just wording</h3>
-  <div class="table-scroll">
-  <table class="doctable">
-    <thead><tr><th>Topic</th><th>v2 draft</th><th>v1 live</th><th>Why they differ</th></tr></thead>
-    <tbody>
-      <tr><td><strong>Consent model</strong></td><td>Opt-in — Performance cookies don't fire until "Accept analytics" is clicked in a banner, with a Cookie Settings footer link</td><td>No consent gate — cookies described, controlled via browser settings + GPC only</td><td>v1 was built on the assessment that an opt-in gate is a GDPR/EU requirement, not required under CCPA/CPRA for a US-only business. v2 implements the opt-in gate anyway.</td></tr>
-      <tr><td><strong>Analytics vendor</strong></td><td>Names Google Analytics 4 (via Google Tag Manager) and PostHog specifically, with links to their privacy policies</td><td>Vendor left unnamed</td><td>No project document (architecture.html, budget.html) confirms GA4 or PostHog — the only candidates referenced anywhere are Mixpanel and Amplitude. v1 avoided naming an undecided vendor.</td></tr>
-      <tr><td><strong>Global Privacy Control</strong></td><td>Conditional: "if a future practice is legally treated as sale/sharing, we will honor GPC"</td><td>Unconditional: "we honor GPC signals... under CCPA/CPRA"</td><td>v2's phrasing is more precise — both versions state SMTHG doesn't sell/share today, so there is technically nothing yet for GPC to opt out of.</td></tr>
-    </tbody>
-  </table>
-  </div>
-  <p style="margin-top:14px"><strong>Open question:</strong> the opt-in gate and the GA4/PostHog naming reverse a call made when building v1 and introduce a vendor choice not found anywhere else in the project. If this draft reflects an actual decision (counsel-drafted, or a confirmed tech-stack choice), v1 should be rebuilt to match.</p>
 
 </div>
 
