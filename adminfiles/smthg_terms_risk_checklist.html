@@ -35,7 +35,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 
 h1{font-size:clamp(24px,3.8vw,40px);font-weight:900;letter-spacing:-1.2px;margin-top:10px;line-height:1.1;color:var(--ink)}
 
-.overview{font-size:14.5px;line-height:1.7;color:var(--ink);margin:14px 0 18px;max-width:920px}
+.overview{font-size:14.5px;line-height:1.9;color:var(--ink);margin:14px 0 18px 20px;max-width:600px}
 .overview strong{font-weight:800}
 
 .legend{background:white;border:1px solid var(--rule);border-radius:10px;padding:12px 18px;font-size:12px;color:var(--sub);line-height:1.8;margin-bottom:22px}
@@ -123,7 +123,11 @@ a{color:var(--ink);text-decoration:underline}
 
   <h1>smthg<span style="color:var(--tf)">.</span> Terms &amp; Conditions — Risk Checklist</h1>
 
-  <p class="overview">smthg. runs across three properties: <strong>Landing</strong> (smthg.us, the marketing site on Framer), <strong>Shopify</strong> (the commerce layer — Designers, Consumers, orders, payments), and <strong>Community</strong> (hosted on Circle — So-Me-Space, Influencers). <strong>Privacy Policy</strong> and <strong>Code of Ethics</strong> are combined policies that apply across Landing + Shopify. <strong>Cookie Policy is separate for each property</strong> — cookies don't cross domains, so Landing, Shopify, and Community each need their own.</p>
+  <ul class="overview">
+    <li><strong>Landing</strong> + <strong>Shopify</strong> → share Combined Policies</li>
+    <li><strong>Community</strong> → separate, own policies — never combined with Landing/Shopify</li>
+    <li><strong>Cookie Policy</strong> → separate per property (Landing / Shopify / Community)</li>
+  </ul>
 
   <div class="legend"><strong>Must-Have</strong> = required by US law to operate legally · <strong>Nice-to-Have</strong> = not legally required, discretionary · <strong>vs. W&amp;B</strong> = whether Wolf &amp; Badger's real Seller/Customer Terms has an equivalent clause · <strong>Live</strong> = published · <strong>Doc missing</strong> = not written yet · indented ↳ rows are chapters inside the document above them, not separate documents.</div>
 
@@ -189,7 +193,6 @@ a{color:var(--ink);text-decoration:underline}
 
   <!-- ═══ A. COMBINED POLICIES — LANDING + SHOPIFY ═══ -->
   <h2 class="sec-h2" id="sec-combined"><span class="sec-num">A.</span> Combined Policies — Landing + Shopify <span class="doc-count-pill">4 documents (2 chapters nested under Privacy Policy)</span></h2>
-  <p class="sec-sub">Apply across Landing and Shopify — not Community, which uses its own.</p>
   <div class="table-scroll">
   <table class="risktable" data-cat="combined">
     <thead><tr><th style="width:34px"></th><th>Topic</th><th style="width:130px">Priority (US Law)</th><th style="width:120px">vs. W&amp;B</th><th>Notes</th></tr></thead>
@@ -206,7 +209,6 @@ a{color:var(--ink);text-decoration:underline}
 
   <!-- ═══ B. LANDING ═══ -->
   <h2 class="sec-h2" id="sec-landing"><span class="sec-num">B.</span> Landing <span class="doc-count-pill">1 document</span></h2>
-  <p class="sec-sub">smthg.us marketing site, built on Framer.</p>
   <div class="table-scroll">
   <table class="risktable" data-cat="landing">
     <thead><tr><th style="width:34px"></th><th>Topic</th><th style="width:130px">Priority (US Law)</th><th style="width:120px">vs. W&amp;B</th><th>Notes</th></tr></thead>
@@ -218,7 +220,6 @@ a{color:var(--ink);text-decoration:underline}
 
   <!-- ═══ C. SHOPIFY ═══ -->
   <h2 class="sec-h2" id="sec-shopify"><span class="sec-num">C.</span> Shopify <span class="doc-count-pill">3 documents, 36 chapters</span></h2>
-  <p class="sec-sub">The commerce layer — Designers, Consumers, orders, payments.</p>
   <div class="table-scroll">
   <table class="risktable" data-cat="shopify">
     <thead><tr><th style="width:34px"></th><th>Topic</th><th style="width:130px">Priority (US Law)</th><th style="width:120px">vs. W&amp;B</th><th>Notes</th></tr></thead>
@@ -268,7 +269,6 @@ a{color:var(--ink);text-decoration:underline}
 
   <!-- ═══ D. COMMUNITY ═══ -->
   <h2 class="sec-h2" id="sec-community"><span class="sec-num">D.</span> Community <span class="doc-count-pill">3 documents, 7 chapters</span></h2>
-  <p class="sec-sub">Hosted on Circle — So-Me-Space, Influencers.</p>
   <div class="table-scroll">
   <table class="risktable" data-cat="community">
     <thead><tr><th style="width:34px"></th><th>Topic</th><th style="width:130px">Priority (US Law)</th><th style="width:120px">vs. W&amp;B</th><th>Notes</th></tr></thead>
@@ -289,7 +289,6 @@ a{color:var(--ink);text-decoration:underline}
 
   <!-- ═══ E. CORPORATE ═══ -->
   <h2 class="sec-h2" id="sec-corporate"><span class="sec-num">E.</span> Corporate / Internal Compliance <span class="doc-count-pill">0 documents, 5 action items</span></h2>
-  <p class="sec-sub">Internal business actions, not contract clauses or published documents.</p>
   <div class="table-scroll">
   <table class="risktable" data-cat="corporate">
     <thead><tr><th style="width:34px"></th><th>Topic</th><th style="width:130px">Priority (US Law)</th><th style="width:120px">vs. W&amp;B</th><th>Notes</th></tr></thead>
