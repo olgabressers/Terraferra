@@ -47,6 +47,8 @@ a{color:var(--ink);text-decoration:underline}
 .callout{background:var(--amber-bg);border:1px solid #F3D9A8;border-radius:8px;padding:14px 16px;font-size:13.5px;line-height:1.65;color:var(--ink);margin-bottom:14px}
 .callout strong{color:var(--amber)}
 
+.needs-input{background:var(--amber-bg);color:#8A4B00;font-weight:800;padding:1px 7px;border-radius:5px;border:1px solid #F3D9A8}
+
 .table-scroll{overflow-x:auto;margin-bottom:16px;border-radius:8px}
 table.doctable{width:100%;border-collapse:collapse;font-size:13px;background:white;border:1px solid var(--rule);border-radius:8px;overflow:hidden;min-width:520px}
 table.doctable th{background:var(--ink);color:white;text-align:left;padding:8px 12px;font-size:10.5px;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap}
@@ -68,7 +70,7 @@ code{background:var(--tf-ghost);padding:1px 6px;border-radius:4px;font-size:12.5
 <div class="wrap">
 
   <h1>Cookie Policy</h1>
-  <p class="effective">Effective date: [insert publication date] · Applies to: smthg.us</p>
+  <p class="effective">Effective date: <span class="needs-input">[insert publication date]</span> · Applies to: smthg.us</p>
 
   <p>SMTHG Inc., a Delaware corporation ("SMTHG", "we", "us", or "our"), uses cookies and similar technologies on smthg.us (the "Website"). This Cookie Policy explains how we use them. It should be read together with our <span style="color:var(--tf)">Privacy Policy</span>, which explains how we process personal information and how to exercise your privacy rights.</p>
 
@@ -110,9 +112,9 @@ code{background:var(--tf-ghost);padding:1px 6px;border-radius:4px;font-size:12.5
   <table class="doctable">
     <thead><tr><th>Cookie / storage key</th><th>Provider</th><th>1st/3rd-party</th><th>Purpose</th><th>Duration</th><th>Category</th></tr></thead>
     <tbody>
-      <tr><td><code>[verify before publication]</code></td><td>Cookie preference manager</td><td>First-party</td><td>Stores the visitor's cookie choice</td><td><code>[verify]</code></td><td>Strictly Necessary</td></tr>
-      <tr><td><code>[verify before publication]</code></td><td>Google Analytics 4, if enabled</td><td><code>[verify]</code></td><td>Website measurement</td><td><code>[verify]</code></td><td>Performance</td></tr>
-      <tr><td><code>[verify before publication]</code></td><td>PostHog, if enabled</td><td><code>[verify]</code></td><td>Website and product measurement</td><td><code>[verify]</code></td><td>Performance</td></tr>
+      <tr><td><code class="needs-input">[verify before publication]</code></td><td>Cookie preference manager</td><td>First-party</td><td>Stores the visitor's cookie choice</td><td><code class="needs-input">[verify]</code></td><td>Strictly Necessary</td></tr>
+      <tr><td><code class="needs-input">[verify before publication]</code></td><td>Google Analytics 4, if enabled</td><td><code class="needs-input">[verify]</code></td><td>Website measurement</td><td><code class="needs-input">[verify]</code></td><td>Performance</td></tr>
+      <tr><td><code class="needs-input">[verify before publication]</code></td><td>PostHog, if enabled</td><td><code class="needs-input">[verify]</code></td><td>Website and product measurement</td><td><code class="needs-input">[verify]</code></td><td>Performance</td></tr>
     </tbody>
   </table>
   </div>
