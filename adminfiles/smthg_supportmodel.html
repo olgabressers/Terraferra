@@ -64,6 +64,16 @@ h1{font-size:clamp(24px,3.8vw,40px);font-weight:900;letter-spacing:-1.2px;margin
 .tcol .item.reject .t-name{color:var(--sub);text-decoration:line-through;text-decoration-color:var(--tf)}
 .tcol .item.reject .t-note{color:var(--ink)}
 
+/* SHARED TOOLS — 4TH PILLAR, HORIZONTAL BELOW THE 3 */
+.shared-tools{background:var(--tf-ghost);border:1px solid var(--rule);border-radius:10px;padding:20px 22px;margin-top:16px}
+.shared-tools h3{font-size:15px;font-weight:900;margin-bottom:2px;color:var(--tf)}
+.shared-tools .sub-lbl{font-size:11.5px;color:var(--sub);margin-bottom:14px}
+.shared-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+@media(max-width:900px){.shared-grid{grid-template-columns:1fr}}
+.shared-grid .t-name{font-size:13px;font-weight:800;color:var(--ink)}
+.shared-grid .t-note{font-size:11.5px;color:var(--sub);line-height:1.5;margin-top:2px}
+.shared-grid .t-cost{font-size:11px;font-weight:700;color:var(--tf)}
+
 /* OPEN QUESTION BOX */
 .info-box{background:var(--amber-bg);border-left:4px solid var(--amber);border-radius:0 8px 8px 0;padding:14px 18px;margin-top:20px;font-size:14px;color:var(--ink);line-height:1.6}
 .info-box strong{color:#92400E}
@@ -182,21 +192,6 @@ table.trig tr:last-child td{border-bottom:none}
         <div class="t-note">Commission payout processing</div>
         <div class="t-cost">2.9% + $0.30/order</div>
       </div>
-      <div class="item">
-        <div class="t-name">CRM — influencer tracking</div>
-        <div class="t-note">Track influencer relationships, outreach status, content deliverables — tool not yet selected</div>
-        <div class="t-cost">Not yet selected</div>
-      </div>
-      <div class="item">
-        <div class="t-name">Contract management tool</div>
-        <div class="t-note">Influencer agreements — deliverables, usage rights, payment terms — tool not yet selected</div>
-        <div class="t-cost">Not yet selected</div>
-      </div>
-      <div class="item">
-        <div class="t-name">Analytics tool</div>
-        <div class="t-note">Influencer content performance — reach, engagement, conversion — tool not yet selected</div>
-        <div class="t-cost">Not yet selected</div>
-      </div>
     </div>
 
     <div class="tcol">
@@ -252,6 +247,28 @@ table.trig tr:last-child td{border-bottom:none}
       </div>
     </div>
 
+  </div>
+
+  <div class="shared-tools">
+    <h3>Shared — Influencers, Designers &amp; Consumers</h3>
+    <div class="sub-lbl">Required across all 3 flows — not specific to one pillar</div>
+    <div class="shared-grid">
+      <div class="item">
+        <div class="t-name">CRM — influencer tracking</div>
+        <div class="t-note">Track influencer relationships, outreach status, content deliverables — tool not yet selected</div>
+        <div class="t-cost">Not yet selected</div>
+      </div>
+      <div class="item">
+        <div class="t-name">Contract management tool</div>
+        <div class="t-note">Influencer agreements — deliverables, usage rights, payment terms — tool not yet selected</div>
+        <div class="t-cost">Not yet selected</div>
+      </div>
+      <div class="item">
+        <div class="t-name">Analytics tool</div>
+        <div class="t-note">Influencer content performance — reach, engagement, conversion — tool not yet selected</div>
+        <div class="t-cost">Not yet selected</div>
+      </div>
+    </div>
   </div>
 
   <div class="info-box">
