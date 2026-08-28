@@ -104,6 +104,8 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
 
   <div class="callout"><span class="pill">Structural note</span><p>ZZP is <strong>not</strong> a subsidiary of SMTHG Inc. — it is Olga personally, registered as a Dutch sole trader, invoicing SMTHG Inc. as an independent contractor. A real "daughter company" requires either a <strong>BV</strong> or a <strong>Branch Office</strong> registration below. All 4 paths are compared so the tradeoff is visible.</p></div>
 
+  <div class="callout"><span class="pill">Blocker</span><p>Branch Office and BV both require a signature from a <strong>director of SMTHG Inc.</strong> — KVK explicitly does not accept a lawyer, notary, or authorized representative for this declaration. SMTHG has no board-appointed officer yet (see <a href="smthg_accounting_tax.html#s01b" style="color:var(--tf);font-weight:700">Legal — Before the Pre-Seed Round Closes, Action 1</a>). That appointment has to happen first, regardless of which option is chosen.</p></div>
+
   <!-- COMPARISON -->
   <div class="section" id="s01">
     <div class="sec-heading">4 Options — Side by Side</div>
@@ -168,9 +170,10 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
           <tr><td></td><td class="num">2</td><td>Notary registers the BV with KVK directly and registers the UBO (Olga, as CEO/owner via SMTHG Inc.)</td></tr>
           <tr><td></td><td class="num">3</td><td>Tax Administration mails the VAT number within ~2 weeks of registration</td></tr>
           <tr><td></td><td class="num">4</td><td>Engage a Dutch accountant for ongoing bookkeeping + annual accounts (due within 5 months of year-end)</td></tr>
-          <tr><td class="opt">Branch Office</td><td class="num">1</td><td>Gather: proof of SMTHG Inc.'s US registration (&lt;1 month old), certified articles of incorporation, proof of officer appointment, proof of a Dutch address</td></tr>
-          <tr><td></td><td class="num">2</td><td>Book a KVK appointment (director/manager attends, or submits documents if abroad) with KVK Forms 6, 11, or 13</td></tr>
-          <tr><td></td><td class="num">3</td><td>KVK number issued within a few working days of the appointment</td></tr>
+          <tr><td class="opt">Branch Office</td><td class="num">1</td><td>Board resolution appointing a director/officer of SMTHG Inc. first — required before anyone can legally sign for the company (see Blocker above)</td></tr>
+          <tr><td></td><td class="num">2</td><td>Gather: proof of SMTHG Inc.'s US registration (&lt;1 month old), certified articles of incorporation, proof of the director's appointment, proof of a Dutch address</td></tr>
+          <tr><td></td><td class="num">3</td><td>That director attends the KVK appointment in person and signs (or, if abroad, submits documents instead) — a branch manager may attend in their place only with a Dutch-language power of attorney, originally signed by the director</td></tr>
+          <tr><td></td><td class="num">4</td><td>KVK number issued within a few working days of the appointment</td></tr>
           <tr><td class="opt">ZZP</td><td class="num">1</td><td>Olga pre-registers online with DigiD (~15 min)</td></tr>
           <tr><td></td><td class="num">2</td><td>Attend a KVK appointment in person — KVK number issued same-day (or by post in the week of the stated start date, if registered up to 3 months ahead)</td></tr>
           <tr><td></td><td class="num">3</td><td>VAT registration triggers automatically above €20,000/yr turnover (KOR small-business threshold)</td></tr>
@@ -183,21 +186,44 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
     </div>
   </div>
 
-  <!-- W&B -->
-  <div class="section" id="s03">
-    <div class="sec-heading">How Wolf &amp; Badger Structures It</div>
-    <div class="sec-note">Confirmed via UK Companies House (official registry) + their published seller Terms &amp; Conditions. One agreement, 4 regional contracting entities.</div>
+  <!-- VAT-ONLY COSTS -->
+  <div class="section" id="s02b">
+    <div class="sec-heading">VAT-Only — Setup &amp; Provider Costs in Detail</div>
+    <div class="sec-note">The NL government charges no fee to register directly with Kantoor Buitenland. These providers are optional — they handle the filing for you instead of doing it yourself.</div>
     <div class="gtable-wrap">
       <table class="gtable">
         <thead>
-          <tr><th style="width:20%">Entity</th><th style="width:16%">Country</th><th style="width:20%">Registration</th><th>Role</th></tr>
+          <tr><th style="width:16%">Cost Item</th><th style="width:14%">Type</th><th style="width:20%">Amount</th><th style="width:26%">Covers</th><th>Source</th></tr>
         </thead>
         <tbody>
-          <tr><td>Wolf &amp; Badger Ltd</td><td>UK</td><td>Companies House #06980629</td><td>Primary UK/global holding + trading entity; contracting party for UK sellers</td></tr>
-          <tr><td>Wolf &amp; Badger EU Ltd</td><td>Ireland</td><td>VAT IE3766537AH</td><td>Contracting party for EU-based sellers</td></tr>
-          <tr><td>Wolf &amp; Badger US Inc.</td><td>US (Delaware-registered-agent address)</td><td><span class="tag-unconf">Unconfirmed</span> state of incorporation</td><td>Contracting party for US sellers</td></tr>
-          <tr><td>Wolf &amp; Badger AU Pty Ltd</td><td>Australia</td><td>—</td><td>Contracting party for AU sellers</td></tr>
-          <tr><td>Wolf &amp; Badger NY LLC</td><td>US (New York)</td><td>—</td><td>Operates the physical NYC store only</td></tr>
+          <tr><td>Direct self-filing with Kantoor Buitenland</td><td><span class="tag-fixed">Fixed</span></td><td><span class="tag-unconf">Unconfirmed</span> — likely €0</td><td>VAT ID issuance only — you file returns yourself going forward</td><td><a href="https://business.gov.nl/regulations/vat-businesses-outside-netherlands/" target="_blank" rel="noopener">business.gov.nl ↗</a></td></tr>
+          <tr><td>hellotax</td><td><span class="tag-var">Variable</span></td><td>From €39/month</td><td>EU VAT registration + ongoing filings</td><td><a href="https://hellotax.com/pricing" target="_blank" rel="noopener">hellotax.com/pricing ↗</a></td></tr>
+          <tr><td>SimpleVAT — Lite</td><td><span class="tag-var">Variable</span></td><td>$25/month</td><td>Up to 60 orders/month</td><td><a href="https://www.simplevat.eu/pricing/" target="_blank" rel="noopener">simplevat.eu/pricing ↗</a></td></tr>
+          <tr><td>SimpleVAT — Pro</td><td><span class="tag-var">Variable</span></td><td>$60/month</td><td>Unlimited orders</td><td><a href="https://www.simplevat.eu/pricing/" target="_blank" rel="noopener">simplevat.eu/pricing ↗</a></td></tr>
+          <tr><td>SimpleVAT — OSS filing</td><td><span class="tag-var">Variable</span></td><td>$65/month</td><td>One-Stop-Shop return filing specifically</td><td><a href="https://www.simplevat.eu/pricing/" target="_blank" rel="noopener">simplevat.eu/pricing ↗</a></td></tr>
+          <tr><td>SimpleVAT — local VAT filing</td><td><span class="tag-var">Variable</span></td><td>$74/month</td><td>Local returns, multi-country incl. NL</td><td><a href="https://www.simplevat.eu/pricing/" target="_blank" rel="noopener">simplevat.eu/pricing ↗</a></td></tr>
+          <tr><td>Avalara — full-service</td><td><span class="tag-var">Variable</span></td><td>$2,000–5,000/region/yr <span class="tag-unconf">Unconfirmed</span></td><td>Registration + calculation + filing; Avalara does not publish pricing — this is a third-party estimate, not their own quote</td><td><a href="https://www.getsphere.com/blog/how-much-does-avalara-cost" target="_blank" rel="noopener">getsphere.com ↗</a></td></tr>
+          <tr><td>IOSS intermediary (if shipping goods ≤€150 from outside the EU)</td><td><span class="tag-var">Variable</span></td><td><span class="tag-unconf">Unconfirmed</span> — separate fee on top of VAT registration, not priced by any source above</td><td>Mandatory EU-based intermediary for a non-EU seller with no EU establishment</td><td><a href="https://vat-one-stop-shop.ec.europa.eu/one-stop-shop/register-oss_en" target="_blank" rel="noopener">EU Commission OSS ↗</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- W&B -->
+  <div class="section" id="s03">
+    <div class="sec-heading">How Wolf &amp; Badger Structures It</div>
+    <div class="sec-note">Confirmed via UK Companies House (official registry) + their published seller Terms &amp; Conditions. One agreement, 4 regional contracting entities — every region is a full subsidiary. None of the 4 use a Branch Office, ZZP, or VAT-only equivalent.</div>
+    <div class="gtable-wrap">
+      <table class="gtable">
+        <thead>
+          <tr><th style="width:18%">Entity</th><th style="width:14%">Country</th><th style="width:18%">Registration</th><th style="width:20%">Role</th><th>Maps to Our Option</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Wolf &amp; Badger Ltd</td><td>UK</td><td>Companies House #06980629</td><td>Primary UK/global holding + trading entity; contracting party for UK sellers</td><td><strong>BV-equivalent</strong> — UK private limited company, full subsidiary</td></tr>
+          <tr><td>Wolf &amp; Badger EU Ltd</td><td>Ireland</td><td>VAT IE3766537AH</td><td>Contracting party for EU-based sellers</td><td><strong>BV-equivalent</strong> — Irish Ltd (same legal concept as a Dutch BV), full subsidiary</td></tr>
+          <tr><td>Wolf &amp; Badger US Inc.</td><td>US (Delaware-registered-agent address)</td><td><span class="tag-unconf">Unconfirmed</span> state of incorporation</td><td>Contracting party for US sellers</td><td>Same category SMTHG Inc. already is — not a European option</td></tr>
+          <tr><td>Wolf &amp; Badger AU Pty Ltd</td><td>Australia</td><td>—</td><td>Contracting party for AU sellers</td><td><strong>BV-equivalent</strong> — Australian Pty Ltd, full subsidiary</td></tr>
+          <tr><td>Wolf &amp; Badger NY LLC</td><td>US (New York)</td><td>—</td><td>Operates the physical NYC store only</td><td>Not a European option — physical-retail LLC</td></tr>
         </tbody>
       </table>
     </div>
@@ -207,6 +233,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <div class="section" id="s04">
     <div class="sec-heading">Recommendation</div>
     <ul class="reco">
+      <li>Officer appointment (Blocker above) is on the critical path for both BV and Branch Office regardless of which is chosen — resolve that first.</li>
       <li>Cheapest path to any legal EU presence for SMTHG Inc. itself: Branch Office, not BV — same €85.15 KVK fee as ZZP, no notary cost, no share capital, days not weeks.</li>
       <li>Branch Office carries full parent-company liability (no ring-fence) — a BV limits exposure to the BV's own assets, at the cost of the notary fee (~€500–1,500) and ongoing accounting (€800–3,500/yr).</li>
       <li>ZZP does not solve "SMTHG needs a European entity" — it solves "Olga is paid in NL as a contractor." Both can exist at once; they answer different questions.</li>
