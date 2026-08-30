@@ -157,6 +157,62 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
     </div>
   </div>
 
+  <!-- BRANCH OFFICE DEEP DIVE -->
+  <div class="section" id="s01c">
+    <div class="sec-heading">Branch Office — How It Works</div>
+    <div class="sec-note"><span class="tag-fixed">Official</span> = government source. <span class="tag-unconf">Unconfirmed</span> = marketing/aggregator source only, not independently confirmed — flagged, not omitted.</div>
+    <div class="gtable-wrap">
+      <table class="gtable">
+        <thead>
+          <tr><th style="width:26%">Question</th><th style="width:52%">Answer</th><th>Confidence</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Does KVK registration itself create Dutch tax liability?</td><td>No. KVK automatically shares your details with the Tax Administration (you get an RSIN/tax number) — that's a data hand-off, not a ruling that tax is owed.</td><td><span class="tag-fixed">Official</span> — business.gov.nl</td></tr>
+          <tr><td>What makes the branch a "permanent establishment" (vaste inrichting)?</td><td><strong>Triggers PE:</strong> a shop/fixed sales point, a workshop/factory with an office, the place the business is actually managed from, a staffed branch conducting real operations.<br/><strong>Does not trigger PE:</strong> a storage/goods depot, purely supporting functions (admin, R&amp;D, advertising, information-only), short-term/incidental activity.</td><td><span class="tag-fixed">Official</span> — Belastingdienst</td></tr>
+          <tr><td>If it is a PE, what tax applies?</td><td>Standard Dutch corporate income tax — <strong>19% up to €200,000 profit, 25.8% above</strong>. Same rate/base as a BV — no separate "branch tax." A PE also has no dividend withholding tax exposure, since there's no subsidiary paying dividends up to a parent.</td><td><span class="tag-fixed">Official</span> rate (KVK) + Medium (no-separate-tax claim)</td></tr>
+          <tr><td>Does the branch file annual accounts with KVK, like a BV must?</td><td>Generally <strong>no</strong> — this is a BV-specific obligation. Exception: if SMTHG Inc. were itself legally required to publish financial statements in Delaware, that filing duty could carry over to the Dutch branch. A private Delaware C-Corp files an annual franchise-tax report + officer/director list, not financial statements — so this exception likely would not apply, but that inference is not independently confirmed by a Dutch lawyer.</td><td>Medium, with one <span class="tag-unconf">Unconfirmed</span> inference flagged</td></tr>
+          <tr><td>Is VAT registration automatic once the branch exists?</td><td>No — separate step. The branch registers as an independent VAT taxpayer once it has PE/taxable activity; it isn't bundled into the KVK appointment.</td><td>Medium</td></tr>
+          <tr><td>Can the branch hire staff, run payroll, sign contracts, open a bank account?</td><td>Yes to all. Hiring requires registering as an employer, Dutch wage-tax withholding, Dutch-law employment contracts. Bank account opening is <strong>slower</strong> for a foreign-parent structure due to KYC on directors/UBOs — one source cites ~65 days, not officially confirmed.</td><td>Medium, banking timeline <span class="tag-unconf">Unconfirmed</span></td></tr>
+          <tr><td>Does the US–Netherlands tax treaty help with double taxation?</td><td>Yes, a treaty exists (1992, amended 2004). Its Article 5 defines permanent establishment, explicitly including "a branch." Relief is generally via foreign tax credit — Dutch CIT paid would offset US tax owed on the same income, not exempt it outright.</td><td>Medium — treaty exists (official, IRS), article-level detail from secondary summaries</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sec-heading" style="margin-top:28px">Branch Office — Full Cost Breakdown</div>
+    <div class="gtable-wrap">
+      <table class="gtable">
+        <thead>
+          <tr><th style="width:24%">Item</th><th style="width:14%">Type</th><th style="width:20%">Amount</th><th>Confidence / Source</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>KVK registration</td><td><span class="tag-fixed">Fixed</span></td><td>€85.15</td><td><span class="tag-fixed">Official</span> — <a href="https://www.kvk.nl/en/registration/registration-fee/" target="_blank" rel="noopener">kvk.nl ↗</a></td></tr>
+          <tr><td>Document authentication (Delaware apostille, per document)</td><td><span class="tag-fixed">Fixed</span></td><td>~$30/document</td><td>Medium — <a href="https://corp.delaware.gov/apost_info/" target="_blank" rel="noopener">Delaware Div. of Corporations ↗</a> (fee not stated on the page itself, corroborated by apostille-service providers)</td></tr>
+          <tr><td>Certified Dutch translation of corporate documents</td><td><span class="tag-fixed">Fixed</span></td><td>~€59/page — <strong>may not be needed at all</strong></td><td><span class="tag-unconf">Unconfirmed</span> whether required — KVK explicitly accepts English-language documents without translation for foreign-company registration; only authentication (apostille), not translation, may be required</td></tr>
+          <tr><td>Dutch registered/virtual office address (KVK-eligible)</td><td><span class="tag-var">Variable</span></td><td>€25–€50/month typical; up to €150+/month for a staffed address</td><td>Medium — real published prices, confirm the specific plan is KVK-registration-eligible before booking</td></tr>
+          <tr><td>Ongoing annual tax/accounting compliance (branch-specific)</td><td><span class="tag-var">Variable</span></td><td>€1,500–€4,000/yr</td><td><span class="tag-unconf">Unconfirmed</span> — from a generic formation-service site, not a named accounting firm's fee schedule</td></tr>
+          <tr><td>Business bank account setup</td><td><span class="tag-fixed">Fixed</span></td><td>Bank fees vary; no figure found</td><td>Not found — only the ~65-day KYC timeline was sourced, not a fee</td></tr>
+          <tr><td><strong>Realistic first-year total</strong></td><td>—</td><td>~€2,000–€6,500</td><td><span class="tag-unconf">Unconfirmed</span> — no named law firm or formation service publishes a branch-specific total; this is assembled from the line items above, not a single quoted source</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sec-heading" style="margin-top:28px">Branch Office — Lead Times</div>
+    <div class="gtable-wrap">
+      <table class="gtable">
+        <thead>
+          <tr><th style="width:32%">Step</th><th style="width:26%">Estimate</th><th>Confidence</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>KVK appointment → KVK number issued</td><td>Within a few working days of the appointment</td><td><span class="tag-fixed">Official</span> — kvk.nl</td></tr>
+          <tr><td>Full KVK registration, incl. scheduling</td><td>1–4 weeks</td><td><span class="tag-unconf">Unconfirmed</span> — one formation-service source, ranges vary internally</td></tr>
+          <tr><td>VAT number issuance (once PE/taxable activity confirmed)</td><td>4–6 weeks</td><td>Medium</td></tr>
+          <tr><td>Business bank account (foreign-parent KYC)</td><td>~65 days</td><td><span class="tag-unconf">Unconfirmed</span> — single source</td></tr>
+          <tr><td><strong>End-to-end, incl. VAT + banking</strong></td><td>~8 weeks (compiled estimate, not a single quote)</td><td><span class="tag-unconf">Unconfirmed</span> — no law firm or major formation service publishes one authoritative end-to-end figure for branch registration specifically</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
   <!-- STEPS -->
   <div class="section" id="s02">
     <div class="sec-heading">Steps — By Option</div>
