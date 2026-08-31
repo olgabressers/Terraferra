@@ -51,6 +51,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .sec-heading{font-size:28px;font-weight:900;letter-spacing:-.5px;color:var(--ink);margin-bottom:14px;padding-bottom:10px;border-bottom:3px solid var(--ink)}
 .sub-heading{font-size:15px;font-weight:800;color:var(--tf-dark);text-transform:uppercase;letter-spacing:.4px;margin:28px 0 10px}
 .sec-note{font-size:12px;color:var(--sub);margin-bottom:16px}
+.concl-frame{background:white;border:2px solid var(--ink);padding:16px 20px;margin-bottom:18px;font-size:15px;line-height:1.65;color:var(--ink)}
 
 .gtable-wrap{overflow-x:auto;margin-top:6px;border:1px solid var(--ink)}
 .gtable{width:100%;border-collapse:collapse;font-size:12.5px}
@@ -166,8 +167,8 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         </thead>
         <tbody>
           <tr style="font-weight:800"><td class="opt">When recommended</td><td>Now — no EU sales volume yet, no entity needed</td><td>Only once EU revenue exists to justify the compliance cost, and a liability ring-fence is not required</td><td>Only once EU revenue and real liability exposure (inventory, employees, contracts) justify the ring-fence and its cost</td></tr>
-          <tr><td class="opt">Setup cost</td><td>€0 to self-file; €19.90–590+/mo if using a provider (no mandatory setup fee at EAS Project — see detail below)</td><td>€85 KVK fee + ~$30/doc apostille (Dutch translation likely not needed)</td><td>~€585–1,600 (KVK + notary)</td></tr>
-          <tr><td class="opt">Ongoing cost</td><td>€0 self-filed, or ~€470–890/yr if using a service</td><td>€1,500–4,000/yr <span class="tag-unconf">Unconfirmed</span></td><td>€800–3,500/yr accounting</td></tr>
+          <tr><td class="opt">Setup cost (one-time, fixed)</td><td><strong>€0</strong> — no government registration fee, self-filed directly. No mandatory setup fee even with a paid provider.</td><td>€85 KVK fee + ~$30/doc apostille (Dutch translation likely not needed)</td><td>~€585–1,600 (KVK + notary)</td></tr>
+          <tr><td class="opt">Ongoing cost (recurring)</td><td><strong>€0</strong> if self-filed. If outsourced: €39–74/mo (hellotax/SimpleVAT, ~€470–890/yr) or €19.90–590/mo scaling with order volume (EAS Project — see detail below)</td><td>€1,500–4,000/yr <span class="tag-unconf">Unconfirmed</span></td><td>€800–3,500/yr accounting</td></tr>
           <tr><td class="opt">Liability</td><td>None — SMTHG Inc. itself is fully exposed, no ring-fence</td><td>None — SMTHG Inc. itself is fully exposed, no ring-fence</td><td>Limited to the BV's own assets</td></tr>
           <tr><td class="opt">Lead time</td><td>2–8 weeks for the VAT number itself, no entity to register first <span class="tag-unconf">Unconfirmed</span></td><td>KVK number in a few working days; ~8 weeks end-to-end incl. VAT + banking <span class="tag-unconf">Unconfirmed</span></td><td>Weeks (VAT number ~2 weeks after registration)</td></tr>
         </tbody>
@@ -178,7 +179,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <!-- VAT-ONLY (RECOMMENDED) — everything in one place -->
   <div class="section" id="s-vat">
     <div class="sec-heading">VAT-Only <span style="color:var(--green)">— Recommended</span></div>
-    <div class="sec-note">NL VAT ID for SMTHG Inc. — no entity, no branch. SMTHG Inc. registers directly with the Dutch tax authority. Liability: none — SMTHG Inc. itself is fully exposed, no ring-fence (same as Branch Office).</div>
+    <div class="concl-frame"><strong>NL VAT ID for SMTHG Inc. directly — no entity, no branch.</strong> SMTHG Inc. registers with the Dutch tax authority itself. Liability: none — SMTHG Inc. is fully exposed, no ring-fence (same as Branch Office).</div>
 
     <div class="sub-heading">Who Signs It</div>
     <p style="font-size:13px;line-height:1.65;color:var(--ink);margin-bottom:10px">Unlike Branch Office/BV registration at KVK (director's own signature, no proxy accepted — see Blocker above), the VAT form itself does not require a director to sign in person. Its Section 3 ("Details of your authorised representative") lets someone else sign and handle it on SMTHG's behalf, as long as a copy of that authorisation (power of attorney) is attached. That authorisation still has to come from whoever can legally bind SMTHG Inc. — currently <strong>Maxim, as sole officer/director</strong>. So either Maxim signs the form directly, or Maxim signs a power of attorney authorising someone else (Olga, an accountant, or a VAT service provider) to sign and submit it instead.</p>
@@ -242,7 +243,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <!-- BRANCH OFFICE — everything in one place -->
   <div class="section" id="s-branch">
     <div class="sec-heading">Branch Office</div>
-    <div class="sec-note">Foreign-company branch (nevenvestiging) — SMTHG Inc. registers itself at KVK, no new legal entity created. Owned by SMTHG Inc. directly. Liability: none — SMTHG Inc. itself is fully exposed, no ring-fence.</div>
+    <div class="concl-frame"><strong>SMTHG Inc. registers itself directly at KVK as a foreign-company branch (nevenvestiging) — no new legal entity created.</strong> Owned by SMTHG Inc. directly. Liability: none — SMTHG Inc. itself is fully exposed, no ring-fence.</div>
 
     <div class="sub-heading">How It Works</div>
     <div class="gtable-wrap">
@@ -313,7 +314,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <!-- BV — everything in one place -->
   <div class="section" id="s-bv">
     <div class="sec-heading">BV</div>
-    <div class="sec-note">Private limited company — real subsidiary, own legal personality. Owned by SMTHG Inc. (100%). Liability: limited to the BV's own assets — the only option with a liability ring-fence.</div>
+    <div class="concl-frame"><strong>A real Dutch subsidiary with its own legal personality, owned 100% by SMTHG Inc.</strong> Liability: limited to the BV's own assets — the only option with a liability ring-fence.</div>
 
     <div class="sub-heading">Costs</div>
     <div class="gtable-wrap">
@@ -346,7 +347,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <!-- W&B -->
   <div class="section" id="s03">
     <div class="sec-heading">How Wolf &amp; Badger Structures It</div>
-    <div class="sec-note">Confirmed via UK Companies House (official registry) + their published seller Terms &amp; Conditions. One agreement, 4 regional contracting entities — every region is a full subsidiary (BV-equivalent). None use a Branch Office or VAT-only equivalent — worth noting since it shows the real end-state at scale is multi-entity, not a reason to start there before there's EU revenue.</div>
+    <div class="concl-frame"><strong>Wolf &amp; Badger uses 4 full subsidiaries (BV-equivalent) — one per region (UK, EU, US, AU) — under one seller agreement. None use a Branch Office or VAT-only structure.</strong> This shows the real end-state at scale is multi-entity — not a reason for SMTHG to start there before there's EU revenue. Confirmed via UK Companies House and Wolf &amp; Badger's published seller Terms &amp; Conditions.</div>
     <div class="gtable-wrap">
       <table class="gtable">
         <thead>
