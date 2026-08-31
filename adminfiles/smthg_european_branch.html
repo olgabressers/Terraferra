@@ -66,6 +66,16 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .reco{margin:0 0 10px 20px;font-size:13.5px;line-height:1.8;color:var(--ink)}
 .reco li{margin-bottom:6px}
 
+.glossary,.toc{background:white;border:1px solid var(--rule);padding:14px 18px;margin-top:14px}
+.glossary-title,.toc-title{font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--sub);margin-bottom:8px}
+.glossary dl{display:grid;grid-template-columns:max-content 1fr;gap:5px 14px;margin:0}
+.glossary dt{font-weight:800;color:var(--ink);font-size:12.5px;white-space:nowrap}
+.glossary dd{font-size:12.5px;color:var(--sub);line-height:1.5}
+.toc ol{margin:0 0 0 18px}
+.toc li{font-size:12.5px;line-height:1.9}
+.toc a{color:var(--tf);font-weight:700;text-decoration:none}
+.toc a:hover{text-decoration:underline}
+
 footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);opacity:.5}
 
 #back-to-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--tf);color:white;border:none;border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900;transition:background .15s}
@@ -101,6 +111,35 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <div class="pg-eyebrow">Legal / Tax · European Presence · Internal</div>
   <div class="pg-title">European Branch</div>
   <div class="pg-sub">SMTHG INC. · Delaware C-Corp · CEO tax-resident in the Netherlands · Comparing 3 ways to give SMTHG a European legal presence: <strong>BV</strong>, <strong>Branch Office</strong>, or <strong>VAT-only</strong> registration with no entity at all.</div>
+
+  <div class="glossary">
+    <div class="glossary-title">Key Terms</div>
+    <dl>
+      <dt>KVK</dt><dd>The Dutch Chamber of Commerce (Kamer van Koophandel) — every business operating in the Netherlands must register here.</dd>
+      <dt>BV</dt><dd>Besloten vennootschap — a Dutch private limited company. Its own legal entity, separate from its owner, roughly equivalent to a US LLC/Inc.</dd>
+      <dt>Branch Office</dt><dd>Nevenvestiging — a foreign company (like SMTHG Inc.) registers itself directly at KVK, without creating a separate new legal entity.</dd>
+      <dt>PE</dt><dd>Permanent Establishment (vaste inrichting) — a real, ongoing physical presence (staffed office, shop) that makes a foreign company taxable in the Netherlands.</dd>
+      <dt>CIT</dt><dd>Corporate Income Tax (vennootschapsbelasting) — Dutch tax on business profit.</dd>
+      <dt>UBO</dt><dd>Ultimate Beneficial Owner — the real person who owns/controls a company; must be registered with KVK.</dd>
+      <dt>VAT</dt><dd>Value-Added Tax (BTW in Dutch) — the EU sales tax charged on goods/services.</dd>
+      <dt>OSS / IOSS</dt><dd>EU VAT schemes that let a business file one return covering multiple EU countries; IOSS is specifically for low-value imported goods (≤€150).</dd>
+      <dt>Kantoor Buitenland</dt><dd>The Dutch Tax Administration's dedicated desk for non-resident (foreign) businesses.</dd>
+      <dt>Apostille</dt><dd>An international certificate confirming a document (e.g. SMTHG's incorporation papers) is genuine, needed to use it in another country.</dd>
+    </dl>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">Table of Contents</div>
+    <ol>
+      <li><a href="#s00">Quick Summary — BV vs. Branch Office vs. VAT-Only</a></li>
+      <li><a href="#s01">3 Options — Side by Side</a></li>
+      <li><a href="#s01c">Branch Office — How It Works, Costs &amp; Lead Times</a></li>
+      <li><a href="#s02">Steps — By Option</a></li>
+      <li><a href="#s02b">VAT-Only — Setup &amp; Provider Costs in Detail</a></li>
+      <li><a href="#s03">How Wolf &amp; Badger Structures It</a></li>
+      <li><a href="#s04">Recommendation</a></li>
+    </ol>
+  </div>
 
   <div class="section" id="s00" style="padding-top:22px">
     <div class="sec-heading">Quick Summary — BV vs. Branch Office vs. VAT-Only</div>
