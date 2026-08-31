@@ -13,6 +13,7 @@
 :root{
   --tf:#E8002D;--tf-dark:#B50023;--tf-ghost:#F1EEE9;
   --ink:#161616;--sub:#5C5A56;--rule:#D9D4C9;--off-white:#F8F6F2;
+  --green:#1A7A4A;--green-bg:#EDFAF3;
 }
 body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)}
 
@@ -40,6 +41,19 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .callout .pill{flex-shrink:0;background:var(--tf);color:white;font-size:9.5px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;padding:3px 9px;white-space:nowrap}
 .callout p{font-size:13px;line-height:1.6;color:var(--ink)}
 
+.reco-box{display:flex;gap:14px;align-items:flex-start;margin-top:14px;background:var(--green-bg);border:2px solid var(--green);padding:16px 20px}
+.reco-box .pill{flex-shrink:0;background:var(--green);color:white;font-size:10px;font-weight:900;letter-spacing:.5px;text-transform:uppercase;padding:4px 10px;white-space:nowrap}
+.reco-box p{font-size:14px;line-height:1.65;color:var(--ink)}
+.reco-box strong{color:var(--green)}
+
+.opt-list{margin-top:16px;display:flex;flex-direction:column;gap:8px}
+.opt-list-item{display:flex;gap:12px;align-items:baseline;background:white;border:1px solid var(--rule);padding:10px 16px}
+.opt-list-item .opt-badge{flex-shrink:0;font-size:9.5px;font-weight:900;letter-spacing:.5px;text-transform:uppercase;padding:3px 9px;white-space:nowrap}
+.opt-list-item.is-reco .opt-badge{background:var(--green);color:white}
+.opt-list-item:not(.is-reco) .opt-badge{background:var(--ink);color:white}
+.opt-list-item .opt-name{font-weight:800;font-size:13.5px;white-space:nowrap}
+.opt-list-item .opt-desc{font-size:13px;color:var(--sub)}
+
 .section{padding:36px 0}
 .section+.section{border-top:1px solid var(--rule)}
 .sec-heading{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:4px}
@@ -63,18 +77,19 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .tag-var{border:1px solid var(--ink);color:var(--ink)}
 .tag-unconf{background:#FEF3C7;color:#8A4B00}
 
-.reco{margin:0 0 10px 20px;font-size:13.5px;line-height:1.8;color:var(--ink)}
-.reco li{margin-bottom:6px}
+#s00 .gtable th:nth-child(2){background:var(--green)}
+#s00 .gtable td:nth-child(2){background:var(--green-bg)!important;font-weight:700}
 
 .glossary,.toc{background:white;border:1px solid var(--rule);padding:14px 18px;margin-top:14px}
 .glossary-title,.toc-title{font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--sub);margin-bottom:8px}
 .glossary dl{display:grid;grid-template-columns:max-content 1fr;gap:5px 14px;margin:0}
 .glossary dt{font-weight:800;color:var(--ink);font-size:12.5px;white-space:nowrap}
 .glossary dd{font-size:12.5px;color:var(--sub);line-height:1.5}
-.toc ol{margin:0 0 0 18px}
-.toc li{font-size:12.5px;line-height:1.9}
+.toc ol{columns:2;column-gap:24px;margin:0 0 0 18px}
+.toc li{font-size:12.5px;line-height:1.9;break-inside:avoid}
 .toc a{color:var(--tf);font-weight:700;text-decoration:none}
 .toc a:hover{text-decoration:underline}
+@media(max-width:600px){.toc ol{columns:1}}
 
 footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);opacity:.5}
 
@@ -110,7 +125,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
 
   <div class="pg-eyebrow">Legal / Tax · European Presence · Internal</div>
   <div class="pg-title">European Branch</div>
-  <div class="pg-sub">SMTHG INC. · Delaware C-Corp · CEO tax-resident in the Netherlands · Comparing 3 ways to give SMTHG a European legal presence: <strong>BV</strong>, <strong>Branch Office</strong>, or <strong>VAT-only</strong> registration with no entity at all.</div>
+  <div class="pg-sub">SMTHG INC. · Delaware C-Corp · CEO tax-resident in the Netherlands · 3 ways to give SMTHG a European legal presence.</div>
 
   <div class="glossary">
     <div class="glossary-title">Key Terms</div>
@@ -131,163 +146,47 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <div class="toc">
     <div class="toc-title">Table of Contents</div>
     <ol>
-      <li><a href="#s00">Quick Summary — BV vs. Branch Office vs. VAT-Only</a></li>
-      <li><a href="#s01">3 Options — Side by Side</a></li>
-      <li><a href="#s01c">Branch Office — How It Works, Costs &amp; Lead Times</a></li>
-      <li><a href="#s02">Steps — By Option</a></li>
-      <li><a href="#s02b">VAT-Only — Setup &amp; Provider Costs in Detail</a></li>
+      <li><a href="#s00">Quick Summary</a></li>
+      <li><a href="#s-vat">VAT-Only (Recommended)</a></li>
+      <li><a href="#s-branch">Branch Office</a></li>
+      <li><a href="#s-bv">BV</a></li>
       <li><a href="#s03">How Wolf &amp; Badger Structures It</a></li>
-      <li><a href="#s04">Recommendation</a></li>
     </ol>
   </div>
 
+  <!-- OPTIONS LIST -->
+  <div class="opt-list">
+    <div class="opt-list-item is-reco"><span class="opt-badge">Recommended</span><span class="opt-name">VAT-Only</span><span class="opt-desc">— NL VAT ID for SMTHG Inc. directly. No new entity, no branch.</span></div>
+    <div class="opt-list-item"><span class="opt-badge">Alternative</span><span class="opt-name">Branch Office</span><span class="opt-desc">— SMTHG Inc. registers itself at KVK. No new legal entity, but full parent liability.</span></div>
+    <div class="opt-list-item"><span class="opt-badge">Alternative</span><span class="opt-name">BV</span><span class="opt-desc">— A real Dutch subsidiary, owned 100% by SMTHG Inc. Highest cost, only option with a liability ring-fence.</span></div>
+  </div>
+
+  <div class="reco-box"><span class="pill">Decision</span><p><strong>Going with VAT-Only.</strong> No EU sales yet, so there's no revenue to justify Branch Office's compliance overhead or the BV's cost and liability ring-fence. All VAT-Only detail is consolidated in one section below.</p></div>
+
+  <!-- QUICK SUMMARY -->
   <div class="section" id="s00" style="padding-top:22px">
-    <div class="sec-heading">Quick Summary — BV vs. Branch Office vs. VAT-Only</div>
+    <div class="sec-heading">Quick Summary</div>
     <div class="gtable-wrap">
       <table class="gtable">
         <thead>
-          <tr><th style="width:16%"></th><th>BV</th><th>Branch Office</th><th>VAT-Only</th></tr>
+          <tr><th style="width:16%"></th><th>VAT-Only</th><th>Branch Office</th><th>BV</th></tr>
         </thead>
         <tbody>
-          <tr><td class="opt">Setup cost</td><td>~€585–1,600 (KVK + notary)</td><td>€85 KVK fee + ~$30/doc apostille (Dutch translation likely not needed)</td><td>€0 to self-file; €39–74/mo if using a filing service</td></tr>
-          <tr><td class="opt">Ongoing cost</td><td>€800–3,500/yr accounting</td><td>€1,500–4,000/yr <span class="tag-unconf">Unconfirmed</span></td><td>€0 self-filed, or ~€470–890/yr if using a service</td></tr>
-          <tr><td class="opt">Liability</td><td>Limited to the BV's own assets</td><td>None — SMTHG Inc. itself is fully exposed, no ring-fence</td><td>None — SMTHG Inc. itself is fully exposed, no ring-fence</td></tr>
-          <tr><td class="opt">Lead time</td><td>Weeks (VAT number ~2 weeks after registration)</td><td>KVK number in a few working days; ~8 weeks end-to-end incl. VAT + banking <span class="tag-unconf">Unconfirmed</span></td><td>Not published, but no entity to register first</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p style="font-size:13.5px;line-height:1.7;margin-top:14px"><strong>Recommendation:</strong> start with VAT-only — no EU sales yet, so there's no revenue to justify Branch Office's compliance overhead or the BV's cost and liability ring-fence. Move to Branch Office or a BV once EU sales volume is real enough that a physical/legal presence actually matters.</p>
-  </div>
-
-  <div class="callout"><span class="pill">Blocker</span><p>BV and Branch Office registration both require a signature from a <strong>director of SMTHG Inc.</strong> — KVK explicitly does not accept a lawyer, notary, or authorized representative for this declaration. SMTHG has no board-appointed officer yet (see <a href="smthg_accounting_tax.html#s01b" style="color:var(--tf);font-weight:700">Legal — Before the Pre-Seed Round Closes, Action 1</a>). That appointment has to happen first if either is chosen.</p></div>
-
-  <!-- COMPARISON -->
-  <div class="section" id="s01">
-    <div class="sec-heading">3 Options — Side by Side</div>
-    <div class="sec-note"><span class="tag-fixed">Fixed</span> = one-time setup cost. <span class="tag-var">Variable</span> = ongoing/annual cost. <span class="tag-unconf">Unconfirmed</span> = not stated on an official page — verify before relying on it.</div>
-    <div class="gtable-wrap">
-      <table class="gtable">
-        <thead>
-          <tr><th style="width:13%">Option</th><th style="width:16%">What It Is</th><th style="width:12%">Owned By</th><th style="width:16%">Fixed Cost</th><th style="width:16%">Variable Cost</th><th style="width:13%">Lead Time</th><th>Liability</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="opt">BV</td>
-            <td>Private limited company — real subsidiary, own legal personality</td>
-            <td>SMTHG Inc. (100%)</td>
-            <td><span class="tag-fixed">Fixed</span><br/>KVK €85.15 + notary €500–1,500 = ~€585–1,600</td>
-            <td><span class="tag-var">Variable</span><br/>Accounting/filing €800–3,500/yr</td>
-            <td>Not stated by KVK. VAT number arrives ~2 weeks after registration.</td>
-            <td>Limited to the BV's own assets</td>
-          </tr>
-          <tr>
-            <td class="opt">Branch Office</td>
-            <td>Foreign-company branch (nevenvestiging) — SMTHG Inc. registers itself at KVK, no new legal entity created</td>
-            <td>SMTHG Inc. directly</td>
-            <td><span class="tag-fixed">Fixed</span><br/>KVK €85.15 <span class="tag-unconf">Unconfirmed</span> for this entity type specifically</td>
-            <td><span class="tag-unconf">Unconfirmed</span><br/>Not published by KVK or business.gov.nl</td>
-            <td>KVK number "within a few working days" of the registration appointment</td>
-            <td>SMTHG Inc. itself — full parent-company liability, no ring-fence</td>
-          </tr>
-          <tr>
-            <td class="opt">VAT-only</td>
-            <td>NL VAT ID for SMTHG Inc. — no entity, no branch</td>
-            <td>N/A — SMTHG Inc. registers directly with Dutch tax authority</td>
-            <td><span class="tag-fixed">Fixed</span><br/>€0 to self-file directly</td>
-            <td><span class="tag-var">Variable</span><br/>Optional filing service: €39–74/mo published (see detail below)</td>
-            <td><span class="tag-unconf">Unconfirmed</span> — not published, request directly from Kantoor Buitenland</td>
-            <td>SMTHG Inc. — same as Branch Office, no ring-fence</td>
-          </tr>
+          <tr><td class="opt">Setup cost</td><td>€0 to self-file; €39–74/mo if using a filing service</td><td>€85 KVK fee + ~$30/doc apostille (Dutch translation likely not needed)</td><td>~€585–1,600 (KVK + notary)</td></tr>
+          <tr><td class="opt">Ongoing cost</td><td>€0 self-filed, or ~€470–890/yr if using a service</td><td>€1,500–4,000/yr <span class="tag-unconf">Unconfirmed</span></td><td>€800–3,500/yr accounting</td></tr>
+          <tr><td class="opt">Liability</td><td>None — SMTHG Inc. itself is fully exposed, no ring-fence</td><td>None — SMTHG Inc. itself is fully exposed, no ring-fence</td><td>Limited to the BV's own assets</td></tr>
+          <tr><td class="opt">Lead time</td><td>Not published, but no entity to register first</td><td>KVK number in a few working days; ~8 weeks end-to-end incl. VAT + banking <span class="tag-unconf">Unconfirmed</span></td><td>Weeks (VAT number ~2 weeks after registration)</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 
-  <!-- BRANCH OFFICE DEEP DIVE -->
-  <div class="section" id="s01c">
-    <div class="sec-heading">Branch Office — How It Works</div>
-    <div class="sec-note"><span class="tag-fixed">Official</span> = government source. <span class="tag-unconf">Unconfirmed</span> = marketing/aggregator source only, not independently confirmed — flagged, not omitted.</div>
-    <div class="gtable-wrap">
-      <table class="gtable">
-        <thead>
-          <tr><th style="width:26%">Question</th><th style="width:52%">Answer</th><th>Confidence</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Does KVK registration itself create Dutch tax liability?</td><td>No. KVK automatically shares your details with the Tax Administration (you get an RSIN/tax number) — that's a data hand-off, not a ruling that tax is owed.</td><td><span class="tag-fixed">Official</span> — business.gov.nl</td></tr>
-          <tr><td>What makes the branch a "permanent establishment" (vaste inrichting)?</td><td><strong>Triggers PE:</strong> a shop/fixed sales point, a workshop/factory with an office, the place the business is actually managed from, a staffed branch conducting real operations.<br/><strong>Does not trigger PE:</strong> a storage/goods depot, purely supporting functions (admin, R&amp;D, advertising, information-only), short-term/incidental activity.</td><td><span class="tag-fixed">Official</span> — Belastingdienst</td></tr>
-          <tr><td>If it is a PE, what tax applies?</td><td>Standard Dutch corporate income tax — <strong>19% up to €200,000 profit, 25.8% above</strong>. Same rate/base as a BV — no separate "branch tax." A PE also has no dividend withholding tax exposure, since there's no subsidiary paying dividends up to a parent.</td><td><span class="tag-fixed">Official</span> rate (KVK) + Medium (no-separate-tax claim)</td></tr>
-          <tr><td>Does the branch file annual accounts with KVK, like a BV must?</td><td>Generally <strong>no</strong> — this is a BV-specific obligation. Exception: if SMTHG Inc. were itself legally required to publish financial statements in Delaware, that filing duty could carry over to the Dutch branch. A private Delaware C-Corp files an annual franchise-tax report + officer/director list, not financial statements — so this exception likely would not apply, but that inference is not independently confirmed by a Dutch lawyer.</td><td>Medium, with one <span class="tag-unconf">Unconfirmed</span> inference flagged</td></tr>
-          <tr><td>Is VAT registration automatic once the branch exists?</td><td>No — separate step. The branch registers as an independent VAT taxpayer once it has PE/taxable activity; it isn't bundled into the KVK appointment.</td><td>Medium</td></tr>
-          <tr><td>Can the branch hire staff, run payroll, sign contracts, open a bank account?</td><td>Yes to all. Hiring requires registering as an employer, Dutch wage-tax withholding, Dutch-law employment contracts. Bank account opening is <strong>slower</strong> for a foreign-parent structure due to KYC on directors/UBOs — one source cites ~65 days, not officially confirmed.</td><td>Medium, banking timeline <span class="tag-unconf">Unconfirmed</span></td></tr>
-          <tr><td>Does the US–Netherlands tax treaty help with double taxation?</td><td>Yes, a treaty exists (1992, amended 2004). Its Article 5 defines permanent establishment, explicitly including "a branch." Relief is generally via foreign tax credit — Dutch CIT paid would offset US tax owed on the same income, not exempt it outright.</td><td>Medium — treaty exists (official, IRS), article-level detail from secondary summaries</td></tr>
-        </tbody>
-      </table>
-    </div>
+  <!-- VAT-ONLY (RECOMMENDED) — everything in one place -->
+  <div class="section" id="s-vat">
+    <div class="sec-heading">VAT-Only <span style="color:var(--green)">— Recommended</span></div>
+    <div class="sec-note">NL VAT ID for SMTHG Inc. — no entity, no branch. SMTHG Inc. registers directly with the Dutch tax authority. Liability: none — SMTHG Inc. itself is fully exposed, no ring-fence (same as Branch Office).</div>
 
-    <div class="sec-heading" style="margin-top:28px">Branch Office — Full Cost Breakdown</div>
-    <div class="gtable-wrap">
-      <table class="gtable">
-        <thead>
-          <tr><th style="width:24%">Item</th><th style="width:14%">Type</th><th style="width:20%">Amount</th><th>Confidence / Source</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>KVK registration</td><td><span class="tag-fixed">Fixed</span></td><td>€85.15</td><td><span class="tag-fixed">Official</span> — <a href="https://www.kvk.nl/en/registration/registration-fee/" target="_blank" rel="noopener">kvk.nl ↗</a></td></tr>
-          <tr><td>Document authentication (Delaware apostille, per document)</td><td><span class="tag-fixed">Fixed</span></td><td>~$30/document</td><td>Medium — <a href="https://corp.delaware.gov/apost_info/" target="_blank" rel="noopener">Delaware Div. of Corporations ↗</a> (fee not stated on the page itself, corroborated by apostille-service providers)</td></tr>
-          <tr><td>Certified Dutch translation of corporate documents</td><td><span class="tag-fixed">Fixed</span></td><td>~€59/page — <strong>may not be needed at all</strong></td><td><span class="tag-unconf">Unconfirmed</span> whether required — KVK explicitly accepts English-language documents without translation for foreign-company registration; only authentication (apostille), not translation, may be required</td></tr>
-          <tr><td>Dutch registered/virtual office address (KVK-eligible)</td><td><span class="tag-var">Variable</span></td><td>€25–€50/month typical; up to €150+/month for a staffed address</td><td>Medium — real published prices, confirm the specific plan is KVK-registration-eligible before booking</td></tr>
-          <tr><td>Ongoing annual tax/accounting compliance (branch-specific)</td><td><span class="tag-var">Variable</span></td><td>€1,500–€4,000/yr</td><td><span class="tag-unconf">Unconfirmed</span> — from a generic formation-service site, not a named accounting firm's fee schedule</td></tr>
-          <tr><td>Business bank account setup</td><td><span class="tag-fixed">Fixed</span></td><td>Bank fees vary; no figure found</td><td>Not found — only the ~65-day KYC timeline was sourced, not a fee</td></tr>
-          <tr><td><strong>Realistic first-year total</strong></td><td>—</td><td>~€2,000–€6,500</td><td><span class="tag-unconf">Unconfirmed</span> — no named law firm or formation service publishes a branch-specific total; this is assembled from the line items above, not a single quoted source</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="sec-heading" style="margin-top:28px">Branch Office — Lead Times</div>
-    <div class="gtable-wrap">
-      <table class="gtable">
-        <thead>
-          <tr><th style="width:32%">Step</th><th style="width:26%">Estimate</th><th>Confidence</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>KVK appointment → KVK number issued</td><td>Within a few working days of the appointment</td><td><span class="tag-fixed">Official</span> — kvk.nl</td></tr>
-          <tr><td>Full KVK registration, incl. scheduling</td><td>1–4 weeks</td><td><span class="tag-unconf">Unconfirmed</span> — one formation-service source, ranges vary internally</td></tr>
-          <tr><td>VAT number issuance (once PE/taxable activity confirmed)</td><td>4–6 weeks</td><td>Medium</td></tr>
-          <tr><td>Business bank account (foreign-parent KYC)</td><td>~65 days</td><td><span class="tag-unconf">Unconfirmed</span> — single source</td></tr>
-          <tr><td><strong>End-to-end, incl. VAT + banking</strong></td><td>~8 weeks (compiled estimate, not a single quote)</td><td><span class="tag-unconf">Unconfirmed</span> — no law firm or major formation service publishes one authoritative end-to-end figure for branch registration specifically</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- STEPS -->
-  <div class="section" id="s02">
-    <div class="sec-heading">Steps — By Option</div>
-    <div class="gtable-wrap">
-      <table class="gtable">
-        <thead>
-          <tr><th style="width:12%">Option</th><th style="width:30px">#</th><th>Step</th></tr>
-        </thead>
-        <tbody>
-          <tr><td class="opt">BV</td><td class="num">1</td><td>Engage a Dutch civil-law notary; they draft the deed of incorporation + articles of association</td></tr>
-          <tr><td></td><td class="num">2</td><td>Notary registers the BV with KVK directly and registers the UBO (Olga, as CEO/owner via SMTHG Inc.)</td></tr>
-          <tr><td></td><td class="num">3</td><td>Tax Administration mails the VAT number within ~2 weeks of registration</td></tr>
-          <tr><td></td><td class="num">4</td><td>Engage a Dutch accountant for ongoing bookkeeping + annual accounts (due within 5 months of year-end)</td></tr>
-          <tr><td class="opt">Branch Office</td><td class="num">1</td><td>Board resolution appointing a director/officer of SMTHG Inc. first — required before anyone can legally sign for the company (see Blocker above)</td></tr>
-          <tr><td></td><td class="num">2</td><td>Gather: proof of SMTHG Inc.'s US registration (&lt;1 month old), certified articles of incorporation, proof of the director's appointment, proof of a Dutch address</td></tr>
-          <tr><td></td><td class="num">3</td><td>That director attends the KVK appointment in person and signs (or, if abroad, submits documents instead) — a branch manager may attend in their place only with a Dutch-language power of attorney, originally signed by the director</td></tr>
-          <tr><td></td><td class="num">4</td><td>KVK number issued within a few working days of the appointment</td></tr>
-          <tr><td class="opt">VAT-only</td><td class="num">1</td><td>Submit the "Aanmeldingsformulier buitenlandse ondernemers" (foreign entrepreneurs VAT form) to the Tax Administration's Kantoor Buitenland (International Office)</td></tr>
-          <tr><td></td><td class="num">2</td><td>No fiscal representative required for a standard VAT registration in NL — only needed for the separate Article 23 import-VAT-deferment license</td></tr>
-          <tr><td></td><td class="num">3</td><td>If shipping goods from outside the EU direct to EU consumers at ≤€150/consignment, separately appoint an EU-based intermediary for IOSS (mandatory for a non-EU seller with no EU establishment)</td></tr>
-          <tr><td></td><td class="num">4</td><td>If fulfilling from EU-based stock instead, register for the Union OSS scheme instead of IOSS</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- VAT-ONLY COSTS -->
-  <div class="section" id="s02b">
-    <div class="sec-heading">VAT-Only — Setup &amp; Provider Costs in Detail</div>
+    <div class="sec-heading" style="margin-top:20px;font-size:14px">Setup &amp; Provider Costs in Detail</div>
     <div class="sec-note">Registering directly costs nothing. Everything below is an <em>optional</em> paid service that files for you instead.</div>
     <div class="gtable-wrap">
       <table class="gtable">
@@ -306,12 +205,135 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         </tbody>
       </table>
     </div>
+
+    <div class="sec-heading" style="margin-top:24px;font-size:14px">Lead Time</div>
+    <p style="font-size:13px;color:var(--sub);margin-bottom:10px"><span class="tag-unconf">Unconfirmed</span> — not published by any official source. Request a specific estimate directly from Kantoor Buitenland.</p>
+
+    <div class="sec-heading" style="margin-top:24px;font-size:14px">Steps</div>
+    <div class="gtable-wrap">
+      <table class="gtable">
+        <thead><tr><th style="width:30px">#</th><th>Step</th></tr></thead>
+        <tbody>
+          <tr><td class="num">1</td><td>Submit the "Aanmeldingsformulier buitenlandse ondernemers" (foreign entrepreneurs VAT form) to the Tax Administration's Kantoor Buitenland (International Office)</td></tr>
+          <tr><td class="num">2</td><td>No fiscal representative required for a standard VAT registration in NL — only needed for the separate Article 23 import-VAT-deferment license</td></tr>
+          <tr><td class="num">3</td><td>If shipping goods from outside the EU direct to EU consumers at ≤€150/consignment, separately appoint an EU-based intermediary for IOSS (mandatory for a non-EU seller with no EU establishment)</td></tr>
+          <tr><td class="num">4</td><td>If fulfilling from EU-based stock instead, register for the Union OSS scheme instead of IOSS</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="callout"><span class="pill">Blocker</span><p>Applies only to Branch Office and BV below, not VAT-Only. Both require a signature from a <strong>director of SMTHG Inc.</strong> — KVK explicitly does not accept a lawyer, notary, or authorized representative for this declaration. SMTHG has no board-appointed officer yet (see <a href="smthg_accounting_tax.html#s01b" style="color:var(--tf);font-weight:700">Legal — Before the Pre-Seed Round Closes, Action 1</a>). That appointment has to happen first if either is chosen later.</p></div>
+
+  <!-- BRANCH OFFICE — everything in one place -->
+  <div class="section" id="s-branch">
+    <div class="sec-heading">Branch Office</div>
+    <div class="sec-note">Foreign-company branch (nevenvestiging) — SMTHG Inc. registers itself at KVK, no new legal entity created. Owned by SMTHG Inc. directly. Liability: none — SMTHG Inc. itself is fully exposed, no ring-fence.</div>
+
+    <div class="sec-heading" style="margin-top:20px;font-size:14px">How It Works</div>
+    <div class="sec-note"><span class="tag-fixed">Official</span> = government source. <span class="tag-unconf">Unconfirmed</span> = marketing/aggregator source only, not independently confirmed — flagged, not omitted.</div>
+    <div class="gtable-wrap">
+      <table class="gtable">
+        <thead>
+          <tr><th style="width:26%">Question</th><th style="width:52%">Answer</th><th>Confidence</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Does KVK registration itself create Dutch tax liability?</td><td>No. KVK automatically shares your details with the Tax Administration (you get an RSIN/tax number) — that's a data hand-off, not a ruling that tax is owed.</td><td><span class="tag-fixed">Official</span> — business.gov.nl</td></tr>
+          <tr><td>What makes the branch a "permanent establishment" (vaste inrichting)?</td><td><strong>Triggers PE:</strong> a shop/fixed sales point, a workshop/factory with an office, the place the business is actually managed from, a staffed branch conducting real operations.<br/><strong>Does not trigger PE:</strong> a storage/goods depot, purely supporting functions (admin, R&amp;D, advertising, information-only), short-term/incidental activity.</td><td><span class="tag-fixed">Official</span> — Belastingdienst</td></tr>
+          <tr><td>If it is a PE, what tax applies?</td><td>Standard Dutch corporate income tax — <strong>19% up to €200,000 profit, 25.8% above</strong>. Same rate/base as a BV — no separate "branch tax." A PE also has no dividend withholding tax exposure, since there's no subsidiary paying dividends up to a parent.</td><td><span class="tag-fixed">Official</span> rate (KVK) + Medium (no-separate-tax claim)</td></tr>
+          <tr><td>Does the branch file annual accounts with KVK, like a BV must?</td><td>Generally <strong>no</strong> — this is a BV-specific obligation. Exception: if SMTHG Inc. were itself legally required to publish financial statements in Delaware, that filing duty could carry over to the Dutch branch. A private Delaware C-Corp files an annual franchise-tax report + officer/director list, not financial statements — so this exception likely would not apply, but that inference is not independently confirmed by a Dutch lawyer.</td><td>Medium, with one <span class="tag-unconf">Unconfirmed</span> inference flagged</td></tr>
+          <tr><td>Is VAT registration automatic once the branch exists?</td><td>No — separate step. The branch registers as an independent VAT taxpayer once it has PE/taxable activity; it isn't bundled into the KVK appointment.</td><td>Medium</td></tr>
+          <tr><td>Can the branch hire staff, run payroll, sign contracts, open a bank account?</td><td>Yes to all. Hiring requires registering as an employer, Dutch wage-tax withholding, Dutch-law employment contracts. Bank account opening is <strong>slower</strong> for a foreign-parent structure due to KYC on directors/UBOs — one source cites ~65 days, not officially confirmed.</td><td>Medium, banking timeline <span class="tag-unconf">Unconfirmed</span></td></tr>
+          <tr><td>Does the US–Netherlands tax treaty help with double taxation?</td><td>Yes, a treaty exists (1992, amended 2004). Its Article 5 defines permanent establishment, explicitly including "a branch." Relief is generally via foreign tax credit — Dutch CIT paid would offset US tax owed on the same income, not exempt it outright.</td><td>Medium — treaty exists (official, IRS), article-level detail from secondary summaries</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sec-heading" style="margin-top:24px;font-size:14px">Full Cost Breakdown</div>
+    <div class="gtable-wrap">
+      <table class="gtable">
+        <thead>
+          <tr><th style="width:24%">Item</th><th style="width:14%">Type</th><th style="width:20%">Amount</th><th>Confidence / Source</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>KVK registration</td><td><span class="tag-fixed">Fixed</span></td><td>€85.15</td><td><span class="tag-fixed">Official</span> — <a href="https://www.kvk.nl/en/registration/registration-fee/" target="_blank" rel="noopener">kvk.nl ↗</a></td></tr>
+          <tr><td>Document authentication (Delaware apostille, per document)</td><td><span class="tag-fixed">Fixed</span></td><td>~$30/document</td><td>Medium — <a href="https://corp.delaware.gov/apost_info/" target="_blank" rel="noopener">Delaware Div. of Corporations ↗</a> (fee not stated on the page itself, corroborated by apostille-service providers)</td></tr>
+          <tr><td>Certified Dutch translation of corporate documents</td><td><span class="tag-fixed">Fixed</span></td><td>~€59/page — <strong>may not be needed at all</strong></td><td><span class="tag-unconf">Unconfirmed</span> whether required — KVK explicitly accepts English-language documents without translation for foreign-company registration; only authentication (apostille), not translation, may be required</td></tr>
+          <tr><td>Dutch registered/virtual office address (KVK-eligible)</td><td><span class="tag-var">Variable</span></td><td>€25–€50/month typical; up to €150+/month for a staffed address</td><td>Medium — real published prices, confirm the specific plan is KVK-registration-eligible before booking</td></tr>
+          <tr><td>Ongoing annual tax/accounting compliance (branch-specific)</td><td><span class="tag-var">Variable</span></td><td>€1,500–€4,000/yr</td><td><span class="tag-unconf">Unconfirmed</span> — from a generic formation-service site, not a named accounting firm's fee schedule</td></tr>
+          <tr><td>Business bank account setup</td><td><span class="tag-fixed">Fixed</span></td><td>Bank fees vary; no figure found</td><td>Not found — only the ~65-day KYC timeline was sourced, not a fee</td></tr>
+          <tr><td><strong>Realistic first-year total</strong></td><td>—</td><td>~€2,000–€6,500</td><td><span class="tag-unconf">Unconfirmed</span> — no named law firm or formation service publishes a branch-specific total; this is assembled from the line items above, not a single quoted source</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sec-heading" style="margin-top:24px;font-size:14px">Lead Times</div>
+    <div class="gtable-wrap">
+      <table class="gtable">
+        <thead>
+          <tr><th style="width:32%">Step</th><th style="width:26%">Estimate</th><th>Confidence</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>KVK appointment → KVK number issued</td><td>Within a few working days of the appointment</td><td><span class="tag-fixed">Official</span> — kvk.nl</td></tr>
+          <tr><td>Full KVK registration, incl. scheduling</td><td>1–4 weeks</td><td><span class="tag-unconf">Unconfirmed</span> — one formation-service source, ranges vary internally</td></tr>
+          <tr><td>VAT number issuance (once PE/taxable activity confirmed)</td><td>4–6 weeks</td><td>Medium</td></tr>
+          <tr><td>Business bank account (foreign-parent KYC)</td><td>~65 days</td><td><span class="tag-unconf">Unconfirmed</span> — single source</td></tr>
+          <tr><td><strong>End-to-end, incl. VAT + banking</strong></td><td>~8 weeks (compiled estimate, not a single quote)</td><td><span class="tag-unconf">Unconfirmed</span> — no law firm or major formation service publishes one authoritative end-to-end figure for branch registration specifically</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sec-heading" style="margin-top:24px;font-size:14px">Steps</div>
+    <div class="gtable-wrap">
+      <table class="gtable">
+        <thead><tr><th style="width:30px">#</th><th>Step</th></tr></thead>
+        <tbody>
+          <tr><td class="num">1</td><td>Board resolution appointing a director/officer of SMTHG Inc. first — required before anyone can legally sign for the company (see Blocker above)</td></tr>
+          <tr><td class="num">2</td><td>Gather: proof of SMTHG Inc.'s US registration (&lt;1 month old), certified articles of incorporation, proof of the director's appointment, proof of a Dutch address</td></tr>
+          <tr><td class="num">3</td><td>That director attends the KVK appointment in person and signs (or, if abroad, submits documents instead) — a branch manager may attend in their place only with a Dutch-language power of attorney, originally signed by the director</td></tr>
+          <tr><td class="num">4</td><td>KVK number issued within a few working days of the appointment</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- BV — everything in one place -->
+  <div class="section" id="s-bv">
+    <div class="sec-heading">BV</div>
+    <div class="sec-note">Private limited company — real subsidiary, own legal personality. Owned by SMTHG Inc. (100%). Liability: limited to the BV's own assets — the only option with a liability ring-fence.</div>
+
+    <div class="sec-heading" style="margin-top:20px;font-size:14px">Costs</div>
+    <div class="gtable-wrap">
+      <table class="gtable">
+        <thead><tr><th style="width:24%">Item</th><th style="width:20%">Type</th><th>Amount</th></tr></thead>
+        <tbody>
+          <tr><td>KVK registration + notary deed</td><td><span class="tag-fixed">Fixed</span></td><td>KVK €85.15 + notary €500–1,500 = ~€585–1,600</td></tr>
+          <tr><td>Ongoing accounting/filing</td><td><span class="tag-var">Variable</span></td><td>€800–3,500/yr</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sec-heading" style="margin-top:24px;font-size:14px">Lead Time</div>
+    <p style="font-size:13px;color:var(--sub);margin-bottom:10px">Not stated by KVK. VAT number arrives ~2 weeks after registration.</p>
+
+    <div class="sec-heading" style="margin-top:24px;font-size:14px">Steps</div>
+    <div class="gtable-wrap">
+      <table class="gtable">
+        <thead><tr><th style="width:30px">#</th><th>Step</th></tr></thead>
+        <tbody>
+          <tr><td class="num">1</td><td>Engage a Dutch civil-law notary; they draft the deed of incorporation + articles of association</td></tr>
+          <tr><td class="num">2</td><td>Notary registers the BV with KVK directly and registers the UBO (Olga, as CEO/owner via SMTHG Inc.)</td></tr>
+          <tr><td class="num">3</td><td>Tax Administration mails the VAT number within ~2 weeks of registration</td></tr>
+          <tr><td class="num">4</td><td>Engage a Dutch accountant for ongoing bookkeeping + annual accounts (due within 5 months of year-end)</td></tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
   <!-- W&B -->
   <div class="section" id="s03">
     <div class="sec-heading">How Wolf &amp; Badger Structures It</div>
-    <div class="sec-note">Confirmed via UK Companies House (official registry) + their published seller Terms &amp; Conditions. One agreement, 4 regional contracting entities — every region is a full subsidiary. None of the 4 use a Branch Office or VAT-only equivalent.</div>
+    <div class="sec-note">Confirmed via UK Companies House (official registry) + their published seller Terms &amp; Conditions. One agreement, 4 regional contracting entities — every region is a full subsidiary (BV-equivalent). None use a Branch Office or VAT-only equivalent — worth noting since it shows the real end-state at scale is multi-entity, not a reason to start there before there's EU revenue.</div>
     <div class="gtable-wrap">
       <table class="gtable">
         <thead>
@@ -326,18 +348,6 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
         </tbody>
       </table>
     </div>
-  </div>
-
-  <!-- RECOMMENDATION -->
-  <div class="section" id="s04">
-    <div class="sec-heading">Recommendation</div>
-    <ul class="reco">
-      <li>Officer appointment (Blocker above) is on the critical path for both BV and Branch Office regardless of which is chosen — resolve that first.</li>
-      <li>Cheapest path to any legal EU presence for SMTHG Inc. itself: Branch Office, not BV — €85.15 KVK fee, no notary cost, no share capital, days not weeks.</li>
-      <li>Branch Office carries full parent-company liability (no ring-fence) — a BV limits exposure to the BV's own assets, at the cost of the notary fee (~€500–1,500) and ongoing accounting (€800–3,500/yr).</li>
-      <li>VAT-only is the cheapest option with zero entity, but Wolf &amp; Badger's structure shows the real end-state at scale is a multi-entity setup (UK, EU, US, AU each contracting separately) — VAT-only is a starting point, not necessarily the permanent shape.</li>
-      <li>Given no immediate EU sales volume, VAT-only or Branch Office are the lower-cost ways to keep the option open without committing to BV-level cost before there's revenue to justify it.</li>
-    </ul>
   </div>
 
 </div>
