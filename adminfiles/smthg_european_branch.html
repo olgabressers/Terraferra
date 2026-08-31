@@ -41,22 +41,15 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .callout .pill{flex-shrink:0;background:var(--tf);color:white;font-size:9.5px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;padding:3px 9px;white-space:nowrap}
 .callout p{font-size:13px;line-height:1.6;color:var(--ink)}
 
-.reco-box{display:flex;gap:14px;align-items:flex-start;margin-top:14px;background:var(--green-bg);border:2px solid var(--green);padding:16px 20px}
-.reco-box .pill{flex-shrink:0;background:var(--green);color:white;font-size:10px;font-weight:900;letter-spacing:.5px;text-transform:uppercase;padding:4px 10px;white-space:nowrap}
-.reco-box p{font-size:14px;line-height:1.65;color:var(--ink)}
-.reco-box strong{color:var(--green)}
+.reco-frame{margin-top:18px;background:white;border:3px solid var(--tf);padding:20px 24px}
+.reco-frame-title{font-size:13px;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:var(--tf);margin-bottom:10px}
 
-.opt-list{margin-top:16px;display:flex;flex-direction:column;gap:8px}
-.opt-list-item{display:flex;gap:12px;align-items:baseline;background:white;border:1px solid var(--rule);padding:10px 16px}
-.opt-list-item .opt-badge{flex-shrink:0;font-size:9.5px;font-weight:900;letter-spacing:.5px;text-transform:uppercase;padding:3px 9px;white-space:nowrap}
-.opt-list-item.is-reco .opt-badge{background:var(--green);color:white}
-.opt-list-item:not(.is-reco) .opt-badge{background:var(--ink);color:white}
-.opt-list-item .opt-name{font-weight:800;font-size:13.5px;white-space:nowrap}
-.opt-list-item .opt-desc{font-size:13px;color:var(--sub)}
+.verdict{background:var(--tf);color:white;padding:20px 24px;margin-top:20px;font-size:19px;font-weight:900;letter-spacing:-.3px;text-align:center;line-height:1.4}
 
-.section{padding:36px 0}
-.section+.section{border-top:1px solid var(--rule)}
-.sec-heading{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:4px}
+.section{padding:48px 0}
+.section+.section{border-top:3px solid var(--ink);margin-top:8px}
+.sec-heading{font-size:28px;font-weight:900;letter-spacing:-.5px;color:var(--ink);margin-bottom:14px;padding-bottom:10px;border-bottom:3px solid var(--ink)}
+.sub-heading{font-size:15px;font-weight:800;color:var(--tf-dark);text-transform:uppercase;letter-spacing:.4px;margin:28px 0 10px}
 .sec-note{font-size:12px;color:var(--sub);margin-bottom:16px}
 
 .gtable-wrap{overflow-x:auto;margin-top:6px;border:1px solid var(--ink)}
@@ -127,6 +120,8 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <div class="pg-title">European Branch</div>
   <div class="pg-sub">SMTHG INC. · Delaware C-Corp · CEO tax-resident in the Netherlands · 3 ways to give SMTHG a European legal presence.</div>
 
+  <div class="verdict">DECISION: REGISTER FOR VAT ONLY. DO NOT OPEN A BV OR BRANCH OFFICE YET.</div>
+
   <div class="glossary">
     <div class="glossary-title">Key Terms</div>
     <dl>
@@ -154,14 +149,18 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
     </ol>
   </div>
 
-  <!-- OPTIONS LIST -->
-  <div class="opt-list">
-    <div class="opt-list-item is-reco"><span class="opt-badge">Recommended</span><span class="opt-name">VAT-Only</span><span class="opt-desc">— NL VAT ID for SMTHG Inc. directly. No new entity, no branch.</span></div>
-    <div class="opt-list-item"><span class="opt-badge">Alternative</span><span class="opt-name">Branch Office</span><span class="opt-desc">— SMTHG Inc. registers itself at KVK. No new legal entity, but full parent liability.</span></div>
-    <div class="opt-list-item"><span class="opt-badge">Alternative</span><span class="opt-name">BV</span><span class="opt-desc">— A real Dutch subsidiary, owned 100% by SMTHG Inc. Highest cost, only option with a liability ring-fence.</span></div>
+  <div class="reco-frame">
+    <div class="reco-frame-title">Recommendation</div>
+    <ul class="reco">
+      <li>Officer appointment (Blocker below) is on the critical path for both BV and Branch Office regardless of which is chosen — resolve that first.</li>
+      <li>Cheapest path to any legal EU presence for SMTHG Inc. itself: Branch Office, not BV — €85.15 KVK fee, no notary cost, no share capital, days not weeks.</li>
+      <li>Branch Office carries full parent-company liability (no ring-fence) — a BV limits exposure to the BV's own assets, at the cost of the notary fee (~€500–1,500) and ongoing accounting (€800–3,500/yr).</li>
+      <li>VAT-only is the cheapest option with zero entity, but Wolf &amp; Badger's structure shows the real end-state at scale is a multi-entity setup (UK, EU, US, AU each contracting separately) — VAT-only is a starting point, not necessarily the permanent shape.</li>
+      <li>Given no immediate EU sales volume, VAT-only or Branch Office are the lower-cost ways to keep the option open without committing to BV-level cost before there's revenue to justify it.</li>
+    </ul>
   </div>
 
-  <div class="reco-box"><span class="pill">Decision</span><p><strong>Going with VAT-Only.</strong> No EU sales yet, so there's no revenue to justify Branch Office's compliance overhead or the BV's cost and liability ring-fence. All VAT-Only detail is consolidated in one section below.</p></div>
+  <div class="callout"><span class="pill">Blocker</span><p>Branch Office and BV both require a signature from a <strong>director of SMTHG Inc.</strong> — KVK explicitly does not accept a lawyer, notary, or authorized representative for this declaration. SMTHG has no board-appointed officer yet (see <a href="smthg_accounting_tax.html#s01b" style="color:var(--tf);font-weight:700">Legal — Before the Pre-Seed Round Closes, Action 1</a>). That appointment has to happen first if either is chosen.</p></div>
 
   <!-- QUICK SUMMARY -->
   <div class="section" id="s00" style="padding-top:22px">
@@ -186,7 +185,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
     <div class="sec-heading">VAT-Only <span style="color:var(--green)">— Recommended</span></div>
     <div class="sec-note">NL VAT ID for SMTHG Inc. — no entity, no branch. SMTHG Inc. registers directly with the Dutch tax authority. Liability: none — SMTHG Inc. itself is fully exposed, no ring-fence (same as Branch Office).</div>
 
-    <div class="sec-heading" style="margin-top:20px;font-size:14px">Setup &amp; Provider Costs in Detail</div>
+    <div class="sub-heading">Setup &amp; Provider Costs in Detail</div>
     <div class="sec-note">Registering directly costs nothing. Everything below is an <em>optional</em> paid service that files for you instead.</div>
     <div class="gtable-wrap">
       <table class="gtable">
@@ -206,7 +205,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
       </table>
     </div>
 
-    <div class="sec-heading" style="margin-top:24px;font-size:14px">EAS Project — OSS/IOSS Tiers in Detail</div>
+    <div class="sub-heading">EAS Project — OSS/IOSS Tiers in Detail</div>
     <div class="sec-note">Real named pricing, verified directly from <a href="https://easproject.com/pricing/" target="_blank" rel="noopener">easproject.com/pricing ↗</a>. Priced by monthly order volume. <strong>No mandatory one-time setup fee</strong> — only optional paid onboarding add-ons (€159 prioritized, €399 express).</div>
     <div class="gtable-wrap">
       <table class="gtable">
@@ -222,10 +221,10 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
     </div>
     <p style="font-size:12px;color:var(--sub);margin-top:8px">OSS (dispatch from EU stock) and IOSS (import ≤€150 parcels) have separate tier tables with different volume/overage numbers on the same page — the above is the IOSS/UK VAT structure. Confirm which product applies once SMTHG's actual EU fulfillment model (EU-stocked vs. imported) is set.</p>
 
-    <div class="sec-heading" style="margin-top:24px;font-size:14px">Lead Time</div>
+    <div class="sub-heading">Lead Time</div>
     <p style="font-size:13px;color:var(--sub);margin-bottom:10px"><span class="tag-unconf">Unconfirmed</span> — not published by any official source. Request a specific estimate directly from Kantoor Buitenland.</p>
 
-    <div class="sec-heading" style="margin-top:24px;font-size:14px">Steps</div>
+    <div class="sub-heading">Steps</div>
     <div class="gtable-wrap">
       <table class="gtable">
         <thead><tr><th style="width:30px">#</th><th>Step</th></tr></thead>
@@ -239,15 +238,12 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
     </div>
   </div>
 
-  <div class="callout"><span class="pill">Blocker</span><p>Applies only to Branch Office and BV below, not VAT-Only. Both require a signature from a <strong>director of SMTHG Inc.</strong> — KVK explicitly does not accept a lawyer, notary, or authorized representative for this declaration. SMTHG has no board-appointed officer yet (see <a href="smthg_accounting_tax.html#s01b" style="color:var(--tf);font-weight:700">Legal — Before the Pre-Seed Round Closes, Action 1</a>). That appointment has to happen first if either is chosen later.</p></div>
-
   <!-- BRANCH OFFICE — everything in one place -->
   <div class="section" id="s-branch">
     <div class="sec-heading">Branch Office</div>
     <div class="sec-note">Foreign-company branch (nevenvestiging) — SMTHG Inc. registers itself at KVK, no new legal entity created. Owned by SMTHG Inc. directly. Liability: none — SMTHG Inc. itself is fully exposed, no ring-fence.</div>
 
-    <div class="sec-heading" style="margin-top:20px;font-size:14px">How It Works</div>
-    <div class="sec-note"><span class="tag-fixed">Official</span> = government source. <span class="tag-unconf">Unconfirmed</span> = marketing/aggregator source only, not independently confirmed — flagged, not omitted.</div>
+    <div class="sub-heading">How It Works</div>
     <div class="gtable-wrap">
       <table class="gtable">
         <thead>
@@ -265,7 +261,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
       </table>
     </div>
 
-    <div class="sec-heading" style="margin-top:24px;font-size:14px">Full Cost Breakdown</div>
+    <div class="sub-heading">Full Cost Breakdown</div>
     <div class="gtable-wrap">
       <table class="gtable">
         <thead>
@@ -283,7 +279,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
       </table>
     </div>
 
-    <div class="sec-heading" style="margin-top:24px;font-size:14px">Lead Times</div>
+    <div class="sub-heading">Lead Times</div>
     <div class="gtable-wrap">
       <table class="gtable">
         <thead>
@@ -299,7 +295,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
       </table>
     </div>
 
-    <div class="sec-heading" style="margin-top:24px;font-size:14px">Steps</div>
+    <div class="sub-heading">Steps</div>
     <div class="gtable-wrap">
       <table class="gtable">
         <thead><tr><th style="width:30px">#</th><th>Step</th></tr></thead>
@@ -318,7 +314,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
     <div class="sec-heading">BV</div>
     <div class="sec-note">Private limited company — real subsidiary, own legal personality. Owned by SMTHG Inc. (100%). Liability: limited to the BV's own assets — the only option with a liability ring-fence.</div>
 
-    <div class="sec-heading" style="margin-top:20px;font-size:14px">Costs</div>
+    <div class="sub-heading">Costs</div>
     <div class="gtable-wrap">
       <table class="gtable">
         <thead><tr><th style="width:24%">Item</th><th style="width:20%">Type</th><th>Amount</th></tr></thead>
@@ -329,10 +325,10 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
       </table>
     </div>
 
-    <div class="sec-heading" style="margin-top:24px;font-size:14px">Lead Time</div>
+    <div class="sub-heading">Lead Time</div>
     <p style="font-size:13px;color:var(--sub);margin-bottom:10px">Not stated by KVK. VAT number arrives ~2 weeks after registration.</p>
 
-    <div class="sec-heading" style="margin-top:24px;font-size:14px">Steps</div>
+    <div class="sub-heading">Steps</div>
     <div class="gtable-wrap">
       <table class="gtable">
         <thead><tr><th style="width:30px">#</th><th>Step</th></tr></thead>
