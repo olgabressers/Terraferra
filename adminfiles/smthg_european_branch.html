@@ -100,15 +100,31 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
 
   <div class="pg-eyebrow">Legal / Tax · European Presence · Internal</div>
   <div class="pg-title">European Branch</div>
-  <div class="pg-sub">SMTHG INC. · Delaware C-Corp · CEO tax-resident in the Netherlands · Comparing 3 ways to give SMTHG a European legal presence, vs. registering for EU VAT with no entity at all.</div>
+  <div class="pg-sub">SMTHG INC. · Delaware C-Corp · CEO tax-resident in the Netherlands · Comparing 2 ways to give SMTHG a European legal presence, vs. registering for EU VAT with no entity at all.</div>
 
-  <div class="callout"><span class="pill">Structural note</span><p>ZZP is <strong>not</strong> a subsidiary of SMTHG Inc. — it is Olga personally, registered as a Dutch sole trader, invoicing SMTHG Inc. as an independent contractor. A real "daughter company" requires either a <strong>BV</strong> or a <strong>Branch Office</strong> registration below. All 4 paths are compared so the tradeoff is visible.</p></div>
+  <div class="section" id="s00" style="padding-top:22px">
+    <div class="sec-heading">Quick Summary — BV vs. VAT-Only</div>
+    <div class="gtable-wrap">
+      <table class="gtable">
+        <thead>
+          <tr><th style="width:20%"></th><th>BV</th><th>VAT-Only</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="opt">Setup cost</td><td>~€585–1,600 (KVK + notary)</td><td>€0 to self-file; €39–74/mo if using a filing service</td></tr>
+          <tr><td class="opt">Ongoing cost</td><td>€800–3,500/yr accounting</td><td>€0 self-filed, or ~€470–890/yr if using a service</td></tr>
+          <tr><td class="opt">Liability</td><td>Limited to the BV's own assets</td><td>None — SMTHG Inc. itself is fully exposed, no ring-fence</td></tr>
+          <tr><td class="opt">Lead time</td><td>Weeks (VAT number ~2 weeks after registration)</td><td>Not published, but no entity to register first</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:13.5px;line-height:1.7;margin-top:14px"><strong>Recommendation:</strong> start with VAT-only — no EU sales yet, so there's no revenue to justify the BV's cost or liability ring-fence. Move to a BV once EU sales volume is real enough that the liability exposure actually matters.</p>
+  </div>
 
-  <div class="callout"><span class="pill">Blocker</span><p>Branch Office and BV both require a signature from a <strong>director of SMTHG Inc.</strong> — KVK explicitly does not accept a lawyer, notary, or authorized representative for this declaration. SMTHG has no board-appointed officer yet (see <a href="smthg_accounting_tax.html#s01b" style="color:var(--tf);font-weight:700">Legal — Before the Pre-Seed Round Closes, Action 1</a>). That appointment has to happen first, regardless of which option is chosen.</p></div>
+  <div class="callout"><span class="pill">Blocker</span><p>BV and Branch Office registration both require a signature from a <strong>director of SMTHG Inc.</strong> — KVK explicitly does not accept a lawyer, notary, or authorized representative for this declaration. SMTHG has no board-appointed officer yet (see <a href="smthg_accounting_tax.html#s01b" style="color:var(--tf);font-weight:700">Legal — Before the Pre-Seed Round Closes, Action 1</a>). That appointment has to happen first if either is chosen.</p></div>
 
   <!-- COMPARISON -->
   <div class="section" id="s01">
-    <div class="sec-heading">4 Options — Side by Side</div>
+    <div class="sec-heading">3 Options — Side by Side</div>
     <div class="sec-note"><span class="tag-fixed">Fixed</span> = one-time setup cost. <span class="tag-var">Variable</span> = ongoing/annual cost. <span class="tag-unconf">Unconfirmed</span> = not stated on an official page — verify before relying on it.</div>
     <div class="gtable-wrap">
       <table class="gtable">
@@ -135,20 +151,11 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
             <td>SMTHG Inc. itself — full parent-company liability, no ring-fence</td>
           </tr>
           <tr>
-            <td class="opt">ZZP</td>
-            <td>Olga's personal Dutch sole-tradership — not SMTHG's entity</td>
-            <td>Olga personally</td>
-            <td><span class="tag-fixed">Fixed</span><br/>KVK €85.15</td>
-            <td><span class="tag-var">Variable</span><br/>Bookkeeping €500–1,000/yr (optional) + personal income tax</td>
-            <td>Same-day KVK number at the registration appointment</td>
-            <td>Olga personally, unlimited</td>
-          </tr>
-          <tr>
             <td class="opt">VAT-only</td>
-            <td>NL VAT ID for SMTHG Inc. — no entity, no branch, no ZZP</td>
+            <td>NL VAT ID for SMTHG Inc. — no entity, no branch</td>
             <td>N/A — SMTHG Inc. registers directly with Dutch tax authority</td>
-            <td><span class="tag-unconf">Unconfirmed</span><br/>Government fee likely €0; not confirmed on a Belastingdienst page</td>
-            <td><span class="tag-var">Variable</span><br/>VAT agent (optional, not required in NL): €39–74/mo published, or $2,000–5,000/yr full-service (estimate)</td>
+            <td><span class="tag-fixed">Fixed</span><br/>€0 to self-file directly</td>
+            <td><span class="tag-var">Variable</span><br/>Optional filing service: €39–74/mo published (see detail below)</td>
             <td><span class="tag-unconf">Unconfirmed</span> — not published, request directly from Kantoor Buitenland</td>
             <td>SMTHG Inc. — same as Branch Office, no ring-fence</td>
           </tr>
@@ -230,9 +237,6 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
           <tr><td></td><td class="num">2</td><td>Gather: proof of SMTHG Inc.'s US registration (&lt;1 month old), certified articles of incorporation, proof of the director's appointment, proof of a Dutch address</td></tr>
           <tr><td></td><td class="num">3</td><td>That director attends the KVK appointment in person and signs (or, if abroad, submits documents instead) — a branch manager may attend in their place only with a Dutch-language power of attorney, originally signed by the director</td></tr>
           <tr><td></td><td class="num">4</td><td>KVK number issued within a few working days of the appointment</td></tr>
-          <tr><td class="opt">ZZP</td><td class="num">1</td><td>Olga pre-registers online with DigiD (~15 min)</td></tr>
-          <tr><td></td><td class="num">2</td><td>Attend a KVK appointment in person — KVK number issued same-day (or by post in the week of the stated start date, if registered up to 3 months ahead)</td></tr>
-          <tr><td></td><td class="num">3</td><td>VAT registration triggers automatically above €20,000/yr turnover (KOR small-business threshold)</td></tr>
           <tr><td class="opt">VAT-only</td><td class="num">1</td><td>Submit the "Aanmeldingsformulier buitenlandse ondernemers" (foreign entrepreneurs VAT form) to the Tax Administration's Kantoor Buitenland (International Office)</td></tr>
           <tr><td></td><td class="num">2</td><td>No fiscal representative required for a standard VAT registration in NL — only needed for the separate Article 23 import-VAT-deferment license</td></tr>
           <tr><td></td><td class="num">3</td><td>If shipping goods from outside the EU direct to EU consumers at ≤€150/consignment, separately appoint an EU-based intermediary for IOSS (mandatory for a non-EU seller with no EU establishment)</td></tr>
@@ -245,21 +249,21 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <!-- VAT-ONLY COSTS -->
   <div class="section" id="s02b">
     <div class="sec-heading">VAT-Only — Setup &amp; Provider Costs in Detail</div>
-    <div class="sec-note">The NL government charges no fee to register directly with Kantoor Buitenland. These providers are optional — they handle the filing for you instead of doing it yourself.</div>
+    <div class="sec-note">Registering directly costs nothing. Everything below is an <em>optional</em> paid service that files for you instead.</div>
     <div class="gtable-wrap">
       <table class="gtable">
         <thead>
-          <tr><th style="width:16%">Cost Item</th><th style="width:14%">Type</th><th style="width:20%">Amount</th><th style="width:26%">Covers</th><th>Source</th></tr>
+          <tr><th style="width:20%">Cost Item</th><th style="width:16%">Amount</th><th style="width:28%">Covers</th><th>Confidence / Source</th></tr>
         </thead>
         <tbody>
-          <tr><td>Direct self-filing with Kantoor Buitenland</td><td><span class="tag-fixed">Fixed</span></td><td><span class="tag-unconf">Unconfirmed</span> — likely €0</td><td>VAT ID issuance only — you file returns yourself going forward</td><td><a href="https://business.gov.nl/regulations/vat-businesses-outside-netherlands/" target="_blank" rel="noopener">business.gov.nl ↗</a></td></tr>
-          <tr><td>hellotax</td><td><span class="tag-var">Variable</span></td><td>From €39/month</td><td>EU VAT registration + ongoing filings</td><td><a href="https://hellotax.com/pricing" target="_blank" rel="noopener">hellotax.com/pricing ↗</a></td></tr>
-          <tr><td>SimpleVAT — Lite</td><td><span class="tag-var">Variable</span></td><td>$25/month</td><td>Up to 60 orders/month</td><td><a href="https://www.simplevat.eu/pricing/" target="_blank" rel="noopener">simplevat.eu/pricing ↗</a></td></tr>
-          <tr><td>SimpleVAT — Pro</td><td><span class="tag-var">Variable</span></td><td>$60/month</td><td>Unlimited orders</td><td><a href="https://www.simplevat.eu/pricing/" target="_blank" rel="noopener">simplevat.eu/pricing ↗</a></td></tr>
-          <tr><td>SimpleVAT — OSS filing</td><td><span class="tag-var">Variable</span></td><td>$65/month</td><td>One-Stop-Shop return filing specifically</td><td><a href="https://www.simplevat.eu/pricing/" target="_blank" rel="noopener">simplevat.eu/pricing ↗</a></td></tr>
-          <tr><td>SimpleVAT — local VAT filing</td><td><span class="tag-var">Variable</span></td><td>$74/month</td><td>Local returns, multi-country incl. NL</td><td><a href="https://www.simplevat.eu/pricing/" target="_blank" rel="noopener">simplevat.eu/pricing ↗</a></td></tr>
-          <tr><td>Avalara — full-service</td><td><span class="tag-var">Variable</span></td><td>$2,000–5,000/region/yr <span class="tag-unconf">Unconfirmed</span></td><td>Registration + calculation + filing; Avalara does not publish pricing — this is a third-party estimate, not their own quote</td><td><a href="https://www.getsphere.com/blog/how-much-does-avalara-cost" target="_blank" rel="noopener">getsphere.com ↗</a></td></tr>
-          <tr><td>IOSS intermediary (if shipping goods ≤€150 from outside the EU)</td><td><span class="tag-var">Variable</span></td><td><span class="tag-unconf">Unconfirmed</span> — separate fee on top of VAT registration, not priced by any source above</td><td>Mandatory EU-based intermediary for a non-EU seller with no EU establishment</td><td><a href="https://vat-one-stop-shop.ec.europa.eu/one-stop-shop/register-oss_en" target="_blank" rel="noopener">EU Commission OSS ↗</a></td></tr>
+          <tr><td><strong>Direct self-filing</strong> with Kantoor Buitenland</td><td><strong>€0</strong></td><td>VAT ID issuance — you file returns yourself going forward</td><td><a href="https://business.gov.nl/regulations/vat-businesses-outside-netherlands/" target="_blank" rel="noopener">business.gov.nl ↗</a> — no EU tax authority charges a VAT registration fee; not stated in these exact words on one single page</td></tr>
+          <tr><td>hellotax</td><td>From €39/month</td><td>EU VAT registration + ongoing filings</td><td><a href="https://hellotax.com/pricing" target="_blank" rel="noopener">Published — hellotax.com/pricing ↗</a></td></tr>
+          <tr><td>SimpleVAT — Lite</td><td>$25/month</td><td>Up to 60 orders/month</td><td><a href="https://www.simplevat.eu/pricing/" target="_blank" rel="noopener">Published — simplevat.eu/pricing ↗</a></td></tr>
+          <tr><td>SimpleVAT — Pro</td><td>$60/month</td><td>Unlimited orders</td><td><a href="https://www.simplevat.eu/pricing/" target="_blank" rel="noopener">Published — simplevat.eu/pricing ↗</a></td></tr>
+          <tr><td>SimpleVAT — OSS filing</td><td>$65/month</td><td>One-Stop-Shop return filing specifically</td><td><a href="https://www.simplevat.eu/pricing/" target="_blank" rel="noopener">Published — simplevat.eu/pricing ↗</a></td></tr>
+          <tr><td>SimpleVAT — local VAT filing</td><td>$74/month</td><td>Local returns, multi-country incl. NL</td><td><a href="https://www.simplevat.eu/pricing/" target="_blank" rel="noopener">Published — simplevat.eu/pricing ↗</a></td></tr>
+          <tr><td>Avalara — full-service</td><td>$2,000–5,000/region/yr</td><td>Registration + calculation + filing, enterprise-grade</td><td><span class="tag-unconf">Unconfirmed</span> — Avalara doesn't publish pricing; this is a third-party estimate via <a href="https://www.getsphere.com/blog/how-much-does-avalara-cost" target="_blank" rel="noopener">getsphere.com ↗</a>, not Avalara's own quote</td></tr>
+          <tr><td>IOSS intermediary (only if shipping goods ≤€150 from outside the EU)</td><td>Not published</td><td>Mandatory EU-based intermediary for a non-EU seller with no EU establishment</td><td><span class="tag-unconf">Unconfirmed</span> — no source found prices this specifically; see <a href="https://vat-one-stop-shop.ec.europa.eu/one-stop-shop/register-oss_en" target="_blank" rel="noopener">EU Commission OSS ↗</a> for the requirement itself</td></tr>
         </tbody>
       </table>
     </div>
@@ -268,7 +272,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
   <!-- W&B -->
   <div class="section" id="s03">
     <div class="sec-heading">How Wolf &amp; Badger Structures It</div>
-    <div class="sec-note">Confirmed via UK Companies House (official registry) + their published seller Terms &amp; Conditions. One agreement, 4 regional contracting entities — every region is a full subsidiary. None of the 4 use a Branch Office, ZZP, or VAT-only equivalent.</div>
+    <div class="sec-note">Confirmed via UK Companies House (official registry) + their published seller Terms &amp; Conditions. One agreement, 4 regional contracting entities — every region is a full subsidiary. None of the 4 use a Branch Office or VAT-only equivalent.</div>
     <div class="gtable-wrap">
       <table class="gtable">
         <thead>
@@ -290,9 +294,8 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
     <div class="sec-heading">Recommendation</div>
     <ul class="reco">
       <li>Officer appointment (Blocker above) is on the critical path for both BV and Branch Office regardless of which is chosen — resolve that first.</li>
-      <li>Cheapest path to any legal EU presence for SMTHG Inc. itself: Branch Office, not BV — same €85.15 KVK fee as ZZP, no notary cost, no share capital, days not weeks.</li>
+      <li>Cheapest path to any legal EU presence for SMTHG Inc. itself: Branch Office, not BV — €85.15 KVK fee, no notary cost, no share capital, days not weeks.</li>
       <li>Branch Office carries full parent-company liability (no ring-fence) — a BV limits exposure to the BV's own assets, at the cost of the notary fee (~€500–1,500) and ongoing accounting (€800–3,500/yr).</li>
-      <li>ZZP does not solve "SMTHG needs a European entity" — it solves "Olga is paid in NL as a contractor." Both can exist at once; they answer different questions.</li>
       <li>VAT-only is the cheapest option with zero entity, but Wolf &amp; Badger's structure shows the real end-state at scale is a multi-entity setup (UK, EU, US, AU each contracting separately) — VAT-only is a starting point, not necessarily the permanent shape.</li>
       <li>Given no immediate EU sales volume, VAT-only or Branch Office are the lower-cost ways to keep the option open without committing to BV-level cost before there's revenue to justify it.</li>
     </ul>
