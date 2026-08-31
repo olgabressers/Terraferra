@@ -64,10 +64,11 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .gtable a:hover{text-decoration:underline}
 .gtable td.opt{font-weight:800}
 
-.tag-fixed,.tag-var,.tag-unconf{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;padding:2px 7px;margin-bottom:4px}
+.tag-fixed,.tag-var,.tag-unconf,.tag-reco{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;padding:2px 7px;margin-bottom:4px}
 .tag-fixed{background:var(--ink);color:white}
 .tag-var{border:1px solid var(--ink);color:var(--ink)}
 .tag-unconf{background:#FEF3C7;color:#8A4B00}
+.tag-reco{background:var(--green);color:white;margin-left:6px}
 
 #s00 .gtable th:nth-child(2){background:var(--green)}
 #s00 .gtable td:nth-child(2){background:var(--green-bg)!important;font-weight:700}
@@ -148,7 +149,7 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
 
   <div class="reco-frame">
     <div class="reco-frame-title">Recommendation</div>
-    <p style="font-size:14.5px;line-height:1.65;color:var(--ink)">Register for VAT only, now — cheapest option, no entity to open, matches SMTHG's current EU sales volume of zero. Revisit Branch Office or BV only once EU revenue exists to justify the extra cost, and only after the officer-appointment blocker below is resolved.</p>
+    <p style="font-size:14.5px;line-height:1.65;color:var(--ink)">Register for VAT only, now — cheapest option, no entity to open, matches SMTHG's current EU sales volume of zero. If EU revenue later justifies more than VAT-only, prefer <strong>Branch Office over BV</strong> — cheaper and faster — unless real liability exposure (inventory, employees, contracts) requires a BV's ring-fence. Either way, resolve the officer-appointment blocker below first.</p>
   </div>
 
   <div class="callout"><span class="pill">Blocker</span><p>Branch Office and BV both require a signature from a <strong>director of SMTHG Inc.</strong> — KVK explicitly does not accept a lawyer, notary, or authorized representative for this declaration. SMTHG has no board-appointed officer yet (see <a href="smthg_accounting_tax.html#s01b" style="color:var(--tf);font-weight:700">Legal — Before the Pre-Seed Round Closes, Action 1</a>). That appointment has to happen first if either is chosen.</p></div>
@@ -178,14 +179,14 @@ footer{padding:24px 48px;border-top:1px solid var(--rule);background:white;font-
     <div class="concl-frame"><strong>NL VAT ID for SMTHG Inc. directly — no entity, no branch.</strong> SMTHG Inc. registers with the Dutch tax authority itself. Liability: none — SMTHG Inc. is fully exposed, no ring-fence (same as Branch Office).</div>
 
     <div class="sub-heading">Setup &amp; Provider Costs in Detail</div>
-    <div class="sec-note">Registering directly costs nothing. Everything below is an <em>optional</em> paid service that files for you instead.</div>
+    <div class="sec-note"><strong>Recommended: self-file directly, €0.</strong> Only use a paid provider below once order volume makes filing returns manually impractical.</div>
     <div class="gtable-wrap">
       <table class="gtable">
         <thead>
           <tr><th style="width:20%">Cost Item</th><th style="width:16%">Amount</th><th style="width:28%">Covers</th><th>Confidence / Source</th></tr>
         </thead>
         <tbody>
-          <tr><td><strong>Direct self-filing</strong> with Kantoor Buitenland</td><td><strong>€0</strong></td><td>VAT ID issuance — you file returns yourself going forward</td><td><a href="https://business.gov.nl/regulations/vat-businesses-outside-netherlands/" target="_blank" rel="noopener">business.gov.nl ↗</a> — no EU tax authority charges a VAT registration fee; not stated in these exact words on one single page</td></tr>
+          <tr><td><strong>Direct self-filing</strong> with Kantoor Buitenland <span class="tag-reco">Recommended</span></td><td><strong>€0</strong></td><td>VAT ID issuance — you file returns yourself going forward</td><td><a href="https://business.gov.nl/regulations/vat-businesses-outside-netherlands/" target="_blank" rel="noopener">business.gov.nl ↗</a> — no EU tax authority charges a VAT registration fee; not stated in these exact words on one single page</td></tr>
           <tr><td>hellotax</td><td>From €39/month</td><td>EU VAT registration + ongoing filings</td><td><a href="https://hellotax.com/pricing" target="_blank" rel="noopener">Published — hellotax.com/pricing ↗</a></td></tr>
           <tr><td>SimpleVAT — Lite</td><td>$25/month</td><td>Up to 60 orders/month</td><td><a href="https://www.simplevat.eu/pricing/" target="_blank" rel="noopener">Published — simplevat.eu/pricing ↗</a></td></tr>
           <tr><td>SimpleVAT — Pro</td><td>$60/month</td><td>Unlimited orders</td><td><a href="https://www.simplevat.eu/pricing/" target="_blank" rel="noopener">Published — simplevat.eu/pricing ↗</a></td></tr>
