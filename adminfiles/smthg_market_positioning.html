@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<script src="/site-lock.js"></script>
+<title>Market Positioning · SMTHG</title>
+<link rel="icon" type="image/svg+xml" href="smthg_favicon.svg"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --tf:#E8002D;
+  --tf-dark:#B50023;
+  --tf-ghost:#F1EEE9;
+  --orange:#E8002D;
+  --off-white:#F8F6F2;
+  --ink:#161616;
+  --sub:#5C5A56;
+  --rule:#E6E2DA;
+  --green:#1F7A4E;
+  --green-tint:#E9F4EE;
+  --orange-tint:#FDEFE9;
+}
+body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink);line-height:1.55}
+.wrap{max-width:1240px;margin:0 auto;padding:40px 48px 90px}
+
+.back{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);text-decoration:none;display:inline-block;margin-bottom:24px;opacity:.7}
+.back:hover{color:var(--tf);opacity:1}
+
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
+h1{font-size:34px;font-weight:800;letter-spacing:-1px;color:var(--ink);margin-bottom:10px}
+.lede{font-size:14.5px;color:var(--ink);max-width:880px;margin-bottom:8px}
+.lede.sub{color:var(--sub);font-size:13px}
+
+.sec-num{font-size:26px;font-weight:800;color:var(--orange);margin-right:12px}
+h2{font-size:22px;font-weight:800;color:var(--ink);margin:44px 0 6px;letter-spacing:-.4px;display:flex;align-items:baseline}
+
+.concl{border:1px solid var(--rule);border-left:4px solid var(--green);background:var(--green-tint);padding:14px 18px;margin:16px 0 22px;font-size:13px;line-height:1.6;color:var(--ink)}
+.concl.risk{border-left-color:var(--orange);background:var(--orange-tint)}
+.concl strong{font-weight:800}
+
+.tbl-wrap{overflow-x:auto;border:1px solid var(--rule);background:white;margin-bottom:8px}
+table{border-collapse:collapse;width:100%;min-width:760px;font-size:12.5px}
+table.wide{min-width:1360px}
+th,td{padding:10px 13px;border-bottom:1px solid var(--rule);border-right:1px solid var(--rule);vertical-align:top;line-height:1.5;text-align:left}
+th{background:var(--tf);color:white;font-weight:800;font-size:10.5px;letter-spacing:.4px;text-transform:uppercase;white-space:nowrap}
+td.label{font-weight:700;background:var(--tf-ghost);min-width:200px;max-width:200px}
+td.smthg{background:#FBEFEF;font-weight:600}
+th.smthg-h{background:var(--tf-dark)}
+tr:last-child td{border-bottom:none}
+td:last-child,th:last-child{border-right:none}
+.src-note{font-size:11px;color:var(--sub);margin:8px 0 0}
+.src-note a{color:var(--tf);text-decoration:underline}
+
+.bullets{list-style:none;margin:0 0 4px;padding:0}
+.bullets li{font-size:13px;color:var(--ink);line-height:1.6;padding:6px 0 6px 18px;position:relative;border-bottom:1px solid var(--rule)}
+.bullets li:last-child{border-bottom:none}
+.bullets li::before{content:"";position:absolute;left:2px;top:15px;width:5px;height:5px;border-radius:50%;background:var(--tf)}
+
+.watch-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+.watch-card{background:white;border:1px solid var(--rule);border-top:4px solid var(--orange);padding:18px 20px 16px}
+.watch-name{font-size:13.5px;font-weight:800;color:var(--ink);margin-bottom:8px}
+.watch-body{font-size:12.5px;color:var(--sub);line-height:1.55}
+@media(max-width:900px){.watch-grid{grid-template-columns:1fr}}
+
+.topnav{background:white;border-bottom:1px solid var(--rule);padding:12px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
+.topnav-home{font-weight:800;letter-spacing:-.5px;color:var(--ink);text-decoration:none;font-size:15px}
+.topnav-home .dot{color:var(--tf)}
+.topnav-links{display:flex;gap:16px;flex-wrap:nowrap;overflow-x:auto;align-items:center}
+.topnav-links a{color:var(--sub);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:.8px;font-size:10px;white-space:nowrap}
+.topnav-links a:hover{color:var(--tf)}
+@media(max-width:700px){.topnav{position:static;padding:10px 14px}}
+
+@media(max-width:1000px){
+  .wrap{padding:28px 20px 60px}
+  h1{font-size:26px}
+  .watch-grid{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .wrap{padding:20px 14px 44px}
+  h1{font-size:22px}
+  h2{font-size:18px}
+}
+
+/* back to top */
+#back-to-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--tf);color:white;border:none;border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900}
+#back-to-top:hover{background:var(--tf-dark)}
+@media(max-width:600px){#back-to-top{width:38px;height:38px;bottom:18px;right:18px}}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="index.html" class="topnav-home">smthg<span class="dot">.</span></a>
+  <div class="topnav-links">
+    <a href="index.html">Files</a>
+    <a href="TFcommunities.html">Communities</a>
+    <a href="socialcommerce.html">Social Commerce</a>
+    <a href="smthg_businessmodel.html">Business Model</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <a class="back" href="index.html">← SMTHG Files</a>
+  <div class="eyebrow">Confidential · Market Positioning · 4 Sep 2026</div>
+  <h1>SMTHG — Market Positioning</h1>
+  <p class="lede">SMTHG's model combines four elements: a dedicated storytelling Space per brand, member-to-member community discussion, a per-member collection page in the community area aggregating affiliate links across drops, and a two-step conversion goal — purchase, then optional community membership.</p>
+  <p class="lede sub">Source: <em>SMTHG_Market_Positioning.docx</em> (SMTHG Product Strategy) — the comparison matrix below extends that document's platform set with Pinterest and Whering, and adds the additional comparison dimensions used in earlier SMTHG competitive research (now superseded — see Archived Pages on the Files index).</p>
+
+  <h2><span class="sec-num">01</span>Core Comparison Matrix</h2>
+  <div class="concl"><strong>Six platforms already tracked, plus Pinterest and Whering, cover one or two of SMTHG's four model elements each. None combines all four.</strong> Pinterest is the closest on discovery; no platform in this set pairs commerce with a persistent brand-owned community.</div>
+  <div class="tbl-wrap">
+    <table class="wide">
+      <thead>
+        <tr>
+          <th>Dimension</th>
+          <th class="smthg-h">SMTHG</th>
+          <th>LTK</th>
+          <th>ShopMy</th>
+          <th>TikTok Shop</th>
+          <th>Instagram Shop</th>
+          <th>Wolf &amp; Badger</th>
+          <th>Farfetch</th>
+          <th>Pinterest</th>
+          <th>Whering</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label">Core model</td>
+          <td class="smthg">Community-led social commerce, one shared ecosystem</td>
+          <td>Creator affiliate shopping app</td>
+          <td>Creator-curated affiliate storefronts</td>
+          <td>Live/video-native social commerce</td>
+          <td>Product tagging + off-app checkout</td>
+          <td>Curated multi-brand marketplace</td>
+          <td>Luxury multi-brand marketplace</td>
+          <td>Visual discovery engine + affiliate/creator commerce, off-platform checkout</td>
+          <td>Digital wardrobe / AI styling app, free to use</td>
+        </tr>
+        <tr>
+          <td class="label">Brand storytelling space</td>
+          <td class="smthg">Yes — dedicated Space per brand</td>
+          <td>No — creator profile only</td>
+          <td>No — brand gets analytics/placement only</td>
+          <td>No — shop tab only</td>
+          <td>No — standard profile</td>
+          <td>Partial — designer story on product page</td>
+          <td>Partial — occasional editorial</td>
+          <td>No — Verified Merchant badge + catalog only</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td class="label">Member community / discussion</td>
+          <td class="smthg">Yes — thematic Spaces, posts, feedback</td>
+          <td>No — 2-way direct message only</td>
+          <td>No — "Circles" = following curators</td>
+          <td>Live-chat during streams only</td>
+          <td>No</td>
+          <td>No</td>
+          <td>No</td>
+          <td>Partial — comments on pins; no thematic discussion spaces</td>
+          <td>Partial — social wardrobe/outfit sharing among friends, no discussion spaces</td>
+        </tr>
+        <tr>
+          <td class="label">Influencer curated shoppable page</td>
+          <td class="smthg">Yes — collections (Pinterest-style boards), open to any member; affiliates use them as their traffic tool, attributed by link marker</td>
+          <td>Yes — personalized storefronts</td>
+          <td>Yes — storefronts + wishlist</td>
+          <td>No — video/live only</td>
+          <td>No — per-post tagging only</td>
+          <td>No</td>
+          <td>No</td>
+          <td>Yes — boards/collections; Amazon Storefront linking tool (Jun 2026) auto-applies affiliate tracking</td>
+          <td>No — wishlist/moodboard sharing only, no affiliate commerce layer documented</td>
+        </tr>
+        <tr>
+          <td class="label">Cross-brand taste-based discovery</td>
+          <td class="smthg">Planned — AI, philosophy/style match</td>
+          <td>Yes — AI search (2026)</td>
+          <td>Yes — "taste profile"</td>
+          <td>Yes — algorithmic feed (not fashion-specific)</td>
+          <td>Partial — Discovery tab</td>
+          <td>No</td>
+          <td>Partial — generic recommendations</td>
+          <td>Yes — visual/image-based discovery is the platform's core strength</td>
+          <td>Partial — AI styling limited to the member's own wardrobe items</td>
+        </tr>
+        <tr>
+          <td class="label">Primary conversion goal</td>
+          <td class="smthg">Purchase, then community membership</td>
+          <td>Purchase only</td>
+          <td>Purchase only</td>
+          <td>Purchase (in-stream)</td>
+          <td>Purchase (off-app)</td>
+          <td>Purchase only</td>
+          <td>Purchase only</td>
+          <td>Purchase, off-platform — Pinterest states it optimizes for "high-quality transfers" to the merchant's own site/app</td>
+          <td>Not commerce-first — app adoption/engagement; retailer redirect only via its browser-extension add flow</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="src-note">Pinterest: <a href="https://business.pinterest.com/shopping/" target="_blank" rel="noopener">business.pinterest.com/shopping</a>. Whering: <a href="https://whering.co" target="_blank" rel="noopener">whering.co</a> (moved from whering.co.uk).</p>
+
+  <h2><span class="sec-num">02</span>Monetisation Model</h2>
+  <div class="concl"><strong>SMTHG is the only platform in this set with a single bundled platform commission shown to designers.</strong> Every affiliate-model competitor splits the take between a brand-set influencer rate and a separate platform fee; the visual-discovery and wardrobe apps in this set don't monetise commerce directly at all.</div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Platform</th><th>Commission / fee model</th></tr></thead>
+      <tbody>
+        <tr><td class="label smthg">SMTHG</td><td>Single bundled platform commission, shown to designers as one rate (no separate influencer-affiliate split disclosed on the designer side)</td></tr>
+        <tr><td class="label">LTK</td><td>Brand sets and pays the influencer commission via LTK's affiliate network; platform layers its own brand-side fees on top</td></tr>
+        <tr><td class="label">ShopMy</td><td>Brand sets and pays the influencer commission via ShopMy's affiliate network; platform layers its own brand-side fees on top</td></tr>
+        <tr><td class="label">TikTok Shop</td><td>Referral + transaction fee on GMV</td></tr>
+        <tr><td class="label">Instagram Shop</td><td>No platform commission — checkout happens on the merchant's own site</td></tr>
+        <tr><td class="label">Wolf &amp; Badger</td><td>Commission on sales, plus mandatory seasonal markdown periods</td></tr>
+        <tr><td class="label">Farfetch</td><td>Marketplace commission on GMV (rate not publicly disclosed)</td></tr>
+        <tr><td class="label">Pinterest</td><td>No commission — ads-based revenue; product listing via the Verified Merchant Program is free</td></tr>
+        <tr><td class="label">Whering</td><td>Free app — no disclosed commerce monetisation</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2><span class="sec-num">03</span>Discovery &amp; Commerce Mechanics</h2>
+  <div class="concl"><strong>Pinterest is the only platform that already does cross-brand visual discovery at the scale SMTHG is planning to build toward.</strong> SMTHG is the only platform pairing a drop/pre-order mechanic with native on-platform checkout and a community layer.</div>
+  <div class="tbl-wrap">
+    <table class="wide">
+      <thead><tr><th>Platform</th><th>Discovery method</th><th>Native checkout</th><th>Drop / pre-order mechanic</th></tr></thead>
+      <tbody>
+        <tr><td class="label smthg">SMTHG</td><td class="smthg">Planned — AI philosophy/style match, cross-brand</td><td class="smthg">Yes — on-platform</td><td class="smthg">Yes — drops are the lead mechanic, alongside a regular ongoing assortment</td></tr>
+        <tr><td class="label">LTK</td><td>Keyword/category + audience-demographic filters; AI search planned for 2026</td><td>No — off-app to the brand's site</td><td>No</td></tr>
+        <tr><td class="label">ShopMy</td><td>Aesthetic/style AI ("taste profile")</td><td>No — off-app</td><td>No</td></tr>
+        <tr><td class="label">TikTok Shop</td><td>Algorithmic feed (not fashion-specific)</td><td>Yes — in-app</td><td>Partial — livestream-driven, informal</td></tr>
+        <tr><td class="label">Instagram Shop</td><td>Per-post tagging + Discovery tab</td><td>No — off-app checkout</td><td>No</td></tr>
+        <tr><td class="label">Wolf &amp; Badger</td><td>Keyword/category browse</td><td>Yes — in-app</td><td>No</td></tr>
+        <tr><td class="label">Farfetch</td><td>Keyword/category + generic recommendations</td><td>Yes — in-app</td><td>No</td></tr>
+        <tr><td class="label">Pinterest</td><td>Visual/image-based discovery — the platform's core, category-leading strength</td><td>No — redirects to the merchant's site/app</td><td>No</td></tr>
+        <tr><td class="label">Whering</td><td>AI outfit styling drawn from the member's own wardrobe photos</td><td>N/A — wardrobe styling only</td><td>No</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2><span class="sec-num">04</span>Strategic Conclusion</h2>
+  <ul class="bullets">
+    <li>Affiliate-led commerce drives sales the same way it does for LTK and ShopMy — that mechanic stays central to SMTHG's model.</li>
+    <li>Community is the differentiator: brand-owned Spaces and member discussion layered onto that same commerce mechanic — a layer neither LTK nor ShopMy offers.</li>
+    <li>Any community member can build shoppable collections that aggregate their affiliate picks across drops — the community-native version of LTK/ShopMy's storefront, open to any member rather than a dedicated influencer type, and the piece that completes the community layer.</li>
+    <li>The Zero-to-One launch proves the combination: drops generate attributable sales through affiliate links, and drop buyers convert into community members.</li>
+  </ul>
+
+  <h2><span class="sec-num">05</span>Where to Focus</h2>
+  <div class="concl">SMTHG differentiates in practice only if community drives repeat purchase — that is the one number the launch needs to prove.</div>
+  <ul class="bullets">
+    <li>Any community member can build collections (Pinterest-style boards) of product picks — no dedicated "Influencer" profile type or space. Affiliates use collections as their traffic tool; everyone else uses them for style curation.</li>
+    <li>Affiliate sales are attributed by link marker: a marker carries from an external collection link to the ecom page, and through a cookie window if the buyer later returns as a community member. No marker on the path means no affiliate credit, regardless of who curated the collection.</li>
+    <li>Brand Spaces need to be genuinely active with each brand's own founder/designer content — story, behind-the-scenes, upcoming drops.</li>
+    <li>A friend referral advances the referrer's membership status.</li>
+    <li>Track whether members who join after a drop come back and buy again — that repeat-purchase number is the actual test of the differentiation claim, since it's what LTK and ShopMy's affiliate-only model does not produce.</li>
+  </ul>
+
+  <h2><span class="sec-num">06</span>Assortment — Drops + Regular Listings</h2>
+  <ul class="bullets">
+    <li>Drops stay the primary mechanic: they establish SMTHG's fashion-specific identity and remain what draws the audience in. The platform cannot rely on drops alone.</li>
+    <li>Designers can also list a regular, always-available assortment on the platform — the same model as a standard multi-brand marketplace (e.g. Farfetch) — running alongside drops.</li>
+    <li>Regular assortment gives influencers ongoing product to build looks from between drops, rather than only when a drop is live.</li>
+    <li>Regular assortment gives SMTHG a second, continuous sales channel beyond the intermittent timing of drop windows.</li>
+  </ul>
+
+  <h2><span class="sec-num">07</span>What to Watch Out For</h2>
+  <div class="concl risk"><strong>The biggest single risk is Pinterest.</strong> LTK and ShopMy are structurally closest but slowest to add community; Pinterest already owns the discovery dimension SMTHG has only "Planned," and is actively layering commerce on top of it in the opposite direction from SMTHG.</div>
+  <div class="watch-grid">
+    <div class="watch-card">
+      <div class="watch-name">Pinterest</div>
+      <div class="watch-body">Already the category leader on cross-brand visual/taste discovery — the one dimension where SMTHG's own matrix marks itself "Planned," not "Yes." Its June 2026 Amazon Storefront linking tool shows it actively adding affiliate/creator commerce on top of an existing 631M-MAU discovery engine. If it adds any brand-owned or community layer, it closes SMTHG's remaining edge on discovery.</div>
+    </div>
+    <div class="watch-card">
+      <div class="watch-name">LTK &amp; ShopMy</div>
+      <div class="watch-body">The closest structural analogs — both are affiliate-led commerce, same mechanic SMTHG relies on. Neither offers a persistent community or brand-owned Space today. Well-funded and capable of adding one; that is the gap SMTHG's community layer is betting stays open.</div>
+    </div>
+    <div class="watch-card">
+      <div class="watch-name">TikTok Shop</div>
+      <div class="watch-body">Largest audience and native in-app checkout of any platform in this set, plus an emerging gated pre-order feature. Its community layer is limited to live-chat during streams. A persistent community layer added on top of that reach and checkout would out-scale SMTHG immediately.</div>
+    </div>
+    <div class="watch-card">
+      <div class="watch-name">Whering</div>
+      <div class="watch-body">10M+ users on free AI wardrobe styling, already pulling items in from retailer sites via a browser extension. No affiliate/commerce layer today — but the styling-to-shopping journey is adjacent to SMTHG's own "style match" discovery ambition, from the opposite starting point (owned wardrobe first, new product second).</div>
+    </div>
+    <div class="watch-card">
+      <div class="watch-name">Wolf &amp; Badger / Farfetch</div>
+      <div class="watch-body">Established multi-brand marketplaces with existing independent and luxury designer relationships — the supply-side relationships SMTHG still needs to build. Neither offers a brand storytelling Space or member community today; either adding one would use existing designer supply to close SMTHG's positioning gap from the brand side.</div>
+    </div>
+    <div class="watch-card">
+      <div class="watch-name">New entrants</div>
+      <div class="watch-body">Media-backed and funded entrants continue to appear in this exact space — a signal the model's viability is now visible to well-capitalised players. Track new launches against this same six-dimension matrix as they appear.</div>
+    </div>
+  </div>
+
+</div>
+
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" title="Back to top">↑</button>
+<script>window.addEventListener('scroll',function(){var b=document.getElementById('back-to-top');b.style.display=window.scrollY>400?'flex':'none';});</script>
+</body>
+</html>
