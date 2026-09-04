@@ -88,6 +88,14 @@ main{flex:1;padding:48px 52px 80px}
 .tc-group{font-size:9.5px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:var(--mid);margin-top:10px}
 .card-link.tc-missing{color:var(--mid);cursor:default;text-decoration:none}
 
+/* ── ARCHIVED PAGES ── */
+.archive-section{background:#EDEDED;border-top:1px solid var(--border);padding:40px 52px}
+.archive-section-inner{max-width:1200px;margin:0 auto}
+.archive-label{font-size:10px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--mid);margin-bottom:20px}
+.card.archived{background:#E2E2E2;border-top-color:var(--mid)}
+.card.archived .card-num{color:var(--mid)}
+.card.archived .card-links{border-top-color:#CFCFCF}
+
 /* ── FOOTER ── */
 footer{background:var(--white);border-top:1px solid var(--border);padding:22px 52px;display:flex;justify-content:space-between;align-items:center}
 .footer-logo{font-size:14px;font-weight:900;letter-spacing:-.5px;color:var(--black)}
@@ -103,6 +111,7 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:22px 5
   header{padding:20px 24px 18px}
   main{padding:24px 24px 60px}
   .grid{grid-template-columns:repeat(2,1fr)}
+  .archive-section{padding:28px 24px}
 }
 @media(max-width:600px){
   header{padding:16px 18px 14px}
@@ -111,6 +120,7 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:22px 5
   .grid{grid-template-columns:1fr}
   .card{padding:24px 20px}
   .card-title{font-size:15px}
+  .archive-section{padding:20px 18px}
 }
 </style>
 </head>
@@ -213,14 +223,13 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:22px 5
       <div class="card-num">03</div>
       <div class="card-title">SMTHG Business Model Research</div>
       <div class="card-links">
-        <a class="card-link hi" href="TFcommunities.html">Fashion Communities by Audience →</a>
-        <a class="card-link hi" href="socialcommerce.html">Social Commerce — Community Elements Map →</a>
-        <a class="card-link hi" href="closethepain.html">SMTHG Community Model — Close the Pain →</a>
-        <a class="card-link hi" href="community-mktg.html">Community Marketing + Paid Digital Layer — Research →</a>
+        <a class="card-link" href="TFcommunities.html">Fashion Communities by Audience →</a>
+        <a class="card-link" href="socialcommerce.html">Social Commerce — Community Elements Map →</a>
+        <a class="card-link" href="closethepain.html">SMTHG Community Model — Close the Pain →</a>
+        <a class="card-link" href="community-mktg.html">Community Marketing + Paid Digital Layer — Research →</a>
         <a class="card-link" href="TFbrandsworldwide.html">Fashion Brands Worldwide (market size + Asia) →</a>
         <a class="card-link" href="TFvisualdiscovery.html">Visual Discovery Engines — Research →</a>
         <a class="card-link" href="TFreferral.html">Referral &amp; Viral Mechanics — Research →</a>
-        <a class="card-link" href="TFwhynow.html">Why Now — LTK / ShopMy / VTO Timing →</a>
         <a class="card-link" href="TFdropsmarket.html">Drop Market Research →</a>
         <a class="card-link" href="TFunservedmarket.html">Unserved Market Segments — Research →</a>
         <a class="card-link" href="TFcreatortoken.html">Creator Payments &amp; Tokenization — Research →</a>
@@ -228,7 +237,6 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:22px 5
         <a class="card-link" href="TFstylists.html">Stylist Layer &amp; AI Wardrobe Tooling — Research →</a>
         <a class="card-link" href="gamification.html">Gamification — Research →</a>
         <a class="card-link" href="TFaltmodel.html">Alternative Business Model →</a>
-        <a class="card-link" href="TFbusinessmodel.html">Comparison Matrix →</a>
       </div>
     </div>
 
@@ -365,6 +373,22 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:22px 5
 
   </div>
 </main>
+
+<section class="archive-section">
+  <div class="archive-section-inner">
+    <div class="archive-label">Archived Pages</div>
+    <div class="grid">
+      <div class="card archived">
+        <div class="card-num">ARCHIVED</div>
+        <div class="card-title">SMTHG Business Model Research — ARCHIVED</div>
+        <div class="card-links">
+          <a class="card-link" href="TFbusinessmodel.html">Comparison Matrix →</a>
+          <a class="card-link" href="TFwhynow.html">Why Now — LTK / ShopMy / VTO Timing →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <footer>
   <div class="footer-logo">smthg<span class="dot">.</span></div>
