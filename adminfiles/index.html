@@ -27,16 +27,15 @@ body{font-family:'Inter',sans-serif;background:var(--off);color:var(--black);min
 /* ── TOP NAV ── */
 .topnav{
   background:var(--white);border-bottom:1px solid var(--border);
-  padding:0 52px;height:56px;
-  display:flex;align-items:center;
+  padding:12px 52px;min-height:56px;
+  display:flex;align-items:center;flex-wrap:wrap;
   position:sticky;top:0;z-index:100;font-family:'Inter',sans-serif;
-  gap:28px;
+  gap:28px;row-gap:8px;
 }
 .topnav-home{font-size:17px;font-weight:900;letter-spacing:-0.5px;color:var(--black);text-decoration:none;line-height:1;flex-shrink:0}
 .topnav-home .dot{color:var(--red)}
 .topnav-home:hover{color:var(--red)}
-.topnav-links{display:flex;gap:18px;align-items:center;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;min-width:0;scrollbar-width:none}
-.topnav-links::-webkit-scrollbar{display:none}
+.topnav-links{display:flex;gap:14px;row-gap:6px;align-items:center;flex-wrap:wrap;min-width:0}
 .topnav-links a{display:flex;align-items:center;gap:5px;font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--mid);text-decoration:none;transition:color .15s;white-space:nowrap;flex-shrink:0}
 .topnav-links a:hover{color:var(--black)}
 .topnav-links a.active{color:var(--red)}
@@ -121,21 +120,21 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:22px 5
 <nav class="topnav">
   <a href="index.html" class="topnav-home">smthg<span class="dot">.</span></a>
   <div class="topnav-links">
-    <a href="#sec00"><span class="num">00</span>Investors Files</a>
-    <a href="#sec01"><span class="num">01</span>Budget &amp; Sales Scenarios</a>
-    <a href="#sec02"><span class="num">02</span>Roles &amp; Scope</a>
-    <a href="#sec03"><span class="num">03</span>Business Model Research</a>
-    <a href="#sec04"><span class="num">04</span>Business Model &amp; MVP</a>
-    <a href="#sec05"><span class="num">05</span>System Architecture &amp; Tools</a>
+    <a href="#sec00"><span class="num">00</span>Investors</a>
+    <a href="#sec01"><span class="num">01</span>Budget</a>
+    <a href="#sec02"><span class="num">02</span>Roles</a>
+    <a href="#sec03"><span class="num">03</span>Model Research</a>
+    <a href="#sec04"><span class="num">04</span>Model &amp; MVP</a>
+    <a href="#sec05"><span class="num">05</span>Architecture</a>
     <a href="#sec06"><span class="num">06</span>Operations</a>
     <a href="#sec07"><span class="num">07</span>Ideas</a>
-    <a href="#sec08"><span class="num">08</span>Design &amp; Creativity</a>
+    <a href="#sec08"><span class="num">08</span>Design</a>
     <a href="#sec09"><span class="num">09</span>Brands</a>
-    <a href="#sec10"><span class="num">10</span>Influencers, Social Media &amp; Content</a>
+    <a href="#sec10"><span class="num">10</span>Influencers</a>
     <a href="#sec11"><span class="num">11</span>Community</a>
-    <a href="#sec12"><span class="num">12</span>Legal / Tax &amp; Accounting</a>
-    <a href="#sec13"><span class="num">13</span>Task Tracker &amp; Planning</a>
-    <a href="#sec14"><span class="num">14</span>Fashion Tech News &amp; Digital Wardrobe</a>
+    <a href="#sec12"><span class="num">12</span>Legal / Tax</a>
+    <a href="#sec13"><span class="num">13</span>Task Tracker</a>
+    <a href="#sec14"><span class="num">14</span>Fashion Tech</a>
   </div>
 </nav>
 
