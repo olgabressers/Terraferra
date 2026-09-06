@@ -28,31 +28,23 @@ body{font-family:'Inter',sans-serif;background:var(--off);color:var(--black);min
 .topnav{
   background:var(--white);border-bottom:1px solid var(--border);
   padding:0 52px;height:56px;
-  display:flex;align-items:center;justify-content:space-between;
+  display:flex;align-items:center;
   position:sticky;top:0;z-index:100;font-family:'Inter',sans-serif;
-  flex-wrap:wrap;gap:10px;
+  gap:28px;
 }
-.topnav-home{font-size:17px;font-weight:900;letter-spacing:-0.5px;color:var(--black);text-decoration:none;line-height:1}
+.topnav-home{font-size:17px;font-weight:900;letter-spacing:-0.5px;color:var(--black);text-decoration:none;line-height:1;flex-shrink:0}
 .topnav-home .dot{color:var(--red)}
 .topnav-home:hover{color:var(--red)}
-.topnav-links{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-.topnav-links a{font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--mid);text-decoration:none;transition:color .15s}
+.topnav-links{display:flex;gap:18px;align-items:center;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;min-width:0;scrollbar-width:none}
+.topnav-links::-webkit-scrollbar{display:none}
+.topnav-links a{display:flex;align-items:center;gap:5px;font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--mid);text-decoration:none;transition:color .15s;white-space:nowrap;flex-shrink:0}
 .topnav-links a:hover{color:var(--black)}
 .topnav-links a.active{color:var(--red)}
-.topnav-links .has-dropdown{position:relative;padding-bottom:10px;margin-bottom:-10px}
-.topnav-links .dropdown-trigger{cursor:pointer;font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--mid);user-select:none}
-.topnav-links .dropdown-trigger:hover,.topnav-links .has-dropdown:focus-within .dropdown-trigger{color:var(--black)}
-.topnav-links .dropdown-trigger.active{color:var(--red)}
-.topnav-links .dropdown{display:none;position:absolute;top:100%;right:0;background:var(--white);border:1px solid var(--border);min-width:220px;box-shadow:0 6px 14px rgba(0,0,0,0.08);padding:6px 0;z-index:60}
-.topnav-links .has-dropdown:hover .dropdown,.topnav-links .has-dropdown:focus-within .dropdown{display:block}
-.topnav-links .dropdown a{display:block;padding:9px 16px;font-size:10px;font-weight:700;color:var(--mid);text-transform:uppercase;letter-spacing:.8px;text-decoration:none}
-.topnav-links .dropdown a:hover{background:var(--off);color:var(--black)}
+.topnav-links a .num{color:var(--red);font-weight:800}
 @media(max-width:700px){
   .topnav{position:static;padding:10px 18px;height:auto}
-  .topnav-links{gap:8px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:2px;width:100%}
-  .topnav-links a,.topnav-links .dropdown-trigger{font-size:9.5px;white-space:nowrap}
-  .topnav-links .has-dropdown{padding-bottom:0;margin-bottom:0}
-  .topnav-links .dropdown{display:none!important}
+  .topnav-links{gap:12px}
+  .topnav-links a{font-size:9.5px}
 }
 
 /* ── HEADER ── */
@@ -129,48 +121,21 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:22px 5
 <nav class="topnav">
   <a href="index.html" class="topnav-home">smthg<span class="dot">.</span></a>
   <div class="topnav-links">
-    <a href="index.html">Files</a>
-    <div class="has-dropdown">
-      <span class="dropdown-trigger" tabindex="0">Budget ▾</span>
-      <div class="dropdown">
-        <a href="TFmarketsize.html">Market Size &amp; Opportunity</a>
-        <a href="budget.html">Budget &amp; Sales Scenarios</a>
-      </div>
-    </div>
-    <a href="roles.html">Roles</a>
-    <div class="has-dropdown">
-      <span class="dropdown-trigger" tabindex="0">Business Model ▾</span>
-      <div class="dropdown">
-        <a href="TFbusinessmodel.html">Comparison Matrix</a>
-        <a href="TFaltmodel.html">Alternative Model</a>
-        <a href="TFmvpcosts.html">MVP Scope &amp; Costs</a>
-        <a href="TFgtm.html">GTM</a>
-        <a href="TFwhynow.html">Why Now</a>
-        <a href="TFdropsmarket.html">Drop Market Research</a>
-        <a href="TFunservedmarket.html">Unserved Market</a>
-        <a href="TFreferral.html">Referral &amp; Viral</a>
-        <a href="TFcreatortoken.html">Creator Payments</a>
-        <a href="TFstylists.html">Stylist Layer</a>
-        <a href="TFvisualdiscovery.html">Visual Discovery</a>
-        <a href="TFbrandsworldwide.html">Fashion Brands Worldwide</a>
-        <a href="TFcommunities.html">Fashion Communities</a>
-      </div>
-    </div>
-    <a href="architecture.html">Architecture &amp; Tools</a>
-    <a href="TFmarketplaces.html">Operations</a>
-    <div class="has-dropdown">
-      <span class="dropdown-trigger" tabindex="0">Ideas ▾</span>
-      <div class="dropdown">
-        <a href="gamification.html">Gamification</a>
-        <a href="ideas.html">Ideas &amp; AI Research</a>
-        <a href="influencer.html">Influencer Selling</a>
-        <a href="strategic-brief.html">Strategic Brief</a>
-      </div>
-    </div>
-    <a href="TFsmthgbrands.html">Brands</a>
-    <a href="TFnewname.html">Design</a>
-    <a href="TFrussia.html">Legal / Tax</a>
-    <a href="task-tracker.html">Planning</a>
+    <a href="#sec00"><span class="num">00</span>Investors Files</a>
+    <a href="#sec01"><span class="num">01</span>Budget &amp; Sales Scenarios</a>
+    <a href="#sec02"><span class="num">02</span>Roles &amp; Scope</a>
+    <a href="#sec03"><span class="num">03</span>Business Model Research</a>
+    <a href="#sec04"><span class="num">04</span>Business Model &amp; MVP</a>
+    <a href="#sec05"><span class="num">05</span>System Architecture &amp; Tools</a>
+    <a href="#sec06"><span class="num">06</span>Operations</a>
+    <a href="#sec07"><span class="num">07</span>Ideas</a>
+    <a href="#sec08"><span class="num">08</span>Design &amp; Creativity</a>
+    <a href="#sec09"><span class="num">09</span>Brands</a>
+    <a href="#sec10"><span class="num">10</span>Influencers, Social Media &amp; Content</a>
+    <a href="#sec11"><span class="num">11</span>Community</a>
+    <a href="#sec12"><span class="num">12</span>Legal / Tax &amp; Accounting</a>
+    <a href="#sec13"><span class="num">13</span>Task Tracker &amp; Planning</a>
+    <a href="#sec14"><span class="num">14</span>Fashion Tech News &amp; Digital Wardrobe</a>
   </div>
 </nav>
 
@@ -185,7 +150,7 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:22px 5
 <main>
   <div class="grid">
 
-    <div class="card">
+    <div class="card" id="sec00">
       <div class="card-num">00</div>
       <div class="card-title">SMTHG Investors Files</div>
       <div class="card-links">
@@ -199,7 +164,7 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:22px 5
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" id="sec01">
       <div class="card-num">01</div>
       <div class="card-title">SMTHG Budget &amp; Sales Scenarios</div>
       <div class="card-links">
@@ -208,7 +173,7 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:22px 5
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" id="sec02">
       <div class="card-num">02</div>
       <div class="card-title">SMTHG Roles &amp; Scope</div>
       <div class="card-links">
@@ -216,7 +181,7 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:22px 5
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" id="sec03">
       <div class="card-num">03</div>
       <div class="card-title">SMTHG Business Model Research</div>
       <div class="card-links">
@@ -237,7 +202,7 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:22px 5
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" id="sec04">
       <div class="card-num">04</div>
       <div class="card-title">SMTHG Business Model &amp; MVP</div>
       <div class="card-links">
@@ -247,14 +212,14 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:22px 5
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" id="sec05">
       <div class="card-num">05</div>
       <div class="card-title">SMTHG System Architecture &amp; Tools</div>
       <div class="card-links">
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" id="sec06">
       <div class="card-num">06</div>
       <div class="card-title">SMTHG Operations</div>
       <div class="card-links">
@@ -286,14 +251,14 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:22px 5
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" id="sec07">
       <div class="card-num">07</div>
       <div class="card-title">SMTHG Ideas</div>
       <div class="card-links">
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" id="sec08">
       <div class="card-num">08</div>
       <div class="card-title">SMTHG Design &amp; Creativity</div>
       <div class="card-links">
@@ -303,7 +268,7 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:22px 5
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" id="sec09">
       <div class="card-num">09</div>
       <div class="card-title">SMTHG Brands</div>
       <div class="card-links">
@@ -314,7 +279,7 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:22px 5
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" id="sec10">
       <div class="card-num">10</div>
       <div class="card-title">SMTHG Influencers, Social Media &amp; Content</div>
       <div class="card-links">
@@ -324,7 +289,7 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:22px 5
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" id="sec11">
       <div class="card-num">11</div>
       <div class="card-title">SMTHG Community</div>
       <div class="card-links">
@@ -333,7 +298,7 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:22px 5
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" id="sec12">
       <div class="card-num">12</div>
       <div class="card-title">SMTHG Legal / Tax &amp; Accounting</div>
       <div class="card-links">
@@ -344,7 +309,7 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:22px 5
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" id="sec13">
       <div class="card-num">13</div>
       <div class="card-title">SMTHG Task Tracker &amp; Planning</div>
       <div class="card-links">
@@ -353,7 +318,7 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:22px 5
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" id="sec14">
       <div class="card-num">14</div>
       <div class="card-title">Fashion Tech News and Digital Wardrobe</div>
       <div class="card-links">
