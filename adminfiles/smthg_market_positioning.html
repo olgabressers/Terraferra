@@ -44,6 +44,10 @@ h2{font-size:22px;font-weight:800;color:var(--ink);margin:44px 0 6px;letter-spac
 .tbl-wrap{overflow-x:auto;border:1px solid var(--rule);background:white;margin-bottom:8px}
 table{border-collapse:collapse;width:100%;min-width:760px;font-size:12.5px}
 table.wide{min-width:1360px}
+table.figures{min-width:0;table-layout:fixed}
+table.figures td{overflow-wrap:break-word}
+table.figures td:nth-child(2){width:26%}
+table.figures td:nth-child(3){width:44%}
 th,td{padding:10px 13px;border-bottom:1px solid var(--rule);border-right:1px solid var(--rule);vertical-align:top;line-height:1.5;text-align:left}
 th{background:var(--tf);color:white;font-weight:800;font-size:10.5px;letter-spacing:.4px;text-transform:uppercase;white-space:nowrap}
 td.label{font-weight:700;background:var(--tf-ghost);min-width:110px;max-width:130px}
@@ -223,7 +227,7 @@ td:last-child,th:last-child{border-right:none}
   <h2><span class="sec-num">02</span>Monetisation Model</h2>
   <div class="concl"><strong>SMTHG is the only platform in this set with a single bundled platform commission shown to designers.</strong> Every affiliate-model competitor splits the take between a brand-set influencer rate and a separate platform fee; the visual-discovery and wardrobe apps in this set don't monetise commerce directly at all. Two platforms (Wolf &amp; Badger, Farfetch) don't publish a single commission rate — shown as sourced estimate ranges, not fact.</div>
   <div class="tbl-wrap">
-    <table class="wide">
+    <table class="figures">
       <thead><tr><th>Platform</th><th>Commission / fee model</th><th>Exact figure (brand/seller side)</th></tr></thead>
       <tbody>
         <tr><td class="label smthg">SMTHG</td><td class="smthg">Single bundled platform commission, shown to designers as one rate (no separate influencer-affiliate split disclosed on the designer side)</td><td class="smthg">30% of GMV, bundled</td></tr>
