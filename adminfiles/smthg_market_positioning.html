@@ -47,6 +47,7 @@ table.wide{min-width:1360px}
 th,td{padding:10px 13px;border-bottom:1px solid var(--rule);border-right:1px solid var(--rule);vertical-align:top;line-height:1.5;text-align:left}
 th{background:var(--tf);color:white;font-weight:800;font-size:10.5px;letter-spacing:.4px;text-transform:uppercase;white-space:nowrap}
 td.label{font-weight:700;background:var(--tf-ghost);min-width:200px;max-width:200px}
+td.label a{color:inherit;text-decoration:underline;text-decoration-color:var(--tf)}
 td.smthg{background:#FBEFEF;font-weight:600}
 th.smthg-h{background:var(--tf-dark)}
 tr:last-child td{border-bottom:none}
@@ -115,89 +116,95 @@ td:last-child,th:last-child{border-right:none}
     <table class="wide">
       <thead>
         <tr>
-          <th>Dimension</th>
-          <th class="smthg-h">SMTHG</th>
-          <th>LTK</th>
-          <th>ShopMy</th>
-          <th>TikTok Shop</th>
-          <th>Instagram Shop</th>
-          <th>Wolf &amp; Badger</th>
-          <th>Farfetch</th>
-          <th>Pinterest</th>
-          <th>Whering</th>
+          <th>Platform</th>
+          <th>Core model</th>
+          <th>Brand storytelling space</th>
+          <th>Member community / discussion</th>
+          <th>Influencer curated shoppable page</th>
+          <th>Cross-brand taste-based discovery</th>
+          <th>Primary conversion goal</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td class="label">Core model</td>
+          <td class="label smthg"><a href="https://smthg.us/" target="_blank" rel="noopener">SMTHG</a></td>
           <td class="smthg">Community-led social commerce, one shared ecosystem</td>
-          <td>Creator affiliate shopping app</td>
-          <td>Creator-curated affiliate storefronts</td>
-          <td>Live/video-native social commerce</td>
-          <td>Product tagging + off-app checkout</td>
-          <td>Curated multi-brand marketplace</td>
-          <td>Luxury multi-brand marketplace</td>
-          <td>Visual discovery engine + affiliate/creator commerce, off-platform checkout</td>
-          <td>Digital wardrobe / AI styling app, free to use</td>
-        </tr>
-        <tr>
-          <td class="label">Brand storytelling space</td>
           <td class="smthg">Yes — dedicated Space per brand</td>
-          <td>No — creator profile only</td>
-          <td>No — brand gets analytics/placement only</td>
-          <td>No — shop tab only</td>
-          <td>No — standard profile</td>
-          <td>Partial — designer story on product page</td>
-          <td>Partial — occasional editorial</td>
-          <td>No — Verified Merchant badge + catalog only</td>
-          <td>No</td>
-        </tr>
-        <tr>
-          <td class="label">Member community / discussion</td>
           <td class="smthg">Yes — thematic Spaces, posts, feedback</td>
-          <td>No — 2-way direct message only</td>
-          <td>No — "Circles" = following curators</td>
-          <td>Live-chat during streams only</td>
-          <td>No</td>
-          <td>No</td>
-          <td>No</td>
-          <td>Partial — comments on pins; no thematic discussion spaces</td>
-          <td>Partial — social wardrobe/outfit sharing among friends, no discussion spaces</td>
-        </tr>
-        <tr>
-          <td class="label">Influencer curated shoppable page</td>
           <td class="smthg">Yes — collections (Pinterest-style boards), open to any member; affiliates use them as their traffic tool, attributed by link marker</td>
-          <td>Yes — personalized storefronts</td>
-          <td>Yes — storefronts + wishlist</td>
-          <td>No — video/live only</td>
-          <td>No — per-post tagging only</td>
-          <td>No</td>
-          <td>No</td>
-          <td>Yes — boards/collections; Amazon Storefront linking tool (Jun 2026) auto-applies affiliate tracking</td>
-          <td>No — wishlist/moodboard sharing only, no affiliate commerce layer documented</td>
+          <td class="smthg">Planned — AI, philosophy/style match</td>
+          <td class="smthg">Purchase, then community membership</td>
         </tr>
         <tr>
-          <td class="label">Cross-brand taste-based discovery</td>
-          <td class="smthg">Planned — AI, philosophy/style match</td>
+          <td class="label"><a href="https://www.shopltk.com/" target="_blank" rel="noopener">LTK</a></td>
+          <td>Creator affiliate shopping app</td>
+          <td>No — creator profile only</td>
+          <td>No — 2-way direct message only</td>
+          <td>Yes — personalized storefronts</td>
           <td>Yes — AI search (2026)</td>
+          <td>Purchase only</td>
+        </tr>
+        <tr>
+          <td class="label"><a href="https://shopmy.us/" target="_blank" rel="noopener">ShopMy</a></td>
+          <td>Creator-curated affiliate storefronts</td>
+          <td>No — brand gets analytics/placement only</td>
+          <td>No — "Circles" = following curators</td>
+          <td>Yes — storefronts + wishlist</td>
           <td>Yes — "taste profile"</td>
+          <td>Purchase only</td>
+        </tr>
+        <tr>
+          <td class="label"><a href="https://www.tiktok.com/shop" target="_blank" rel="noopener">TikTok Shop</a></td>
+          <td>Live/video-native social commerce</td>
+          <td>No — shop tab only</td>
+          <td>Live-chat during streams only</td>
+          <td>No — video/live only</td>
           <td>Yes — algorithmic feed (not fashion-specific)</td>
+          <td>Purchase (in-stream)</td>
+        </tr>
+        <tr>
+          <td class="label"><a href="https://about.instagram.com/features/shopping" target="_blank" rel="noopener">Instagram Shop</a></td>
+          <td>Product tagging + off-app checkout</td>
+          <td>No — standard profile</td>
+          <td>No</td>
+          <td>No — per-post tagging only</td>
           <td>Partial — Discovery tab</td>
+          <td>Purchase (off-app)</td>
+        </tr>
+        <tr>
+          <td class="label"><a href="https://www.wolfandbadger.com/" target="_blank" rel="noopener">Wolf &amp; Badger</a></td>
+          <td>Curated multi-brand marketplace</td>
+          <td>Partial — designer story on product page</td>
+          <td>No</td>
+          <td>No</td>
+          <td>No</td>
+          <td>Purchase only</td>
+        </tr>
+        <tr>
+          <td class="label"><a href="https://www.farfetch.com/" target="_blank" rel="noopener">Farfetch</a></td>
+          <td>Luxury multi-brand marketplace</td>
+          <td>Partial — occasional editorial</td>
+          <td>No</td>
           <td>No</td>
           <td>Partial — generic recommendations</td>
-          <td>Yes — visual/image-based discovery is the platform's core strength</td>
-          <td>Partial — AI styling limited to the member's own wardrobe items</td>
+          <td>Purchase only</td>
         </tr>
         <tr>
-          <td class="label">Primary conversion goal</td>
-          <td class="smthg">Purchase, then community membership</td>
-          <td>Purchase only</td>
-          <td>Purchase only</td>
-          <td>Purchase (in-stream)</td>
-          <td>Purchase (off-app)</td>
-          <td>Purchase only</td>
-          <td>Purchase only</td>
+          <td class="label"><a href="https://www.pinterest.com/" target="_blank" rel="noopener">Pinterest</a></td>
+          <td>Visual discovery engine + affiliate/creator commerce, off-platform checkout</td>
+          <td>No — Verified Merchant badge + catalog only</td>
+          <td>Partial — comments on pins; no thematic discussion spaces</td>
+          <td>Yes — boards/collections; Amazon Storefront linking tool (Jun 2026) auto-applies affiliate tracking</td>
+          <td>Yes — visual/image-based discovery is the platform's core strength</td>
           <td>Purchase, off-platform — Pinterest states it optimizes for "high-quality transfers" to the merchant's own site/app</td>
+        </tr>
+        <tr>
+          <td class="label"><a href="https://whering.co" target="_blank" rel="noopener">Whering</a></td>
+          <td>Digital wardrobe / AI styling app, free to use</td>
+          <td>No</td>
+          <td>Partial — social wardrobe/outfit sharing among friends, no discussion spaces</td>
+          <td>No — wishlist/moodboard sharing only, no affiliate commerce layer documented</td>
+          <td>Partial — AI styling limited to the member's own wardrobe items</td>
           <td>Not commerce-first — app adoption/engagement; retailer redirect only via its browser-extension add flow</td>
         </tr>
       </tbody>
