@@ -42,17 +42,10 @@ h2{font-size:22px;font-weight:800;color:var(--ink);margin:44px 0 6px;letter-spac
 .concl strong{font-weight:800}
 
 .tbl-wrap{overflow-x:auto;border:1px solid var(--rule);background:white;margin-bottom:8px}
-table{border-collapse:collapse;width:100%;min-width:760px;font-size:12.5px}
-table.wide{min-width:1360px;table-layout:fixed}
-table.wide td.label{width:90px}
-table.figures{min-width:0;table-layout:fixed}
-table.figures td{overflow-wrap:break-word}
-table.figures td:nth-child(1){width:10%}
-table.figures td:nth-child(2){width:28%}
-table.figures td:nth-child(3){width:62%}
-th,td{padding:10px 13px;border-bottom:1px solid var(--rule);border-right:1px solid var(--rule);vertical-align:top;line-height:1.5;text-align:left}
-th{background:var(--tf);color:white;font-weight:800;font-size:10.5px;letter-spacing:.4px;text-transform:uppercase;white-space:nowrap}
-td.label{font-weight:700;background:var(--tf-ghost);min-width:64px;max-width:84px;overflow-wrap:break-word;word-break:break-word}
+table{border-collapse:collapse;width:100%;font-size:12.5px;table-layout:auto}
+th,td{padding:10px 13px;border-bottom:1px solid var(--rule);border-right:1px solid var(--rule);vertical-align:top;line-height:1.5;text-align:left;overflow-wrap:break-word}
+th{background:var(--tf);color:white;font-weight:800;font-size:10.5px;letter-spacing:.4px;text-transform:uppercase}
+td.label{font-weight:700;background:var(--tf-ghost);white-space:nowrap;width:1%}
 td.label a{color:inherit;text-decoration:underline;text-decoration-color:var(--tf)}
 td.smthg{background:#FBEFEF;font-weight:600}
 th.smthg-h{background:var(--tf-dark)}
