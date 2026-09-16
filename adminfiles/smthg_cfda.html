@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<script src="/site-lock.js"></script>
+<title>CFDA · Designer Association · SMTHG</title>
+<link rel="icon" type="image/svg+xml" href="smthg_favicon.svg"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--tf:#E8002D;--tf-dark:#B50023;--tf-ghost:#F1EEE9;--off-white:#F8F6F2;--ink:#161616;--sub:#5C5A56;--rule:#E6E2DA;--green:#1A7A4A;--green-bg:#EDFAF3;--violet:#7C3AED;--violet-bg:#F5F0FF}
+body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink);line-height:1.6;min-height:100vh}
+.topnav{background:#fff;border-bottom:1px solid #D8D4EF;padding:12px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
+.topnav-home{font-weight:800;letter-spacing:2px;color:var(--ink);text-decoration:none;font-size:11px}
+.topnav-links{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:#5B5880;font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:10px}
+.topnav-links a:hover{color:var(--tf)}
+.topnav-links a.active{color:#E86820}
+.topnav-links .has-dropdown{position:relative;padding-bottom:10px;margin-bottom:-10px}
+.topnav-links .dropdown-trigger{cursor:pointer;color:#5B5880;font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:10px;user-select:none}
+.topnav-links .dropdown{display:none;position:absolute;top:100%;left:0;background:#fff;border:1px solid #D8D4EF;min-width:200px;box-shadow:0 6px 14px rgba(0,0,0,.08);padding:6px 0;z-index:60}
+.topnav-links .has-dropdown:hover .dropdown,.topnav-links .has-dropdown:focus-within .dropdown{display:block}
+.topnav-links .dropdown a{display:block;padding:9px 16px;font-size:10px;font-weight:700;color:#5B5880;text-transform:uppercase;letter-spacing:1px;text-decoration:none}
+.topnav-links .dropdown a:hover{background:#F4F2FC;color:var(--tf)}
+@media(max-width:700px){.topnav{position:static;padding:10px 14px}.topnav-links{gap:8px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%}.topnav-links a,.topnav-links .dropdown-trigger{font-size:9.5px;white-space:nowrap}.topnav-links .has-dropdown{padding-bottom:0;margin-bottom:0}.topnav-links .dropdown{display:none!important}}
+.wrap{max-width:1240px;margin:0 auto;padding:40px 48px 80px}
+@media(max-width:700px){.wrap{padding:24px 16px 60px}}
+.page-hd h1{font-size:28px;font-weight:800;margin-bottom:6px;line-height:1.2}
+.meta-row{font-size:11.5px;color:var(--sub);margin-bottom:22px}
+.card{background:#fff;border:1px solid var(--rule);border-top:3px solid var(--tf);padding:22px 26px;margin-bottom:26px}
+.card h2{font-size:18px;font-weight:800;margin-bottom:12px}
+.kv{display:grid;grid-template-columns:170px 1fr;gap:8px 18px;font-size:14px}
+.kv dt{font-weight:700;color:var(--sub)}
+.kv a{color:var(--tf);font-weight:700;text-decoration:none}
+.kv a:hover{text-decoration:underline}
+@media(max-width:700px){.kv{grid-template-columns:1fr;gap:2px 0}.kv dt{margin-top:10px}}
+.summary{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.stat{background:#fff;border:1px solid var(--rule);border-top:3px solid var(--tf);padding:12px 18px;min-width:120px}
+.stat b{display:block;font-size:24px;font-weight:800;line-height:1.1}
+.stat span{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--sub)}
+.tbl-wrap{background:#fff;border:1px solid var(--rule);border-top:3px solid var(--tf);overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;min-width:720px}
+thead th{text-align:left;padding:12px 16px;font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;border-bottom:2px solid var(--rule);white-space:nowrap}
+tbody tr{border-bottom:1px solid var(--rule)}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:#FAFAF8}
+tbody tr.is-hit{background:#FFF6F7}
+tbody tr.is-hit:hover{background:#FFEFF1}
+td{padding:11px 16px;font-size:14px;vertical-align:top}
+.c-name{font-weight:600}
+tr.is-hit .c-name{font-weight:800}
+.c-brand{color:var(--sub);font-size:13px}
+.c-dash{color:#C8C4BC}
+.chip{display:inline-block;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:3px;margin:0 4px 3px 0;white-space:nowrap}
+.chip-hit{color:var(--tf);background:var(--tf-ghost);border:1px solid var(--tf)}
+.chip-ussr{color:var(--violet);background:var(--violet-bg);border:1px solid var(--violet)}
+th.th-ov{min-width:140px}
+@media(max-width:700px){.page-hd h1{font-size:22px}table{min-width:640px}}
+.back-to-top{position:fixed;bottom:28px;right:28px;width:40px;height:40px;background:var(--tf);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;text-decoration:none;opacity:0;transition:opacity .3s;z-index:100;border-radius:2px}
+.back-to-top.vis{opacity:1}
+@media(max-width:700px){.back-to-top{width:34px;height:34px;font-size:15px;bottom:14px;right:14px}}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="index.html" class="topnav-home">smthg<span style="color:var(--tf)">.</span></a>
+  <div class="topnav-links">
+    <a href="index.html">Files</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Budget ▾</span>
+      <div class="dropdown">
+        <a href="TFmarketsize.html">Market Size &amp; Opportunity</a>
+        <a href="budget.html">Budget &amp; Sales Scenarios</a>
+      </div>
+    </div>
+    <a href="roles.html">Roles</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Business Model ▾</span>
+      <div class="dropdown">
+        <a href="TFbusinessmodel.html">Comparison Matrix</a>
+        <a href="TFaltmodel.html">Alternative Model</a>
+        <a href="TFmvpcosts.html">MVP Scope &amp; Costs</a>
+        <a href="TFgtm.html">GTM</a>
+        <a href="TFwhynow.html">Why Now</a>
+        <a href="TFdropsmarket.html">Drop Market Research</a>
+        <a href="TFunservedmarket.html">Unserved Market</a>
+        <a href="TFreferral.html">Referral &amp; Viral</a>
+        <a href="TFcreatortoken.html">Creator Payments</a>
+        <a href="TFstylists.html">Stylist Layer</a>
+        <a href="/psychology-fashion.html">Psychology + Fashion</a>
+        <a href="TFvisualdiscovery.html">Visual Discovery</a>
+        <a href="TFbrandsworldwide.html">Fashion Brands Worldwide</a>
+        <a href="TFcommunities.html">Fashion Communities</a>
+      </div>
+    </div>
+    <a href="TFmarketplaces.html">Operations</a>
+    <a href="architecture.html">Architecture &amp; Tools</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Ideas ▾</span>
+      <div class="dropdown">
+        <a href="gamification.html">Gamification</a>
+        <a href="ideas.html">Ideas &amp; AI Research</a>
+        <a href="influencer.html">Influencer Selling</a>
+        <a href="strategic-brief.html">Strategic Brief</a>
+      </div>
+    </div>
+    <a href="TFsmthgbrands.html" class="active">Brands</a>
+    <a href="TFnewname.html">Design</a>
+    <a href="TFrussia.html">Legal / Tax</a>
+    <a href="task-tracker.html">Planning</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <div class="page-hd">
+    <h1>CFDA — Council of Fashion Designers of America</h1>
+  </div>
+  <div class="meta-row">Created: 16 September 2026 · Last updated: 16 September 2026</div>
+
+  <div class="card">
+    <h2>The association</h2>
+    <dl class="kv">
+      <dt>Name</dt><dd>Council of Fashion Designers of America (CFDA)</dd>
+      <dt>Website</dt><dd><a href="https://cfda.com" target="_blank" rel="noopener">cfda.com</a> · <a href="https://cfda.com/members" target="_blank" rel="noopener">member directory</a> · <a href="https://cfda.com/wp-content/uploads/2026/09/CFDA-MEMBERSHIP-Roster__2026-July-20-324-TOTAL.pdf" target="_blank" rel="noopener">roster PDF</a></dd>
+      <dt>Members</dt><dd>324 (roster dated 20 July 2026)</dd>
+      <dt>Address</dt><dd>161 Water Street #2404, New York, NY 10038</dd>
+      <dt>Phone</dt><dd>212-768-5700 (CFDA, Inc.) · 866-302-CFDA · 212-302-1821 (CFDA Foundation)</dd>
+      <dt>General email</dt><dd><a href="mailto:info@cfda.com">info@cfda.com</a></dd>
+      <dt>Partnerships email</dt><dd><a href="mailto:Partnerships@CFDA.com">Partnerships@CFDA.com</a></dd>
+      <dt>Access route</dt><dd>Corporate Affiliate membership / Strategic Partnerships Group — <a href="https://cfda.com/about/partnerships/" target="_blank" rel="noopener">cfda.com/about/partnerships</a>. Affiliates gain access to the membership and can host events and roundtables for members. The affiliate fee is not published.</dd>
+    </dl>
+  </div>
+
+  <div class="summary">
+    <div class="stat"><b>324</b><span>Members</span></div>
+    <div class="stat"><b>9</b><span>Overlap</span></div>
+    <div class="stat"><b>6</b><span>NYC list</span></div>
+    <div class="stat"><b>1</b><span>LA list</span></div>
+    <div class="stat"><b>1</b><span>Ex-USSR</span></div>
+    <div class="stat"><b>0</b><span>Tracker</span></div>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th class="th-ov">Overlap</th>
+          <th style="min-width:230px">Designer</th>
+          <th style="min-width:230px">Brand</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="is-hit"><td><span class="chip chip-hit">LA list</span></td><td class="c-name">Mike Amiri</td><td class="c-brand">Amiri</td></tr>
+          <tr class="is-hit"><td><span class="chip chip-hit">NYC list</span></td><td class="c-name">Aisling Camps</td><td class="c-brand">Aisling Camps</td></tr>
+          <tr class="is-hit"><td><span class="chip chip-hit">NYC list</span></td><td class="c-name">Colm Dillane</td><td class="c-brand">KidSuper</td></tr>
+          <tr class="is-hit"><td><span class="chip chip-hit">NYC list</span></td><td class="c-name">Fletcher Kasell</td><td class="c-brand">Tanner Fletcher</td></tr>
+          <tr class="is-hit"><td><span class="chip chip-hit">NYC list</span></td><td class="c-name">Tanner Richie</td><td class="c-brand">Tanner Fletcher</td></tr>
+          <tr class="is-hit"><td><span class="chip chip-hit">NYC list</span></td><td class="c-name">Rachel Scott</td><td class="c-brand">Diotima</td></tr>
+          <tr class="is-hit"><td><span class="chip chip-hit">NYC list</span></td><td class="c-name">Hillary Taymour</td><td class="c-brand">Collina Strada</td></tr>
+          <tr class="is-hit"><td><span class="chip chip-hit">NYC list</span></td><td class="c-name">Jackson Wiederhoeft</td><td class="c-brand">Wiederhoeft</td></tr>
+          <tr class="is-hit"><td><span class="chip chip-ussr">Ex-USSR</span></td><td class="c-name">Henry Zankov</td><td class="c-brand">ZANKOV</td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Reem Acra</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Babi Ahluwalia</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Sachin Ahluwalia</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Raquel Allegra</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Joseph Altuzarra</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Carolina Amato</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Paul Andrew</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Dana Arbib</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Raul Arevalo</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Greg Armas</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Nak Armstrong</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Rosie Assoulin</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Emily Adams Bode Aujla</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Yigal Azrouel</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Mark Badgley</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Jeffrey Banks</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Stirling Barrett</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">John Bartlett</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Dennis Basso</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Michael Bastian</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Shane Baum</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Melitta Baumeister</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Veronica Miele Beard</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Veronica Swanson Beard</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Susan Beischel</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Pamela Bell</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Coomi Bhasin</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Diego Binetti</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Alexis Bittar</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Brandon Blackwood</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Sully Bonnelly</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">John Brevard</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Barry Bricken</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Thom Browne</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Sophie Buhai</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Tory Burch</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Stephen Burrows</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Liliana Casabal</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Edmundo Castillo</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Kristy Caylor</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Salvatore J. Cesarani</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Greg Chait</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Natalie Chanin</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Kip Chapelle</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Willy Chavarria</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Ron Chereskin</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Wenlan Chia</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Dao-Yi Chow</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">DooRi Chung</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Temple St Clair</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Jonathan Cohen</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Peter Cohen</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Kenneth Cole</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Rachel Comey</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Martin Cooper</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Maria Cornejo</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Danielle Corona</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Francisco Costa</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Jeffrey Costello</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Emily Current</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Carly Cushnie</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Sandy Dalal</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Ruthie Davis</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Donald Deal</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Pamela Dennis</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Pamella DeVos</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Kathryn Dianos</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Jeffrey Dodd</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Keanan Duffty</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Randolph Duke</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Stephen Dweck</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Libby Edelman</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Sam Edelman</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Stacey Bendet Eisner</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Meritt Elliott</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Tremaine Emory</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Abrima Erwiah</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Lucy Wallace Eustice</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Jay Feinberg</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Andrew Fezza</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Eileen Fisher</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Jennifer Fisher</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Beckett Fogg</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Andrea Fohrman</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Tom Ford</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Lizzie Fortunato</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Nick Fouquet</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">R. Scott French</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Diane von Furstenberg</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Fernando Garcia</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Eric Gaskins</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Robert Geller</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Geri Gerard</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Rosetta Getty</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Nicola Glass</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Adam Goldston</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Ryan Goldston</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Wes Gordon</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Chloe Gosselin</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Matteo Gottardi</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Gary Graham</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Nick Graham</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Ulrich Grimm</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Joy Gryson</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Prabal Gurung</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Scott Mackinlay Hahn</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Kobi Halperin</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Cathy Hardwick</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Batsheva Hay</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Gabriela Hearst</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Jasmin Larian Hekmat</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Stan Herman</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Carolina Herrera</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Misha Nonoo Hess</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Brett Heyman</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Tommy Hilfiger</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Danielle Frankel Hirsch</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Mara Hoffman</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Catherine Holstein</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Beth Hutchens</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Sang A Im-Propp</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Marc Jacobs</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Henry Jacobson</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Aurora James</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Julia Jenztsch</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Kristine Johannes</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Betsey Johnson</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Ulla Johnson</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Eric Javits, Jr.</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Alexander Julian</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Gemma Kahng</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Daniella Kallmeyer</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Norma Kamali</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Donna Kang</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Donna Karan</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Jenni Kayne</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Liya Kebede</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Anthony Keegan</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Naeem Khan</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Sharon Khazzam</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Ana Khouri</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Eugenia Kim</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Laura Kim</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Adam Kimmel</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Calvin Klein</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Michael Kors</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Monica Rich Kosann</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Reed Krakoff</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Regina Kravitz</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Devi Kroell</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Nikki Kule</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Lisa Kulson</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Blake Kuwahara</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Steven Lagos</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Sander Lak</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Derek Lam</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Liz Lange</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Sally LaPointe</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Byron Lars</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Greg Lauren</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Ralph Lauren</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Chris Leba</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Jussara Lee</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Monique Lhuillier</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Claudia Li</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Andrea Lieberman</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Phillip Lim</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Elizabeth Locke</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Nili Lotan</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Pamela Love</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Sheryl Lowe</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Victor Lytvinenko</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Michael Maccari</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Bob Mackie</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Jeff Mahshie</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Colette Malouf</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Isaac Manevitz</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Mary Jane Marcasiano</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Fiona Kotur Marin</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Lana Marks</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Deborah Marquit</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Jana Matheson</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Brandon Maxwell</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Lindy McDonough</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">David Meister</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Jennifer Meyer</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Nicole Miller</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Malia Mills</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Sylvie Millstein</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Rebecca Minkoff</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">James Mischka</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Isaac Mizrahi</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Bibhu Mohapatra</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Claude Morais</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Paul Morelli</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Robert Lee Morris</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Miranda Morrison</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Marina Moscone</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Rebecca Moses</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Kate Mulleavy</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Laura Mulleavy</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Matt Murphy</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Patricia von Musulin</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Josie Natori</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Brooke Garber Neidich</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Kenneth Nicholson</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Vanessa Noel</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Michelle Ochs</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Ji Oh</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Jamie Okuma</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Ashley Olsen</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Mary-Kate Olsen</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Sigrid Olsen</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Luca Orlandi</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Maxwell Osborne</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Shimon Ovadia</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Rick Owens</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Kerry O’Brien</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Gigi Burris O’Hara</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Thakoon Panichgul</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Monica Paolini</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Ashlynn Park</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Raan Parton</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Shea Parton</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Nellie Partow</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Marcia Patmos</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Robin Piccone</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Linda Platt</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Tom Platt</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Leigh Plessner</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Zac Posen</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Trish Wescoat Pound</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Whitney Pozgay</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Jeff Press</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">James Purcell</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Jessie Randall</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Tracy Reese</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">William Reid</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Robin Renzi</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Narciso Rodriguez</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Robert Rodriguez</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Christopher John Rogers</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Alejandra Alonso Rojas</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Charlotte Ronson</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Lela Rose</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Daniel Roseberry</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Kara Ross</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Christian Roth</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Cynthia Rowley</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Sonja Rubin</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Ralph Rucci</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Ernest Sabine</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Michael Saiger</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Cynthia Sakai</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Selima Salaun</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Justin Salguero</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Brad Schmidt</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Lorraine Schwartz</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Kendra Scott</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Marcia Sherrill</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Tadashi Shoji</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Kim Shui</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Daniel Silberman</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Jonathan Simkhai</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Christian Siriano</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Michael Smaldone</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Emily Smith</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">LaQuan Smith</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Michelle Smith</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Todd Snyder</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Mimi So</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Peter Som</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Peter Speliopoulos</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Yves Spinelli</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Laurie Lynn Stark</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Richard Stark</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Shelly Steffee</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Sue Stemp</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Steven Stolman</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Stephanie Suberville</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Anna Sui</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Daiki Suzuki</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Robert Tagliapietra</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Elie Tahari</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Johnny Talbot</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Vivienne Tam</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Gladys Tamez</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Tanya Taylor</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Yeohlee Teng</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Edvin Thompson</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Rafe Totengco</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">John Truex</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Trina Turk</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Mish Tworkowski</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Patricia Underwood</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Kay Unger</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">John Varvatos</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Stuart Vevers</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Clare Vivier</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Andre Walker</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Alexander Wang</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Vera Wang</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Carla Westcott</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">John Whitledge</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Brian Wolk</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Gary Wolkowitz</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Jason Wu</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Araks Yeramyan</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Bonnie Young</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Gabriella Zanzani</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Rachel Zoe</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Jennifer Zuccarini</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Italo Zucchelli</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Eva Zuckerman</td><td class="c-brand"></td></tr>
+          <tr><td class="c-dash">—</td><td class="c-name">Monica Zwirner</td><td class="c-brand"></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<a class="back-to-top" id="btt" href="#" aria-label="Back to top">↑</a>
+<script>
+var btt=document.getElementById('btt');
+window.addEventListener('scroll',function(){btt.classList.toggle('vis',window.scrollY>400);});
+btt.addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});});
+</script>
+</body>
+</html>
