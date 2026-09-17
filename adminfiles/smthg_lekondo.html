@@ -27,7 +27,7 @@ h1{font-size:40px;font-weight:800;letter-spacing:-1.4px}
 h2{font-size:25px;font-weight:800;margin:52px 0 14px;letter-spacing:-.4px;display:flex;align-items:baseline}
 
 /* stat strip */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:26px 0 8px}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:26px 0 8px}
 .stat{background:white;border:1px solid var(--rule);border-top:4px solid var(--tf);padding:16px 18px}
 .stat b{display:block;font-size:32px;font-weight:800;letter-spacing:-1px;line-height:1.1}
 .stat span{display:block;font-size:12px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--sub);margin-top:6px}
@@ -92,6 +92,14 @@ td:last-child,th:last-child{border-right:none}
 .src-note{font-size:12.5px;color:var(--sub);margin:9px 0 0}
 .src-note a{color:var(--tf);text-decoration:underline}
 
+.read{background:white;border:1px solid var(--rule);border-left:5px solid var(--ink);padding:20px 24px 18px;margin:16px 0 8px}
+.read-h{font-size:16px;font-weight:800;margin-bottom:8px;letter-spacing:-.2px}
+.read-note{font-size:13.5px;color:var(--sub);line-height:1.6;margin-bottom:12px}
+.read-note b{color:var(--ink);font-weight:800}
+.ranked{margin:0 0 12px;padding-left:20px}
+.ranked li{font-size:14px;line-height:1.6;margin-bottom:10px;padding-left:4px}
+.ranked li::marker{color:var(--tf);font-weight:800}
+.ranked li b{font-weight:800}
 .subh{font-size:13.5px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:var(--sub);margin:26px 0 11px}
 .bars{display:flex;flex-direction:column;gap:6px;margin-top:4px}
 .bar{display:flex;align-items:center;gap:10px;font-size:13.5px}
@@ -128,7 +136,7 @@ td:last-child,th:last-child{border-right:none}
   .wrap{padding:24px 22px 60px}
   h1{font-size:32px}
   h2{font-size:22px;margin:40px 0 12px}
-  .stats{grid-template-columns:repeat(2,1fr)}
+  .stats{grid-template-columns:repeat(3,1fr)}
   .flow{grid-template-columns:1fr 1fr}
   .step::after{display:none}
   .shots.c4,.shots.c3{grid-template-columns:repeat(2,1fr)}
@@ -199,6 +207,7 @@ td:last-child,th:last-child{border-right:none}
   <div class="date-stamp">Created: 17 September 2026 · Last updated: 17 September 2026</div>
 
   <div class="stats">
+    <div class="stat ink"><b>2025</b><span>Founded · New York</span></div>
     <div class="stat"><b>$3M</b><span>Seed round</span></div>
     <div class="stat"><b>4.9 ★</b><span>280 App Store ratings</span></div>
     <div class="stat"><b>356,000</b><span>Outfit posts in 8 months</span></div>
@@ -233,7 +242,20 @@ td:last-child,th:last-child{border-right:none}
       <p>None published anywhere. The only answer on the record is the data: <em>"high-resolution pre-purchase preference data"</em> positioned upstream of commerce.</p>
     </div>
   </div>
-  <p class="src-note">Company and funding: <a href="https://says.com/my/lifestyle/fashion-and-beauty/malaysian-founder-raises-usd3-million-for-fashion-app-with-100000-users-worldwide" target="_blank" rel="noopener">SAYS</a> · <a href="https://app.dealroom.co/news/note/lekondo-raises-seed-round-for-ai-fashion-data-platform-backed-by-dgdv-and-verdict-capital" target="_blank" rel="noopener">Dealroom</a>. Ratings, version and pricing read from Apple's listing API for <a href="https://apps.apple.com/us/app/lekondo/id6755449231" target="_blank" rel="noopener">id 6755449231</a>, 17 September 2026. All screenshots are Lekondo's own App Store images.</p>
+  <div class="read">
+    <div class="read-h">Our read · how they are most likely to make money</div>
+    <p class="read-note">No revenue model is published anywhere. What follows is our assessment, ranked by how little the product has to change for it to work.</p>
+    <ol class="ranked">
+      <li><b>Brand intelligence, sold to brands.</b> They already compute it. The Lemaire page counts 138 outfits and 46 members; every garment carries a brand tag; every look carries colour percentages and aesthetic scores. Selling a brand the answer to "who actually wears us, with what, in which cities" needs no checkout, no supply and no change to the app. This is the shortest path to a first invoice, and it is what "pre-purchase preference data" means in practice.</li>
+      <li><b>Affiliate on the links members already paste.</b> The app takes a product URL today and stores it. Turning a stored link into a tracked one requires no merchant relationship. Low margin, almost no build.</li>
+      <li><b>Sponsored placement inside aesthetic spaces.</b> 34 aesthetics with membership counts is ad inventory that already exists. Acubi at 11,857 members is a targeting segment.</li>
+      <li><b>A consumer subscription</b> for closet analytics. Their own reviews push back on this — "I pray that this app never gets a pay wall" — and the base is free today.</li>
+      <li><b>A marketplace of their own.</b> Least likely. It contradicts the anonymity thesis, and they hold no supply.</li>
+    </ol>
+    <p class="read-note"><b>What each route means for us.</b> Route 1 puts them in the trend-forecasting business, selling to the same brands SMTHG sells to, with no overlap on the consumer. Route 2 puts them straight into affiliate economics, one step from ShopMy and LTK, and one step closer to us.</p>
+  </div>
+
+  <p class="src-note">Founded year: PitchBook and Crunchbase company profiles. Company and funding: <a href="https://says.com/my/lifestyle/fashion-and-beauty/malaysian-founder-raises-usd3-million-for-fashion-app-with-100000-users-worldwide" target="_blank" rel="noopener">SAYS</a> · <a href="https://app.dealroom.co/news/note/lekondo-raises-seed-round-for-ai-fashion-data-platform-backed-by-dgdv-and-verdict-capital" target="_blank" rel="noopener">Dealroom</a>. Ratings, version and pricing read from Apple's listing API for <a href="https://apps.apple.com/us/app/lekondo/id6755449231" target="_blank" rel="noopener">id 6755449231</a>, 17 September 2026. All screenshots are Lekondo's own App Store images.</p>
 
   <h2 id="s02"><span class="sec-num">02</span>How it works</h2>
   <div class="concl"><b>One photo does everything.</b> The detector reads every garment in a single outfit shot, which removes the item-by-item photography that kills every other closet app.</div>
