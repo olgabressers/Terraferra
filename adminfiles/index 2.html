@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>SMTHG — Workflow Hub</title>
+<link rel="icon" type="image/svg+xml" href="smthg_favicon.svg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --red:#E8002D;
+  --red-dark:#C0001F;
+  --black:#0A0A0A;
+  --white:#FFFFFF;
+  --off:#F7F7F7;
+  --mid:#888888;
+  --sub:#555555;
+  --border:#E5E5E5;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--off);color:var(--black);min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+
+/* ── TOP NAV ── */
+.topnav{
+  background:var(--white);border-bottom:1px solid var(--border);
+  padding:0 52px;height:56px;
+  display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:100;font-family:'Inter',sans-serif;
+  flex-wrap:wrap;gap:10px;
+}
+.topnav-home{font-size:17px;font-weight:900;letter-spacing:-0.5px;color:var(--black);text-decoration:none;line-height:1}
+.topnav-home .dot{color:var(--red)}
+.topnav-home:hover{color:var(--red)}
+.topnav-links{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.topnav-links a{font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--mid);text-decoration:none;transition:color .15s}
+.topnav-links a:hover{color:var(--black)}
+.topnav-links a.active{color:var(--red)}
+.topnav-links .has-dropdown{position:relative;padding-bottom:10px;margin-bottom:-10px}
+.topnav-links .dropdown-trigger{cursor:pointer;font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--mid);user-select:none}
+.topnav-links .dropdown-trigger:hover,.topnav-links .has-dropdown:focus-within .dropdown-trigger{color:var(--black)}
+.topnav-links .dropdown-trigger.active{color:var(--red)}
+.topnav-links .dropdown{display:none;position:absolute;top:100%;right:0;background:var(--white);border:1px solid var(--border);min-width:220px;box-shadow:0 6px 14px rgba(0,0,0,0.08);padding:6px 0;z-index:60}
+.topnav-links .has-dropdown:hover .dropdown,.topnav-links .has-dropdown:focus-within .dropdown{display:block}
+.topnav-links .dropdown a{display:block;padding:9px 16px;font-size:10px;font-weight:700;color:var(--mid);text-transform:uppercase;letter-spacing:.8px;text-decoration:none}
+.topnav-links .dropdown a:hover{background:var(--off);color:var(--black)}
+@media(max-width:700px){
+  .topnav{position:static;padding:10px 18px;height:auto}
+  .topnav-links{gap:8px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:2px;width:100%}
+  .topnav-links a,.topnav-links .dropdown-trigger{font-size:9.5px;white-space:nowrap}
+  .topnav-links .has-dropdown{padding-bottom:0;margin-bottom:0}
+  .topnav-links .dropdown{display:none!important}
+}
+
+/* ── HEADER ── */
+header{background:var(--off);border-bottom:1px solid var(--border);padding:72px 52px 60px}
+.header-inner{max-width:1200px;margin:0 auto}
+.eyebrow{font-size:10px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:28px;display:block}
+.logo{font-size:clamp(72px,10vw,136px);font-weight:900;letter-spacing:-4px;line-height:.9;color:var(--black);margin-bottom:24px}
+.logo .dot{color:var(--red)}
+.tagline{font-size:11px;font-weight:800;letter-spacing:5px;text-transform:uppercase;color:rgba(0,0,0,.32)}
+
+/* ── MAIN GRID ── */
+main{flex:1;padding:48px 52px 80px}
+.grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+
+/* ── CARDS ── */
+.card{
+  background:var(--white);
+  border-top:3px solid var(--black);
+  padding:32px 28px 28px;
+  color:var(--black);
+  display:flex;flex-direction:column;
+  min-height:200px;
+  transition:border-top-color .2s;
+}
+.card:hover{border-top-color:var(--red)}
+.card-num{font-size:10px;font-weight:800;letter-spacing:2px;color:var(--red);margin-bottom:18px}
+.card-title{font-size:17px;font-weight:800;line-height:1.2;color:var(--black);letter-spacing:-.3px;margin-bottom:10px}
+.card-links{margin-top:auto;display:flex;flex-direction:column;gap:6px;padding-top:14px;border-top:1px solid var(--border)}
+.card-link{font-size:12.5px;font-weight:600;color:var(--black);text-decoration:none;line-height:1.4;transition:color .15s}
+.card-link:hover{color:var(--red)}
+.card-link.hi{color:var(--red)}
+
+/* ── FOOTER ── */
+footer{background:var(--white);border-top:1px solid var(--border);padding:22px 52px;display:flex;justify-content:space-between;align-items:center}
+.footer-logo{font-size:14px;font-weight:900;letter-spacing:-.5px;color:var(--black)}
+.footer-logo .dot{color:var(--red)}
+.footer-note{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mid)}
+
+/* ── BACK TO TOP ── */
+#back-to-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--red);color:var(--white);border:none;border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900;transition:background .15s}
+#back-to-top:hover{background:var(--red-dark)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1000px){
+  header{padding:48px 24px 40px}
+  main{padding:24px 24px 60px}
+  .grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  header{padding:36px 18px 32px}
+  main{padding:18px 18px 48px}
+  footer{padding:16px 18px;flex-direction:column;gap:8px;text-align:center}
+  .grid{grid-template-columns:1fr}
+  .card{padding:24px 20px}
+  .card-title{font-size:15px}
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="index.html" class="topnav-home">smthg<span class="dot">.</span></a>
+  <div class="topnav-links">
+    <a href="index.html">Files</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Budget ▾</span>
+      <div class="dropdown">
+        <a href="TFmarketsize.html">Market Size &amp; Opportunity</a>
+        <a href="budget.html">Budget &amp; Sales Scenarios</a>
+      </div>
+    </div>
+    <a href="roles.html">Roles</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Business Model ▾</span>
+      <div class="dropdown">
+        <a href="TFbusinessmodel.html">Comparison Matrix</a>
+        <a href="TFaltmodel.html">Alternative Model</a>
+        <a href="TFmvpcosts.html">MVP Scope &amp; Costs</a>
+        <a href="TFgtm.html">GTM</a>
+        <a href="TFwhynow.html">Why Now</a>
+        <a href="TFdropsmarket.html">Drop Market Research</a>
+        <a href="TFunservedmarket.html">Unserved Market</a>
+        <a href="TFreferral.html">Referral &amp; Viral</a>
+        <a href="TFcreatortoken.html">Creator Payments</a>
+        <a href="TFstylists.html">Stylist Layer</a>
+        <a href="TFvisualdiscovery.html">Visual Discovery</a>
+        <a href="TFbrandsworldwide.html">Fashion Brands Worldwide</a>
+      </div>
+    </div>
+    <a href="architecture.html">Architecture &amp; Tools</a>
+    <a href="TFmarketplaces.html">Operations</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Ideas ▾</span>
+      <div class="dropdown">
+        <a href="gamification.html">Gamification</a>
+        <a href="ideas.html">Ideas &amp; AI Research</a>
+        <a href="influencer.html">Influencer Selling</a>
+        <a href="strategic-brief.html">Strategic Brief</a>
+      </div>
+    </div>
+    <a href="TFnewname.html">Design</a>
+    <a href="TFrussia.html">Legal / Tax</a>
+    <a href="task-tracker.html">Planning</a>
+  </div>
+</nav>
+
+<header>
+  <div class="header-inner">
+    <span class="eyebrow">Internal · Private</span>
+    <div class="logo">smthg<span class="dot">.</span></div>
+    <div class="tagline">Workflow Hub</div>
+  </div>
+</header>
+
+<main>
+  <div class="grid">
+
+    <div class="card">
+      <div class="card-num">00</div>
+      <div class="card-title">SMTHG Working Files</div>
+      <div class="card-links">
+        <a class="card-link hi" href="https://app.notion.com/p/Home-38f8b826854a8162a012c313f16cd51a" target="_blank" rel="noopener">Notion Workspace →</a>
+        <a class="card-link hi" href="files/terrapresa10_2026_v18.pptx" target="_blank" rel="noopener">Investor Deck v18 (PPTX) →</a>
+        <a class="card-link hi" href="files/terraferra_next_steps_20260621.pptx" target="_blank" rel="noopener">Next Steps (PPTX) →</a>
+        <a class="card-link hi" href="files/TerraFerra_OnePager.pdf" target="_blank" rel="noopener">One Pager (PDF) →</a>
+        <a class="card-link" href="files/TerraFerra_OnePager_Landscape.png" target="_blank" rel="noopener">One Pager Landscape (PNG) →</a>
+        <a class="card-link" href="files/Terra%20Ferra%20Blurb_.docx" target="_blank" rel="noopener">Blurb (DOCX) →</a>
+        <a class="card-link" href="files/TerraFerra_Blurb_visual_AI.png" target="_blank" rel="noopener">Blurb Visual — AI (PNG) →</a>
+        <a class="card-link" href="files/TerraFerra_Blurb_visual_community.png" target="_blank" rel="noopener">Blurb Visual — Community (PNG) →</a>
+        <a class="card-link" href="files/TerraFerra_MVP_Simplified_User%20Flows.pdf" target="_blank" rel="noopener">MVP Simplified User Flows (PDF) →</a>
+        <a class="card-link" href="files/TerraFerra_Gamification.pdf" target="_blank" rel="noopener">Gamification (PDF) →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-num">01</div>
+      <div class="card-title">SMTHG Budget &amp; Sales Scenarios</div>
+      <div class="card-links">
+        <a class="card-link hi" href="TFmarketsize.html">Market Size &amp; Opportunity →</a>
+        <a class="card-link" href="budget.html">Budget &amp; Sales Scenarios →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-num">02</div>
+      <div class="card-title">SMTHG Roles &amp; Scope</div>
+      <div class="card-links">
+        <a class="card-link" href="roles.html">Open →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-num">03</div>
+      <div class="card-title">SMTHG Business Model &amp; GTM</div>
+      <div class="card-links">
+        <a class="card-link hi" href="community-mktg.html">Community Marketing + Paid Digital Layer — Research →</a>
+        <a class="card-link" href="TFbrandsworldwide.html">Fashion Brands Worldwide (market size + Asia) →</a>
+        <a class="card-link" href="TFvisualdiscovery.html">Visual Discovery Engines — Research →</a>
+        <a class="card-link hi" href="TFmvpcosts.html">MVP Scope &amp; Costs →</a>
+        <a class="card-link" href="TFreferral.html">Referral &amp; Viral Mechanics — Research →</a>
+        <a class="card-link" href="TFwhynow.html">Why Now — LTK / ShopMy / VTO Timing →</a>
+        <a class="card-link" href="TFdropsmarket.html">Drop Market Research →</a>
+        <a class="card-link" href="TFunservedmarket.html">Unserved Market Segments — Research →</a>
+        <a class="card-link" href="TFcreatortoken.html">Creator Payments &amp; Tokenization — Research →</a>
+        <a class="card-link" href="/psychology-fashion.html">Psychology + Fashion — Platform Research →</a>
+        <a class="card-link" href="TFstylists.html">Stylist Layer &amp; AI Wardrobe Tooling — Research →</a>
+        <a class="card-link" href="gamification.html">Gamification — Research →</a>
+        <a class="card-link" href="TFaltmodel.html">Alternative Business Model →</a>
+        <a class="card-link" href="TFbusinessmodel.html">Comparison Matrix →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-num">04</div>
+      <div class="card-title">SMTHG System Architecture &amp; Tools</div>
+      <div class="card-links">
+        <a class="card-link" href="architecture.html">System Architecture &amp; Tools →</a>
+        <a class="card-link" href="https://www.figma.com/design/LhEfDjOSqBbbtiICR8yXoV/TF-2?node-id=0-1&amp;p=f" target="_blank" rel="noopener">Product Designs (Figma) →</a>
+        <a class="card-link" href="Insense_Fashion_Creator_Network_Snapshot.pdf" target="_blank" rel="noopener">Insense Creator Network (PDF) →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-num">05</div>
+      <div class="card-title">SMTHG Operations</div>
+      <div class="card-links">
+        <a class="card-link hi" href="TFmarketplaces.html">Marketplace Technology &amp; Cross-border Requirements →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-num">06</div>
+      <div class="card-title">SMTHG Ideas</div>
+      <div class="card-links">
+        <a class="card-link" href="ideas.html">Ideas &amp; AI Research →</a>
+        <a class="card-link" href="influencer.html">Influencer Selling (Emerging Designers) →</a>
+        <a class="card-link" href="strategic-brief.html">CEO Strategic Brief →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-num">07</div>
+      <div class="card-title">SMTHG Design &amp; Creativity</div>
+      <div class="card-links">
+        <a class="card-link hi" href="smthg_v3.html">SMTHG — Concept V3 Home (Revised) →</a>
+        <a class="card-link" href="smthg_v2.html">SMTHG — Concept V2 (Creative Direction) →</a>
+        <a class="card-link" href="files/SMTHG_%D0%BA%D0%BE%D0%BD%D1%86%D0%B5%D0%BF%D1%82_%D1%84%D1%8D%D1%88%D0%BD-%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D1%8B.pdf" target="_blank" rel="noopener">SMTHG Концепт фэшн-платформы (PDF) →</a>
+        <a class="card-link" href="TFnewname.html">New Name Brainstorm →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-num">08</div>
+      <div class="card-title">SMTHG Legal / Tax</div>
+      <div class="card-links">
+        <a class="card-link hi" href="TFrussia.html">Russian Designers — US Sanctions Compliance →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-num">09</div>
+      <div class="card-title">SMTHG Task Tracker &amp; Planning</div>
+      <div class="card-links">
+        <a class="card-link" href="task-tracker.html">Task Tracker →</a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-logo">smthg<span class="dot">.</span></div>
+  <div class="footer-note">Private · noindex · Not for distribution</div>
+</footer>
+
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" title="Back to top">↑</button>
+
+<script>window.addEventListener('scroll',function(){var b=document.getElementById('back-to-top');b.style.display=window.scrollY>400?'flex':'none';});</script>
+</body>
+</html>

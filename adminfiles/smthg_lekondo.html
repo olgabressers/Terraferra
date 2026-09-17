@@ -38,11 +38,13 @@ h2{font-size:21px;font-weight:800;margin:52px 0 14px;letter-spacing:-.4px;displa
 .shots.c2{grid-template-columns:repeat(2,1fr)}
 .shots.c3{grid-template-columns:repeat(3,1fr)}
 .shots.c4{grid-template-columns:repeat(4,1fr)}
-.shot{background:white;border:1px solid var(--rule);overflow:hidden;display:flex;flex-direction:column}
-.shot img{width:100%;display:block}
-.shot .cap{padding:11px 13px 12px;border-top:1px solid var(--rule)}
-.shot .cap b{display:block;font-size:12.5px;font-weight:800;margin-bottom:3px}
-.shot .cap span{font-size:11.5px;color:var(--sub);line-height:1.45}
+.shot{background:white;border:1px solid var(--rule);overflow:hidden;display:flex;flex-direction:row;min-height:208px}
+.shot a{flex:0 0 128px;width:128px;background:#FAFAFA;border-right:1px solid var(--rule);display:block}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+.shot .cap{padding:14px 16px;display:flex;flex-direction:column;justify-content:center}
+.shot .cap b{display:block;font-size:13px;font-weight:800;margin-bottom:4px}
+.shot .cap span{font-size:11.5px;color:var(--sub);line-height:1.5}
+.shot .cap i{font-style:normal;font-size:10px;font-weight:700;letter-spacing:.7px;text-transform:uppercase;color:var(--tf);margin-top:8px}
 
 /* flow */
 .flow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:4px 0 6px}
@@ -121,6 +123,8 @@ td:last-child,th:last-child{border-right:none}
   .revs{grid-template-columns:1fr 1fr}
 }
 @media(max-width:700px){
+  .shot{min-height:180px}
+  .shot a{flex:0 0 104px;width:104px}
   .topnav{position:static;padding:10px 14px}
   .grid2,.grid3,.quotes,.revs,.flow,.shots.c2,.shots.c3,.shots.c4{grid-template-columns:1fr}
   h1{font-size:24px}h2{font-size:18px}
@@ -161,12 +165,6 @@ td:last-child,th:last-child{border-right:none}
     <div class="stat ink"><b>$0</b><span>Revenue published</span></div>
   </div>
 
-  <div class="shots c4">
-    <div class="shot"><img src="lekondo/hero.jpg" alt="Lekondo app store hero"/><div class="cap"><b>The pitch</b><span>Documenting what you wore</span></div></div>
-    <div class="shot"><img src="lekondo/feed.jpg" alt="Lekondo feed with New, Aura and Following tabs"/><div class="cap"><b>The feed</b><span>New · Aura · Following</span></div></div>
-    <div class="shot"><img src="lekondo/closet.jpg" alt="Detected items with brand tags"/><div class="cap"><b>The mechanic</b><span>One photo, 5 items detected</span></div></div>
-    <div class="shot"><img src="lekondo/brands.jpg" alt="Lemaire brand community page"/><div class="cap"><b>The surprise</b><span>Brand communities already exist</span></div></div>
-  </div>
 
   <h2 id="s01"><span class="sec-num">01</span>Snapshot</h2>
   <div class="grid3">
@@ -209,9 +207,9 @@ td:last-child,th:last-child{border-right:none}
   </div>
 
   <div class="shots c3">
-    <div class="shot"><img src="lekondo/closet.jpg" alt="Detected items panel"/><div class="cap"><b>Detect</b><span>"Detected items (5)". Jacket → Uniqlo. Shoes → Maison Margiela. Sweater → "+ Add brand".</span></div></div>
-    <div class="shot"><img src="lekondo/analysis.jpg" alt="Outfit analysis screen"/><div class="cap"><b>Analyse</b><span>Named "The Poetics of Urban Motion". Tortilla 45% · Black 31% · Linen 23%. Acubi, Sotto, Gorpcore meters.</span></div></div>
-    <div class="shot"><img src="lekondo/calendar.jpg" alt="OOTD calendar"/><div class="cap"><b>File</b><span>A month of cut-out outfits, one per day, with the weather. Profile carries a handle, followers and a city.</span></div></div>
+    <div class="shot"><a href="lekondo/closet.jpg" target="_blank" rel="noopener"><img src="lekondo/closet.jpg" alt="Detected items panel"/></a><div class="cap"><b>Detect</b><span>"Detected items (5)". Jacket → Uniqlo. Shoes → Maison Margiela. Sweater → "+ Add brand".</span><i>Tap to enlarge ↗</i></div></div>
+    <div class="shot"><a href="lekondo/analysis.jpg" target="_blank" rel="noopener"><img src="lekondo/analysis.jpg" alt="Outfit analysis screen"/></a><div class="cap"><b>Analyse</b><span>Named "The Poetics of Urban Motion". Tortilla 45% · Black 31% · Linen 23%. Acubi, Sotto, Gorpcore meters.</span><i>Tap to enlarge ↗</i></div></div>
+    <div class="shot"><a href="lekondo/calendar.jpg" target="_blank" rel="noopener"><img src="lekondo/calendar.jpg" alt="OOTD calendar"/></a><div class="cap"><b>File</b><span>A month of cut-out outfits, one per day, with the weather. Profile carries a handle, followers and a city.</span><i>Tap to enlarge ↗</i></div></div>
   </div>
 
   <h2 id="s03"><span class="sec-num">03</span>Why the eyes are covered</h2>
@@ -226,8 +224,8 @@ td:last-child,th:last-child{border-right:none}
   <p class="src-note">All four quoted from <a href="https://lekondo.com/lookbook" target="_blank" rel="noopener">lekondo.com/lookbook</a>. The bar is visible on every person in every marketing screenshot below.</p>
 
   <div class="shots c2" style="margin-top:14px">
-    <div class="shot"><img src="lekondo/lookbook.jpg" alt="Global lookbook with eyes covered"/><div class="cap"><b>Every face, every screen</b><span>The outfit stays sharp. The eyes do not.</span></div></div>
-    <div class="shot"><img src="lekondo/feed.jpg" alt="Feed with eyes covered"/><div class="cap"><b>Including the hero shot</b><span>Their own "Third space for fashion" image carries the bar.</span></div></div>
+    <div class="shot"><a href="lekondo/lookbook.jpg" target="_blank" rel="noopener"><img src="lekondo/lookbook.jpg" alt="Global lookbook with eyes covered"/></a><div class="cap"><b>Every face, every screen</b><span>The outfit stays sharp. The eyes do not.</span><i>Tap to enlarge ↗</i></div></div>
+    <div class="shot"><a href="lekondo/feed.jpg" target="_blank" rel="noopener"><img src="lekondo/feed.jpg" alt="Feed with eyes covered"/></a><div class="cap"><b>Including the hero shot</b><span>Their own "Third space for fashion" image carries the bar.</span><i>Tap to enlarge ↗</i></div></div>
   </div>
 
   <div class="grid2" style="margin-top:16px">
@@ -249,8 +247,8 @@ td:last-child,th:last-child{border-right:none}
   <div class="concl risk"><b>They are further into community than the funding coverage suggests.</b> Brand communities and aesthetic spaces both exist, both carry member counts, and both were built out of detected garments rather than sold to anyone.</div>
 
   <div class="shots c2">
-    <div class="shot"><img src="lekondo/brands.jpg" alt="Lemaire brand community"/><div class="cap"><b>Brand communities</b><span>LEMAIRE — "138 outfits · 46 members", a written brand context, and a grid of members wearing it. The brand does not run it and sells nothing there.</span></div></div>
-    <div class="shot"><img src="lekondo/aesthetics.jpg" alt="Aesthetics and subcultures directory"/><div class="cap"><b>Aesthetic spaces</b><span>34 aesthetics with membership. Acubi 11,857 · Coquette 5,828 · Boho 5,265 · Cottagecore 3,239. Search runs across Aesthetics, Brands, Cities and Users.</span></div></div>
+    <div class="shot"><a href="lekondo/brands.jpg" target="_blank" rel="noopener"><img src="lekondo/brands.jpg" alt="Lemaire brand community"/></a><div class="cap"><b>Brand communities</b><span>LEMAIRE — "138 outfits · 46 members", a written brand context, and a grid of members wearing it. The brand does not run it and sells nothing there.</span><i>Tap to enlarge ↗</i></div></div>
+    <div class="shot"><a href="lekondo/aesthetics.jpg" target="_blank" rel="noopener"><img src="lekondo/aesthetics.jpg" alt="Aesthetics and subcultures directory"/></a><div class="cap"><b>Aesthetic spaces</b><span>34 aesthetics with membership. Acubi 11,857 · Coquette 5,828 · Boho 5,265 · Cottagecore 3,239. Search runs across Aesthetics, Brands, Cities and Users.</span><i>Tap to enlarge ↗</i></div></div>
   </div>
 
   <div class="grid3" style="margin-top:16px">

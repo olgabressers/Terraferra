@@ -1,0 +1,3155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>SMTHG Budget</title>
+<link rel="icon" type="image/svg+xml" href="smthg_favicon.svg"/>
+<!-- Exchange rate: 1 USD = 0.91 EUR · July 2026 -->
+<!-- Office: 4 core team × $200/month = $800/mo -->
+<!-- Core team residual: $500K − $317,252 fixed = $182,748 (Q1 deferred; Q2–Q4 $60,916/qtr) -->
+<!-- Section structure: Core Team / Hired Team / Financial & Legal / Operational Tools / AI Tools / Marketing Budget & Tools / One-time -->
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--tf:#E8002D;--ink:#161616;--sub:#5C5A56;--rule:#E6E2DA;--bg:#FAFAF8;--card:#FFF;--tf-ghost:#FEF0EE}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);font-size:13px;line-height:1.5}
+.wrap{max-width:1240px;margin:0 auto;padding:40px 48px 80px}
+h1{font-size:26px;font-weight:700;letter-spacing:-0.5px;margin-bottom:4px}
+.sub{color:var(--sub);font-size:13px;margin-bottom:28px}
+
+/* Summary cards */
+.summary{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:36px}
+.sc{background:var(--card);border:1px solid var(--rule);border-radius:8px;padding:18px}
+.sc-label{font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:var(--sub);margin-bottom:5px}
+.sc-val{font-size:20px;font-weight:700}
+.sc-note{font-size:11px;color:var(--sub);margin-top:3px}
+
+/* Main table */
+.tbl-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--rule);border-radius:8px;overflow:hidden}
+thead th{background:var(--ink);color:#fff;padding:10px 11px;text-align:right;font-size:13px;font-weight:700;letter-spacing:.05em;white-space:nowrap;text-transform:uppercase}
+thead th:first-child,thead th:nth-child(2),thead th:last-child{text-align:left}
+thead th:last-child{min-width:180px}
+
+/* Section headers — 7 distinct colors */
+.sec-hdr td{padding:14px 11px;border-top:2px solid var(--rule);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.07em}
+.sec-hdr.ppl  td{background:#FFF5F5;color:var(--tf);border-top:2px solid var(--tf)}
+.sec-hdr.hire td{background:#EDF5FF;color:#1B5EA8;border-top:2px solid #1B5EA8}
+.sec-hdr.finleg td{background:#FFF9E6;color:#956800;border-top:2px solid #956800}
+.sec-hdr.optools td{background:#F6F3FF;color:#6B4FA8;border-top:2px solid #6B4FA8}
+.sec-hdr.ai   td{background:#EDF8FA;color:#0D7D8E;border-top:2px solid #0D7D8E}
+.sec-hdr.mktg td{background:#FFF6EC;color:#C86B00;border-top:2px solid #C86B00}
+.sec-hdr.onetime td{background:#FFF3F5;color:#9B1B30;border-top:2px solid #9B1B30}
+.sec-hdr.travel td{background:#F0F7F4;color:#1A7A4A;border-top:2px solid #1A7A4A}
+
+/* Table of Contents */
+.toc{background:var(--ink);border-radius:8px;padding:20px 24px;margin-bottom:36px}
+.toc-title{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,.45);margin-bottom:14px}
+.toc-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.toc-item{text-decoration:none;color:rgba(255,255,255,.85);font-size:11px;font-weight:700;padding:10px 12px;border:1px solid rgba(255,255,255,.15);border-radius:4px;display:block;transition:border-color .15s,color .15s,background .15s}
+.toc-item:hover{border-color:var(--tf);color:#fff;background:rgba(232,0,45,.15)}
+.toc-num{display:block;font-size:22px;font-weight:800;color:var(--tf);line-height:1;margin-bottom:4px}
+@media(max-width:900px){.toc-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.toc-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* Travel event controls */
+.tr-cb-lbl{display:inline-flex;align-items:center;gap:5px;cursor:pointer;font-weight:700}
+.tr-cb-lbl input[type=checkbox]{width:14px;height:14px;accent-color:var(--tf);cursor:pointer;flex-shrink:0}
+.tr-n-input{width:36px;border:1px solid var(--rule);padding:2px 4px;font-size:11px;font-weight:700;font-family:'Inter',sans-serif;color:var(--ink);text-align:center;border-radius:2px}
+.tr-all-lbl{float:right;font-size:11px;color:rgba(255,255,255,.85);cursor:pointer;display:inline-flex;align-items:center;gap:5px;font-weight:400;letter-spacing:.03em}
+.tr-all-lbl input[type=checkbox]{width:13px;height:13px;accent-color:#4ade80;cursor:pointer}
+.tr-ev-hdr td{background:#F4FAF7;font-weight:600}
+.tr-sub td{font-size:11px;color:var(--sub);padding-top:3px;padding-bottom:3px;border-top:none}
+.tr-sub td:first-child{padding-left:26px}
+.tr-unchecked td{opacity:.32}
+.tr-toggle{background:none;border:none;cursor:pointer;font-size:13px;padding:0 4px;line-height:1;vertical-align:middle;color:var(--sub);transition:color .15s}
+.tr-toggle:hover{color:var(--tf)}
+.tr-sub.tr-hidden{display:none}
+.sc-collapsed{display:none!important}
+.sec-toggle-btn{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:4px;cursor:pointer;font-size:13px;color:#fff;padding:3px 10px;line-height:1;transition:background .15s;flex-shrink:0;font-family:monospace}
+.sec-toggle-btn:hover{background:rgba(255,255,255,.25)}
+.sec-badge{font-size:11px;color:rgba(255,255,255,.35);margin-left:auto;font-weight:400;letter-spacing:0}
+.grp-toggle-btn{background:rgba(0,0,0,.12);border:1px solid rgba(0,0,0,.2);color:inherit;border-radius:3px;cursor:pointer;font-size:11px;padding:2px 8px;font-family:monospace;flex-shrink:0;line-height:1;margin-left:8px}
+.grp-toggle-btn:hover{background:rgba(0,0,0,.2)}
+
+/* Back-to-top */
+.back-to-top{position:fixed;bottom:28px;right:28px;width:40px;height:40px;background:var(--tf);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;text-decoration:none;opacity:0;transition:opacity .3s;z-index:100;border-radius:2px}
+.back-to-top.vis{opacity:1}
+@media(max-width:700px){.back-to-top{width:34px;height:34px;font-size:15px;bottom:14px;right:14px}}
+
+tr td{padding:9px 11px;border-bottom:1px solid var(--rule);vertical-align:top;text-align:right}
+tr:last-child td{border-bottom:none}
+td:first-child,td:last-child{text-align:left}
+td:nth-child(2){text-align:left}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.subtotal td{background:#F7F5F2;font-weight:600;border-top:1px solid #D5D2CA}
+.total-row td{background:var(--ink);color:#fff;font-weight:700;font-size:14px;border-top:2px solid var(--tf)}
+.core-row td{background:#FFF8F8}
+.core-sub td{background:#FFFCFC;color:var(--sub);font-size:11px;font-style:italic}
+.core-sub td:first-child{padding-left:24px}
+.na{color:var(--sub);font-size:11px;text-align:center}
+.desc{font-size:11px;color:var(--sub);line-height:1.4}
+.badge{display:inline-block;background:#F2F0EB;color:var(--sub);font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;padding:1px 5px;border-radius:3px;margin-left:4px}
+.badge.qt1{background:#FFF5F5;color:var(--tf)}
+.eur{display:block;font-size:10px;font-weight:400;color:var(--sub);font-style:normal;margin-top:2px}
+.eur-w{display:block;font-size:10px;font-weight:400;color:rgba(255,255,255,.5);font-style:normal;margin-top:2px}
+
+/* ── Not Included section ── */
+.not-included{margin-top:48px;border:2px solid #B0AAA0;border-radius:10px;overflow:hidden}
+.ni-hdr-main{background:#2A2828;color:#fff;padding:14px 22px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.ni-body{padding:24px}
+.ni-section-title{font-size:12px;font-weight:700;color:var(--ink);margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em;margin-top:0}
+.ni-sub-note{font-size:11px;color:var(--sub);margin-bottom:12px}
+
+/* Assumptions table */
+.ni-tbl{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--rule);border-radius:6px;overflow:hidden;margin-bottom:24px}
+.ni-tbl th{background:#F2F0EB;color:var(--sub);padding:8px 11px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;text-align:right;border-bottom:1px solid var(--rule)}
+.ni-tbl th:first-child{text-align:left}
+.ni-tbl td{padding:8px 11px;border-bottom:1px solid var(--rule);font-size:12px;text-align:right;vertical-align:top}
+.ni-tbl td:first-child{text-align:left;font-weight:600}
+.ni-tbl tr:last-child td{border-bottom:none;background:#F7F5F2;font-weight:700}
+
+/* Variable cost panels — 3-column grid */
+.var-panels{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px}
+.var-panel{border:1px solid var(--rule);border-radius:8px;background:var(--card)}
+.var-panel-hdr{padding:11px 14px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#fff;border-radius:7px 7px 0 0}
+.var-tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.var-panel-hdr.vto    {background:#0D7D8E}
+.var-panel-hdr.payment{background:#1A7A4A}
+.var-panel-hdr.fraud  {background:#956800}
+.var-panel table{border:none;border-radius:0;width:100%;background:var(--card)}
+.var-panel table th{background:#F7F5F2;color:var(--sub);padding:7px 11px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;text-align:right;border-bottom:1px solid var(--rule)}
+.var-panel table th:first-child{text-align:left}
+.var-panel table td{padding:8px 11px;border-bottom:1px solid var(--rule);font-size:12px;text-align:right;vertical-align:top}
+.var-panel table td:first-child{text-align:left}
+.var-panel table tr:last-child td{border-bottom:none;font-weight:700;background:#F7F5F2}
+.var-panel-note{font-size:10px;color:var(--sub);padding:8px 14px;background:#FAFAF8;border-top:1px solid var(--rule);line-height:1.4}
+
+/* Variable total summary bar */
+.var-total{background:#F2F0EB;border:1px solid var(--rule);border-radius:6px;padding:14px 18px;margin-bottom:28px;display:flex;gap:28px;flex-wrap:wrap;align-items:center}
+.var-total-item .vt-label{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--sub)}
+.var-total-item .vt-val{font-size:16px;font-weight:700;color:var(--ink)}
+.var-total-note{font-size:11px;color:var(--sub);flex:1;min-width:200px}
+
+@media(max-width:1200px){.summary{grid-template-columns:repeat(3,1fr)}.var-panels{grid-template-columns:1fr}}
+@media(max-width:1000px){.wrap{padding:24px 18px 60px}.summary{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.wrap{padding:16px 12px 48px}.summary{grid-template-columns:1fr}}
+
+/* ── PROJECTIONS ── */
+.proj-sep{background:var(--ink);color:white;padding:22px 28px;margin:52px -48px 0;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.proj-sep .sn{font-size:32px;font-weight:800;color:var(--tf);line-height:1}
+.proj-sep .st{font-size:20px;font-weight:800;letter-spacing:-.3px}
+.proj-sep .ss{font-size:11px;color:rgba(255,255,255,.4);margin-left:auto}
+.proj-layout{display:grid;grid-template-columns:280px 1fr;gap:24px;align-items:start;margin-top:24px}
+.param-box{background:white;border:1px solid var(--rule);padding:22px 24px}
+.param-ey{font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);margin-bottom:16px}
+.p-cat{font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);opacity:.6;margin:18px 0 10px;padding-top:14px;border-top:1px solid var(--rule)}
+.p-cat:first-of-type{margin-top:0;padding-top:0;border-top:none}
+.psg{margin-bottom:14px}
+.psg-top{display:flex;justify-content:space-between;margin-bottom:5px}
+.psg-lbl{font-size:12px;font-weight:700;color:var(--ink)}
+.psg-val{font-size:13px;font-weight:800;color:var(--tf)}
+.psg-note{font-size:10px;color:var(--sub);margin-top:2px;line-height:1.4}
+.psg-hint{display:flex;justify-content:space-between;font-size:9.5px;color:var(--sub);opacity:.5;margin-top:2px}
+input[type=range]{width:100%;height:4px;accent-color:var(--tf);cursor:pointer;display:block}
+.vto-sw{display:flex;border:1px solid var(--rule);margin-bottom:4px}
+.vto-swb{flex:1;padding:8px 6px;text-align:center;cursor:pointer;font-size:10.5px;font-weight:700;color:var(--sub);background:white;border:none;border-right:1px solid var(--rule);line-height:1.3;transition:all .15s;font-family:'Inter',sans-serif}
+.vto-swb:last-child{border-right:none}
+.vto-swb.on{background:var(--tf);color:white}
+.vto-swb span{display:block;font-size:9px;font-weight:400;margin-top:1px;opacity:.8}
+.q-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.q-box{background:white;border:1px solid var(--rule)}
+.q-head{padding:12px 14px;border-bottom:2px solid var(--rule);background:#FAFAF8}
+.q-qlbl{font-size:22px;font-weight:800;letter-spacing:-.4px;text-transform:none;color:var(--ink);margin-bottom:4px}
+.q-gmv-h{font-size:17px;font-weight:800;color:var(--ink)}
+.q-dr-wrap{padding:11px 14px;border-bottom:1px solid var(--rule)}
+.q-dr-lbl{font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);margin-bottom:7px}
+.q-dr-ctrl{display:flex;align-items:center;gap:5px}
+.qb{width:26px;height:26px;border:1px solid var(--rule);background:white;font-size:15px;font-weight:700;color:var(--tf);cursor:pointer;flex-shrink:0;padding:0;line-height:1;transition:background .12s;font-family:'Inter',sans-serif}
+.qb:hover{background:#FEF0EE}
+.qi{width:44px;text-align:center;border:1px solid var(--rule);padding:3px 4px;font-size:14px;font-weight:800;font-family:'Inter',sans-serif;color:var(--ink);background:white;-moz-appearance:textfield}
+.qi::-webkit-inner-spin-button,.qi::-webkit-outer-spin-button{-webkit-appearance:none}
+.q-unit{font-size:10px;color:var(--sub);margin-left:2px}
+.q-rows{padding:11px 14px}
+.q-row{display:flex;justify-content:space-between;align-items:baseline;padding:5px 0;border-bottom:1px solid var(--rule);gap:6px}
+.q-row:last-child{border-bottom:none}
+.ql{font-size:11px;color:var(--sub);font-weight:500;flex:1;min-width:0}
+.qv{font-size:12px;font-weight:800;color:var(--ink);white-space:nowrap}
+.qv.g{color:#1A7A4A}.qv.r{color:var(--tf)}.qv.b{font-size:14px}
+.q-sub{background:#FAFAF8}
+.q-sub .ql{padding-left:12px;font-size:10px;font-style:italic}
+.q-sub .qv{font-size:10px;font-weight:700}
+.qdiv{height:1px;background:var(--rule);margin:3px 0}
+.yr-bar{background:var(--ink);padding:16px 20px;display:grid;grid-template-columns:repeat(5,1fr);margin-top:14px}
+.yr-i{padding:0 14px;border-right:1px solid rgba(255,255,255,.1)}
+.yr-i:first-child{padding-left:0}.yr-i:last-child{border-right:none}
+.yr-l{font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:5px}
+.yr-v{font-size:18px;font-weight:800;color:white}
+.yr-v.g{color:#7AE3B2}.yr-v.r{color:#FF8A80}
+/* Consolidated */
+.consol-sep{background:var(--ink);color:white;padding:22px 28px;margin:52px -48px 0;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.ctw{overflow-x:auto;margin-top:24px}
+.ct{width:100%;border-collapse:collapse;background:white;border:1px solid var(--rule)}
+.ct thead th{background:#F2F0EB;color:var(--sub);padding:10px 13px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;text-align:right;border-bottom:1px solid var(--rule);white-space:nowrap}
+.ct thead th:first-child{text-align:left;min-width:190px}
+.ct td{padding:10px 13px;border-bottom:1px solid var(--rule);font-size:13px;text-align:right;white-space:nowrap;color:var(--ink)}
+.ct td:first-child{text-align:left;font-weight:600}
+.ct .cat td{background:#F7F5F2;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--sub);padding:7px 13px}
+.ct .sub td{background:#F2F0EB;font-weight:700;border-top:1px solid #D5D2CA}
+.ct .tot td{background:var(--ink);color:white;font-weight:800;font-size:14px;border-top:2px solid var(--tf)}
+.ct td.pos{color:#1A7A4A;font-weight:700}.ct td.neg{color:var(--tf);font-weight:700}
+.ct .note-r{font-size:11px;color:var(--sub);font-weight:400;text-align:left}
+@media(max-width:1100px){.proj-layout{grid-template-columns:1fr}.q-grid{grid-template-columns:repeat(2,1fr)}.y-grid{grid-template-columns:repeat(3,1fr)}}
+.y-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:28px}
+@media(max-width:900px){.y-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.y-grid{grid-template-columns:1fr}}
+@media(max-width:700px){.proj-sep,.consol-sep{margin-left:-12px;margin-right:-12px;padding:16px 16px}.q-grid{grid-template-columns:1fr}.yr-bar{grid-template-columns:repeat(2,1fr);row-gap:14px}.yr-i{border-right:none;padding-left:0}}
+
+/* Top nav */
+.topnav{background:white;border-bottom:1px solid var(--rule);padding:12px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
+.topnav-home{font-weight:900;letter-spacing:-.5px;color:var(--ink);text-decoration:none;font-size:17px;line-height:1}
+.topnav-home .dot{color:var(--tf)}
+.topnav-home:hover{color:var(--tf)}
+.topnav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:var(--sub);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:10px}
+.topnav-links a:hover,.topnav-links a.active{color:var(--tf)}
+.has-dropdown{position:relative;padding-bottom:10px;margin-bottom:-10px}
+.dropdown-trigger{cursor:pointer;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:10px;user-select:none}
+.dropdown-trigger:hover,.has-dropdown:focus-within .dropdown-trigger{color:var(--tf)}
+.dropdown{display:none;position:absolute;top:100%;right:0;background:white;border:1px solid var(--rule);min-width:200px;box-shadow:0 6px 14px rgba(0,0,0,.08);padding:6px 0;z-index:60}
+.has-dropdown:hover .dropdown,.has-dropdown:focus-within .dropdown{display:block}
+.dropdown a{display:block;padding:9px 16px;font-size:10px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:1px;text-decoration:none}
+.dropdown a:hover{background:var(--tf-ghost);color:var(--tf)}
+@media(max-width:700px){.topnav{position:static;padding:10px 14px}.topnav-links{gap:8px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:2px;width:100%}.topnav-links a{font-size:9.5px;white-space:nowrap}.dropdown-trigger{font-size:9.5px;white-space:nowrap}.has-dropdown{padding-bottom:0;margin-bottom:0}.dropdown{display:none!important}}
+
+/* cost detail foldables */
+.cd{border:none;padding:0;margin:2px 0 0}
+.cd summary{font-size:10px;color:var(--sub);cursor:pointer;padding:2px 0 4px 13px;list-style:none;position:relative;user-select:none}
+.cd summary::-webkit-details-marker{display:none}
+.cd summary::before{content:'▸';position:absolute;left:0;top:2px;font-size:9px;line-height:1}
+details[open].cd summary::before{content:'▾'}
+.cd-body{padding:2px 0 6px 10px}
+.cd-r{display:flex;justify-content:space-between;gap:8px;font-size:10px;color:var(--sub);line-height:1.5}
+.cd-tot{font-weight:700;color:var(--ink);border-top:1px solid var(--rule);margin-top:2px;padding-top:2px}
+/* sync dot */
+.sync-dot{width:8px;height:8px;border-radius:50%;background:#bbb;display:inline-block;flex-shrink:0;transition:background .4s;margin-left:8px;vertical-align:middle}
+.sync-dot.live{background:#22c55e}
+.sync-dot.err{background:#ef4444}
+.sync-label{font-size:10px;font-weight:600;color:var(--sub);vertical-align:middle;margin-left:3px}
+.sal-btn{background:none;border:1px solid var(--rule);border-radius:4px;cursor:pointer;font-size:11px;font-weight:700;color:var(--sub);padding:3px 12px;font-family:'Inter',sans-serif;transition:all .15s}
+.sal-btn.sal-active{background:var(--ink);border-color:var(--ink);color:#fff}
+.sal-btn:hover:not(.sal-active){border-color:var(--tf);color:var(--tf)}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="topnav-home">smthg<span class="dot">.</span></a>
+  <div class="topnav-links">
+    <a href="index.html">Files</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Budget ▾</span>
+      <div class="dropdown">
+        <a href="TFmarketsize.html">Market Size &amp; Opportunity</a>
+        <a href="budget.html">Budget &amp; Sales Scenarios</a>
+        <a href="smthg_budget.html" class="active">SMTHG Budget</a>
+        <a href="smthg_investors.html">Investor Requirements</a>
+      </div>
+    </div>
+    <a href="roles.html">Roles</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Business Model ▾</span>
+      <div class="dropdown">
+        <a href="TFbusinessmodel.html">Comparison Matrix</a>
+        <a href="TFaltmodel.html">Alternative Model</a>
+        <a href="TFmvpcosts.html">MVP Scope &amp; Costs</a>
+        <a href="TFgtm.html">GTM</a>
+        <a href="TFwhynow.html">Why Now</a>
+        <a href="TFdropsmarket.html">Drop Market Research</a>
+        <a href="TFunservedmarket.html">Unserved Market</a>
+        <a href="TFreferral.html">Referral &amp; Viral</a>
+        <a href="TFcreatortoken.html">Creator Payments</a>
+        <a href="TFstylists.html">Stylist Layer</a>
+        <a href="/psychology-fashion.html">Psychology + Fashion</a>
+        <a href="TFvisualdiscovery.html">Visual Discovery</a>
+      </div>
+    </div>
+    <a href="TFmarketplaces.html">Operations</a>
+    <a href="architecture.html">Architecture</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Ideas ▾</span>
+      <div class="dropdown">
+        <a href="gamification.html">Gamification</a>
+        <a href="ideas.html">Ideas &amp; AI Research</a>
+        <a href="influencer.html">Influencer Selling</a>
+        <a href="strategic-brief.html">Strategic Brief</a>
+      </div>
+    </div>
+    <a href="TFrussia.html">Legal / Tax</a>
+    <a href="task-tracker.html">Planning</a>
+  </div>
+</nav>
+<div class="wrap">
+<h1>smthg<span style="color:var(--tf)">.</span> budget<span class="sync-dot" id="sync-dot"></span><span class="sync-label" id="sync-label">Connecting…</span></h1>
+
+<!-- ── TABLE OF CONTENTS ── -->
+<nav class="toc">
+  <div class="toc-title">Jump to section</div>
+  <div class="toc-grid">
+    <a class="toc-item" href="#s01"><span class="toc-num">01</span>1st Year Budget</a>
+    <a class="toc-item" href="#s02"><span class="toc-num">02</span>Quarterly Revenue</a>
+    <a class="toc-item" href="#s03"><span class="toc-num">03</span>Consolidated P&amp;L</a>
+    <a class="toc-item" href="#s04"><span class="toc-num">04</span>5-Year Outlook</a>
+    <a class="toc-item" href="#s05"><span class="toc-num">05</span>Appendix</a>
+  </div>
+</nav>
+
+<!-- ── SECTION 01: 1ST YEAR BUDGET ── -->
+<div class="proj-sep" id="s01">
+  <span class="sn">01</span>
+  <span class="st">1st Year Budget</span>
+  <span class="ss">Year 1 post-launch · fixed costs · revenue · P&amp;L · <a href="smthg_investors.html" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:2px">Investor requirements →</a></span>
+  <span id="s01-badge" class="sec-badge"></span>
+  <button class="sec-toggle-btn" onclick="toggleSec('s01-all',this)" title="collapse/expand">▾</button>
+</div>
+<p class="sub" style="margin:4px 0 16px">SMTHG · Year 1 post-launch · all fixed costs incl. core team salary · USD primary · EUR ≈ USD × 0.91 · July 2026 · <a href="smthg_operationsteam.html" style="color:var(--tf);text-decoration:none;font-weight:700">Operations Team →</a></p>
+
+<!-- ── PRE-SEED BENCHMARK + TOP SUMMARY ── -->
+<div style="background:var(--card);border:1px solid var(--rule);border-radius:8px;overflow:hidden;margin-bottom:24px">
+  <div style="background:var(--ink);color:#fff;padding:10px 18px;display:flex;align-items:center;gap:12px">
+    <span style="font-size:13px;font-weight:800;letter-spacing:.05em;text-transform:uppercase">Pre-seed round · investor benchmark</span>
+    <a href="smthg_investors.html" target="_blank" rel="noopener" style="color:rgba(255,255,255,.5);font-size:12px;font-weight:600;text-decoration:none;margin-left:auto">Source →</a>
+  </div>
+  <div style="overflow-x:auto">
+    <div style="display:grid;grid-template-columns:110px 130px 130px 1fr;min-width:520px;border-bottom:1px solid var(--rule);font-size:12px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:.05em">
+      <div style="padding:8px 14px;border-right:1px solid var(--rule)">Round</div>
+      <div style="padding:8px 14px;text-align:right;border-right:1px solid var(--rule)">Europe</div>
+      <div style="padding:8px 14px;text-align:right;border-right:1px solid var(--rule)">USA</div>
+      <div style="padding:8px 14px">What must be proven</div>
+    </div>
+    <div style="display:grid;grid-template-columns:110px 130px 130px 1fr;min-width:520px">
+      <div style="padding:11px 14px;font-weight:700;font-size:13px;border-right:1px solid var(--rule)">Pre-seed</div>
+      <div style="padding:11px 14px;text-align:right;font-weight:800;font-size:13px;color:#1A7A4A;border-right:1px solid var(--rule)">€0.7–1.2M</div>
+      <div style="padding:11px 14px;text-align:right;font-weight:800;font-size:13px;color:#1A7A4A;border-right:1px solid var(--rule)">$1–2M</div>
+      <div style="padding:11px 14px;font-size:13px;color:var(--ink)">Team, product, narrow market wedge, first transactions</div>
+    </div>
+  </div>
+  <div style="padding:16px 18px;border-top:1px solid var(--rule)">
+    <div id="top-conclusion" style="font-size:13px;color:var(--ink);line-height:1.75;margin-bottom:18px">—</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px" id="top-runway-grid">
+      <div style="text-align:center;border:1px solid var(--rule);border-radius:6px;padding:12px 8px">
+        <div style="font-size:12px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">$1M raise</div>
+        <div id="top-runway-1m" style="font-size:26px;font-weight:800;color:var(--ink)">—</div>
+        <div style="font-size:12px;color:var(--sub);margin-top:3px">months after Yr 1</div>
+      </div>
+      <div style="text-align:center;border:1px solid var(--rule);border-radius:6px;padding:12px 8px">
+        <div style="font-size:12px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">$1.2M raise</div>
+        <div id="top-runway-12m" style="font-size:26px;font-weight:800;color:var(--ink)">—</div>
+        <div style="font-size:12px;color:var(--sub);margin-top:3px">months after Yr 1</div>
+      </div>
+      <div style="text-align:center;border:1px solid var(--rule);border-radius:6px;padding:12px 8px">
+        <div style="font-size:12px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">$1.5M raise</div>
+        <div id="top-runway-15m" style="font-size:26px;font-weight:800;color:var(--ink)">—</div>
+        <div style="font-size:12px;color:var(--sub);margin-top:3px">months after Yr 1</div>
+      </div>
+      <div style="text-align:center;border:1px solid var(--rule);border-radius:6px;padding:12px 8px">
+        <div style="font-size:12px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">$2M raise</div>
+        <div id="top-runway-2m" style="font-size:26px;font-weight:800;color:var(--ink)">—</div>
+        <div style="font-size:12px;color:var(--sub);margin-top:3px">months after Yr 1</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="s01-all">
+
+<!-- ── SUMMARY CARDS ── -->
+<div class="summary">
+  <div class="sc">
+    <div class="sc-label">Core team salary (gross)</div>
+    <div class="sc-val" id="sc-core-total">—</div>
+    <div class="sc-note" id="sc-core-note">adjustable above · from Q1</div>
+  </div>
+  <div class="sc">
+    <div class="sc-label">Hired team (7 hires)</div>
+    <div class="sc-val" id="sc-hired-total">—</div>
+    <div class="sc-note">Devs ×2 + Community + Influencer Relations + Social Media + Content Creation + Customer Ops</div>
+  </div>
+  <div class="sc">
+    <div class="sc-label">Operations &amp; marketing</div>
+    <div class="sc-val" id="sc-opex-total">$165,540</div>
+    <div class="sc-note" id="sc-opex-note">≈€150,641 · Financial/Legal + tools + AI + marketing + trade shows</div>
+  </div>
+  <div class="sc">
+    <div class="sc-label">One-time launch costs</div>
+    <div class="sc-val">$57,200</div>
+    <div class="sc-note">≈€52,052 · Paid Q1 only</div>
+  </div>
+  <div class="sc" style="border-top:2px solid var(--tf)">
+    <div class="sc-label">Total fixed costs · Year 1</div>
+    <div class="sc-val" id="sc-total-yr">—</div>
+    <div class="sc-note" id="sc-total-note">all fixed costs incl. salaries</div>
+    <div style="margin-top:10px;border-top:1px solid var(--rule);padding-top:8px;display:flex;align-items:center;gap:5px;flex-wrap:wrap">
+      <span style="font-size:10px;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:.06em">Buffer</span>
+      <input id="ct-buf-pct" type="number" value="10" min="0" max="100" step="1" style="width:38px;border:1px solid var(--rule);border-radius:3px;padding:2px 4px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif;color:var(--ink);text-align:center" oninput="calcS01()">
+      <span style="font-size:10px;color:var(--sub)">%</span>
+      <span id="sc-buf-val" style="font-size:11px;font-weight:700;color:var(--tf);margin-left:auto">—</span>
+    </div>
+    <div style="margin-top:5px;display:flex;justify-content:space-between;align-items:baseline;gap:6px">
+      <span style="font-size:10px;color:var(--sub);font-weight:600;white-space:nowrap">Total + buffer</span>
+      <span id="sc-total-buf" style="font-size:15px;font-weight:800;color:var(--ink)">—</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── REVENUE & NET POSITIONING SUMMARY ── -->
+<div style="margin-bottom:36px;border:1px solid var(--rule);border-radius:8px;overflow:hidden;background:var(--card)">
+  <div style="background:var(--ink);color:#fff;padding:10px 20px;display:flex;align-items:center;gap:10px">
+    <span style="font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase">Revenue &amp; Net Positioning · Year 1 · USD</span>
+    <span style="font-size:10px;color:rgba(255,255,255,.4);margin-left:auto">Fixed costs + variable · full P&amp;L view</span>
+  </div>
+  <div style="display:grid;grid-template-columns:120px repeat(5,1fr);font-variant-numeric:tabular-nums">
+    <div style="padding:8px 14px;font-size:10px;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:.07em;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)"></div>
+    <div style="padding:8px 14px;text-align:right;font-size:10px;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:.07em;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">Q1</div>
+    <div style="padding:8px 14px;text-align:right;font-size:10px;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:.07em;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">Q2</div>
+    <div style="padding:8px 14px;text-align:right;font-size:10px;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:.07em;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">Q3</div>
+    <div style="padding:8px 14px;text-align:right;font-size:10px;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:.07em;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">Q4</div>
+    <div style="padding:8px 14px;text-align:right;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--ink);border-bottom:1px solid var(--rule)">Year 1</div>
+    <div style="padding:12px 14px;font-weight:700;font-size:12px;color:var(--ink);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">Revenue</div>
+    <div id="sc-rev-q1" style="padding:12px 14px;text-align:right;font-weight:700;font-size:13px;color:#1A7A4A;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">—</div>
+    <div id="sc-rev-q2" style="padding:12px 14px;text-align:right;font-weight:700;font-size:13px;color:#1A7A4A;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">—</div>
+    <div id="sc-rev-q3" style="padding:12px 14px;text-align:right;font-weight:700;font-size:13px;color:#1A7A4A;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">—</div>
+    <div id="sc-rev-q4" style="padding:12px 14px;text-align:right;font-weight:700;font-size:13px;color:#1A7A4A;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">—</div>
+    <div id="sc-rev-y" style="padding:12px 14px;text-align:right;font-weight:800;font-size:15px;color:#1A7A4A;border-bottom:1px solid var(--rule)">—</div>
+    <div style="padding:12px 14px;font-weight:700;font-size:12px;color:var(--ink);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">Fixed costs</div>
+    <div id="sc-fix-q1" style="padding:12px 14px;text-align:right;font-weight:700;font-size:13px;color:var(--tf);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">—</div>
+    <div id="sc-fix-q2" style="padding:12px 14px;text-align:right;font-weight:700;font-size:13px;color:var(--tf);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">—</div>
+    <div id="sc-fix-q3" style="padding:12px 14px;text-align:right;font-weight:700;font-size:13px;color:var(--tf);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">—</div>
+    <div id="sc-fix-q4" style="padding:12px 14px;text-align:right;font-weight:700;font-size:13px;color:var(--tf);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">—</div>
+    <div id="sc-fix-y" style="padding:12px 14px;text-align:right;font-weight:800;font-size:15px;color:var(--tf);border-bottom:1px solid var(--rule)">—</div>
+    <div style="padding:12px 14px;font-weight:700;font-size:12px;color:var(--ink);border-right:1px solid var(--rule)">Net P&amp;L</div>
+    <div id="sc-net-q1" style="padding:12px 14px;text-align:right;font-weight:700;font-size:13px;border-right:1px solid var(--rule)">—</div>
+    <div id="sc-net-q2" style="padding:12px 14px;text-align:right;font-weight:700;font-size:13px;border-right:1px solid var(--rule)">—</div>
+    <div id="sc-net-q3" style="padding:12px 14px;text-align:right;font-weight:700;font-size:13px;border-right:1px solid var(--rule)">—</div>
+    <div id="sc-net-q4" style="padding:12px 14px;text-align:right;font-weight:700;font-size:13px;border-right:1px solid var(--rule)">—</div>
+    <div id="sc-net-y" style="padding:12px 14px;text-align:right;font-weight:800;font-size:15px">—</div>
+  </div>
+</div>
+
+<!-- ── INVESTOR REQUIREMENTS COMPARISON ── -->
+<div style="background:var(--card);border:1px solid var(--rule);border-radius:8px;margin-top:22px;overflow:hidden">
+  <div style="background:var(--ink);color:#fff;padding:10px 18px;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+    <span style="font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase">Pre-seed close · $1–2M · Investor Benchmarks</span>
+    <a href="smthg_investors.html" target="_blank" rel="noopener" style="color:rgba(255,255,255,.5);font-size:10px;font-weight:600;text-decoration:none;margin-left:auto">Source: Investor Requirements →</a>
+  </div>
+  <div style="overflow-x:auto">
+  <table style="width:100%;border-collapse:collapse;font-size:13px;color:var(--ink)">
+    <thead>
+      <tr style="border-bottom:2px solid var(--rule)">
+        <th style="padding:10px 16px;text-align:left;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--sub);width:30%">Requirement</th>
+        <th style="padding:10px 16px;text-align:left;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#1A7A4A;width:35%;border-left:1px solid var(--rule)">✓ On Track</th>
+        <th style="padding:10px 16px;text-align:left;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--tf);width:35%;border-left:1px solid var(--rule)">✗ Gap · Function / KPI to close</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid var(--rule)">
+        <td style="padding:10px 16px;line-height:1.5"><strong>Monthly GMV</strong><br><span style="color:var(--sub);font-size:12px">Pre-seed $55–165K/mo</span></td>
+        <td style="padding:10px 16px;line-height:1.5;border-left:1px solid var(--rule);background:#F0FAF4">Q4 run-rate <strong>$250K/mo</strong> · exceeds pre-seed; at Seed entry</td>
+        <td style="padding:10px 16px;border-left:1px solid var(--rule)"></td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--rule)">
+        <td style="padding:10px 16px;line-height:1.5"><strong>Monthly net revenue</strong><br><span style="color:var(--sub);font-size:12px">Seed min $22–45K/mo</span></td>
+        <td style="padding:10px 16px;line-height:1.5;border-left:1px solid var(--rule);background:#F0FAF4">Q4 run-rate <strong>$32K/mo</strong> · within Seed min range</td>
+        <td style="padding:10px 16px;border-left:1px solid var(--rule)"></td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--rule)">
+        <td style="padding:10px 16px;line-height:1.5"><strong>Active brands + creators</strong><br><span style="color:var(--sub);font-size:12px">100–300 combined by pre-seed end</span></td>
+        <td style="padding:10px 16px;line-height:1.5;border-left:1px solid var(--rule);background:#F0FAF4"><strong>~150</strong> · 25 designers + 125 influencers (5/designer per TFmvpcosts model)</td>
+        <td style="padding:10px 16px;border-left:1px solid var(--rule)"></td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--rule)">
+        <td style="padding:10px 16px;line-height:1.5"><strong>Take rate</strong><br><span style="color:var(--sub);font-size:12px">12–20% investor floor</span></td>
+        <td style="padding:10px 16px;line-height:1.5;border-left:1px solid var(--rule);background:#F0FAF4"><strong>~16%</strong> effective · 10% commission + 1% organic share + $500/mo/designer on $750K/qtr GMV</td>
+        <td style="padding:10px 16px;border-left:1px solid var(--rule)"></td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--rule)">
+        <td style="padding:10px 16px;line-height:1.5"><strong>Runway post-raise</strong><br><span style="color:var(--sub);font-size:12px">15–20 months (pre-seed round)</span></td>
+        <td style="padding:10px 16px;border-left:1px solid var(--rule)"></td>
+        <td style="padding:10px 16px;line-height:1.5;border-left:1px solid var(--rule);background:var(--tf-ghost)">Bridge $200K → <strong>~6 months</strong> only · pre-seed raise ($1–2M) needed to reach target<br><span style="color:var(--sub);font-size:12px">Finance · KPI: months of runway at close</span></td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--rule)">
+        <td style="padding:10px 16px;line-height:1.5"><strong>Registered users</strong><br><span style="color:var(--sub);font-size:12px">5–15K by pre-seed end</span></td>
+        <td style="padding:10px 16px;border-left:1px solid var(--rule)"></td>
+        <td style="padding:10px 16px;line-height:1.5;border-left:1px solid var(--rule);background:var(--tf-ghost)">Not in budget · <strong>Marketing</strong>: track signups/mo; target 400+/mo avg → 5K by Y1 end · seed from designer + influencer audiences</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--rule)">
+        <td style="padding:10px 16px;line-height:1.5"><strong>90-day repeat purchase</strong><br><span style="color:var(--sub);font-size:12px">25–35% required</span></td>
+        <td style="padding:10px 16px;border-left:1px solid var(--rule)"></td>
+        <td style="padding:10px 16px;line-height:1.5;border-left:1px solid var(--rule);background:var(--tf-ghost)">Not tracked · <strong>Product / CRM</strong>: cohort retention in app analytics; re-purchase email flows + loyalty credits per drop</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--rule)">
+        <td style="padding:10px 16px;line-height:1.5"><strong>Organic acquisition</strong><br><span style="color:var(--sub);font-size:12px">25–40% of new users</span></td>
+        <td style="padding:10px 16px;border-left:1px solid var(--rule)"></td>
+        <td style="padding:10px 16px;line-height:1.5;border-left:1px solid var(--rule);background:var(--tf-ghost)">Not tracked · <strong>Community / Growth</strong>: UTM source tagging per signup; target 25%+ without referral link by Q4</td>
+      </tr>
+      <tr>
+        <td style="padding:10px 16px;line-height:1.5"><strong>Transaction liquidity</strong><br><span style="color:var(--sub);font-size:12px">≥25% of listings → sales</span></td>
+        <td style="padding:10px 16px;border-left:1px solid var(--rule)"></td>
+        <td style="padding:10px 16px;line-height:1.5;border-left:1px solid var(--rule);background:var(--tf-ghost)">Not tracked · <strong>GMV / Ops</strong>: drop sell-through % per drop; at 150 items/drop need 38+ units sold · baked into GMV model, must be tracked per drop explicitly</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <div style="padding:12px 18px;font-size:12px;color:var(--sub);border-top:1px solid var(--rule);line-height:1.7">
+    <strong style="color:var(--ink)">Assumptions (Q4 run-rate):</strong> 1 designer = 1 drop per quarter · Q1: 13 designers (onboarding, 1 drop each) · Q2: 16 · Q3: 20 · Q4: 25 — Year 2 run-rate (every active designer, 1 drop/quarter) · Subscription scales per quarter: $19.5K → $24K → $30K → $37.5K · Influencers: 5 per designer · Revenue: 10% GMV commission + 5% organic × 20% retained + $500/mo subscription
+  </div>
+</div>
+
+<!-- ── COLLAPSE ALL BUTTON ── -->
+<div style="text-align:right;margin-top:14px">
+  <button id="collapse-all-btn" onclick="toggleAllGrps()" style="background:none;border:1px solid var(--rule);border-radius:4px;cursor:pointer;font-size:11px;font-weight:700;color:var(--sub);padding:4px 14px;font-family:'Inter',sans-serif;transition:color .15s,border-color .15s" onmouseover="this.style.color='var(--tf)';this.style.borderColor='var(--tf)'" onmouseout="this.style.color='var(--sub)';this.style.borderColor='var(--rule)'">▸ Collapse all</button>
+</div>
+
+<!-- ── MAIN TABLE ── -->
+<div class="tbl-wrap" style="margin-top:12px" id="s01-body">
+<table>
+<thead>
+<tr>
+  <th style="width:220px">Line Item</th>
+  <th style="width:180px">Rate</th>
+  <th>Q1</th>
+  <th>Q2</th>
+  <th>Q3</th>
+  <th>Q4</th>
+  <th style="border-left:1px solid #444">Year 1 Total</th>
+  <th>What It Is</th>
+</tr>
+</thead>
+<tbody>
+
+<!-- ═══ CORE TEAM ═══ -->
+<tr class="sec-hdr ppl"><td colspan="8">People · Core Team</td></tr>
+
+<tr class="core-row">
+  <td><strong>Core team salary</strong> <span class="badge qt1">gross</span></td>
+  <td><input id="ct-y1-rate" type="number" value="10000" min="0" step="500" style="width:65px;border:1px solid var(--rule);padding:2px 4px;font-size:11px;font-weight:700;font-family:'Inter',sans-serif;color:var(--ink)" oninput="calcS01()">/mo<div style="margin-top:3px;font-size:10px;color:var(--sub)">× <input id="ct-y1-count" type="number" value="4" min="1" max="99" style="width:38px;border:1px solid var(--rule);padding:2px 4px;font-size:11px;font-weight:700;font-family:'Inter',sans-serif;color:var(--ink)" oninput="calcS01()"> ppl</div></td>
+  <td class="num" id="s1-core-q1">—</td>
+  <td class="num" id="s1-core-q2">—</td>
+  <td class="num" id="s1-core-q3">—</td>
+  <td class="num" id="s1-core-q4">—</td>
+  <td class="num" id="s1-core-yr" style="border-left:1px solid var(--rule)">—</td>
+  <td class="desc">Rate × headcount × 3 months · paid from Q1 · all 4 quarters</td>
+</tr>
+<tr class="core-sub">
+  <td>↳ per person / quarter</td><td></td>
+  <td class="num" id="s1-ppq1">—</td>
+  <td class="num" id="s1-ppq2">—</td>
+  <td class="num" id="s1-ppq3">—</td>
+  <td class="num" id="s1-ppq4">—</td>
+  <td class="num" id="s1-ppqyr" style="border-left:1px solid var(--rule)">—</td>
+  <td class="desc" id="s1-ppq-desc">—</td>
+</tr>
+<tr class="core-sub">
+  <td>↳ per person / month</td><td></td>
+  <td class="num" id="s1-ppm-q1">—</td>
+  <td class="num" id="s1-ppm-q2">—</td>
+  <td class="num" id="s1-ppm-q3">—</td>
+  <td class="num" id="s1-ppm-q4">—</td>
+  <td style="border-left:1px solid var(--rule)"></td>
+  <td class="desc" id="s1-ppm-desc">—</td>
+</tr>
+
+<!-- ═══ HIRED TEAM ═══ -->
+<tr class="sec-hdr hire"><td colspan="8">People · Hired Team</td></tr>
+<tr>
+  <td colspan="8" style="padding:8px 16px;border-bottom:1px solid var(--rule);background:#FAFAF8">
+    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+      <span style="font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--sub)">Salary view:</span>
+      <button id="btn-sal-market" class="sal-btn sal-active" onclick="setSalaryMode('market')">Market (US)</button>
+      <button id="btn-sal-budget" class="sal-btn" onclick="setSalaryMode('budget')">Low costs budget</button>
+      <span id="sal-note" style="color:var(--sub);font-size:11px;margin-left:4px">US market lower-end · Glassdoor 2025 · <a href="smthg_operationsteam.html" target="_blank" rel="noopener" style="color:var(--tf);text-decoration:none">Source →</a></span>
+    </div>
+  </td>
+</tr>
+
+<tr>
+  <td>Developers × 2</td>
+  <td><input id="ht-dev-rate" type="number" value="2000" min="0" step="100" style="width:65px;border:1px solid var(--rule);padding:2px 4px;font-size:11px;font-weight:700;font-family:'Inter',sans-serif;color:var(--ink)" oninput="calcS01()">/person/mo</td>
+  <td class="num" id="s1-dev-q1">$12,000</td>
+  <td class="num" id="s1-dev-q2">$12,000</td>
+  <td class="num" id="s1-dev-q3">$12,000</td>
+  <td class="num" id="s1-dev-q4">$12,000</td>
+  <td class="num" id="s1-dev-yr" style="border-left:1px solid var(--rule)">$48,000</td>
+  <td class="desc">Backend + frontend; app maintenance, feature dev; recurring fixed</td>
+</tr>
+<tr>
+  <td>Community Manager</td>
+  <td><input id="ht-cm-rate" type="number" value="2500" min="0" step="100" style="width:65px;border:1px solid var(--rule);padding:2px 4px;font-size:11px;font-weight:700;font-family:'Inter',sans-serif;color:var(--ink)" oninput="calcS01()">/mo</td>
+  <td class="num" id="s1-cm-q1">$7,500</td>
+  <td class="num" id="s1-cm-q2">$7,500</td>
+  <td class="num" id="s1-cm-q3">$7,500</td>
+  <td class="num" id="s1-cm-q4">$7,500</td>
+  <td class="num" id="s1-cm-yr" style="border-left:1px solid var(--rule)">$30,000</td>
+  <td class="desc">Designer onboarding, community growth, platform engagement; recurring fixed</td>
+</tr>
+<tr>
+  <td>Influencer Relations</td>
+  <td><input id="ht-ir-rate" type="number" value="4200" min="0" step="100" style="width:65px;border:1px solid var(--rule);padding:2px 4px;font-size:11px;font-weight:700;font-family:'Inter',sans-serif;color:var(--ink)" oninput="calcS01()">/mo</td>
+  <td class="num" id="s1-ir-q1">$12,600</td>
+  <td class="num" id="s1-ir-q2">$12,600</td>
+  <td class="num" id="s1-ir-q3">$12,600</td>
+  <td class="num" id="s1-ir-q4">$12,600</td>
+  <td class="num" id="s1-ir-yr" style="border-left:1px solid var(--rule)">$50,400</td>
+  <td class="desc">Recruit + vet influencers, brief drops, track GMV per influencer, manage Founding Creator tier. Benchmark $4,200–6,500/mo · <a href="smthg_operationsteam.html" target="_blank" rel="noopener" style="color:var(--tf)">Source: Ops Team →</a></td>
+</tr>
+<tr>
+  <td>Social Media Manager</td>
+  <td><input id="ht-smm-rate" type="number" value="2500" min="0" step="100" style="width:65px;border:1px solid var(--rule);padding:2px 4px;font-size:11px;font-weight:700;font-family:'Inter',sans-serif;color:var(--ink)" oninput="calcS01()">/mo</td>
+  <td class="num" id="s1-smm-q1">$7,500</td>
+  <td class="num" id="s1-smm-q2">$7,500</td>
+  <td class="num" id="s1-smm-q3">$7,500</td>
+  <td class="num" id="s1-smm-q4">$7,500</td>
+  <td class="num" id="s1-smm-yr" style="border-left:1px solid var(--rule)">$30,000</td>
+  <td class="desc">Social strategy, scheduling, community posts, influencer outreach coordination; recurring fixed</td>
+</tr>
+<tr>
+  <td>Content Creation Specialist</td>
+  <td><input id="ht-ccs-rate" type="number" value="2000" min="0" step="100" style="width:65px;border:1px solid var(--rule);padding:2px 4px;font-size:11px;font-weight:700;font-family:'Inter',sans-serif;color:var(--ink)" oninput="calcS01()">/mo</td>
+  <td class="num" id="s1-ccs-q1">$6,000</td>
+  <td class="num" id="s1-ccs-q2">$6,000</td>
+  <td class="num" id="s1-ccs-q3">$6,000</td>
+  <td class="num" id="s1-ccs-q4">$6,000</td>
+  <td class="num" id="s1-ccs-yr" style="border-left:1px solid var(--rule)">$24,000</td>
+  <td class="desc">Drop announcement assets, social content calendar, AI tools briefing (Midjourney/Canva), email + push templates; recurring fixed. Benchmark $3,800–5,500/mo · <a href="smthg_operationsteam.html" target="_blank" rel="noopener" style="color:var(--tf)">Source: Ops Team →</a></td>
+</tr>
+<tr>
+  <td>Customer Operations Manager</td>
+  <td><input id="ht-co-rate" type="number" value="2500" min="0" step="100" style="width:65px;border:1px solid var(--rule);padding:2px 4px;font-size:11px;font-weight:700;font-family:'Inter',sans-serif;color:var(--ink)" oninput="calcS01()">/mo</td>
+  <td class="num" id="s1-co-q1">$7,500</td>
+  <td class="num" id="s1-co-q2">$7,500</td>
+  <td class="num" id="s1-co-q3">$7,500</td>
+  <td class="num" id="s1-co-q4">$7,500</td>
+  <td class="num" id="s1-co-yr" style="border-left:1px solid var(--rule)">$30,000</td>
+  <td class="desc">Customer support, order logistics, designer ops, escalations; recurring fixed</td>
+</tr>
+<tr class="subtotal">
+  <td>Hired team subtotal</td>
+  <td id="s1-ht-rate">$17,700/mo</td>
+  <td class="num" id="s1-ht-q1">$34,500</td>
+  <td class="num" id="s1-ht-q2">$34,500</td>
+  <td class="num" id="s1-ht-q3">$34,500</td>
+  <td class="num" id="s1-ht-q4">$34,500</td>
+  <td class="num" id="s1-ht-yr" style="border-left:1px solid var(--rule)">$138,000<span class="eur">≈€125,580</span></td>
+  <td></td>
+</tr>
+
+<!-- ═══ FINANCIAL & LEGAL ═══ -->
+<tr class="sec-hdr finleg"><td colspan="8">Financial &amp; Legal</td></tr>
+
+<tr>
+  <td>Legal — US startup counsel</td>
+  <td>$1,650/mo retainer</td>
+  <td class="num">$4,950</td>
+  <td class="num">$4,950</td>
+  <td class="num">$4,950</td>
+  <td class="num">$4,950</td>
+  <td class="num" style="border-left:1px solid var(--rule)">$19,800</td>
+  <td class="desc">Delaware C-corp: SAFE round closings, founder equity agreements, IP assignments, contractor review, marketplace terms. ~25–30 attorney hours/year at associate rates ($400–700/hr). Firm TBD — startup-focused US counsel (e.g. <a href="https://www.gunderson.com" target="_blank" rel="noopener" style="color:var(--tf)">Gunderson Dettmer</a>, <a href="https://www.cooley.com" target="_blank" rel="noopener" style="color:var(--tf)">Cooley</a>)</td>
+</tr>
+<tr>
+  <td>Tax &amp; accounting (<a href="https://pilot.com/pricing" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Pilot.com</a>)</td>
+  <td>$321/mo fixed</td>
+  <td class="num">$963</td>
+  <td class="num">$963</td>
+  <td class="num">$963</td>
+  <td class="num">$963</td>
+  <td class="num" style="border-left:1px solid var(--rule)">$3,852</td>
+  <td class="desc">US Delaware C-corp bookkeeping + annual tax filing via Pilot.com; $3,852/yr annual plan</td>
+</tr>
+<tr>
+  <td>D&amp;O Insurance</td>
+  <td>$459/mo fixed</td>
+  <td class="num">$1,377</td>
+  <td class="num">$1,377</td>
+  <td class="num">$1,377</td>
+  <td class="num">$1,377</td>
+  <td class="num" style="border-left:1px solid var(--rule)">$5,508</td>
+  <td class="desc">Director &amp; Officer liability — required once outside investors join cap table; recurring</td>
+</tr>
+<tr>
+  <td>Banking &amp; FX fees</td>
+  <td>$550/mo est.</td>
+  <td class="num">$1,650</td>
+  <td class="num">$1,650</td>
+  <td class="num">$1,650</td>
+  <td class="num">$1,650</td>
+  <td class="num" style="border-left:1px solid var(--rule)">$6,600</td>
+  <td class="desc">International contractor payments across 5 destinations: Thailand (×3), Netherlands, Russia + TBD; digital banking (Wise/Mercury); ~5–6 transfers/month; recurring</td>
+</tr>
+<tr class="subtotal">
+  <td>Financial &amp; Legal subtotal</td>
+  <td>$2,980/mo</td>
+  <td class="num">$8,940</td>
+  <td class="num">$8,940</td>
+  <td class="num">$8,940</td>
+  <td class="num">$8,940</td>
+  <td class="num" style="border-left:1px solid var(--rule)">$35,760<span class="eur">≈€32,542</span></td>
+  <td></td>
+</tr>
+
+<!-- ═══ OPERATIONAL TOOLS ═══ -->
+<tr class="sec-hdr optools"><td colspan="8">Operational Tools</td></tr>
+
+<tr>
+  <td>Office expenses</td>
+  <td>$800/mo fixed</td>
+  <td class="num">$2,400</td>
+  <td class="num">$2,400</td>
+  <td class="num">$2,400</td>
+  <td class="num">$2,400</td>
+  <td class="num" style="border-left:1px solid var(--rule)">$9,600</td>
+  <td class="desc">4 core team × $200/month — Claude subscriptions, Zoom</td>
+</tr>
+<tr>
+  <td><a href="https://www.shopify.com/pricing" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Shopify</a> Advanced</td>
+  <td>$299/mo fixed</td>
+  <td class="num">$897</td>
+  <td class="num">$897</td>
+  <td class="num">$897</td>
+  <td class="num">$897</td>
+  <td class="num" style="border-left:1px solid var(--rule)">$3,588</td>
+  <td class="desc">E-commerce platform — Advanced plan. Source: TFmarketplaces.html</td>
+</tr>
+<tr>
+  <td><a href="https://apps.shopify.com/puppet-vendors" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">PuppetVendors</a></td>
+  <td>$49/mo fixed</td>
+  <td class="num">$147</td>
+  <td class="num">$147</td>
+  <td class="num">$147</td>
+  <td class="num">$147</td>
+  <td class="num" style="border-left:1px solid var(--rule)">$588</td>
+  <td class="desc">Multi-vendor marketplace Shopify app — Launch plan, up to 25 vendors/5,000 products. Source: TFmvpcosts.html</td>
+</tr>
+<tr>
+  <td><a href="https://www.framer.com/pricing" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Framer</a></td>
+  <td>$15/mo fixed</td>
+  <td class="num">$45</td>
+  <td class="num">$45</td>
+  <td class="num">$45</td>
+  <td class="num">$45</td>
+  <td class="num" style="border-left:1px solid var(--rule)">$180</td>
+  <td class="desc">Marketing website and landing pages. Source: TFmvpcosts.html</td>
+</tr>
+<tr>
+  <td><a href="https://circle.so/pricing" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Circle</a></td>
+  <td>$300/mo fixed</td>
+  <td class="num">$900</td>
+  <td class="num">$900</td>
+  <td class="num">$900</td>
+  <td class="num">$900</td>
+  <td class="num" style="border-left:1px solid var(--rule)">$3,600</td>
+  <td class="desc">Community platform — brand circles, influencer groups, drop announcements. Source: TFmvpcosts.html</td>
+</tr>
+<tr>
+  <td>Vercel / web infrastructure</td>
+  <td>$20/mo fixed</td>
+  <td class="num">$60</td>
+  <td class="num">$60</td>
+  <td class="num">$60</td>
+  <td class="num">$60</td>
+  <td class="num" style="border-left:1px solid var(--rule)">$240</td>
+  <td class="desc">CDN, API gateway, serverless functions, staging. Vercel Pro $20/mo. Source: TFmvpcosts.html</td>
+</tr>
+<tr>
+  <td>IT infrastructure</td>
+  <td>$1,000/mo est.</td>
+  <td class="num">$3,000</td>
+  <td class="num">$3,000</td>
+  <td class="num">$3,000</td>
+  <td class="num">$3,000</td>
+  <td class="num" style="border-left:1px solid var(--rule)">$12,000</td>
+  <td class="desc">Cloud compute &amp; storage (AWS/GCP), server hosting, CI/CD pipeline, error monitoring (Sentry), email delivery infra (SendGrid), SMS/comms infra (Twilio); recurring</td>
+</tr>
+<tr>
+  <td>CS tooling (<a href="https://www.intercom.com/pricing" target="_blank" rel="noopener" style="color:var(--tf)">Intercom</a> Essential)</td>
+  <td>$99/mo fixed</td>
+  <td class="num">$297</td>
+  <td class="num">$297</td>
+  <td class="num">$297</td>
+  <td class="num">$297</td>
+  <td class="num" style="border-left:1px solid var(--rule)">$1,188</td>
+  <td class="desc">Live chat + help centre platform; flat subscription; recurring</td>
+</tr>
+<tr>
+  <td>CS outsourced (<a href="https://influx.com/pricing" target="_blank" rel="noopener" style="color:var(--tf)">Influx</a> — Philippines)</td>
+  <td>$999/mo flat</td>
+  <td class="num">$2,997</td>
+  <td class="num">$2,997</td>
+  <td class="num">$2,997</td>
+  <td class="num">$2,997</td>
+  <td class="num" style="border-left:1px solid var(--rule)">$11,988</td>
+  <td class="desc">Tier-1 support team (Philippines); flat monthly regardless of volume; month-to-month; recurring</td>
+</tr>
+<tr class="subtotal">
+  <td>Operational tools subtotal</td>
+  <td>$3,581/mo</td>
+  <td class="num">$10,743</td>
+  <td class="num">$10,743</td>
+  <td class="num">$10,743</td>
+  <td class="num">$10,743</td>
+  <td class="num" style="border-left:1px solid var(--rule)">$42,972<span class="eur">≈€39,105</span></td>
+  <td></td>
+</tr>
+
+<!-- ═══ AI TOOLS ═══ -->
+<tr class="sec-hdr ai"><td colspan="8">AI Tools</td></tr>
+
+<tr>
+  <td>Influencer discovery (<a href="https://insense.pro/platform/creator-marketplace" target="_blank" rel="noopener" style="color:var(--tf)">Insense</a>)</td>
+  <td>~$500/mo</td>
+  <td class="num">$1,500</td>
+  <td class="num">$1,500</td>
+  <td class="num">$1,500</td>
+  <td class="num">$1,500</td>
+  <td class="num" style="border-left:1px solid var(--rule)">$6,000</td>
+  <td class="desc">AI creator marketplace — finds micro and mid-tier fashion influencers matching brand aesthetic and audience; replaces manual DM outreach and cold pitching</td>
+</tr>
+<tr>
+  <td>Product AI API (<a href="https://platform.openai.com/pricing" target="_blank" rel="noopener" style="color:var(--tf)">OpenAI</a> / <a href="https://www.anthropic.com/pricing" target="_blank" rel="noopener" style="color:var(--tf)">Anthropic</a>)</td>
+  <td>$200/mo est.</td>
+  <td class="num">$600</td>
+  <td class="num">$600</td>
+  <td class="num">$600</td>
+  <td class="num">$600</td>
+  <td class="num" style="border-left:1px solid var(--rule)">$2,400</td>
+  <td class="desc">Powers in-product AI: style recommendations, size guidance, drop copy generation, search ranking; pay-per-token API with spend alerts</td>
+</tr>
+<tr>
+  <td>Search &amp; personalisation (<a href="https://www.algolia.com/pricing/" target="_blank" rel="noopener" style="color:var(--tf)">Algolia</a> Build)</td>
+  <td>$66/mo fixed</td>
+  <td class="num">$198</td>
+  <td class="num">$198</td>
+  <td class="num">$198</td>
+  <td class="num">$198</td>
+  <td class="num" style="border-left:1px solid var(--rule)">$792</td>
+  <td class="desc">Instant faceted product search across designer collections, styles, and drops; AI-ranked results by user behaviour; fixed tier up to 1M ops/mo</td>
+</tr>
+<tr>
+  <td>AI content creation tool</td>
+  <td>$300/mo est.</td>
+  <td class="num">$900</td>
+  <td class="num">$900</td>
+  <td class="num">$900</td>
+  <td class="num">$900</td>
+  <td class="num" style="border-left:1px solid var(--rule)">$3,600</td>
+  <td class="desc">AI image generation and branded social content for Instagram drops, designer promotion, and campaign visuals; replaces per-image freelance design for recurring social content</td>
+</tr>
+<tr class="subtotal">
+  <td>AI tools subtotal</td>
+  <td>$1,066/mo</td>
+  <td class="num">$3,198</td>
+  <td class="num">$3,198</td>
+  <td class="num">$3,198</td>
+  <td class="num">$3,198</td>
+  <td class="num" style="border-left:1px solid var(--rule)">$12,792<span class="eur">≈€11,641</span></td>
+  <td></td>
+</tr>
+
+<!-- ═══ MARKETING BUDGET & TOOLS ═══ -->
+<tr class="sec-hdr mktg"><td colspan="8">Marketing Budget &amp; Tools</td></tr>
+
+<tr>
+  <td>CRM &amp; outreach (<a href="https://www.hubspot.com/pricing/crm" target="_blank" rel="noopener" style="color:var(--tf)">HubSpot</a> Starter)</td>
+  <td>$50/mo fixed</td>
+  <td class="num">$150</td>
+  <td class="num">$150</td>
+  <td class="num">$150</td>
+  <td class="num">$150</td>
+  <td class="num" style="border-left:1px solid var(--rule)">$600</td>
+  <td class="desc">CRM for designer pipeline + email sequences; recurring subscription</td>
+</tr>
+<tr>
+  <td>Paid social B2B (LinkedIn + Instagram)</td>
+  <td>$1,320/mo</td>
+  <td class="num">$3,960</td>
+  <td class="num">$3,960</td>
+  <td class="num">$3,960</td>
+  <td class="num">$3,960</td>
+  <td class="num" style="border-left:1px solid var(--rule)">$15,840</td>
+  <td class="desc">Designer acquisition ads; LinkedIn primary, Instagram secondary; managed in-house</td>
+</tr>
+<tr>
+  <td>Content creation</td>
+  <td>$660/mo</td>
+  <td class="num">$1,980</td>
+  <td class="num">$1,980</td>
+  <td class="num">$1,980</td>
+  <td class="num">$1,980</td>
+  <td class="num" style="border-left:1px solid var(--rule)">$7,920</td>
+  <td class="desc">Photography, video, social content; project-based freelance, no retainer</td>
+</tr>
+<tr>
+  <td>PR &amp; trade press</td>
+  <td>$440/mo</td>
+  <td class="num">$1,320</td>
+  <td class="num">$1,320</td>
+  <td class="num">$1,320</td>
+  <td class="num">$1,320</td>
+  <td class="num" style="border-left:1px solid var(--rule)">$5,280</td>
+  <td class="desc">Freelance pitches to fashion trade press (Fashionista, BoF, WWD, Glossy); project-based</td>
+</tr>
+<tr>
+  <td>Influencer seeding &amp; gifting</td>
+  <td>$275/mo</td>
+  <td class="num">$825</td>
+  <td class="num">$825</td>
+  <td class="num">$825</td>
+  <td class="num">$825</td>
+  <td class="num" style="border-left:1px solid var(--rule)">$3,300</td>
+  <td class="desc">Product gifting and platform credits to seed creator content; no cash payments</td>
+</tr>
+<tr>
+  <td>Consumer paid social (Instagram / TikTok)</td>
+  <td>$0 M1–6<br>$1,100/mo from M7</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="num">$3,300</td>
+  <td class="num">$3,300</td>
+  <td class="num" style="border-left:1px solid var(--rule)">$6,600</td>
+  <td class="desc">Consumer acquisition — starts after platform launch (M7); $0 in Q1–Q2</td>
+</tr>
+<tr>
+  <td>Email marketing (<a href="https://www.klaviyo.com/pricing" target="_blank" rel="noopener" style="color:var(--tf)">Klaviyo</a>)</td>
+  <td>$99/mo fixed</td>
+  <td class="num">$297</td>
+  <td class="num">$297</td>
+  <td class="num">$297</td>
+  <td class="num">$297</td>
+  <td class="num" style="border-left:1px solid var(--rule)">$1,188</td>
+  <td class="desc">Automated email flows for designers + shoppers; scales with list size</td>
+</tr>
+<tr>
+  <td>Designer outreach (<a href="https://www.apollo.io/pricing" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Apollo.io</a> Basic)</td>
+  <td>$49/mo fixed</td>
+  <td class="num">$147</td>
+  <td class="num">$147</td>
+  <td class="num">$147</td>
+  <td class="num">$147</td>
+  <td class="num" style="border-left:1px solid var(--rule)">$588</td>
+  <td class="desc">Email finder + cold outreach sequences for designer pipeline; 10K credits/mo; recurring</td>
+</tr>
+<tr class="subtotal">
+  <td>Marketing subtotal</td>
+  <td>$2,893/mo M1–6<br>$3,993/mo M7+</td>
+  <td class="num">$8,679</td>
+  <td class="num">$8,679</td>
+  <td class="num">$11,979</td>
+  <td class="num">$11,979</td>
+  <td class="num" style="border-left:1px solid var(--rule)">$41,316<span class="eur">≈€37,598</span></td>
+  <td></td>
+</tr>
+
+<!-- ═══ TRAVEL & EVENTS ═══ -->
+<tr class="sec-hdr travel">
+  <td colspan="7">Travel &amp; Events · Trade Show Visits <label class="tr-all-lbl"><input type="checkbox" id="tr-all" checked onchange="toggleAllTravel(this.checked)"> all events</label></td>
+  <td></td>
+</tr>
+
+<!-- EU: WHO'S NEXT Paris — Jan 2026 — Q1 -->
+<tr id="tr-row-whonext" class="tr-ev-hdr">
+  <td><label class="tr-cb-lbl"><input type="checkbox" id="tr-cb-whonext" checked onchange="calcS01()"><strong>Who's Next · Première Classe</strong></label> <span class="badge qt1">Q1</span> <button class="tr-toggle" onclick="toggleSubRows('whonext',this)" title="show/hide cost breakdown">▾</button></td>
+  <td class="desc"><input type="number" id="tr-n-whonext" value="2" min="1" max="10" class="tr-n-input" oninput="calcS01()"> people · 17–20 Jan 2026 · ~16–19 Jan 2027 · Paris, Porte de Versailles</td>
+  <td class="num" id="tr-q1-whonext">$4,440</td>
+  <td class="na">—</td><td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-yr-whonext" style="border-left:1px solid var(--rule)">$4,440</td>
+  <td class="desc">Premier EU contemporary &amp; accessible-luxury fair · Paris · EU designer pipeline, market entry</td>
+</tr>
+<tr class="tr-sub tr-sub-whonext">
+  <td>Show passes</td>
+  <td class="desc" id="tr-sr-whonext-pass">$400/person × 2</td>
+  <td class="num" id="tr-s-whonext-pass">$800</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-sy-whonext-pass" style="border-left:1px solid var(--rule)">$800</td><td></td>
+</tr>
+<tr class="tr-sub tr-sub-whonext">
+  <td>Train / flight NL → Paris r/t</td>
+  <td class="desc">1 person · AMS–CDG Thalys / budget flight</td>
+  <td class="num" id="tr-s-whonext-flt-nl">$200</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-sy-whonext-flt-nl" style="border-left:1px solid var(--rule)">$200</td><td></td>
+</tr>
+<tr class="tr-sub tr-sub-whonext">
+  <td>Flights intl → CDG r/t</td>
+  <td class="desc" id="tr-sr-whonext-flt-intl">1 person × $700 · via Istanbul / Dubai</td>
+  <td class="num" id="tr-s-whonext-flt-intl">$700</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-sy-whonext-flt-intl" style="border-left:1px solid var(--rule)">$700</td><td></td>
+</tr>
+<tr class="tr-sub tr-sub-whonext">
+  <td>Hotel · Porte de Versailles area</td>
+  <td class="desc" id="tr-sr-whonext-hotel">2 rooms × 3 nights × $310/night · Jan show rate</td>
+  <td class="num" id="tr-s-whonext-hotel">$1,860</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-sy-whonext-hotel" style="border-left:1px solid var(--rule)">$1,860</td><td></td>
+</tr>
+<tr class="tr-sub tr-sub-whonext">
+  <td>Taxi / Metro</td>
+  <td class="desc" id="tr-sr-whonext-taxi">$110/person × 2 · airport transfers + venue</td>
+  <td class="num" id="tr-s-whonext-taxi">$220</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-sy-whonext-taxi" style="border-left:1px solid var(--rule)">$220</td><td></td>
+</tr>
+<tr class="tr-sub tr-sub-whonext">
+  <td>Per diem · meals &amp; incidentals</td>
+  <td class="desc" id="tr-sr-whonext-pdiem">$110/person/day × 2 people × 3 days</td>
+  <td class="num" id="tr-s-whonext-pdiem">$660</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-sy-whonext-pdiem" style="border-left:1px solid var(--rule)">$660</td><td></td>
+</tr>
+
+<!-- US: MAGIC Las Vegas — Feb 2026 — Q1 -->
+<tr id="tr-row-magic" class="tr-ev-hdr">
+  <td><label class="tr-cb-lbl"><input type="checkbox" id="tr-cb-magic" checked onchange="calcS01()"><strong>MAGIC Las Vegas</strong></label> <span class="badge qt1">Q1</span> <button class="tr-toggle" onclick="toggleSubRows('magic',this)" title="show/hide cost breakdown">▾</button></td>
+  <td class="desc"><input type="number" id="tr-n-magic" value="2" min="1" max="10" class="tr-n-input" oninput="calcS01()"> people · 17–19 Feb 2026 · ~Feb 2027 · Las Vegas Convention Center</td>
+  <td class="num" id="tr-q1-magic">$6,460</td>
+  <td class="na">—</td><td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-yr-magic" style="border-left:1px solid var(--rule)">$6,460</td>
+  <td class="desc">Largest US fashion trade show · designer acquisition, partner meetings, market intelligence</td>
+</tr>
+<tr class="tr-sub tr-sub-magic">
+  <td>Show passes</td>
+  <td class="desc" id="tr-sr-magic-pass">$700/person × 2 · MAGIC Buyer registration</td>
+  <td class="num" id="tr-s-magic-pass">$1,400</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-sy-magic-pass" style="border-left:1px solid var(--rule)">$1,400</td><td></td>
+</tr>
+<tr class="tr-sub tr-sub-magic">
+  <td>Flight NL → Las Vegas r/t</td>
+  <td class="desc">1 person · AMS–LAS economy via hub</td>
+  <td class="num" id="tr-s-magic-flt-nl">$880</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-sy-magic-flt-nl" style="border-left:1px solid var(--rule)">$880</td><td></td>
+</tr>
+<tr class="tr-sub tr-sub-magic">
+  <td>Flights intl → Las Vegas r/t</td>
+  <td class="desc" id="tr-sr-magic-flt-intl">1 person × $1,420 · via Tbilisi / Istanbul</td>
+  <td class="num" id="tr-s-magic-flt-intl">$1,420</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-sy-magic-flt-intl" style="border-left:1px solid var(--rule)">$1,420</td><td></td>
+</tr>
+<tr class="tr-sub tr-sub-magic">
+  <td>Hotel · Mandalay Bay area</td>
+  <td class="desc" id="tr-sr-magic-hotel">2 rooms × 4 nights × $195/night · show rate Feb</td>
+  <td class="num" id="tr-s-magic-hotel">$1,560</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-sy-magic-hotel" style="border-left:1px solid var(--rule)">$1,560</td><td></td>
+</tr>
+<tr class="tr-sub tr-sub-magic">
+  <td>Taxi / Uber</td>
+  <td class="desc" id="tr-sr-magic-taxi">$200/person × 2 · airport transfers + show venue</td>
+  <td class="num" id="tr-s-magic-taxi">$400</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-sy-magic-taxi" style="border-left:1px solid var(--rule)">$400</td><td></td>
+</tr>
+<tr class="tr-sub tr-sub-magic">
+  <td>Per diem · meals &amp; incidentals</td>
+  <td class="desc" id="tr-sr-magic-pdiem">$100/person/day × 2 people × 4 days</td>
+  <td class="num" id="tr-s-magic-pdiem">$800</td><td class="na">—</td><td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-sy-magic-pdiem" style="border-left:1px solid var(--rule)">$800</td><td></td>
+</tr>
+
+<!-- EU: PREMIUM Berlin — Jul 2026 — Q3 -->
+<tr id="tr-row-premium" class="tr-ev-hdr">
+  <td><label class="tr-cb-lbl"><input type="checkbox" id="tr-cb-premium" checked onchange="calcS01()"><strong>Premium Berlin</strong></label> <span class="badge">Q3</span> <button class="tr-toggle" onclick="toggleSubRows('premium',this)" title="show/hide cost breakdown">▾</button></td>
+  <td class="desc"><input type="number" id="tr-n-premium" value="2" min="1" max="10" class="tr-n-input" oninput="calcS01()"> people · 2–4 Jul 2026 · ~Jul 2027 · Messe Berlin</td>
+  <td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-q3-premium">$3,500</td>
+  <td class="na">—</td>
+  <td class="num" id="tr-yr-premium" style="border-left:1px solid var(--rule)">$3,500</td>
+  <td class="desc">Premier European premium contemporary fair · EU designer pipeline, accessible-luxury focus</td>
+</tr>
+<tr class="tr-sub tr-sub-premium">
+  <td>Show passes</td>
+  <td class="desc" id="tr-sr-premium-pass">$300/person × 2 · trade visitor registration</td>
+  <td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-s-premium-pass">$600</td><td class="na">—</td>
+  <td class="num" id="tr-sy-premium-pass" style="border-left:1px solid var(--rule)">$600</td><td></td>
+</tr>
+<tr class="tr-sub tr-sub-premium">
+  <td>Flight NL → Berlin r/t</td>
+  <td class="desc">1 person · AMS–BER budget airline</td>
+  <td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-s-premium-flt-nl">$220</td><td class="na">—</td>
+  <td class="num" id="tr-sy-premium-flt-nl" style="border-left:1px solid var(--rule)">$220</td><td></td>
+</tr>
+<tr class="tr-sub tr-sub-premium">
+  <td>Flights intl → Berlin r/t</td>
+  <td class="desc" id="tr-sr-premium-flt-intl">1 person × $680 · via Istanbul</td>
+  <td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-s-premium-flt-intl">$680</td><td class="na">—</td>
+  <td class="num" id="tr-sy-premium-flt-intl" style="border-left:1px solid var(--rule)">$680</td><td></td>
+</tr>
+<tr class="tr-sub tr-sub-premium">
+  <td>Hotel · Messe Berlin area</td>
+  <td class="desc" id="tr-sr-premium-hotel">2 rooms × 3 nights × $210/night · Jul show rate</td>
+  <td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-s-premium-hotel">$1,260</td><td class="na">—</td>
+  <td class="num" id="tr-sy-premium-hotel" style="border-left:1px solid var(--rule)">$1,260</td><td></td>
+</tr>
+<tr class="tr-sub tr-sub-premium">
+  <td>Taxi / U-Bahn</td>
+  <td class="desc" id="tr-sr-premium-taxi">$100/person × 2 · airport + Messe</td>
+  <td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-s-premium-taxi">$200</td><td class="na">—</td>
+  <td class="num" id="tr-sy-premium-taxi" style="border-left:1px solid var(--rule)">$200</td><td></td>
+</tr>
+<tr class="tr-sub tr-sub-premium">
+  <td>Per diem · meals &amp; incidentals</td>
+  <td class="desc" id="tr-sr-premium-pdiem">$90/person/day × 2 people × 3 days</td>
+  <td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-s-premium-pdiem">$540</td><td class="na">—</td>
+  <td class="num" id="tr-sy-premium-pdiem" style="border-left:1px solid var(--rule)">$540</td><td></td>
+</tr>
+
+<!-- US: COTERIE New York — Sep 2026 — Q3 -->
+<tr id="tr-row-coterie" class="tr-ev-hdr">
+  <td><label class="tr-cb-lbl"><input type="checkbox" id="tr-cb-coterie" checked onchange="calcS01()"><strong>Coterie New York</strong></label> <span class="badge">Q3</span> <button class="tr-toggle" onclick="toggleSubRows('coterie',this)" title="show/hide cost breakdown">▾</button></td>
+  <td class="desc"><input type="number" id="tr-n-coterie" value="2" min="1" max="10" class="tr-n-input" oninput="calcS01()"> people · 13–15 Sep 2026 · ~Sep 2027 · Javits Center, NYC</td>
+  <td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-q3-coterie">$6,440</td>
+  <td class="na">—</td>
+  <td class="num" id="tr-yr-coterie" style="border-left:1px solid var(--rule)">$6,440</td>
+  <td class="desc">Premier contemporary &amp; accessible-luxury women's show · designer demos, platform positioning, press</td>
+</tr>
+<tr class="tr-sub tr-sub-coterie">
+  <td>Show passes</td>
+  <td class="desc" id="tr-sr-coterie-pass">$600/person × 2 · Coterie Buyer registration</td>
+  <td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-s-coterie-pass">$1,200</td><td class="na">—</td>
+  <td class="num" id="tr-sy-coterie-pass" style="border-left:1px solid var(--rule)">$1,200</td><td></td>
+</tr>
+<tr class="tr-sub tr-sub-coterie">
+  <td>Flight NL → NYC JFK r/t</td>
+  <td class="desc">1 person · AMS–JFK economy</td>
+  <td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-s-coterie-flt-nl">$660</td><td class="na">—</td>
+  <td class="num" id="tr-sy-coterie-flt-nl" style="border-left:1px solid var(--rule)">$660</td><td></td>
+</tr>
+<tr class="tr-sub tr-sub-coterie">
+  <td>Flights intl → JFK r/t</td>
+  <td class="desc" id="tr-sr-coterie-flt-intl">1 person × $1,100 · via Istanbul / Dubai</td>
+  <td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-s-coterie-flt-intl">$1,100</td><td class="na">—</td>
+  <td class="num" id="tr-sy-coterie-flt-intl" style="border-left:1px solid var(--rule)">$1,100</td><td></td>
+</tr>
+<tr class="tr-sub tr-sub-coterie">
+  <td>Hotel · Midtown Manhattan</td>
+  <td class="desc" id="tr-sr-coterie-hotel">2 rooms × 4 nights × $275/night · Sep show rate</td>
+  <td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-s-coterie-hotel">$2,200</td><td class="na">—</td>
+  <td class="num" id="tr-sy-coterie-hotel" style="border-left:1px solid var(--rule)">$2,200</td><td></td>
+</tr>
+<tr class="tr-sub tr-sub-coterie">
+  <td>Taxi / Uber</td>
+  <td class="desc" id="tr-sr-coterie-taxi">$200/person × 2 · JFK + Javits Center transfers</td>
+  <td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-s-coterie-taxi">$400</td><td class="na">—</td>
+  <td class="num" id="tr-sy-coterie-taxi" style="border-left:1px solid var(--rule)">$400</td><td></td>
+</tr>
+<tr class="tr-sub tr-sub-coterie">
+  <td>Per diem · meals &amp; incidentals</td>
+  <td class="desc" id="tr-sr-coterie-pdiem">$110/person/day × 2 people × 4 days · NYC rate</td>
+  <td class="na">—</td><td class="na">—</td>
+  <td class="num" id="tr-s-coterie-pdiem">$880</td><td class="na">—</td>
+  <td class="num" id="tr-sy-coterie-pdiem" style="border-left:1px solid var(--rule)">$880</td><td></td>
+</tr>
+
+<tr class="subtotal">
+  <td>Travel &amp; Events subtotal</td>
+  <td></td>
+  <td class="num" id="tr-sub-q1">$10,900</td>
+  <td class="na">—</td>
+  <td class="num" id="tr-sub-q3">$9,940</td>
+  <td class="na">—</td>
+  <td class="num" id="tr-sub-yr" style="border-left:1px solid var(--rule)">$20,840<span class="eur">≈€18,964</span></td>
+  <td></td>
+</tr>
+
+<!-- ═══ ONE-TIME ═══ -->
+<tr class="sec-hdr onetime"><td colspan="8">One-time Launch Costs <span class="badge qt1">Q1 only</span></td></tr>
+
+<tr>
+  <td>Security audit &amp; pentest</td>
+  <td>one-time</td>
+  <td class="num">$13,200</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="num" style="border-left:1px solid var(--rule)">$13,200</td>
+  <td class="desc">Independent firm; typically required by institutional investors before SAFE close</td>
+</tr>
+<tr>
+  <td>KYC / AML compliance setup</td>
+  <td>one-time</td>
+  <td class="num">$11,000</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="num" style="border-left:1px solid var(--rule)">$11,000</td>
+  <td class="desc">Revenue-sharing model triggers money-transmitter scrutiny in US + EU; one-time compliance framework setup</td>
+</tr>
+<tr>
+  <td>Legal — marketplace agreements</td>
+  <td>one-time</td>
+  <td class="num">$16,500</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="num" style="border-left:1px solid var(--rule)">$16,500</td>
+  <td class="desc">T&amp;Cs, privacy policy, Digital Services Act compliance, GDPR marketplace obligations; separate from annual retainer</td>
+</tr>
+<tr>
+  <td>UX / UI design refresh</td>
+  <td>one-time</td>
+  <td class="num">$13,200</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="num" style="border-left:1px solid var(--rule)">$13,200</td>
+  <td class="desc">App visual refresh before launch; freelance design studio engagement</td>
+</tr>
+<tr>
+  <td>Customer support tooling setup</td>
+  <td>one-time</td>
+  <td class="num">$3,300</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="num" style="border-left:1px solid var(--rule)">$3,300</td>
+  <td class="desc">Intercom configuration, help centre build, macros; ongoing SaaS in Operational Tools</td>
+</tr>
+<tr class="subtotal">
+  <td>One-time subtotal</td>
+  <td></td>
+  <td class="num">$57,200</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="num" style="border-left:1px solid var(--rule)">$57,200<span class="eur">≈€52,052</span></td>
+  <td></td>
+</tr>
+
+<!-- ═══ GRAND TOTAL ═══ -->
+<tr class="total-row">
+  <td colspan="2"><strong>Grand Total — fixed costs</strong></td>
+  <td class="num" id="s1-q1" data-usd="248063"><strong>$248,063</strong><span class="eur-w">≈€225,737</span></td>
+  <td class="num" id="s1-q2" data-usd="190863"><strong>$190,863</strong><span class="eur-w">≈€173,685</span></td>
+  <td class="num" id="s1-q3" data-usd="194163"><strong>$194,163</strong><span class="eur-w">≈€176,688</span></td>
+  <td class="num" id="s1-q4" data-usd="194163"><strong>$194,163</strong><span class="eur-w">≈€176,688</span></td>
+  <td class="num" id="s1-yr" data-usd="827252" style="border-left:1px solid #555"><strong>$827,252</strong><span class="eur-w">≈€752,799</span></td>
+  <td class="desc" id="s1-gt-desc" style="color:rgba(255,255,255,0.5);font-size:10px">Core team salary from Q1. Q1 includes $57,200 one-time. Q3–Q4 higher due to consumer paid social starting. Variable order costs excluded — see below.</td>
+</tr>
+
+</tbody>
+</table>
+</div><!-- /s01-body -->
+</div><!-- /s01-all -->
+
+<!-- ═══ SECTION 02: QUARTERLY REVENUE PROJECTIONS ═══ -->
+<div class="proj-sep" id="s02">
+  <span class="sn">02</span>
+  <span class="st">Quarterly Revenue Projections</span>
+  <span class="ss">All parameters shared across quarters · only drop count varies per quarter</span>
+  <span id="s02-badge" class="sec-badge"></span>
+  <button class="sec-toggle-btn" onclick="toggleSec('s02-body',this)" title="collapse/expand">▾</button>
+</div>
+
+<div class="proj-layout" id="s02-body">
+
+  <!-- LEFT: shared parameters -->
+  <div class="param-box">
+    <div class="param-ey">Shared Parameters · Same for All Quarters</div>
+
+    <div class="p-cat">VTO Vendor</div>
+    <div class="vto-sw">
+      <button class="vto-swb on" id="btn-shopify" onclick="setVTO('shopify')">Shopify VTO<span>$0.10 / try</span></button>
+      <button class="vto-swb" id="btn-kivisense" onclick="setVTO('kivisense')">Kivisense<span>$888 / mo flat</span></button>
+    </div>
+
+    <div class="p-cat">Drop Economics</div>
+
+    <div class="psg">
+      <div class="psg-top"><span class="psg-lbl">Items per drop</span><span class="psg-val" id="v-items">150</span></div>
+      <input type="range" id="p-items" min="10" max="500" step="10" value="150" oninput="proj()"/>
+      <div class="psg-hint"><span>10</span><span>500</span></div>
+      <div class="psg-note">Each drop capped at this quantity — sold-out model assumed.</div>
+    </div>
+
+    <div class="psg">
+      <div class="psg-top"><span class="psg-lbl">Avg order value</span><span class="psg-val" id="v-aov">$200</span></div>
+      <input type="range" id="p-aov" min="50" max="1000" step="10" value="200" oninput="proj()"/>
+      <div class="psg-hint"><span>$50</span><span>$1,000</span></div>
+    </div>
+
+    <div class="p-cat">smthg<span style="color:var(--tf)">.</span> Revenue</div>
+
+    <div class="psg">
+      <div class="psg-top"><span class="psg-lbl">Platform fee (% of GMV)</span><span class="psg-val" id="v-tf-fee">10%</span></div>
+      <input type="range" id="p-tf-fee" min="5" max="20" step="0.5" value="10" oninput="proj()"/>
+      <div class="psg-hint"><span>5%</span><span>20%</span></div>
+      <div class="psg-note">Current model: 10% of GMV. Source: v18 deck.</div>
+    </div>
+
+    <div class="psg">
+      <div class="psg-top"><span class="psg-lbl">Active designers on platform</span><span class="psg-val" id="v-designers">10</span></div>
+      <input type="range" id="p-designers" min="1" max="50" step="1" value="10" oninput="proj()"/>
+      <div class="psg-hint"><span>1</span><span>50</span></div>
+      <div class="psg-note">Platform subscription $500/mo/designer adds to SMTHG revenue.</div>
+    </div>
+
+    <div class="p-cat">Designer Costs (for context)</div>
+
+    <div class="psg">
+      <div class="psg-top"><span class="psg-lbl">Influencer commission</span><span class="psg-val" id="v-inf">20%</span></div>
+      <input type="range" id="p-inf" min="5" max="25" step="1" value="20" oninput="proj()"/>
+      <div class="psg-hint"><span>5%</span><span>25%</span></div>
+      <div class="psg-note">Standard 10%. Founding Creators: 20%. Benchmarks: LTK ~12%, ShopMy ~20%.</div>
+    </div>
+
+    <div class="p-cat">Revenue Mix · Assumption</div>
+
+    <div class="psg">
+      <div class="psg-top"><span class="psg-lbl">Influencer-driven share</span><span class="psg-val" id="v-inf-share">95%</span></div>
+      <input type="range" id="p-inf-share" min="0" max="100" step="5" value="95" oninput="proj()"/>
+      <div class="psg-hint"><span>0% (all organic)</span><span>100% (all influencer)</span></div>
+      <div class="psg-note">Portion of GMV flowing through influencers and triggering commission payout to them.</div>
+    </div>
+    <div style="background:var(--tf-ghost);border-left:3px solid var(--tf);padding:10px 12px;margin-top:-8px;margin-bottom:16px;font-size:11px;color:var(--ink);line-height:1.9">
+      <div style="font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--tf);margin-bottom:5px">Revenue split</div>
+      <div>Influencer-driven: <strong id="v-inf-pct-label">95%</strong> · commission paid out to influencers</div>
+      <div>Organic / platform: <strong id="v-org-pct-label">5%</strong> · commission retained by SMTHG</div>
+    </div>
+
+    <div class="p-cat">Variable Platform Costs</div>
+
+    <div class="psg">
+      <div class="psg-top"><span class="psg-lbl">Payment processing</span><span class="psg-val" id="v-pay">2.9%</span></div>
+      <input type="range" id="p-pay" min="1" max="5" step="0.1" value="2.9" oninput="proj()"/>
+      <div class="psg-hint"><span>1%</span><span>5%</span></div>
+      <div class="psg-note">Stripe: % of GMV + $0.30/order flat.</div>
+    </div>
+
+    <div class="psg">
+      <div class="psg-top"><span class="psg-lbl">VTO adoption (% of buyers)</span><span class="psg-val" id="v-vto-a">50%</span></div>
+      <input type="range" id="p-vto-a" min="10" max="100" step="5" value="50" oninput="proj()"/>
+      <div class="psg-hint"><span>10%</span><span>100%</span></div>
+    </div>
+
+    <div class="psg">
+      <div class="psg-top"><span class="psg-lbl">Tries per VTO session</span><span class="psg-val" id="v-vto-t">5×</span></div>
+      <input type="range" id="p-vto-t" min="1" max="15" step="1" value="5" oninput="proj()"/>
+      <div class="psg-hint"><span>1×</span><span>15×</span></div>
+    </div>
+  </div>
+
+  <!-- RIGHT: quarterly results -->
+  <div>
+    <div class="q-grid">
+
+      <!-- Q1 -->
+      <div class="q-box">
+        <div class="q-head">
+          <div class="q-qlbl">Q1 · Jan–Mar</div>
+          <div class="q-gmv-h" id="q1h">—</div>
+        </div>
+        <div class="q-dr-wrap">
+          <div class="q-dr-lbl">Drops this quarter</div>
+          <div class="q-dr-ctrl">
+            <button class="qb" onclick="adjD(1,-5)">−</button>
+            <input class="qi" type="number" id="d1" value="13" min="0" step="1" oninput="proj()"/>
+            <button class="qb" onclick="adjD(1,5)">+</button>
+            <span class="q-unit">drops</span>
+          </div>
+        </div>
+        <div class="q-rows">
+          <div class="q-row"><span class="ql">Orders</span><span class="qv" id="q1-ord">—</span></div>
+          <div class="q-row"><span class="ql">GMV</span><span class="qv" id="q1-gmv">—</span></div>
+          <div class="qdiv"></div>
+          <div class="q-row"><span class="ql">Platform fee</span><span class="qv g" id="q1-tfr">—</span></div>
+          <div class="q-row"><span class="ql" style="color:var(--sub);font-size:11px">Organic comm.</span><span class="qv g" style="font-size:11px" id="q1-org">—</span></div>
+          <div class="q-row"><span class="ql">Subscriptions</span><span class="qv g" id="q1-sub">—</span></div>
+          <div class="qdiv"></div>
+          <div class="q-row"><span class="ql">VTO cost</span><span class="qv r" id="q1-vto">—</span></div>
+          <div class="q-row"><span class="ql">Payment proc.</span><span class="qv r" id="q1-pay">—</span></div>
+          <div class="qdiv"></div>
+          <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">smthg<span style="color:var(--tf)">.</span> Net</span><span class="qv b" id="q1-net">—</span></div>
+          <div class="q-row" style="border-top:1px solid var(--rule)"><span class="ql" style="color:var(--sub);font-size:11px">Monthly avg</span><span class="qv" style="font-size:11px;font-weight:700" id="q1-mo">—</span></div>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="q-box">
+        <div class="q-head">
+          <div class="q-qlbl">Q2 · Apr–Jun</div>
+          <div class="q-gmv-h" id="q2h">—</div>
+        </div>
+        <div class="q-dr-wrap">
+          <div class="q-dr-lbl">Drops this quarter</div>
+          <div class="q-dr-ctrl">
+            <button class="qb" onclick="adjD(2,-5)">−</button>
+            <input class="qi" type="number" id="d2" value="16" min="0" step="1" oninput="proj()"/>
+            <button class="qb" onclick="adjD(2,5)">+</button>
+            <span class="q-unit">drops</span>
+          </div>
+        </div>
+        <div class="q-rows">
+          <div class="q-row"><span class="ql">Orders</span><span class="qv" id="q2-ord">—</span></div>
+          <div class="q-row"><span class="ql">GMV</span><span class="qv" id="q2-gmv">—</span></div>
+          <div class="qdiv"></div>
+          <div class="q-row"><span class="ql">Platform fee</span><span class="qv g" id="q2-tfr">—</span></div>
+          <div class="q-row"><span class="ql" style="color:var(--sub);font-size:11px">Organic comm.</span><span class="qv g" style="font-size:11px" id="q2-org">—</span></div>
+          <div class="q-row"><span class="ql">Subscriptions</span><span class="qv g" id="q2-sub">—</span></div>
+          <div class="qdiv"></div>
+          <div class="q-row"><span class="ql">VTO cost</span><span class="qv r" id="q2-vto">—</span></div>
+          <div class="q-row"><span class="ql">Payment proc.</span><span class="qv r" id="q2-pay">—</span></div>
+          <div class="qdiv"></div>
+          <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">smthg<span style="color:var(--tf)">.</span> Net</span><span class="qv b" id="q2-net">—</span></div>
+          <div class="q-row" style="border-top:1px solid var(--rule)"><span class="ql" style="color:var(--sub);font-size:11px">Monthly avg</span><span class="qv" style="font-size:11px;font-weight:700" id="q2-mo">—</span></div>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="q-box">
+        <div class="q-head">
+          <div class="q-qlbl">Q3 · Jul–Sep</div>
+          <div class="q-gmv-h" id="q3h">—</div>
+        </div>
+        <div class="q-dr-wrap">
+          <div class="q-dr-lbl">Drops this quarter</div>
+          <div class="q-dr-ctrl">
+            <button class="qb" onclick="adjD(3,-5)">−</button>
+            <input class="qi" type="number" id="d3" value="20" min="0" step="1" oninput="proj()"/>
+            <button class="qb" onclick="adjD(3,5)">+</button>
+            <span class="q-unit">drops</span>
+          </div>
+        </div>
+        <div class="q-rows">
+          <div class="q-row"><span class="ql">Orders</span><span class="qv" id="q3-ord">—</span></div>
+          <div class="q-row"><span class="ql">GMV</span><span class="qv" id="q3-gmv">—</span></div>
+          <div class="qdiv"></div>
+          <div class="q-row"><span class="ql">Platform fee</span><span class="qv g" id="q3-tfr">—</span></div>
+          <div class="q-row"><span class="ql" style="color:var(--sub);font-size:11px">Organic comm.</span><span class="qv g" style="font-size:11px" id="q3-org">—</span></div>
+          <div class="q-row"><span class="ql">Subscriptions</span><span class="qv g" id="q3-sub">—</span></div>
+          <div class="qdiv"></div>
+          <div class="q-row"><span class="ql">VTO cost</span><span class="qv r" id="q3-vto">—</span></div>
+          <div class="q-row"><span class="ql">Payment proc.</span><span class="qv r" id="q3-pay">—</span></div>
+          <div class="qdiv"></div>
+          <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">smthg<span style="color:var(--tf)">.</span> Net</span><span class="qv b" id="q3-net">—</span></div>
+          <div class="q-row" style="border-top:1px solid var(--rule)"><span class="ql" style="color:var(--sub);font-size:11px">Monthly avg</span><span class="qv" style="font-size:11px;font-weight:700" id="q3-mo">—</span></div>
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="q-box">
+        <div class="q-head">
+          <div class="q-qlbl">Q4 · Oct–Dec</div>
+          <div class="q-gmv-h" id="q4h">—</div>
+        </div>
+        <div class="q-dr-wrap">
+          <div class="q-dr-lbl">Drops this quarter</div>
+          <div class="q-dr-ctrl">
+            <button class="qb" onclick="adjD(4,-5)">−</button>
+            <input class="qi" type="number" id="d4" value="25" min="0" step="1" oninput="proj()"/>
+            <button class="qb" onclick="adjD(4,5)">+</button>
+            <span class="q-unit">drops</span>
+          </div>
+        </div>
+        <div class="q-rows">
+          <div class="q-row"><span class="ql">Orders</span><span class="qv" id="q4-ord">—</span></div>
+          <div class="q-row"><span class="ql">GMV</span><span class="qv" id="q4-gmv">—</span></div>
+          <div class="qdiv"></div>
+          <div class="q-row"><span class="ql">Platform fee</span><span class="qv g" id="q4-tfr">—</span></div>
+          <div class="q-row"><span class="ql" style="color:var(--sub);font-size:11px">Organic comm.</span><span class="qv g" style="font-size:11px" id="q4-org">—</span></div>
+          <div class="q-row"><span class="ql">Subscriptions</span><span class="qv g" id="q4-sub">—</span></div>
+          <div class="qdiv"></div>
+          <div class="q-row"><span class="ql">VTO cost</span><span class="qv r" id="q4-vto">—</span></div>
+          <div class="q-row"><span class="ql">Payment proc.</span><span class="qv r" id="q4-pay">—</span></div>
+          <div class="qdiv"></div>
+          <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">smthg<span style="color:var(--tf)">.</span> Net</span><span class="qv b" id="q4-net">—</span></div>
+          <div class="q-row" style="border-top:1px solid var(--rule)"><span class="ql" style="color:var(--sub);font-size:11px">Monthly avg</span><span class="qv" style="font-size:11px;font-weight:700" id="q4-mo">—</span></div>
+        </div>
+      </div>
+
+    </div><!-- /q-grid -->
+
+    <!-- Year totals bar -->
+    <div class="yr-bar">
+      <div class="yr-i"><div class="yr-l">Year GMV</div><div class="yr-v" id="yt-gmv">—</div></div>
+      <div class="yr-i"><div class="yr-l">Year Orders</div><div class="yr-v" id="yt-ord">—</div></div>
+      <div class="yr-i"><div class="yr-l">smthg<span style="color:var(--tf)">.</span> Revenue</div><div class="yr-v g" id="yt-rev">—</div></div>
+      <div class="yr-i"><div class="yr-l">Variable Costs</div><div class="yr-v r" id="yt-var">—</div></div>
+      <div class="yr-i"><div class="yr-l">smthg<span style="color:var(--tf)">.</span> Net (var only)</div><div class="yr-v g" id="yt-net">—</div></div>
+    </div>
+    <!-- Net Position (after fixed) — per quarter -->
+    <div class="yr-bar" style="grid-template-columns:repeat(5,1fr);border-top:1px solid rgba(255,255,255,.1);margin-top:0;padding-top:14px">
+      <div class="yr-i"><div class="yr-l" style="color:rgba(255,255,255,.6);font-size:8px">Net Position · Q1</div><div class="yr-v" id="yb-net1">—</div></div>
+      <div class="yr-i"><div class="yr-l" style="color:rgba(255,255,255,.6);font-size:8px">Net Position · Q2</div><div class="yr-v" id="yb-net2">—</div></div>
+      <div class="yr-i"><div class="yr-l" style="color:rgba(255,255,255,.6);font-size:8px">Net Position · Q3</div><div class="yr-v" id="yb-net3">—</div></div>
+      <div class="yr-i"><div class="yr-l" style="color:rgba(255,255,255,.6);font-size:8px">Net Position · Q4</div><div class="yr-v" id="yb-net4">—</div></div>
+      <div class="yr-i"><div class="yr-l" style="color:rgba(255,255,255,.6);font-size:8px">Net Position · Year</div><div class="yr-v" id="yb-nety">—</div></div>
+    </div>
+
+  </div><!-- /right -->
+</div><!-- /proj-layout -->
+
+<!-- ═══ SECTION 03: CONSOLIDATED REVENUE & COSTS ═══ -->
+<div class="consol-sep" id="s03">
+  <span class="sn" style="font-size:32px;font-weight:800;color:var(--tf)">03</span>
+  <span class="st" style="font-size:20px;font-weight:800">Consolidated Revenue &amp; Costs · Year 1</span>
+  <span class="ss" style="font-size:11px;color:rgba(255,255,255,.4);margin-left:auto">Section 01 fixed costs + Section 02 variable projections</span>
+  <span id="s03-badge" class="sec-badge"></span>
+  <button class="sec-toggle-btn" onclick="toggleSec('s03-body',this)" title="collapse/expand">▾</button>
+</div>
+
+<div class="ctw" id="s03-body">
+<table class="ct">
+<thead>
+  <tr>
+    <th style="text-align:left">Line</th>
+    <th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th>
+    <th style="border-left:1px solid #ccc">Year 1 Total</th>
+    <th class="note-r" style="text-align:left;min-width:160px">Note</th>
+  </tr>
+</thead>
+<tbody>
+<tr class="cat"><td colspan="7">Revenue</td></tr>
+<tr>
+  <td>GMV (platform sales)</td>
+  <td id="c-gmv1">—</td><td id="c-gmv2">—</td><td id="c-gmv3">—</td><td id="c-gmv4">—</td>
+  <td style="border-left:1px solid var(--rule)" id="c-gmvy">—</td>
+  <td class="note-r">Total sales through platform</td>
+</tr>
+<tr>
+  <td>Platform fee (<span id="cn-tf">10%</span> of GMV)</td>
+  <td class="pos" id="c-tfr1">—</td><td class="pos" id="c-tfr2">—</td><td class="pos" id="c-tfr3">—</td><td class="pos" id="c-tfr4">—</td>
+  <td class="pos" style="border-left:1px solid var(--rule)" id="c-tfry">—</td>
+  <td class="note-r">SMTHG commission revenue</td>
+</tr>
+<tr>
+  <td>Designer subscriptions (<span id="cn-ds">10</span> × $500/mo)</td>
+  <td class="pos" id="c-sub1">—</td><td class="pos" id="c-sub2">—</td><td class="pos" id="c-sub3">—</td><td class="pos" id="c-sub4">—</td>
+  <td class="pos" style="border-left:1px solid var(--rule)" id="c-suby">—</td>
+  <td class="note-r">$500/mo per active designer</td>
+</tr>
+<tr class="sub">
+  <td>Total Revenue</td>
+  <td class="pos" id="c-rev1">—</td><td class="pos" id="c-rev2">—</td><td class="pos" id="c-rev3">—</td><td class="pos" id="c-rev4">—</td>
+  <td class="pos" style="border-left:1px solid var(--rule)" id="c-revy">—</td>
+  <td></td>
+</tr>
+
+<tr class="cat"><td colspan="7">Fixed Operating Costs (from Section 01)</td></tr>
+<tr>
+  <td>Fixed envelope · Section 01 Grand Total</td>
+  <td class="neg" id="c-fix1">—</td><td class="neg" id="c-fix2">—</td><td class="neg" id="c-fix3">—</td><td class="neg" id="c-fix4">—</td>
+  <td class="neg" style="border-left:1px solid var(--rule)" id="c-fixY">—</td>
+  <td class="note-r">From Section 01 Grand Total. Q1 includes $57,200 one-time; Q2–Q4 salary starts ($60,916/qtr).</td>
+</tr>
+
+<tr class="cat"><td colspan="7">Variable Costs (scale with GMV · from Section 02)</td></tr>
+<tr>
+  <td>VTO cost</td>
+  <td class="neg" id="c-vto1">—</td><td class="neg" id="c-vto2">—</td><td class="neg" id="c-vto3">—</td><td class="neg" id="c-vto4">—</td>
+  <td class="neg" style="border-left:1px solid var(--rule)" id="c-vtoy">—</td>
+  <td class="note-r" id="cn-vto">Shopify $0.10/try</td>
+</tr>
+<tr>
+  <td>Payment processing (Stripe)</td>
+  <td class="neg" id="c-pay1">—</td><td class="neg" id="c-pay2">—</td><td class="neg" id="c-pay3">—</td><td class="neg" id="c-pay4">—</td>
+  <td class="neg" style="border-left:1px solid var(--rule)" id="c-payy">—</td>
+  <td class="note-r"><span id="cn-pay">2.9%</span> GMV + $0.30/order</td>
+</tr>
+<tr>
+  <td>Fraud prevention (Stripe Radar)</td>
+  <td class="neg" id="c-fraud1">—</td><td class="neg" id="c-fraud2">—</td><td class="neg" id="c-fraud3">—</td><td class="neg" id="c-fraud4">—</td>
+  <td class="neg" style="border-left:1px solid var(--rule)" id="c-fraudy">—</td>
+  <td class="note-r">0.05% of GMV · Stripe Radar</td>
+</tr>
+<tr class="sub">
+  <td>Total Variable</td>
+  <td class="neg" id="c-var1">—</td><td class="neg" id="c-var2">—</td><td class="neg" id="c-var3">—</td><td class="neg" id="c-var4">—</td>
+  <td class="neg" style="border-left:1px solid var(--rule)" id="c-vary">—</td>
+  <td></td>
+</tr>
+
+<tr class="tot">
+  <td>Net Position</td>
+  <td id="c-net1">—</td><td id="c-net2">—</td><td id="c-net3">—</td><td id="c-net4">—</td>
+  <td style="border-left:1px solid #555" id="c-nety">—</td>
+  <td style="color:rgba(255,255,255,.45);font-size:11px">Revenue minus all fixed and variable costs</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<!-- === SECTION 04: 5-YEAR REVENUE & EBIT OUTLOOK === -->
+<div class="consol-sep" id="s04">
+  <span class="sn" style="font-size:32px;font-weight:800;color:var(--tf)">04</span>
+  <span class="st" style="font-size:20px;font-weight:800">5-Year Revenue &amp; EBIT Outlook</span>
+  <span class="ss" style="font-size:11px;color:rgba(255,255,255,.4);margin-left:auto">Drop-led model · same unit economics as Section 02</span>
+  <button class="sec-toggle-btn" onclick="toggleSec('s04-body',this)" title="collapse/expand">▾</button>
+</div>
+
+<div id="s04-body">
+
+<!-- ── SECTION 04 SNAPSHOT ── -->
+<div style="margin-bottom:28px;border:1px solid var(--rule);border-radius:8px;overflow:hidden;background:var(--card)">
+  <div style="background:var(--ink);color:#fff;padding:10px 20px;display:flex;align-items:center;gap:10px">
+    <span style="font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase">5-Year P&amp;L Snapshot · USD</span>
+    <span style="font-size:10px;color:rgba(255,255,255,.4);margin-left:auto">Revenue · total costs · EBIT</span>
+  </div>
+  <div style="display:grid;grid-template-columns:120px repeat(5,1fr);font-variant-numeric:tabular-nums;overflow-x:auto">
+    <div style="padding:8px 14px;font-size:10px;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:.07em;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)"></div>
+    <div style="padding:8px 14px;text-align:right;font-size:10px;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:.07em;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">Y1</div>
+    <div style="padding:8px 14px;text-align:right;font-size:10px;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:.07em;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">Y2</div>
+    <div style="padding:8px 14px;text-align:right;font-size:10px;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:.07em;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">Y3</div>
+    <div style="padding:8px 14px;text-align:right;font-size:10px;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:.07em;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">Y4</div>
+    <div style="padding:8px 14px;text-align:right;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--ink);border-bottom:1px solid var(--rule)">Y5</div>
+    <div style="padding:12px 14px;font-weight:700;font-size:12px;color:var(--ink);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">Revenue</div>
+    <div id="s04-rev-1" style="padding:12px 14px;text-align:right;font-weight:700;font-size:13px;color:#1A7A4A;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">—</div>
+    <div id="s04-rev-2" style="padding:12px 14px;text-align:right;font-weight:700;font-size:13px;color:#1A7A4A;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">—</div>
+    <div id="s04-rev-3" style="padding:12px 14px;text-align:right;font-weight:700;font-size:13px;color:#1A7A4A;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">—</div>
+    <div id="s04-rev-4" style="padding:12px 14px;text-align:right;font-weight:700;font-size:13px;color:#1A7A4A;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">—</div>
+    <div id="s04-rev-5" style="padding:12px 14px;text-align:right;font-weight:800;font-size:15px;color:#1A7A4A;border-bottom:1px solid var(--rule)">—</div>
+    <div style="padding:12px 14px;font-weight:700;font-size:12px;color:var(--ink);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">Total costs</div>
+    <div id="s04-tot-1" style="padding:12px 14px;text-align:right;font-weight:700;font-size:13px;color:var(--tf);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">—</div>
+    <div id="s04-tot-2" style="padding:12px 14px;text-align:right;font-weight:700;font-size:13px;color:var(--tf);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">—</div>
+    <div id="s04-tot-3" style="padding:12px 14px;text-align:right;font-weight:700;font-size:13px;color:var(--tf);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">—</div>
+    <div id="s04-tot-4" style="padding:12px 14px;text-align:right;font-weight:700;font-size:13px;color:var(--tf);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)">—</div>
+    <div id="s04-tot-5" style="padding:12px 14px;text-align:right;font-weight:800;font-size:15px;color:var(--tf);border-bottom:1px solid var(--rule)">—</div>
+    <div style="padding:12px 14px;font-weight:700;font-size:12px;color:var(--ink);border-right:1px solid var(--rule)">EBIT</div>
+    <div id="s04-ebit-1" style="padding:12px 14px;text-align:right;font-weight:700;font-size:13px;border-right:1px solid var(--rule)">—</div>
+    <div id="s04-ebit-2" style="padding:12px 14px;text-align:right;font-weight:700;font-size:13px;border-right:1px solid var(--rule)">—</div>
+    <div id="s04-ebit-3" style="padding:12px 14px;text-align:right;font-weight:700;font-size:13px;border-right:1px solid var(--rule)">—</div>
+    <div id="s04-ebit-4" style="padding:12px 14px;text-align:right;font-weight:700;font-size:13px;border-right:1px solid var(--rule)">—</div>
+    <div id="s04-ebit-5" style="padding:12px 14px;text-align:right;font-weight:800;font-size:15px">—</div>
+  </div>
+</div>
+
+<div style="font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);margin:24px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--rule)">Revenue &nbsp;·&nbsp; smthg<span style="color:var(--tf)">.</span> net (after VTO + payment + fraud)</div>
+<div class="y-grid">
+
+  <!-- Y1 revenue -->
+  <div class="q-box">
+    <div class="q-head"><div class="q-qlbl">Year 1</div><div class="q-gmv-h" id="yr1-gmv-h">—</div></div>
+    <div class="q-dr-wrap">
+      <div class="q-dr-lbl">Total drops / year</div>
+      <div class="q-dr-ctrl">
+        <button class="qb" onclick="adjY(1,-4)">−</button>
+        <input class="qi" id="yd1" type="number" value="72" min="0" style="width:60px" oninput="yrProj()">
+        <button class="qb" onclick="adjY(1,4)">+</button>
+        <span class="q-unit">/yr</span>
+      </div>
+      <div style="font-size:10px;color:var(--sub);margin-top:6px" id="yr1-des-lbl">—</div>
+    </div>
+    <div class="q-rows">
+      <div class="q-row"><span class="ql">Orders</span><span class="qv" id="yr1-ord">—</span></div>
+      <div class="q-row"><span class="ql">GMV</span><span class="qv" id="yr1-gmv">—</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql">Platform fee</span><span class="qv g" id="yr1-tfr">—</span></div>
+      <div class="q-row"><span class="ql">Subscriptions</span><span class="qv g" id="yr1-sub">—</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql">VTO cost</span><span class="qv r" id="yr1-vto">—</span></div>
+      <div class="q-row"><span class="ql">Payment proc.</span><span class="qv r" id="yr1-pay">—</span></div>
+      <div class="q-row"><span class="ql">Fraud prev.</span><span class="qv r" id="yr1-fraud">—</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">smthg<span style="color:var(--tf)">.</span> Net</span><span class="qv b" id="yr1-net">—</span></div>
+      <div class="q-row" style="border-top:1px solid var(--rule)"><span class="ql" style="color:var(--sub);font-size:11px">Quarterly avg</span><span class="qv" style="font-size:11px;font-weight:700" id="yr1-qavg">—</span></div>
+    </div>
+  </div>
+
+  <!-- Y2 revenue -->
+  <div class="q-box">
+    <div class="q-head"><div class="q-qlbl">Year 2</div><div class="q-gmv-h" id="yr2-gmv-h">—</div></div>
+    <div class="q-dr-wrap">
+      <div class="q-dr-lbl">Total drops / year</div>
+      <div class="q-dr-ctrl">
+        <button class="qb" onclick="adjY(2,-12)">−</button>
+        <input class="qi" id="yd2" type="number" value="300" min="0" style="width:60px" oninput="yrProj()">
+        <button class="qb" onclick="adjY(2,12)">+</button>
+        <span class="q-unit">/yr</span>
+      </div>
+      <div style="font-size:10px;color:var(--sub);margin-top:6px" id="yr2-des-lbl">—</div>
+    </div>
+    <div class="q-rows">
+      <div class="q-row"><span class="ql">Orders</span><span class="qv" id="yr2-ord">—</span></div>
+      <div class="q-row"><span class="ql">GMV</span><span class="qv" id="yr2-gmv">—</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql">Platform fee</span><span class="qv g" id="yr2-tfr">—</span></div>
+      <div class="q-row"><span class="ql">Subscriptions</span><span class="qv g" id="yr2-sub">—</span></div>
+      <div class="q-row"><span class="ql">Organic share (20%)</span><span class="qv g" id="yr2-org">—</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql">VTO cost</span><span class="qv r" id="yr2-vto">—</span></div>
+      <div class="q-row"><span class="ql">Payment proc.</span><span class="qv r" id="yr2-pay">—</span></div>
+      <div class="q-row"><span class="ql">Fraud prev.</span><span class="qv r" id="yr2-fraud">—</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">smthg<span style="color:var(--tf)">.</span> Net</span><span class="qv b" id="yr2-net">—</span></div>
+      <div class="q-row" style="border-top:1px solid var(--rule)"><span class="ql" style="color:var(--sub);font-size:11px">Quarterly avg</span><span class="qv" style="font-size:11px;font-weight:700" id="yr2-qavg">—</span></div>
+    </div>
+  </div>
+
+  <!-- Y3 revenue -->
+  <div class="q-box">
+    <div class="q-head"><div class="q-qlbl">Year 3</div><div class="q-gmv-h" id="yr3-gmv-h">—</div></div>
+    <div class="q-dr-wrap">
+      <div class="q-dr-lbl">Total drops / year</div>
+      <div class="q-dr-ctrl">
+        <button class="qb" onclick="adjY(3,-15)">−</button>
+        <input class="qi" id="yd3" type="number" value="900" min="0" style="width:60px" oninput="yrProj()">
+        <button class="qb" onclick="adjY(3,15)">+</button>
+        <span class="q-unit">/yr</span>
+      </div>
+      <div style="font-size:10px;color:var(--sub);margin-top:6px" id="yr3-des-lbl">—</div>
+    </div>
+    <div class="q-rows">
+      <div class="q-row"><span class="ql">Orders</span><span class="qv" id="yr3-ord">—</span></div>
+      <div class="q-row"><span class="ql">GMV</span><span class="qv" id="yr3-gmv">—</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql">Platform fee</span><span class="qv g" id="yr3-tfr">—</span></div>
+      <div class="q-row"><span class="ql">Subscriptions</span><span class="qv g" id="yr3-sub">—</span></div>
+      <div class="q-row"><span class="ql">Organic share (35%)</span><span class="qv g" id="yr3-org">—</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql">VTO cost</span><span class="qv r" id="yr3-vto">—</span></div>
+      <div class="q-row"><span class="ql">Payment proc.</span><span class="qv r" id="yr3-pay">—</span></div>
+      <div class="q-row"><span class="ql">Fraud prev.</span><span class="qv r" id="yr3-fraud">—</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">smthg<span style="color:var(--tf)">.</span> Net</span><span class="qv b" id="yr3-net">—</span></div>
+      <div class="q-row" style="border-top:1px solid var(--rule)"><span class="ql" style="color:var(--sub);font-size:11px">Quarterly avg</span><span class="qv" style="font-size:11px;font-weight:700" id="yr3-qavg">—</span></div>
+    </div>
+  </div>
+
+  <!-- Y4 revenue -->
+  <div class="q-box">
+    <div class="q-head"><div class="q-qlbl">Year 4</div><div class="q-gmv-h" id="yr4-gmv-h">—</div></div>
+    <div class="q-dr-wrap">
+      <div class="q-dr-lbl">Total drops / year</div>
+      <div class="q-dr-ctrl">
+        <button class="qb" onclick="adjY(4,-18)">−</button>
+        <input class="qi" id="yd4" type="number" value="2160" min="0" style="width:60px" oninput="yrProj()">
+        <button class="qb" onclick="adjY(4,18)">+</button>
+        <span class="q-unit">/yr</span>
+      </div>
+      <div style="font-size:10px;color:var(--sub);margin-top:6px" id="yr4-des-lbl">—</div>
+    </div>
+    <div class="q-rows">
+      <div class="q-row"><span class="ql">Orders</span><span class="qv" id="yr4-ord">—</span></div>
+      <div class="q-row"><span class="ql">GMV</span><span class="qv" id="yr4-gmv">—</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql">Platform fee</span><span class="qv g" id="yr4-tfr">—</span></div>
+      <div class="q-row"><span class="ql">Subscriptions</span><span class="qv g" id="yr4-sub">—</span></div>
+      <div class="q-row"><span class="ql">Organic share (50%)</span><span class="qv g" id="yr4-org">—</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql">VTO cost</span><span class="qv r" id="yr4-vto">—</span></div>
+      <div class="q-row"><span class="ql">Payment proc.</span><span class="qv r" id="yr4-pay">—</span></div>
+      <div class="q-row"><span class="ql">Fraud prev.</span><span class="qv r" id="yr4-fraud">—</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">smthg<span style="color:var(--tf)">.</span> Net</span><span class="qv b" id="yr4-net">—</span></div>
+      <div class="q-row" style="border-top:1px solid var(--rule)"><span class="ql" style="color:var(--sub);font-size:11px">Quarterly avg</span><span class="qv" style="font-size:11px;font-weight:700" id="yr4-qavg">—</span></div>
+    </div>
+  </div>
+
+  <!-- Y5 revenue -->
+  <div class="q-box">
+    <div class="q-head"><div class="q-qlbl">Year 5</div><div class="q-gmv-h" id="yr5-gmv-h">—</div></div>
+    <div class="q-dr-wrap">
+      <div class="q-dr-lbl">Total drops / year</div>
+      <div class="q-dr-ctrl">
+        <button class="qb" onclick="adjY(5,-24)">−</button>
+        <input class="qi" id="yd5" type="number" value="4800" min="0" style="width:60px" oninput="yrProj()">
+        <button class="qb" onclick="adjY(5,24)">+</button>
+        <span class="q-unit">/yr</span>
+      </div>
+      <div style="font-size:10px;color:var(--sub);margin-top:6px" id="yr5-des-lbl">—</div>
+    </div>
+    <div class="q-rows">
+      <div class="q-row"><span class="ql">Orders</span><span class="qv" id="yr5-ord">—</span></div>
+      <div class="q-row"><span class="ql">GMV</span><span class="qv" id="yr5-gmv">—</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql">Platform fee</span><span class="qv g" id="yr5-tfr">—</span></div>
+      <div class="q-row"><span class="ql">Subscriptions</span><span class="qv g" id="yr5-sub">—</span></div>
+      <div class="q-row"><span class="ql">Organic share (60%)</span><span class="qv g" id="yr5-org">—</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql">VTO cost</span><span class="qv r" id="yr5-vto">—</span></div>
+      <div class="q-row"><span class="ql">Payment proc.</span><span class="qv r" id="yr5-pay">—</span></div>
+      <div class="q-row"><span class="ql">Fraud prev.</span><span class="qv r" id="yr5-fraud">—</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">smthg<span style="color:var(--tf)">.</span> Net</span><span class="qv b" id="yr5-net">—</span></div>
+      <div class="q-row" style="border-top:1px solid var(--rule)"><span class="ql" style="color:var(--sub);font-size:11px">Quarterly avg</span><span class="qv" style="font-size:11px;font-weight:700" id="yr5-qavg">—</span></div>
+    </div>
+  </div>
+
+</div><!-- /y-grid revenue -->
+
+<!-- Core team Y2–Y5 salary controls -->
+<div style="background:#F7F5F2;border:1px solid var(--rule);padding:16px 24px;margin-top:20px;display:flex;gap:20px;align-items:center;flex-wrap:wrap">
+  <div style="font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);white-space:nowrap">Core team · Y2–Y5</div>
+  <div style="display:flex;align-items:center;gap:6px">
+    <span style="font-size:12px;color:var(--ink);font-weight:600">Y2</span>
+    <input id="ct-rate" type="number" value="15000" min="0" step="1000" style="width:80px;border:1px solid var(--rule);padding:4px 6px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif;color:var(--ink)" oninput="yrProj()">
+    <span style="font-size:11px;color:var(--sub)">$/mo per person</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:6px">
+    <span style="font-size:12px;color:var(--ink);font-weight:600">Y3–5</span>
+    <input id="ct-y3p-rate" type="number" value="20000" min="0" step="1000" style="width:80px;border:1px solid var(--rule);padding:4px 6px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif;color:var(--ink)" oninput="yrProj()">
+    <span style="font-size:11px;color:var(--sub)">$/mo per person</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+    <span style="font-size:11px;color:var(--sub)">People:</span>
+    <label style="font-size:11px;color:var(--ink);display:flex;align-items:center;gap:4px">Y2 <input id="ct-y2-count" type="number" value="4" min="0" max="99" style="width:42px;border:1px solid var(--rule);padding:3px 5px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif" oninput="yrProj()"></label>
+    <label style="font-size:11px;color:var(--ink);display:flex;align-items:center;gap:4px">Y3 <input id="ct-y3-count" type="number" value="4" min="0" max="99" style="width:42px;border:1px solid var(--rule);padding:3px 5px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif" oninput="yrProj()"></label>
+    <label style="font-size:11px;color:var(--ink);display:flex;align-items:center;gap:4px">Y4 <input id="ct-y4-count" type="number" value="4" min="0" max="99" style="width:42px;border:1px solid var(--rule);padding:3px 5px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif" oninput="yrProj()"></label>
+    <label style="font-size:11px;color:var(--ink);display:flex;align-items:center;gap:4px">Y5 <input id="ct-y5-count" type="number" value="4" min="0" max="99" style="width:42px;border:1px solid var(--rule);padding:3px 5px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif" oninput="yrProj()"></label>
+  </div>
+  <div style="font-size:10px;color:var(--sub)">G&amp;A estimates (incl. trade shows): Y1 $200.8K · Y2 $100K · Y3 $130K · Y4 $200K · Y5 $300K</div>
+</div>
+
+<!-- Cost year boxes -->
+<div style="font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);margin:20px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--rule)">Costs &nbsp;·&nbsp; ops team + core team salary + G&amp;A <span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:9px">(G&amp;A = General &amp; Administrative: office · tools · legal · accounting)</span></div>
+<div class="y-grid">
+
+  <!-- Y1 cost -->
+  <div class="q-box" style="border-top:3px solid var(--tf)">
+    <div class="q-head" style="background:#FFF5F5">
+      <div class="q-qlbl" style="font-size:16px">Year 1</div>
+      <div style="font-size:10px;color:var(--sub);margin-top:3px">Section 01 actual</div>
+    </div>
+    <div class="q-rows">
+      <div class="q-row"><span class="ql">Ops team <span style="font-size:10px">(<a href="smthg_operationsteam.html" style="color:var(--sub)">Headcount</a>)</span></span><span class="qv r" id="yc1-ops">—</span></div>
+      <details class="cd"><summary>7 contractors · offshore rates · budget mode rates</summary><div class="cd-body">
+        <div class="cd-r"><span>Platform devs ×2</span><span>contractors · $4K/mo</span></div>
+        <div class="cd-r"><span>Community manager</span><span>contractor · $2.5K/mo</span></div>
+        <div class="cd-r"><span>Influencer relations</span><span>contractor · $2.5K/mo</span></div>
+        <div class="cd-r"><span>Social media manager</span><span>contractor · $2.5K/mo</span></div>
+        <div class="cd-r"><span>Content creation specialist</span><span>contractor · $2K/mo</span></div>
+        <div class="cd-r"><span>Customer operations</span><span>contractor · $2.5K/mo</span></div>
+        <div class="cd-r cd-tot"><span>Total (budget mode)</span><span>~$16K/mo · $192K/yr</span></div>
+      </div></details>
+      <div class="q-row"><span class="ql">Core team salary</span><span class="qv r" id="yc1-core">—</span></div>
+      <details class="cd"><summary id="yc1-core-sum">4 founders · rate adjustable above</summary><div class="cd-body">
+        <div class="cd-r"><span>CEO + CTO + Creative Dir + co-founder</span><span></span></div>
+        <div class="cd-r cd-tot"><span>Total</span><span id="ycd1-ct-info">—</span></div>
+      </div></details>
+      <div class="q-row"><span class="ql">G&amp;A</span><span class="qv r" id="yc1-ga">—</span></div>
+      <details class="cd"><summary>Office · tools · legal · admin · trade shows</summary><div class="cd-body">
+        <div class="cd-r"><span>G&amp;A (Section 01 actuals)</span><span>$180,000 · Financial/Legal, tools, AI, marketing</span></div>
+        <div class="cd-r"><span>Trade shows · 4 visits (2 US + 2 EU)</span><span>$20,840 · MAGIC LV (Q1) + Who's Next Paris (Q1) + Coterie NYC (Q3) + Premium Berlin (Q3)</span></div>
+        <div class="cd-r cd-tot"><span>Total</span><span>$200,840/yr</span></div>
+      </div></details>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">Total Costs</span><span class="qv b r" id="yc1-tot">—</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql" style="font-size:10px;color:var(--sub)">smthg<span style="color:var(--tf)">.</span> Net</span><span class="qv" style="font-size:11px" id="yc1-net">—</span></div>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">EBIT</span><span class="qv b" id="yc1-ebit">—</span></div>
+    </div>
+  </div>
+
+  <!-- Y2 cost -->
+  <div class="q-box" style="border-top:3px solid var(--tf)">
+    <div class="q-head" style="background:#FFF5F5">
+      <div class="q-qlbl" style="font-size:16px">Year 2</div>
+      <div style="font-size:10px;color:var(--sub);margin-top:3px" id="yc2-hdr">—</div>
+    </div>
+    <div class="q-rows">
+      <div class="q-row"><span class="ql">Ops team</span><span class="qv r" id="yc2-ops">—</span></div>
+      <details class="cd"><summary>~8 FTE equivalents · US market rates · ~$43K/mo</summary><div class="cd-body">
+        <div class="cd-r"><span>Customer service</span><span>1 FTE</span></div>
+        <div class="cd-r"><span>Influencer relations</span><span>1 FTE</span></div>
+        <div class="cd-r"><span>Content creation</span><span>1 FTE</span></div>
+        <div class="cd-r"><span>Community manager</span><span>1.5 FTE</span></div>
+        <div class="cd-r"><span>Platform devs</span><span>3 (2 cont + 1 FTE frontend)</span></div>
+        <div class="cd-r cd-tot"><span>Total base</span><span>~$43K/mo · $516K/yr</span></div>
+      </div></details>
+      <div class="q-row"><span class="ql">Core team salary</span><span class="qv r" id="yc2-core">—</span></div>
+      <details class="cd"><summary>4 founders · rate adjustable above</summary><div class="cd-body">
+        <div class="cd-r"><span id="ycd2-ct-info">4 founders × $10K/mo × 12 = $480K/yr</span></div>
+      </div></details>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">G&amp;A total</span><span class="qv r" id="yc2-ga">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Financial &amp; Legal · legal $12K + tax $4.4K + D&amp;O $5.6K + banking $6.6K</span><span class="qv r" id="yc2-ga-finleg">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Tools &amp; IT · IT infra $18K + platform $7.9K</span><span class="qv r" id="yc2-ga-tools">—</span></div>
+      <div class="q-row q-sub"><span class="ql">AI tools · OpenAI/Anthropic, Algolia, Insense</span><span class="qv r" id="yc2-ga-ai">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Marketing &amp; PR · paid social $25.5K + CRM/email/PR $6K</span><span class="qv r" id="yc2-ga-mktg">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Trade shows &amp; travel · 4 shows (2 US + 2 EU)</span><span class="qv r" id="yc2-ga-shows">—</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">Total Costs</span><span class="qv b r" id="yc2-tot">—</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql" style="font-size:10px;color:var(--sub)">smthg<span style="color:var(--tf)">.</span> Net</span><span class="qv" style="font-size:11px" id="yc2-net">—</span></div>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">EBIT</span><span class="qv b" id="yc2-ebit">—</span></div>
+    </div>
+  </div>
+
+  <!-- Y3 cost -->
+  <div class="q-box" style="border-top:3px solid var(--tf)">
+    <div class="q-head" style="background:#FFF5F5">
+      <div class="q-qlbl" style="font-size:16px">Year 3</div>
+      <div style="font-size:10px;color:var(--sub);margin-top:3px" id="yc3-hdr">—</div>
+    </div>
+    <div class="q-rows">
+      <div class="q-row"><span class="ql">Ops team</span><span class="qv r" id="yc3-ops">—</span></div>
+      <details class="cd"><summary>~13 FTE equivalents · US market rates · ~$100K/mo</summary><div class="cd-body">
+        <div class="cd-r"><span>Customer service</span><span>2 FTE + lead</span></div>
+        <div class="cd-r"><span>Influencer relations</span><span>2 FTE</span></div>
+        <div class="cd-r"><span>Content creation</span><span>2 FTE</span></div>
+        <div class="cd-r"><span>Community manager</span><span>2 FTE</span></div>
+        <div class="cd-r"><span>Platform devs</span><span>4–5 FTE (mobile + DevOps added)</span></div>
+        <div class="cd-r cd-tot"><span>Total base</span><span>~$100K/mo · $1.2M/yr</span></div>
+      </div></details>
+      <div class="q-row"><span class="ql">Core team salary</span><span class="qv r" id="yc3-core">—</span></div>
+      <details class="cd"><summary>4 founders · rate adjustable above</summary><div class="cd-body">
+        <div class="cd-r"><span id="ycd3-ct-info">4 founders × $10K/mo × 12 = $480K/yr</span></div>
+      </div></details>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">G&amp;A total</span><span class="qv r" id="yc3-ga">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Financial &amp; Legal · legal $18K + tax $6K + D&amp;O $7.2K + banking $10K</span><span class="qv r" id="yc3-ga-finleg">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Tools &amp; IT · IT infra $25K + platform $9.8K</span><span class="qv r" id="yc3-ga-tools">—</span></div>
+      <div class="q-row q-sub"><span class="ql">AI tools · personalisation + creator intelligence</span><span class="qv r" id="yc3-ga-ai">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Marketing &amp; PR · consumer acquisition + fashion trade press</span><span class="qv r" id="yc3-ga-mktg">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Trade shows &amp; travel · 5 shows (3 US + 2 EU) — estimate</span><span class="qv r" id="yc3-ga-shows">—</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">Total Costs</span><span class="qv b r" id="yc3-tot">—</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql" style="font-size:10px;color:var(--sub)">smthg<span style="color:var(--tf)">.</span> Net</span><span class="qv" style="font-size:11px" id="yc3-net">—</span></div>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">EBIT</span><span class="qv b" id="yc3-ebit">—</span></div>
+    </div>
+  </div>
+
+  <!-- Y4 cost -->
+  <div class="q-box" style="border-top:3px solid var(--tf)">
+    <div class="q-head" style="background:#FFF5F5">
+      <div class="q-qlbl" style="font-size:16px">Year 4</div>
+      <div style="font-size:10px;color:var(--sub);margin-top:3px" id="yc4-hdr">—</div>
+    </div>
+    <div class="q-rows">
+      <div class="q-row"><span class="ql">Ops team</span><span class="qv r" id="yc4-ops">—</span></div>
+      <details class="cd"><summary>~20 FTE equivalents · US market rates · ~$185K/mo</summary><div class="cd-body">
+        <div class="cd-r"><span>Customer service</span><span>4 FTE + lead</span></div>
+        <div class="cd-r"><span>Influencer relations</span><span>3 FTE + Head</span></div>
+        <div class="cd-r"><span>Content creation</span><span>3 FTE + Head</span></div>
+        <div class="cd-r"><span>Community manager</span><span>3 FTE + Head</span></div>
+        <div class="cd-r"><span>Platform devs</span><span>7–8 FTE (senior eng, on-call)</span></div>
+        <div class="cd-r cd-tot"><span>Total base</span><span>~$185K/mo · $2.22M/yr</span></div>
+      </div></details>
+      <div class="q-row"><span class="ql">Core team salary</span><span class="qv r" id="yc4-core">—</span></div>
+      <details class="cd"><summary>4 founders · rate adjustable above</summary><div class="cd-body">
+        <div class="cd-r"><span id="ycd4-ct-info">4 founders × $10K/mo × 12 = $480K/yr</span></div>
+      </div></details>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">G&amp;A total</span><span class="qv r" id="yc4-ga">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Financial &amp; Legal · legal $30K + tax $10K + D&amp;O $12K + banking $15K</span><span class="qv r" id="yc4-ga-finleg">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Tools &amp; IT · IT infra $40K + platform $13K</span><span class="qv r" id="yc4-ga-tools">—</span></div>
+      <div class="q-row q-sub"><span class="ql">AI tools · full creator intelligence + recommendation stack</span><span class="qv r" id="yc4-ga-ai">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Marketing &amp; PR · brand marketing + fashion press + PR</span><span class="qv r" id="yc4-ga-mktg">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Trade shows &amp; travel · 6–7 shows (US + EU + intl) — estimate</span><span class="qv r" id="yc4-ga-shows">—</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">Total Costs</span><span class="qv b r" id="yc4-tot">—</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql" style="font-size:10px;color:var(--sub)">smthg<span style="color:var(--tf)">.</span> Net</span><span class="qv" style="font-size:11px" id="yc4-net">—</span></div>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">EBIT</span><span class="qv b" id="yc4-ebit">—</span></div>
+    </div>
+  </div>
+
+  <!-- Y5 cost -->
+  <div class="q-box" style="border-top:3px solid var(--tf)">
+    <div class="q-head" style="background:#FFF5F5">
+      <div class="q-qlbl" style="font-size:16px">Year 5</div>
+      <div style="font-size:10px;color:var(--sub);margin-top:3px" id="yc5-hdr">—</div>
+    </div>
+    <div class="q-rows">
+      <div class="q-row"><span class="ql">Ops team</span><span class="qv r" id="yc5-ops">—</span></div>
+      <details class="cd"><summary>~35 FTE equivalents · US market rates · ~$320K/mo</summary><div class="cd-body">
+        <div class="cd-r"><span>Customer service</span><span>7 FTE + 2 leads (multi-language)</span></div>
+        <div class="cd-r"><span>Influencer relations</span><span>5 FTE + Director</span></div>
+        <div class="cd-r"><span>Content creation</span><span>5 FTE + Director</span></div>
+        <div class="cd-r"><span>Community manager</span><span>5 FTE + Director</span></div>
+        <div class="cd-r"><span>Platform devs</span><span>12–15 FTE (dedicated mobile team)</span></div>
+        <div class="cd-r cd-tot"><span>Total base</span><span>~$320K/mo · $3.84M/yr</span></div>
+      </div></details>
+      <div class="q-row"><span class="ql">Core team salary</span><span class="qv r" id="yc5-core">—</span></div>
+      <details class="cd"><summary>4 founders · rate adjustable above</summary><div class="cd-body">
+        <div class="cd-r"><span id="ycd5-ct-info">4 founders × $10K/mo × 12 = $480K/yr</span></div>
+      </div></details>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">G&amp;A total</span><span class="qv r" id="yc5-ga">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Financial &amp; Legal — estimate</span><span class="qv r" id="yc5-ga-finleg">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Tools &amp; IT — estimate</span><span class="qv r" id="yc5-ga-tools">—</span></div>
+      <div class="q-row q-sub"><span class="ql">AI tools — estimate</span><span class="qv r" id="yc5-ga-ai">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Marketing &amp; PR — estimate</span><span class="qv r" id="yc5-ga-mktg">—</span></div>
+      <div class="q-row q-sub"><span class="ql">Trade shows &amp; travel · 8–10 shows — estimate</span><span class="qv r" id="yc5-ga-shows">—</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">Total Costs</span><span class="qv b r" id="yc5-tot">—</span></div>
+      <div class="qdiv"></div>
+      <div class="q-row"><span class="ql" style="font-size:10px;color:var(--sub)">smthg<span style="color:var(--tf)">.</span> Net</span><span class="qv" style="font-size:11px" id="yc5-net">—</span></div>
+      <div class="q-row"><span class="ql" style="font-weight:700;color:var(--ink)">EBIT</span><span class="qv b" id="yc5-ebit">—</span></div>
+    </div>
+  </div>
+
+</div><!-- /y-grid costs -->
+
+<div style="background:#EDFAF3;border:1px solid var(--rule);border-left:4px solid #1A7A4A;padding:16px 22px;margin:28px 0">
+  <div style="font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#1A7A4A;margin-bottom:8px">Break-Even</div>
+  <div style="font-size:14px;color:var(--ink);line-height:1.7">At defaults (72 → 4,800 drops/yr, 4 founders × $10K/mo, ops team from Headcount Roadmap), EBIT turns positive in <strong>Year 3</strong>. Cumulative break-even in <strong>Year 4</strong>. Adjust drops and rate above — all numbers recalculate live.</div>
+</div>
+
+<div class="ctw">
+<table class="ct">
+<thead>
+  <tr>
+    <th style="text-align:left;min-width:220px">Metric</th>
+    <th>Year 1</th><th>Year 2</th><th>Year 3</th><th>Year 4</th><th>Year 5</th>
+  </tr>
+</thead>
+<tbody>
+
+<tr class="cat"><td colspan="6">Scale</td></tr>
+<tr><td>Active designers</td>
+  <td id="yt-des-1">—</td><td id="yt-des-2">—</td><td id="yt-des-3">—</td><td id="yt-des-4">—</td><td id="yt-des-5">—</td></tr>
+<tr><td>Drops / designer / mo</td>
+  <td id="yt-freq-1">—</td><td id="yt-freq-2">—</td><td id="yt-freq-3">—</td><td id="yt-freq-4">—</td><td id="yt-freq-5">—</td></tr>
+<tr><td>Total drops / year</td>
+  <td id="yt-drops-1">—</td><td id="yt-drops-2">—</td><td id="yt-drops-3">—</td><td id="yt-drops-4">—</td><td id="yt-drops-5">—</td></tr>
+<tr><td>Annual GMV <span style="font-size:11px;color:var(--sub)">(150 items × $200 AOV)</span></td>
+  <td id="yt-gmv-1">—</td><td id="yt-gmv-2">—</td><td id="yt-gmv-3">—</td><td id="yt-gmv-4">—</td><td id="yt-gmv-5">—</td></tr>
+
+<tr class="cat"><td colspan="6">Revenue</td></tr>
+<tr><td>Platform fee (10% GMV)</td>
+  <td class="pos" id="yt-tfr-1">—</td><td class="pos" id="yt-tfr-2">—</td><td class="pos" id="yt-tfr-3">—</td><td class="pos" id="yt-tfr-4">—</td><td class="pos" id="yt-tfr-5">—</td></tr>
+<tr><td>Designer subscriptions</td>
+  <td class="pos" id="yt-sub-1">—</td><td class="pos" id="yt-sub-2">—</td><td class="pos" id="yt-sub-3">—</td><td class="pos" id="yt-sub-4">—</td><td class="pos" id="yt-sub-5">—</td></tr>
+<tr><td>Organic share <span style="font-size:11px;color:var(--sub)">(inf. fee retained on organic GMV)</span></td>
+  <td class="pos" id="yt-org-1">—</td><td class="pos" id="yt-org-2">—</td><td class="pos" id="yt-org-3">—</td><td class="pos" id="yt-org-4">—</td><td class="pos" id="yt-org-5">—</td></tr>
+<tr class="sub"><td>Total Revenue</td>
+  <td class="pos" id="yt-rev-1">—</td><td class="pos" id="yt-rev-2">—</td><td class="pos" id="yt-rev-3">—</td><td class="pos" id="yt-rev-4">—</td><td class="pos" id="yt-rev-5">—</td></tr>
+
+<tr class="cat"><td colspan="6">Costs</td></tr>
+<tr><td>Variable <span style="font-size:11px;color:var(--sub)">(VTO + Stripe + Fraud)</span></td>
+  <td class="neg" id="yt-var-1">—</td><td class="neg" id="yt-var-2">—</td><td class="neg" id="yt-var-3">—</td><td class="neg" id="yt-var-4">—</td><td class="neg" id="yt-var-5">—</td></tr>
+<tr><td>Ops team <span style="font-size:11px;color:var(--sub)">(<a href="smthg_operationsteam.html" style="color:var(--sub)">Headcount</a> · mo × 12)</span></td>
+  <td class="neg" id="yt-ops-1">—</td><td class="neg" id="yt-ops-2">—</td><td class="neg" id="yt-ops-3">—</td><td class="neg" id="yt-ops-4">—</td><td class="neg" id="yt-ops-5">—</td></tr>
+<tr><td>Core team salary <span style="font-size:11px;color:var(--sub)">(Y1 actual · Y2–Y5 count × rate)</span></td>
+  <td class="neg" id="yt-core-1">—</td><td class="neg" id="yt-core-2">—</td><td class="neg" id="yt-core-3">—</td><td class="neg" id="yt-core-4">—</td><td class="neg" id="yt-core-5">—</td></tr>
+<tr><td>G&amp;A <span style="font-size:11px;color:var(--sub)">(tools + marketing + legal)</span></td>
+  <td class="neg" id="yt-ga-1">—</td><td class="neg" id="yt-ga-2">—</td><td class="neg" id="yt-ga-3">—</td><td class="neg" id="yt-ga-4">—</td><td class="neg" id="yt-ga-5">—</td></tr>
+<tr class="sub"><td>Total Costs</td>
+  <td class="neg" id="yt-tot-1">—</td><td class="neg" id="yt-tot-2">—</td><td class="neg" id="yt-tot-3">—</td><td class="neg" id="yt-tot-4">—</td><td class="neg" id="yt-tot-5">—</td></tr>
+
+<tr class="cat"><td colspan="6">Result</td></tr>
+<tr class="tot"><td>EBIT</td>
+  <td id="yt-ebit-1">—</td><td id="yt-ebit-2">—</td><td id="yt-ebit-3">—</td><td id="yt-ebit-4">—</td><td id="yt-ebit-5">—</td></tr>
+<tr><td>EBIT margin</td>
+  <td id="yt-margin-1">—</td><td id="yt-margin-2">—</td><td id="yt-margin-3">—</td><td id="yt-margin-4">—</td><td id="yt-margin-5">—</td></tr>
+<tr><td>Cumulative EBIT</td>
+  <td id="yt-cum-1">—</td><td id="yt-cum-2">—</td><td id="yt-cum-3">—</td><td id="yt-cum-4">—</td><td id="yt-cum-5">—</td></tr>
+
+</tbody>
+</table>
+</div>
+<p style="font-size:11px;color:var(--sub);margin-top:12px;line-height:1.6">Unit economics from Section 02: 150 items/drop, $200 AOV, 10% platform fee, 50% VTO × 5 tries at $0.10 (Shopify), Stripe 2.9% + $0.30/order, Stripe Radar 0.05%. Designer frequency: once/3mo (4 drops/yr per designer) for all years.25×/mo (÷15), Y4 1.5×/mo (÷18), Y5 2×/mo (÷24). Ops team from <a href="smthg_operationsteam.html" style="color:var(--sub)">Headcount Roadmap</a> (mo × 12): Y1 $11.5K, Y2 $43K, Y3 $100K, Y4 $185K, Y5 $320K. Y1 fixed costs (core team + ops team + G&amp;A) computed dynamically from Section 01 total + contingency buffer — matches Section 02 Net P&amp;L. Organic share per year (retained influencer fee on non-influencer GMV): Y1 5% · Y2 20% · Y3 35% · Y4 50% · Y5 60% — source: <a href="TFmvpcosts.html" style="color:var(--sub)">TFmvpcosts.html</a>. All figures indicative.</p>
+
+</div><!-- /s04-body -->
+
+<!-- ═══ SECTION 05: APPENDIX ═══ -->
+<div class="proj-sep" id="s05">
+  <span class="sn">05</span>
+  <span class="st">Appendix · Variable Cost Reference</span>
+  <span class="ss">Not included in $500K envelope · scale with GMV</span>
+  <button class="sec-toggle-btn" onclick="toggleSec('s05-body',this)" title="collapse/expand">▾</button>
+</div>
+<div class="ni-body" style="background:white;border:1px solid var(--rule);border-radius:8px;margin-top:24px" id="s05-body">
+
+    <!-- 3 VARIABLE COST PANELS -->
+    <div class="var-panels">
+
+      <!-- VTO -->
+      <div class="var-panel">
+        <div class="var-panel-hdr vto">Virtual Try-On (VTO)</div>
+        <div class="var-tbl-wrap"><table>
+          <thead>
+            <tr><th>Quarter</th><th class="num">VTO tries</th><th class="num">Rate</th><th class="num">Cost</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Q1</td><td class="num" id="vp-vto-tries-1">—</td><td class="num" id="vp-vto-rate-1">—</td><td class="num" id="vp-vto-cost-1">—</td></tr>
+            <tr><td>Q2</td><td class="num" id="vp-vto-tries-2">—</td><td class="num" id="vp-vto-rate-2">—</td><td class="num" id="vp-vto-cost-2">—</td></tr>
+            <tr><td>Q3</td><td class="num" id="vp-vto-tries-3">—</td><td class="num" id="vp-vto-rate-3">—</td><td class="num" id="vp-vto-cost-3">—</td></tr>
+            <tr><td>Q4</td><td class="num" id="vp-vto-tries-4">—</td><td class="num" id="vp-vto-rate-4">—</td><td class="num" id="vp-vto-cost-4">—</td></tr>
+            <tr><td>Year 1</td><td class="num" id="vp-vto-tries-y">—</td><td></td><td class="num" id="vp-vto-cost-y">—</td></tr>
+          </tbody>
+        </table></div>
+        <div class="var-panel-note" id="vp-vto-note">Shopify VTO $0.10/try · Kivisense flat $888/mo viable above 26,640 tries/qtr · Source: TFmvpcosts.html</div>
+      </div>
+
+      <!-- PAYMENT PROCESSING -->
+      <div class="var-panel">
+        <div class="var-panel-hdr payment">Payment Processing (Stripe)</div>
+        <div class="var-tbl-wrap"><table>
+          <thead>
+            <tr><th>Quarter</th><th class="num">GMV</th><th class="num">Orders</th><th class="num">Fees</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Q1</td><td class="num" id="vp-pay-gmv-1">—</td><td class="num" id="vp-pay-ord-1">—</td><td class="num" id="vp-pay-fee-1">—</td></tr>
+            <tr><td>Q2</td><td class="num" id="vp-pay-gmv-2">—</td><td class="num" id="vp-pay-ord-2">—</td><td class="num" id="vp-pay-fee-2">—</td></tr>
+            <tr><td>Q3</td><td class="num" id="vp-pay-gmv-3">—</td><td class="num" id="vp-pay-ord-3">—</td><td class="num" id="vp-pay-fee-3">—</td></tr>
+            <tr><td>Q4</td><td class="num" id="vp-pay-gmv-4">—</td><td class="num" id="vp-pay-ord-4">—</td><td class="num" id="vp-pay-fee-4">—</td></tr>
+            <tr><td>Year 1</td><td class="num" id="vp-pay-gmv-y">—</td><td class="num" id="vp-pay-ord-y">—</td><td class="num" id="vp-pay-fee-y">—</td></tr>
+          </tbody>
+        </table></div>
+        <div class="var-panel-note" id="vp-pay-note">Stripe: 2.9% × GMV + $0.30 × orders · Funded from GMV revenue</div>
+      </div>
+
+      <!-- FRAUD PREVENTION -->
+      <div class="var-panel">
+        <div class="var-panel-hdr fraud">Fraud Prevention (Stripe Radar)</div>
+        <div class="var-tbl-wrap"><table>
+          <thead>
+            <tr><th>Quarter</th><th class="num">GMV</th><th class="num">Rate</th><th class="num">Cost</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Q1</td><td class="num" id="vp-fraud-gmv-1">—</td><td class="num">0.05%</td><td class="num" id="vp-fraud-cost-1">—</td></tr>
+            <tr><td>Q2</td><td class="num" id="vp-fraud-gmv-2">—</td><td class="num">0.05%</td><td class="num" id="vp-fraud-cost-2">—</td></tr>
+            <tr><td>Q3</td><td class="num" id="vp-fraud-gmv-3">—</td><td class="num">0.05%</td><td class="num" id="vp-fraud-cost-3">—</td></tr>
+            <tr><td>Q4</td><td class="num" id="vp-fraud-gmv-4">—</td><td class="num">0.05%</td><td class="num" id="vp-fraud-cost-4">—</td></tr>
+            <tr><td>Year 1</td><td class="num" id="vp-fraud-gmv-y">—</td><td></td><td class="num" id="vp-fraud-cost-y">—</td></tr>
+          </tbody>
+        </table></div>
+        <div class="var-panel-note">Stripe Radar: 0.05% per transaction value · Built-in ML fraud detection · No separate setup required</div>
+      </div>
+
+    </div><!-- /var-panels -->
+
+    <!-- TOTAL VARIABLE BAR -->
+    <div class="var-total">
+      <div class="var-total-item">
+        <div class="vt-label">Total variable — Year 1</div>
+        <div class="vt-val" id="vt-total">—</div>
+      </div>
+      <div class="var-total-item">
+        <div class="vt-label">VTO cost</div>
+        <div class="vt-val" id="vt-vto">—</div>
+      </div>
+      <div class="var-total-item">
+        <div class="vt-label">Payment processing</div>
+        <div class="vt-val" id="vt-pay">—</div>
+      </div>
+      <div class="var-total-item">
+        <div class="vt-label">Fraud prevention</div>
+        <div class="vt-val" id="vt-fraud">—</div>
+      </div>
+      <div class="var-total-note">All variable costs funded from platform GMV revenue — not charged to the $500K fixed envelope</div>
+    </div>
+
+    <!-- T&E -->
+    <div class="ni-section-title" style="margin-top:8px">Travel &amp; Representation (T&amp;E) — Excluded</div>
+    <p class="ni-sub-note">Additional fairs beyond the 4 budgeted shows (MAGIC LV, Who's Next Paris, Coterie NYC, Premium Berlin), plus investor meetings and designer trips. Indicative: ~$3,924/mo (~$47K/year) based on 4 additional trips/year × 2 attendees. Budget to be agreed separately.</p>
+
+    <!-- FASHION FAIRS -->
+    <div class="ni-section-title">Fashion Fairs Reference — Europe &amp; US · 2026–2027</div>
+    <p class="ni-sub-note">Indicative dates and ticket pricing. 2027 dates estimated — confirm 6 months in advance. Classified as non-retailer / solution provider at all events. ★ = budgeted in Year 1 travel above.</p>
+
+    <!-- FRANCE -->
+    <div style="font-size:10px;font-weight:700;color:var(--sub);letter-spacing:.08em;text-transform:uppercase;padding:12px 0 6px">France — Paris</div>
+    <table class="ni-tbl">
+      <thead>
+        <tr><th>Event</th><th>Dates 2026</th><th>Dates 2027 (est.)</th><th>Pass type</th><th class="num">Price</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="https://www.whosnext.com/en/whats-next/trade-show" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">★ Who's Next · Première Classe</a></td>
+          <td>17–20 Jan 2026 · Porte de Versailles</td>
+          <td>~16–19 Jan 2027</td>
+          <td>Solution provider / industry visitor</td>
+          <td class="num">€300–€500/pp</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.whosnext.com/en/whats-next/trade-show" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Who's Next · Sep edition</a></td>
+          <td>~Sep 2026 · Porte de Versailles</td>
+          <td>~Sep 2027</td>
+          <td>Solution provider / industry visitor</td>
+          <td class="num">€300–€500/pp</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.tranoi.com/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Tranoï Paris</a></td>
+          <td>~18–22 Jan 2026 · Carrousel du Louvre (concurrent with Who's Next)</td>
+          <td>~Jan 2027</td>
+          <td>Trade professional — accredited buyers free</td>
+          <td class="num">Free if accredited</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.tranoi.com/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Tranoï Paris · Sep</a></td>
+          <td>~Sep 2026 · Palais de la Bourse</td>
+          <td>~Sep 2027</td>
+          <td>Trade professional — accredited buyers free</td>
+          <td class="num">Free if accredited</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- GERMANY -->
+    <div style="font-size:10px;font-weight:700;color:var(--sub);letter-spacing:.08em;text-transform:uppercase;padding:12px 0 6px">Germany — Berlin</div>
+    <table class="ni-tbl">
+      <thead>
+        <tr><th>Event</th><th>Dates 2026</th><th>Dates 2027 (est.)</th><th>Pass type</th><th class="num">Price</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="https://www.premiumberlin.com/en/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Premium Berlin · Jan</a></td>
+          <td>~7–9 Jan 2026 · Messe Berlin (Berlin Fashion Week)</td>
+          <td>~Jan 2027</td>
+          <td>Trade visitor — free qualified buyers; solution provider badge</td>
+          <td class="num">Free – €300/pp</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.premiumberlin.com/en/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">★ Premium Berlin · Jul</a></td>
+          <td>2–4 Jul 2026 · Messe Berlin</td>
+          <td>~Jul 2027</td>
+          <td>Trade visitor — free qualified buyers; solution provider badge</td>
+          <td class="num">Free – €300/pp</td>
+        </tr>
+        <tr>
+          <td><a href="https://seekexhibitions.com/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">SEEK Berlin</a></td>
+          <td>2–4 Jul 2026 · Station Berlin (concurrent with Premium)</td>
+          <td>~Jul 2027</td>
+          <td>Trade visitor — sustainability &amp; streetwear focus</td>
+          <td class="num">Free – €150/pp</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.fashionweekberlin.com/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Berlin Fashion Week</a></td>
+          <td>Jan &amp; Jul 2026 · Berlin (umbrella of Premium + SEEK)</td>
+          <td>Jan &amp; Jul 2027</td>
+          <td>Various show passes during the week</td>
+          <td class="num">€200–€800</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- ITALY -->
+    <div style="font-size:10px;font-weight:700;color:var(--sub);letter-spacing:.08em;text-transform:uppercase;padding:12px 0 6px">Italy — Milan &amp; Florence</div>
+    <table class="ni-tbl">
+      <thead>
+        <tr><th>Event</th><th>Dates 2026</th><th>Dates 2027 (est.)</th><th>Pass type</th><th class="num">Price</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="https://www.pittimmagine.com/en/fairs/uomo.html" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Pitti Uomo</a></td>
+          <td>14–17 Jan 2026 · Fortezza da Basso, Florence</td>
+          <td>~Jan 2027</td>
+          <td>Trade visitor — free for qualified operators</td>
+          <td class="num">Free if qualified</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.pittimmagine.com/en/fairs/uomo.html" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Pitti Uomo · Jun</a></td>
+          <td>17–20 Jun 2026 · Fortezza da Basso, Florence</td>
+          <td>~Jun 2027</td>
+          <td>Trade visitor — free for qualified operators</td>
+          <td class="num">Free if qualified</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.whitemilano.com/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">White Milano</a></td>
+          <td>~14–17 Jan 2026 · Superstudio Maxi, Milan (MFW Men's)</td>
+          <td>~Jan 2027</td>
+          <td>Trade professional — contemporary &amp; accessible luxury</td>
+          <td class="num">€200–€400/pp</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.whitemilano.com/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">White Milano · Sep</a></td>
+          <td>~18–22 Sep 2026 · Superstudio Maxi, Milan (MFW Women's)</td>
+          <td>~Sep 2027</td>
+          <td>Trade professional — contemporary &amp; accessible luxury</td>
+          <td class="num">€200–€400/pp</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.milanoUnica.it/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Milano Unica</a></td>
+          <td>~11–13 Feb 2026 · Fiera Milano, Rho (textile &amp; fabric)</td>
+          <td>~Feb 2027</td>
+          <td>Industry professional registration</td>
+          <td class="num">Free if accredited</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.milanoUnica.it/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Milano Unica · Sep</a></td>
+          <td>~Sep 2026 · Fiera Milano, Rho</td>
+          <td>~Sep 2027</td>
+          <td>Industry professional registration</td>
+          <td class="num">Free if accredited</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- NETHERLANDS -->
+    <div style="font-size:10px;font-weight:700;color:var(--sub);letter-spacing:.08em;text-transform:uppercase;padding:12px 0 6px">Netherlands — Amsterdam</div>
+    <table class="ni-tbl">
+      <thead>
+        <tr><th>Event</th><th>Dates 2026</th><th>Dates 2027 (est.)</th><th>Pass type</th><th class="num">Price</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="https://www.modefabriek.nl/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Modefabriek Amsterdam</a></td>
+          <td>25–26 Jan 2026 · Westergasfabriek, Amsterdam</td>
+          <td>~Jan 2027</td>
+          <td>Trade professional — contemporary, sustainable &amp; accessible fashion</td>
+          <td class="num">€95–€195/pp</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.modefabriek.nl/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Modefabriek · Jul</a></td>
+          <td>5–6 Jul 2026 · Westergasfabriek, Amsterdam</td>
+          <td>~Jul 2027</td>
+          <td>Trade professional</td>
+          <td class="num">€95–€195/pp</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.amsterdamfashionweek.com/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Amsterdam Fashion Week</a></td>
+          <td>Jan &amp; Jul 2026 · Amsterdam (concurrent with Modefabriek)</td>
+          <td>Jan &amp; Jul 2027</td>
+          <td>Industry accreditation — runway shows &amp; presentations</td>
+          <td class="num">Free if accredited</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- BELGIUM -->
+    <div style="font-size:10px;font-weight:700;color:var(--sub);letter-spacing:.08em;text-transform:uppercase;padding:12px 0 6px">Belgium — Antwerp</div>
+    <table class="ni-tbl">
+      <thead>
+        <tr><th>Event</th><th>Dates 2026</th><th>Dates 2027 (est.)</th><th>Pass type</th><th class="num">Price</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="https://www.momu.be/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Antwerp Fashion / MoMu</a></td>
+          <td>Year-round · MoMu, Antwerp</td>
+          <td>Year-round</td>
+          <td>No dedicated trade fair — Antwerp is a design &amp; retail hub (Royal Academy graduates). Designer scouting via showrooms, not a fair.</td>
+          <td class="num">—</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.mode2.be/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Mode 2.0 Brussels</a></td>
+          <td>~Feb 2026 · Brussels</td>
+          <td>~Feb 2027</td>
+          <td>Trade visitor — Belgian &amp; Benelux contemporary fashion</td>
+          <td class="num">Free – €100/pp</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- UK -->
+    <div style="font-size:10px;font-weight:700;color:var(--sub);letter-spacing:.08em;text-transform:uppercase;padding:12px 0 6px">UK — London</div>
+    <table class="ni-tbl">
+      <thead>
+        <tr><th>Event</th><th>Dates 2026</th><th>Dates 2027 (est.)</th><th>Pass type</th><th class="num">Price</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="https://purelondon.com/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Pure London</a></td>
+          <td>~9–11 Feb 2026 · Olympia London</td>
+          <td>~Feb 2027</td>
+          <td>Trade professional — contemporary womenswear &amp; accessories</td>
+          <td class="num">Free if registered</td>
+        </tr>
+        <tr>
+          <td><a href="https://purelondon.com/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Pure London · Jul</a></td>
+          <td>~Jul 2026 · Olympia London</td>
+          <td>~Jul 2027</td>
+          <td>Trade professional</td>
+          <td class="num">Free if registered</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.businessoffashion.com/events/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">Business of Fashion — VOICES</a></td>
+          <td>~Nov 2026 · UK (Oxfordshire, Soho Farmhouse)</td>
+          <td>~Nov 2027</td>
+          <td>Invitation-only — senior industry only</td>
+          <td class="num">$3,000–$5,000+</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- US -->
+    <div style="font-size:10px;font-weight:700;color:var(--sub);letter-spacing:.08em;text-transform:uppercase;padding:12px 0 6px">US — New York &amp; Las Vegas</div>
+    <table class="ni-tbl" style="margin-bottom:0">
+      <thead>
+        <tr><th>Event</th><th>Dates 2026</th><th>Dates 2027 (est.)</th><th>Pass type</th><th class="num">Price</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="https://nrfbigshow.nrf.com/register" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">NRF Big Show</a></td>
+          <td>~12–14 Jan 2026 · Javits Center, NYC</td>
+          <td>~Jan 2027</td>
+          <td>All-Access — non-retailer NRF member</td>
+          <td class="num">$2,500</td>
+        </tr>
+        <tr>
+          <td><a href="https://nrfbigshow.nrf.com/register" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">NRF Big Show</a></td>
+          <td>~12–14 Jan 2026 · Javits Center, NYC</td>
+          <td>~Jan 2027</td>
+          <td>All-Access — non-retailer non-member</td>
+          <td class="num">$3,700</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.magiconline.com/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">★ MAGIC Las Vegas</a></td>
+          <td>17–19 Feb 2026 · Las Vegas Convention Center</td>
+          <td>~Feb 2027</td>
+          <td>MAGIC Buyer registration</td>
+          <td class="num">$700/pp</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.coteriefashionevents.com/" target="_blank" rel="noopener" style="color:var(--tf);font-weight:600">★ Coterie New York</a></td>
+          <td>13–15 Sep 2026 · Javits Center, NYC</td>
+          <td>~Sep 2027</td>
+          <td>Trade buyer — invitation only, qualified buyers</td>
+          <td class="num">Free if qualified</td>
+        </tr>
+        <tr>
+          <td>Fashion Tech Forum / FTF</td>
+          <td>Various 2026 · NYC</td>
+          <td>Various 2027</td>
+          <td>Standard attendee</td>
+          <td class="num">$1,500–$3,000</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+</div><!-- /wrap -->
+<a class="back-to-top" id="btt" href="#" aria-label="Back to top">↑</a>
+<script>
+var vtoMode='shopify';
+function setVTO(m){
+  vtoMode=m;
+  document.getElementById('btn-shopify').classList.toggle('on',m==='shopify');
+  document.getElementById('btn-kivisense').classList.toggle('on',m==='kivisense');
+  document.getElementById('cn-vto').textContent=m==='shopify'?'Shopify $0.10/try':'Kivisense $888/mo flat';
+  calcS01();
+}
+function adjD(q,d){
+  var el=document.getElementById('d'+q);
+  el.value=Math.max(0,(parseInt(el.value)||0)+d);
+  proj();
+}
+function fmtM(n){
+  if(Math.abs(n)>=1000000)return '$'+(n/1000000).toFixed(2)+'M';
+  if(Math.abs(n)>=1000)return '$'+(n/1000).toFixed(0)+'K';
+  return '$'+Math.round(Math.abs(n)).toLocaleString();
+}
+function fmtN(n){return Math.round(n).toLocaleString();}
+function g(id){return parseFloat(document.getElementById(id).value)||0;}
+function s(id,v){var el=document.getElementById(id);if(el)el.textContent=v;}
+function fmtD(n){return '$'+Math.round(n).toLocaleString();}
+
+// ── Travel event data & logic ──
+var TR_EVENTS={
+  magic:   {q:0,nights:4,days:4,pass:700, fltNL:880, fltI:1420,hotel:195,taxi:200,pdiem:100},
+  whonext: {q:0,nights:3,days:3,pass:400, fltNL:200, fltI:700, hotel:310,taxi:110,pdiem:110},
+  coterie: {q:2,nights:4,days:4,pass:600, fltNL:660, fltI:1100,hotel:275,taxi:200,pdiem:110},
+  premium: {q:2,nights:3,days:3,pass:300, fltNL:220, fltI:680, hotel:210,taxi:100,pdiem:90}
+};
+function trCost(key,n){
+  var e=TR_EVENTS[key],intl=Math.max(0,n-1);
+  return Math.round(n*e.pass + e.fltNL + intl*e.fltI + n*e.nights*e.hotel + n*e.taxi + n*e.days*e.pdiem);
+}
+function calcTravel(){
+  var FX=[0,0,0,0];
+  Object.keys(TR_EVENTS).forEach(function(key){
+    var cb=document.getElementById('tr-cb-'+key);
+    var nEl=document.getElementById('tr-n-'+key);
+    var row=document.getElementById('tr-row-'+key);
+    if(!cb)return;
+    var on=cb.checked, n=parseInt(nEl?nEl.value:2)||2, e=TR_EVENTS[key];
+    var intl=Math.max(0,n-1);
+    var cost=on?trCost(key,n):0;
+    // dim main header row and all sub-rows
+    if(row)row.classList.toggle('tr-unchecked',!on);
+    document.querySelectorAll('.tr-sub-'+key).forEach(function(r){r.classList.toggle('tr-unchecked',!on);});
+    // main header: quarter cost + year total
+    var qKey=['q1','q2','q3','q4'][e.q];
+    var cEl=document.getElementById('tr-'+qKey+'-'+key);
+    if(cEl)cEl.innerHTML=on?fmtD(cost):'<span class="na">—</span>';
+    var yEl=document.getElementById('tr-yr-'+key);
+    if(yEl)yEl.innerHTML=on?fmtD(cost):'<span class="na">—</span>';
+    // sub-row amount cells — Q column
+    function subQ(id,val){
+      var el=document.getElementById(id); if(!el)return;
+      el.innerHTML=on?fmtD(val):'<span class="na">—</span>';
+    }
+    var q=e.q; // quarter index 0-3
+    // passes
+    subQ('tr-s-'+key+'-pass',    n*e.pass);
+    subQ('tr-sy-'+key+'-pass',   n*e.pass);
+    var rPass=document.getElementById('tr-sr-'+key+'-pass');
+    if(rPass)rPass.innerHTML='$'+e.pass+'/person × '+n+' · trade registration';
+    // flt-nl (always 1 person from NL)
+    subQ('tr-s-'+key+'-flt-nl',  e.fltNL);
+    subQ('tr-sy-'+key+'-flt-nl', e.fltNL);
+    // flt-intl
+    subQ('tr-s-'+key+'-flt-intl',  intl>0?intl*e.fltI:0);
+    subQ('tr-sy-'+key+'-flt-intl', intl>0?intl*e.fltI:0);
+    var rIntl=document.getElementById('tr-sr-'+key+'-flt-intl');
+    if(rIntl)rIntl.innerHTML=intl>0?(intl+' person'+(intl>1?'s':'')+' × $'+e.fltI):'1 person from NL only';
+    // hotel
+    subQ('tr-s-'+key+'-hotel',  n*e.nights*e.hotel);
+    subQ('tr-sy-'+key+'-hotel', n*e.nights*e.hotel);
+    var rHotel=document.getElementById('tr-sr-'+key+'-hotel');
+    if(rHotel)rHotel.innerHTML=n+' room'+(n>1?'s':'')+' × '+e.nights+' nights × $'+e.hotel+'/night';
+    // taxi
+    subQ('tr-s-'+key+'-taxi',  n*e.taxi);
+    subQ('tr-sy-'+key+'-taxi', n*e.taxi);
+    var rTaxi=document.getElementById('tr-sr-'+key+'-taxi');
+    if(rTaxi)rTaxi.innerHTML='$'+e.taxi+'/person × '+n;
+    // per diem
+    subQ('tr-s-'+key+'-pdiem',  n*e.days*e.pdiem);
+    subQ('tr-sy-'+key+'-pdiem', n*e.days*e.pdiem);
+    var rPdiem=document.getElementById('tr-sr-'+key+'-pdiem');
+    if(rPdiem)rPdiem.innerHTML='$'+e.pdiem+'/person/day × '+n+' people × '+e.days+' days';
+    FX[e.q]+=cost;
+  });
+  // subtotal row
+  var totQ1=FX[0],totQ3=FX[2],totYr=FX[0]+FX[1]+FX[2]+FX[3];
+  var sq1=document.getElementById('tr-sub-q1'),sq3=document.getElementById('tr-sub-q3'),syr=document.getElementById('tr-sub-yr');
+  if(sq1)sq1.innerHTML=totQ1>0?fmtD(totQ1):'<span class="na">—</span>';
+  if(sq3)sq3.innerHTML=totQ3>0?fmtD(totQ3):'<span class="na">—</span>';
+  if(syr)syr.innerHTML=totYr>0?fmtD(totYr)+'<span class="eur">≈€'+Math.round(totYr*0.91).toLocaleString()+'</span>':'<span class="na">—</span>';
+  // "all" master checkbox state
+  var keys=Object.keys(TR_EVENTS);
+  var allOn=keys.every(function(k){var cb=document.getElementById('tr-cb-'+k);return cb&&cb.checked;});
+  var noneOn=keys.every(function(k){var cb=document.getElementById('tr-cb-'+k);return cb&&!cb.checked;});
+  var allCb=document.getElementById('tr-all');
+  if(allCb){allCb.checked=allOn;allCb.indeterminate=!allOn&&!noneOn;}
+  return FX;
+}
+function toggleAllTravel(on){
+  Object.keys(TR_EVENTS).forEach(function(k){var cb=document.getElementById('tr-cb-'+k);if(cb)cb.checked=on;});
+  calcS01();
+}
+function toggleSubRows(key,btn){
+  var open=btn.textContent==='▾';
+  document.querySelectorAll('.tr-sub-'+key).forEach(function(r){r.classList.toggle('tr-hidden',open);});
+  btn.textContent=open?'▸':'▾';
+}
+function toggleSec(bodyId,btn){
+  var body=document.getElementById(bodyId);
+  if(!body)return;
+  var collapsed=body.classList.toggle('sc-collapsed');
+  body.style.display=collapsed?'none':'';
+  btn.textContent=collapsed?'▸':'▾';
+}
+function initGrpToggles(){
+  var tbody=document.querySelector('#s01-body table tbody');
+  if(!tbody)return;
+  var rows=Array.from(tbody.rows);
+  var curGrp=null;
+  var grpMap={};
+  var cls=['ppl','hire','finleg','optools','ai','mktg','travel','onetime'];
+  rows.forEach(function(row){
+    if(row.classList.contains('sec-hdr')){
+      for(var i=0;i<cls.length;i++){
+        if(row.classList.contains(cls[i])){
+          curGrp=cls[i];
+          if(!grpMap[curGrp])grpMap[curGrp]=[];
+          row.dataset.grpKey=curGrp;
+          break;
+        }
+      }
+      var td=row.cells[0];
+      td.style.display='flex';
+      td.style.alignItems='center';
+      // wrap existing children so flex pushes total+btn to right
+      var textWrapper=document.createElement('span');
+      textWrapper.style.flex='1';
+      while(td.firstChild)textWrapper.appendChild(td.firstChild);
+      td.appendChild(textWrapper);
+      // toggle button
+      var btn=document.createElement('button');
+      btn.className='grp-toggle-btn';
+      btn.textContent='▾';
+      td.appendChild(btn);
+      row.style.cursor='pointer';
+      row.addEventListener('click',function(){toggleGrp(this.dataset.grpKey,this);});
+    } else if(curGrp&&!row.classList.contains('total-row')){
+      if(!grpMap[curGrp])grpMap[curGrp]=[];
+      grpMap[curGrp].push(row);
+    }
+  });
+  window._grpMap=grpMap;
+}
+function toggleGrp(grp,headerRow){
+  var rows=(window._grpMap||{})[grp]||[];
+  var nowCollapsed=headerRow.classList.toggle('grp-collapsed');
+  var btn=headerRow.querySelector('.grp-toggle-btn');
+  rows.forEach(function(r){if(!r.classList.contains('subtotal')){r.style.display=nowCollapsed?'none':'';}});
+  if(btn)btn.textContent=nowCollapsed?'▸':'▾';
+}
+function toggleAllGrps(){
+  var btn=document.getElementById('collapse-all-btn');
+  var tbody=document.querySelector('#s01-body table tbody');
+  if(!tbody)return;
+  var allHdrs=Array.from(tbody.rows).filter(function(r){return r.dataset.grpKey;});
+  var anyExpanded=allHdrs.some(function(r){return !r.classList.contains('grp-collapsed');});
+  allHdrs.forEach(function(hdr){
+    var grp=hdr.dataset.grpKey;
+    var isCollapsed=hdr.classList.contains('grp-collapsed');
+    if(anyExpanded&&!isCollapsed)toggleGrp(grp,hdr);
+    if(!anyExpanded&&isCollapsed)toggleGrp(grp,hdr);
+  });
+  if(btn)btn.textContent=anyExpanded?'▾ Expand all':'▸ Collapse all';
+}
+
+function proj(){
+  var items=g('p-items'), aov=g('p-aov');
+  var tfFee=g('p-tf-fee')/100, inf=g('p-inf')/100;
+  var infShare=g('p-inf-share')/100;
+  var payPct=g('p-pay')/100, designers=g('p-designers');
+  var vtoA=g('p-vto-a')/100, vtoT=g('p-vto-t');
+
+  // Update slider display values
+  s('v-items',Math.round(items));
+  s('v-aov','$'+Math.round(aov));
+  s('v-tf-fee',(tfFee*100).toFixed(1)+'%');
+  s('v-inf',(inf*100).toFixed(0)+'%');
+  s('v-pay',(payPct*100).toFixed(1)+'%');
+  s('v-vto-a',(vtoA*100).toFixed(0)+'%');
+  s('v-vto-t',Math.round(vtoT)+'×');
+  s('v-designers',Math.round(designers));
+  s('cn-tf',(tfFee*100).toFixed(0)+'%');
+  s('cn-pay',(payPct*100).toFixed(1)+'%');
+  s('cn-ds',Math.round(designers));
+  s('cn-pay',(payPct*100).toFixed(1)+'%');
+  var infSharePct=Math.round(infShare*100);
+  s('v-inf-share',infSharePct+'%');
+  var lbl1=document.getElementById('v-inf-pct-label');if(lbl1)lbl1.textContent=infSharePct+'%';
+  var lbl2=document.getElementById('v-org-pct-label');if(lbl2)lbl2.textContent=(100-infSharePct)+'%';
+
+  var subQ=designers*500*3; // subscription revenue per quarter
+
+  // Read fixed costs from Section 01 Grand Total row (data-usd attributes)
+  var s1fixArr=[1,2,3,4].map(function(q){var el=document.getElementById('s1-q'+q);return el?parseFloat(el.getAttribute('data-usd'))||0:0;});
+  var s1fixY=(function(){var el=document.getElementById('s1-yr');return el?parseFloat(el.getAttribute('data-usd'))||0:500000;})();
+
+  var totGMV=0,totOrd=0,totRev=0,totVTO=0,totPay=0,totFraud=0;
+  var vpData=[];
+
+  [1,2,3,4].forEach(function(q){
+    var drops=parseInt(document.getElementById('d'+q).value)||0;
+    var orders=drops*items;
+    var gmv=orders*aov;
+    var tfRev=gmv*tfFee;
+    var orgInfFee=gmv*(1-infShare)*inf; // influencer commission retained by SMTHG on organic/direct sales
+    var payCost=gmv*payPct+orders*0.30;
+    var vtoTries=orders*vtoA*vtoT;
+    var vtoCost=vtoMode==='shopify'?vtoTries*0.10:888*3;
+    var fraudCost=gmv*0.0005;
+    var smthgNet=tfRev+orgInfFee+subQ-vtoCost-payCost-fraudCost;
+    var col=smthgNet>=0?'#1A7A4A':'var(--tf)';
+
+    s('q'+q+'h',fmtM(gmv)+' GMV');
+    s('q'+q+'-ord',fmtN(orders));
+    s('q'+q+'-gmv',fmtM(gmv));
+    s('q'+q+'-tfr','+'+fmtM(tfRev));
+    s('q'+q+'-org',orgInfFee>0?'+'+fmtM(orgInfFee):'—');
+    s('q'+q+'-sub','+'+fmtM(subQ));
+    s('q'+q+'-vto','−'+fmtM(vtoCost));
+    s('q'+q+'-pay','−'+fmtM(payCost));
+    var netEl=document.getElementById('q'+q+'-net');
+    if(netEl){netEl.textContent=(smthgNet>=0?'+':'')+fmtM(Math.abs(smthgNet));netEl.style.color=col;}
+    var moEl=document.getElementById('q'+q+'-mo');
+    if(moEl){var mo=smthgNet/3;moEl.textContent=(mo>=0?'+':'')+fmtM(Math.abs(mo));moEl.style.color=col;}
+
+    // Consolidated table
+    s('c-gmv'+q,fmtM(gmv));
+    s('c-tfr'+q,'+'+fmtM(tfRev+orgInfFee));
+    s('c-sub'+q,'+'+fmtM(subQ));
+    s('c-rev'+q,'+'+fmtM(tfRev+orgInfFee+subQ));
+    vpData.push({tries:vtoTries,vtoCost:vtoCost,gmv:gmv,orders:orders,payCost:payCost,fraudCost:fraudCost});
+    totFraud+=fraudCost;
+    s('c-vto'+q,'−'+fmtM(vtoCost));
+    s('c-pay'+q,'−'+fmtM(payCost));
+    s('c-fraud'+q,'−'+fmtM(fraudCost));
+    s('c-var'+q,'−'+fmtM(vtoCost+payCost+fraudCost));
+
+    // Fixed costs from Section 01 Grand Total
+    var fixed=s1fixArr[q-1];
+    s('c-fix'+q,'$'+Math.round(fixed).toLocaleString());
+    var net=tfRev+orgInfFee+subQ-fixed-vtoCost-payCost-fraudCost;
+    var netEl2=document.getElementById('c-net'+q);
+    if(netEl2){
+      netEl2.textContent=(net>=0?'+':'-')+fmtM(Math.abs(net));
+      netEl2.style.color=net>=0?'#7AE3B2':'#FF8A80';
+    }
+    // Revenue & Net summary block at top
+    var scRevEl=document.getElementById('sc-rev-q'+q);
+    if(scRevEl)scRevEl.textContent='+'+fmtM(tfRev+orgInfFee+subQ);
+    var scFixEl=document.getElementById('sc-fix-q'+q);
+    if(scFixEl)scFixEl.textContent='−'+fmtM(fixed+vtoCost+payCost+fraudCost);
+    var scNetEl=document.getElementById('sc-net-q'+q);
+    if(scNetEl){scNetEl.textContent=(net>=0?'+':'-')+fmtM(Math.abs(net));scNetEl.style.color=net>=0?'#1A7A4A':'var(--tf)';}
+    var ybEl=document.getElementById('yb-net'+q);
+    if(ybEl){ybEl.textContent=(net>=0?'+':'-')+fmtM(Math.abs(net));ybEl.className='yr-v '+(net>=0?'g':'r');}
+    // Variable-only net for Section 03 duplicate row
+    var varNet=tfRev+orgInfFee+subQ-vtoCost-payCost-fraudCost;
+    var snetEl=document.getElementById('c-snet'+q);
+    if(snetEl){snetEl.textContent=(varNet>=0?'+':'')+fmtM(Math.abs(varNet));snetEl.style.color=varNet>=0?'#7AE3B2':'#FF8A80';}
+
+    totGMV+=gmv; totOrd+=orders; totRev+=tfRev+orgInfFee+subQ; totVTO+=vtoCost; totPay+=payCost;
+  });
+
+  var totVar=totVTO+totPay+totFraud;
+  var totNet=totRev-s1fixY-totVar;
+  s('c-fixY','$'+Math.round(s1fixY).toLocaleString());
+  var snety=totRev-totVTO-totPay-totFraud;
+  var snetYEl=document.getElementById('c-snety');
+  if(snetYEl){snetYEl.textContent=(snety>=0?'+':'')+fmtM(Math.abs(snety));snetYEl.style.color=snety>=0?'#7AE3B2':'#FF8A80';}
+  s('yt-gmv',fmtM(totGMV));
+  s('yt-ord',fmtN(totOrd));
+  s('yt-rev','+'+fmtM(totRev));
+  s('yt-var','−'+fmtM(totVar));
+  var ytNetEl=document.getElementById('yt-net');
+  if(ytNetEl){ytNetEl.textContent=(totRev-totVar>=0?'+':'')+fmtM(Math.abs(totRev-totVar));ytNetEl.className='yr-v '+(totRev-totVar>=0?'g':'r');}
+  var s02b=document.getElementById('s02-badge');
+  if(s02b){var vn=totRev-totVar;s02b.textContent=(vn>=0?'+':'')+fmtM(Math.abs(vn))+' net (var)';}
+
+
+  // Consolidated year totals
+  var totTFR=totRev-designers*500*3*4; // platform fee only
+  var totSub=designers*500*3*4;
+  s('c-gmvy',fmtM(totGMV));
+  s('c-tfry','+'+fmtM(totTFR));
+  s('c-suby','+'+fmtM(totSub));
+  s('c-revy','+'+fmtM(totRev));
+  s('c-vtoy','−'+fmtM(totVTO));
+  s('c-payy','−'+fmtM(totPay));
+  s('c-fraudy','−'+fmtM(totFraud));
+  s('c-vary','−'+fmtM(totVar));
+
+  // Appendix Section 04 — dynamic tables
+  var vtoRate=vtoMode==='shopify'?'$0.10/try':'Kivisense $888/mo';
+  var vtoTriesY=0;
+  [0,1,2,3].forEach(function(i){
+    var q=i+1;
+    vtoTriesY+=vpData[i].tries;
+    s('vp-vto-tries-'+q,fmtN(Math.round(vpData[i].tries)));
+    s('vp-vto-rate-'+q,vtoRate);
+    s('vp-vto-cost-'+q,'~'+fmtM(vpData[i].vtoCost));
+    s('vp-pay-gmv-'+q,fmtM(vpData[i].gmv));
+    s('vp-pay-ord-'+q,fmtN(Math.round(vpData[i].orders)));
+    s('vp-pay-fee-'+q,'~'+fmtM(vpData[i].payCost));
+    s('vp-fraud-gmv-'+q,fmtM(vpData[i].gmv));
+    s('vp-fraud-cost-'+q,'~'+fmtM(vpData[i].fraudCost));
+  });
+  s('vp-vto-tries-y',fmtN(Math.round(vtoTriesY)));
+  s('vp-vto-cost-y','~'+fmtM(totVTO));
+  s('vp-pay-gmv-y',fmtM(totGMV));
+  s('vp-pay-ord-y',fmtN(Math.round(totOrd)));
+  s('vp-pay-fee-y','~'+fmtM(totPay));
+  s('vp-fraud-gmv-y',fmtM(totGMV));
+  s('vp-fraud-cost-y','~'+fmtM(totFraud));
+  s('vt-total','~'+fmtM(totVar));
+  s('vt-vto','~'+fmtM(totVTO));
+  s('vt-pay','~'+fmtM(totPay));
+  s('vt-fraud','~'+fmtM(totFraud));
+  var vtoNote=document.getElementById('vp-vto-note');
+  if(vtoNote){vtoNote.textContent=vtoMode==='shopify'?'Shopify VTO $0.10/try · Kivisense flat $888/mo viable above 26,640 tries/qtr · Source: TFmvpcosts.html':'Kivisense $888/mo flat · Shopify $0.10/try viable below 26,640 tries/qtr · Source: TFmvpcosts.html';}
+  var payNote=document.getElementById('vp-pay-note');
+  if(payNote){payNote.textContent='Stripe: '+(payPct*100).toFixed(1)+'% × GMV + $0.30 × orders · Funded from GMV revenue';}
+  var netY=totRev-s1fixY-totVar;
+  var netYEl=document.getElementById('c-nety');
+  if(netYEl){netYEl.textContent=(netY>=0?'+':'-')+fmtM(Math.abs(netY));netYEl.style.color=netY>=0?'#7AE3B2':'#FF8A80';}
+  // Revenue & Net summary block at top — year totals (buffer included in Year 1 fixed costs column)
+  var bufPctY=(parseFloat((document.getElementById('ct-buf-pct')||{}).value)||0)/100;
+  var bufAmtY=s1fixY*bufPctY;
+  var netYwBuf=totRev-(s1fixY+bufAmtY)-totVar;
+  var scRevYEl=document.getElementById('sc-rev-y');
+  if(scRevYEl)scRevYEl.textContent='+'+fmtM(totRev);
+  var scFixYEl=document.getElementById('sc-fix-y');
+  if(scFixYEl)scFixYEl.textContent='−'+fmtM(s1fixY+bufAmtY+totVar);
+  var scNetYEl=document.getElementById('sc-net-y');
+  if(scNetYEl){scNetYEl.textContent=(netYwBuf>=0?'+':'-')+fmtM(Math.abs(netYwBuf));scNetYEl.style.color=netYwBuf>=0?'#1A7A4A':'var(--tf)';}
+  var s03b=document.getElementById('s03-badge');
+  if(s03b)s03b.textContent=(netYwBuf>=0?'+':'-')+fmtM(Math.abs(netYwBuf))+' P&L yr';
+  var ybYEl=document.getElementById('yb-nety');
+  if(ybYEl){ybYEl.textContent=(netYwBuf>=0?'+':'-')+fmtM(Math.abs(netYwBuf));ybYEl.className='yr-v '+(netYwBuf>=0?'g':'r');}
+  yrProj();
+}
+
+// ── calcS01: recompute Section 01 fixed costs from inputs ──
+var MARKET_RATES_HT={dev:4600,cm:4000,ir:4200,smm:3800,ccs:3800,co:3200};
+var BUDGET_DEFAULTS_HT={dev:2000,cm:2500,ir:4200,smm:2500,ccs:2000,co:2500};
+var g_yrTot=0;
+var salaryMode='market';
+function getHtR(key){
+  if(salaryMode==='market')return MARKET_RATES_HT[key]||0;
+  return parseFloat((document.getElementById('ht-'+key+'-rate')||{}).value)||0;
+}
+function setSalaryMode(mode){
+  salaryMode=mode;
+  var bm=document.getElementById('btn-sal-market');
+  var bb=document.getElementById('btn-sal-budget');
+  var sn=document.getElementById('sal-note');
+  if(bm)bm.classList.toggle('sal-active',mode==='market');
+  if(bb)bb.classList.toggle('sal-active',mode==='budget');
+  if(sn)sn.textContent=mode==='market'
+    ?'US market lower-end · Glassdoor 2025'
+    :'Offshore contractor rates (current budget)';
+  if(sn&&mode==='market'){sn.innerHTML='US market lower-end · Glassdoor 2025 · <a href="smthg_operationsteam.html" target="_blank" rel="noopener" style="color:var(--tf);text-decoration:none">Source →</a>';}
+  // Sync input field displays with the active mode
+  ['dev','cm','ir','smm','ccs','co'].forEach(function(key){
+    var el=document.getElementById('ht-'+key+'-rate');
+    if(!el)return;
+    if(mode==='market'){
+      if(!el.dataset.budget)el.dataset.budget=el.value;
+      el.value=MARKET_RATES_HT[key];
+      el.readOnly=true;
+      el.style.color='var(--tf)';
+    } else {
+      if(el.dataset.budget)el.value=el.dataset.budget;
+      el.readOnly=false;
+      el.style.color='var(--ink)';
+    }
+  });
+  calcS01();
+}
+function calcS01(){
+  var y1r=parseFloat(document.getElementById('ct-y1-rate').value)||0;
+  var y1c=parseFloat(document.getElementById('ct-y1-count').value)||0;
+  var y1qtr=y1r*y1c*3, y1yr=y1r*y1c*12;
+
+  var devR=getHtR('dev');
+  var cmR=getHtR('cm');
+  var irR=getHtR('ir');
+  var smmR=getHtR('smm');
+  var ccsR=getHtR('ccs');
+  var coR=getHtR('co');
+  var htMo=devR*2+cmR+irR+smmR+ccsR+coR, htQtr=htMo*3, htYr=htMo*12;
+
+  var FX_FINLEG=8940,FX_OPTOOLS=10743,FX_AI=3198;
+  var FX_MKTG=[8679,8679,11979,11979];
+  var FX_TRAVEL=calcTravel();
+  var FX_ONETIME=57200;
+  var qTot=[0,0,0,0];
+  for(var qi=0;qi<4;qi++){
+    qTot[qi]=y1qtr+htQtr+FX_FINLEG+FX_OPTOOLS+FX_AI+FX_MKTG[qi]+FX_TRAVEL[qi]+(qi===0?FX_ONETIME:0);
+  }
+  var fxOpexYr=(FX_FINLEG+FX_OPTOOLS+FX_AI)*4+(FX_MKTG[0]+FX_MKTG[1]+FX_MKTG[2]+FX_MKTG[3])+(FX_TRAVEL[0]+FX_TRAVEL[1]+FX_TRAVEL[2]+FX_TRAVEL[3]);
+  var yrTot=y1yr+htYr+fxOpexYr+FX_ONETIME;
+  g_yrTot=yrTot;
+
+  function fmt2(n){return '$'+Math.round(n).toLocaleString();}
+  function fmtE(n){return '<span class="eur">≈€'+Math.round(n*0.91).toLocaleString()+'</span>';}
+  function fmtEW(n){return '<span class="eur-w">≈€'+Math.round(n*0.91).toLocaleString()+'</span>';}
+
+  // Core team rows
+  [1,2,3,4].forEach(function(qi){
+    var el=document.getElementById('s1-core-q'+qi);
+    if(el)el.innerHTML=fmt2(y1qtr)+fmtE(y1qtr);
+    var ppq=document.getElementById('s1-ppq'+qi);
+    if(ppq)ppq.innerHTML=fmt2(y1r*3)+fmtE(y1r*3);
+    var ppm=document.getElementById('s1-ppm-q'+qi);
+    if(ppm)ppm.innerHTML=fmt2(y1r)+fmtE(y1r);
+  });
+  var cyrEl=document.getElementById('s1-core-yr');
+  if(cyrEl)cyrEl.innerHTML='<strong>'+fmt2(y1yr)+'</strong>'+fmtE(y1yr);
+  var ppqyrEl=document.getElementById('s1-ppqyr');
+  if(ppqyrEl)ppqyrEl.innerHTML=fmt2(y1r*12)+fmtE(y1r*12);
+  s('s1-ppq-desc','Individual gross quarterly — '+y1c+' core team members');
+  s('s1-ppm-desc','Individual gross monthly — '+y1c+' core team members');
+
+  // Hired team rows
+  var htItems=[
+    ['dev',devR*2],['cm',cmR],['ir',irR],['smm',smmR],['ccs',ccsR],['co',coR]
+  ];
+  htItems.forEach(function(it){
+    var id=it[0],mo=it[1],qtr=mo*3,yr=mo*12;
+    [1,2,3,4].forEach(function(qi){
+      var el=document.getElementById('s1-'+id+'-q'+qi);
+      if(el)el.innerHTML=fmt2(qtr);
+    });
+    var yrEl=document.getElementById('s1-'+id+'-yr');
+    if(yrEl)yrEl.innerHTML=fmt2(yr);
+  });
+  s('s1-ht-rate',fmt2(htMo)+'/mo');
+  [1,2,3,4].forEach(function(qi){
+    var el=document.getElementById('s1-ht-q'+qi);
+    if(el)el.innerHTML=fmt2(htQtr);
+  });
+  var htYrEl=document.getElementById('s1-ht-yr');
+  if(htYrEl)htYrEl.innerHTML=fmt2(htYr)+'<span class="eur">≈€'+Math.round(htYr*0.91).toLocaleString()+'</span>';
+
+  // Grand Total
+  var qIds=['q1','q2','q3','q4'];
+  qTot.forEach(function(tot,i){
+    var el=document.getElementById('s1-'+qIds[i]);
+    if(el){
+      el.setAttribute('data-usd',Math.round(tot));
+      el.innerHTML='<strong>'+fmt2(tot)+'</strong>'+fmtEW(tot);
+    }
+  });
+  var yrEl2=document.getElementById('s1-yr');
+  if(yrEl2){
+    yrEl2.setAttribute('data-usd',Math.round(yrTot));
+    yrEl2.innerHTML='<strong>'+fmt2(yrTot)+'</strong>'+fmtEW(yrTot);
+  }
+  var descEl=document.getElementById('s1-gt-desc');
+  if(descEl)descEl.textContent='Core team salary from Q1. Q1 includes $57,200 one-time. Q3–Q4 higher due to consumer paid social starting. Variable order costs excluded — see below.';
+
+  // Summary cards
+  var scCtEl=document.getElementById('sc-core-total');
+  if(scCtEl)scCtEl.textContent=fmt2(y1yr);
+  var scCnEl=document.getElementById('sc-core-note');
+  if(scCnEl)scCnEl.textContent='≈€'+Math.round(y1yr*0.91).toLocaleString()+' · '+y1c+' people · '+fmt2(y1r)+'/mo · Q1–Q4';
+  var scHEl=document.getElementById('sc-hired-total');
+  if(scHEl)scHEl.textContent=fmt2(htYr);
+  var scTEl=document.getElementById('sc-total-yr');
+  if(scTEl)scTEl.textContent=fmt2(yrTot);
+  var s01b=document.getElementById('s01-badge');
+  if(s01b)s01b.textContent=fmt2(yrTot)+' yr';
+  var scTnEl=document.getElementById('sc-total-note');
+  if(scTnEl)scTnEl.textContent='≈€'+Math.round(yrTot*0.91).toLocaleString()+' · total fixed incl. salaries';
+  var scOEl=document.getElementById('sc-opex-total');
+  if(scOEl)scOEl.textContent=fmt2(fxOpexYr);
+  var scOnEl=document.getElementById('sc-opex-note');
+  if(scOnEl)scOnEl.textContent='≈€'+Math.round(fxOpexYr*0.91).toLocaleString()+' · Financial/Legal + tools + AI + marketing + trade shows';
+  // Contingency buffer
+  var bufPct=(parseFloat((document.getElementById('ct-buf-pct')||{}).value)||0)/100;
+  var buf=yrTot*bufPct;
+  var scBufEl=document.getElementById('sc-buf-val');
+  if(scBufEl)scBufEl.textContent='+'+fmt2(buf);
+  var scTotalBufEl=document.getElementById('sc-total-buf');
+  if(scTotalBufEl)scTotalBufEl.textContent=fmt2(yrTot+buf);
+
+  updateTopSummary(yrTot,htYr,y1yr);
+  proj();
+  pushInputs();
+}
+
+function updateTopSummary(yrTot,htYr,y1yr){
+  var bufPct=(parseFloat((document.getElementById('ct-buf-pct')||{}).value)||0)/100;
+  var yrWithBuf=yrTot*(1+bufPct);
+  var monthlyBurn=(yrTot-57200)/12;
+  function runwayMo(raise){var rem=raise-yrWithBuf;return rem>0&&monthlyBurn>0?Math.round(rem/monthlyBurn):0;}
+  function setRw(id,mo){var el=document.getElementById(id);if(!el)return;el.textContent=mo>0?mo+' mo':'N/A';el.style.color=mo>=6?'#1A7A4A':'var(--tf)';}
+  setRw('top-runway-1m',runwayMo(1000000));
+  setRw('top-runway-12m',runwayMo(1200000));
+  setRw('top-runway-15m',runwayMo(1500000));
+  setRw('top-runway-2m',runwayMo(2000000));
+  var htYrMkt=(MARKET_RATES_HT.dev*2+MARKET_RATES_HT.cm+MARKET_RATES_HT.ir+MARKET_RATES_HT.smm+MARKET_RATES_HT.ccs+MARKET_RATES_HT.co)*12;
+  var fmt=function(n){return '$'+Math.round(n).toLocaleString();};
+  var cEl=document.getElementById('top-conclusion');
+  if(cEl){
+    var s1='Hired team (7 contractors) is the largest recurring cost: '+fmt(htYrMkt)+'/yr at US market rates, vs '+fmt((BUDGET_DEFAULTS_HT.dev*2+BUDGET_DEFAULTS_HT.cm+BUDGET_DEFAULTS_HT.ir+BUDGET_DEFAULTS_HT.smm+BUDGET_DEFAULTS_HT.ccs+BUDGET_DEFAULTS_HT.co)*12)+'/yr at offshore contractor defaults.';
+    cEl.innerHTML=s1;
+  }
+}
+
+// ── 5-Year projection (Section 04) ──
+var Y_FREQ=[0,4,4,4,4,4];
+var Y_FREQ_LBL=['','once/3mo','once/3mo','once/3mo','once/3mo','once/3mo'];
+var Y_OPS=[0,138000,516000,1200000,2220000,3840000];
+var Y_GA=[0,200840,120840,155000,235000,350000]; // Y2-5 include trade shows
+var Y_GA_GROUPS={
+  2:{finleg:28600,tools:25900,ai:14000,mktg:31500,shows:20840},
+  3:{finleg:41200,tools:34800,ai:19000,mktg:35000,shows:25000},
+  4:{finleg:67000,tools:53000,ai:30000,mktg:50000,shows:35000},
+  5:{finleg:100000,tools:80000,ai:45000,mktg:75000,shows:50000}
+};
+var OPS_HC=[0,7,8,13,20,35];
+
+function adjY(yr,d){var el=document.getElementById('yd'+yr);if(!el)return;el.value=Math.max(0,(parseInt(el.value)||0)+d);yrProj();}
+
+function yrProj(){
+  var items=g('p-items'),aov=g('p-aov'),tfFee=g('p-tf-fee')/100;
+  var inf=g('p-inf')/100;
+  var ORG_PCT={1:0.00,2:0.20,3:0.35,4:0.50,5:0.60};
+  var payPct=g('p-pay')/100,vtoA=g('p-vto-a')/100,vtoT=g('p-vto-t');
+  var ctRateEl=document.getElementById('ct-rate');
+  var ctRate=parseFloat(ctRateEl?ctRateEl.value:15000)||15000;
+  var ctY3pRateEl=document.getElementById('ct-y3p-rate');
+  var ctY3pRate=parseFloat(ctY3pRateEl?ctY3pRateEl.value:20000)||20000;
+  function getCTC(yr){var el=document.getElementById('ct-y'+yr+'-count');return parseInt(el?el.value:0)||0;}
+  function getCTRate(yr){return yr>=3?ctY3pRate:ctRate;}
+  var cumEbit=0;
+  var prevEndDes=0;
+  for(var yr=1;yr<=5;yr++){
+    var dropEl=document.getElementById('yd'+yr);
+    var drops=parseInt(dropEl?dropEl.value:0)||0;
+    var freq=Y_FREQ[yr];
+    var designers=freq>0?Math.round(drops/freq):0;
+    var orders=drops*items,gmv=orders*aov;
+    var platformFee=gmv*tfFee,subs=designers*500*12;
+    var orgInfFee=gmv*(ORG_PCT[yr]||0)*inf;
+    var vtoTries=orders*vtoA*vtoT;
+    var vtoCost=vtoMode==='shopify'?vtoTries*0.10:888*12;
+    var payCost=gmv*payPct+orders*0.30,fraudCost=gmv*0.0005;
+    var varTotal=vtoCost+payCost+fraudCost;
+    var smthgNet=platformFee+orgInfFee+subs-varTotal;
+    var rev=platformFee+orgInfFee+subs;
+    var netCol=smthgNet>=0?'#1A7A4A':'var(--tf)';
+    // revenue box
+    var startDes=prevEndDes;
+    var endDes=Math.max(0,Math.round(designers*2-startDes));
+    prevEndDes=endDes;
+    s('yr'+yr+'-gmv-h',fmtM(gmv)+' GMV');
+    s('yr'+yr+'-des-lbl','Annual avg · '+designers.toLocaleString()+' designers  ·  Jan: '+startDes.toLocaleString()+' → Dec: '+endDes.toLocaleString());
+    s('yr'+yr+'-ord',fmtN(orders));
+    s('yr'+yr+'-gmv',fmtM(gmv));
+    s('yr'+yr+'-tfr','+'+fmtM(platformFee));
+    s('yr'+yr+'-sub','+'+fmtM(subs));
+    s('yr'+yr+'-org',orgInfFee>0?'+'+fmtM(orgInfFee):'—');
+    s('yr'+yr+'-vto','−'+fmtM(vtoCost));
+    s('yr'+yr+'-pay','−'+fmtM(payCost));
+    s('yr'+yr+'-fraud','−'+fmtM(fraudCost));
+    var nEl=document.getElementById('yr'+yr+'-net');
+    if(nEl){nEl.textContent=(smthgNet>=0?'+':'')+fmtM(Math.abs(smthgNet));nEl.style.color=netCol;}
+    var qEl=document.getElementById('yr'+yr+'-qavg');
+    if(qEl){var qa=smthgNet/4;qEl.textContent=(qa>=0?'+':'')+fmtM(Math.abs(qa));qEl.style.color=netCol;}
+    // costs
+    var opsTeam;
+    if(yr===1){
+      opsTeam=(getHtR('dev')*2+getHtR('cm')+getHtR('ir')+getHtR('smm')+getHtR('ccs')+getHtR('co'))*12;
+    }else{
+      opsTeam=Y_OPS[yr];
+    }
+    var y1rA=parseFloat(document.getElementById('ct-y1-rate').value)||0;
+    var y1cA=parseFloat(document.getElementById('ct-y1-count').value)||0;
+    var coreTeam=yr===1?y1rA*y1cA*12:getCTC(yr)*getCTRate(yr)*12;
+    var bufPct=(parseFloat((document.getElementById('ct-buf-pct')||{}).value)||0)/100;
+    var ga=yr===1?Math.max(0,g_yrTot*(1+bufPct)-opsTeam-coreTeam):Y_GA[yr];
+    var totalCosts=varTotal+opsTeam+coreTeam+ga;
+    var opEx=opsTeam+coreTeam+ga;
+    var ebit=smthgNet-opsTeam-coreTeam-ga;
+    var ebitCol=ebit>=0?'#1A7A4A':'var(--tf)';
+    cumEbit+=ebit;
+    s('yc'+yr+'-ops','−'+fmtM(opsTeam));
+    s('yc'+yr+'-core','−'+fmtM(coreTeam));
+    s('yc'+yr+'-ga','−'+fmtM(ga));
+    if(yr>1){
+      var grp=Y_GA_GROUPS[yr]||{};
+      s('yc'+yr+'-ga-finleg','−'+fmtM(grp.finleg||0));
+      s('yc'+yr+'-ga-tools','−'+fmtM(grp.tools||0));
+      s('yc'+yr+'-ga-ai','−'+fmtM(grp.ai||0));
+      s('yc'+yr+'-ga-mktg','−'+fmtM(grp.mktg||0));
+      s('yc'+yr+'-ga-shows','−'+fmtM(grp.shows||0));
+    }
+    s('yc'+yr+'-tot','−'+fmtM(opEx));
+    var cnEl=document.getElementById('yc'+yr+'-net');
+    if(cnEl){cnEl.textContent=(smthgNet>=0?'+':'')+fmtM(Math.abs(smthgNet));cnEl.style.color=netCol;}
+    var eEl=document.getElementById('yc'+yr+'-ebit');
+    if(eEl){eEl.textContent=(ebit>=0?'+':'−')+fmtM(Math.abs(ebit));eEl.style.color=ebitCol;}
+    var hEl=document.getElementById('yc'+yr+'-hdr');
+    if(yr===1){
+      var ciEl1=document.getElementById('ycd1-ct-info');
+      if(ciEl1)ciEl1.textContent=y1cA+' founders × $'+(y1rA/1000).toFixed(0)+'K/mo × 12 = '+fmtM(y1rA*y1cA*12)+'/yr';
+      if(hEl)hEl.textContent=y1cA+' founders · $'+(y1rA/1000).toFixed(0)+'K/mo';
+    }else{
+      if(hEl)hEl.textContent=getCTC(yr)+' founders × $'+(getCTRate(yr)/1000).toFixed(0)+'K/mo';
+      var ciEl=document.getElementById('ycd'+yr+'-ct-info');
+      if(ciEl)ciEl.textContent=getCTC(yr)+' founders × $'+(getCTRate(yr)/1000).toFixed(0)+'K/mo × 12 = '+fmtM(getCTC(yr)*getCTRate(yr)*12)+'/yr';
+    }
+    // P&L table
+    s('yt-des-'+yr,designers.toLocaleString());
+    s('yt-freq-'+yr,Y_FREQ_LBL[yr]);
+    s('yt-drops-'+yr,drops.toLocaleString());
+    s('yt-gmv-'+yr,fmtM(gmv));
+    s('yt-tfr-'+yr,fmtM(platformFee));
+    s('yt-sub-'+yr,fmtM(subs));
+    s('yt-org-'+yr,orgInfFee>0?fmtM(orgInfFee):'—');
+    s('yt-rev-'+yr,fmtM(rev));
+    s('yt-var-'+yr,fmtM(varTotal));
+    s('yt-ops-'+yr,fmtM(opsTeam));
+    s('yt-core-'+yr,fmtM(coreTeam));
+    s('yt-ga-'+yr,fmtM(ga));
+    s('yt-tot-'+yr,fmtM(totalCosts));
+    // s04 summary snapshot
+    var s04rEl=document.getElementById('s04-rev-'+yr);
+    if(s04rEl){s04rEl.textContent='+'+fmtM(rev);}
+    var s04tEl=document.getElementById('s04-tot-'+yr);
+    if(s04tEl){s04tEl.textContent='−'+fmtM(totalCosts);}
+    var s04eEl=document.getElementById('s04-ebit-'+yr);
+    if(s04eEl){s04eEl.textContent=(ebit>=0?'+':'−')+fmtM(Math.abs(ebit));s04eEl.style.color=ebitCol;}
+    var teEl=document.getElementById('yt-ebit-'+yr);
+    if(teEl){teEl.textContent=(ebit>=0?'+':'−')+fmtM(Math.abs(ebit));teEl.style.color=ebit>=0?'#7AE3B2':'#FF8A80';}
+    var tmEl=document.getElementById('yt-margin-'+yr);
+    if(tmEl){var m=rev>0?(ebit/rev*100).toFixed(0)+'%':'—';tmEl.textContent=(ebit>=0?'+':'')+m;tmEl.style.color=ebit>=0?'#1A7A4A':'var(--tf)';}
+    var tcEl=document.getElementById('yt-cum-'+yr);
+    if(tcEl){tcEl.textContent=(cumEbit>=0?'+':'−')+fmtM(Math.abs(cumEbit));tcEl.style.color=cumEbit>=0?'#1A7A4A':'var(--tf)';}
+  }
+}
+
+calcS01();
+
+// ── Back-to-top ──
+var btt=document.getElementById('btt');
+if(btt){window.addEventListener('scroll',function(){btt.classList.toggle('vis',window.scrollY>400);});btt.addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});});}
+
+// ── Firebase shared-inputs sync ───────────────────────────────────────────
+var DB_BUDGET='https://terra-ferra-1ac34-default-rtdb.firebaseio.com';
+var BUDGET_PATH='/tf-budget/v1/inputs.json';
+var SYNC_IDS=['p-items','p-aov','p-tf-fee','p-designers','p-inf','p-inf-share','p-pay','p-vto-a','p-vto-t',
+  'yd1','yd2','yd3','yd4','yd5','ct-rate','ct-y3p-rate','ct-y1-rate','ct-y1-count','ct-y2-count','ct-y3-count','ct-y4-count','ct-y5-count',
+  'ht-dev-rate','ht-cm-rate','ht-ir-rate','ht-smm-rate','ht-ccs-rate','ht-co-rate','ct-buf-pct'];
+var dbTimer=null,applying=false,lastSnap='';
+
+function setSyncState(s){
+  var dot=document.getElementById('sync-dot'),lbl=document.getElementById('sync-label');
+  if(!dot)return;
+  dot.className='sync-dot'+(s==='live'?' live':s==='err'?' err':'');
+  if(lbl)lbl.textContent=s==='live'?'Live':s==='err'?'Error':'Connecting…';
+}
+function snapInputs(){
+  var o={vtoMode:vtoMode};
+  SYNC_IDS.forEach(function(id){
+    var el=document.getElementById(id);
+    if(!el)return;
+    // In market mode, ht-*-rate inputs display market rates — push the cached budget value instead
+    if(salaryMode==='market'&&id.startsWith('ht-')&&id.endsWith('-rate')&&el.dataset.budget!=null){
+      o[id]=el.dataset.budget;
+    } else {
+      o[id]=el.value;
+    }
+  });
+  return o;
+}
+function applySnap(data){
+  applying=true;
+  SYNC_IDS.forEach(function(id){if(data[id]!=null){var el=document.getElementById(id);if(el)el.value=data[id];}});
+  // Re-apply market display — Firebase sync just overwrote the inputs
+  if(salaryMode==='market'){
+    ['dev','cm','ir','smm','ccs','co'].forEach(function(key){
+      var id='ht-'+key+'-rate';
+      var el=document.getElementById(id);
+      if(el){
+        // Only update dataset.budget if Firebase value is a genuine user-set budget rate (not a stale market rate)
+        if(data[id]!=null&&parseFloat(data[id])!==MARKET_RATES_HT[key])el.dataset.budget=data[id];
+        el.value=MARKET_RATES_HT[key];
+        el.readOnly=true;
+        el.style.color='var(--tf)';
+      }
+    });
+  }
+  if(data.vtoMode&&data.vtoMode!==vtoMode){
+    vtoMode=data.vtoMode;
+    ['shopify','kivisense'].forEach(function(m){var b=document.getElementById('btn-'+m);if(b)b.classList.toggle('on',m===vtoMode);});
+    var cn=document.getElementById('cn-vto');if(cn)cn.textContent=vtoMode==='shopify'?'Shopify $0.10/try':'Kivisense $888/mo flat';
+  }
+  calcS01();
+  applying=false;
+}
+function pushInputs(){
+  if(applying)return;
+  clearTimeout(dbTimer);
+  dbTimer=setTimeout(function(){
+    var data=snapInputs();
+    fetch(DB_BUDGET+BUDGET_PATH,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
+      .then(function(r){setSyncState(r.ok?'live':'err');}).catch(function(){setSyncState('err');});
+  },800);
+}
+function pollFb(){
+  fetch(DB_BUDGET+BUDGET_PATH)
+    .then(function(r){return r.json();})
+    .then(function(data){
+      if(!data){setSyncState('live');return;}
+      var snap=JSON.stringify(data);
+      if(snap!==lastSnap){lastSnap=snap;applySnap(data);}
+      setSyncState('live');
+    }).catch(function(){setSyncState('err');});
+}
+window.addEventListener('DOMContentLoaded',function(){
+  initGrpToggles();
+  setSalaryMode('market');
+  fetch(DB_BUDGET+BUDGET_PATH)
+    .then(function(r){return r.json();})
+    .then(function(data){if(data){lastSnap=JSON.stringify(data);applySnap(data);}setSyncState('live');})
+    .catch(function(){setSyncState('err');});
+  SYNC_IDS.forEach(function(id){var el=document.getElementById(id);if(el)el.addEventListener('input',pushInputs);});
+  setInterval(pollFb,5000);
+});
+</script>
+</body>
+</html>

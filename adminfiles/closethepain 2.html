@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>SMTHG Community Model · SMTHG</title>
+<link rel="icon" type="image/svg+xml" href="smthg_favicon.svg"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --tf:#E8002D;--tf-dark:#B50023;--tf-ghost:#F1EEE9;
+  --orange:#E8002D;--off-white:#F8F6F2;--ink:#161616;
+  --sub:#5C5A56;--rule:#E6E2DA;--green:#1A7A4A;--green-bg:#EDFAF3;
+  --red:#C0392B;--red-bg:#FEE2E2;--amber:#B45309;--amber-bg:#FEF3C7;
+}
+body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink);overflow-x:hidden}
+
+.topnav{background:white;border-bottom:1px solid var(--rule);padding:12px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
+.topnav-home{font-weight:800;letter-spacing:2px;color:var(--ink);text-decoration:none;font-size:11px}
+.topnav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:var(--sub);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:10px}
+.topnav-links a:hover{color:var(--tf)}
+.has-dropdown{position:relative;padding-bottom:10px;margin-bottom:-10px}
+.dropdown-trigger{cursor:pointer;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:10px;user-select:none}
+.dropdown{display:none;position:absolute;top:100%;right:0;background:white;border:1px solid var(--rule);min-width:210px;box-shadow:0 6px 14px rgba(0,0,0,.08);padding:6px 0;z-index:60}
+.has-dropdown:hover .dropdown,.has-dropdown:focus-within .dropdown{display:block}
+.dropdown a{display:block;padding:9px 16px;font-size:10px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:1px;text-decoration:none}
+.dropdown a:hover{background:var(--tf-ghost);color:var(--tf)}
+@media(max-width:700px){
+  .topnav{position:static;padding:10px 14px}
+  .topnav-links{gap:8px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:2px;width:100%}
+  .topnav-links a{font-size:9.5px;white-space:nowrap}
+  .dropdown-trigger{font-size:9.5px;white-space:nowrap}
+  .has-dropdown{padding-bottom:0;margin-bottom:0}
+  .dropdown{display:none!important}
+}
+
+.pg-wrap{max-width:1240px;margin:0 auto;padding:40px 48px 80px}
+
+/* ===== HERO ===== */
+.hero{padding:36px 0 10px}
+.pg-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--sub)}
+.pg-title{font-size:clamp(34px,5vw,58px);font-weight:900;letter-spacing:-2px;color:var(--ink);margin-top:14px;line-height:1.02}
+.pg-title em{font-style:normal;color:var(--tf)}
+.hero-thesis{margin-top:26px;display:flex;gap:14px;flex-wrap:wrap}
+.thesis-step{background:white;border:2px solid var(--ink);border-radius:16px;padding:16px 22px;font-size:15px;font-weight:800;color:var(--ink);box-shadow:5px 5px 0 var(--ink)}
+.thesis-step span{display:block;font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);margin-bottom:4px}
+.thesis-arrow{align-self:center;font-size:22px;font-weight:900;color:var(--tf)}
+
+/* ===== BADGES ===== */
+.badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:9.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;white-space:nowrap}
+.badge-deck{background:var(--ink);color:white}
+.badge-sug{background:var(--amber-bg);color:var(--amber);border:1px dashed var(--amber)}
+.badge-pain{background:var(--tf);color:white}
+.badge-close{background:var(--green);color:white}
+
+/* ===== BREEZE BAND ===== */
+.breeze{background:var(--ink);border-radius:24px;padding:44px 44px 40px;margin-top:44px;position:relative;overflow:hidden}
+.breeze::after{content:"CASE";position:absolute;right:-20px;top:-34px;font-size:150px;font-weight:900;letter-spacing:-6px;color:rgba(255,255,255,.05);pointer-events:none}
+.breeze-eyebrow{font-size:10px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:#F5B8C4}
+.breeze-title{font-size:clamp(24px,3vw,34px);font-weight:900;letter-spacing:-1px;color:white;margin-top:10px;line-height:1.1}
+.breeze-title a{color:#FF5F3F;text-decoration:none}
+.breeze-title a:hover{text-decoration:underline}
+.breeze-sub{font-size:13px;color:#E8E6E1;margin-top:8px;max-width:720px;line-height:1.6}
+.breeze-cols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:28px}
+.bz-col-label{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.bz-pain-label{color:#FF8A8A}.bz-fix-label{color:#FFD166}.bz-win-label{color:#7EE8A8}
+.bz-box{border-radius:14px;padding:16px 18px;margin-bottom:12px;font-size:13px;line-height:1.55}
+.bz-pain{background:rgba(232,0,45,.16);border:1px solid rgba(232,0,45,.5);color:#FFD9DF}
+.bz-pain b{color:white;display:block;margin-bottom:3px;font-size:13.5px}
+.bz-pain b s{text-decoration-color:#FF5F3F;text-decoration-thickness:2.5px}
+.bz-fix{background:rgba(255,209,102,.1);border:1px solid rgba(255,209,102,.45);color:#F5EFD9}
+.bz-fix b{color:#FFD166;display:block;margin-bottom:3px;font-size:13.5px}
+.bz-win{background:rgba(126,232,168,.1);border:1px solid rgba(126,232,168,.45);color:#DFF7E8;height:calc(100% - 24px)}
+.bz-win b{color:#7EE8A8;display:block;margin-bottom:6px;font-size:15px}
+.bz-src{font-size:10px;color:#8E8B85;margin-top:10px}
+.bz-src a{color:#F5B8C4;text-decoration:none}
+.bz-stats{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:26px;padding-top:22px;border-top:1px solid rgba(255,255,255,.15)}
+.bz-stat b{display:block;font-size:clamp(18px,2.2vw,26px);font-weight:900;color:white;letter-spacing:-.5px}
+.bz-stat span{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#B8B5AF;line-height:1.4;display:block;margin-top:3px}
+.bz-stat a{color:#F5B8C4;text-decoration:none}
+
+
+/* ===== PRINCIPLE ===== */
+.principle{margin:54px auto 10px;max-width:900px;text-align:center;position:relative}
+.principle-label{font-size:10px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--amber)}
+.principle-big{font-size:clamp(26px,4vw,44px);font-weight:900;letter-spacing:-1.5px;line-height:1.12;color:var(--ink);margin-top:12px}
+.principle-big em{font-style:normal;background:var(--tf);color:white;padding:0 12px;border-radius:8px;white-space:nowrap}
+.principle-sub{font-size:14px;color:var(--ink);margin-top:14px;line-height:1.6}
+
+/* ===== MAP ===== */
+.map-head{margin-top:64px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:12px}
+.map-title{font-size:clamp(22px,3vw,32px);font-weight:900;letter-spacing:-1px;color:var(--ink)}
+.map-legend{display:flex;gap:10px;flex-wrap:wrap}
+
+.zone{position:relative;margin-top:46px;border-radius:24px;padding:34px 34px 30px}
+.zone-brands{background:white;border:2px solid var(--ink);margin-right:8%}
+.zone-influencers{background:var(--tf-ghost);border:2px solid var(--ink);margin-left:8%}
+.zone-consumers{background:white;border:2px solid var(--ink);margin-right:8%}
+.zone-tab{position:absolute;top:-20px;left:30px;background:var(--ink);color:white;border-radius:30px;padding:9px 22px;font-size:14px;font-weight:900;letter-spacing:1px;text-transform:uppercase;box-shadow:4px 4px 0 var(--tf)}
+.zone-tab small{display:block;font-size:8.5px;font-weight:700;letter-spacing:2px;color:#F5B8C4}
+.zone-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:26px;margin-top:14px}
+.zone-col-label{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
+.zcl-pain{color:var(--tf)}.zcl-close{color:var(--green)}
+
+.pain-box{background:var(--red-bg);border:2px solid var(--tf);border-radius:14px;padding:15px 18px;margin-bottom:14px;transform:rotate(-.6deg)}
+.pain-box:nth-child(odd){transform:rotate(.6deg)}
+.pain-num{display:inline-block;background:var(--tf);color:white;font-size:10px;font-weight:900;border-radius:20px;padding:2px 9px;margin-bottom:6px}
+.pain-t{font-size:14px;font-weight:900;color:var(--ink);line-height:1.25}
+.pain-d{font-size:12.5px;color:var(--ink);line-height:1.55;margin-top:4px}
+.pain-s{font-size:10px;color:var(--sub);margin-top:6px}
+
+.close-box{background:var(--green-bg);border:2px solid var(--green);border-radius:14px;padding:15px 18px;margin-bottom:14px;transform:rotate(.5deg)}
+.close-box:nth-child(odd){transform:rotate(-.5deg)}
+.close-box.sug{background:#FFFBEB;border:2px dashed var(--amber)}
+.close-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap}
+.close-num{display:inline-block;background:var(--green);color:white;font-size:10px;font-weight:900;border-radius:20px;padding:2px 9px;margin-bottom:6px}
+.close-box.sug .close-num{background:var(--amber)}
+.close-t{font-size:15px;font-weight:900;color:var(--ink);line-height:1.25}
+.close-d{font-size:12.5px;color:var(--ink);line-height:1.55;margin-top:4px}
+.close-s{font-size:10px;color:var(--sub);margin-top:6px}
+.close-s a{color:var(--tf);text-decoration:none}
+.close-s a:hover{text-decoration:underline}
+
+footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margin-top:70px}
+.footer-inner{max-width:1240px;margin:0 auto;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub)}
+#back-to-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--tf);color:white;border:none;border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900}
+#back-to-top:hover{background:var(--tf-dark)}
+
+@media(max-width:1000px){
+  .breeze-cols{grid-template-columns:1fr}
+  .bz-stats{grid-template-columns:repeat(3,1fr)}
+  .zone-grid{grid-template-columns:1fr}
+  .zone-brands,.zone-influencers,.zone-consumers{margin-left:0;margin-right:0}
+}
+@media(max-width:700px){
+  .pg-wrap{padding:20px 16px 60px}
+  .breeze{padding:26px 20px;border-radius:18px}
+  .bz-stats{grid-template-columns:repeat(2,1fr)}
+  .zone{padding:26px 18px 22px;border-radius:18px}
+  .zone-tab{left:16px;font-size:12px;padding:8px 16px}
+  .result{padding:26px 20px;border-radius:18px}
+  .pain-box,.close-box{transform:none!important}
+  .thesis-arrow{display:none}
+  .thesis-step{width:100%}
+  footer{padding:18px 20px}
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="index.html" class="topnav-home">smthg<span style="color:var(--tf)">.</span></a>
+  <div class="topnav-links">
+    <a href="index.html">Files</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Budget ▾</span>
+      <div class="dropdown">
+        <a href="TFmarketsize.html">Market Size &amp; Opportunity</a>
+        <a href="budget.html">Budget &amp; Sales Scenarios</a>
+      </div>
+    </div>
+    <a href="roles.html">Roles</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Business Model ▾</span>
+      <div class="dropdown">
+        <a href="closethepain.html">Community Model</a>
+        <a href="TFbusinessmodel.html">Comparison Matrix</a>
+        <a href="TFaltmodel.html">Alternative Model</a>
+        <a href="TFmvpcosts.html">MVP Scope &amp; Costs</a>
+        <a href="TFgtm.html">GTM</a>
+        <a href="TFwhynow.html">Why Now</a>
+        <a href="TFdropsmarket.html">Drop Market Research</a>
+        <a href="TFunservedmarket.html">Unserved Market</a>
+        <a href="TFreferral.html">Referral &amp; Viral</a>
+        <a href="TFcreatortoken.html">Creator Payments</a>
+        <a href="TFstylists.html">Stylist Layer</a>
+        <a href="/psychology-fashion.html">Psychology + Fashion</a>
+        <a href="TFvisualdiscovery.html">Visual Discovery</a>
+      </div>
+    </div>
+    <a href="TFmarketplaces.html">Operations</a>
+    <a href="architecture.html">Architecture</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Ideas ▾</span>
+      <div class="dropdown">
+        <a href="gamification.html">Gamification</a>
+        <a href="ideas.html">Ideas &amp; AI Research</a>
+        <a href="influencer.html">Influencer Selling</a>
+        <a href="strategic-brief.html">Strategic Brief</a>
+      </div>
+    </div>
+    <a href="TFrussia.html">Legal / Tax</a>
+    <a href="task-tracker.html">Planning</a>
+  </div>
+</nav>
+
+<div class="pg-wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="pg-eyebrow">Community Model · Internal · Working Concept</div>
+    <div class="pg-title">Close the pain.<br/><em>Virality follows.</em></div>
+    <div class="hero-thesis">
+      <div class="thesis-step"><span>Step 1</span>Find each player's biggest pain</div>
+      <div class="thesis-arrow">→</div>
+      <div class="thesis-step"><span>Step 2</span>Close it with a constraint — not a feature</div>
+      <div class="thesis-arrow">→</div>
+      <div class="thesis-step"><span>Step 3</span>People recommend it themselves</div>
+    </div>
+  </div>
+
+  <!-- BREEZE CASE -->
+  <div class="breeze">
+    <div class="breeze-eyebrow">The pattern · dating market</div>
+    <div class="breeze-title">How <a href="https://breeze.social/nl" target="_blank" rel="noopener">Breeze</a> did it — with constraints, not features</div>
+    <div class="breeze-sub">Built by seven TU Delft students who watched friends swipe and chat with no real result; the app launched in January 2020 with the product's core function — chat — removed. Every mechanic below is a restriction, and each restriction closes a pain. Story: <a href="https://yesdelft.com/stories/breeze-social-your-atypical-dating-app/" target="_blank" rel="noopener" style="color:#F5B8C4">YES!Delft</a> · <a href="https://siliconcanals.com/dutch-dating-app-breeze-bags-1-3m/" target="_blank" rel="noopener" style="color:#F5B8C4">Silicon Canals</a>.</div>
+    <div class="breeze-cols">
+      <div>
+        <div class="bz-col-label bz-pain-label">✕ The pains</div>
+        <div class="bz-box bz-pain"><b><s>Endless chat</s> that leads nowhere</b>Weeks of messaging, no date.</div>
+        <div class="bz-box bz-pain"><b><s>Infinite choice</s> of partners</b>Always one more profile — so nobody commits to anyone.</div>
+        <div class="bz-box bz-pain"><b><s>Safety</s> fear on first dates</b>Meeting a stranger from an app.</div>
+      </div>
+      <div>
+        <div class="bz-col-label bz-fix-label">⊘ The constraints that close them</div>
+        <div class="bz-box bz-fix"><b>No chat. A match = a real date.</b>Pick who to meet, pick the city — the platform organises everything. You only show up.</div>
+        <div class="bz-box bz-fix"><b>Paid per date — both sides, first drink included.</b>€7.50 each, only when a date happens. Skin in the game before you click: no-shows stay under 1%, and both sides arrive pre-filtered.</div>
+        <div class="bz-box bz-fix"><b>A small daily selection — not an endless feed.</b>"Every day at 7PM we'll send you a handful of people we think you will like." Plus 1,500+ partner bars where staff keep an eye out.</div>
+      </div>
+      <div>
+        <div class="bz-col-label bz-win-label">✓ The result</div>
+        <div class="bz-box bz-win"><b>The constraints did the marketing.</b>By its €1.3M seed round (Nov 2022) Breeze had organised 50,000 dates and was the 3rd most-downloaded dating app in the Netherlands — on a pay-per-date model, against ad- and subscription-funded giants. It then expanded: Belgium (Sep 2023), England — its fastest-growing market — and New York, with Washington DC, Boston, Dallas, Chicago and LA planned next.<div class="bz-src">Per <a href="https://siliconcanals.com/dutch-dating-app-breeze-bags-1-3m/" target="_blank" rel="noopener">Silicon Canals, Nov 2022</a> · <a href="https://pulse2.com/breeze-profile-marco-van-der-woude-interview/" target="_blank" rel="noopener">founder interview, Pulse2</a> · <a href="https://breeze.social/nl" target="_blank" rel="noopener">breeze.social</a>, July 2026</div></div>
+      </div>
+    </div>
+
+    <div class="bz-stats">
+      <div class="bz-stat"><b>798,581</b><span>dates organised (<a href="https://breeze.social/nl" target="_blank" rel="noopener">breeze.social</a>, July 2026)</span></div>
+      <div class="bz-stat"><b>1,500+</b><span>partner bars (<a href="https://breeze.social/nl" target="_blank" rel="noopener">breeze.social</a>)</span></div>
+      <div class="bz-stat"><b>&lt;1%</b><span>no-shows, attendance double-checked (breeze.social)</span></div>
+      <div class="bz-stat"><b>75.4%</b><span>exchange phone numbers after the date (breeze.social)</span></div>
+      <div class="bz-stat"><b>4.5</b><span>average date rating (breeze.social)</span></div>
+      <div class="bz-stat"><b>19</b><span>babies — that they know of (breeze.social)</span></div>
+    </div>
+  </div>
+
+  <!-- PRINCIPLE -->
+  <div class="principle">
+    <div class="principle-label">Working principle · hypothesis</div>
+    <div class="principle-big">Don't bolt virality on.<br/>Close the pain with an <em>original constraint</em> — luxury itself is built on limits.</div>
+    <div class="principle-sub">Bolt-on viral mechanics stay in the plan as a separate layer. The core question of this page: what is each player's biggest pain, and which restriction closes it.</div>
+  </div>
+
+  <!-- MAP -->
+  <div class="map-head">
+    <div class="map-title">The map — pains &amp; constraint closures, per player</div>
+    <div class="map-legend">
+      <span class="badge badge-pain">Pain</span>
+      <span class="badge badge-close">Closure · constraint</span>
+      <span class="badge badge-deck">In concept · Deck v18</span>
+      <span class="badge badge-sug">Suggested · Under research</span>
+    </div>
+  </div>
+
+  <!-- ZONE: BRANDS -->
+  <div class="zone zone-brands">
+    <div class="zone-tab">Designers / Brands<small>Emerging · Affordable luxury</small></div>
+    <div class="zone-grid">
+      <div>
+        <div class="zone-col-label zcl-pain">✕ Their pains</div>
+        <div class="pain-box">
+          <span class="pain-num">P1</span>
+          <div class="pain-t">Inventory before demand</div>
+          <div class="pain-d">Producing stock upfront is expensive — and marketplaces then take 25–52% of every sale.</div>
+          <div class="pain-s">Deck v18, slide 2</div>
+        </div>
+        <div class="pain-box">
+          <span class="pain-num">P2</span>
+          <div class="pain-t">Pay thousands before selling anything</div>
+          <div class="pain-d">Existing platforms charge brands thousands a year upfront and require products already in stock.</div>
+          <div class="pain-s">Deck v18, slide 2</div>
+        </div>
+        <div class="pain-box">
+          <span class="pain-num">P3</span>
+          <div class="pain-t">Influencer outreach that leads nowhere</div>
+          <div class="pain-d">Finding, DM-ing and negotiating with creators one by one — slow, expensive, mostly dead ends. The brand version of endless chat.</div>
+          <div class="pain-s">Deck v18, slide 6 — "slow and expensive to do by hand"</div>
+        </div>
+      </div>
+      <div>
+        <div class="zone-col-label zcl-close">⊘ How the platform closes them</div>
+        <div class="close-box">
+          <div class="close-head"><span class="close-num">C1 → P1, P2</span><span class="badge badge-deck">In concept · Deck v18</span></div>
+          <div class="close-t">No stock. Pre-order only.</div>
+          <div class="close-d">A brand can only launch a drop — it sells before it produces. Zero inventory risk, no upfront stock, one flat fee instead of 25–52% commissions.</div>
+          <div class="close-s">Deck v18, slides 3, 5, 8</div>
+        </div>
+        <div class="close-box sug">
+          <div class="close-head"><span class="close-num">C2 → P3</span><span class="badge badge-sug">Suggested</span></div>
+          <div class="close-t">No DMs. No pitching. A match is a deal.</div>
+          <div class="close-d">The Breeze move: remove the conversation. The AI agent matches the drop to creators and closes terms — what arrives is a committed collaboration, not an inbox thread. The brand only approves.</div>
+          <div class="close-s">Builds on the AI outreach agent — Deck v18, slide 6 · constraint framing suggested</div>
+        </div>
+        <div class="close-box sug">
+          <div class="close-head"><span class="close-num">C3 → P1</span><span class="badge badge-sug">Suggested</span></div>
+          <div class="close-t">The drop closes. Always.</div>
+          <div class="close-d">A drop runs 48–72 hours and ends regardless of stock. Limited launch slots keep every live drop an event, not a listing.</div>
+          <div class="close-s"><a href="TFreferral.html">Referral &amp; Viral research, §04 →</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ZONE: INFLUENCERS -->
+  <div class="zone zone-influencers">
+    <div class="zone-tab">Influencers<small>Nano &amp; micro · The ones who sell</small></div>
+    <div class="zone-grid">
+      <div>
+        <div class="zone-col-label zcl-pain">✕ Their pains</div>
+        <div class="pain-box">
+          <span class="pain-num">P1</span>
+          <div class="pain-t">Locked out by minimums</div>
+          <div class="pain-d">89.5% of influencers — the nano and micro tiers under 50K whose communities actually buy — don't fit existing platforms.</div>
+          <div class="pain-s">Deck v18, slide 2</div>
+        </div>
+        <div class="pain-box">
+          <span class="pain-num">P2</span>
+          <div class="pain-t">Pitching into the void</div>
+          <div class="pain-d">Cold-emailing brands, negotiating gifting, chasing payment — endless conversations that mostly convert to nothing.</div>
+          <div class="pain-s">Mirror of the brand-side pain — Deck v18, slide 6 · framing suggested</div>
+        </div>
+      </div>
+      <div>
+        <div class="zone-col-label zcl-close">⊘ How the platform closes them</div>
+        <div class="close-box">
+          <div class="close-head"><span class="close-num">C1 → P1</span><span class="badge badge-deck">In concept · Deck v18</span></div>
+          <div class="close-t">No minimum. Any audience size.</div>
+          <div class="close-d">Open access for nano &amp; micro creators, with a real cut — 10–20% of drop revenue.</div>
+          <div class="close-s">Deck v18, slides 8, 9</div>
+        </div>
+        <div class="close-box sug">
+          <div class="close-head"><span class="close-num">C2 → P2</span><span class="badge badge-sug">Suggested</span></div>
+          <div class="close-t">Accepting a match = the commitment.</div>
+          <div class="close-d">Creator Match sends a drop with terms already set. Accepting means promoting in the drop window — like Breeze: choosing a profile means going on the date. No negotiation, no chasing invoices.</div>
+          <div class="close-s">Builds on Creator Match — Deck v18, slide 6 · constraint framing suggested</div>
+        </div>
+        <div class="close-box sug">
+          <div class="close-head"><span class="close-num">C3 → P2</span><span class="badge badge-sug">Suggested</span></div>
+          <div class="close-t">A few matched drops per window — not a marketplace to trawl.</div>
+          <div class="close-d">Creators receive a small batch of matched drops per cycle. Scarcity of invites makes each one worth considering — and declining has a cost.</div>
+          <div class="close-s">Breeze's limited-selection pattern applied to the creator side · cadence and batch size TBD</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ZONE: CONSUMERS -->
+  <div class="zone zone-consumers">
+    <div class="zone-tab">Consumers<small>Niche style · Gen Z weighted</small></div>
+    <div class="zone-grid">
+      <div>
+        <div class="zone-col-label zcl-pain">✕ Their pains</div>
+        <div class="pain-box">
+          <span class="pain-num">P1</span>
+          <div class="pain-t">Can't find their own style</div>
+          <div class="pain-d">No fashion-native place to discover emerging brands or a personal look — just the same mass-market trends.</div>
+          <div class="pain-s">Deck v18, slide 2</div>
+        </div>
+        <div class="pain-box">
+          <span class="pain-num">P2</span>
+          <div class="pain-t">Infinite scroll, zero commitment</div>
+          <div class="pain-d">Always one more product in the feed — the fashion version of infinite partner choice. Nothing feels worth deciding on.</div>
+          <div class="pain-s">Breeze pain #2 mapped to fashion · framing suggested</div>
+        </div>
+        <div class="pain-box">
+          <span class="pain-num">P3</span>
+          <div class="pain-t">Risk of the unknown brand</div>
+          <div class="pain-d">Will it fit, will it look like the photo, will it arrive — the trust barrier of buying from an emerging designer.</div>
+          <div class="pain-s">Fit risk addressed by try-on — Deck v18, slides 3, 6</div>
+        </div>
+      </div>
+      <div>
+        <div class="zone-col-label zcl-close">⊘ How the platform closes them</div>
+        <div class="close-box sug">
+          <div class="close-head"><span class="close-num">C1 → P1, P2</span><span class="badge badge-sug">Suggested</span></div>
+          <div class="close-t">A small matched selection, delivered at set moments.</div>
+          <div class="close-d">The direct Breeze analogy: instead of an endless catalogue, a limited batch of drops matched to personal style, arriving on a fixed rhythm. The feed ends. Choosing matters.</div>
+          <div class="close-s">Pattern per <a href="https://breeze.social/nl" target="_blank" rel="noopener">breeze.social</a> · batch size and cadence TBD · discovery engine in concept, Deck v18, slide 6</div>
+        </div>
+        <div class="close-box sug">
+          <div class="close-head"><span class="close-num">C2 → P2</span><span class="badge badge-sug">Suggested</span></div>
+          <div class="close-t">The drop ends — missing it is real.</div>
+          <div class="close-d">48–72 hour windows with live stock counters. A decision has a deadline, and a sold-out drop is proof the decision mattered.</div>
+          <div class="close-s"><a href="TFreferral.html">Referral &amp; Viral research, §04 →</a></div>
+        </div>
+        <div class="close-box">
+          <div class="close-head"><span class="close-num">C3 → P3</span><span class="badge badge-deck">In concept · Deck v18</span></div>
+          <div class="close-t">Try it on before paying.</div>
+          <div class="close-d">Virtual try-on — the piece on you, and on the creator who shared it — before the pre-order. The fit risk is closed on screen.</div>
+          <div class="close-s">Deck v18, slides 3, 6</div>
+        </div>
+        <div class="close-box">
+          <div class="close-head"><span class="close-num">C4 → P3</span><span class="badge badge-deck">In concept · Deck v18</span></div>
+          <div class="close-t">Pre-order = both sides commit.</div>
+          <div class="close-d">Money committed before production — the consumer's skin in the game funds exactly what was demanded. The Breeze payment logic, applied to fashion.</div>
+          <div class="close-s">Deck v18, slides 3, 5</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+<footer>
+  <div class="footer-inner">Private · noindex · Player pains sourced from Investor Deck v18 (terrapresa10_2026_v18.pptx) · Breeze facts per breeze.social, Silicon Canals (Nov 2022), YES!Delft, Pulse2 founder interview, Trustpilot &amp; App Store reviews — July 2026 · Suggested closures marked Under Research</div>
+</footer>
+
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">&#8593;</button>
+<script>window.addEventListener('scroll',function(){var b=document.getElementById('back-to-top');b.style.display=window.scrollY>300?'flex':'none';})</script>
+
+</body>
+</html>

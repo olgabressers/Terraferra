@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Referral &amp; Viral Mechanics · Terra Ferra</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --tf:#4B40C2;--tf-dark:#2D2595;--tf-ghost:#F4F2FC;
+  --orange:#E86820;--off-white:#F7F6FB;--ink:#12102B;
+  --sub:#5B5880;--rule:#D8D4EF;--green:#1A7A4A;--green-bg:#EDFAF3;
+  --red:#C0392B;
+}
+body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)}
+
+.topnav{background:white;border-bottom:1px solid var(--rule);padding:12px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
+.topnav-home{font-weight:800;letter-spacing:2px;color:var(--ink);text-decoration:none;font-size:11px}
+.topnav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:var(--sub);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:10px}
+.topnav-links a:hover{color:var(--tf)}
+.has-dropdown{position:relative;padding-bottom:10px;margin-bottom:-10px}
+.dropdown-trigger{cursor:pointer;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:10px;user-select:none}
+.dropdown{display:none;position:absolute;top:100%;right:0;background:white;border:1px solid var(--rule);min-width:210px;box-shadow:0 6px 14px rgba(0,0,0,.08);padding:6px 0;z-index:60}
+.has-dropdown:hover .dropdown,.has-dropdown:focus-within .dropdown{display:block}
+.dropdown a{display:block;padding:9px 16px;font-size:10px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:1px;text-decoration:none}
+.dropdown a:hover{background:var(--tf-ghost);color:var(--tf)}
+@media(max-width:700px){
+  .topnav{position:static;padding:10px 14px}
+  .topnav-links{gap:8px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:2px;width:100%}
+  .topnav-links a{font-size:9.5px;white-space:nowrap}
+  .dropdown-trigger{font-size:9.5px;white-space:nowrap}
+  .has-dropdown{padding-bottom:0;margin-bottom:0}
+  .dropdown{display:none!important}
+}
+
+.pg-wrap{max-width:1240px;margin:0 auto;padding:40px 48px 80px}
+.pg-header{padding:12px 0 0}
+.pg-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--sub);opacity:.6}
+.pg-title{font-size:40px;font-weight:800;letter-spacing:-1.5px;color:var(--ink);margin-top:14px;line-height:1.1}
+.pg-sub{font-size:13.5px;color:var(--sub);margin-top:10px;line-height:1.6;max-width:780px}
+
+.section{padding:44px 0}
+.section+.section{border-top:1px solid var(--rule)}
+.sec-heading{font-size:20px;font-weight:800;color:var(--ink);margin-bottom:20px;line-height:1.2}
+.sec-num{font-size:20px;font-weight:800;color:var(--orange);margin-right:8px}
+
+/* VERDICT BOX */
+.verdict{background:white;border:1px solid var(--rule);border-top:4px solid var(--orange);padding:32px 36px;margin-top:32px}
+.verdict-eyebrow{font-size:26px;font-weight:800;letter-spacing:-0.5px;color:var(--orange);margin-bottom:24px}
+.verdict-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.verdict-col-head{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.verdict-list{font-size:13.5px;line-height:1.75;padding-left:18px;margin:0}
+.verdict-list li{margin-bottom:10px;font-weight:500}
+.verdict-list strong{font-weight:800;color:var(--ink)}
+
+/* TABLE */
+.dtable{width:100%;border-collapse:collapse;font-size:13px;margin:16px 0}
+.dtable th{text-align:left;font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);padding:9px 14px;border-bottom:2px solid var(--rule);background:var(--tf-ghost)}
+.dtable td{padding:11px 14px;border-bottom:1px solid var(--rule);vertical-align:top;color:var(--ink);line-height:1.55}
+.dtable tr:last-child td{border-bottom:none}
+.dtable tr.group-head td{background:var(--tf-ghost);font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);padding:9px 14px;border-top:2px solid var(--rule);border-bottom:1px solid var(--rule)}
+.dtable .bold{font-weight:800}
+.dtable .muted{color:var(--sub)}
+.dtable .pos{color:var(--green);font-weight:700}
+.dtable .neg{color:var(--red);font-weight:700}
+.dtable .src{font-size:11px;color:var(--sub);display:block;margin-top:3px}
+
+/* MECHANIC CARDS */
+.mcard{background:white;border:1px solid var(--rule);padding:20px 22px}
+.mcard-label{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+.mcard ul{font-size:13px;line-height:1.75;color:var(--ink);padding-left:18px;margin:0}
+.mcard ul li{margin-bottom:8px}
+.mcard ul li:last-child{margin-bottom:0}
+
+/* TRIGGER CARDS */
+.tcard{background:white;border:1px solid var(--rule);border-top:3px solid var(--tf);padding:20px}
+.tcard-label{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);margin-bottom:8px}
+.tcard-title{font-size:15px;font-weight:800;color:var(--ink);margin-bottom:8px}
+.tcard-body{font-size:13px;line-height:1.65;color:var(--sub)}
+.tcard-ex{font-size:11.5px;color:var(--sub);margin-top:10px;padding-top:10px;border-top:1px solid var(--rule)}
+.tcard-ex a{color:var(--tf);text-decoration:none}
+.tcard-ex a:hover{text-decoration:underline}
+
+/* FLOW DIAGRAM */
+.fdiag{margin-top:20px;overflow-x:auto}
+.fdiag-inner{min-width:800px;border:1px solid var(--rule);background:white}
+.frow{display:flex;align-items:center;gap:6px;padding:10px 16px}
+.frow+.frow{border-top:1px solid var(--rule)}
+.factor{font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;width:96px;flex-shrink:0;text-align:right;padding-right:14px;line-height:1.4}
+.fsteps{display:flex;align-items:center;gap:5px;flex-wrap:nowrap}
+.fbox{background:var(--off-white);border:1.5px solid var(--rule);padding:6px 11px;font-size:11.5px;font-weight:700;white-space:nowrap;color:var(--ink)}
+.fbox-auto{background:var(--tf-ghost);border:1.5px dashed var(--rule);color:var(--sub);font-weight:600;font-size:11px}
+.farr{font-size:14px;color:var(--orange);flex-shrink:0;line-height:1}
+.farr-dim{font-size:11px;color:var(--rule);flex-shrink:0}
+.floop{padding:8px 16px;background:var(--tf-ghost);border-top:1px solid var(--rule);font-size:12px;color:var(--sub);display:flex;align-items:center;gap:8px}
+.fgaming{padding:8px 16px;background:white;border-top:2px solid var(--tf);font-size:11.5px;color:var(--ink)}
+
+footer{padding:24px 60px;border-top:1px solid var(--rule);background:white;margin-top:60px}
+.footer-inner{max-width:1000px;margin:0 auto;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);opacity:.5}
+
+#back-to-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--tf);color:white;border:none;border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900}
+#back-to-top:hover{background:var(--tf-dark)}
+
+/* RESPONSIVE GRIDS */
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.g2-inner{display:grid;grid-template-columns:1fr 1fr;gap:0 32px}
+.g2-impl{display:grid;grid-template-columns:1fr 1fr;gap:14px 32px;font-size:13px;line-height:1.7;color:var(--ink)}
+
+@media(max-width:1000px){
+  .verdict-grid{grid-template-columns:1fr}
+  .g3{grid-template-columns:1fr 1fr}
+}
+@media(max-width:700px){
+  .pg-wrap{padding:20px 16px 60px}
+  .pg-title{font-size:28px}
+  .section{padding:32px 0}
+  .verdict{padding:22px 20px}
+  .dtable{display:block;overflow-x:auto;white-space:nowrap}
+  footer{padding:18px 20px}
+  .mcard{padding:16px 14px}
+  .g3,.g2,.g2-inner,.g2-impl{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="index.html" class="topnav-home">Terra Ferra</a>
+  <div class="topnav-links">
+    <a href="index.html">Files</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Budget ▾</span>
+      <div class="dropdown">
+        <a href="TFmarketsize.html">Market Size &amp; Opportunity</a>
+        <a href="budget.html">Budget &amp; Sales Scenarios</a>
+      </div>
+    </div>
+    <a href="roles.html">Roles</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Business Model ▾</span>
+      <div class="dropdown">
+        <a href="TFbusinessmodel.html">Comparison Matrix</a>
+        <a href="TFaltmodel.html">Alternative Model</a>
+        <a href="TFmvpcosts.html">MVP Scope &amp; Costs</a>
+        <a href="TFgtm.html">GTM</a>
+        <a href="TFwhynow.html">Why Now</a>
+        <a href="TFdropsmarket.html">Drop Market Research</a>
+        <a href="TFunservedmarket.html">Unserved Market</a>
+        <a href="TFreferral.html">Referral &amp; Viral</a>
+        <a href="TFcreatortoken.html">Creator Payments</a>
+        <a href="TFstylists.html">Stylist Layer</a>
+        <a href="/psychology-fashion.html">Psychology + Fashion</a>
+        <a href="TFvisualdiscovery.html">Visual Discovery</a>
+      </div>
+    </div>
+    <a href="TFmarketplaces.html">Operations</a>
+    <a href="architecture.html">Architecture</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Ideas ▾</span>
+      <div class="dropdown">
+        <a href="gamification.html">Gamification</a>
+        <a href="ideas.html">Ideas &amp; AI Research</a>
+        <a href="influencer.html">Influencer Selling</a>
+        <a href="strategic-brief.html">Strategic Brief</a>
+      </div>
+    </div>
+    <a href="TFrussia.html">Legal / Tax</a>
+    <a href="task-tracker.html">Planning</a>
+  </div>
+</nav>
+
+<div class="pg-wrap">
+  <div class="pg-header">
+    <div class="pg-eyebrow">Business Model Research · Internal</div>
+    <div class="pg-title">Referral &amp; Viral Mechanics</div>
+    <div class="pg-sub">How a drop spreads beyond the influencer's audience — what makes consumers share and the viral circle grow</div>
+  </div>
+
+  <!-- VIRAL LOOP -->
+  <div class="verdict">
+    <div class="verdict-eyebrow">The Viral Loop</div>
+    <table class="dtable" style="margin:0">
+      <thead>
+        <tr>
+          <th style="width:18%">Stage</th>
+          <th style="width:38%">What happens</th>
+          <th>Section 04 mechanics in play</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="bold" style="color:var(--tf)">1 · Influencer launches</td>
+          <td>Creator's followers get drop access 24h before public. Creator shares the link to protect their community's early slot.</td>
+          <td><strong>Scarcity:</strong> countdown timer · live stock counter<br><strong>Identity:</strong> Early Access Gate · designer debut framing</td>
+        </tr>
+        <tr>
+          <td class="bold" style="color:var(--orange)">2 · Buyers pull in networks</td>
+          <td>Share link carries "83 of 150 remaining" in real time. Followers who buy pass it outward. Community pull counter visible at checkout. Drop closes → auto sold-out card fires.</td>
+          <td><strong>Scarcity:</strong> community pull counter · sold-out card<br><strong>Identity:</strong> "One of 150 owners" card · Early supporter badge<br><strong>Gaming:</strong> creator earns points per first-time buyer through their link</td>
+        </tr>
+        <tr>
+          <td class="bold" style="color:var(--green)">3 · Cold consumers discover</td>
+          <td>Buyers with no prior follow find the drop via save count, waitlist size, or 24h trending sort. They buy → receive "One of 150 owners" card → share it.</td>
+          <td><strong>Cold Discovery:</strong> Drops Open Now feed · style browse · save-to-board + public count · trending sort</td>
+        </tr>
+        <tr style="background:var(--tf-ghost)">
+          <td class="bold" style="color:var(--tf)" colspan="2">Gaming &amp; Points — runs across all 3 stages</td>
+          <td>Creator leaderboard, tier progression (Creator → Rising Creator → Founding Creator), and points for actions (drop completed, sales milestones, recruits) incentivise harder promotion at every stage — not tied to one moment in the loop.</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="margin-top:14px;padding:10px 14px;background:var(--tf-ghost);border-left:3px solid var(--red);font-size:12px;color:var(--sub);line-height:1.6">
+      <strong style="color:var(--ink)">What breaks the loop:</strong> share link lands on a page with no stock counter · no Early Access Gate = no first-wave urgency · no sold-out card at close = no discovery for the next drop
+    </div>
+  </div>
+
+  <!-- PROCESS FLOW VISUAL -->
+  <div class="fdiag">
+    <div class="fdiag-inner">
+
+      <div class="frow">
+        <div class="factor" style="color:var(--tf)">Influencer</div>
+        <div class="fsteps">
+          <div class="fbox" style="border-color:var(--tf)">Drop created</div>
+          <div class="farr">→</div>
+          <div class="fbox" style="border-color:var(--tf)">Early Access Gate</div>
+          <div class="farr">→</div>
+          <div class="fbox" style="border-color:var(--tf)">Posts drop link</div>
+          <div class="farr">→</div>
+          <div class="fbox" style="border-color:var(--tf)">Promotes 48–72 hr window</div>
+        </div>
+      </div>
+
+      <div class="frow">
+        <div class="factor" style="color:var(--sub)">Platform</div>
+        <div class="fsteps">
+          <div class="fbox fbox-auto">Countdown timer</div>
+          <div class="farr-dim">·</div>
+          <div class="fbox fbox-auto">Live stock counter</div>
+          <div class="farr-dim">·</div>
+          <div class="fbox fbox-auto">Community pull counter</div>
+          <div class="farr-dim">·</div>
+          <div class="fbox fbox-auto">Trending sort</div>
+          <div class="farr-dim">·</div>
+          <div class="fbox fbox-auto">Drops Open Now feed</div>
+          <div class="farr-dim">·</div>
+          <div class="fbox fbox-auto">Sold-out card fires</div>
+        </div>
+      </div>
+
+      <div class="frow">
+        <div class="factor" style="color:var(--orange)">Follower</div>
+        <div class="fsteps">
+          <div class="fbox" style="border-color:var(--orange)">Sees link</div>
+          <div class="farr">→</div>
+          <div class="fbox" style="border-color:var(--orange)">Views drop page</div>
+          <div class="farr">→</div>
+          <div class="fbox" style="border-color:var(--orange)">Buys</div>
+          <div class="farr">→</div>
+          <div class="fbox" style="border-color:var(--orange)">Ownership card</div>
+          <div class="farr">→</div>
+          <div class="fbox" style="border-color:var(--orange)">Shares to network</div>
+        </div>
+      </div>
+
+      <div class="frow">
+        <div class="factor" style="color:var(--green)">Cold consumer</div>
+        <div class="fsteps">
+          <div class="fbox" style="border-color:var(--green)">Sees shared card</div>
+          <div class="farr">→</div>
+          <div class="fbox" style="border-color:var(--green)">Drops Open Now</div>
+          <div class="farr">→</div>
+          <div class="fbox" style="border-color:var(--green)">Views drop</div>
+          <div class="farr">→</div>
+          <div class="fbox" style="border-color:var(--green)">Buys</div>
+          <div class="farr">→</div>
+          <div class="fbox" style="border-color:var(--green)">Ownership card</div>
+          <div class="farr">→</div>
+          <div class="fbox" style="border-color:var(--green)">Shares</div>
+        </div>
+      </div>
+
+      <div class="floop">
+        <span style="font-size:16px;color:var(--orange);flex-shrink:0">↩</span>
+        Ownership shares + sold-out card seed next drop discovery — loop restarts
+      </div>
+
+      <div class="fgaming">
+        <span style="font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf)">All stages · Gaming &amp; Points — </span>
+        Creator earns points per buyer, per drop, per recruit · Tier: Creator → Rising Creator → Founding Creator · Leaderboard visible to followers
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 01: WHY CONSUMERS SHARE -->
+  <div class="section">
+    <div class="sec-heading"><span class="sec-num">01</span>Why Consumers Share Fashion Content</div>
+    <div class="g3" style="margin-bottom:16px">
+
+      <div class="tcard">
+        <div class="tcard-label">Trigger 1</div>
+        <div class="tcard-title">"I found this first"</div>
+        <div class="tcard-body">Sharing a drop before it sells out signals taste and cultural awareness. The sharer is the one who knew before everyone else. Being first is the reward — cash would replace this signal with a transaction.</div>
+        <div class="tcard-ex">→ Supreme drops sell out in minutes through organic sharing alone — 30+ years, zero referral fee. <a href="https://www.vfc.com/investors/news-events-presentations/press-releases/detail/1741/vf-corporation-completes-acquisition-of-supreme" target="_blank" rel="noopener">VFC acquisition 2020</a></div>
+      </div>
+
+      <div class="tcard" style="border-top-color:var(--orange)">
+        <div class="tcard-label" style="color:var(--orange)">Trigger 2</div>
+        <div class="tcard-title">"It's closing in 48 hours"</div>
+        <div class="tcard-body">A time-limited or stock-limited window forces shares to happen now. Without urgency, sharing is always "maybe later." The countdown is the trigger — it converts passive interest into active promotion.</div>
+        <div class="tcard-ex">→ Rhode Beauty 440,000+ person waitlist built on "you might miss it" — no referral fees. <a href="https://www.voguebusiness.com/story/beauty/hailey-biebers-rhode-in-2023" target="_blank" rel="noopener">Vogue Business 2023</a></div>
+      </div>
+
+      <div class="tcard" style="border-top-color:var(--green)">
+        <div class="tcard-label" style="color:var(--green)">Trigger 3</div>
+        <div class="tcard-title">"I'm a founding supporter"</div>
+        <div class="tcard-body">Being in the first wave of buyers for a designer's debut drop is a permanently shareable credential. "I was there at the beginning" signals foresight and taste. This is why Glossier reps shared — being a rep was the status signal, not the commission.</div>
+        <div class="tcard-ex">→ Glossier 500+ community reps sharing for identity, not cash. <a href="https://www.vox.com/the-goods/2019/3/14/18265620/glossier-influencers-brand-reps-creator-marketing" target="_blank" rel="noopener">Vox 2019</a></div>
+      </div>
+
+    </div>
+
+    <div class="g2">
+
+      <div class="tcard" style="border-top-color:var(--sub)">
+        <div class="tcard-label" style="color:var(--sub)">Trigger 4</div>
+        <div class="tcard-title">"Get early access before it closes"</div>
+        <div class="tcard-body">When sharing unlocks early access for a friend, the share has practical value for the recipient — not promotional value for the sender. This reframes sharing as a useful act, not self-promotion. Removes the "ad" feeling entirely.</div>
+        <div class="tcard-ex">→ Robinhood queue position mechanic — share to move up, not for cash — drove 1M+ person waitlist. <a href="https://techcrunch.com/2014/09/23/robinhood-stock-app/" target="_blank" rel="noopener">TechCrunch Sep 2014</a></div>
+      </div>
+
+      <div class="tcard" style="border-top-color:var(--tf-dark)">
+        <div class="tcard-label" style="color:var(--tf-dark)">Trigger 5</div>
+        <div class="tcard-title">"I have what you can't get"</div>
+        <div class="tcard-body">After a drop sells out, buyers share to signal ownership of something exclusive. The sold-out card ("I got mine") has more viral power than the pre-sale post — scarcity is confirmed, value is proven. This drives discovery for the next drop.</div>
+        <div class="tcard-ex">→ Fortnite exclusive cosmetics — "I have the skin you can't get" — 350M registered players. <a href="https://www.gamespot.com/articles/fortnite-sets-another-record-with-more-than-350-mi/1100-6476928/" target="_blank" rel="noopener">GameSpot May 2020</a></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 02: EXAMPLES -->
+  <div class="section">
+    <div class="sec-heading"><span class="sec-num">02</span>What Worked and What Failed — Examples by Industry</div>
+
+    <table class="dtable">
+      <thead>
+        <tr>
+          <th style="width:18%">Brand</th>
+          <th style="width:24%">Consumer referral / sharing mechanic</th>
+          <th style="width:18%">Outcome</th>
+          <th>Why</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr class="group-head"><td colspan="4">Fashion — Premium &amp; Emerging (Most Relevant to TF)</td></tr>
+
+        <tr>
+          <td class="bold">Supreme</td>
+          <td><span class="pos">No referral program.</span> Drop model + scarcity. Sharing = identity act — "I knew about this before you."</td>
+          <td class="pos">30+ years organic viral growth. Acquired for $2.1B.</td>
+          <td>Being first is the social currency. A cash referral fee would have converted an identity signal into a transaction and destroyed it.
+          <span class="src"><a href="https://www.vfc.com/investors/news-events-presentations/press-releases/detail/1741/vf-corporation-completes-acquisition-of-supreme" target="_blank" rel="noopener" style="color:var(--tf)">VF Corporation press release, Dec 2020</a></span></td>
+        </tr>
+
+        <tr>
+          <td class="bold">Rhode Beauty</td>
+          <td><span class="pos">Waitlist + drop window, zero cash referral.</span> Scarcity + "you might miss it" created urgency.</td>
+          <td class="pos">440,000+ person waitlist. Viral sharing before a single unit shipped.</td>
+          <td>Waitlist position creates stake — consumers share because their slot moves up or the window closes. Urgency forces the share now, not later.
+          <span class="src"><a href="https://www.voguebusiness.com/story/beauty/hailey-biebers-rhode-in-2023" target="_blank" rel="noopener" style="color:var(--tf)">Vogue Business 2023</a></span></td>
+        </tr>
+
+        <tr>
+          <td class="bold">Glossier</td>
+          <td><span class="pos">Application-only community rep program.</span> Product credit, no salary. Being accepted was the status signal.</td>
+          <td class="pos">500+ reps; cult brand built with minimal paid advertising.</td>
+          <td>Belonging to a select group drove more sharing than cash would have. The exclusivity of being a rep made members promote it publicly to signal taste.
+          <span class="src"><a href="https://www.vox.com/the-goods/2019/3/14/18265620/glossier-influencers-brand-reps-creator-marketing" target="_blank" rel="noopener" style="color:var(--tf)">Vox 2019</a></span></td>
+        </tr>
+
+        <tr>
+          <td class="bold">Farfetch / premium fashion platforms</td>
+          <td><span class="neg">Cash discount codes</span> — $20–$50 off for referred friend. Standard referral program applied to premium price points.</td>
+          <td class="neg">Low share rates. Brand perception damage. Core buyers saw discount-seeking as a lower-status signal.</td>
+          <td>At premium price points, a discount code signals the product is discountable — damaging the brand. Consumers don't want to appear to be recommending for a coupon.
+          <span class="src"><a href="https://www.businessoffashion.com/articles/luxury/duelling-visions-for-the-future-of-luxury-discounting/" target="_blank" rel="noopener" style="color:var(--tf)">Business of Fashion — Luxury Discounting</a></span></td>
+        </tr>
+
+        <tr class="group-head"><td colspan="4">Fashion — Luxury (No Referral as Deliberate Strategy)</td></tr>
+
+        <tr>
+          <td class="bold">Hermès, Chanel</td>
+          <td><span class="pos">No referral program.</span> Aspiration, invitation-only events, managed waitlists. Demand is controlled, not stimulated.</td>
+          <td class="pos">Sustained brand equity for decades. Birkin waitlist functions as a marketing tool.</td>
+          <td>In luxury, exclusivity IS the product. A referral scheme would destroy the aspiration model. The absence of cash incentives is the strategy, not an oversight.
+          <span class="src"><a href="https://www.bain.com/insights/long-live-luxury-converge-to-expand-through-turbulence/" target="_blank" rel="noopener" style="color:var(--tf)">Bain &amp; Company Global Luxury Study 2023</a></span></td>
+        </tr>
+
+        <tr class="group-head"><td colspan="4">Fashion — Mass Market (Contrast: Why Cash Works Here and Not Above)</td></tr>
+
+        <tr>
+          <td class="bold">SHEIN</td>
+          <td><span class="pos">Cash / credit referral</span> — $5–$10 per referred friend + discount codes for both parties.</td>
+          <td class="pos">Works — referral is a meaningful growth driver at this price tier.</td>
+          <td>At mass-market prices, being seen as a bargain-hunter carries no social cost — it's a positive. This does NOT transfer above ~$80 average order value: the same mechanic degrades brand perception at TF's price points.
+          <span class="src"><a href="https://api-shein.shein.com/h5/shareandearn" target="_blank" rel="noopener" style="color:var(--tf)">SHEIN Share &amp; Earn — referral program (official)</a></span></td>
+        </tr>
+
+        <tr class="group-head"><td colspan="4">Other Sectors — Instructive Patterns That Do Transfer</td></tr>
+
+        <tr>
+          <td class="bold">Robinhood</td>
+          <td><span class="pos">Queue position reward</span> — sharing moves you up the waitlist. No cash. Pure positional incentive.</td>
+          <td class="pos">1M+ person waitlist before launch.</td>
+          <td>Utility sharing: consumers share so they benefit, not because they're paid. Apply to TF: sharing a drop moves the buyer up the queue or unlocks early access for a friend.
+          <span class="src"><a href="https://techcrunch.com/2014/09/23/robinhood-stock-app/" target="_blank" rel="noopener" style="color:var(--tf)">TechCrunch Sep 2014</a></span></td>
+        </tr>
+
+        <tr>
+          <td class="bold">Fortnite (Epic Games)</td>
+          <td><span class="pos">Exclusive cosmetics</span> — limited-edition items available only during a set window. Ownership is the shareable signal.</td>
+          <td class="pos">350M registered players. Limited items drive highest organic sharing.</td>
+          <td>"I have what you can't get" is the most powerful post-purchase sharing trigger. Apply to TF: sold-out card, ownership card, first-drop supporter badge.
+          <span class="src"><a href="https://www.gamespot.com/articles/fortnite-sets-another-record-with-more-than-350-mi/1100-6476928/" target="_blank" rel="noopener" style="color:var(--tf)">GameSpot May 2020</a></span></td>
+        </tr>
+
+        <tr>
+          <td class="bold">Dropbox</td>
+          <td><span class="pos">In-kind reward</span> — free storage for both referrer and receiver. Not cash. The reward was the product itself.</td>
+          <td class="pos">3,900% user growth in 15 months.</td>
+          <td>When the reward IS the product, the share feels like a gift to the friend, not a transaction for the sender. Apply to TF: early access as a reward for sharing, not cash.
+          <span class="src"><a href="https://viral-loops.com/blog/dropbox-grew-3900-simple-referral-program/" target="_blank" rel="noopener" style="color:var(--tf)">Viral Loops — Dropbox case study</a></span></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SECTION 03: PRICE TIER -->
+  <div class="section">
+    <div class="sec-heading"><span class="sec-num">03</span>Where Cash Referral Works and Where It Breaks Down</div>
+
+    <table class="dtable">
+      <thead>
+        <tr>
+          <th>Segment</th>
+          <th>Price point</th>
+          <th>Cash referral effectiveness</th>
+          <th>What works instead</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="bold">Fast fashion / mass market</td>
+          <td>$15–$60</td>
+          <td class="pos">Works — low identity risk; discount is a feature, not a signal</td>
+          <td>N/A — cash discount works fine here</td>
+        </tr>
+        <tr>
+          <td class="bold">Mid-market</td>
+          <td>$60–$150</td>
+          <td class="muted">Mixed — depends on brand positioning and product type</td>
+          <td>Product credit, loyalty points</td>
+        </tr>
+        <tr>
+          <td class="bold">Semi-luxury / premium</td>
+          <td>$150–$800</td>
+          <td class="neg">Underperforms — social cost starts to outweigh economic value; brand dilution risk</td>
+          <td>Access, status, community identity, co-creator framing</td>
+        </tr>
+        <tr>
+          <td class="bold">Luxury</td>
+          <td>$800+</td>
+          <td class="neg">Damages brand — discount signals product is discountable; contaminates exclusivity</td>
+          <td>Invitation-only access, private events, VIP recognition</td>
+        </tr>
+        <tr>
+          <td class="bold" style="color:var(--tf)">TF target (emerging designer drops)</td>
+          <td>$80–$400 per item</td>
+          <td><span class="muted">$80–$150: mixed</span> — mid-market tier; cash may be partially viable but brand dilution risk rises with price.<br><span class="neg">$150–$400: underperforms</span> — designer is unknown, share is a taste signal, cash destroys it</td>
+          <td class="pos"><strong>Early access + founding-creator status + identity-driven sharing mechanics.</strong> See Section 04 for the full mechanic list.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SECTION 04: MECHANICS TO BUILD -->
+  <div class="section">
+    <div class="sec-heading"><span class="sec-num">04</span>Mechanics to Build into TF</div>
+
+    <div class="g2">
+
+      <!-- SCARCITY -->
+      <div class="mcard" style="border-left:4px solid var(--orange)">
+        <div class="mcard-label" style="color:var(--orange)">Scarcity &amp; FOMO</div>
+        <ul>
+          <li><strong>Live stock counter</strong> — "83 of 150 remaining" shown in real time on every drop page and in all share links. Visible scarcity is the share trigger.</li>
+          <li><strong>Drop countdown timer</strong> — drop closes in 48–72 hours regardless of stock. Creator is incentivised to promote hard in the window. Buyers share urgency before it closes.</li>
+          <li><strong>Community pull counter</strong> — "Join 47 others in this drop" shown on every drop page. Based on TF's own platform data — no external API needed.</li>
+          <li><strong>Sold-out social card</strong> — auto-generated when a drop closes: "Sold out in 6 hours." Creator and buyers receive a shareable card. Drives discovery for the next drop.</li>
+        </ul>
+      </div>
+
+      <!-- IDENTITY -->
+      <div class="mcard" style="border-left:4px solid var(--tf)">
+        <div class="mcard-label" style="color:var(--tf)">Identity &amp; Status</div>
+        <ul>
+          <li><strong>Early access gate</strong> — creator's followers get drop access 24h before public. Creator shares to grow their audience; fans share to secure early slot. Share is a utility act, not promotion.</li>
+          <li><strong>"One of 150 owners" card</strong> — buyer receives a branded digital card at purchase. Shareable proof of early taste: "I found this designer before you did."</li>
+          <li><strong>First-to-discover badge</strong> — first 10% of buyers on a designer's debut drop get a permanent "Early supporter" badge on their profile. Signals foresight and taste.</li>
+          <li><strong>Designer debut framing</strong> — "This is [Designer]'s first ever public drop." Early buyers are founders, not just customers. Sharing it is a founding act.</li>
+        </ul>
+      </div>
+
+      <!-- DISCOVERY — full width -->
+      <div class="mcard" style="border-left:4px solid var(--green);grid-column:1 / -1;border-top:3px solid var(--green)">
+        <div class="mcard-label" style="color:var(--green)">Cold Discovery — Consumers Who Don't Follow Anyone Yet</div>
+        <div style="font-size:12.5px;color:var(--sub);margin-bottom:14px;line-height:1.6">Every mechanic above assumes the consumer already follows an influencer. Cold discovery addresses the opposite: a buyer with no prior connection finding a designer for the first time. This is the platform's core job — the influencer cannot do it alone.</div>
+        <div class="g2-inner">
+          <ul>
+            <li style="margin-bottom:8px"><strong>Drops Open Now feed</strong> — editorially curated list of all active drops, browsable without following anyone. At MVP: manually curated. No ML required. Satisfies cold discovery with zero technical complexity.</li>
+            <li style="margin-bottom:8px"><strong>Aesthetic / style browse</strong> — buyer finds drops by style tag (minimalist, streetwear, tailored, etc.) set by designer at drop creation. No follow needed.</li>
+          </ul>
+          <ul>
+            <li style="margin-bottom:8px"><strong>Save-to-board</strong> — buyer saves a drop before purchasing. "Saved by 340 people" shown publicly — social proof visible to all cold visitors without requiring a follow or a purchase.</li>
+            <li style="margin-bottom:8px"><strong>Trending sort</strong> — drops ranked by save count, waitlist size, and share count in the last 24h. Surfaces momentum to cold visitors. One sort query on existing data — no separate build needed.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- GAMING — full width -->
+      <div class="mcard" style="border-left:4px solid var(--tf);grid-column:1 / -1;border-top:3px solid var(--tf)">
+        <div class="mcard-label" style="color:var(--tf)">Gaming &amp; Points — Keeping Micro-Influencers Actively Promoting</div>
+        <div style="font-size:12.5px;color:var(--sub);margin-bottom:14px;line-height:1.6">Points give micro-influencers a reason to stay on the platform between drops, compete for visibility, and promote harder. Internal platform currency — not cash. One database table and a dashboard widget.</div>
+        <div class="g2-inner">
+          <ul>
+            <li style="margin-bottom:8px"><strong>Points earned for actions:</strong> completing a drop (+50pts) · $500 in sales (+100pts) · recruiting another creator (+200pts) · publishing a behind-the-drop story (+25pts) · first-time buyer through creator link (+10pts each)</li>
+            <li style="margin-bottom:8px"><strong>Tier progression:</strong> Creator → Rising Creator → Founding Creator. Each tier unlocks new perks (earlier drop access, co-design input, higher visibility). Visible on public profile — creates competition between creators.</li>
+          </ul>
+          <ul>
+            <li style="margin-bottom:8px"><strong>Points redeemed for platform rewards:</strong> featured placement on the discovery feed · early access to a new designer partnership · bonus commission tier for one drop. No cash out — platform value only.</li>
+            <li><strong>Creator leaderboard</strong> — visible to followers: total drops launched, total units sold. Public competition drives harder promotion. Sharing their rank is another shareable moment.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 05: TIER BENCHMARKS -->
+  <div class="section">
+    <div class="sec-heading"><span class="sec-num">05</span>How Tiers Work in Influencer Platforms — Benchmarks</div>
+
+    <table class="dtable">
+      <thead>
+        <tr>
+          <th style="width:13%">Platform</th>
+          <th style="width:20%">Tier names</th>
+          <th style="width:22%">What gates each tier</th>
+          <th style="width:22%">What top tier unlocks</th>
+          <th>Key pattern</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="group-head"><td colspan="5">Fashion &amp; Commerce Platforms</td></tr>
+
+        <tr>
+          <td class="bold">LTK</td>
+          <td class="muted">No creator tiers</td>
+          <td>5K+ followers to join. Commission set per retailer — not per creator tier.</td>
+          <td>Commission 10–25% (brand-set). No tier-based unlocks exist for creators.</td>
+          <td>Access only — no creator progression. Brands select creators separately via LTK Connect.
+          <span class="src"><a href="https://company.shopltk.com/en-gb/how-it-works-creators" target="_blank" rel="noopener" style="color:var(--tf)">LTK — How it works for creators</a></span></td>
+        </tr>
+
+        <tr>
+          <td class="bold">ShopMy</td>
+          <td>Enthusiast → Ambassador → Trendsetter → Icon</td>
+          <td>Points system (100 max): profile completion (10) + activity (15) + monthly traffic (25) + monthly order volume (50). Ambassador = 30 pts · Trendsetter = 70 pts · Icon = top tier (threshold not published by ShopMy).</td>
+          <td>Ambassador = brand search visibility + cash bonus. Trendsetter = brand gifting + PR packages. Icon = paid campaign eligibility + regular PR.</td>
+          <td>Tier = access and visibility — NOT commission %. Commission (10–30%) is brand-set at every tier.
+          <span class="src"><a href="https://canvasandcharms.com/blogs/history-of-fashion/the-ultimate-guide-to-growing-on-shopmy-tiers-earnings-amp-how-creators-can-make-real-money" target="_blank" rel="noopener" style="color:var(--tf)">Canvas &amp; Charms — ShopMy tier guide</a></span></td>
+        </tr>
+
+        <tr>
+          <td class="bold">Amazon Influencer (Creator Stars)</td>
+          <td>Bronze → Silver → Gold → Platinum</td>
+          <td>Points per quarter: $100 shipped revenue = 1 pt · 1,000 link clicks = 1 pt.</td>
+          <td>Seasonal gift boxes, shopping event access, creator event invitations, early deal access.</td>
+          <td>GMV-gated. Tier = access perks and events — not commission-based.
+          <span class="src"><a href="https://affiliate-program.amazon.com/influencer-program" target="_blank" rel="noopener" style="color:var(--tf)">Amazon Influencer Program (official)</a></span></td>
+        </tr>
+
+        <tr>
+          <td class="bold">TikTok Shop Affiliate</td>
+          <td class="muted">No platform-set creator tiers. Two plan types: Open Collaboration · Targeted Collaboration (invite-only)</td>
+          <td>Open = any eligible creator can join; seller sets commission 1–80% per product. Targeted = seller invites specific creators directly; rate negotiated 1:1.</td>
+          <td>Open: 10–15% typical (seller-set). Targeted: 18–50%+ negotiated directly with seller.</td>
+          <td>Platform does not set commission % or commission tiers. Seller controls both.
+          <span class="src"><a href="https://ads.tiktok.com/help/article/about-open-collaborations-in-seller-center" target="_blank" rel="noopener" style="color:var(--tf)">TikTok Ads Help — About open collaborations (official)</a></span></td>
+        </tr>
+
+        <tr class="group-head"><td colspan="5">Non-Fashion — Gaming / Subscription Model (Included for points &amp; tier mechanics)</td></tr>
+
+        <tr>
+          <td class="bold">Twitch</td>
+          <td>Affiliate → Partner → Partner Plus L1 → Partner Plus L2</td>
+          <td>Affiliate: 50 followers, avg 3 concurrent viewers, 7 broadcast days. Partner: 75+ avg viewers, 6 streams/month across 2 consecutive months + review. Plus L1: 100 pts over 3 consecutive months from paid subs. Plus L2: 300 pts.</td>
+          <td>Affiliate = 50/50 sub revenue. Partner = 50/50 + ads + custom emotes. Plus L1 = 60/40 split. Plus L2 = 70/30 split.</td>
+          <td>Revenue split improves with sustained consistent activity. Points from paid subs only (gifted/Prime excluded) — rewards genuine audience retention, not spikes.
+          <span class="src"><a href="https://influencermarketinghub.com/twitch-partner-plus/" target="_blank" rel="noopener" style="color:var(--tf)">Influencer Marketing Hub — Twitch Partner Plus</a></span></td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <div style="margin-top:20px;background:var(--tf-ghost);border:1px solid var(--rule);border-left:4px solid var(--tf);padding:18px 22px">
+      <div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tf);margin-bottom:14px">What this means for TF creator tiers · <span style="color:var(--sub);font-weight:600">Direction, not decided</span></div>
+      <div class="g2-impl">
+        <div><strong>Gate by GMV, not followers.</strong> Amazon and ShopMy gate tiers by sales volume or revenue driven — not audience size. Followers at entry; performance after that.</div>
+        <div><strong>Commission % is TF's lever.</strong> On TikTok Shop, LTK, and ShopMy, the seller or brand sets the rate — not the platform. TF is different: TF controls its own commission structure and can tie rate increases directly to creator tier progression.</div>
+        <div><strong>Non-cash unlocks at top tiers.</strong> ShopMy Icon and Twitch Partner both add visibility and access — not just cash. TF equivalents: featured placement, early drop access, direct designer relationships.</div>
+        <div><strong>Sustained activity, not one spike.</strong> Twitch rewards 3 consecutive months of performance. TF tiers should require consistent drops participated — not a single high-GMV outlier.</div>
+      </div>
+    </div>
+
+    <div style="margin-top:16px;padding:16px 20px;background:var(--orange);font-size:13px;color:white;line-height:1.7;font-weight:500">
+      No fashion commerce platform ties creator tier to commission % — LTK, ShopMy, and Amazon use tiers for visibility and access only, with commission always brand-set. TikTok Shop has no commission tiers; sellers set rates per product. Twitch is the only benchmarked platform where sustained performance improves the revenue split — 50/50 at entry, 70/30 at top tier.
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+  <div class="pg-wrap">
+    <div class="footer-inner">Private · noindex · Not for distribution</div>
+  </div>
+</footer>
+
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">&#8593;</button>
+<script>window.addEventListener('scroll',function(){var b=document.getElementById('back-to-top');b.style.display=window.scrollY>400?'flex':'none';});</script>
+</body>
+</html>

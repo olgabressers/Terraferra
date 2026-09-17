@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>MVP &amp; Costs · Terra Ferra</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --tf:#4B40C2;--tf-dark:#2D2595;--tf-ghost:#F4F2FC;
+  --orange:#E86820;--off-white:#F7F6FB;--ink:#12102B;
+  --sub:#5B5880;--rule:#D8D4EF;
+  --green:#1A7A4A;--green-bg:#EDFAF3;
+  --red-text:#C0392B;--red-bg:#FEF0EE;
+}
+body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)}
+
+/* NAV */
+.topnav{background:white;border-bottom:1px solid var(--rule);padding:12px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
+.topnav-home{font-weight:800;letter-spacing:2px;color:var(--ink);text-decoration:none;font-size:11px}
+.topnav-home:hover{color:var(--ink)}
+.topnav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:var(--sub);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:10px}
+.topnav-links a:hover,.topnav-links a.active{color:var(--tf)}
+.topnav-links a.active{color:var(--orange)}
+.has-dropdown{position:relative;padding-bottom:10px;margin-bottom:-10px}
+.dropdown-trigger{cursor:pointer;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:10px;user-select:none}
+.dropdown-trigger:hover,.has-dropdown:focus-within .dropdown-trigger{color:var(--tf)}
+.dropdown{display:none;position:absolute;top:100%;right:0;background:white;border:1px solid var(--rule);min-width:200px;box-shadow:0 6px 14px rgba(0,0,0,.08);padding:6px 0;z-index:60}
+.has-dropdown:hover .dropdown,.has-dropdown:focus-within .dropdown{display:block}
+.dropdown a{display:block;padding:9px 16px;font-size:10px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:1px;text-decoration:none}
+.dropdown a:hover{background:var(--tf-ghost);color:var(--tf)}
+@media(max-width:700px){
+  .topnav{position:static;padding:10px 14px}
+  .topnav-links{gap:8px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:2px;width:100%}
+  .topnav-links a{font-size:9.5px;white-space:nowrap}
+  .dropdown-trigger{font-size:9.5px;white-space:nowrap}
+  .has-dropdown{padding-bottom:0;margin-bottom:0}
+  .dropdown{display:none!important}
+}
+
+/* PAGE LAYOUT */
+.pg-wrap{max-width:1140px;margin:0 auto;padding:0 60px}
+.pg-header{padding:52px 0 0}
+.pg-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--sub);opacity:.6}
+.pg-title{font-size:44px;font-weight:800;letter-spacing:-1.5px;color:var(--ink);margin-top:14px;line-height:1.1}
+.pg-sub{font-size:13.5px;color:var(--sub);margin-top:10px;line-height:1.6}
+
+/* SECTIONS */
+.section{padding:52px 0}
+.section+.section{border-top:1px solid var(--rule)}
+.sec-heading{font-size:28px;font-weight:800;color:var(--orange);margin-bottom:28px;line-height:1.15}
+.sec-num{font-size:28px;font-weight:800;color:var(--orange);margin-right:10px}
+
+/* SCOPE */
+.scope-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.scope-card{background:white;border:1px solid var(--rule);padding:24px 28px}
+.scope-card.in{border-top:3px solid var(--green)}
+.scope-card.out{border-top:3px solid var(--rule)}
+.scope-eyebrow{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
+.scope-card.in .scope-eyebrow{color:var(--green)}
+.scope-card.out .scope-eyebrow{color:var(--sub);opacity:.6}
+.scope-list{list-style:none}
+.scope-list li{font-size:13px;color:var(--ink);padding:7px 0;border-bottom:1px solid var(--rule);line-height:1.5;display:flex;gap:8px}
+.scope-list li:last-child{border-bottom:none}
+.scope-list li::before{flex-shrink:0;font-weight:800;font-size:11px}
+.scope-card.in .scope-list li::before{content:'✓';color:var(--green)}
+.scope-card.out .scope-list li::before{content:'—';color:var(--sub);opacity:.5}
+
+/* VTO VENDORS */
+.vendor-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:20px}
+.vendor-card{background:white;border:1px solid var(--rule);padding:28px 28px 22px}
+.vendor-card.rec{border-top:3px solid var(--orange)}
+.vendor-card.alt{border-top:3px solid var(--tf)}
+.v-badge{display:inline-block;font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;margin-bottom:14px}
+.v-badge.rec{background:var(--orange);color:white}
+.v-badge.alt{background:var(--tf-ghost);color:var(--tf)}
+.v-name{font-size:22px;font-weight:800;color:var(--ink);margin-bottom:3px}
+.v-url{font-size:11px;margin-bottom:14px}
+.v-url a{color:var(--tf);text-decoration:none}
+.v-url a:hover{text-decoration:underline}
+.v-desc{font-size:13px;color:var(--sub);line-height:1.6;margin-bottom:20px}
+.ptable{width:100%;border-collapse:collapse;font-size:12.5px;margin-bottom:16px}
+.ptable th{text-align:left;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--sub);padding:5px 8px;border-bottom:2px solid var(--rule)}
+.ptable td{padding:8px 8px;border-bottom:1px solid var(--rule);vertical-align:top;color:var(--ink);font-size:13px}
+.ptable tr:last-child td{border-bottom:none}
+.ptable .bold{font-weight:800}
+.ptable .note{font-size:12px;color:var(--ink);opacity:.75}
+.ptable-note{font-size:12.5px;color:var(--ink);line-height:1.6;padding:10px 12px;background:var(--tf-ghost);margin-top:8px}
+.src{font-size:11px;color:var(--sub)}
+.src a{color:var(--tf);text-decoration:none}
+.src a:hover{text-decoration:underline}
+
+.crossover-box{background:var(--tf-ghost);border:1px solid var(--rule);border-left:4px solid var(--tf);padding:16px 20px;font-size:13px;color:var(--ink);line-height:1.6}
+.crossover-box strong{color:var(--tf)}
+#xover{font-weight:800;color:var(--orange)}
+
+/* GAMIFICATION */
+.gami-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.gami-box{background:white;border:1px solid var(--rule);padding:24px 28px}
+.gami-title{font-size:14px;font-weight:800;color:var(--ink);margin-bottom:16px}
+.gami-rows li{font-size:13px;color:var(--ink);padding:7px 0;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;list-style:none}
+.gami-rows li:last-child{border-bottom:none}
+.tag{font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:2px 7px;background:var(--tf-ghost);color:var(--tf)}
+.cost-block{background:white;border:1px solid var(--rule);border-top:3px solid var(--tf);padding:24px 28px}
+.cost-row{display:flex;justify-content:space-between;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--rule);gap:12px}
+.cost-row:last-child{border-bottom:none}
+.cost-lbl{font-size:13.5px;font-weight:500;color:var(--ink)}
+.cost-note{font-size:11px;color:var(--sub);margin-top:2px;display:block}
+.cost-val{font-size:16px;font-weight:800;color:var(--ink);white-space:nowrap}
+.alt-note{margin-top:14px;padding:16px;background:white;border:1px solid var(--rule);font-size:12.5px;color:var(--sub);line-height:1.6}
+.alt-inhouse{background:white;border:1px solid var(--rule);border-left:4px solid var(--orange);padding:24px 28px;margin-top:14px}
+.alt-inhouse-headline{font-size:22px;font-weight:800;color:var(--ink);margin-bottom:10px}
+.alt-inhouse-body{font-size:13px;color:var(--sub);line-height:1.6;margin-bottom:18px}
+.alt-inhouse-item{padding:14px 0;border-bottom:1px solid var(--rule)}
+.alt-inhouse-item:last-child{border-bottom:none;padding-bottom:0}
+.alt-inhouse-label{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);display:block;margin-bottom:5px}
+.alt-inhouse-value{font-size:16px;font-weight:800;color:var(--ink);display:block;margin-bottom:5px}
+.alt-inhouse-value.no{color:var(--orange)}
+.alt-inhouse-note{font-size:11.5px;color:var(--sub);line-height:1.6;display:block}
+.alt-note strong{color:var(--ink)}
+.gami-sub-label{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding-bottom:10px;margin-bottom:20px;border-bottom:2px solid}
+.gami-sub-label.mvp{color:var(--green);border-color:var(--green)}
+.gami-sub-label.p2{color:var(--tf);border-color:var(--tf);margin-top:36px}
+.gami-badge{display:inline-block;font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;margin-bottom:12px}
+.gami-badge.mvp{background:var(--green-bg);color:var(--green)}
+.gami-badge.p2{background:var(--tf-ghost);color:var(--tf)}
+.gami-badge.rec{background:var(--orange);color:white}
+.gami-mech-name{font-size:18px;font-weight:800;color:var(--ink);margin-bottom:8px}
+.gami-mech-desc{font-size:13px;color:var(--sub);line-height:1.6;margin-bottom:8px}
+.gami-steps{list-style:none;margin:0 0 14px;counter-reset:gstep}
+.gami-steps li{font-size:12.5px;color:var(--ink);padding:5px 0;border-bottom:1px solid var(--rule);line-height:1.5;display:flex;gap:8px;counter-increment:gstep}
+.gami-steps li::before{content:counter(gstep);font-size:11px;font-weight:800;color:var(--orange);min-width:18px;flex-shrink:0}
+.gami-steps li:last-child{border-bottom:none}
+.reward-table{width:100%;border-collapse:collapse;font-size:12.5px;margin:10px 0 14px}
+.reward-table th{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--sub);padding:5px 8px;border-bottom:2px solid var(--rule);text-align:left}
+.reward-table td{padding:7px 8px;border-bottom:1px solid var(--rule);color:var(--ink)}
+.reward-table tr:last-child td{border-bottom:none}
+.gami-caveat{font-size:11.5px;color:var(--sub);line-height:1.6;padding:10px 12px;background:var(--tf-ghost);margin-bottom:12px}
+.ptable-note{font-size:11px;color:var(--sub);line-height:1.5;padding:8px 10px;background:var(--tf-ghost);margin-top:8px}
+
+/* CALCULATOR */
+.calc-wrap{display:grid;grid-template-columns:1fr 380px;gap:36px;align-items:start}
+.sliders-box{background:white;border:1px solid var(--rule);padding:28px 32px}
+.sliders-section-label{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);opacity:.6;margin-bottom:20px}
+.vto-switch{display:flex;gap:0;margin-bottom:24px;border:1px solid var(--rule)}
+.vto-btn{flex:1;padding:12px 8px;text-align:center;cursor:pointer;font-size:12px;font-weight:700;color:var(--sub);background:white;border:none;border-right:1px solid var(--rule);transition:all .15s;line-height:1.4}
+.vto-btn:last-child{border-right:none}
+.vto-btn.on{background:var(--tf);color:white}
+.vto-btn span{display:block;font-size:10px;font-weight:400;margin-top:2px;opacity:.8}
+.sl-group{margin-bottom:20px}
+.sl-group:last-child{margin-bottom:0}
+.sl-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px}
+.sl-label{font-size:12.5px;font-weight:700;color:var(--ink)}
+.sl-val{font-size:14px;font-weight:800;color:var(--orange)}
+input[type=range]{width:100%;height:4px;accent-color:var(--tf);cursor:pointer;display:block}
+.sl-hints{display:flex;justify-content:space-between;font-size:10px;color:var(--sub);opacity:.55;margin-top:4px}
+.sl-note{font-size:11px;color:var(--sub);margin-top:3px}
+
+.out-box{background:var(--ink);padding:28px 28px 24px;position:sticky;top:72px}
+.out-eyebrow{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:white;margin-bottom:22px}
+.out-row{display:flex;justify-content:space-between;align-items:baseline;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.15)}
+.out-row:last-child{border-bottom:none}
+.out-row-lbl{font-size:12px;color:white;font-weight:500}
+.out-row-val{font-size:15px;font-weight:800;color:white}
+.out-row-val.neg{color:#FF8A80}
+.out-divider{height:1px;background:rgba(255,255,255,.2);margin:16px 0}
+.profit-row{padding:12px 0 4px}
+.profit-lbl{font-size:12px;color:white;font-weight:700}
+.profit-val{font-size:22px;font-weight:800}
+.profit-val.pos{color:#7AE3B2}
+.profit-val.neg{color:#FF8A80}
+.margin-row{display:flex;justify-content:space-between;align-items:center;margin-top:4px;margin-bottom:8px}
+.margin-pct{font-size:13px;font-weight:800;color:white}
+.bar-bg{height:5px;background:rgba(255,255,255,.2);border-radius:3px;overflow:hidden}
+.bar-fill{height:100%;border-radius:3px;transition:width .25s,background .25s}
+.bar-note{font-size:10px;color:rgba(255,255,255,.65);margin-top:5px}
+.out-sub-block{margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.2)}
+.out-sub-row{display:flex;justify-content:space-between;align-items:baseline;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.out-sub-row:last-child{border-bottom:none}
+.out-sub-lbl{font-size:13px;font-weight:600;color:white}
+.out-sub-val{font-size:15px;font-weight:800;color:white}
+.out-gami-note{margin-top:14px;padding:12px;background:rgba(255,255,255,.07);font-size:13px;font-weight:600;color:white;line-height:1.5}
+.calc-model-title{font-size:20px;font-weight:800;color:var(--tf);margin-bottom:22px;letter-spacing:-0.3px}
+.sold-out-tag{display:inline-block;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;background:var(--orange);color:white;padding:2px 7px;margin-left:8px;vertical-align:middle}
+.excl-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:6px 32px;margin-top:14px}
+.excl-list li{font-size:12px;color:var(--sub);padding:5px 0;border-bottom:1px solid var(--rule);display:flex;gap:7px;line-height:1.5}
+.excl-list li::before{content:'—';color:var(--rule);flex-shrink:0}
+@media(max-width:700px){.excl-list{grid-template-columns:1fr}}
+
+/* FOOTER */
+footer{border-top:1px solid var(--rule);background:white;padding:24px 60px;margin-top:0}
+.footer-inner{max-width:1140px;margin:0 auto;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);opacity:.5}
+
+/* BACK TO TOP */
+#btt{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--tf);color:white;border:1px solid rgba(113,105,212,.5);border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900;transition:background .2s}
+#btt:hover{background:var(--tf-dark)}
+
+/* RESPONSIVE */
+@media(max-width:1000px){
+  .vendor-grid,.gami-grid,.scope-grid{grid-template-columns:1fr}
+  .calc-wrap{grid-template-columns:1fr}
+}
+@media(max-width:700px){
+  .pg-wrap{padding:0 20px}
+  .pg-title{font-size:32px}
+  .sec-heading,.sec-num{font-size:22px}
+  .out-box{position:static}
+  .ptable{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap}
+  .ptable td,.ptable th{white-space:normal;min-width:120px}
+  .excl-list{grid-template-columns:1fr}
+}
+@media(max-width:500px){
+  .pg-wrap{padding:0 14px}
+  .pg-title{font-size:26px}
+  .sliders-box{padding:20px 18px}
+  .out-box{padding:20px 18px}
+  footer{padding:16px 20px}
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="index.html" class="topnav-home">Terra Ferra</a>
+  <div class="topnav-links">
+    <a href="index.html">Files</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Budget ▾</span>
+      <div class="dropdown">
+        <a href="TFmarketsize.html">Market Size &amp; Opportunity</a>
+        <a href="budget.html">Budget &amp; Sales Scenarios</a>
+      </div>
+    </div>
+    <a href="roles.html">Roles</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Business Model ▾</span>
+      <div class="dropdown">
+        <a href="TFbusinessmodel.html">Comparison Matrix</a>
+        <a href="TFaltmodel.html">Alternative Model</a>
+        <a href="TFmvpcosts.html">MVP Scope &amp; Costs</a>
+        <a href="TFgtm.html">GTM</a>
+        <a href="TFwhynow.html">Why Now</a>
+        <a href="TFdropsmarket.html">Drop Market Research</a>
+        <a href="TFunservedmarket.html">Unserved Market</a>
+        <a href="TFreferral.html">Referral &amp; Viral</a>
+        <a href="TFcreatortoken.html">Creator Payments</a>
+        <a href="TFstylists.html">Stylist Layer</a>
+        <a href="/psychology-fashion.html">Psychology + Fashion</a>
+        <a href="TFvisualdiscovery.html">Visual Discovery</a>
+      </div>
+    </div>
+    <a href="TFmarketplaces.html">Operations</a>
+    <a href="architecture.html">Architecture</a>
+    <div class="has-dropdown">
+      <span class="dropdown-trigger" tabindex="0">Ideas ▾</span>
+      <div class="dropdown">
+        <a href="gamification.html">Gamification</a>
+        <a href="ideas.html">Ideas &amp; AI Research</a>
+        <a href="influencer.html">Influencer Selling</a>
+        <a href="strategic-brief.html">Strategic Brief</a>
+      </div>
+    </div>
+    <a href="TFrussia.html">Legal / Tax</a>
+    <a href="task-tracker.html">Planning</a>
+  </div>
+</nav>
+
+<div class="pg-wrap">
+
+<div class="pg-header">
+  <div class="pg-eyebrow">Internal · Private · June 2026</div>
+  <h1 class="pg-title">MVP · Scope &amp; Costs</h1>
+</div>
+
+<!-- 01 CALCULATOR -->
+<section class="section">
+  <div class="sec-heading"><span class="sec-num">01</span> Unit Economics · Drop Calculator</div>
+  <p style="font-size:13px;color:var(--sub);margin-bottom:28px;line-height:1.6">Per-drop economics for one or more influencers promoting one drop. Funnel: total follower reach → click-through to TF → order on platform. VTO cost reflects all visitors who try VTO — not just buyers. Orders are capped by items in the drop (defaults: 5 influencers × 10K followers = 50K reach × 10% click-through = 5,000 platform visitors × 5% platform conversion = 250 orders). Monthly fixed costs excluded; see section 03.</p>
+
+  <div class="calc-wrap">
+
+    <div class="sliders-box">
+      <div class="calc-model-title">MVP Pricing Model</div>
+
+      <div class="sliders-section-label">VTO Vendor</div>
+      <div class="vto-switch">
+        <button class="vto-btn on" id="btn-fashn" onclick="setVTO('fashn')">
+          FASHN.AI<span>$0.075 per try</span>
+        </button>
+        <button class="vto-btn" id="btn-kivisense" onclick="setVTO('kivisense')">
+          Kivisense<span>$888 / month flat</span>
+        </button>
+        <button class="vto-btn" id="btn-none" onclick="setVTO('none')">
+          No VTO<span>exclude cost</span>
+        </button>
+      </div>
+
+      <div class="sliders-section-label" style="margin-top:20px">Drop Parameters</div>
+
+      <div class="sl-group">
+        <div class="sl-top">
+          <span class="sl-label">Items in this drop</span>
+          <span class="sl-val" id="v-items">150</span>
+        </div>
+        <input type="range" id="sl-items" min="10" max="2000" step="10" value="150" oninput="calc()"/>
+        <div class="sl-hints"><span>10</span><span>2,000</span></div>
+        <div class="sl-note">Caps orders — pre-order is limited to this quantity. Emerging designers typically run 50–150 items per drop.</div>
+      </div>
+
+      <div class="sl-group">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+          <div>
+            <div class="sl-top">
+              <span class="sl-label">Followers per influencer</span>
+              <span class="sl-val" id="v-followers">10K</span>
+            </div>
+            <input type="range" id="sl-followers" min="1000" max="250000" step="1000" value="10000" oninput="calc()"/>
+            <div class="sl-hints"><span>1K</span><span>250K</span></div>
+          </div>
+          <div>
+            <div class="sl-top">
+              <span class="sl-label">Number of influencers</span>
+              <span class="sl-val" id="v-influencers">5</span>
+            </div>
+            <input type="range" id="sl-influencers" min="1" max="20" step="1" value="5" oninput="calc()"/>
+            <div class="sl-hints"><span>1</span><span>20</span></div>
+          </div>
+        </div>
+        <div class="sl-note" style="margin-top:8px">Total reach: <strong id="v-total-reach">50K</strong> &nbsp;·&nbsp; 1 × 50K = same reach as 10 × 5K</div>
+      </div>
+
+      <div class="sl-group">
+        <div class="sl-top">
+          <span class="sl-label">Fixed pay per influencer (per drop)</span>
+          <span class="sl-val" id="v-postfee">$50</span>
+        </div>
+        <input type="range" id="sl-postfee" min="0" max="250" step="10" value="50" oninput="calc()"/>
+        <div class="sl-hints"><span>$0</span><span>$250</span></div>
+        <div class="sl-note">Flat fee per influencer per drop, regardless of sales. ≤50K followers → $50, >50K → $100 suggested.</div>
+      </div>
+
+      <div class="sl-group">
+        <div class="sl-top">
+          <span class="sl-label">Click-through rate — post → platform</span>
+          <span class="sl-val" id="v-ctr">10.0%</span>
+        </div>
+        <input type="range" id="sl-ctr" min="1" max="30" step="0.5" value="10" oninput="calc()"/>
+        <div class="sl-hints"><span>1%</span><span>30%</span></div>
+        <div class="sl-note">% of followers who click from the influencer post to TF. Story swipe-up: 3–15%. Dedicated drop post: 5–20%.</div>
+      </div>
+
+      <div class="sl-group">
+        <div class="sl-top">
+          <span class="sl-label">Conversion on platform — visitor → order</span>
+          <span class="sl-val" id="v-conv">5.0%</span>
+        </div>
+        <input type="range" id="sl-conv" min="0.5" max="20" step="0.5" value="5" oninput="calc()"/>
+        <div class="sl-hints"><span>0.5%</span><span>20%</span></div>
+        <div class="sl-note">% of platform visitors who place an order. Fashion e-commerce: 1–4%. Pre-order with VTO and scarcity: 3–8%.</div>
+      </div>
+
+      <div class="sl-group">
+        <div class="sl-top">
+          <span class="sl-label">Drop sale price (per item)</span>
+          <span class="sl-val" id="v-price">$200</span>
+        </div>
+        <input type="range" id="sl-price" min="50" max="1000" step="10" value="200" oninput="calc()"/>
+        <div class="sl-hints"><span>$50</span><span>$1,000</span></div>
+      </div>
+
+      <div class="sl-group">
+        <div class="sl-top">
+          <span class="sl-label">Production cost (% of sale price)</span>
+          <span class="sl-val" id="v-cogs">20% ($40)</span>
+        </div>
+        <input type="range" id="sl-cogs" min="5" max="40" step="1" value="20" oninput="calc()"/>
+        <div class="sl-hints"><span>5%</span><span>40%</span></div>
+        <div class="sl-note">Apparel: 25–40% of retail. Emerging designers with small runs: 20–35%. Dollar amount updates with price.</div>
+      </div>
+
+      <div class="sliders-section-label" style="margin-top:20px">Fees &amp; Commissions</div>
+
+      <div class="sl-group">
+        <div class="sl-top">
+          <span class="sl-label">TF platform fee</span>
+          <span class="sl-val" id="v-platform">10%</span>
+        </div>
+        <input type="range" id="sl-platform" min="5" max="15" step="0.5" value="10" oninput="calc()"/>
+        <div class="sl-hints"><span>5%</span><span>15%</span></div>
+        <div class="sl-note">TF model: 10% on GMV</div>
+      </div>
+
+      <div class="sl-group">
+        <div class="sl-top">
+          <span class="sl-label">Influencer commission</span>
+          <span class="sl-val" id="v-inf">20%</span>
+        </div>
+        <input type="range" id="sl-inf" min="5" max="25" step="1" value="20" oninput="calc()"/>
+        <div class="sl-hints"><span>5%</span><span>25%</span></div>
+        <div class="sl-note">Standard 10%. Founding Creators: 20%. Benchmarks: LTK ~12%, ShopMy ~20%.</div>
+      </div>
+
+      <div class="sl-group">
+        <div class="sl-top">
+          <span class="sl-label">Payment processing</span>
+          <span class="sl-val" id="v-payment">2.9%</span>
+        </div>
+        <input type="range" id="sl-payment" min="1" max="5" step="0.1" value="2.9" oninput="calc()"/>
+        <div class="sl-hints"><span>1%</span><span>5%</span></div>
+        <div class="sl-note">Stripe standard: 2.9% (fixed $0.30/order excluded — see exclusions)</div>
+      </div>
+
+      <div class="sliders-section-label" style="margin-top:20px">VTO Volume</div>
+
+      <div class="sl-group" id="row-browse">
+        <div class="sl-top">
+          <span class="sl-label">VTO browsers per order</span>
+          <span class="sl-val" id="v-browse">10×</span>
+        </div>
+        <input type="range" id="sl-browse" min="1" max="30" step="1" value="10" oninput="calc()"/>
+        <div class="sl-hints"><span>1×</span><span>30×</span></div>
+        <div class="sl-note">Proxy — actual VTO usage scales with traffic; this ratio keeps VTO cost proportional to revenue for planning purposes.</div>
+      </div>
+
+      <div class="sl-group" id="row-tries">
+        <div class="sl-top">
+          <span class="sl-label">Tries per VTO session</span>
+          <span class="sl-val" id="v-tries">5×</span>
+        </div>
+        <input type="range" id="sl-tries" min="1" max="15" step="1" value="5" oninput="calc()"/>
+        <div class="sl-hints"><span>1×</span><span>15×</span></div>
+      </div>
+
+      <div id="row-limit">
+        <div class="sliders-section-label" style="margin-bottom:10px;margin-top:4px;font-size:9px">Try limit per user</div>
+        <div class="vto-switch">
+          <button class="vto-btn on" id="btn-nolimit" onclick="setLimit(false)">
+            No limit<span>all tries counted</span>
+          </button>
+          <button class="vto-btn" id="btn-limit3" onclick="setLimit(true)">
+            3-try cap<span>free tier limit</span>
+          </button>
+        </div>
+        <div class="sl-note" style="margin-top:8px" id="limit-note">No cap — each VTO user runs up to 5 tries.</div>
+      </div>
+
+      <div class="sliders-section-label" style="margin-top:28px">Monthly Scale</div>
+      <div class="sl-group">
+        <div class="sl-top">
+          <span class="sl-label">Active designers on platform</span>
+          <span class="sl-val" id="v-designers">5</span>
+        </div>
+        <input type="range" id="sl-designers" min="1" max="50" step="1" value="5" oninput="calc()"/>
+        <div class="sl-hints"><span>1</span><span>50</span></div>
+        <div class="sl-note">Designers actively running drops on TF.</div>
+      </div>
+      <div class="sl-group">
+        <div class="sl-top">
+          <span class="sl-label">Drops per designer per month</span>
+          <span class="sl-val" id="v-drops-per">1</span>
+        </div>
+        <input type="range" id="sl-drops-per" min="1" max="4" step="1" value="1" oninput="calc()"/>
+        <div class="sl-hints"><span>1</span><span>4</span></div>
+        <div class="sl-note">How many drops each designer runs monthly.</div>
+      </div>
+      <div class="sl-group">
+        <div class="sl-top">
+          <span class="sl-label">Designer monthly platform fee</span>
+          <span class="sl-val" id="v-designer-fee">$250</span>
+        </div>
+        <input type="range" id="sl-designer-fee" min="0" max="1000" step="50" value="250" oninput="calc()"/>
+        <div class="sl-hints"><span>$0</span><span>$1,000</span></div>
+        <div class="sl-note">Fixed monthly subscription per designer — TF revenue on top of GMV commission. $0 = commission-only model.</div>
+      </div>
+
+    </div><!-- sliders-box -->
+
+    <div class="out-box">
+      <div class="out-eyebrow">Per-Drop Result</div>
+
+      <div class="out-row">
+        <span class="out-row-lbl">Total reach</span>
+        <span class="out-row-val" id="o-total-reach">50K</span>
+      </div>
+      <div class="out-row" style="padding-top:5px;padding-bottom:5px">
+        <span class="out-row-lbl" style="font-size:11px;padding-left:10px">↳ Platform visitors</span>
+        <span class="out-row-val" style="font-size:13px" id="o-visitors">5,000</span>
+      </div>
+      <div class="out-row">
+        <span class="out-row-lbl" style="font-size:11px;padding-left:20px">↳ Orders</span>
+        <span class="out-row-val" id="o-orders">250</span><span class="sold-out-tag" id="sold-out-tag" style="display:none">Sold out</span>
+      </div>
+      <div class="out-row">
+        <span class="out-row-lbl">Gross Revenue</span>
+        <span class="out-row-val" id="o-rev">$37,500</span>
+      </div>
+
+      <div class="out-divider"></div>
+
+      <div class="out-row">
+        <span class="out-row-lbl">Production Cost</span>
+        <span class="out-row-val neg" id="o-cogs">−$10,000</span>
+      </div>
+      <div class="out-row">
+        <span class="out-row-lbl">Influencer samples (5 items)</span>
+        <span class="out-row-val neg" id="o-samples">−$250</span>
+      </div>
+      <div style="font-size:11px;color:var(--sub);margin:-4px 0 6px;line-height:1.4">5 items sent to influencer before each drop — designer absorbs production cost.</div>
+      <div class="out-row">
+        <span class="out-row-lbl" id="o-tf-lbl">TF Fee (10%)</span>
+        <span class="out-row-val neg" id="o-tf">−$2,625</span>
+      </div>
+      <div class="out-row">
+        <span class="out-row-lbl" id="o-inf-lbl">Influencer (10%)</span>
+        <span class="out-row-val neg" id="o-inf">−$1,050</span>
+      </div>
+      <div class="out-row">
+        <span class="out-row-lbl" id="o-post-lbl">Influencer flat fee (1 × $100/post)</span>
+        <span class="out-row-val neg" id="o-post">−$100</span>
+      </div>
+      <div class="out-row">
+        <span class="out-row-lbl" id="o-pay-lbl">Payment Processing (2.9%)</span>
+        <span class="out-row-val neg" id="o-pay">−$435</span>
+      </div>
+      <div class="out-divider"></div>
+
+      <div class="profit-row">
+        <div style="display:flex;justify-content:space-between;align-items:baseline">
+          <span class="profit-lbl">Designer Net Profit</span>
+          <span class="profit-val pos" id="o-profit">$21,031</span>
+        </div>
+        <div class="margin-row">
+          <span style="font-size:11px;color:white">Margin</span>
+          <span class="margin-pct" id="o-margin">56.1%</span>
+        </div>
+        <div class="bar-bg"><div class="bar-fill" id="o-bar" style="width:56%;background:#7AE3B2"></div></div>
+        <div class="bar-note">Designer keeps this % of revenue after all costs</div>
+      </div>
+
+      <div class="out-divider"></div>
+
+      <div class="profit-row">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px">
+          <span style="font-size:12px;font-weight:700;color:white">TF platform fee</span>
+          <span style="font-size:15px;font-weight:800;color:white" id="o-tf-gross">$2,625</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px" id="o-vto-tf-row">
+          <span style="font-size:12px;font-weight:700;color:white" id="o-vto-lbl">VTO cost (FASHN.AI)</span>
+          <span style="font-size:15px;font-weight:800;color:#FF8A80" id="o-vto">−$94</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px">
+          <span style="font-size:12px;font-weight:700;color:white">Gamification reserve (<input type="number" id="inp-gami" value="0" min="0" max="500" step="5" oninput="calc()" style="width:46px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);border-radius:3px;color:white;padding:2px 4px;font-size:11px;font-family:inherit;text-align:right"/>$/drop)</span>
+          <span style="font-size:15px;font-weight:800;color:#FF8A80" id="o-gami">−$0</span>
+        </div>
+        <div style="font-size:11px;color:rgba(255,255,255,.55);margin:-4px 0 10px;line-height:1.4">Points, future discounts and reward credits TF absorbs per drop.</div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline">
+          <span class="profit-lbl">TF Net this drop</span>
+          <span class="profit-val pos" id="o-tf-net">$2,531</span>
+        </div>
+        <div style="margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,.1)">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px">
+            <span style="font-size:12px;font-weight:700;color:white">From drops (<span id="o-drops-lbl">5 drops</span>)</span>
+            <span style="font-size:15px;font-weight:800;color:white" id="o-monthly-tf">$XX</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px">
+            <span style="font-size:12px;font-weight:700;color:white">Subscriptions (<span id="o-sub-lbl">5 × $500</span>)</span>
+            <span style="font-size:15px;font-weight:800;color:white" id="o-monthly-sub">+$2,500</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px">
+            <span class="profit-lbl">Total monthly TF</span>
+            <span class="profit-val pos" id="o-monthly-total">$XX</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline" id="o-target-row">
+            <span style="font-size:12px;color:white">Designers needed for $10K/mo</span>
+            <span style="font-size:13px;font-weight:800;color:#C4B5FF" id="o-target-drops">—</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="out-sub-block">
+        <div class="out-sub-row">
+          <span class="out-sub-lbl">Influencer earnings</span>
+          <span class="out-sub-val" id="o-inf-net">$1,050</span>
+        </div>
+        <div class="out-sub-row">
+          <span class="out-sub-lbl">VTO users (browsers)</span>
+          <span class="out-sub-val" id="o-vto-users">7,500</span>
+        </div>
+      </div>
+
+      <div class="out-gami-note">Monthly fixed costs not included — see section 02 below.</div>
+    </div><!-- out-box -->
+
+  </div><!-- calc-wrap -->
+
+  <div style="background:var(--tf-ghost);border:1px solid var(--rule);border-left:4px solid var(--tf);padding:16px 22px;margin-top:24px;font-size:13.5px;color:var(--ink);line-height:1.8">
+    <strong>Monthly platform costs</strong> — excl. development, tax, shipping, returns:<br>
+    Stripe $0.30/order × <span id="calc-stripe-drops-lbl">5 drops</span> = <strong id="calc-stripe-sum">$150</strong> &nbsp;+&nbsp; LoyaltyLion $199/mo &nbsp;+&nbsp; infrastructure TBD
+    &nbsp;=&nbsp; <strong style="color:var(--tf);font-size:16px" id="calc-total-sum">$349</strong> known + TBD
+  </div>
+
+  <!-- CONCLUSION -->
+  <div style="background:white;border:1px solid var(--rule);border-top:3px solid var(--orange);padding:28px 32px;margin-top:32px">
+    <div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:20px">What it takes to reach $10K / month</div>
+
+    <div style="display:flex;gap:24px;flex-wrap:wrap;margin-bottom:24px">
+      <div style="flex:1;min-width:160px;background:var(--tf-ghost);padding:16px 20px">
+        <div style="font-size:11px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px">TF net per drop</div>
+        <div style="font-size:28px;font-weight:800;color:var(--tf)" id="concl-tf-net">—</div>
+      </div>
+      <div style="flex:1;min-width:160px;background:var(--tf-ghost);padding:16px 20px">
+        <div style="font-size:11px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px">Designers needed (1 drop/mo each)</div>
+        <div style="font-size:28px;font-weight:800;color:var(--orange)" id="concl-designers">—</div>
+        <div style="font-size:10px;color:var(--sub);margin-top:4px">Fixed at 1 drop/mo — use slider for other cadences</div>
+      </div>
+      <div style="flex:1;min-width:160px;background:var(--tf-ghost);padding:16px 20px">
+        <div style="font-size:11px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px">VTO cost as % of TF fee</div>
+        <div style="font-size:28px;font-weight:800;color:var(--ink)" id="concl-vto-pct">—</div>
+      </div>
+    </div>
+
+    <div style="font-size:13.5px;color:var(--ink);line-height:1.7;margin-bottom:24px;padding:14px 18px;background:var(--tf-ghost);border-left:3px solid var(--tf)" id="concl-summary">—</div>
+
+    <table class="ptable" style="max-width:860px">
+      <thead><tr><th style="width:22%">Parameter</th><th style="width:18%">Current</th><th>Effect on $10K/mo target</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="bold">Active designers</td>
+          <td id="concl-p-designers" class="bold" style="color:var(--orange)">5</td>
+          <td class="note">Primary lever. Every additional designer running one drop/month adds one drop's worth of TF revenue.</td>
+        </tr>
+        <tr>
+          <td class="bold">Drop price</td>
+          <td id="concl-p-price" class="bold" style="color:var(--tf)">$150</td>
+          <td class="note">TF earns 10% of GMV. Doubling price doubles TF fee — and halves the number of designers needed.</td>
+        </tr>
+        <tr>
+          <td class="bold">VTO cost</td>
+          <td id="concl-p-vto" class="bold">$375</td>
+          <td class="note">TF pays FASHN.AI directly. Reducing tries per session or capping to 3 (free tier) cuts this cost immediately.</td>
+        </tr>
+        <tr>
+          <td class="bold">Click-through rate</td>
+          <td id="concl-p-ctr" class="bold" style="color:var(--sub)">10.0%</td>
+          <td class="note">% of followers who click to TF. Higher CTR = more platform visitors. Doesn't help once the drop is sold out.</td>
+        </tr>
+        <tr>
+          <td class="bold">Platform conversion</td>
+          <td id="concl-p-conv" class="bold" style="color:var(--sub)">5.0%</td>
+          <td class="note">% of platform visitors who order. Active only when drop is not sold out — once sold out, further conversion has no effect on revenue.</td>
+        </tr>
+        <tr>
+          <td class="bold">Designer monthly fee</td>
+          <td id="concl-p-dsfee" class="bold" style="color:var(--tf)">$250</td>
+          <td class="note">Fixed subscription per designer per month — TF revenue independent of drop performance. Each additional designer adds this directly to monthly TF revenue.</td>
+        </tr>
+        <tr>
+          <td class="bold">Drops / designer / mo</td>
+          <td id="concl-p-cadence" class="bold" style="color:var(--sub)">1</td>
+          <td class="note">Doubling cadence from 1→2 drops/month halves designers needed. Depends on designer capacity.</td>
+        </tr>
+        <tr>
+          <td class="bold">Total influencer reach</td>
+          <td id="concl-p-followers" class="bold" style="color:var(--sub)">1×50K = 50K</td>
+          <td class="note">Total reach = influencer count × followers each. At 10% CTR and 5% platform conversion, ~30K total reach reliably sells out a 100-item drop. Below 30K total reach, the drop likely won't clear.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 02 MVP COSTS -->
+<section class="section">
+  <div class="sec-heading"><span class="sec-num">02</span> MVP Costs</div>
+
+  <div class="sliders-section-label" style="margin-bottom:16px">One-time build cost</div>
+  <p style="font-size:13px;color:var(--sub);margin-bottom:20px;line-height:1.6">Effort estimates by component only. Development costs in dollars are out of scope for this page — confirm with tech lead. All figures are directional.</p>
+  <table class="ptable" style="max-width:860px;margin-bottom:36px">
+    <thead>
+      <tr>
+        <th style="width:32%">Component</th>
+        <th style="width:20%">Effort</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="bold">Pre-order drop flow</td>
+        <td class="bold">4–6 weeks</td>
+        <td class="note">Drop listing, quantity cap, countdown timer, checkout</td>
+      </tr>
+      <tr>
+        <td class="bold">Influencer referral tracking</td>
+        <td class="bold">2–3 weeks</td>
+        <td class="note">Unique links, click attribution, auto payout split at checkout</td>
+      </tr>
+      <tr>
+        <td class="bold">Virtual try-on (FASHN.AI API)</td>
+        <td class="bold">1–2 weeks</td>
+        <td class="note">REST API integration — no 3D models required</td>
+      </tr>
+      <tr>
+        <td class="bold">Gamification — points &amp; badges</td>
+        <td class="bold">3–5 weeks <em style="color:var(--orange);font-weight:400;font-size:11px">OR skip: use LoyaltyLion $199/mo</em></td>
+        <td class="note">LoyaltyLion eliminates this build entirely — recommended for MVP</td>
+      </tr>
+      <tr>
+        <td class="bold">Designer dashboard</td>
+        <td class="bold">3–4 weeks</td>
+        <td class="note">Orders, revenue, per-influencer performance</td>
+      </tr>
+      <tr>
+        <td class="bold">App infrastructure &amp; setup</td>
+        <td class="bold">1–2 weeks</td>
+        <td class="note">Hosting, CI/CD, staging environment</td>
+      </tr>
+      <tr style="background:var(--tf-ghost)">
+        <td class="bold">Total — with LoyaltyLion</td>
+        <td class="bold" style="color:var(--tf)">11–17 weeks</td>
+        <td class="note">Development costs (dollars) are out of scope for this page — confirm with tech lead.</td>
+      </tr>
+      <tr style="background:var(--off-white)">
+        <td class="bold">Total — in-house gamification</td>
+        <td class="bold" style="color:var(--sub)">14–22 weeks</td>
+        <td class="note">+3–5 weeks vs. LoyaltyLion. Not recommended for MVP.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="sliders-section-label" style="margin-bottom:16px">Monthly running costs</div>
+  <p style="font-size:13px;color:var(--sub);margin-bottom:20px;line-height:1.6">Recurring costs per month once live. Stripe per-order fee updates automatically from the drop calculator above.</p>
+  <div class="cost-block" style="max-width:640px">
+    <div class="cost-row">
+      <div>
+        <div class="cost-lbl">Stripe — $0.30 per order (fixed fee)</div>
+        <span class="cost-note">Per-transaction flat fee, excluded from calculator % above. At <span id="fc-orders">100</span> orders this drop.</span>
+      </div>
+      <div class="cost-val" id="fc-stripe">$30</div>
+    </div>
+    <div class="cost-row">
+      <div>
+        <div class="cost-lbl">LoyaltyLion · Classic (gamification platform)</div>
+        <span class="cost-note">Points, badges, tiers, referrals. Up to 500 orders/month.</span>
+      </div>
+      <div class="cost-val">$199 / mo</div>
+    </div>
+    <div class="cost-row">
+      <div>
+        <div class="cost-lbl">App infrastructure &amp; hosting</div>
+        <span class="cost-note">Needs tech lead input.</span>
+      </div>
+      <div class="cost-val" style="color:var(--sub);font-size:14px">TBD</div>
+    </div>
+    <div class="cost-row">
+      <div>
+        <div class="cost-lbl" style="font-size:15px;font-weight:800">Total known monthly · excl. infrastructure</div>
+        <span class="cost-note">Stripe per drop + LoyaltyLion/month. Infrastructure excluded.</span>
+      </div>
+      <div class="cost-val" id="fc-total" style="color:var(--tf);font-size:20px">$229</div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 EXCLUSIONS -->
+<section class="section">
+  <div class="sec-heading"><span class="sec-num">03</span> What this calculator excludes</div>
+  <ul class="excl-list">
+    <li>Stripe fixed fee: $0.30 per transaction (% rate is included; flat fee shown in section 02)</li>
+    <li>FASHN.AI monthly subscription plan fees — calculator uses per-try overage rate only</li>
+    <li>App hosting and infrastructure</li>
+    <li>Shipping and fulfillment — designer responsibility</li>
+    <li>Returns, refunds, chargebacks</li>
+    <li>VAT, sales tax, currency conversion</li>
+    <li>Customer support labor</li>
+    <li>App development and in-house build costs</li>
+    <li>Multi-influencer drops — one influencer per drop only</li>
+  </ul>
+</section>
+
+<!-- 04 MVP SCOPE -->
+<section class="section">
+  <div class="sec-heading"><span class="sec-num">04</span> MVP Scope</div>
+  <div class="scope-grid">
+    <div class="scope-card in">
+      <div class="scope-eyebrow">What's included at launch</div>
+      <ul class="scope-list">
+        <li>Pre-order drops — designer lists item, sets quantity and drop window</li>
+        <li>Influencer referral links — unique tracked link per influencer per drop</li>
+        <li>Virtual try-on (VTO) — AI image-to-image rendering, no 3D models needed</li>
+        <li>Early-buyer badge — awarded to first N orders per drop</li>
+        <li>Points per order — redeemable for future discount (basic loyalty)</li>
+        <li>Designer dashboard — orders, revenue, per-influencer performance</li>
+        <li>Payout split — auto at checkout: designer / TF fee / influencer share</li>
+      </ul>
+    </div>
+    <div class="scope-card out">
+      <div class="scope-eyebrow">Added in a later version</div>
+      <ul class="scope-list">
+        <li>Co-creation (community votes on designs)</li>
+        <li>AI influencer matching</li>
+        <li>Social feed and prosumer upload layer</li>
+        <li>Full gamification suite — tiers, quests, tokenization</li>
+        <li>Consumer-to-consumer marketplace</li>
+        <li>B2B / brand direct integration — TF acting as white-label infrastructure for established fashion brands to run their own drops and campaigns directly (different use case from serving emerging designers)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 05 VTO VENDORS -->
+<section class="section">
+  <div class="sec-heading"><span class="sec-num">05</span> Virtual Try-On · Vendor Comparison</div>
+
+  <div class="vendor-grid">
+
+    <div class="vendor-card rec">
+      <span class="v-badge rec">Recommended · MVP</span>
+      <div class="v-name">FASHN.AI</div>
+      <div class="v-url"><a href="https://fashn.ai" target="_blank" rel="noopener">fashn.ai</a></div>
+      <p class="v-desc">AI image-to-image virtual try-on. Accepts flat-lay, ghost mannequin, or on-model product photos — no 3D models required. Generates realistic garment rendering in 5–17 seconds. Full REST API, usage-based billing, no lock-in.</p>
+      <table class="ptable">
+        <thead><tr><th>Plan</th><th>Price</th><th>Credits</th></tr></thead>
+        <tbody>
+          <tr><td>Pay-per-try</td><td class="bold">$0.075 / try</td><td class="note">No subscription needed</td></tr>
+          <tr><td>Basic</td><td class="bold">$19 / month</td><td>200 / month</td></tr>
+          <tr><td>Pro</td><td class="bold">$49 / month</td><td>750 tries to use any time this month <em style="color:var(--sub)">+ each day you get 50 fresh bonus tries (unused ones expire at midnight — they do not accumulate)</em></td></tr>
+          <tr><td>Agency</td><td class="bold">$99 / month</td><td>1,500 tries to use any time this month <em style="color:var(--sub)">+ each day you get 100 fresh bonus tries (unused ones expire at midnight — they do not accumulate)</em></td></tr>
+          <tr><td>Overage</td><td class="bold">$0.075 / try</td><td class="note">Above plan limit</td></tr>
+        </tbody>
+      </table>
+      <div class="ptable-note">Monthly tries = a pool you spend whenever during the month. Daily bonus = extra tries that refresh every midnight; if you don't use them that day, they're gone — they never stack up. Example: Agency plan on a quiet day where you use 0 bonus tries → you still only have 1,500 total that month, not 1,600.</div>
+      <div class="src">Source: <a href="https://fashn.ai/pricing" target="_blank" rel="noopener">fashn.ai/pricing</a></div>
+    </div>
+
+    <div class="vendor-card alt">
+      <span class="v-badge alt">Scale Option</span>
+      <div class="v-name">Kivisense</div>
+      <div class="v-url"><a href="https://tryon.kivisense.com" target="_blank" rel="noopener">tryon.kivisense.com</a></div>
+      <p class="v-desc">AR + AI overlay try-on for clothing. Web and app SDK. Fixed monthly fee — no per-try cost. Cost-effective at high volume once monthly try-on count exceeds the crossover threshold vs FASHN.AI.</p>
+      <table class="ptable">
+        <thead><tr><th>Plan</th><th>Price</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Commercial (monthly)</td><td class="bold">$888 / month</td><td>Clothing VTO included</td></tr>
+          <tr><td>Commercial (annual)</td><td class="bold">$10,000 / year</td><td>$833/month billed yearly</td></tr>
+          <tr><td>Per-try cost</td><td>—</td><td class="note">Flat fee, unlimited tries</td></tr>
+        </tbody>
+      </table>
+      <div class="src">Source: <a href="https://tryon.kivisense.com/blog/subscription-plans/" target="_blank" rel="noopener">tryon.kivisense.com/blog/subscription-plans/</a></div>
+    </div>
+
+  </div>
+
+  <div class="crossover-box">
+    <strong>Volume crossover:</strong> Kivisense ($888/month flat) becomes cheaper than FASHN.AI once total monthly VTO tries exceed <strong>11,840</strong> (= $888 ÷ $0.075). At your current calculator settings: <strong id="xover">37,500 tries — 317% of crossover → Kivisense cheaper</strong>. Adjust browse rate and tries sliders to update.
+  </div>
+
+</section>
+
+<!-- 06 GAMIFICATION -->
+<section class="section">
+  <div class="sec-heading"><span class="sec-num">06</span> Gamification</div>
+
+  <div class="gami-sub-label mvp">What ships with the pre-order launch</div>
+  <div class="gami-grid" style="margin-bottom:36px">
+
+    <div class="gami-box" style="border-top:3px solid var(--green)">
+      <span class="gami-badge mvp">MVP · Fastest to ship</span>
+      <div class="gami-mech-name">Invite-to-Win</div>
+      <p class="gami-mech-desc">Turn each pre-order into a referral loop. After ordering, the buyer creates their own VTO of the product and invites friends via Instagram, Facebook, or TF. Every friend who joins TF and places the pre-order earns the inviter a reward. Both sides receive an incentive — the friend gets a welcome reward too.</p>
+      <div class="gami-title" style="margin-top:14px;margin-bottom:10px">How it works</div>
+      <ol class="gami-steps">
+        <li>Pre-order goes live; influencer publishes it with VTO.</li>
+        <li>Buyer creates their own VTO of the product inside TF.</li>
+        <li>They share it to Instagram, Facebook, or a TF referral link.</li>
+        <li>Friend clicks, joins TF, and places the pre-order.</li>
+        <li>Inviter earns a reward from the ladder below.</li>
+      </ol>
+      <div class="gami-title" style="margin-bottom:4px">Example reward ladder</div>
+      <table class="reward-table">
+        <thead><tr><th>Completed invites</th><th>Inviter earns</th></tr></thead>
+        <tbody>
+          <tr><td>1 friend</td><td>Free shipping + 150 pts</td></tr>
+          <tr><td>3 friends</td><td>Store credit (~$15 equivalent)</td></tr>
+          <tr><td>5 friends</td><td>Mystery gift / sample</td></tr>
+          <tr><td>10 friends</td><td>VIP early access to next drop</td></tr>
+        </tbody>
+      </table>
+      <div class="gami-caveat">A "successful invite" counts only when the friend creates an account and places the pre-order. Self-referrals are blocked by payment method and device fingerprint. Reward is reversed if the friend's order is cancelled. Rewardable invites are capped per campaign to protect margin. Points are held until the pre-order clears its cancellation window.</div>
+      <div class="src">Source: TerraFerra_Gamification.pdf, p.7–9</div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div class="gami-box">
+        <span class="gami-badge mvp">MVP</span>
+        <div class="gami-mech-name">Early Buyer Badge</div>
+        <p class="gami-mech-desc">Awarded to the first N orders on each drop. Permanent visible badge on the buyer's TF profile. Creates urgency and scarcity around each drop window — buyers who move fast get a status marker no one else can earn after the drop closes.</p>
+      </div>
+      <div class="gami-box">
+        <span class="gami-badge mvp">MVP · Meta-layer</span>
+        <div class="gami-mech-name">Points &amp; Tiers</div>
+        <p class="gami-mech-desc">Points earned on every order, redeemable for future discounts. The unified meta-layer that connects all three gamification mechanics — Invite-to-Win, Co-Design and Style Battle all feed the same point balance. Build it once in MVP; Phase 2 mechanics plug into the same system without a rebuild.</p>
+        <div class="src" style="margin-top:10px">Source: TerraFerra_Gamification.pdf, p.12</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="gami-sub-label p2">Phase 2 — requires co-creation flow or full product catalog</div>
+  <div class="gami-grid" style="margin-bottom:36px">
+
+    <div class="gami-box">
+      <span class="gami-badge p2">Phase 2</span>
+      <div class="gami-mech-name">Co-Design</div>
+      <p class="gami-mech-desc">Designer publishes 3 versions of a product. The community votes and predicts which one wins — time-boxed campaign. Each version has its own VTO, shareable only inside TF (protects unreleased designs from leaking). When the countdown ends, the designer picks the winning version; it moves into the pre-order flow.</p>
+      <p class="gami-mech-desc">Everyone who predicted correctly wins a prize. TF covers a base reward (store credit or points) for every correct guesser. The designer optionally adds a premium "money-can't-buy" prize — a signed piece, exclusive colorway, or 1-of-1 item — for the top winners.</p>
+      <div class="src" style="margin-top:10px">Source: TerraFerra_Gamification.pdf, p.4–6</div>
+    </div>
+
+    <div class="gami-box">
+      <span class="gami-badge rec">Phase 2 · TF Recommendation</span>
+      <div class="gami-mech-name">Style Battle</div>
+      <p class="gami-mech-desc">Weekly UGC styling contest. A featured pre-order item gets a theme (e.g. "Golden Hour"). Users style a look around it using real items from the TF catalog and submit to a public gallery — every item in every look is shoppable.</p>
+      <p class="gami-mech-desc">Community votes on a time-boxed leaderboard. Top looks are featured on TF; entrants earn points and voters get a discount. Reuses the voting engine from Co-Design — low additional build cost. UGC creates organic reach and SEO traffic. Shoppable looks convert directly.</p>
+      <div class="src" style="margin-top:10px">Source: TerraFerra_Gamification.pdf, p.10–11</div>
+    </div>
+
+  </div>
+
+  <div style="max-width:640px">
+    <div class="cost-block">
+      <div class="gami-title">External platform cost</div>
+      <div class="cost-row">
+        <div>
+          <div class="cost-lbl">Loyalty Lion · Classic</div>
+          <span class="cost-note">Points, badges, tiers, referrals. Up to ~500 orders / month.</span>
+        </div>
+        <div class="cost-val">$199 / mo</div>
+      </div>
+      <div class="cost-row">
+        <div>
+          <div class="cost-lbl">Above 500 orders / month</div>
+          <span class="cost-note">Price scales with order volume. Contact loyaltylion.com for quote.</span>
+        </div>
+        <div class="cost-val">Contact</div>
+      </div>
+      <div class="src" style="margin-top:14px">Source: <a href="https://loyaltylion.com/pricing" target="_blank" rel="noopener">loyaltylion.com/pricing</a></div>
+    </div>
+    <div class="alt-inhouse">
+      <div class="alt-inhouse-headline">In-house alternative</div>
+      <p class="alt-inhouse-body">Points, badges, and referral tracking can be built as part of the MVP backend without a third-party platform. Avoids the $199/month recurring fee.</p>
+      <div class="alt-inhouse-item">
+        <span class="alt-inhouse-label">Estimated build scope</span>
+        <span class="alt-inhouse-value">3–5 weeks backend</span>
+        <span class="alt-inhouse-note">Points ledger, badge logic, referral tracking, anti-gaming rules. Directional estimate — tech lead confirmation required.</span>
+      </div>
+      <div class="alt-inhouse-item">
+        <span class="alt-inhouse-label">MVP recommendation</span>
+        <span class="alt-inhouse-value no">Not recommended for MVP</span>
+        <span class="alt-inhouse-note">Adds 3–5 weeks to launch timeline on top of an already full MVP scope. Use LoyaltyLion at $199/month to ship on time. Re-evaluate in-house build at Phase 2 when monthly orders exceed 500.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</div><!-- pg-wrap -->
+
+<footer>
+  <div class="footer-inner">Private · noindex · Not for distribution</div>
+</footer>
+
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">&#8593;</button>
+<script>
+window.addEventListener('scroll',function(){document.getElementById('btt').style.display=window.scrollY>400?'flex':'none'});
+
+var vtoMode = 'fashn';
+var limitEnabled = false;
+
+function setVTO(m) {
+  vtoMode = m;
+  document.getElementById('btn-fashn').classList.toggle('on', m==='fashn');
+  document.getElementById('btn-kivisense').classList.toggle('on', m==='kivisense');
+  document.getElementById('btn-none').classList.toggle('on', m==='none');
+  var showVTO = m !== 'none';
+  document.getElementById('row-browse').style.display = showVTO ? 'block' : 'none';
+  document.getElementById('row-tries').style.display  = showVTO ? 'block' : 'none';
+  document.getElementById('row-limit').style.display  = showVTO ? 'block' : 'none';
+  document.getElementById('o-vto-tf-row').style.display = showVTO ? 'flex' : 'none';
+  calc();
+}
+
+function setLimit(on) {
+  limitEnabled = on;
+  document.getElementById('btn-nolimit').classList.toggle('on', !on);
+  document.getElementById('btn-limit3').classList.toggle('on', on);
+  calc();
+}
+
+function fK(n){
+  if(n>=1000000) return (n/1000000).toFixed(1)+'M';
+  if(n>=1000) return (n/1000).toFixed(0)+'K';
+  return n;
+}
+function fmtNeg(n){ return '−$'+Math.round(Math.abs(n)).toLocaleString(); }
+function fmtPos(n){ return (n<0?'−$':'$')+Math.abs(Math.round(n)).toLocaleString(); }
+
+function calc() {
+  var items           = +document.getElementById('sl-items').value;
+  var followersPerInf = +document.getElementById('sl-followers').value;
+  var numInfluencers  = +document.getElementById('sl-influencers').value;
+  var totalFollowers  = followersPerInf * numInfluencers;
+  var ctr             = +document.getElementById('sl-ctr').value / 100;
+  var conv            = +document.getElementById('sl-conv').value / 100;
+  var price           = +document.getElementById('sl-price').value;
+  var cogsRaw         = +document.getElementById('sl-cogs').value;
+  var cogs            = price * cogsRaw / 100;
+  var platPct         = +document.getElementById('sl-platform').value / 100;
+  var infPct          = +document.getElementById('sl-inf').value / 100;
+  var payPct          = +document.getElementById('sl-payment').value / 100;
+  var browseMultiplier = +document.getElementById('sl-browse').value;
+  var tries           = +document.getElementById('sl-tries').value;
+
+  // Update slider labels
+  document.getElementById('v-items').textContent       = items.toLocaleString();
+  document.getElementById('v-followers').textContent   = fK(followersPerInf);
+  document.getElementById('v-influencers').textContent = numInfluencers;
+  document.getElementById('v-total-reach').textContent = fK(totalFollowers);
+  document.getElementById('v-ctr').textContent         = parseFloat(document.getElementById('sl-ctr').value).toFixed(1)+'%';
+  document.getElementById('v-conv').textContent        = parseFloat(document.getElementById('sl-conv').value).toFixed(1)+'%';
+  document.getElementById('v-price').textContent    = '$'+price;
+  document.getElementById('v-cogs').textContent     = cogsRaw+'% ($'+Math.round(cogs)+')';
+  document.getElementById('v-platform').textContent = parseFloat(document.getElementById('sl-platform').value).toFixed(1)+'%';
+  document.getElementById('v-inf').textContent      = parseInt(document.getElementById('sl-inf').value)+'%';
+  document.getElementById('v-postfee').textContent  = '$'+document.getElementById('sl-postfee').value;
+  document.getElementById('v-payment').textContent  = parseFloat(document.getElementById('sl-payment').value).toFixed(1)+'%';
+  document.getElementById('v-browse').textContent   = browseMultiplier+'×';
+  document.getElementById('v-tries').textContent    = tries+'×';
+
+  // Two-step funnel: total reach → platform visitors → orders
+  var platformVisitors = Math.round(totalFollowers * ctr);
+  var rawOrders        = Math.round(platformVisitors * conv);
+  var orders           = Math.min(rawOrders, items);
+  var soldOut          = rawOrders >= items;
+
+  var revenue    = orders * price;
+  var tfFee      = revenue * platPct;
+  var infShare   = revenue * infPct;
+  var payFee     = revenue * payPct;
+  var production = orders * cogs;
+
+  // Flat per-post fee — read from slider
+  var perPostFee  = +document.getElementById('sl-postfee').value;
+  var infPostCost = perPostFee * numInfluencers;
+
+  // Compute drop scale early — needed for Kivisense monthly fee split
+  var designers = +document.getElementById('sl-designers').value;
+  var dropsPerDesigner = +document.getElementById('sl-drops-per').value;
+  var totalDrops = designers * dropsPerDesigner;
+  var designerFee = +document.getElementById('sl-designer-fee').value;
+
+  // VTO cost scales with orders (not followers)
+  var vtoUsers = Math.round(orders * browseMultiplier);
+  var effectiveTries = limitEnabled ? Math.min(tries, 3) : tries;
+  var totalTries = vtoUsers * effectiveTries;
+
+  var vtoCost = 0;
+  if (vtoMode === 'fashn') {
+    vtoCost = totalTries * 0.075;
+  } else if (vtoMode === 'kivisense') {
+    vtoCost = 888 / totalDrops; // $888/mo flat split across all drops
+  }
+
+  var sampleCost = 5 * cogs;
+  var gamiCost = +document.getElementById('inp-gami').value;
+  var profit = revenue - production - sampleCost - tfFee - infShare - infPostCost - payFee;
+  var margin = revenue > 0 ? (profit / revenue * 100) : 0;
+
+  // Funnel output
+  document.getElementById('o-total-reach').textContent = fK(totalFollowers);
+  document.getElementById('o-visitors').textContent    = platformVisitors.toLocaleString();
+  document.getElementById('o-orders').textContent      = orders.toLocaleString();
+  document.getElementById('sold-out-tag').style.display = soldOut ? 'inline' : 'none';
+
+  document.getElementById('o-rev').textContent    = '$'+Math.round(revenue).toLocaleString();
+  document.getElementById('o-cogs').textContent   = fmtNeg(production);
+  document.getElementById('o-samples').textContent = fmtNeg(sampleCost);
+  document.getElementById('o-tf').textContent     = fmtNeg(tfFee);
+  document.getElementById('o-tf-lbl').textContent = 'TF Fee ('+parseFloat(document.getElementById('sl-platform').value).toFixed(1)+'%)';
+  document.getElementById('o-inf').textContent    = fmtNeg(infShare);
+  document.getElementById('o-inf-lbl').textContent= 'Influencer ('+parseInt(document.getElementById('sl-inf').value)+'%)';
+  document.getElementById('o-post-lbl').textContent = 'Post fee ('+numInfluencers+' × $'+perPostFee+')';
+  document.getElementById('o-post').textContent   = fmtNeg(infPostCost);
+  document.getElementById('o-pay').textContent    = fmtNeg(payFee);
+  document.getElementById('o-pay-lbl').textContent= 'Payment Processing ('+parseFloat(document.getElementById('sl-payment').value).toFixed(1)+'%)';
+
+  if (vtoMode === 'fashn') {
+    document.getElementById('o-vto-lbl').textContent = 'VTO · FASHN.AI ('+totalTries.toLocaleString()+' tries)';
+  } else if (vtoMode === 'kivisense') {
+    document.getElementById('o-vto-lbl').textContent = 'VTO · Kivisense ($888/mo ÷ '+totalDrops+' drops)';
+  }
+  document.getElementById('o-vto').textContent    = fmtNeg(vtoCost);
+
+  document.getElementById('o-profit').textContent = fmtPos(profit);
+  document.getElementById('o-margin').textContent = margin.toFixed(1)+'%';
+  document.getElementById('o-inf-net').textContent= '$'+Math.round(infShare).toLocaleString();
+
+  var tfNet = tfFee - vtoCost - gamiCost;
+  document.getElementById('o-gami').textContent = fmtNeg(gamiCost);
+  document.getElementById('o-tf-gross').textContent = '$'+Math.round(tfFee).toLocaleString();
+  document.getElementById('o-tf-net').textContent = fmtPos(tfNet);
+  document.getElementById('o-tf-net').className = 'profit-val ' + (tfNet >= 0 ? 'pos' : 'neg');
+
+  document.getElementById('v-designers').textContent = designers;
+  document.getElementById('v-drops-per').textContent = dropsPerDesigner;
+  document.getElementById('v-designer-fee').textContent = '$'+designerFee;
+  document.getElementById('o-drops-lbl').textContent = designers+' designers × '+dropsPerDesigner+' = '+totalDrops+' drops';
+  var monthlyTFDrops = tfNet * totalDrops;
+  var monthlyTFSubs = designerFee * designers;
+  var monthlyTFTotal = monthlyTFDrops + monthlyTFSubs;
+  document.getElementById('o-monthly-tf').textContent = fmtPos(monthlyTFDrops);
+  document.getElementById('o-sub-lbl').textContent = designers+' × $'+designerFee;
+  document.getElementById('o-monthly-sub').textContent = '+$'+Math.round(monthlyTFSubs).toLocaleString();
+  document.getElementById('o-monthly-total').textContent = fmtPos(monthlyTFTotal);
+  document.getElementById('o-monthly-total').className = 'profit-val ' + (monthlyTFTotal >= 0 ? 'pos' : 'neg');
+  var revenuePerDesigner = (tfNet * dropsPerDesigner) + designerFee;
+  if (revenuePerDesigner > 0) {
+    var designersNeeded = Math.ceil(10000 / revenuePerDesigner);
+    document.getElementById('o-target-drops').textContent = designersNeeded+' designers';
+    document.getElementById('o-target-row').style.opacity = '1';
+  } else {
+    document.getElementById('o-target-drops').textContent = 'N/A — revenue per designer negative';
+    document.getElementById('o-target-row').style.opacity = '0.5';
+  }
+  document.getElementById('o-vto-users').textContent = fK(vtoUsers)+' browsers ('+browseMultiplier+'× orders)';
+
+  var profitEl = document.getElementById('o-profit');
+  profitEl.className = 'profit-val ' + (profit >= 0 ? 'pos' : 'neg');
+
+  var barW = Math.max(0, Math.min(100, margin));
+  var bar  = document.getElementById('o-bar');
+  bar.style.width = barW + '%';
+  bar.style.background = margin < 0 ? '#FF8A80' : margin < 15 ? '#E86820' : '#7AE3B2';
+
+  // Crossover: 11,840 total tries/month = breakeven
+  var crossoverTries = Math.round(888 / 0.075);
+  var monthlyTries = totalTries * totalDrops;
+  var pct = Math.round(monthlyTries / crossoverTries * 100);
+  var xoverEl = document.getElementById('xover');
+  if (vtoMode === 'none') {
+    xoverEl.textContent = 'N/A — VTO off';
+  } else {
+    var direction = monthlyTries >= crossoverTries ? '→ Kivisense cheaper' : '→ FASHN.AI cheaper';
+    xoverEl.textContent = monthlyTries.toLocaleString()+' tries/month — '+pct+'% of crossover '+direction;
+  }
+
+  // Try-limit note
+  if (vtoMode !== 'none') {
+    var ln = document.getElementById('limit-note');
+    if (limitEnabled) {
+      ln.textContent = '3-try cap applied. Total tries: '+totalTries.toLocaleString()+'. Without cap: '+(vtoUsers*tries).toLocaleString()+'.';
+    } else {
+      ln.textContent = 'No cap — each VTO user runs up to '+tries+'× tries. Total tries: '+totalTries.toLocaleString()+'.';
+    }
+  }
+
+  // Conclusion block
+  var revenuePerDes1 = tfNet + designerFee; // at 1 drop/mo
+  var desNeeded1 = revenuePerDes1 > 0 ? Math.ceil(10000 / revenuePerDes1) : null;
+  var vtoPct = tfFee > 0 ? Math.round(vtoCost / tfFee * 100) : 0;
+  document.getElementById('concl-tf-net').textContent = fmtPos(tfNet);
+  document.getElementById('concl-tf-net').style.color = tfNet < 0 ? 'var(--red-text)' : 'var(--tf)';
+  document.getElementById('concl-designers').textContent = desNeeded1 !== null ? desNeeded1+' designers' : 'N/A';
+  document.getElementById('concl-vto-pct').textContent = vtoMode === 'none' ? '0% (VTO off)' : vtoPct+'%';
+  document.getElementById('concl-vto-pct').style.color = vtoPct > 50 ? 'var(--red-text)' : vtoPct > 25 ? 'var(--orange)' : 'var(--ink)';
+  document.getElementById('concl-p-designers').textContent = designers;
+  document.getElementById('concl-p-price').textContent = '$'+price;
+  document.getElementById('concl-p-ctr').textContent  = parseFloat(document.getElementById('sl-ctr').value).toFixed(1)+'%';
+  document.getElementById('concl-p-conv').textContent = parseFloat(document.getElementById('sl-conv').value).toFixed(1)+'%';
+  document.getElementById('concl-p-vto').textContent = vtoMode === 'none' ? 'Off' : '$'+Math.round(vtoCost)+' ('+vtoPct+'% of TF fee)';
+  document.getElementById('concl-p-dsfee').textContent = '$'+designerFee+'/mo per designer';
+  document.getElementById('concl-p-cadence').textContent = dropsPerDesigner+' drop'+(dropsPerDesigner>1?'s':'')+'/mo';
+  document.getElementById('concl-p-followers').textContent = numInfluencers+'×'+fK(followersPerInf)+' = '+fK(totalFollowers)+(totalFollowers < 30000 ? ' ⚠ below 30K min' : '');
+  if (revenuePerDes1 > 0) {
+    var desAt2 = Math.ceil(10000 / ((tfNet * 2) + designerFee));
+    var vtoTip = vtoMode === 'none' ? 'VTO is off — no try-on costs.' :
+                 vtoMode === 'kivisense' ? 'Kivisense $888/mo is split across '+totalDrops+' drops ($'+Math.round(vtoCost)+'/drop).' :
+                 vtoPct > 30 ? 'VTO is eating '+vtoPct+'% of TF fee — reducing tries per session lowers this directly.' :
+                 'VTO cost is '+vtoPct+'% of TF fee — manageable at this setting.';
+    document.getElementById('concl-summary').textContent =
+      'TF nets $'+Math.round(tfNet).toLocaleString()+'/drop + $'+designerFee+'/designer/month subscription. '
+      +'At 1 drop/designer: '+desNeeded1+' designers reach $10K/mo. '
+      +'At 2 drops/designer: '+desAt2+' designers. '
+      +vtoTip;
+  } else {
+    document.getElementById('concl-summary').textContent = 'Revenue per designer is negative at current settings — increase price, reduce VTO tries, or lower influencer commission.';
+  }
+
+  // Section 02 (per-drop Stripe) + section 01 summary (monthly Stripe across all drops)
+  var stripeFixed = orders * 0.30;
+  var monthlyStripe = stripeFixed * totalDrops;
+  document.getElementById('fc-orders').textContent      = orders.toLocaleString();
+  document.getElementById('fc-stripe').textContent      = '$'+Math.round(stripeFixed).toLocaleString();
+  document.getElementById('fc-total').textContent       = '$'+Math.round(stripeFixed + 199).toLocaleString();
+  document.getElementById('calc-stripe-drops-lbl').textContent = totalDrops+' drop'+(totalDrops>1?'s':'');
+  document.getElementById('calc-stripe-sum').textContent= '$'+Math.round(monthlyStripe).toLocaleString();
+  document.getElementById('calc-total-sum').textContent = '$'+Math.round(monthlyStripe + 199).toLocaleString();
+}
+
+calc();
+</script>
+</body>
+</html>
