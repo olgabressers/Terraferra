@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<script src="/site-lock.js"></script>
+<title>Lekondo · SMTHG</title>
+<link rel="icon" type="image/svg+xml" href="smthg_favicon.svg"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --tf:#E8002D;
+  --tf-dark:#B50023;
+  --tf-ghost:#F1EEE9;
+  --orange:#E8002D;
+  --off-white:#F8F6F2;
+  --ink:#161616;
+  --sub:#5C5A56;
+  --rule:#E6E2DA;
+  --green:#1F7A4E;
+  --green-tint:#E9F4EE;
+  --orange-tint:#FDEFE9;
+}
+body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink);line-height:1.55}
+.wrap{max-width:1240px;margin:0 auto;padding:40px 48px 90px}
+
+.back{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);text-decoration:none;display:inline-block;margin-bottom:24px;opacity:.7}
+.back:hover{color:var(--tf);opacity:1}
+
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
+h1{font-size:34px;font-weight:800;letter-spacing:-1px;color:var(--ink);margin-bottom:10px}
+.lede{font-size:14.5px;color:var(--ink);max-width:920px;margin-bottom:8px}
+.date-stamp{font-size:11px;color:var(--sub);margin-bottom:16px}
+
+.sec-num{font-size:26px;font-weight:800;color:var(--orange);margin-right:12px}
+h2{font-size:22px;font-weight:800;color:var(--ink);margin:44px 0 6px;letter-spacing:-.4px;display:flex;align-items:baseline}
+
+.verdict{background:white;border:1px solid var(--rule);border-top:4px solid var(--tf);padding:22px 26px 18px;margin:26px 0 10px}
+.verdict-label{font-size:26px;font-weight:800;letter-spacing:-.5px;color:var(--ink);margin-bottom:14px}
+.verdict .bullets li{padding-left:0}
+.verdict .bullets li::before{display:none}
+.tag{display:inline-block;background:var(--tf);color:white;font-size:9px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;padding:3px 7px;margin-right:9px;position:relative;top:-1px}
+.tag.ink{background:var(--ink)}
+.subhead{font-size:15px;font-weight:800;color:var(--ink);margin:30px 0 4px;letter-spacing:-.2px}
+
+.concl{border:1px solid var(--rule);border-left:4px solid var(--green);background:var(--green-tint);padding:14px 18px;margin:16px 0 22px;font-size:13px;line-height:1.6;color:var(--ink)}
+.concl.risk{border-left-color:var(--orange);background:var(--orange-tint)}
+.concl strong{font-weight:800}
+
+.tbl-wrap{overflow-x:auto;border:1px solid var(--rule);background:white;margin-bottom:8px}
+table{border-collapse:collapse;width:100%;font-size:12.5px;table-layout:auto}
+th,td{padding:10px 13px;border-bottom:1px solid var(--rule);border-right:1px solid var(--rule);vertical-align:top;line-height:1.5;text-align:left;overflow-wrap:break-word}
+th{background:var(--tf);color:white;font-weight:800;font-size:10.5px;letter-spacing:.4px;text-transform:uppercase}
+td.label{font-weight:700;background:var(--tf-ghost);white-space:nowrap;width:1%}
+td.smthg{background:#FBEFEF;font-weight:600}
+th.smthg-h{background:var(--tf-dark)}
+tr:last-child td{border-bottom:none}
+td:last-child,th:last-child{border-right:none}
+.src-note{font-size:11px;color:var(--sub);margin:8px 0 0}
+.src-note a{color:var(--tf);text-decoration:underline}
+
+.bullets{list-style:none;margin:0 0 4px;padding:0}
+.bullets li{font-size:13px;color:var(--ink);line-height:1.6;padding:6px 0 6px 18px;position:relative;border-bottom:1px solid var(--rule)}
+.bullets li:last-child{border-bottom:none}
+.bullets li::before{content:"";position:absolute;left:2px;top:15px;width:5px;height:5px;border-radius:50%;background:var(--tf)}
+
+.quote-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+.qcard{background:white;border:1px solid var(--rule);border-top:4px solid var(--ink);padding:16px 18px 14px}
+.qcard.pos{border-top-color:var(--green)}
+.qcard.neg{border-top-color:var(--orange)}
+.qhead{display:flex;align-items:baseline;gap:9px;margin-bottom:7px;flex-wrap:wrap}
+.qstars{font-size:11px;font-weight:800;letter-spacing:.5px;color:var(--tf)}
+.qtitle{font-size:13.5px;font-weight:800;color:var(--ink)}
+.qauthor{font-size:11px;color:var(--sub)}
+.qbody{font-size:12.5px;color:var(--ink);line-height:1.6}
+@media(max-width:900px){.quote-grid{grid-template-columns:1fr}}
+
+.pull{background:white;border:1px solid var(--rule);border-left:4px solid var(--ink);padding:16px 20px;margin:14px 0 18px;font-size:15px;font-weight:600;line-height:1.5;color:var(--ink)}
+.pull span{display:block;font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--sub);margin-top:8px}
+
+.topnav{background:white;border-bottom:1px solid var(--rule);padding:12px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
+.topnav-home{font-weight:800;letter-spacing:-.5px;color:var(--ink);text-decoration:none;font-size:15px}
+.topnav-home .dot{color:var(--tf)}
+.topnav-links{display:flex;gap:16px;flex-wrap:wrap;row-gap:6px;align-items:center}
+.topnav-links a{color:var(--sub);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:.8px;font-size:10px;white-space:nowrap}
+.topnav-links a:hover{color:var(--tf)}
+@media(max-width:700px){.topnav{position:static;padding:10px 14px}}
+
+@media(max-width:1000px){
+  .wrap{padding:28px 20px 60px}
+  h1{font-size:26px}
+  .quote-grid{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .wrap{padding:20px 14px 44px}
+  h1{font-size:22px}
+  h2{font-size:18px}
+}
+
+#back-to-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--tf);color:white;border:none;border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900}
+#back-to-top:hover{background:var(--tf-dark)}
+@media(max-width:600px){#back-to-top{width:38px;height:38px;bottom:18px;right:18px}}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="index.html" class="topnav-home">smthg<span class="dot">.</span></a>
+  <div class="topnav-links">
+    <a href="#s01">The Company</a>
+    <a href="#s02">The Product</a>
+    <a href="#s03">Anonymity</a>
+    <a href="#s04">Reviews</a>
+    <a href="#s05">Against SMTHG</a>
+    <a href="#s06">What It Means</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <a class="back" href="index.html">← SMTHG Files</a>
+  <div class="eyebrow">Competitor Profile</div>
+  <h1>Lekondo</h1>
+  <div class="date-stamp">Created: 17 September 2026 · Last updated: 17 September 2026</div>
+  <p class="lede">A New York fashion app that reached 280 App Store ratings at a 4.9 average and a $3M seed round in eight months, built on outfit photos with the faces hidden. Nothing on it is for sale.</p>
+
+  <div class="verdict">
+    <div class="verdict-label">Verdict</div>
+    <ul class="bullets">
+      <li><span class="tag">Overlap</span> One column of the five SMTHG claims: taste-based discovery. Lekondo is building a taste graph out of what people already own and wear.</li>
+      <li><span class="tag ink">No overlap</span> No storefront, no drops, no brand pages, no creator earnings, nothing shoppable. The App Store listing is one sentence about documenting outfits and building a wardrobe.</li>
+      <li><span class="tag ink">Their bet</span> Anonymity. Their own copy: <em>"Anonymous by default, so the photo can be the photo and the outfit can be the outfit."</em> The face is hidden on every post.</li>
+      <li><span class="tag ink">Their revenue</span> None published. The investor framing is the data — <em>"high-resolution pre-purchase preference data"</em> positioned as a layer upstream of commerce.</li>
+      <li><span class="tag">Read across</span> Anonymity is why they get volume: 356,000 outfit posts from roughly 82,000 users since January 2026. It is also why there is nobody on the platform to pay.</li>
+    </ul>
+  </div>
+
+  <h2 id="s01"><span class="sec-num">01</span>The company</h2>
+  <div class="concl">
+    <strong>Eight months old, $3M raised, 280 App Store ratings.</strong> Founded by an AI product lead from GoDaddy and an engineer from Dropbox, funded by the investor who backed Snapchat and Discord early.
+  </div>
+  <div class="tbl-wrap">
+    <table>
+      <tr><td class="label">Entity</td><td>Lekondo Inc., New York</td></tr>
+      <tr><td class="label">Founders</td><td>CEO Yeng Tan, previously led AI products at GoDaddy. CTO Mitchell Overfield, previously Dropbox, with other core team members from Dropbox.</td></tr>
+      <tr><td class="label">Launched</td><td>App Store release 9 January 2026. Version 1.68.0 shipped 9 September 2026 — roughly a release every two days.</td></tr>
+      <tr><td class="label">Funding</td><td>Approximately $3M seed (reported locally as RM12.3 million)</td></tr>
+      <tr><td class="label">Investors</td><td><strong>Verdict Capital</strong> (lead) — Niko Bonatsos, early Snapchat and Discord · <strong>a16z speedrun</strong> · <strong>DG Daiwa Ventures</strong></td></tr>
+      <tr><td class="label">Traction</td><td>Roughly 82,000 users across more than 10 countries and 356,000 outfit posts since launch, reported without significant marketing spend. The same coverage carries a headline figure of 100,000 users.</td></tr>
+      <tr><td class="label">App Store</td><td>Free. Lifestyle and Social Networking. <strong>4.9 average from 280 ratings</strong>, US store. Rated 4+. No in-app purchases listed.</td></tr>
+      <tr><td class="label">Channels</td><td>iOS, Android, and a Discord server linked from the site</td></tr>
+    </table>
+  </div>
+  <p class="src-note">Company, funding and traction from <a href="https://says.com/my/lifestyle/fashion-and-beauty/malaysian-founder-raises-usd3-million-for-fashion-app-with-100000-users-worldwide" target="_blank" rel="noopener">SAYS</a> and <a href="https://app.dealroom.co/news/note/lekondo-raises-seed-round-for-ai-fashion-data-platform-backed-by-dgdv-and-verdict-capital" target="_blank" rel="noopener">Dealroom</a>. Rating count, version, release dates and pricing read directly from Apple's App Store listing API for <a href="https://apps.apple.com/us/app/lekondo/id6755449231" target="_blank" rel="noopener">id 6755449231</a> on 17 September 2026.</p>
+
+  <h2 id="s02"><span class="sec-num">02</span>What the product does</h2>
+  <div class="concl">
+    <strong>One photo builds the whole wardrobe.</strong> The detector reads every garment in a single outfit shot and files them, which removes the item-by-item photography that kills every other closet app.
+  </div>
+  <ul class="bullets">
+    <li><strong>Post an outfit.</strong> The model detects every item in the photo at once, matches them against the closet already built, and adds the pieces that are new.</li>
+    <li><strong>Get a breakdown.</strong> Colour palette, key descriptors and style tags, from streetwear to vintage.</li>
+    <li><strong>Keep a calendar.</strong> The app describes itself as an OOTD calendar — a dated record of what was worn.</li>
+    <li><strong>Link a garment</strong> by pasting a product URL or describing the item, then file it in a searchable closet. The link is storage, with no checkout and no affiliate attached.</li>
+    <li><strong>Browse the lookbook</strong> — hundreds of thousands of outfits from anonymous people, described on their own page as sorted by aura, with the ability to follow a colour or an aesthetic across other people's wardrobes.</li>
+    <li><strong>Tap a detected style</strong> on your own outfit to see what other people wearing that style are posting anywhere in the world.</li>
+  </ul>
+  <p class="src-note">Features from Lekondo's own <a href="https://lekondo.com/lookbook" target="_blank" rel="noopener">lookbook</a> and <a href="https://lekondo.com/digital-closet" target="_blank" rel="noopener">digital closet</a> pages and the App Store description.</p>
+
+  <div class="pull">
+    "Lekondo helps you document your daily outfits, understand your style, and discover what others are wearing. Upload an outfit, get an instant breakdown, and build your own digital wardrobe over time."
+    <span>The entire App Store description, in full</span>
+  </div>
+
+  <h2 id="s03"><span class="sec-num">03</span>Why every face is hidden</h2>
+  <div class="concl">
+    <strong>The bar across the eyes is a product decision.</strong> Removing the face removes the judgment, and removing the judgment is what makes people post every day. It also removes every person a commission could be paid to.
+  </div>
+
+  <p class="lede">Lekondo's own page states it four times, in four different ways:</p>
+  <ul class="bullets">
+    <li>"The faces are blurred. The usernames mean nothing. <strong>The point is the outfit.</strong>"</li>
+    <li>"<strong>Anonymous by default</strong>, so the photo can be the photo and the outfit can be the outfit."</li>
+    <li>"When the face is absent and the username means nothing, <strong>the outfit gets to be the subject</strong>."</li>
+    <li>"What anonymity protects is the photo itself. The expressive power of the clothes, the colors, silhouettes, fabrics, moods, conformity, nonconformity, playfulness, comfort."</li>
+  </ul>
+  <p class="src-note">All four sentences quoted from <a href="https://lekondo.com/lookbook" target="_blank" rel="noopener">lekondo.com/lookbook</a>. The device is visible in Lekondo's own App Store marketing screenshot captioned "Explore the global lookbook", where a grey bar sits across the subject's eyes while the full outfit stays sharp.</p>
+
+  <div class="subhead">What the hidden face buys them</div>
+  <ul class="bullets">
+    <li><strong>Posting volume.</strong> 356,000 outfit posts from roughly 82,000 users in eight months. The friction a normal feed creates — who will see this, will I be judged, is this good enough to post — is removed at the source.</li>
+    <li><strong>Everyday clothes instead of editorial.</strong> Their positioning sets this against Pinterest boards of unworn editorial imagery. What lands in the feed is what people actually wore on a Tuesday.</li>
+    <li><strong>Clean training data.</strong> When the photo is not a performance, the preference signal in it is closer to real behaviour. That is the asset they raised on.</li>
+    <li><strong>A defence against the thing that killed fit-pic posting.</strong> Their own framing is the spiral of worry about being seen. Anonymity is the answer they sell.</li>
+  </ul>
+
+  <div class="subhead">What it costs them</div>
+  <ul class="bullets">
+    <li><strong>Nobody to pay.</strong> A username that means nothing cannot carry a commission, an audience, or a brand deal. There is no creator layer to build on top of this.</li>
+    <li><strong>No follower graph.</strong> Anonymous posts do not compound into a personality anyone follows, so the network has no influence to sell.</li>
+    <li><strong>No brand relationship.</strong> A designer cannot be met, answered, or bought from inside the app.</li>
+    <li><strong>A monetisation gap they have not filled.</strong> Nothing on any published page describes how the company earns. The data framing is the only answer on the record.</li>
+  </ul>
+
+  <div class="pull">
+    Anonymity is the exact trade smthg.us makes in reverse: a Collection carries a name, that name carries an audience, and that audience is what earns.
+    <span>The two products solve the same fear with opposite answers</span>
+  </div>
+
+  <h2 id="s04"><span class="sec-num">04</span>Reviews</h2>
+  <div class="concl">
+    <strong>4.9 from 280 US ratings, and the complaints are all about the AI.</strong> Users praise the style breakdown and the daily tracking. The one-star and two-star reviews object to feeding outfit photos to a model at all — which is the same objection SMTHG's virtual try-on will meet.
+  </div>
+
+  <div class="subhead">What they love</div>
+  <div class="quote-grid">
+    <div class="qcard pos">
+      <div class="qhead"><span class="qstars">★★★★★</span><span class="qtitle">Letterboxd for fashion!</span><span class="qauthor">mdwav</span></div>
+      <div class="qbody">"I use Lekondo almost every day to track my outfits, discover niche aesthetics, and find new ways to style items! It's also super functional and perfect for archiving if you are also into Beli/Letterboxd/Lastfm etc"</div>
+    </div>
+    <div class="qcard pos">
+      <div class="qhead"><span class="qstars">★★★★★</span><span class="qtitle">Best outfit tracker I've found</span><span class="qauthor">mover333</span></div>
+      <div class="qbody">"It is basically a daily fit pic tracker and visual diary, and it automatically builds my digital closet just from posting each day. The style breakdown is my favorite part… I am into techwear, and I can just tap the detected styles from my own outfit and instantly explore what other people are wearing all over the world."</div>
+    </div>
+    <div class="qcard pos">
+      <div class="qhead"><span class="qstars">★★★★★</span><span class="qtitle">A truly stylish tool</span><span class="qauthor">Domoisbest</span></div>
+      <div class="qbody">"This app verbalizes aesthetics and gives general style breakdowns… I'm learning so many unique terms and ways to articulate different aesthetics from around the world and elements of style that I regionally have never been exposed to."</div>
+    </div>
+    <div class="qcard pos">
+      <div class="qhead"><span class="qstars">★★★★★</span><span class="qtitle">what lookbook was meant to be</span><span class="qauthor">Han!k</span></div>
+      <div class="qbody">"i usually take a fit pic, but i wouldn't always know what exact pieces i was wearing that day… i can finally track all that history! what's even cooler is that i can see what everyone around the world is wearing, and i can see how styles differ and converge across the globe."</div>
+    </div>
+    <div class="qcard pos">
+      <div class="qhead"><span class="qstars">★★★★★</span><span class="qtitle">Fashion made functional</span><span class="qauthor">Cover01</span></div>
+      <div class="qbody">"This app reminds me of the simple days of instagram with high-tech AI features that really are useful, not just 'slop'"</div>
+    </div>
+    <div class="qcard pos">
+      <div class="qhead"><span class="qstars">★★★★★</span><span class="qtitle">One of the greatest!</span><span class="qauthor">Fernando Luján</span></div>
+      <div class="qbody">"I love this app so much, you learn you share and you can create community! As a fashion designer I do looove and recommend this app"</div>
+    </div>
+  </div>
+
+  <div class="subhead">What they complain about</div>
+  <div class="quote-grid">
+    <div class="qcard neg">
+      <div class="qhead"><span class="qstars">★★</span><span class="qtitle">Ai fire pit</span><span class="qauthor">meowcapybara</span></div>
+      <div class="qbody">"Thought it was a great concept until i realized i was just feeding ai all my outfits. Keep ai out of art spaces."</div>
+    </div>
+    <div class="qcard neg">
+      <div class="qhead"><span class="qstars">★★</span><span class="qtitle">Ai</span><span class="qauthor">P1nk sewage</span></div>
+      <div class="qbody">"If there wasn't any generative ai in it the app would be amazing but I won't use this app because of the use of ai if I could turn the feature off that would be great"</div>
+    </div>
+    <div class="qcard neg">
+      <div class="qhead"><span class="qstars">★★★</span><span class="qtitle">Liking the app</span><span class="qauthor">JOeyBangers</span></div>
+      <div class="qbody">"the only negative is when it comes to seeing to many other peoples content and not just solely based on the individual persons style / closet."</div>
+    </div>
+    <div class="qcard neg">
+      <div class="qhead"><span class="qstars">★★★</span><span class="qtitle">Glitching!</span><span class="qauthor">helpme837352</span></div>
+      <div class="qbody">"I used to be able to upload outfits to days in the past, if I forgot to post it. Now any time I go to post an outfit from even a day ago it'll post it to the current day… making the app more of a in the moment chore"</div>
+    </div>
+  </div>
+  <p class="src-note">All reviews quoted verbatim from Apple's public customer-review feed for <a href="https://apps.apple.com/us/app/lekondo/id6755449231" target="_blank" rel="noopener">Lekondo, US App Store</a>, read 17 September 2026. Three reviewers used the phrase "third space" unprompted, matching the company's own positioning language.</p>
+
+  <h2 id="s05"><span class="sec-num">05</span>Against smthg.us</h2>
+  <div class="concl risk">
+    <strong>They own the one column SMTHG cannot claim by default.</strong> Taste-based discovery is being built there out of real wardrobes at a scale SMTHG will not match from purchase data alone in year one.
+  </div>
+  <div class="tbl-wrap">
+    <table>
+      <tr>
+        <th></th>
+        <th class="smthg-h">smthg.us</th>
+        <th>Lekondo</th>
+      </tr>
+      <tr><td class="label">What it is</td><td class="smthg">A place to buy from emerging designers and stay for the community</td><td>A place to record what you wore and see what others wore</td></tr>
+      <tr><td class="label">Identity</td><td class="smthg">Named. A Collection carries its author and its own web address</td><td>Anonymous by default. Faces hidden, usernames deliberately meaningless</td></tr>
+      <tr><td class="label">Anything for sale</td><td class="smthg">Yes — drops and a regular assortment</td><td>No. Product URLs are storage, with no checkout</td></tr>
+      <tr><td class="label">Brands present</td><td class="smthg">Brand Spaces, owned by the designer</td><td>Brands appear as detected labels on a garment</td></tr>
+      <tr><td class="label">Influencers</td><td class="smthg">Post to their own audience, earn commission on what sells</td><td>No creator layer exists</td></tr>
+      <tr><td class="label">Drops</td><td class="smthg">The lead mechanic</td><td>None</td></tr>
+      <tr><td class="label">Taste graph built from</td><td class="smthg">What people buy, collect and try on</td><td>What people already own and wore today</td></tr>
+      <tr><td class="label">Revenue</td><td class="smthg">30% combined fee on GMV · $500 a month · $250 to onboard</td><td>Nothing published. Data positioned as the asset</td></tr>
+      <tr><td class="label">Try-on</td><td class="smthg">See a piece on yourself before ordering</td><td>None. The photo is a garment already owned</td></tr>
+    </table>
+  </div>
+  <p class="src-note">SMTHG column from the Product Strategy and the <a href="smthg_market_positioning.html">Market Positioning</a> page. Lekondo column from the company's own pages and App Store listing.</p>
+
+  <h2 id="s06"><span class="sec-num">06</span>What it means for SMTHG</h2>
+  <div class="concl">
+    <strong>Three things transfer, one is a warning.</strong> The closet-input mechanic, the anti-performance insight, and the reviewer vocabulary are all usable. The AI backlash in their one-star reviews arrives at SMTHG's door with virtual try-on.
+  </div>
+  <ul class="bullets">
+    <li><strong>One photo, every item.</strong> Detecting a whole outfit from a single shot is the mechanic that gets items into a wardrobe at volume. The same problem sits inside SMTHG Collections, and the same answer applies.</li>
+    <li><strong>The fear they identified is real and it is the same fear.</strong> People stopped posting clothes because posting became performance. Lekondo answers it by removing the face. SMTHG answers it by making the room small enough that the audience is people with the same taste.</li>
+    <li><strong>The AI objection is live.</strong> Two of the four critical reviews reject the app outright for processing outfit photos with a model — "Keep ai out of art spaces." Virtual try-on asks a member for a photo of their own body, which is a larger ask than a photo of a jacket.</li>
+    <li><strong>Their investors funded the pre-purchase layer.</strong> The pitch on the record is that the valuable signal sits before the transaction. SMTHG's counter is that a purchase is the strongest taste signal there is, and the only one that pays for itself.</li>
+    <li><strong>A designer already found them.</strong> One five-star review is from a fashion designer recommending the app. There is no way for that designer to sell anything there.</li>
+  </ul>
+</div>
+
+<button id="back-to-top" aria-label="Back to top">↑</button>
+<script>
+var btn=document.getElementById('back-to-top');
+window.addEventListener('scroll',function(){btn.style.display=window.scrollY>400?'flex':'none';});
+btn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+</script>
+</body>
+</html>
