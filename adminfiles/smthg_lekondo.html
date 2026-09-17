@@ -19,7 +19,7 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .wrap{max-width:1240px;margin:0 auto;padding:34px 48px 90px}
 
 .eyebrow{font-size:10px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--tf);margin-bottom:10px}
-h1{font-size:40px;font-weight:800;letter-spacing:-1.4px;margin-bottom:8px}
+h1{font-size:40px;font-weight:800;letter-spacing:-1.4px}
 .lede{font-size:15px;color:var(--ink);max-width:760px}
 .date-stamp{font-size:11px;color:var(--sub);margin-top:12px}
 
@@ -44,7 +44,7 @@ h2{font-size:21px;font-weight:800;margin:52px 0 14px;letter-spacing:-.4px;displa
 .shot .cap{padding:14px 16px;display:flex;flex-direction:column;justify-content:center}
 .shot .cap b{display:block;font-size:13px;font-weight:800;margin-bottom:4px}
 .shot .cap span{font-size:11.5px;color:var(--sub);line-height:1.5}
-.shot .cap i{font-style:normal;font-size:10px;font-weight:700;letter-spacing:.7px;text-transform:uppercase;color:var(--tf);margin-top:8px}
+ .shot .cap a.zoom{text-decoration:none;display:inline-block;font-size:10px;font-weight:700;letter-spacing:.7px;text-transform:uppercase;color:var(--tf);margin-top:8px}
 
 /* flow */
 .flow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:4px 0 6px}
@@ -92,6 +92,15 @@ td:last-child,th:last-child{border-right:none}
 .src-note{font-size:11px;color:var(--sub);margin:9px 0 0}
 .src-note a{color:var(--tf);text-decoration:underline}
 
+.subh{font-size:12px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:var(--sub);margin:26px 0 11px}
+.bars{display:flex;flex-direction:column;gap:6px;margin-top:4px}
+.bar{display:flex;align-items:center;gap:9px;font-size:11.5px}
+.bar span{flex:0 0 120px;color:var(--sub);font-weight:600}
+.bar i{flex:1;height:9px;background:var(--tf);display:block;min-width:2px}
+.bar b{flex:0 0 26px;text-align:right;font-weight:800;font-size:12px}
+.bar.dim i{background:var(--rule)}
+.bar.dim span,.bar.dim b{color:var(--sub)}
+
 /* reviews */
 .revs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .rev{background:white;border:1px solid var(--rule);border-left:4px solid var(--green);padding:14px 16px}
@@ -108,10 +117,12 @@ td:last-child,th:last-child{border-right:none}
 .topnav-links{display:flex;gap:15px;flex-wrap:wrap;row-gap:6px;align-items:center}
 .topnav-links a{color:var(--sub);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:.8px;font-size:10px;white-space:nowrap}
 .topnav-links a:hover{color:var(--tf)}
-.topnav-links a.ext{color:white;background:var(--tf);padding:5px 10px}
-.topnav-links a.ext:hover{background:var(--tf-dark);color:white}
-.topnav-links a.ext.ig{background:var(--ink)}
-.topnav-links a.ext.ig:hover{background:#000}
+.title-row{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:8px}
+.site-links{display:flex;gap:9px;padding-bottom:6px}
+.site-links a{font-size:11px;font-weight:800;letter-spacing:.7px;text-transform:uppercase;color:white;background:var(--tf);padding:8px 14px;text-decoration:none;white-space:nowrap}
+.site-links a:hover{background:var(--tf-dark)}
+.site-links a.ig{background:var(--ink)}
+.site-links a.ig:hover{background:#000}
 
 @media(max-width:1000px){
   .wrap{padding:24px 20px 60px}
@@ -147,14 +158,18 @@ td:last-child,th:last-child{border-right:none}
     <a href="#s04">What They Built</a>
     <a href="#s05">Reviews</a>
     <a href="#s06">vs smthg</a>
-    <a class="ext" href="https://lekondo.com/" target="_blank" rel="noopener">lekondo.com ↗</a>
-    <a class="ext ig" href="https://www.instagram.com/lekondo.nyc/" target="_blank" rel="noopener">Instagram ↗</a>
   </div>
 </nav>
 
 <div class="wrap">
   <div class="eyebrow">Competitor Profile</div>
-  <h1>Lekondo</h1>
+  <div class="title-row">
+    <h1>Lekondo</h1>
+    <div class="site-links">
+      <a href="https://lekondo.com/" target="_blank" rel="noopener">lekondo.com ↗</a>
+      <a class="ig" href="https://www.instagram.com/lekondo.nyc/" target="_blank" rel="noopener">@lekondo.nyc ↗</a>
+    </div>
+  </div>
   <p class="lede">A New York fashion app built on outfit photos with the eyes covered. Eight months old, $3M raised, and it already has brand communities and aesthetic spaces. Nothing on it is for sale.</p>
   <div class="date-stamp">Created: 17 September 2026 · Last updated: 17 September 2026</div>
 
@@ -207,9 +222,9 @@ td:last-child,th:last-child{border-right:none}
   </div>
 
   <div class="shots c3">
-    <div class="shot"><a href="lekondo/closet.jpg" target="_blank" rel="noopener"><img src="lekondo/closet.jpg" alt="Detected items panel"/></a><div class="cap"><b>Detect</b><span>"Detected items (5)". Jacket → Uniqlo. Shoes → Maison Margiela. Sweater → "+ Add brand".</span><i>Tap to enlarge ↗</i></div></div>
-    <div class="shot"><a href="lekondo/analysis.jpg" target="_blank" rel="noopener"><img src="lekondo/analysis.jpg" alt="Outfit analysis screen"/></a><div class="cap"><b>Analyse</b><span>Named "The Poetics of Urban Motion". Tortilla 45% · Black 31% · Linen 23%. Acubi, Sotto, Gorpcore meters.</span><i>Tap to enlarge ↗</i></div></div>
-    <div class="shot"><a href="lekondo/calendar.jpg" target="_blank" rel="noopener"><img src="lekondo/calendar.jpg" alt="OOTD calendar"/></a><div class="cap"><b>File</b><span>A month of cut-out outfits, one per day, with the weather. Profile carries a handle, followers and a city.</span><i>Tap to enlarge ↗</i></div></div>
+    <div class="shot"><a href="lekondo/closet.jpg" target="_blank" rel="noopener"><img src="lekondo/closet.jpg" alt="Detected items panel"/></a><div class="cap"><b>Detect</b><span>"Detected items (5)". Jacket → Uniqlo. Shoes → Maison Margiela. Sweater → "+ Add brand".</span><a class="zoom" href="lekondo/closet.jpg" target="_blank" rel="noopener">Tap to enlarge ↗</a></div></div>
+    <div class="shot"><a href="lekondo/analysis.jpg" target="_blank" rel="noopener"><img src="lekondo/analysis.jpg" alt="Outfit analysis screen"/></a><div class="cap"><b>Analyse</b><span>Named "The Poetics of Urban Motion". Tortilla 45% · Black 31% · Linen 23%. Acubi, Sotto, Gorpcore meters.</span><a class="zoom" href="lekondo/analysis.jpg" target="_blank" rel="noopener">Tap to enlarge ↗</a></div></div>
+    <div class="shot"><a href="lekondo/calendar.jpg" target="_blank" rel="noopener"><img src="lekondo/calendar.jpg" alt="OOTD calendar"/></a><div class="cap"><b>File</b><span>A month of cut-out outfits, one per day, with the weather. Profile carries a handle, followers and a city.</span><a class="zoom" href="lekondo/calendar.jpg" target="_blank" rel="noopener">Tap to enlarge ↗</a></div></div>
   </div>
 
   <h2 id="s03"><span class="sec-num">03</span>Why the eyes are covered</h2>
@@ -224,8 +239,8 @@ td:last-child,th:last-child{border-right:none}
   <p class="src-note">All four quoted from <a href="https://lekondo.com/lookbook" target="_blank" rel="noopener">lekondo.com/lookbook</a>. The bar is visible on every person in every marketing screenshot below.</p>
 
   <div class="shots c2" style="margin-top:14px">
-    <div class="shot"><a href="lekondo/lookbook.jpg" target="_blank" rel="noopener"><img src="lekondo/lookbook.jpg" alt="Global lookbook with eyes covered"/></a><div class="cap"><b>Every face, every screen</b><span>The outfit stays sharp. The eyes do not.</span><i>Tap to enlarge ↗</i></div></div>
-    <div class="shot"><a href="lekondo/feed.jpg" target="_blank" rel="noopener"><img src="lekondo/feed.jpg" alt="Feed with eyes covered"/></a><div class="cap"><b>Including the hero shot</b><span>Their own "Third space for fashion" image carries the bar.</span><i>Tap to enlarge ↗</i></div></div>
+    <div class="shot"><a href="lekondo/lookbook.jpg" target="_blank" rel="noopener"><img src="lekondo/lookbook.jpg" alt="Global lookbook with eyes covered"/></a><div class="cap"><b>Every face, every screen</b><span>The outfit stays sharp. The eyes do not.</span><a class="zoom" href="lekondo/lookbook.jpg" target="_blank" rel="noopener">Tap to enlarge ↗</a></div></div>
+    <div class="shot"><a href="lekondo/feed.jpg" target="_blank" rel="noopener"><img src="lekondo/feed.jpg" alt="Feed with eyes covered"/></a><div class="cap"><b>Including the hero shot</b><span>Their own "Third space for fashion" image carries the bar.</span><a class="zoom" href="lekondo/feed.jpg" target="_blank" rel="noopener">Tap to enlarge ↗</a></div></div>
   </div>
 
   <div class="grid2" style="margin-top:16px">
@@ -247,8 +262,8 @@ td:last-child,th:last-child{border-right:none}
   <div class="concl risk"><b>They are further into community than the funding coverage suggests.</b> Brand communities and aesthetic spaces both exist, both carry member counts, and both were built out of detected garments rather than sold to anyone.</div>
 
   <div class="shots c2">
-    <div class="shot"><a href="lekondo/brands.jpg" target="_blank" rel="noopener"><img src="lekondo/brands.jpg" alt="Lemaire brand community"/></a><div class="cap"><b>Brand communities</b><span>LEMAIRE — "138 outfits · 46 members", a written brand context, and a grid of members wearing it. The brand does not run it and sells nothing there.</span><i>Tap to enlarge ↗</i></div></div>
-    <div class="shot"><a href="lekondo/aesthetics.jpg" target="_blank" rel="noopener"><img src="lekondo/aesthetics.jpg" alt="Aesthetics and subcultures directory"/></a><div class="cap"><b>Aesthetic spaces</b><span>34 aesthetics with membership. Acubi 11,857 · Coquette 5,828 · Boho 5,265 · Cottagecore 3,239. Search runs across Aesthetics, Brands, Cities and Users.</span><i>Tap to enlarge ↗</i></div></div>
+    <div class="shot"><a href="lekondo/brands.jpg" target="_blank" rel="noopener"><img src="lekondo/brands.jpg" alt="Lemaire brand community"/></a><div class="cap"><b>Brand communities</b><span>LEMAIRE — "138 outfits · 46 members", a written brand context, and a grid of members wearing it. The brand does not run it and sells nothing there.</span><a class="zoom" href="lekondo/brands.jpg" target="_blank" rel="noopener">Tap to enlarge ↗</a></div></div>
+    <div class="shot"><a href="lekondo/aesthetics.jpg" target="_blank" rel="noopener"><img src="lekondo/aesthetics.jpg" alt="Aesthetics and subcultures directory"/></a><div class="cap"><b>Aesthetic spaces</b><span>34 aesthetics with membership. Acubi 11,857 · Coquette 5,828 · Boho 5,265 · Cottagecore 3,239. Search runs across Aesthetics, Brands, Cities and Users.</span><a class="zoom" href="lekondo/aesthetics.jpg" target="_blank" rel="noopener">Tap to enlarge ↗</a></div></div>
   </div>
 
   <div class="grid3" style="margin-top:16px">
@@ -258,19 +273,71 @@ td:last-child,th:last-child{border-right:none}
   </div>
 
   <h2 id="s05"><span class="sec-num">05</span>Reviews</h2>
-  <div class="concl risk"><b>4.9 from 280 ratings, and every complaint is about the AI.</b> That objection lands on SMTHG's virtual try-on, which asks for a photo of the member's own body.</div>
+  <div class="concl"><b>All 35 written US reviews read. 31 are five stars, 2 are three, 2 are two, none are one.</b> What people write about is keeping a record of their own wardrobe and seeing what real people wear elsewhere. Not one review mentions the anonymity the whole product is built on.</div>
 
-  <div class="revs">
-    <div class="rev"><div class="rt">Letterboxd for fashion!</div><div class="rm"><b>★★★★★</b> · mdwav</div><p>"I use Lekondo almost every day to track my outfits, discover niche aesthetics, and find new ways to style items!"</p></div>
-    <div class="rev"><div class="rt">Best outfit tracker I've found</div><div class="rm"><b>★★★★★</b> · mover333</div><p>"It automatically builds my digital closet just from posting each day… I can tap the detected styles from my own outfit and instantly explore what other people are wearing all over the world."</p></div>
-    <div class="rev"><div class="rt">A truly stylish tool</div><div class="rm"><b>★★★★★</b> · Domoisbest</div><p>"I'm learning so many unique terms and ways to articulate different aesthetics from around the world… that I regionally have never been exposed to."</p></div>
-    <div class="rev"><div class="rt">One of the greatest!</div><div class="rm"><b>★★★★★</b> · Fernando Luján</div><p>"As a fashion designer I do looove and recommend this app." <em>— a designer, on a platform where he cannot sell.</em></p></div>
-    <div class="rev neg"><div class="rt">Ai fire pit</div><div class="rm"><b>★★</b> · meowcapybara</div><p>"Thought it was a great concept until i realized i was just feeding ai all my outfits. Keep ai out of art spaces."</p></div>
-    <div class="rev neg"><div class="rt">Ai</div><div class="rm"><b>★★</b> · P1nk sewage</div><p>"If there wasn't any generative ai in it the app would be amazing but I won't use this app because of the use of ai."</p></div>
+  <div class="grid2">
+    <div class="box red">
+      <b>Star distribution · 35 written reviews</b>
+      <div class="bars">
+        <div class="bar"><span>5 ★</span><i style="width:88.6%"></i><b>31</b></div>
+        <div class="bar"><span>4 ★</span><i style="width:0"></i><b>0</b></div>
+        <div class="bar"><span>3 ★</span><i style="width:5.7%"></i><b>2</b></div>
+        <div class="bar"><span>2 ★</span><i style="width:5.7%"></i><b>2</b></div>
+        <div class="bar"><span>1 ★</span><i style="width:0"></i><b>0</b></div>
+      </div>
+      <p style="margin-top:10px">Apple's overall figure across all ratings, written or not: <strong>4.9 from 280</strong>.</p>
+    </div>
+    <div class="box">
+      <b>What they actually talk about</b>
+      <div class="bars">
+        <div class="bar"><span>My closet, tracking, diary</span><i style="width:100%"></i><b>14</b></div>
+        <div class="bar"><span>Real people, worldwide</span><i style="width:57%"></i><b>8</b></div>
+        <div class="bar"><span>Naming my own style</span><i style="width:36%"></i><b>5</b></div>
+        <div class="bar"><span>Rejecting the AI</span><i style="width:21%"></i><b>3</b></div>
+        <div class="bar"><span>Bugs</span><i style="width:14%"></i><b>2</b></div>
+        <div class="bar dim"><span>Anonymity, faces, privacy</span><i style="width:0"></i><b>0</b></div>
+      </div>
+    </div>
   </div>
-  <p class="src-note">Quoted verbatim from Apple's public customer-review feed for <a href="https://apps.apple.com/us/app/lekondo/id6755449231" target="_blank" rel="noopener">Lekondo, US App Store</a>, read 17 September 2026. Three reviewers used the phrase "third space" unprompted.</p>
 
-  <h2 id="s06"><span class="sec-num">06</span>Against smthg.us</h2>
+  <div class="subh">The five stars · 31 of 35</div>
+  <div class="revs">
+    <div class="rev"><div class="rt">Letterboxd for fashion!</div><div class="rm"><b>★★★★★</b> · mdwav</div><p>"I use Lekondo almost every day to track my outfits, discover niche aesthetics, and find new ways to style items! It's also super functional and perfect for archiving if you are also into Beli/Letterboxd/Lastfm etc"</p></div>
+    <div class="rev"><div class="rt">Best outfit tracker I've found</div><div class="rm"><b>★★★★★</b> · mover333</div><p>"It is basically a daily fit pic tracker and visual diary, and it automatically builds my digital closet just from posting each day. The style breakdown is my favorite part… I am into techwear, and I can just tap the detected styles from my own outfit and instantly explore what other people are wearing all over the world."</p></div>
+    <div class="rev"><div class="rt">A truly stylish tool</div><div class="rm"><b>★★★★★</b> · Domoisbest</div><p>"This app verbalizes aesthetics and gives general style breakdowns that are extremely helpful… I'm learning so many unique terms and ways to articulate different aesthetics from around the world and elements of style that I regionally have never been exposed to."</p></div>
+    <div class="rev"><div class="rt">what lookbook was meant to be</div><div class="rm"><b>★★★★★</b> · Han!k</div><p>"i usually take a fit pic, but i wouldn't always know what exact pieces i was wearing that day… i can finally track all that history! what's even cooler is that i can see what everyone around the world is wearing, and i can see how styles differ and converge across the globe."</p></div>
+    <div class="rev"><div class="rt">BEST STYLE APP EVERRRR</div><div class="rm"><b>★★★★★</b> · cutegamer472</div><p>"I pray that this app never gets a pay wall because it is the best. I have been trying to find a way to keep a track of the outfits I create so I can remember to wear them again when the time is right."</p></div>
+    <div class="rev"><div class="rt">One of the greatest!</div><div class="rm"><b>★★★★★</b> · Fernando Luján</div><p>"I love this app so much, you learn you share and you can create community! As a fashion designer I do looove and recommend this app"</p></div>
+    <div class="rev"><div class="rt">Fashion made functional</div><div class="rm"><b>★★★★★</b> · Cover01</div><p>"This app reminds me of the simple days of instagram with high-tech AI features that really are useful, not just 'slop'"</p></div>
+    <div class="rev"><div class="rt">Third Space For Fashion</div><div class="rm"><b>★★★★★</b> · Ffffdgvxfcggc</div><p>"Such a cool way to discover other outfits! Love the single player utility. A familiar but totally different type of social media"</p></div>
+    <div class="rev"><div class="rt">Style meets literary art.</div><div class="rm"><b>★★★★★</b> · RealezaNegro</div><p>"The titles and breakdowns are peak design poetry."</p></div>
+    <div class="rev"><div class="rt">Great OOTD App</div><div class="rm"><b>★★★★★</b> · The Cameo Row</div><p>"It's also great seeing street style from users on the other side of the world! It's fantastic inspiration!"</p></div>
+    <div class="rev"><div class="rt">The future of fashion</div><div class="rm"><b>★★★★★</b> · extrasaltytofu</div><p>"Love this app, amazing community that inspires me to dress every day."</p></div>
+    <div class="rev"><div class="rt">Innovative fashion app</div><div class="rm"><b>★★★★★</b> · lightbearer333</div><p>"By far the coolest fashion app I've ever found! I love love love the data break downs of each fit."</p></div>
+  </div>
+
+  <div class="subh">Every critical review they have · all 4</div>
+  <div class="revs">
+    <div class="rev neg"><div class="rt">Ai fire pit</div><div class="rm"><b>★★</b> · meowcapybara</div><p>"Thought it was a great concept until i realized i was just feeding ai all my outfits. Keep ai out of art spaces."</p></div>
+    <div class="rev neg"><div class="rt">Ai</div><div class="rm"><b>★★</b> · P1nk sewage</div><p>"If there wasn't any generative ai in it the app would be amazing but I won't use this app because of the use of ai if I could turn the feature off that would be great"</p></div>
+    <div class="rev neg"><div class="rt">Liking the app</div><div class="rm"><b>★★★</b> · JOeyBangers</div><p>"I love that it scans your outfits and puts them into a photo viewable sense, the only negative is when it comes to seeing to many other peoples content and not just solely based on the individual persons style / closet."</p></div>
+    <div class="rev neg"><div class="rt">Glitching!</div><div class="rm"><b>★★★</b> · helpme837352</div><p>"I used to be able to upload outfits to days in the past, if I forgot to post it. Now any time I go to post an outfit from even a day ago it'll post it to the current day… making the app more of a in the moment chore"</p></div>
+  </div>
+  <p class="src-note">All 35 written reviews on the US App Store pulled from Apple's public customer-review feed for <a href="https://apps.apple.com/us/app/lekondo/id6755449231" target="_blank" rel="noopener">id 6755449231</a> on 17 September 2026, quoted verbatim. Theme counts are keyword matches across the same 35.</p>
+
+  <div class="concl risk" style="margin-top:22px"><b>Conclusion on the reviews.</b> People adopted this as a private record-keeping tool that happens to have a feed attached. Nobody arrived for the community and nobody mentions the anonymity. The product's own thesis is invisible to the people using it, and the thing they came back for is the closet that builds itself.</div>
+
+  <h2 id="s05b"><span class="sec-num">06</span>What we can use</h2>
+  <div class="grid3">
+    <div class="box green"><b>The closet builds itself</b><p>14 of 35 reviewers praise automatic tracking above everything else. The mechanic that wins is <strong>zero effort in</strong>: one photo, everything filed.</p><p>SMTHG already has the stronger version — a purchase carries the item, the brand, the size and the price with no photo at all.</p></div>
+    <div class="box green"><b>Nobody asked to be anonymous</b><p>Zero of 35 mention faces, anonymity or privacy. They built a product around a fear their own users never voice.</p><p>Named identity is not a barrier to adoption. SMTHG can keep the name on the Collection.</p></div>
+    <div class="box green"><b>Real people beat editorial</b><p>8 of 35 write about seeing what actual people wear in other cities. "Street style from users on the other side of the world."</p><p>A drop shown on members beats a lookbook. Try-on images from real members are the asset.</p></div>
+    <div class="box green"><b>Give people words for their taste</b><p>5 of 35 say the app taught them to name their own style — "terms and ways to articulate different aesthetics I have never been exposed to."</p><p>Naming a member's taste back to them is a retention hook, and it costs nothing to attach to a purchase history.</p></div>
+    <div class="box red"><b>Me first, everyone else second</b><p>The one structural complaint: "seeing to many other peoples content and not just solely based on the individual persons style / closet." Another calls the best part "the single player utility."</p><p>Personal space first, feed second. A Collection is one person's, and the community sits around it.</p></div>
+    <div class="box red"><b>Consumers will not pay</b><p>"I pray that this app never gets a pay wall because it is the best." Their whole base is free, and 3 of 35 reject the app outright over AI processing of their photos.</p><p>SMTHG charges brands. The member side stays free, which is the right side of this.</p></div>
+  </div>
+
+  <h2 id="s06"><span class="sec-num">07</span>Against smthg.us</h2>
   <div class="tbl-wrap">
     <table>
       <tr><th></th><th>smthg.us</th><th class="dark">Lekondo</th></tr>
@@ -285,12 +352,12 @@ td:last-child,th:last-child{border-right:none}
     </table>
   </div>
 
-  <h2><span class="sec-num">07</span>What to take from it</h2>
-  <div class="grid2">
-    <div class="box green"><b>Steal the input mechanic</b><p>One photo, every item detected and filed. That is how a Collection fills up without work. It is also the single most praised thing in their reviews.</p></div>
-    <div class="box green"><b>Steal the vocabulary</b><p>Colour percentages, aesthetic meters, a written read of a look. Reviewers describe learning their own taste from it. SMTHG has richer data behind it — purchases.</p></div>
-    <div class="box red"><b>Watch the AI backlash</b><p>Both two-star reviews reject the app for processing outfit photos. Try-on asks for the member's body, which is a larger ask than a jacket.</p></div>
-    <div class="box red"><b>Answer the pre-purchase thesis</b><p>Their investors backed the idea that the valuable signal sits before the transaction. The counter is that a purchase is the strongest taste signal there is, and the only one that pays for itself.</p></div>
+  <h2><span class="sec-num">08</span>Conclusion</h2>
+  <div class="concl risk"><b>Lekondo is the closest live comparable to the SMTHG community layer, and it has no way to make money from it.</b> Brand pages, aesthetic spaces, followers and a taste graph all exist and work at 82,000 users. There is no checkout, no drop, no designer who owns their page and nobody who earns.</div>
+  <div class="grid3">
+    <div class="box red"><b>They proved the demand</b><p>356,000 outfit posts in eight months with no marketing behind them. People will do the work of documenting clothes if the input costs one photo.</p></div>
+    <div class="box red"><b>They cannot convert it</b><p>A hidden face and a meaningless username leave nobody to pay and nothing to sell. Their own answer is to sell the data instead.</p></div>
+    <div class="box"><b>The thesis to answer</b><p>Their investors backed the idea that the valuable signal sits before the transaction. The counter is that a purchase is the strongest taste signal there is, and the only one that pays for itself.</p></div>
   </div>
 </div>
 
