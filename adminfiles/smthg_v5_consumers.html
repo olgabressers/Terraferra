@@ -115,6 +115,11 @@ body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--ink);ove
 @media(max-width:900px){.space-layout{grid-template-columns:1fr;gap:32px}.space-text{padding-left:0;order:-1}}
 @media(max-width:600px){.circle-section{padding:56px 0}.space-photos{gap:8px}}
 
+.space-items{display:flex;flex-direction:column;gap:16px}
+.space-item{border-top:1px solid var(--border);padding-top:14px}
+.space-item b{display:block;font-size:14px;font-weight:800;color:var(--ink);margin-bottom:5px;letter-spacing:-.2px}
+.space-item p{font-size:13.5px;line-height:1.65;color:var(--ink)}
+
 /* ── 3 VALUE CARDS ── */
 .val-section{padding:80px 0;background:var(--white)}
 .val-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
@@ -194,7 +199,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.07);padding:
 <body>
 
 <div class="ver-bar">
-  <span>V5 · For Shoppers — smthg.us structure · Created 21 September 2026 · Last updated 21 September 2026</span>
+  <span>V5 · For Shoppers — copy of smthg.us · Created 21 September 2026 · Last updated 21 September 2026</span>
   <a href="https://terraferra.co/adminfiles/">← Admin Hub</a>
 </div>
 
@@ -204,7 +209,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.07);padding:
     <a href="#space" style="color:var(--red)">So-Me-Space</a>
     <a href="#drops" style="color:var(--red)">Drops</a>
     <a href="#try-on">Virtual Try-On</a>
-    <a href="#how">How It Works</a>
+    <a href="#faq">How It Works</a>
     <a href="#faq">FAQ</a>
   </div>
   <div class="nav-btns">
@@ -252,7 +257,12 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.07);padding:
       <div class="space-text">
         <span class="sec-label">02 / So-Me-Space</span>
         <h2 class="sec-h2">Brand Space. Style Space. Events. The Feed.</h2>
-        <p class="sec-lede">Brands have a home with live sessions. Events and the drop calendar bring people together between drops. The feed is where everyone chats and shares.</p>
+        <p class="sec-lede" style="margin-bottom:26px">Brands have a home with live sessions. Events and the drop calendar bring people together between drops. The feed is where everyone chats and shares.</p>
+        <div class="space-items">
+          <div class="space-item"><b>Brand Space</b><p>Follow designers, join live sessions, and see every drop at its source.</p></div>
+          <div class="space-item"><b>Style Space</b><p>Share looks, compare ideas, and meet people who speak your style.</p></div>
+          <div class="space-item"><b>Events</b><p>Live sessions and the drop calendar keep the community in sync.</p></div>
+        </div>
       </div>
     </div>
   </div>
@@ -267,15 +277,14 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.07);padding:
 
       <div class="drop-card">
         <div class="drop-img" style="background:#F0EDE8">
-          <div class="drop-ph"><span style="color:rgba(0,0,0,.06)">ALÉMAIS</span></div>
-          <img src="https://img.shopmy.us/eyJidWNrZXQiOiJwcm9kdWN0aW9uLXNob3BteXNoZWxmLXVwbG9hZHMiLCJrZXkiOiI1OTBlMDE2Ny1iNzI5LTQxM2YtOTg2YS05ZWFiMTM0YzFkMDRfU29maWFSX1RleHQucG5nIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjo3NjgsImZpdCI6ImNvdmVyIiwid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlfX19" alt="ALÉMAIS" loading="lazy" onerror="this.style.display='none'"/>
+          <div class="drop-ph"><span style="color:rgba(0,0,0,.08)">MANIFEST</span></div>
           <div class="drop-badge">Live Now</div>
           <div class="drop-win">⏱ 48 hrs left</div>
         </div>
         <div class="drop-body">
           <div class="drop-flag">Do Not Miss</div>
-          <div class="drop-brand">ALÉMAIS</div>
-          <p class="drop-desc">Australian contemporary. Resort &amp; ready-to-wear. Pre-order only.</p>
+          <div class="drop-brand">manifest</div>
+          <p class="drop-desc">MANIFEST is a Milano-based fashion label rooted in street culture, music, and the restless energy of the city.</p>
           <div class="drop-scarcity">
             <div class="drop-scarcity-row"><span>What's really left</span><b>17 of 40</b></div>
             <div class="drop-scarcity-bar"><div class="drop-scarcity-fill" style="width:43%"></div></div>
@@ -385,62 +394,10 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.07);padding:
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section class="how-section" id="how">
-  <div class="container">
-    <span class="sec-label">06 / How It Works</span>
-    <h2 class="sec-h2">Discover. Try on. Make it happen.</h2>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">01</div>
-        <div>
-          <h3>Join So-Me-Space</h3>
-          <p>Free to join. You're in the community before the drop — see the feed, style spaces, and the drop calendar.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <div>
-          <h3>Try it on virtually</h3>
-          <p>Upload a photo. See the piece on your own body. The AI Stylist shows you how to complete the look. No fitting rooms, no surprises.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <div>
-          <h3>Deposit to hold your spot</h3>
-          <p>Order during the drop window. Production starts once orders are confirmed. Your piece is made to order.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">04</div>
-        <div>
-          <h3>Share it. Grow your Space.</h3>
-          <p>Share your favorite items with friends and grow your Space with people who share your taste.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SUSTAINABILITY -->
-<div class="sustain">
-  <div class="container">
-    <div>
-      <span class="sustain-label">07 / Why Pre-Order Matters</span>
-      <div class="sustain-title">Fashion makes too much.<br>Most of it is destroyed.</div>
-    </div>
-    <div class="sustain-body">
-      <p>The fashion industry overproduces by 30–40%. Unsold inventory is incinerated or sent to landfill.</p>
-      <p>Pre-orders change the logic: nothing gets made until it's sold. Your purchase decides what gets produced — and nothing more.</p>
-    </div>
-  </div>
-</div>
-
 <!-- FAQ -->
 <section class="faq-section" id="faq">
   <div class="container">
-    <span class="sec-label">08 / Questions</span>
+    <span class="sec-label">06 / Questions</span>
     <h2 class="sec-h2">How it all works.</h2>
     <div class="faq-list">
       <div>
@@ -486,7 +443,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.07);padding:
 <!-- CTA -->
 <section class="cta-section" id="join">
   <div class="container">
-    <div class="cta-eye">09 / Never Miss A Drop</div>
+    <div class="cta-eye">07 / Never Miss A Drop</div>
     <h2 class="cta-title">Get notified before every drop.</h2>
     <p class="cta-desc">Subscribe and get notified 24 hours before every drop goes public.</p>
     <div class="cta-form">
