@@ -7,6 +7,8 @@
 <script src="/site-lock.js"></script>
 <script>
 if("scrollRestoration" in history) history.scrollRestoration = "manual";
+document.documentElement.className += " tf-loading";
+setTimeout(function(){ document.documentElement.classList.remove("tf-loading"); }, 8000);
 (function(){
   var released = false, t0 = Date.now();
   function release(){ released = true; }
@@ -28,6 +30,9 @@ if("scrollRestoration" in history) history.scrollRestoration = "manual";
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
   html,body,*{overflow-anchor:none}
+  html.tf-loading .filter-bar,
+  html.tf-loading .tbl-wrap,
+  html.tf-loading .research-sec{display:none}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --tf:#E8002D;--tf-dark:#B50023;--tf-ghost:#F1EEE9;
@@ -1006,7 +1011,11 @@ function renderAll(fid){
   renderDashboard();
   requestAnimationFrame(function(){
     resizeAllTextareas();
-    if(!firstRenderDone){ firstRenderDone = true; window.scrollTo(0, 0); }
+    if(!firstRenderDone){
+      firstRenderDone = true;
+      window.scrollTo(0, 0);
+      document.documentElement.classList.remove('tf-loading');
+    }
   });
   if(fid){
     var el = document.getElementById(fid);
