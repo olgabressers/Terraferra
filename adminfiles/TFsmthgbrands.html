@@ -334,13 +334,13 @@ tr:hover .del-btn{opacity:1}
           <th class="th-num">#</th>
           <th style="min-width:150px">Brand</th>
           <th style="min-width:140px">URL</th>
-          <th style="min-width:130px">Instagram · Followers</th>
           <th style="min-width:110px">Annual Revenue</th>
           <th style="min-width:120px">Category</th>
           <th style="min-width:190px">Positioning</th>
           <th style="min-width:100px">Country origin</th>
           <th style="min-width:120px">Sells to</th>
           <th style="min-width:190px">Why relevant for SMTHG</th>
+          <th style="min-width:130px">Instagram · Followers</th>
           <th style="min-width:150px">Contact email</th>
           <th style="min-width:200px">LinkedIn (owner / commercial)</th>
           <th class="th-del"></th>
@@ -503,13 +503,13 @@ function blankItem(src){
 var FIELDS = [
   {key:'name',        ph:'Brand name…',          w:'150px'},
   {key:'url',         ph:'https://…',             w:'140px'},
-  {key:'instagram',   ph:'https://instagram.com/…', w:'130px'},
   {key:'revenue',     ph:'e.g. $2M…',            w:'110px'},
   {key:'category',    ph:'Apparel, jewellery…',   w:'120px'},
   {key:'positioning', ph:'What they make…',       w:'190px'},
   {key:'origin',      ph:'UK, US…',              w:'100px'},
   {key:'sellsTo',     ph:'Global, US, EU…',      w:'120px'},
   {key:'whyRelevant',      ph:'Reason for SMTHG…',              w:'190px'},
+  {key:'instagram',   ph:'https://instagram.com/…', w:'130px'},
 ];
 
 // ── URL / Instagram display helpers ──────────────────────────────────────────
@@ -884,14 +884,13 @@ function setFilter(country){
 var EU_COUNTRIES = ['Austria','Belgium','Bulgaria','Croatia','Cyprus','Czechia','Denmark','Estonia','Finland','France','Germany','Greece','Hungary','Ireland','Italy','Latvia','Lithuania','Luxembourg','Malta','Netherlands','Poland','Portugal','Romania','Slovakia','Slovenia','Spain','Sweden'];
 var NON_EU_ORDER = ['Russia']; // US and Canada are pinned before EU in renderFilter
 
-var US_PIN = ['US NY','US LA'];
+var US_PIN = ['US','US LA','US NY'];   // every US row first, in this order
 function originRank(o){
   var p = US_PIN.indexOf(o);
-  if(p>=0) return p;                 // US NY = 0, US LA = 1 — always first
-  if(o==='US') return 1.5;
-  if(o==='Canada') return 2;
-  if(EU_COUNTRIES.indexOf(o)>=0) return 4; // EU last, matching the filter bar
-  if(o) return 3;
+  if(p>=0) return p;                 // US = 0, US LA = 1, US NY = 2
+  if(o==='Canada') return 3;
+  if(EU_COUNTRIES.indexOf(o)>=0) return 5; // EU last, matching the filter bar
+  if(o) return 4;
   return 99;
 }
 
@@ -925,7 +924,7 @@ function renderFilter(){
 
   var allOrigins = Object.keys(origins);
   var euInData   = allOrigins.filter(function(o){ return EU_COUNTRIES.indexOf(o) >= 0; }).sort();
-  var otherInData = allOrigins.filter(function(o){ return EU_COUNTRIES.indexOf(o) < 0 && o !== 'US' && o !== 'Canada' && US_PIN.indexOf(o) < 0; });
+  var otherInData = allOrigins.filter(function(o){ return EU_COUNTRIES.indexOf(o) < 0 && o !== 'Canada' && US_PIN.indexOf(o) < 0; });
   otherInData.sort(function(a,b){
     var ai = NON_EU_ORDER.indexOf(a), bi = NON_EU_ORDER.indexOf(b);
     if(ai>=0 && bi>=0) return ai-bi;
@@ -948,7 +947,6 @@ function renderFilter(){
 
   // Order: US → Canada → others (Russia first, then alpha) → EU group + EU countries last
   US_PIN.forEach(function(o){ if(origins[o]) addBtn(o); });
-  if(origins['US'])     addBtn('US');
   if(origins['Canada']) addBtn('Canada');
   otherInData.forEach(function(o){ addBtn(o); });
   if(euInData.length > 0){
