@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <meta name="robots" content="noindex, nofollow"/>
 <script src="/site-lock.js"></script>
+<script>if("scrollRestoration" in history) history.scrollRestoration = "manual";</script>
 <title>SMTHG Brands · MVP Candidates · v2</title>
 <link rel="icon" type="image/svg+xml" href="smthg_favicon.svg"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
@@ -959,6 +960,7 @@ function renderFilter(){
   }
 }
 
+var firstRenderDone = false;
 function renderAll(fid){
   var tbody = document.getElementById('brands-tbody');
   if(!tbody) return;
@@ -985,6 +987,7 @@ function renderAll(fid){
   applyFilter();
   renderDashboard();
   requestAnimationFrame(resizeAllTextareas);
+  if(!firstRenderDone){ firstRenderDone = true; window.scrollTo(0, 0); }
   if(fid){
     var el = document.getElementById(fid);
     if(el){ el.focus(); if(el.setSelectionRange) el.setSelectionRange(el.value.length, el.value.length); }
