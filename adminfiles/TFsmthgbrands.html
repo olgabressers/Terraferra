@@ -5,7 +5,24 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <meta name="robots" content="noindex, nofollow"/>
 <script src="/site-lock.js"></script>
-<script>if("scrollRestoration" in history) history.scrollRestoration = "manual";</script>
+<script>
+if("scrollRestoration" in history) history.scrollRestoration = "manual";
+(function(){
+  var released = false, t0 = Date.now();
+  function release(){ released = true; }
+  ["wheel","touchstart","keydown","mousedown"].forEach(function(ev){
+    window.addEventListener(ev, release, {passive:true, once:true});
+  });
+  var iv = setInterval(function(){
+    if(released || Date.now() - t0 > 3000){ clearInterval(iv); return; }
+    if(window.scrollY !== 0 || document.documentElement.scrollTop !== 0){
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      if(document.body) document.body.scrollTop = 0;
+    }
+  }, 40);
+})();
+</script>
 <title>SMTHG Brands · MVP Candidates · v2</title>
 <link rel="icon" type="image/svg+xml" href="smthg_favicon.svg"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
