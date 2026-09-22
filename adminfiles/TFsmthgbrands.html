@@ -10,6 +10,7 @@
 <link rel="icon" type="image/svg+xml" href="smthg_favicon.svg"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
+  html,body,*{overflow-anchor:none}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --tf:#E8002D;--tf-dark:#B50023;--tf-ghost:#F1EEE9;
@@ -986,8 +987,10 @@ function renderAll(fid){
   renderFilter();
   applyFilter();
   renderDashboard();
-  requestAnimationFrame(resizeAllTextareas);
-  if(!firstRenderDone){ firstRenderDone = true; window.scrollTo(0, 0); }
+  requestAnimationFrame(function(){
+    resizeAllTextareas();
+    if(!firstRenderDone){ firstRenderDone = true; window.scrollTo(0, 0); }
+  });
   if(fid){
     var el = document.getElementById(fid);
     if(el){ el.focus(); if(el.setSelectionRange) el.setSelectionRange(el.value.length, el.value.length); }
