@@ -318,6 +318,7 @@ tr:hover .del-btn{opacity:1}
       Brands under consideration for the SMTHG MVP. Changes sync live.
       &nbsp;<span class="sync-dot" id="sync-dot"></span><span class="sync-label" id="sync-label">Connecting…</span>
     </p>
+    <p style="font-size:12px;color:var(--sub);margin-top:6px">Created: 9 July 2026 · Last updated: 22 September 2026</p>
   </div>
 
   <div class="count-bar" id="count-bar">Loading…</div>
@@ -595,27 +596,26 @@ function renderLinkedinDisplay(dispEl, val){
     var ph = document.createElement('span');
     ph.className = 'link-disp-text empty';
     ph.style.cssText = 'font-size:13px;white-space:nowrap;';
-    ph.textContent = 'Full Name · linkedin.com/in/…';
+    ph.textContent = 'Full Name \u00b7 linkedin.com/in/\u2026';
     dispEl.appendChild(ph);
     return;
   }
   lines.forEach(function(line){
-    var urlM = line.match(/(?:https?:\/\/)?(?:[a-z]{2,3}\.)?linkedin\.com\/in\/[^\s]+/i);
+    var urlM = line.match(/(?:https?:\/\/)?(?:[a-z]{2,3}\.)?linkedin\.com\/(?:in|company|school|pub)\/[^\s]+/i);
     var url = urlM ? (urlM[0].match(/^https?:\/\//) ? urlM[0] : 'https://'+urlM[0]) : null;
     if(url) url = url.replace(/\/+$/,'');
-    var row = document.createElement('div');
-    row.style.cssText = 'display:flex;align-items:center;gap:4px;margin-bottom:1px;overflow:hidden;';
-    var nameEl = document.createElement('span');
-    nameEl.style.cssText = 'font-size:13px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;min-width:0;';
-    nameEl.textContent = line;
-    row.appendChild(nameEl);
-    if(url){
-      var a = document.createElement('a');
-      a.href = url; a.target = '_blank'; a.rel = 'noopener';
-      a.textContent = '↗'; a.title = 'Open LinkedIn';
-      a.style.cssText = 'flex-shrink:0;font-size:12px;color:var(--tf);opacity:1;text-decoration:none;';
-      row.appendChild(a);
+    var label = line;
+    if(urlM){
+      label = line.replace(urlM[0],'').replace(/^[\s\u00b7|,\-\u2013\u2014]+/,'').replace(/[\s\u00b7|,\-\u2013\u2014]+$/,'').trim();
     }
+    if(!label && url) label = url.replace(/^https?:\/\/(www\.)?/,'');
+    var row = document.createElement('div');
+    row.style.cssText = 'margin-bottom:2px;overflow:hidden;';
+    var el = document.createElement(url ? 'a' : 'span');
+    if(url){ el.href = url; el.target = '_blank'; el.rel = 'noopener'; el.title = url; }
+    el.textContent = label;
+    el.style.cssText = 'display:block;font-size:13px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;'+(url?'text-decoration:underline;':'');
+    row.appendChild(el);
     dispEl.appendChild(row);
   });
 }
