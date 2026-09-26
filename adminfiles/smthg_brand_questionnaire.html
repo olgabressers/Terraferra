@@ -40,6 +40,7 @@ h1{font-size:34px;font-weight:800;letter-spacing:-1px;color:var(--ink);margin-bo
 .sub-fld{margin-top:9px}
 .sub-fld label{font-size:12px;font-weight:600;color:var(--sub)}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.three{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
 .submit{margin-top:28px;background:var(--tf);color:white;font-family:'Inter',sans-serif;font-size:13px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;border:none;padding:14px 30px;cursor:default}
 
 .topnav{background:white;border-bottom:1px solid var(--rule);padding:12px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
@@ -53,7 +54,7 @@ h1{font-size:34px;font-weight:800;letter-spacing:-1px;color:var(--ink);margin-bo
 }
 @media(max-width:700px){
   .topnav{position:static;padding:10px 14px}
-  .two{grid-template-columns:1fr}
+  .two,.three{grid-template-columns:1fr}
 }
 #back-to-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--tf);color:white;border:none;border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900}
 #back-to-top:hover{background:var(--tf-dark)}
@@ -83,10 +84,11 @@ h1{font-size:34px;font-weight:800;letter-spacing:-1px;color:var(--ink);margin-bo
     </div>
 
     <div class="fld">
-      <label>2. Website and Instagram <span class="req">*</span></label>
-      <div class="two">
+      <label>2. Website, Instagram and TikTok <span class="req">*</span></label>
+      <div class="three">
         <input type="text" placeholder="yourlabel.com" disabled/>
-        <input type="text" placeholder="@yourlabel" disabled/>
+        <input type="text" placeholder="Instagram @yourlabel" disabled/>
+        <input type="text" placeholder="TikTok @yourlabel" disabled/>
       </div>
     </div>
 
@@ -99,7 +101,7 @@ h1{font-size:34px;font-weight:800;letter-spacing:-1px;color:var(--ink);margin-bo
         <span class="chip">Somewhere else</span>
       </div>
       <div class="sub-fld">
-        <label>If somewhere else, which country? <span class="req">*</span></label>
+        <label>Specify the country <span class="req">*</span></label>
         <input type="text" disabled/>
       </div>
     </div>
