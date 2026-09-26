@@ -13,15 +13,10 @@
 :root{
   --tf:#E8002D;
   --tf-dark:#B50023;
-  --tf-ghost:#F1EEE9;
-  --orange:#E8002D;
   --off-white:#F8F6F2;
   --ink:#161616;
   --sub:#5C5A56;
   --rule:#E6E2DA;
-  --green:#1F7A4E;
-  --green-tint:#E9F4EE;
-  --orange-tint:#FDEFE9;
 }
 body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink);line-height:1.55}
 .wrap{max-width:1240px;margin:0 auto;padding:40px 48px 90px}
@@ -29,58 +24,28 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .back{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);text-decoration:none;display:inline-block;margin-bottom:24px}
 .back:hover{color:var(--tf)}
 
-.eyebrow{font-size:10px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
 h1{font-size:34px;font-weight:800;letter-spacing:-1px;color:var(--ink);margin-bottom:10px}
-.lede{font-size:14.5px;color:var(--ink);max-width:880px;margin-bottom:8px}
-.date-stamp{font-size:11px;color:var(--sub);margin-bottom:16px}
+.date-stamp{font-size:11px;color:var(--sub);margin-bottom:18px}
+.ask{font-size:14.5px;color:var(--ink);max-width:720px;margin-bottom:26px}
 
-.sec-num{font-size:22px;font-weight:800;color:var(--orange);margin-right:12px}
-h2{font-size:22px;font-weight:800;color:var(--ink);margin:46px 0 6px;letter-spacing:-.4px;display:flex;align-items:baseline}
-
-.concl{border:1px solid var(--rule);border-left:4px solid var(--green);background:var(--green-tint);padding:14px 18px;margin:16px 0 22px;font-size:13px;line-height:1.6;color:var(--ink)}
-.concl.risk{border-left-color:var(--orange);background:var(--orange-tint)}
-.concl strong{font-weight:800}
-
-/* form preview */
 .form{background:white;border:1px solid var(--rule);border-top:4px solid var(--tf);padding:30px 34px 34px;max-width:720px}
-.form-head{font-size:19px;font-weight:800;letter-spacing:-.4px;margin-bottom:4px}
-.form-sub{font-size:13px;color:var(--sub);margin-bottom:24px}
-.grp{font-size:10px;font-weight:800;letter-spacing:2.6px;text-transform:uppercase;color:var(--tf);margin:24px 0 12px;padding-top:18px;border-top:1px solid var(--rule)}
+.grp{font-size:10px;font-weight:800;letter-spacing:2.6px;text-transform:uppercase;color:var(--tf);margin:26px 0 14px;padding-top:20px;border-top:1px solid var(--rule)}
 .grp:first-of-type{border-top:none;padding-top:0;margin-top:0}
-.fld{margin-bottom:16px}
+.fld{margin-bottom:17px}
 .fld label{display:block;font-size:13px;font-weight:700;color:var(--ink);margin-bottom:6px}
 .fld label .req{color:var(--tf)}
-.fld input,.fld select,.fld textarea{width:100%;font-family:'Inter',sans-serif;font-size:13.5px;color:var(--ink);background:var(--off-white);border:1px solid var(--rule);padding:10px 12px;border-radius:0}
-.fld input:focus,.fld select:focus,.fld textarea:focus{outline:none;border-color:var(--tf)}
-.fld textarea{resize:vertical;min-height:64px}
+.fld input{width:100%;font-family:'Inter',sans-serif;font-size:13.5px;color:var(--ink);background:var(--off-white);border:1px solid var(--rule);padding:10px 12px;border-radius:0}
+.fld input:focus{outline:none;border-color:var(--tf)}
 .chips{display:flex;flex-wrap:wrap;gap:7px}
 .chip{font-size:12.5px;font-weight:600;color:var(--ink);background:var(--off-white);border:1px solid var(--rule);padding:7px 13px;cursor:default}
+.sub-fld{margin-top:9px}
+.sub-fld label{font-size:12px;font-weight:600;color:var(--sub)}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.submit{margin-top:26px;background:var(--tf);color:white;font-family:'Inter',sans-serif;font-size:13px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;border:none;padding:14px 30px;cursor:default}
-.formnote{font-size:11.5px;color:var(--sub);margin-top:12px}
-
-.tbl-wrap{overflow-x:auto;border:1px solid var(--rule);background:white;margin-bottom:8px}
-table{border-collapse:collapse;width:100%;font-size:12.5px;table-layout:fixed}
-th,td{padding:10px 13px;border-bottom:1px solid var(--rule);border-right:1px solid var(--rule);vertical-align:top;line-height:1.5;text-align:left;overflow-wrap:break-word}
-th{background:var(--tf);color:white;font-weight:800;font-size:10.5px;letter-spacing:.4px;text-transform:uppercase}
-td.label{font-weight:700;background:var(--tf-ghost)}
-tr:last-child td{border-bottom:none}
-td:last-child,th:last-child{border-right:none}
-col.c1{width:38px}col.c2{width:27%}col.c3{width:31%}
-.src-note{font-size:11.5px;color:var(--sub);margin:10px 0 0}
-.src-note a{color:var(--tf);text-decoration:underline}
-
-.bullets{list-style:none;margin:0 0 4px;padding:0;max-width:900px}
-.bullets li{font-size:13px;color:var(--ink);line-height:1.6;padding:7px 0 7px 18px;position:relative;border-bottom:1px solid var(--rule)}
-.bullets li:last-child{border-bottom:none}
-.bullets li::before{content:"";position:absolute;left:2px;top:16px;width:5px;height:5px;border-radius:50%;background:var(--tf)}
+.submit{margin-top:28px;background:var(--tf);color:white;font-family:'Inter',sans-serif;font-size:13px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;border:none;padding:14px 30px;cursor:default}
 
 .topnav{background:white;border-bottom:1px solid var(--rule);padding:12px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
 .topnav-home{font-weight:800;letter-spacing:-.5px;color:var(--ink);text-decoration:none;font-size:15px}
 .topnav-home .dot{color:var(--tf)}
-.topnav-links{display:flex;gap:16px;flex-wrap:wrap;row-gap:6px;align-items:center}
-.topnav-links a{color:var(--sub);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:.8px;font-size:10px;white-space:nowrap}
-.topnav-links a:hover{color:var(--tf)}
 
 @media(max-width:1000px){
   .wrap{padding:28px 20px 60px}
@@ -89,7 +54,6 @@ col.c1{width:38px}col.c2{width:27%}col.c3{width:31%}
 }
 @media(max-width:700px){
   .topnav{position:static;padding:10px 14px}
-  .topnav-links{flex-wrap:nowrap;overflow-x:auto;white-space:nowrap}
   .two{grid-template-columns:1fr}
 }
 #back-to-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--tf);color:white;border:none;border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900}
@@ -101,45 +65,31 @@ col.c1{width:38px}col.c2{width:27%}col.c3{width:31%}
 
 <nav class="topnav">
   <a href="index.html" class="topnav-home">smthg<span class="dot">.</span></a>
-  <div class="topnav-links">
-    <a href="#s01">The Questionnaire</a>
-    <a href="#s02">What Each Answer Decides</a>
-    <a href="#s03">Build Notes</a>
-  </div>
 </nav>
 
 <div class="wrap">
   <a class="back" href="index.html">← SMTHG Files</a>
 
-  <div class="eyebrow">Brand Onboarding</div>
   <h1>Founding Brand Questionnaire</h1>
-  <div class="date-stamp">Created: 25 September 2026 · Last updated: 25 September 2026</div>
-  <p class="lede">Nine questions, sent to a brand after it leaves an email on
-    <a href="https://smthg.us/for-designers" target="_blank" rel="noopener">smthg.us/for-designers</a>.
-    Six of the nine are a single tap. Three need typing: the brand name, the link, and the contact block.</p>
-
-  <h2 id="s01"><span class="sec-num">01</span>The questionnaire</h2>
-  <div class="concl">
-    <strong>Question 2 carries the decision.</strong> A website or Instagram link shows the product, the
-    price, the photography and the audience in one click, which is what an onboarding call is otherwise
-    spent establishing. The other eight questions exist to rule a brand out quickly on things a link
-    does not show: where it ships from, whether it can produce to confirmed orders, and who handles returns.
-  </div>
+  <div class="date-stamp">Created: 25 September 2026 · Last updated: 26 September 2026</div>
+  <p class="ask">Answer these nine questions so we can review your label and come back to you with a drop
+    date — it takes about two minutes.</p>
 
   <div class="form">
-    <div class="form-head">Tell us about your brand</div>
-    <div class="form-sub">Nine questions. About two minutes.</div>
 
     <div class="grp">The brand</div>
 
     <div class="fld">
       <label>1. Brand name <span class="req">*</span></label>
-      <input type="text" placeholder="" disabled/>
+      <input type="text" disabled/>
     </div>
 
     <div class="fld">
-      <label>2. Website or Instagram <span class="req">*</span></label>
-      <input type="text" placeholder="yourlabel.com  ·  @yourlabel" disabled/>
+      <label>2. Website and Instagram <span class="req">*</span></label>
+      <div class="two">
+        <input type="text" placeholder="yourlabel.com" disabled/>
+        <input type="text" placeholder="@yourlabel" disabled/>
+      </div>
     </div>
 
     <div class="fld">
@@ -149,6 +99,10 @@ col.c1{width:38px}col.c2{width:27%}col.c3{width:31%}
         <span class="chip">United Kingdom</span>
         <span class="chip">European Union</span>
         <span class="chip">Somewhere else</span>
+      </div>
+      <div class="sub-fld">
+        <label>If somewhere else, which country? <span class="req">*</span></label>
+        <input type="text" disabled/>
       </div>
     </div>
 
@@ -171,7 +125,8 @@ col.c1{width:38px}col.c2{width:27%}col.c3{width:31%}
       <div class="chips">
         <span class="chip">Under $100</span>
         <span class="chip">$100–300</span>
-        <span class="chip">$300–800</span>
+        <span class="chip">$300–500</span>
+        <span class="chip">$500–800</span>
         <span class="chip">Over $800</span>
       </div>
     </div>
@@ -202,8 +157,8 @@ col.c1{width:38px}col.c2{width:27%}col.c3{width:31%}
         <span class="chip">Under $100K</span>
         <span class="chip">$100–500K</span>
         <span class="chip">$500K–1M</span>
-        <span class="chip">Over $1M</span>
-        <span class="chip">Rather not say</span>
+        <span class="chip">$1–3M</span>
+        <span class="chip">Over $3M</span>
       </div>
     </div>
 
@@ -215,95 +170,14 @@ col.c1{width:38px}col.c2{width:27%}col.c3{width:31%}
         <input type="text" placeholder="Name" disabled/>
         <input type="text" placeholder="Email" disabled/>
       </div>
-    </div>
-    <div class="fld">
-      <label>WhatsApp or phone <span class="req">*</span></label>
-      <input type="text" placeholder="+1 …" disabled/>
+      <div class="sub-fld">
+        <label>WhatsApp or phone <span class="req">*</span></label>
+        <input type="text" placeholder="+1 …" disabled/>
+      </div>
     </div>
 
     <button class="submit" type="button" disabled>Send</button>
-    <div class="formnote">We answer every application within 5 business days.</div>
   </div>
-
-  <h2 id="s02"><span class="sec-num">02</span>What each answer decides</h2>
-  <div class="concl risk">
-    <strong>Four answers can end an application on their own:</strong> a brand that sells wholesale only
-    has no way to fulfil a drop, a brand shipping from outside the United States adds duty and delivery
-    time to every order, a piece under $100 sits below the affordable-luxury range the platform is built
-    for, and a brand that cannot produce to confirmed orders can only run the from-stock half of the model.
-  </div>
-  <div class="tbl-wrap">
-    <table>
-      <colgroup><col class="c1"/><col class="c2"/><col class="c3"/><col/></colgroup>
-      <thead>
-        <tr><th>#</th><th>Question</th><th>What it tells us</th><th>Rules a brand out when</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="label">1</td><td class="label">Brand name</td>
-          <td>Whether the label is already on the scouting lists, and whether anyone on the team has met them.</td>
-          <td>Never on its own.</td>
-        </tr>
-        <tr>
-          <td class="label">2</td><td class="label">Website or Instagram</td>
-          <td>The product, the photography, the price list and the size of the following, in one click. This is the question the decision rests on.</td>
-          <td>The work does not fit the curation, or there is no product to photograph yet.</td>
-        </tr>
-        <tr>
-          <td class="label">3</td><td class="label">Where you ship from</td>
-          <td>Duty, delivery time and returns cost for a US shopper, and which VAT position applies.</td>
-          <td>Shipping from outside the US and UK or EU at launch.</td>
-        </tr>
-        <tr>
-          <td class="label">4</td><td class="label">What you make</td>
-          <td>Which creators to brief, and which Style Spaces the drop belongs in.</td>
-          <td>Never on its own.</td>
-        </tr>
-        <tr>
-          <td class="label">5</td><td class="label">Typical retail price</td>
-          <td>Whether the brand sits in the affordable-luxury range, and what a 30% combined fee leaves on a unit.</td>
-          <td>A typical piece is under $100.</td>
-        </tr>
-        <tr>
-          <td class="label">6</td><td class="label">Pre-order capability</td>
-          <td>Whether the brand can run the pre-order model, or only list from stock.</td>
-          <td>Never on its own, but a stock-only brand is a narrower fit.</td>
-        </tr>
-        <tr>
-          <td class="label">7</td><td class="label">Shipping and returns</td>
-          <td>Whether the brand can fulfil a direct-to-consumer order at all. Stock, shipping and returns stay with the brand.</td>
-          <td>The brand sells wholesale only and has never shipped to a consumer.</td>
-        </tr>
-        <tr>
-          <td class="label">8</td><td class="label">Annual sales</td>
-          <td>Which cohort the brand belongs to, and whether $250 a month is a serious number for them.</td>
-          <td>Never. It is the one optional question, so a blank answer costs nothing.</td>
-        </tr>
-        <tr>
-          <td class="label">9</td><td class="label">Name, email, WhatsApp</td>
-          <td>A reachable person. A phone number moves the conversation to a call in a day instead of an email thread over a week.</td>
-          <td>Never, but a missing WhatsApp number slows every following step.</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <p class="src-note">Terms referenced above are the published ones on
-    <a href="https://smthg.us/for-designers" target="_blank" rel="noopener">smthg.us/for-designers</a>:
-    30% combined fee on GMV, $500/mo platform subscription, $250/mo for Founding Brands, community Space included.</p>
-
-  <h2 id="s03"><span class="sec-num">03</span>Build notes</h2>
-  <div class="concl">
-    <strong>Nine questions and one screen.</strong> Every question beyond the ninth costs completions, and
-    everything an onboarding call needs beyond these nine is faster to ask on the call itself.
-  </div>
-  <ul class="bullets">
-    <li>Six of the nine questions are a tap. Only the brand name, the link and the contact block need typing.</li>
-    <li>One page, no multi-step wizard, no progress bar, no account to create.</li>
-    <li>Question 8 is the only optional one, and it is the only question a brand may not want to answer.</li>
-    <li>WhatsApp sits beside email as a required field, so the first reply can be a call rather than a thread.</li>
-    <li>The form opens from a link in the reply to an email left on the site, so the brand has already raised a hand before it sees any questions.</li>
-    <li>Answers to questions 3, 5, 6 and 7 are the four that can close an application, and all four are a single tap.</li>
-  </ul>
 
 </div>
 
