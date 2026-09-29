@@ -774,6 +774,8 @@ function startSSE(){
   src.onerror = function(){ setSyncStatus('err');  };
 }
 
+var SORT_KEYS = ['origin','sortRank','isExample'];   // fields that decide a row's position
+
 function handlePut(p){
   var path  = (p.path||'/').replace(/^\/+/,'');
   var val   = p.data;
@@ -795,13 +797,13 @@ function handlePut(p){
         updateCount();
       } else if(val){
         fbData[parts[1]] = val;
-        renderRow(parts[1], fid);
-        updateCount();
+        renderAll(fid);                 // whole item replaced: its sort position may have changed
       }
     } else if(parts.length === 3 && val !== undefined){
       if(!fbData[parts[1]]) fbData[parts[1]] = blankItem();
       fbData[parts[1]][parts[2]] = val;
-      renderRow(parts[1], fid);
+      if(SORT_KEYS.indexOf(parts[2]) >= 0) renderAll(fid);   // re-sort so row numbers stay correct
+      else renderRow(parts[1], fid);
     }
     return;
   }
@@ -819,7 +821,8 @@ function handlePatch(p){
   if(parts[0] === 'items' && parts.length === 2){
     if(!fbData[parts[1]]) fbData[parts[1]] = blankItem();
     Object.assign(fbData[parts[1]], pData);
-    renderRow(parts[1], fid);
+    if(Object.keys(pData).some(function(k){ return SORT_KEYS.indexOf(k) >= 0; })) renderAll(fid);
+    else renderRow(parts[1], fid);
   }
 }
 
