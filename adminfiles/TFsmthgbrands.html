@@ -1001,6 +1001,10 @@ function renderAll(fid){
     var ra = originRank(oa), rb = originRank(ob);
     if(ra !== rb) return ra - rb;
     if(oa !== ob) return oa.localeCompare(ob); // within EU: alphabetical by country
+    var sa = fbData[a] && fbData[a].sortRank, sb = fbData[b] && fbData[b].sortRank;
+    if(sa && sb && sa !== sb) return sa - sb;  // explicit research order within a tag
+    if(sa && !sb) return -1;
+    if(!sa && sb) return 1;
     var na = ((fbData[a]&&fbData[a].name)||'').toLowerCase();
     var nb = ((fbData[b]&&fbData[b].name)||'').toLowerCase();
     return na.localeCompare(nb);
