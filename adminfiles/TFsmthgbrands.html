@@ -342,7 +342,7 @@ tr:hover .del-btn{opacity:1}
       Brands under consideration for the SMTHG MVP. Changes sync live.
       &nbsp;<span class="sync-dot" id="sync-dot"></span><span class="sync-label" id="sync-label">Connecting…</span>
     </p>
-    <p style="font-size:12px;color:var(--sub);margin-top:6px">Created: 9 July 2026 · Last updated: 22 September 2026</p>
+    <p style="font-size:12px;color:var(--sub);margin-top:6px">Created: 9 July 2026 · Last updated: 29 September 2026</p>
   </div>
 
   <div class="research-sec">
@@ -370,6 +370,7 @@ tr:hover .del-btn{opacity:1}
           <th style="min-width:120px">Category</th>
           <th style="min-width:190px">Positioning</th>
           <th style="min-width:100px">Country origin</th>
+          <th style="min-width:110px">City</th>
           <th style="min-width:120px">Sells to</th>
           <th style="min-width:190px">Why relevant for SMTHG</th>
           <th style="min-width:130px">Instagram · Followers</th>
@@ -520,7 +521,7 @@ var VOTER_KEYS = {alena:'va', chris:'vc', maxim:'vm', alex:'vx', claude:'vl'};
 var DEFAULTS = [];
 
 function blankItem(src){
-  var base = {name:'',url:'',instagram:'',followers:'',revenue:'',category:'',positioning:'',origin:'',sellsTo:'',whyRelevant:'',contactEmail:'',linkedinContacts:'',comments:'',isExample:false,va:false,vc:false,vm:false,vx:false,vl:false};
+  var base = {name:'',url:'',instagram:'',followers:'',revenue:'',category:'',positioning:'',origin:'',city:'',sellsTo:'',whyRelevant:'',contactEmail:'',linkedinContacts:'',comments:'',isExample:false,va:false,vc:false,vm:false,vx:false,vl:false};
   if(src){ Object.keys(src).forEach(function(k){ base[k]=src[k]; }); }
   return base;
 }
@@ -532,6 +533,7 @@ var FIELDS = [
   {key:'category',    ph:'Apparel, jewellery…',   w:'120px'},
   {key:'positioning', ph:'What they make…',       w:'190px'},
   {key:'origin',      ph:'UK, US…',              w:'100px'},
+  {key:'city',        ph:'City…',                w:'110px'},
   {key:'sellsTo',     ph:'Global, US, EU…',      w:'120px'},
   {key:'whyRelevant',      ph:'Reason for SMTHG…',              w:'190px'},
   {key:'instagram',   ph:'https://instagram.com/…', w:'130px'},
@@ -908,7 +910,7 @@ function setFilter(country){
 var EU_COUNTRIES = ['Austria','Belgium','Bulgaria','Croatia','Cyprus','Czechia','Denmark','Estonia','Finland','France','Germany','Greece','Hungary','Ireland','Italy','Latvia','Lithuania','Luxembourg','Malta','Netherlands','Poland','Portugal','Romania','Slovakia','Slovenia','Spain','Sweden'];
 var NON_EU_ORDER = ['Russia']; // US and Canada are pinned before EU in renderFilter
 
-var US_PIN = ['US','US LA','US NY'];   // every US row first, in this order
+var US_PIN = ['US','US LA','US NY','US Miami'];   // every US row first, in this order
 function originRank(o){
   var p = US_PIN.indexOf(o);
   if(p>=0) return p;                 // US = 0, US LA = 1, US NY = 2
