@@ -367,15 +367,15 @@ tr:hover .del-btn{opacity:1}
           <th style="min-width:150px">Brand</th>
           <th style="min-width:140px">URL</th>
           <th style="min-width:130px">Instagram · Followers</th>
-          <th style="min-width:120px">Telegram</th>
+          <th style="min-width:150px">Contact email</th>
           <th style="min-width:110px">Annual Revenue</th>
           <th style="min-width:120px">Category</th>
           <th style="min-width:190px">Positioning</th>
           <th style="min-width:100px">Country origin</th>
           <th style="min-width:120px">Sells to</th>
           <th style="min-width:190px">Why relevant for SMTHG</th>
-          <th style="min-width:150px">Contact email</th>
           <th style="min-width:200px">LinkedIn (owner / commercial)</th>
+          <th style="min-width:120px">Telegram</th>
           <th class="th-del"></th>
         </tr>
       </thead>
@@ -1132,6 +1132,7 @@ function buildRow(id, num){
   tr.appendChild(tdNum);
 
   // Field cells
+  var tdTelegram = null;
   FIELDS.forEach(function(fc){
     var td = document.createElement('td');
     td.style.minWidth = fc.w;
@@ -1155,20 +1156,25 @@ function buildRow(id, num){
     } else {
       td.appendChild(makeInput(id, fc.key, item[fc.key], fc.ph));
     }
+    if(fc.key === 'telegram'){ tdTelegram = td; return; }
     tr.appendChild(td);
+    if(fc.key === 'instagram'){
+      // Contact email cell
+      var tdEmail = document.createElement('td');
+      tdEmail.style.minWidth = '150px';
+      tdEmail.appendChild(makeEmailCell(id, item.contactEmail));
+      tr.appendChild(tdEmail);
+    }
   });
-
-  // Contact email cell
-  var tdEmail = document.createElement('td');
-  tdEmail.style.minWidth = '150px';
-  tdEmail.appendChild(makeEmailCell(id, item.contactEmail));
-  tr.appendChild(tdEmail);
 
   // LinkedIn cell
   var tdLinkedin = document.createElement('td');
   tdLinkedin.style.minWidth = '200px';
   tdLinkedin.appendChild(makeLinkedinCell(id, item.linkedinContacts));
   tr.appendChild(tdLinkedin);
+
+  // Telegram cell (last data column)
+  if(tdTelegram) tr.appendChild(tdTelegram);
 
   // Delete cell
   var tdDel = document.createElement('td');
