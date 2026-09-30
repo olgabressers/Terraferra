@@ -342,7 +342,7 @@ tr:hover .del-btn{opacity:1}
       Brands under consideration for the SMTHG MVP. Changes sync live.
       &nbsp;<span class="sync-dot" id="sync-dot"></span><span class="sync-label" id="sync-label">Connecting…</span>
     </p>
-    <p style="font-size:12px;color:var(--sub);margin-top:6px">Created: 9 July 2026 · Last updated: 29 September 2026</p>
+    <p style="font-size:12px;color:var(--sub);margin-top:6px">Created: 9 July 2026 · Last updated: 30 September 2026</p>
   </div>
 
   <div class="research-sec">
@@ -367,6 +367,7 @@ tr:hover .del-btn{opacity:1}
           <th style="min-width:150px">Brand</th>
           <th style="min-width:140px">URL</th>
           <th style="min-width:130px">Instagram · Followers</th>
+          <th style="min-width:120px">Telegram</th>
           <th style="min-width:110px">Annual Revenue</th>
           <th style="min-width:120px">Category</th>
           <th style="min-width:190px">Positioning</th>
@@ -520,7 +521,7 @@ var VOTER_KEYS = {alena:'va', chris:'vc', maxim:'vm', alex:'vx', claude:'vl'};
 var DEFAULTS = [];
 
 function blankItem(src){
-  var base = {name:'',url:'',instagram:'',followers:'',revenue:'',category:'',positioning:'',origin:'',sellsTo:'',whyRelevant:'',contactEmail:'',linkedinContacts:'',comments:'',isExample:false,va:false,vc:false,vm:false,vx:false,vl:false};
+  var base = {name:'',url:'',instagram:'',followers:'',telegram:'',revenue:'',category:'',positioning:'',origin:'',sellsTo:'',whyRelevant:'',contactEmail:'',linkedinContacts:'',comments:'',isExample:false,va:false,vc:false,vm:false,vx:false,vl:false};
   if(src){ Object.keys(src).forEach(function(k){ base[k]=src[k]; }); }
   return base;
 }
@@ -529,6 +530,7 @@ var FIELDS = [
   {key:'name',        ph:'Brand name…',          w:'150px'},
   {key:'url',         ph:'https://…',             w:'140px'},
   {key:'instagram',   ph:'https://instagram.com/…', w:'130px'},
+  {key:'telegram',    ph:'https://t.me/…',        w:'120px'},
   {key:'revenue',     ph:'e.g. $2M…',            w:'110px'},
   {key:'category',    ph:'Apparel, jewellery…',   w:'120px'},
   {key:'positioning', ph:'What they make…',       w:'190px'},
@@ -547,6 +549,11 @@ function cleanInstagram(url){
   if(!url) return '';
   var m = url.match(/instagram\.com\/([^\/\?#]+)/);
   return m ? '@'+m[1].replace(/\/+$/,'') : url.replace(/^https?:\/\/(www\.)?/,'');
+}
+function cleanTelegram(url){
+  if(!url) return '';
+  var m = url.match(/(?:t|telegram)\.me\/([^\/\?#]+)/);
+  return m ? '@'+m[1] : url.replace(/^https?:\/\/(www\.)?/,'');
 }
 function makeFollowersInput(id, value){
   var inp = document.createElement('input');
@@ -856,6 +863,10 @@ function updateField(id, field, value){
     var iglink = document.getElementById('ig-link-'+id);
     if(iglink){ iglink.href = value||'#'; iglink.style.display = value ? 'inline' : 'none'; }
   }
+  if(field === 'telegram'){
+    var tglink = document.getElementById('tg-link-'+id);
+    if(tglink){ tglink.href = value||'#'; tglink.style.display = value ? 'inline' : 'none'; }
+  }
   clearTimeout(textTimers[id+'_'+field]);
   textTimers[id+'_'+field] = setTimeout(function(){
     fput('/items/'+id+'/'+field, value).catch(function(){});
@@ -1047,6 +1058,12 @@ function renderRow(id, fid){
       var tEl = document.getElementById('ltext-url-'+id);
       if(tEl){ var c=cleanUrl(item.url||''); tEl.textContent=c||'Add link…'; tEl.className='link-disp-text'+(c?'':' empty'); if(item.url){tEl.href=item.url;tEl.target='_blank';}else{tEl.removeAttribute('href');} }
     }
+    if(fc.key === 'telegram'){
+      var tgl = document.getElementById('tg-link-'+id);
+      if(tgl){ tgl.href = item.telegram||'#'; tgl.style.display = item.telegram ? 'inline' : 'none'; }
+      var tElT = document.getElementById('ltext-telegram-'+id);
+      if(tElT){ var ct=cleanTelegram(item.telegram||''); tElT.textContent=ct||'Add link…'; tElT.className='link-disp-text'+(ct?'':' empty'); if(item.telegram){tElT.href=item.telegram;tElT.target='_blank';}else{tElT.removeAttribute('href');} }
+    }
     if(fc.key === 'instagram'){
       var iglink = document.getElementById('ig-link-'+id);
       if(iglink){ iglink.href = item.instagram||'#'; iglink.style.display = item.instagram ? 'inline' : 'none'; }
@@ -1133,6 +1150,8 @@ function buildRow(id, num){
     } else if(fc.key === 'instagram'){
       td.appendChild(makeLinkCell(id, 'instagram', item.instagram, 'ig-link-'+id, cleanInstagram, 'Open Instagram'));
       td.appendChild(makeFollowersInput(id, item.followers));
+    } else if(fc.key === 'telegram'){
+      td.appendChild(makeLinkCell(id, 'telegram', item.telegram, 'tg-link-'+id, cleanTelegram, 'Open Telegram'));
     } else {
       td.appendChild(makeInput(id, fc.key, item[fc.key], fc.ph));
     }
