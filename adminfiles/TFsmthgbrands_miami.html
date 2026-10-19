@@ -528,6 +528,57 @@ function renderEmailDisplay(dispEl, val){
   });
 }
 
+// Tagged people: every @handle opens its Instagram profile
+function renderTaggedDisplay(dispEl, val){
+  dispEl.innerHTML = '';
+  var lines = (val||'').split('\n').map(function(l){return l.trim();}).filter(Boolean);
+  if(!lines.length){
+    var ph = document.createElement('span');
+    ph.className = 'link-disp-text empty';
+    ph.style.cssText = 'font-size:13px;white-space:nowrap;';
+    ph.textContent = '@handle · role · followers';
+    dispEl.appendChild(ph);
+    return;
+  }
+  lines.forEach(function(line){
+    var row = document.createElement('div');
+    row.style.cssText = 'font-size:13px;white-space:nowrap;margin-bottom:1px;color:var(--ink);';
+    var m = line.match(/^@([A-Za-z0-9._]+)(.*)$/);
+    if(m){
+      var a = document.createElement('a');
+      a.href = 'https://www.instagram.com/'+m[1]+'/';
+      a.target = '_blank'; a.rel = 'noopener';
+      a.style.cssText = 'color:var(--tf);text-decoration:none;';
+      a.title = 'Open Instagram';
+      a.textContent = '@'+m[1];
+      row.appendChild(a);
+      row.appendChild(document.createTextNode(m[2]));
+    } else {
+      row.textContent = line;
+    }
+    dispEl.appendChild(row);
+  });
+}
+
+function makeTaggedCell(id, value){
+  var cell = document.createElement('div');
+  cell.className = 'link-cell';
+  var disp = document.createElement('div');
+  disp.id = 'tag-disp-'+id;
+  disp.className = 'link-disp';
+  disp.style.cssText = 'flex-direction:column;align-items:flex-start;min-height:36px;overflow:hidden;cursor:text;';
+  renderTaggedDisplay(disp, value);
+  disp.addEventListener('click', function(e){
+    if(e.target.tagName==='A') return;
+    cell.classList.add('editing'); inp.focus();
+  });
+  cell.appendChild(disp);
+  var inp = makeInput(id, 'tagged', value, '@handle · role · followers');
+  inp.addEventListener('blur', function(){ renderTaggedDisplay(disp, inp.value); cell.classList.remove('editing'); });
+  cell.appendChild(inp);
+  return cell;
+}
+
 function makeEmailCell(id, value){
   var cell = document.createElement('div');
   cell.className = 'link-cell';
@@ -921,9 +972,10 @@ function renderRow(id, fid){
       autoResize(inp);
     }
     // Refresh clickable display
-    var dispEl = document.getElementById((field==='linkedinContacts'?'li-disp-':'email-disp-')+id);
+    var dispEl = document.getElementById((field==='linkedinContacts'?'li-disp-':field==='tagged'?'tag-disp-':'email-disp-')+id);
     if(dispEl && document.activeElement !== inp){
       if(field==='linkedinContacts') renderLinkedinDisplay(dispEl, item[field]||'');
+      else if(field==='tagged') renderTaggedDisplay(dispEl, item[field]||'');
       else renderEmailDisplay(dispEl, item[field]||'');
     }
   });
@@ -998,7 +1050,7 @@ function buildRow(id, num){
       // Tagged people cell: accounts credited in the brand's posts
       var tdTagged = document.createElement('td');
       tdTagged.style.minWidth = '260px';
-      tdTagged.appendChild(makeInput(id, 'tagged', item.tagged, '@handle · role · followers'));
+      tdTagged.appendChild(makeTaggedCell(id, item.tagged));
       tr.appendChild(tdTagged);
       // Contact email cell
       var tdEmail = document.createElement('td');
