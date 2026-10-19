@@ -314,6 +314,7 @@ tr:hover .del-btn{opacity:1}
           <th style="min-width:150px">Brand</th>
           <th style="min-width:140px">URL</th>
           <th style="min-width:130px">Instagram · Followers</th>
+          <th style="min-width:260px">Tagged people · Followers</th>
           <th style="min-width:150px">Contact email</th>
           <th style="min-width:110px">Annual Revenue</th>
           <th style="min-width:120px">Category</th>
@@ -354,7 +355,7 @@ var VOTER_KEYS = {alena:'va', chris:'vc', maxim:'vm', alex:'vx', claude:'vl'};
 var DEFAULTS = [];
 
 function blankItem(src){
-  var base = {name:'',url:'',instagram:'',followers:'',telegram:'',revenue:'',category:'',positioning:'',origin:'',sellsTo:'',whyRelevant:'',contactEmail:'',linkedinContacts:'',comments:'',isExample:false,va:false,vc:false,vm:false,vx:false,vl:false};
+  var base = {name:'',url:'',instagram:'',followers:'',telegram:'',tagged:'',revenue:'',category:'',positioning:'',origin:'',sellsTo:'',whyRelevant:'',contactEmail:'',linkedinContacts:'',comments:'',isExample:false,va:false,vc:false,vm:false,vx:false,vl:false};
   if(src){ Object.keys(src).forEach(function(k){ base[k]=src[k]; }); }
   return base;
 }
@@ -994,6 +995,11 @@ function buildRow(id, num){
     if(fc.key === 'telegram'){ tdTelegram = td; return; }
     tr.appendChild(td);
     if(fc.key === 'instagram'){
+      // Tagged people cell: accounts credited in the brand's posts
+      var tdTagged = document.createElement('td');
+      tdTagged.style.minWidth = '260px';
+      tdTagged.appendChild(makeInput(id, 'tagged', item.tagged, '@handle · role · followers'));
+      tr.appendChild(tdTagged);
       // Contact email cell
       var tdEmail = document.createElement('td');
       tdEmail.style.minWidth = '150px';
