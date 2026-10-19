@@ -17,12 +17,19 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 .page-hd h1{font-size:28px;font-weight:800;margin-bottom:8px}
 .count-bar{font-size:13px;font-weight:600;margin-bottom:12px}
 .tbl-wrap{background:white;border:1px solid var(--rule);border-top:3px solid var(--tf);overflow-x:auto;-webkit-overflow-scrolling:touch}
-.brands-tbl{width:100%;border-collapse:collapse;min-width:760px}
+.brands-tbl{width:100%;border-collapse:collapse;min-width:980px}
 .brands-tbl thead th{padding:10px 10px 10px 12px;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;border-bottom:2px solid var(--rule);text-align:left;white-space:nowrap}
 .brands-tbl td{padding:10px 12px;font-size:14px;vertical-align:top}
 .brands-tbl tbody tr{border-bottom:1px solid var(--rule)}
 .brands-tbl tbody tr:hover{background:#FAFAF8}
 .brands-tbl a{color:var(--tf);text-decoration:none}
+.sync-dot{width:8px;height:8px;border-radius:50%;background:#ccc;display:inline-block;flex-shrink:0;transition:background .4s}
+.sync-dot.live{background:#22c55e}
+.sync-dot.err{background:#ef4444}
+.sync-label{font-size:11px;font-weight:700;color:var(--sub)}
+.page-hd p.sync{display:flex;align-items:center;gap:8px}
+.tick{text-align:center;width:150px}
+.tick input{accent-color:var(--tf);width:16px;height:16px;cursor:pointer}
 .row-num{font-size:12px;color:var(--sub);font-weight:700;text-align:center;width:40px}
 .back-to-top{position:fixed;right:24px;bottom:24px;width:44px;height:44px;border-radius:50%;background:var(--tf);color:white;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:20px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:100}
 .back-to-top.show{opacity:1;pointer-events:auto}
@@ -33,38 +40,57 @@ body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink)
 <div class="wrap">
   <div class="page-hd">
     <h1>SMTHG Influencers — Miami</h1>
+    <p class="sync"><span class="sync-dot" id="sync-dot"></span><span class="sync-label" id="sync-label">Connecting…</span></p>
     <p style="font-size:12px;color:var(--sub);margin-top:6px">Created: 20 October 2026 · Last updated: 20 October 2026</p>
   </div>
   <div class="count-bar">19 fashion creators with Miami in their Instagram bio</div>
   <div class="tbl-wrap">
     <table class="brands-tbl">
-      <thead><tr><th>#</th><th>Instagram · Followers</th><th>Content</th><th>Contact email</th></tr></thead>
+      <thead><tr><th>#</th><th>Instagram · Followers</th><th>Content</th><th>Contact email</th><th class="tick">Relevant to contact</th><th class="tick">Contacted</th></tr></thead>
       <tbody>
-<tr><td class="row-num">1</td><td><a href="https://www.instagram.com/iamlindajasmine/" target="_blank" rel="noopener">@iamlindajasmine</a> · 206K</td><td>Model, luxury lifestyle, fashion</td><td>DM</td></tr>
-<tr><td class="row-num">2</td><td><a href="https://www.instagram.com/_jocelynmendez/" target="_blank" rel="noopener">@_jocelynmendez</a> · 155K</td><td>Beauty, fashion (South Florida)</td><td><a href="mailto:jocelynmendez@a-listme.com">jocelynmendez@a-listme.com</a></td></tr>
-<tr><td class="row-num">3</td><td><a href="https://www.instagram.com/carlanunez_/" target="_blank" rel="noopener">@carlanunez_</a> · 154K</td><td>Outfits, places, family life</td><td>DM</td></tr>
-<tr><td class="row-num">4</td><td><a href="https://www.instagram.com/stylebythaly/" target="_blank" rel="noopener">@stylebythaly</a> · 153K</td><td>Fashion stylist, trend tips (Spanish)</td><td>DM</td></tr>
-<tr><td class="row-num">5</td><td><a href="https://www.instagram.com/kikibarth/" target="_blank" rel="noopener">@kikibarth</a> · 123K</td><td>Model, Real Housewives of Miami, shop my looks</td><td>DM</td></tr>
-<tr><td class="row-num">6</td><td><a href="https://www.instagram.com/cintyblanc/" target="_blank" rel="noopener">@cintyblanc</a> · 105K</td><td>Lifestyle, fashion, beauty</td><td><a href="mailto:cintyblanc@gmail.com">cintyblanc@gmail.com</a></td></tr>
-<tr><td class="row-num">7</td><td><a href="https://www.instagram.com/mefeecita/" target="_blank" rel="noopener">@mefeecita</a> · 100K</td><td>Beauty, fashion</td><td><a href="mailto:mefemakeup@gmail.com">mefemakeup@gmail.com</a></td></tr>
-<tr><td class="row-num">8</td><td><a href="https://www.instagram.com/thalygomezzz/" target="_blank" rel="noopener">@thalygomezzz</a> · 71K</td><td>Chic style, mom (Miami and New York)</td><td><a href="mailto:hellothalyg@gmail.com">hellothalyg@gmail.com</a></td></tr>
-<tr><td class="row-num">9</td><td><a href="https://www.instagram.com/bonnibelr/" target="_blank" rel="noopener">@bonnibelr</a> · 52K</td><td>Fashion, beauty</td><td><a href="mailto:reyesbonnibel@gmail.com">reyesbonnibel@gmail.com</a></td></tr>
-<tr><td class="row-num">10</td><td><a href="https://www.instagram.com/anaaperez._/" target="_blank" rel="noopener">@anaaperez._</a> · 49K</td><td>Hair, fashion, beauty blogger</td><td><a href="mailto:anaaperez@kellymediagroup.co">anaaperez@kellymediagroup.co</a></td></tr>
-<tr><td class="row-num">11</td><td><a href="https://www.instagram.com/hanailisvenezia/" target="_blank" rel="noopener">@hanailisvenezia</a> · 43K</td><td>Fashion, jewelry</td><td>DM</td></tr>
-<tr><td class="row-num">12</td><td><a href="https://www.instagram.com/alyssagutierrrez/" target="_blank" rel="noopener">@alyssagutierrrez</a> · 41K</td><td>Midsize fashion, beauty, UGC creator</td><td><a href="mailto:alyssagutierrrez1998@gmail.com">alyssagutierrrez1998@gmail.com</a></td></tr>
-<tr><td class="row-num">13</td><td><a href="https://www.instagram.com/fashionboybrybry/" target="_blank" rel="noopener">@fashionboybrybry</a> · 35K</td><td>Men's fashion and culture (Miami and New York)</td><td>DM</td></tr>
-<tr><td class="row-num">14</td><td><a href="https://www.instagram.com/emelyymartinez/" target="_blank" rel="noopener">@emelyymartinez</a> · 30K</td><td>Fashion, beauty, travel</td><td><a href="mailto:emelymartinezcollabs@gmail.com">emelymartinezcollabs@gmail.com</a></td></tr>
-<tr><td class="row-num">15</td><td><a href="https://www.instagram.com/victoriaarreaza/" target="_blank" rel="noopener">@victoriaarreaza</a> · 28K</td><td>Lifestyle, beauty, fashion</td><td><a href="mailto:Paola@themoodlobby.com">Paola@themoodlobby.com</a></td></tr>
-<tr><td class="row-num">16</td><td><a href="https://www.instagram.com/rylee.brookee/" target="_blank" rel="noopener">@rylee.brookee</a> · 26K</td><td>Faith, fashion, lifestyle</td><td><a href="mailto:xtremerybrooke@gmail.com">xtremerybrooke@gmail.com</a></td></tr>
-<tr><td class="row-num">17</td><td><a href="https://www.instagram.com/gabbyjeannn/" target="_blank" rel="noopener">@gabbyjeannn</a> · 9.7K</td><td>Fashion model</td><td>DM</td></tr>
-<tr><td class="row-num">18</td><td><a href="https://www.instagram.com/bellagiampietro/" target="_blank" rel="noopener">@bellagiampietro</a> · 8.8K</td><td>Fashion stylist, Miami nightlife</td><td><a href="mailto:styledbybellag@gmail.com">styledbybellag@gmail.com</a></td></tr>
-<tr><td class="row-num">19</td><td><a href="https://www.instagram.com/kendalized/" target="_blank" rel="noopener">@kendalized</a> · 6.9K</td><td>Model, makeup artist (Miami and New York)</td><td><a href="mailto:kendollhampton@gmail.com">kendollhampton@gmail.com</a></td></tr>
+<tr data-h="iamlindajasmine"><td class="row-num">1</td><td><a href="https://www.instagram.com/iamlindajasmine/" target="_blank" rel="noopener">@iamlindajasmine</a> · 206K</td><td>Model, luxury lifestyle, fashion</td><td>DM</td><td class="tick"><input type="checkbox" data-f="relevant"></td><td class="tick"><input type="checkbox" data-f="contacted"></td></tr>
+<tr data-h="_jocelynmendez"><td class="row-num">2</td><td><a href="https://www.instagram.com/_jocelynmendez/" target="_blank" rel="noopener">@_jocelynmendez</a> · 155K</td><td>Beauty, fashion (South Florida)</td><td><a href="mailto:jocelynmendez@a-listme.com">jocelynmendez@a-listme.com</a></td><td class="tick"><input type="checkbox" data-f="relevant"></td><td class="tick"><input type="checkbox" data-f="contacted"></td></tr>
+<tr data-h="carlanunez_"><td class="row-num">3</td><td><a href="https://www.instagram.com/carlanunez_/" target="_blank" rel="noopener">@carlanunez_</a> · 154K</td><td>Outfits, places, family life</td><td>DM</td><td class="tick"><input type="checkbox" data-f="relevant"></td><td class="tick"><input type="checkbox" data-f="contacted"></td></tr>
+<tr data-h="stylebythaly"><td class="row-num">4</td><td><a href="https://www.instagram.com/stylebythaly/" target="_blank" rel="noopener">@stylebythaly</a> · 153K</td><td>Fashion stylist, trend tips (Spanish)</td><td>DM</td><td class="tick"><input type="checkbox" data-f="relevant"></td><td class="tick"><input type="checkbox" data-f="contacted"></td></tr>
+<tr data-h="kikibarth"><td class="row-num">5</td><td><a href="https://www.instagram.com/kikibarth/" target="_blank" rel="noopener">@kikibarth</a> · 123K</td><td>Model, Real Housewives of Miami, shop my looks</td><td>DM</td><td class="tick"><input type="checkbox" data-f="relevant"></td><td class="tick"><input type="checkbox" data-f="contacted"></td></tr>
+<tr data-h="cintyblanc"><td class="row-num">6</td><td><a href="https://www.instagram.com/cintyblanc/" target="_blank" rel="noopener">@cintyblanc</a> · 105K</td><td>Lifestyle, fashion, beauty</td><td><a href="mailto:cintyblanc@gmail.com">cintyblanc@gmail.com</a></td><td class="tick"><input type="checkbox" data-f="relevant"></td><td class="tick"><input type="checkbox" data-f="contacted"></td></tr>
+<tr data-h="mefeecita"><td class="row-num">7</td><td><a href="https://www.instagram.com/mefeecita/" target="_blank" rel="noopener">@mefeecita</a> · 100K</td><td>Beauty, fashion</td><td><a href="mailto:mefemakeup@gmail.com">mefemakeup@gmail.com</a></td><td class="tick"><input type="checkbox" data-f="relevant"></td><td class="tick"><input type="checkbox" data-f="contacted"></td></tr>
+<tr data-h="thalygomezzz"><td class="row-num">8</td><td><a href="https://www.instagram.com/thalygomezzz/" target="_blank" rel="noopener">@thalygomezzz</a> · 71K</td><td>Chic style, mom (Miami and New York)</td><td><a href="mailto:hellothalyg@gmail.com">hellothalyg@gmail.com</a></td><td class="tick"><input type="checkbox" data-f="relevant"></td><td class="tick"><input type="checkbox" data-f="contacted"></td></tr>
+<tr data-h="bonnibelr"><td class="row-num">9</td><td><a href="https://www.instagram.com/bonnibelr/" target="_blank" rel="noopener">@bonnibelr</a> · 52K</td><td>Fashion, beauty</td><td><a href="mailto:reyesbonnibel@gmail.com">reyesbonnibel@gmail.com</a></td><td class="tick"><input type="checkbox" data-f="relevant"></td><td class="tick"><input type="checkbox" data-f="contacted"></td></tr>
+<tr data-h="anaaperez._"><td class="row-num">10</td><td><a href="https://www.instagram.com/anaaperez._/" target="_blank" rel="noopener">@anaaperez._</a> · 49K</td><td>Hair, fashion, beauty blogger</td><td><a href="mailto:anaaperez@kellymediagroup.co">anaaperez@kellymediagroup.co</a></td><td class="tick"><input type="checkbox" data-f="relevant"></td><td class="tick"><input type="checkbox" data-f="contacted"></td></tr>
+<tr data-h="hanailisvenezia"><td class="row-num">11</td><td><a href="https://www.instagram.com/hanailisvenezia/" target="_blank" rel="noopener">@hanailisvenezia</a> · 43K</td><td>Fashion, jewelry</td><td>DM</td><td class="tick"><input type="checkbox" data-f="relevant"></td><td class="tick"><input type="checkbox" data-f="contacted"></td></tr>
+<tr data-h="alyssagutierrrez"><td class="row-num">12</td><td><a href="https://www.instagram.com/alyssagutierrrez/" target="_blank" rel="noopener">@alyssagutierrrez</a> · 41K</td><td>Midsize fashion, beauty, UGC creator</td><td><a href="mailto:alyssagutierrrez1998@gmail.com">alyssagutierrrez1998@gmail.com</a></td><td class="tick"><input type="checkbox" data-f="relevant"></td><td class="tick"><input type="checkbox" data-f="contacted"></td></tr>
+<tr data-h="fashionboybrybry"><td class="row-num">13</td><td><a href="https://www.instagram.com/fashionboybrybry/" target="_blank" rel="noopener">@fashionboybrybry</a> · 35K</td><td>Men's fashion and culture (Miami and New York)</td><td>DM</td><td class="tick"><input type="checkbox" data-f="relevant"></td><td class="tick"><input type="checkbox" data-f="contacted"></td></tr>
+<tr data-h="emelyymartinez"><td class="row-num">14</td><td><a href="https://www.instagram.com/emelyymartinez/" target="_blank" rel="noopener">@emelyymartinez</a> · 30K</td><td>Fashion, beauty, travel</td><td><a href="mailto:emelymartinezcollabs@gmail.com">emelymartinezcollabs@gmail.com</a></td><td class="tick"><input type="checkbox" data-f="relevant"></td><td class="tick"><input type="checkbox" data-f="contacted"></td></tr>
+<tr data-h="victoriaarreaza"><td class="row-num">15</td><td><a href="https://www.instagram.com/victoriaarreaza/" target="_blank" rel="noopener">@victoriaarreaza</a> · 28K</td><td>Lifestyle, beauty, fashion</td><td><a href="mailto:Paola@themoodlobby.com">Paola@themoodlobby.com</a></td><td class="tick"><input type="checkbox" data-f="relevant"></td><td class="tick"><input type="checkbox" data-f="contacted"></td></tr>
+<tr data-h="rylee.brookee"><td class="row-num">16</td><td><a href="https://www.instagram.com/rylee.brookee/" target="_blank" rel="noopener">@rylee.brookee</a> · 26K</td><td>Faith, fashion, lifestyle</td><td><a href="mailto:xtremerybrooke@gmail.com">xtremerybrooke@gmail.com</a></td><td class="tick"><input type="checkbox" data-f="relevant"></td><td class="tick"><input type="checkbox" data-f="contacted"></td></tr>
+<tr data-h="gabbyjeannn"><td class="row-num">17</td><td><a href="https://www.instagram.com/gabbyjeannn/" target="_blank" rel="noopener">@gabbyjeannn</a> · 9.7K</td><td>Fashion model</td><td>DM</td><td class="tick"><input type="checkbox" data-f="relevant"></td><td class="tick"><input type="checkbox" data-f="contacted"></td></tr>
+<tr data-h="bellagiampietro"><td class="row-num">18</td><td><a href="https://www.instagram.com/bellagiampietro/" target="_blank" rel="noopener">@bellagiampietro</a> · 8.8K</td><td>Fashion stylist, Miami nightlife</td><td><a href="mailto:styledbybellag@gmail.com">styledbybellag@gmail.com</a></td><td class="tick"><input type="checkbox" data-f="relevant"></td><td class="tick"><input type="checkbox" data-f="contacted"></td></tr>
+<tr data-h="kendalized"><td class="row-num">19</td><td><a href="https://www.instagram.com/kendalized/" target="_blank" rel="noopener">@kendalized</a> · 6.9K</td><td>Model, makeup artist (Miami and New York)</td><td><a href="mailto:kendollhampton@gmail.com">kendollhampton@gmail.com</a></td><td class="tick"><input type="checkbox" data-f="relevant"></td><td class="tick"><input type="checkbox" data-f="contacted"></td></tr>
       </tbody>
     </table>
   </div>
 </div>
 <a href="#" class="back-to-top" aria-label="Back to top">↑</a>
 <script>
+var DB='https://terra-ferra-1ac34-default-rtdb.firebaseio.com/tf-influencers-miami/v1/ticks';
+function hk(h){return h.replace(/\./g,',');}
+var state={};
+function setSync(st){var d=document.getElementById('sync-dot'),l=document.getElementById('sync-label');d.className='sync-dot';
+  if(st==='live'){d.classList.add('live');l.textContent='Live';}else if(st==='err'){d.classList.add('err');l.textContent='Offline';}else l.textContent='Connecting…';}
+function paint(){document.querySelectorAll('tr[data-h]').forEach(function(tr){var v=state[hk(tr.dataset.h)]||{};
+  tr.querySelectorAll('input[data-f]').forEach(function(cb){cb.checked=!!v[cb.dataset.f];});});}
+function apply(path,data){if(path==='/'){state=data||{};}else{var parts=path.split('/').filter(Boolean),o=state;
+  for(var i=0;i<parts.length-1;i++){o[parts[i]]=o[parts[i]]||{};o=o[parts[i]];}
+  if(data===null)delete o[parts[parts.length-1]];else if(parts.length===1&&typeof data==='object')o[parts[0]]=data;else o[parts[parts.length-1]]=data;}paint();}
+document.querySelectorAll('input[data-f]').forEach(function(cb){cb.addEventListener('change',function(){
+  var h=hk(cb.closest('tr').dataset.h),f=cb.dataset.f;state[h]=state[h]||{};state[h][f]=cb.checked;
+  fetch(DB+'/'+h+'/'+f+'.json',{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(cb.checked)}).catch(function(){setSync('err');});});});
+setSync('connecting');
+var src=new EventSource(DB+'.json');
+src.onopen=function(){setSync('live');};src.onerror=function(){setSync('err');};
+['put','patch'].forEach(function(t){src.addEventListener(t,function(e){var m=JSON.parse(e.data);
+  if(t==='patch'){Object.keys(m.data||{}).forEach(function(k){apply((m.path==='/'?'':m.path)+'/'+k,m.data[k]);});}else apply(m.path,m.data);setSync('live');});});
 var btt=document.querySelector('.back-to-top');
 window.addEventListener('scroll',function(){btt.classList.toggle('show',window.scrollY>400)});
 btt.addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'})});
