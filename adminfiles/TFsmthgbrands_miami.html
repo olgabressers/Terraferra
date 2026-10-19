@@ -323,7 +323,6 @@ tr:hover .del-btn{opacity:1}
           <th style="min-width:120px">Sells to</th>
           <th style="min-width:190px">Why relevant for SMTHG</th>
           <th style="min-width:200px">LinkedIn (owner / commercial)</th>
-          <th style="min-width:120px">Telegram</th>
           <th class="th-del"></th>
         </tr>
       </thead>
@@ -1067,7 +1066,7 @@ function buildRow(id, num){
   tr.appendChild(tdLinkedin);
 
   // Telegram cell (last data column)
-  if(tdTelegram) tr.appendChild(tdTelegram);
+  // Telegram column is not shown on this page
 
   // Delete cell
   var tdDel = document.createElement('td');
