@@ -291,7 +291,7 @@ tr:hover .del-btn{opacity:1}
 
   <div class="page-hd">
     <h1>SMTHG Brands — Miami</h1>
-    <p style="display:none"><span class="sync-dot" id="sync-dot"></span><span class="sync-label" id="sync-label">Connecting…</span></p>
+    <p><span class="sync-dot" id="sync-dot"></span><span class="sync-label" id="sync-label">Connecting…</span></p>
     <p style="font-size:12px;color:var(--sub);margin-top:6px">Created: 15 October 2026 · Last updated: 15 October 2026</p>
   </div>
 
@@ -315,6 +315,7 @@ tr:hover .del-btn{opacity:1}
           <th style="min-width:140px">URL</th>
           <th style="min-width:130px">Instagram · Followers</th>
           <th style="min-width:260px">Tagged people · Followers</th>
+          <th style="min-width:170px">Relevant to contact</th>
           <th style="min-width:150px">Contact email</th>
           <th style="min-width:110px">Annual Revenue</th>
           <th style="min-width:120px">Category</th>
@@ -576,6 +577,36 @@ function makeTaggedCell(id, value){
   inp.addEventListener('blur', function(){ renderTaggedDisplay(disp, inp.value); cell.classList.remove('editing'); });
   cell.appendChild(inp);
   return cell;
+}
+
+// Tick boxes are stored per account as items/<id>/rc_<handle> (true/false), so
+// several people can tick different accounts at the same time without clashes.
+function relKey(handle){ return 'rc_' + handle.replace(/\./g, '~'); }
+function makeRelevantCell(id, item){
+  var box = document.createElement('div');
+  box.style.cssText = 'display:flex;flex-direction:column;gap:2px;padding-top:6px;';
+  var handles = [];
+  (item.tagged||'').split('\n').forEach(function(l){
+    var m = l.trim().match(/^@([A-Za-z0-9._]+)/);
+    if(m && handles.indexOf(m[1]) < 0) handles.push(m[1]);
+  });
+  handles.forEach(function(h){
+    var lab = document.createElement('label');
+    lab.style.cssText = 'font-size:13px;white-space:nowrap;display:flex;align-items:center;gap:6px;cursor:pointer;color:var(--ink);line-height:18px;';
+    var cb = document.createElement('input');
+    cb.type = 'checkbox';
+    cb.checked = !!item[relKey(h)];
+    cb.style.cssText = 'accent-color:var(--tf);margin:0;cursor:pointer;';
+    cb.onchange = function(){
+      var k = relKey(h);
+      fbData[id][k] = cb.checked;
+      fput('/items/'+id+'/'+k, cb.checked);
+    };
+    lab.appendChild(cb);
+    lab.appendChild(document.createTextNode('@'+h));
+    box.appendChild(lab);
+  });
+  return box;
 }
 
 function makeEmailCell(id, value){
@@ -1051,6 +1082,11 @@ function buildRow(id, num){
       tdTagged.style.minWidth = '260px';
       tdTagged.appendChild(makeTaggedCell(id, item.tagged));
       tr.appendChild(tdTagged);
+      // Relevant to contact: one shared tick box per tagged account
+      var tdRel = document.createElement('td');
+      tdRel.style.minWidth = '170px';
+      tdRel.appendChild(makeRelevantCell(id, item));
+      tr.appendChild(tdRel);
       // Contact email cell
       var tdEmail = document.createElement('td');
       tdEmail.style.minWidth = '150px';
