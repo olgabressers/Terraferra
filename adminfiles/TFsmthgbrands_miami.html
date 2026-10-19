@@ -591,8 +591,8 @@ function makeRelevantCell(id, item){
     if(m && handles.indexOf(m[1]) < 0) handles.push(m[1]);
   });
   handles.forEach(function(h){
-    var lab = document.createElement('label');
-    lab.style.cssText = 'font-size:13px;white-space:nowrap;display:flex;align-items:center;gap:6px;cursor:pointer;color:var(--ink);line-height:18px;';
+    var lab = document.createElement('div');
+    lab.style.cssText = 'font-size:13px;white-space:nowrap;display:flex;align-items:center;gap:6px;color:var(--ink);line-height:18px;';
     var cb = document.createElement('input');
     cb.type = 'checkbox';
     cb.checked = !!item[relKey(h)];
@@ -603,7 +603,13 @@ function makeRelevantCell(id, item){
       fput('/items/'+id+'/'+k, cb.checked);
     };
     lab.appendChild(cb);
-    lab.appendChild(document.createTextNode('@'+h));
+    var a = document.createElement('a');
+    a.href = 'https://www.instagram.com/'+h+'/';
+    a.target = '_blank'; a.rel = 'noopener';
+    a.style.cssText = 'color:var(--tf);text-decoration:none;';
+    a.title = 'Open Instagram';
+    a.textContent = '@'+h;
+    lab.appendChild(a);
     box.appendChild(lab);
   });
   return box;
