@@ -730,22 +730,18 @@ async function init(){
       fbData  = saved.items;
       fbOrder = saved.order;
       // Ensure all items have vote fields
-      var vChanged = false;
+      // Missing vote fields are written one field at a time, never the whole database,
+      // so nothing another person is ticking at the same moment can be overwritten.
       Object.keys(fbData).forEach(function(id){
         ['va','vc','vm','vx','vl'].forEach(function(k){
-          if(fbData[id][k] === undefined){ fbData[id][k] = false; vChanged = true; }
+          if(fbData[id][k] === undefined){ fbData[id][k] = false; fput('/items/'+id+'/'+k, false); }
         });
       });
-      if(vChanged) fput('', {items:fbData, order:fbOrder});
       mergeDefaults();
     } else {
+      // Empty or unreadable response: show nothing new and never write, so a bad load cannot wipe the database
       fbData  = {};
       fbOrder = [];
-      DEFAULTS.forEach(function(d){
-        fbData[d.id] = blankItem(d);
-        fbOrder.push(d.id);
-      });
-      await fput('', {items:fbData, order:fbOrder});
     }
     setSyncStatus('live');
   } catch(e){
@@ -762,15 +758,16 @@ async function init(){
 }
 
 function mergeDefaults(){
-  var changed = false;
-  DEFAULTS.forEach(function(d){
-    if(!fbData[d.id]){
-      fbData[d.id] = blankItem(d);
-      fbOrder.unshift(d.id);
-      changed = true;
-    }
+  // Only items missing from the database are added, each with its own write; the order list is
+  // re-read from the database first so rows added by other people are kept.
+  var missing = DEFAULTS.filter(function(d){ return !fbData[d.id]; });
+  if(!missing.length) return;
+  missing.forEach(function(d){ fbData[d.id] = blankItem(d); fput('/items/'+d.id, fbData[d.id]); });
+  fetch(furl('/order')).then(function(r){ return r.json(); }).then(function(live){
+    live = live || [];
+    missing.forEach(function(d){ if(live.indexOf(d.id) < 0) live.unshift(d.id); });
+    fbOrder = live; fput('/order', live);
   });
-  if(changed) fput('', {items:fbData, order:fbOrder});
 }
 
 // ── SSE ───────────────────────────────────────────────────────────────────────
