@@ -595,6 +595,17 @@ function taggedHandles(item){
   });
   return handles;
 }
+// Handle colour: photographers black, men dark blue, everyone else red
+function handleColor(item, h){
+  if(isPhotographer(item, h)) return 'var(--ink)';
+  if(item[genderKey(h)] === 'Man') return '#1F3A8A';
+  return 'var(--tf)';
+}
+function recolorHandles(tr){
+  var item = fbData[tr.id.replace('brow-','')];
+  if(!item) return;
+  tr.querySelectorAll('.tag-line[data-h] a').forEach(function(a){ a.style.color = handleColor(item, a.closest('.tag-line').dataset.h); });
+}
 function isPhotographer(item, h){
   return (item.tagged||'').split('\n').some(function(l){ var t = l.trim(); return t.indexOf('@'+h+' ') === 0 && /photographer/i.test(t); });
 }
@@ -626,6 +637,7 @@ function makeGenderCell(id, item){
       var k = genderKey(h);
       fbData[id][k] = sel.value;
       fput('/items/'+id+'/'+k, sel.value || null);
+      var tr = sel.closest('tr'); if(tr) recolorHandles(tr);
     };
     row.appendChild(sel);
     box.appendChild(row);
@@ -916,6 +928,7 @@ function applyFilter(){
       show = (item.origin||'').trim() === filterCountry.trim();
     }
     // Tagged-people search: keep only the matching accounts (in Tagged, Gender and Relevant), hide brands with none
+    recolorHandles(tr);
     var lines = tr.querySelectorAll('.tag-line');
     var hit = {};
     lines.forEach(function(el){
