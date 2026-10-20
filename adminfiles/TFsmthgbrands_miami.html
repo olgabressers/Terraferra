@@ -550,7 +550,7 @@ function renderTaggedDisplay(dispEl, val){
       var a = document.createElement('a');
       a.href = 'https://www.instagram.com/'+m[1]+'/';
       a.target = '_blank'; a.rel = 'noopener';
-      a.style.cssText = 'color:var(--tf);text-decoration:none;';
+      a.style.cssText = 'color:'+(/photographer/i.test(m[2]) ? 'var(--ink)' : 'var(--tf)')+';text-decoration:none;';
       a.title = 'Open Instagram';
       a.textContent = '@'+m[1];
       row.appendChild(a);
@@ -595,11 +595,14 @@ function taggedHandles(item){
   });
   return handles;
 }
-function igLink(h){
+function isPhotographer(item, h){
+  return (item.tagged||'').split('\n').some(function(l){ var t = l.trim(); return t.indexOf('@'+h+' ') === 0 && /photographer/i.test(t); });
+}
+function igLink(h, black){
   var a = document.createElement('a');
   a.href = 'https://www.instagram.com/'+h+'/';
   a.target = '_blank'; a.rel = 'noopener';
-  a.style.cssText = 'color:var(--tf);text-decoration:none;';
+  a.style.cssText = 'color:'+(black ? 'var(--ink)' : 'var(--tf)')+';text-decoration:none;';
   a.title = 'Open Instagram';
   a.textContent = '@'+h;
   return a;
@@ -653,7 +656,7 @@ function makeRelevantCell(id, item){
       l.appendChild(cb);
       lab.appendChild(l);
     });
-    lab.appendChild(igLink(h));
+    lab.appendChild(igLink(h, isPhotographer(item, h)));
     box.appendChild(lab);
   });
   return box;
