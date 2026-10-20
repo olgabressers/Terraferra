@@ -315,7 +315,7 @@ tr:hover .del-btn{opacity:1}
           <th style="min-width:130px">Instagram · Followers</th>
           <th style="min-width:260px">Tagged people · Followers<input id="tag-search" type="search" placeholder="Search handle, role…" oninput="tagQuery=this.value.trim().toLowerCase();applyFilter()" style="display:block;margin-top:6px;width:100%;box-sizing:border-box;font-size:13px;font-family:inherit;font-weight:400;text-transform:none;letter-spacing:0;color:var(--ink);border:1px solid var(--rule);border-radius:4px;padding:4px 8px;background:#fff"></th>
           <th style="min-width:110px">Gender</th>
-          <th style="min-width:230px">Relevant to contact<div style="font-weight:400;color:var(--sub);font-size:12px;text-transform:none;letter-spacing:0">A Alena · C Chris · M Maria</div></th>
+          <th style="min-width:270px">Relevant to contact<div style="font-weight:400;color:var(--sub);font-size:12px;text-transform:none;letter-spacing:0">A Alena · C Chris · M Maria · AX Alex</div></th>
           <th style="min-width:150px">Contact email</th>
           <th style="min-width:110px">Annual Revenue</th>
           <th style="min-width:120px">Category</th>
@@ -586,7 +586,7 @@ function makeTaggedCell(id, value){
 function relKey(handle){ return 'rc_' + handle.replace(/\./g, '~'); }
 function personKey(p, handle){ return 'rc' + p + '_' + handle.replace(/\./g, '~'); }
 function genderKey(handle){ return 'g_' + handle.replace(/\./g, '~'); }
-var REL_PEOPLE = [['A','Alena'],['C','Chris'],['M','Maria']];
+var REL_PEOPLE = [['A','Alena'],['C','Chris'],['M','Maria'],['AX','Alex']];
 function taggedHandles(item){
   var handles = [];
   (item.tagged||'').split('\n').forEach(function(l){
@@ -1148,9 +1148,9 @@ function buildRow(id, num){
       tdGen.style.minWidth = '110px';
       tdGen.appendChild(makeGenderCell(id, item));
       tr.appendChild(tdGen);
-      // Relevant to contact: tick boxes per tagged account for A (Alena), C (Chris), M (Maria)
+      // Relevant to contact: tick boxes per tagged account for A (Alena), C (Chris), M (Maria), AX (Alex)
       var tdRel = document.createElement('td');
-      tdRel.style.minWidth = '230px';
+      tdRel.style.minWidth = '270px';
       tdRel.appendChild(makeRelevantCell(id, item));
       tr.appendChild(tdRel);
       // Contact email cell
