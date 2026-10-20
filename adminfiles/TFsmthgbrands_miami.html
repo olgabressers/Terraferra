@@ -1316,7 +1316,7 @@ function renumberRows(){
 function updateCount(){
   var n = Object.keys(fbData).filter(function(id){ return inScope(id) && fbData[id].name; }).length;
   var el = document.getElementById('count-bar');
-  if(el) el.textContent = n + (n===1 ? ' brand' : ' brands');
+  if(el) el.textContent = 'Miami based brands - ' + n;
 }
 
 // ── Voter selector ────────────────────────────────────────────────────────────
