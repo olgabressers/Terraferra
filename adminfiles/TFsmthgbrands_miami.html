@@ -300,6 +300,7 @@ tr:hover .del-btn{opacity:1}
       <th style="text-align:right;padding:6px 18px;border-bottom:2px solid var(--tf)">Total</th>
       <th style="text-align:right;padding:6px 18px;border-bottom:2px solid var(--tf);color:#1F3A8A">Male</th>
       <th style="text-align:right;padding:6px 18px;border-bottom:2px solid var(--tf);color:var(--tf)">Female</th>
+      <th style="text-align:right;padding:6px 18px;border-bottom:2px solid var(--tf)">Unclear</th>
     </tr></thead>
     <tbody id="people-stats-body"></tbody>
   </table>
@@ -936,7 +937,7 @@ function renderPeopleStats(){
   var body = document.getElementById('people-stats-body');
   if(!body) return;
   var seen = {}, groups = ['Influencers','Models','Photographers','Others'], c = {};
-  groups.forEach(function(g){ c[g] = {t:0, m:0, f:0}; });
+  groups.forEach(function(g){ c[g] = {t:0, m:0, f:0, u:0}; });
   Object.keys(fbData).forEach(function(id){
     if(!inScope(id)) return;
     var item = fbData[id];
@@ -945,13 +946,13 @@ function renderPeopleStats(){
       if(!m || seen[m[1]]) return;
       seen[m[1]] = 1;
       var g = peopleGroup(m[2]), sex = item[genderKey(m[1])];
-      c[g].t++; if(sex === 'Man') c[g].m++; if(sex === 'Woman') c[g].f++;
+      c[g].t++; if(sex === 'Man') c[g].m++; if(sex === 'Woman') c[g].f++; if(sex === 'Unclear') c[g].u++;
     });
   });
   body.innerHTML = '';
   groups.forEach(function(g){
     var tr = document.createElement('tr');
-    [g, c[g].t, c[g].m, c[g].f].forEach(function(v, i){
+    [g, c[g].t, c[g].m, c[g].f, c[g].u].forEach(function(v, i){
       var td = document.createElement('td');
       td.textContent = v;
       td.style.cssText = 'padding:5px '+(i ? '18px' : '18px 5px 0')+';border-bottom:1px solid var(--rule);text-align:'+(i ? 'right' : 'left')+';'+(i ? '' : 'font-weight:600;');
