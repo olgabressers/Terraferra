@@ -291,7 +291,7 @@ tr:hover .del-btn{opacity:1}
   <div class="page-hd">
     <h1>SMTHG Brands — Miami</h1>
     <p><span class="sync-dot" id="sync-dot"></span><span class="sync-label" id="sync-label">Connecting…</span></p>
-    <p style="font-size:12px;color:var(--sub);margin-top:6px">Created: 15 October 2026 · Last updated: 15 October 2026</p>
+    <p style="font-size:12px;color:var(--sub);margin-top:6px">Created: 15 October 2026 · Last updated: 20 October 2026</p>
   </div>
 
   <div class="research-sec">
@@ -314,7 +314,8 @@ tr:hover .del-btn{opacity:1}
           <th style="min-width:140px">URL</th>
           <th style="min-width:130px">Instagram · Followers</th>
           <th style="min-width:260px">Tagged people · Followers</th>
-          <th style="min-width:170px">Relevant to contact</th>
+          <th style="min-width:110px">Gender</th>
+          <th style="min-width:230px">Relevant to contact<div style="font-weight:400;color:var(--sub);font-size:12px;text-transform:none;letter-spacing:0">A Alena · C Chris · M Maria</div></th>
           <th style="min-width:150px">Contact email</th>
           <th style="min-width:110px">Annual Revenue</th>
           <th style="min-width:120px">Category</th>
@@ -541,7 +542,7 @@ function renderTaggedDisplay(dispEl, val){
   }
   lines.forEach(function(line){
     var row = document.createElement('div');
-    row.style.cssText = 'font-size:13px;white-space:nowrap;margin-bottom:1px;color:var(--ink);';
+    row.style.cssText = 'font-size:13px;white-space:nowrap;margin-bottom:2px;color:var(--ink);height:22px;line-height:22px;';
     var m = line.match(/^@([A-Za-z0-9._]+)(.*)$/);
     if(m){
       var a = document.createElement('a');
@@ -578,37 +579,77 @@ function makeTaggedCell(id, value){
   return cell;
 }
 
-// Tick boxes are stored per account as items/<id>/rc_<handle> (true/false), so
-// several people can tick different accounts at the same time without clashes.
+// Tick boxes are stored per account and per person as items/<id>/rc<A|C|M>_<handle> (true/false),
+// gender as items/<id>/g_<handle> ("Man"/"Woman"), so several people can edit at the same time without clashes.
 function relKey(handle){ return 'rc_' + handle.replace(/\./g, '~'); }
-function makeRelevantCell(id, item){
-  var box = document.createElement('div');
-  box.style.cssText = 'display:flex;flex-direction:column;gap:2px;padding-top:6px;';
+function personKey(p, handle){ return 'rc' + p + '_' + handle.replace(/\./g, '~'); }
+function genderKey(handle){ return 'g_' + handle.replace(/\./g, '~'); }
+var REL_PEOPLE = [['A','Alena'],['C','Chris'],['M','Maria']];
+function taggedHandles(item){
   var handles = [];
   (item.tagged||'').split('\n').forEach(function(l){
     var m = l.trim().match(/^@([A-Za-z0-9._]+)/);
     if(m && handles.indexOf(m[1]) < 0) handles.push(m[1]);
   });
-  handles.forEach(function(h){
-    var lab = document.createElement('div');
-    lab.style.cssText = 'font-size:13px;white-space:nowrap;display:flex;align-items:center;gap:6px;color:var(--ink);line-height:18px;';
-    var cb = document.createElement('input');
-    cb.type = 'checkbox';
-    cb.checked = !!item[relKey(h)];
-    cb.style.cssText = 'accent-color:var(--tf);margin:0;cursor:pointer;';
-    cb.onchange = function(){
-      var k = relKey(h);
-      fbData[id][k] = cb.checked;
-      fput('/items/'+id+'/'+k, cb.checked);
+  return handles;
+}
+function igLink(h){
+  var a = document.createElement('a');
+  a.href = 'https://www.instagram.com/'+h+'/';
+  a.target = '_blank'; a.rel = 'noopener';
+  a.style.cssText = 'color:var(--tf);text-decoration:none;';
+  a.title = 'Open Instagram';
+  a.textContent = '@'+h;
+  return a;
+}
+var REL_ROW = 'font-size:13px;white-space:nowrap;display:flex;align-items:center;gap:6px;color:var(--ink);height:22px;';
+function makeGenderCell(id, item){
+  var box = document.createElement('div');
+  box.style.cssText = 'display:flex;flex-direction:column;gap:2px;padding-top:6px;';
+  taggedHandles(item).forEach(function(h){
+    var row = document.createElement('div');
+    row.style.cssText = REL_ROW;
+    var sel = document.createElement('select');
+    sel.style.cssText = 'font-size:13px;font-family:inherit;color:var(--ink);border:1px solid var(--rule);border-radius:4px;background:#fff;height:20px;padding:0 2px;cursor:pointer;';
+    sel.title = '@'+h;
+    ['','Man','Woman'].forEach(function(v){
+      var o = document.createElement('option'); o.value = v; o.textContent = v || '—'; sel.appendChild(o);
+    });
+    sel.value = item[genderKey(h)] || '';
+    sel.onchange = function(){
+      var k = genderKey(h);
+      fbData[id][k] = sel.value;
+      fput('/items/'+id+'/'+k, sel.value || null);
     };
-    lab.appendChild(cb);
-    var a = document.createElement('a');
-    a.href = 'https://www.instagram.com/'+h+'/';
-    a.target = '_blank'; a.rel = 'noopener';
-    a.style.cssText = 'color:var(--tf);text-decoration:none;';
-    a.title = 'Open Instagram';
-    a.textContent = '@'+h;
-    lab.appendChild(a);
+    row.appendChild(sel);
+    box.appendChild(row);
+  });
+  return box;
+}
+function makeRelevantCell(id, item){
+  var box = document.createElement('div');
+  box.style.cssText = 'display:flex;flex-direction:column;gap:2px;padding-top:6px;';
+  taggedHandles(item).forEach(function(h){
+    var lab = document.createElement('div');
+    lab.style.cssText = REL_ROW;
+    REL_PEOPLE.forEach(function(p){
+      var l = document.createElement('label');
+      l.title = p[1];
+      l.style.cssText = 'display:flex;align-items:center;gap:2px;cursor:pointer;color:var(--sub);';
+      var cb = document.createElement('input');
+      cb.type = 'checkbox';
+      cb.checked = !!item[personKey(p[0], h)];
+      cb.style.cssText = 'accent-color:var(--tf);margin:0;cursor:pointer;';
+      cb.onchange = function(){
+        var k = personKey(p[0], h);
+        fbData[id][k] = cb.checked;
+        fput('/items/'+id+'/'+k, cb.checked);
+      };
+      l.appendChild(document.createTextNode(p[0]));
+      l.appendChild(cb);
+      lab.appendChild(l);
+    });
+    lab.appendChild(igLink(h));
     box.appendChild(lab);
   });
   return box;
@@ -1087,9 +1128,14 @@ function buildRow(id, num){
       tdTagged.style.minWidth = '260px';
       tdTagged.appendChild(makeTaggedCell(id, item.tagged));
       tr.appendChild(tdTagged);
-      // Relevant to contact: one shared tick box per tagged account
+      // Gender: Man / Woman per tagged account
+      var tdGen = document.createElement('td');
+      tdGen.style.minWidth = '110px';
+      tdGen.appendChild(makeGenderCell(id, item));
+      tr.appendChild(tdGen);
+      // Relevant to contact: tick boxes per tagged account for A (Alena), C (Chris), M (Maria)
       var tdRel = document.createElement('td');
-      tdRel.style.minWidth = '170px';
+      tdRel.style.minWidth = '230px';
       tdRel.appendChild(makeRelevantCell(id, item));
       tr.appendChild(tdRel);
       // Contact email cell
