@@ -280,6 +280,14 @@ tr:hover .del-btn{opacity:1}
 }
 .sov-tbl{min-width:1180px}
 @media(max-width:700px){.sov-tbl{min-width:1080px}}
+/* Phones: counts fit the screen; # and Brand stay visible while the table scrolls sideways */
+@media(max-width:700px){
+  #people-stats{width:100%;font-size:13px}
+  #people-stats th,#people-stats td{padding:6px 4px!important}
+  .brands-tbl th:nth-child(1),.brands-tbl td:nth-child(1){position:sticky;left:0;z-index:3;background:#fff;width:28px;min-width:28px!important}
+  .brands-tbl th:nth-child(2),.brands-tbl td:nth-child(2){position:sticky;left:28px;z-index:3;background:#fff;min-width:110px!important;max-width:120px;box-shadow:1px 0 0 var(--rule)}
+  .brands-tbl th:nth-child(3),.brands-tbl td:nth-child(3){min-width:100px!important}
+}
 </style>
 </head>
 <body>
