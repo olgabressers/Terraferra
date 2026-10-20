@@ -626,6 +626,33 @@ function handleColor(item, h){
   if(item[genderKey(h)] === 'Man') return '#1F3A8A';
   return 'var(--tf)';
 }
+// Accounts tagged by more than one Miami brand get a "★ N brands" flag next to the handle
+var multiBrand = {};
+function computeMultiBrand(){
+  var c = {};
+  Object.keys(fbData).forEach(function(id){
+    if(!inScope(id)) return;
+    var seen = {};
+    (fbData[id].tagged||'').split('\n').forEach(function(l){
+      var m = l.trim().match(/^@([A-Za-z0-9._]+)/);
+      if(m && !seen[m[1]]){ seen[m[1]] = 1; c[m[1]] = (c[m[1]]||0) + 1; }
+    });
+  });
+  multiBrand = {};
+  Object.keys(c).forEach(function(h){ if(c[h] > 1) multiBrand[h] = c[h]; });
+}
+function flagMultiBrand(tr){
+  tr.querySelectorAll('.link-disp .tag-line[data-h]').forEach(function(row){
+    var old = row.querySelector('.multi-badge'); if(old) old.remove();
+    var n = multiBrand[row.dataset.h]; if(!n) return;
+    var b = document.createElement('span');
+    b.className = 'multi-badge';
+    b.textContent = '★ ' + n + ' brands';
+    b.title = 'Tagged by ' + n + ' brands on this list';
+    b.style.cssText = 'display:inline-block;margin-left:6px;padding:0 6px;border-radius:9px;background:var(--tf);color:#fff;font-size:12px;font-weight:700;line-height:18px;vertical-align:middle;';
+    var a = row.querySelector('a'); if(a) a.after(b); else row.appendChild(b);
+  });
+}
 function recolorHandles(tr){
   var item = fbData[tr.id.replace('brow-','')];
   if(!item) return;
@@ -995,7 +1022,9 @@ function inBucket(t){
   });
 }
 function applyFilter(){
+  computeMultiBrand();
   document.querySelectorAll('#brands-tbody tr').forEach(function(tr){
+    flagMultiBrand(tr);
     var id = tr.id.replace('brow-','');
     var item = fbData[id];
     var show;
