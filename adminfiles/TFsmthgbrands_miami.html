@@ -294,6 +294,16 @@ tr:hover .del-btn{opacity:1}
     <p style="font-size:12px;color:var(--sub);margin-top:6px">Created: 15 October 2026 · Last updated: 20 October 2026</p>
   </div>
 
+  <table id="people-stats" style="border-collapse:collapse;margin:0 0 28px;font-size:14px;color:var(--ink)">
+    <thead><tr>
+      <th style="text-align:left;padding:6px 18px 6px 0;border-bottom:2px solid var(--tf)">Tagged people</th>
+      <th style="text-align:right;padding:6px 18px;border-bottom:2px solid var(--tf)">Total</th>
+      <th style="text-align:right;padding:6px 18px;border-bottom:2px solid var(--tf);color:#1F3A8A">Male</th>
+      <th style="text-align:right;padding:6px 18px;border-bottom:2px solid var(--tf);color:var(--tf)">Female</th>
+    </tr></thead>
+    <tbody id="people-stats-body"></tbody>
+  </table>
+
   <div class="research-sec">
     <div class="research-hd">Brand responded</div>
     <div class="tbl-wrap" style="padding:28px 20px">
@@ -637,6 +647,7 @@ function makeGenderCell(id, item){
       var k = genderKey(h);
       fbData[id][k] = sel.value;
       fput('/items/'+id+'/'+k, sel.value || null);
+      renderPeopleStats();
       var tr = sel.closest('tr'); if(tr) recolorHandles(tr);
     };
     row.appendChild(sel);
@@ -914,6 +925,41 @@ function originRank(o){
   return 99;
 }
 
+// Counts of unique tagged accounts across the Miami brands, by role and gender
+function peopleGroup(role){
+  if(/photographer/i.test(role)) return 'Photographers';
+  if(/\bmodel\b/i.test(role)) return 'Models';
+  if(/creator|artist|celebrity|tv host|comedian/i.test(role)) return 'Influencers';
+  return 'Others';
+}
+function renderPeopleStats(){
+  var body = document.getElementById('people-stats-body');
+  if(!body) return;
+  var seen = {}, groups = ['Influencers','Models','Photographers','Others'], c = {};
+  groups.forEach(function(g){ c[g] = {t:0, m:0, f:0}; });
+  Object.keys(fbData).forEach(function(id){
+    if(!inScope(id)) return;
+    var item = fbData[id];
+    (item.tagged||'').split('\n').forEach(function(l){
+      var m = l.trim().match(/^@([A-Za-z0-9._]+)\s*·?\s*(.*)$/);
+      if(!m || seen[m[1]]) return;
+      seen[m[1]] = 1;
+      var g = peopleGroup(m[2]), sex = item[genderKey(m[1])];
+      c[g].t++; if(sex === 'Man') c[g].m++; if(sex === 'Woman') c[g].f++;
+    });
+  });
+  body.innerHTML = '';
+  groups.forEach(function(g){
+    var tr = document.createElement('tr');
+    [g, c[g].t, c[g].m, c[g].f].forEach(function(v, i){
+      var td = document.createElement('td');
+      td.textContent = v;
+      td.style.cssText = 'padding:5px '+(i ? '18px' : '18px 5px 0')+';border-bottom:1px solid var(--rule);text-align:'+(i ? 'right' : 'left')+';'+(i ? '' : 'font-weight:600;');
+      tr.appendChild(td);
+    });
+    body.appendChild(tr);
+  });
+}
 var tagQuery = '';
 function applyFilter(){
   document.querySelectorAll('#brands-tbody tr').forEach(function(tr){
@@ -941,6 +987,7 @@ function applyFilter(){
     tr.style.display = show ? '' : 'none';
   });
   renumberRows();
+  renderPeopleStats();
   requestAnimationFrame(resizeAllTextareas);
 }
 
