@@ -920,7 +920,7 @@ function applyFilter(){
         if(!tagQuery || el.textContent.toLowerCase().indexOf(tagQuery) >= 0) hit[el.dataset.h || ('#'+el.textContent)] = 1;
       }
     });
-    lines.forEach(function(el){ el.style.display = (!tagQuery || hit[el.dataset.h || ('#'+el.textContent)]) ? '' : 'none'; });
+    lines.forEach(function(el){ var on = !tagQuery || hit[el.dataset.h || ('#'+el.textContent)]; el.style.display = on ? (el.parentNode.classList.contains('link-disp') ? 'block' : 'flex') : 'none'; });
     if(tagQuery && !Object.keys(hit).length) show = false;
     tr.style.display = show ? '' : 'none';
   });
