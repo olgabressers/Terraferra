@@ -313,7 +313,7 @@ tr:hover .del-btn{opacity:1}
           <th style="min-width:150px">Brand</th>
           <th style="min-width:140px">URL</th>
           <th style="min-width:130px">Instagram · Followers</th>
-          <th style="min-width:260px">Tagged people · Followers</th>
+          <th style="min-width:260px">Tagged people · Followers<input id="tag-search" type="search" placeholder="Search handle, role…" oninput="tagQuery=this.value.trim().toLowerCase();applyFilter()" style="display:block;margin-top:6px;width:100%;box-sizing:border-box;font-size:13px;font-family:inherit;font-weight:400;text-transform:none;letter-spacing:0;color:var(--ink);border:1px solid var(--rule);border-radius:4px;padding:4px 8px;background:#fff"></th>
           <th style="min-width:110px">Gender</th>
           <th style="min-width:230px">Relevant to contact<div style="font-weight:400;color:var(--sub);font-size:12px;text-transform:none;letter-spacing:0">A Alena · C Chris · M Maria</div></th>
           <th style="min-width:150px">Contact email</th>
@@ -544,7 +544,9 @@ function renderTaggedDisplay(dispEl, val){
     var row = document.createElement('div');
     row.style.cssText = 'font-size:13px;white-space:nowrap;margin-bottom:0;color:var(--ink);height:22px;line-height:22px;';
     var m = line.match(/^@([A-Za-z0-9._]+)(.*)$/);
+    row.className = 'tag-line';
     if(m){
+      row.dataset.h = m[1];
       var a = document.createElement('a');
       a.href = 'https://www.instagram.com/'+m[1]+'/';
       a.target = '_blank'; a.rel = 'noopener';
@@ -609,6 +611,7 @@ function makeGenderCell(id, item){
   taggedHandles(item).forEach(function(h){
     var row = document.createElement('div');
     row.style.cssText = REL_ROW;
+    row.className = 'tag-line'; row.dataset.h = h;
     var sel = document.createElement('select');
     sel.style.cssText = 'font-size:13px;font-family:inherit;color:var(--ink);border:1px solid var(--rule);border-radius:4px;background:#fff;height:20px;padding:0 2px;cursor:pointer;';
     sel.title = '@'+h;
@@ -632,6 +635,7 @@ function makeRelevantCell(id, item){
   taggedHandles(item).forEach(function(h){
     var lab = document.createElement('div');
     lab.style.cssText = REL_ROW;
+    lab.className = 'tag-line'; lab.dataset.h = h;
     REL_PEOPLE.forEach(function(p){
       var l = document.createElement('label');
       l.title = p[1];
@@ -895,6 +899,7 @@ function originRank(o){
   return 99;
 }
 
+var tagQuery = '';
 function applyFilter(){
   document.querySelectorAll('#brands-tbody tr').forEach(function(tr){
     var id = tr.id.replace('brow-','');
@@ -907,6 +912,16 @@ function applyFilter(){
     } else {
       show = (item.origin||'').trim() === filterCountry.trim();
     }
+    // Tagged-people search: keep only the matching accounts (in Tagged, Gender and Relevant), hide brands with none
+    var lines = tr.querySelectorAll('.tag-line');
+    var hit = {};
+    lines.forEach(function(el){
+      if(el.closest('td') && el.closest('td').querySelector('.link-disp') && el.parentNode.classList.contains('link-disp')){
+        if(!tagQuery || el.textContent.toLowerCase().indexOf(tagQuery) >= 0) hit[el.dataset.h || ('#'+el.textContent)] = 1;
+      }
+    });
+    lines.forEach(function(el){ el.style.display = (!tagQuery || hit[el.dataset.h || ('#'+el.textContent)]) ? '' : 'none'; });
+    if(tagQuery && !Object.keys(hit).length) show = false;
     tr.style.display = show ? '' : 'none';
   });
   renumberRows();
