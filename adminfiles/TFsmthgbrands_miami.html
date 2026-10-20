@@ -542,7 +542,7 @@ function renderTaggedDisplay(dispEl, val){
   }
   lines.forEach(function(line){
     var row = document.createElement('div');
-    row.style.cssText = 'font-size:13px;white-space:nowrap;margin-bottom:2px;color:var(--ink);height:22px;line-height:22px;';
+    row.style.cssText = 'font-size:13px;white-space:nowrap;margin-bottom:0;color:var(--ink);height:22px;line-height:22px;';
     var m = line.match(/^@([A-Za-z0-9._]+)(.*)$/);
     if(m){
       var a = document.createElement('a');
@@ -605,7 +605,7 @@ function igLink(h){
 var REL_ROW = 'font-size:13px;white-space:nowrap;display:flex;align-items:center;gap:6px;color:var(--ink);height:22px;';
 function makeGenderCell(id, item){
   var box = document.createElement('div');
-  box.style.cssText = 'display:flex;flex-direction:column;gap:2px;padding-top:6px;';
+  box.style.cssText = 'display:flex;flex-direction:column;gap:6px;padding:6px 0;';
   taggedHandles(item).forEach(function(h){
     var row = document.createElement('div');
     row.style.cssText = REL_ROW;
@@ -628,7 +628,7 @@ function makeGenderCell(id, item){
 }
 function makeRelevantCell(id, item){
   var box = document.createElement('div');
-  box.style.cssText = 'display:flex;flex-direction:column;gap:2px;padding-top:6px;';
+  box.style.cssText = 'display:flex;flex-direction:column;gap:6px;padding:6px 0;';
   taggedHandles(item).forEach(function(h){
     var lab = document.createElement('div');
     lab.style.cssText = REL_ROW;
