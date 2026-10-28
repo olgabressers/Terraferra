@@ -366,7 +366,9 @@ var textTimers = {};
 var currentVoter = null;
 var filterCountry = '';
 var ONLY_ORIGIN = 'US LA';
-function inScope(id){ return fbData[id] && (fbData[id].origin||'').trim() === ONLY_ORIGIN; }
+// Brands kept under origin 'US' on the master page (so its row order never moves) but shown here, at the end
+var EXTRA_IDS = ['b-1784665231928'];
+function inScope(id){ return fbData[id] && ((fbData[id].origin||'').trim() === ONLY_ORIGIN || EXTRA_IDS.indexOf(id) >= 0); }
 var VOTER_KEYS = {alena:'va', chris:'vc', maxim:'vm', alex:'vx', claude:'vl'};
 
 var DEFAULTS = [];
@@ -1197,6 +1199,7 @@ function renderAll(fid){
     return na.localeCompare(nb);
   });
   sorted = sorted.filter(inScope);
+  sorted = sorted.filter(function(id){ return EXTRA_IDS.indexOf(id) < 0; }).concat(EXTRA_IDS.filter(function(id){ return sorted.indexOf(id) >= 0; }));
   sorted.forEach(function(id, i){
     if(fbData[id] !== undefined) tbody.appendChild(buildRow(id, i+1));
   });
