@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<script>
+if("scrollRestoration" in history) history.scrollRestoration = "manual";
+document.documentElement.className += " tf-loading";
+setTimeout(function(){ document.documentElement.classList.remove("tf-loading"); }, 8000);
+(function(){
+  var released = false, t0 = Date.now();
+  function release(){ released = true; }
+  ["wheel","touchstart","keydown","mousedown"].forEach(function(ev){
+    window.addEventListener(ev, release, {passive:true, once:true});
+  });
+  var iv = setInterval(function(){
+    if(released || Date.now() - t0 > 3000){ clearInterval(iv); return; }
+    if(window.scrollY !== 0 || document.documentElement.scrollTop !== 0){
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      if(document.body) document.body.scrollTop = 0;
+    }
+  }, 40);
+})();
+</script>
+<title>SMTHG Brands · New York</title>
+<link rel="icon" type="image/svg+xml" href="smthg_favicon.svg"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+  html,body,*{overflow-anchor:none}
+  html.tf-loading .filter-bar,
+  html.tf-loading .tbl-wrap,
+  html.tf-loading .research-sec{display:none}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --tf:#E8002D;--tf-dark:#B50023;--tf-ghost:#F1EEE9;
+  --off-white:#F8F6F2;--ink:#161616;--sub:#5C5A56;--rule:#E6E2DA;
+  --va:#B8106D;--vc:#E86820;--vm:#1A6BCC;--vx:#167A47;--vl:#7C3AED;
+}
+body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink);min-height:100vh}
+
+/* ── NAV ── */
+.topnav{background:white;border-bottom:1px solid #D8D4EF;padding:12px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
+.topnav-home{font-weight:800;letter-spacing:2px;color:var(--ink);text-decoration:none;font-size:11px}
+.topnav-home:hover{color:var(--ink)}
+.topnav-links{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:#5B5880;font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:10px}
+.topnav-links a:hover{color:var(--tf)}
+.topnav-links a.active{color:#E86820}
+.topnav-links .has-dropdown{position:relative;padding-bottom:10px;margin-bottom:-10px}
+.topnav-links .dropdown-trigger{cursor:pointer;color:#5B5880;font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:10px;user-select:none}
+.topnav-links .dropdown-trigger:hover,.topnav-links .has-dropdown:focus-within .dropdown-trigger{color:var(--tf)}
+.topnav-links .dropdown{display:none;position:absolute;top:100%;left:0;background:white;border:1px solid #D8D4EF;min-width:200px;box-shadow:0 6px 14px rgba(0,0,0,.08);padding:6px 0;z-index:60}
+.topnav-links .has-dropdown:hover .dropdown,.topnav-links .has-dropdown:focus-within .dropdown{display:block}
+.topnav-links .dropdown a{display:block;padding:9px 16px;font-size:10px;font-weight:700;color:#5B5880;text-transform:uppercase;letter-spacing:1px;text-decoration:none}
+.topnav-links .dropdown a:hover{background:#F4F2FC;color:var(--tf)}
+@media(max-width:700px){
+  .topnav{position:static;padding:10px 14px}
+  .topnav-links{gap:8px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%}
+  .topnav-links a,.topnav-links .dropdown-trigger{font-size:9.5px;white-space:nowrap}
+  .topnav-links .has-dropdown{padding-bottom:0;margin-bottom:0}
+  .topnav-links .dropdown{display:none!important}
+}
+
+/* ── PAGE ── */
+.wrap{max-width:1240px;margin:0 auto;padding:40px 48px 80px}
+@media(max-width:700px){.wrap{padding:24px 16px 60px}}
+
+.page-hd{margin-bottom:20px}
+.page-hd h1{font-size:28px;font-weight:800;color:var(--ink);margin-bottom:8px}
+.page-hd p{font-size:12.5px;color:var(--ink);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.sync-dot{width:8px;height:8px;border-radius:50%;background:#ccc;display:inline-block;flex-shrink:0;transition:background .4s}
+.sync-dot.live{background:#22c55e}
+.sync-dot.err{background:#ef4444}
+.sync-label{font-size:11px;font-weight:700;color:var(--sub)}
+
+.count-bar{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:12px;letter-spacing:.5px}
+
+/* ── VOTER BAR ── */
+.voter-bar{background:white;border:1px solid var(--rule);border-top:3px solid var(--tf);padding:14px 20px;margin-bottom:16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.voter-bar-label{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub)}
+.voter-btn{padding:6px 16px;border:2px solid var(--rule);background:white;color:var(--sub);font-family:'Inter',sans-serif;font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all .15s}
+.voter-btn:hover{border-color:var(--tf);color:var(--tf)}
+.voter-btn[data-voter="alena"].active{background:var(--va);border-color:var(--va);color:white}
+.voter-btn[data-voter="chris"].active{background:var(--vc);border-color:var(--vc);color:white}
+.voter-btn[data-voter="maxim"].active{background:var(--vm);border-color:var(--vm);color:white}
+.voter-btn[data-voter="alex"].active{background:var(--vx);border-color:var(--vx);color:white}
+.voter-btn[data-voter="claude"].active{background:var(--vl);border-color:var(--vl);color:white}
+.voter-status{font-size:12px;color:var(--sub);font-style:italic;margin-left:4px}
+.voter-status.ready{color:var(--tf);font-weight:700;font-style:normal}
+
+/* ── TABLE ── */
+.tbl-wrap{background:white;border:1px solid var(--rule);border-top:3px solid var(--tf);overflow-x:auto;-webkit-overflow-scrolling:touch}
+.brands-tbl{width:100%;border-collapse:collapse;min-width:1810px}
+.brands-tbl thead th{
+  padding:10px 10px 10px 12px;font-size:11px;font-weight:800;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--ink);border-bottom:2px solid var(--rule);
+  text-align:left;background:white;white-space:nowrap;
+}
+.brands-tbl thead th.th-num{width:36px;text-align:center}
+.brands-tbl thead th.th-del{width:36px}
+.brands-tbl thead th.th-votes{text-align:center;width:110px}
+.brands-tbl tbody tr{border-bottom:1px solid var(--rule)}
+.brands-tbl tbody tr:last-child{border-bottom:none}
+.brands-tbl tbody tr.example-row{background:#FFFBF0}
+.brands-tbl tbody tr:hover:not(.example-row){background:#FAFAF8}
+
+/* Cells */
+.row-num{font-size:10px;color:#C8C4BC;font-weight:700;text-align:center;padding:6px 4px!important;white-space:nowrap}
+td{padding:3px 6px;vertical-align:top;padding-top:4px;white-space:normal}
+
+/* Inputs */
+.cell-inp{
+  border:1px solid transparent;background:transparent;
+  font-family:'Inter',sans-serif;font-size:14px;font-weight:400;color:var(--ink);
+  padding:6px 8px;outline:none;width:100%;
+  resize:vertical;overflow-y:auto;min-height:36px;height:36px;line-height:1.45;display:block;
+  white-space:pre-wrap;word-wrap:break-word;
+}
+.cell-inp:focus{border-color:var(--tf);background:var(--tf-ghost);border-radius:2px;height:auto;min-height:60px}
+.cell-inp::placeholder{color:#D0CCC5;font-weight:400}
+.cell-inp.has-text{height:auto;min-height:36px}
+.cell-inp.brand-field{font-weight:700}
+
+/* URL / Instagram display cells */
+.link-cell{position:relative}
+.followers-inp{display:block;width:100%;border:none;background:transparent;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;color:var(--ink);padding:0 8px 6px;outline:none}
+.followers-inp::placeholder{color:var(--rule);font-weight:400;font-size:11px}
+.followers-inp:focus{background:var(--tf-ghost);border-radius:2px}
+.link-disp{display:flex;align-items:center;gap:6px;padding:6px 8px;cursor:text;min-height:36px}
+.link-disp-text{font-size:13px;color:var(--tf);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;text-decoration:none}
+.link-disp-text:hover{text-decoration:underline}
+.link-disp-text.empty{color:#D0CCC5;font-size:12px;pointer-events:none}
+.link-open{flex-shrink:0;font-size:13px;color:var(--sub);text-decoration:none;opacity:0;transition:opacity .12s}
+.link-cell:hover .link-open,.link-open:focus{opacity:1}
+.link-open:hover{color:var(--tf)}
+.link-cell .cell-inp{display:none;margin:2px 4px}
+.link-cell.editing .cell-inp{display:block}
+.link-cell.editing .link-disp{display:none}
+/* legacy, keep for non-link cells */
+.url-cell{display:flex;align-items:flex-start;gap:3px}
+
+/* Example badge */
+.example-badge{
+  display:inline-block;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;
+  color:#92400E;background:#FDE68A;border:1px solid #F59E0B;border-radius:3px;
+  padding:2px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;flex-shrink:0;
+}
+.name-wrap{display:flex;align-items:flex-start;gap:0;flex-wrap:nowrap}
+
+/* Vote cell */
+.vote-cell{text-align:center;padding:6px 4px!important;vertical-align:middle}
+.vote-btns{display:flex;gap:3px;justify-content:center;align-items:center}
+.vote-btn{
+  width:22px;height:22px;border-radius:50%;border:1.5px solid var(--rule);background:white;
+  font-size:9px;font-weight:800;font-family:'Inter',sans-serif;color:var(--sub);
+  cursor:pointer;transition:all .12s;display:flex;align-items:center;justify-content:center;
+  padding:0;line-height:1;
+}
+.vote-btn:hover{border-color:var(--tf);color:var(--tf)}
+.vote-btn.va{background:var(--va);border-color:var(--va);color:white}
+.vote-btn.vc{background:var(--vc);border-color:var(--vc);color:white}
+.vote-btn.vm{background:var(--vm);border-color:var(--vm);color:white}
+.vote-btn.vx{background:var(--vx);border-color:var(--vx);color:white}
+.vote-btn.vl{background:var(--vl);border-color:var(--vl);color:white}
+.vote-count{font-size:11px;font-weight:800;color:var(--ink);min-width:14px;text-align:center;margin-left:2px}
+
+/* Delete button */
+.del-btn{
+  width:24px;height:24px;border-radius:50%;border:1.5px solid var(--rule);background:white;
+  font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  padding:0;line-height:1;transition:all .12s;color:var(--sub);opacity:0;margin:0 auto;
+  font-family:'Inter',sans-serif;
+}
+tr:hover .del-btn{opacity:1}
+.del-btn:hover{border-color:#dc2626;color:#dc2626;background:#FEF2F2}
+
+/* Filter bar */
+.filter-bar{display:flex;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.filter-break{flex-basis:100%;height:0;margin:0}
+.filter-label{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub)}
+.filter-btn{padding:5px 13px;border:1.5px solid var(--rule);background:white;color:var(--ink);font-family:'Inter',sans-serif;font-size:12px;font-weight:700;cursor:pointer;transition:all .12s;border-radius:3px}
+.filter-btn:hover{border-color:var(--tf);color:var(--tf)}
+.filter-btn.active{background:var(--tf);border-color:var(--tf);color:white}
+.filter-btn.eu-group{border-color:var(--tf);color:var(--tf)}
+.filter-btn.eu-group.active{background:var(--tf);color:white}
+.filter-count{font-size:10px;font-weight:600;opacity:.6;margin-left:3px}
+
+/* Add button */
+.add-btn{
+  display:block;width:100%;padding:11px;background:transparent;border:none;border-top:1px solid var(--rule);
+  font-family:'Inter',sans-serif;font-size:11px;font-weight:700;color:var(--tf);
+  cursor:pointer;text-align:center;letter-spacing:1px;transition:background .12s;
+}
+.add-btn:hover{background:var(--tf-ghost)}
+
+/* ── VOTE DASHBOARD ── */
+.vote-dashboard{background:white;border:1px solid var(--rule);border-top:3px solid var(--tf);padding:16px 20px;margin-bottom:16px}
+.vote-dashboard-hd{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sub);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.vote-dashboard-hd-sub{font-size:11px;font-weight:400;letter-spacing:0;text-transform:none;color:#C0BCBA;font-style:italic}
+.dash-empty{font-size:13px;color:var(--sub);font-style:italic;padding:4px 0}
+.dash-grid{display:flex;flex-direction:column;gap:2px}
+.dash-cols{display:grid;grid-template-columns:28px 180px 150px 145px 75px 125px 50px;gap:0 10px;align-items:center}
+.dash-header{padding:4px 10px 7px;border-bottom:1px solid var(--rule);margin-bottom:4px}
+.dash-header-cell{font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub)}
+.dash-header-cell.right{text-align:right}
+.dash-row{padding:7px 10px;border-radius:3px;border:1px solid transparent}
+.dash-top6{background:var(--tf-ghost);border-color:var(--rule)}
+.dash-rank{font-size:13px;font-weight:800;color:#C0BCBA;text-align:right}
+.dash-rank-top{color:var(--tf)}
+.dash-name{font-size:15px;font-weight:700;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dash-web{font-size:13px;color:var(--tf);text-decoration:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block}
+.dash-web:hover{text-decoration:underline}
+.dash-ig{font-size:12px;color:var(--sub);text-decoration:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block;margin-top:1px}
+.dash-ig:hover{text-decoration:underline}
+.dash-link-empty{font-size:12px;color:#D0CCC5}
+.dash-origin{font-size:13px;color:var(--sub);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dash-voters{display:flex;gap:3px;align-items:center}
+.dash-dot{width:22px;height:22px;border-radius:50%;font-size:9px;font-weight:800;color:white;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.dash-dot-va{background:var(--va)}
+.dash-dot-vc{background:var(--vc)}
+.dash-dot-vm{background:var(--vm)}
+.dash-dot-vx{background:var(--vx)}
+.dash-dot-vl{background:var(--vl)}
+.dash-dot-empty{background:transparent;border:1.5px solid var(--rule)}
+.dash-count{font-size:13px;font-weight:700;color:var(--sub);text-align:right}
+.dash-ai-pick{font-size:12px;font-weight:700;color:#167A47}
+.dash-ai-reason{font-size:11px;color:var(--sub);margin-top:2px;line-height:1.35}
+@media(max-width:700px){
+  .vote-dashboard{padding:12px 14px}
+  .dash-header{display:none}
+  .dash-cols{
+    grid-template-columns:20px 1fr auto 28px;
+    grid-template-rows:auto auto;
+    align-items:start;
+    gap:0 8px;
+  }
+  /* rank */
+  .dash-cols > :nth-child(1){grid-column:1;grid-row:1;align-self:center;font-size:11px}
+  /* name */
+  .dash-cols > :nth-child(2){grid-column:2;grid-row:1;font-size:13px;white-space:normal}
+  /* website: row 2 under name */
+  .dash-cols > :nth-child(3){grid-column:2;grid-row:2;font-size:11px;margin-top:1px}
+  .dash-cols > :nth-child(3).dash-link-empty{display:none}
+  /* instagram: row 3 under website */
+  .dash-cols > :nth-child(4){grid-column:2;grid-row:3;font-size:11px;margin-top:1px}
+  .dash-cols > :nth-child(4).dash-link-empty{display:none}
+  /* origin: hide */
+  .dash-cols > :nth-child(5){display:none}
+  /* voter dots */
+  .dash-cols > :nth-child(6){grid-column:3;grid-row:1;align-self:center}
+  /* count */
+  .dash-cols > :nth-child(7){grid-column:4;grid-row:1;align-self:center;font-size:12px;font-weight:800}
+  .dash-dot{width:18px;height:18px;font-size:8px}
+  .dash-voters{gap:2px}
+  .dash-row{padding:6px 8px}
+}
+
+/* ── Static reference table ─────────────────────────────────────────────── */
+.research-sec{margin-top:44px}
+.research-hd{font-size:22px;font-weight:800;color:var(--ink);margin-bottom:6px}
+.research-sub{font-size:12.5px;color:var(--ink);margin-bottom:14px}
+.research-wrap{background:white;border:1px solid var(--rule);border-top:3px solid var(--tf);overflow-x:auto;-webkit-overflow-scrolling:touch}
+.research-tbl{width:100%;border-collapse:collapse;min-width:900px}
+.research-tbl thead th{
+  text-align:left;padding:14px 16px;font-size:10px;font-weight:800;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--ink);border-bottom:2px solid var(--rule);white-space:nowrap;
+}
+.research-tbl tbody tr{border-bottom:1px solid var(--rule)}
+.research-tbl tbody tr:last-child{border-bottom:none}
+.research-tbl tbody tr:hover{background:#FAFAF8}
+.research-tbl td{padding:14px 16px;font-size:14px;color:var(--ink);vertical-align:top}
+.research-tbl td.rt-brand{font-weight:700}
+.research-tbl a{color:var(--tf);text-decoration:none;font-weight:700}
+.research-tbl a:hover{text-decoration:underline}
+@media(max-width:700px){
+  .research-hd{font-size:19px}
+  .research-tbl{min-width:760px}
+}
+.sov-tbl{min-width:1180px}
+@media(max-width:700px){.sov-tbl{min-width:1080px}}
+/* Phones: counts fit the screen; # and Brand stay visible while the table scrolls sideways */
+@media(max-width:700px){
+  #people-stats{width:100%;font-size:13px}
+  #people-stats th,#people-stats td{padding:6px 4px!important}
+  .brands-tbl th:nth-child(1),.brands-tbl td:nth-child(1){position:sticky;left:0;z-index:3;background:#fff;width:28px;min-width:28px!important}
+  .brands-tbl th:nth-child(2),.brands-tbl td:nth-child(2){position:sticky;left:28px;z-index:3;background:#fff;min-width:110px!important;max-width:120px;box-shadow:1px 0 0 var(--rule)}
+  .brands-tbl th:nth-child(3),.brands-tbl td:nth-child(3){min-width:100px!important}
+  .prog-tbl th:nth-child(1),.prog-tbl td:nth-child(1){position:sticky;left:0;z-index:3;background:#fff;box-shadow:1px 0 0 var(--rule);white-space:normal!important;min-width:90px}
+  .prog-tbl th:nth-child(4){min-width:260px}
+}
+</style>
+</head>
+<body>
+
+
+
+<div class="wrap">
+
+  <div class="page-hd">
+    <h1>SMTHG Brands — New York</h1>
+    <p><span class="sync-dot" id="sync-dot"></span><span class="sync-label" id="sync-label">Connecting…</span></p>
+    <p style="font-size:12px;color:var(--sub);margin-top:6px">Created: 28 October 2026 · Last updated: 28 October 2026</p>
+  </div>
+
+  <table id="people-stats" style="border-collapse:collapse;margin:0 0 28px;font-size:14px;color:var(--ink)">
+    <thead><tr>
+      <th style="text-align:left;padding:6px 18px 6px 0;border-bottom:2px solid var(--tf)">Tagged people</th>
+      <th style="text-align:right;padding:6px 18px;border-bottom:2px solid var(--tf)">Total</th>
+      <th style="text-align:right;padding:6px 18px;border-bottom:2px solid var(--tf);color:#1F3A8A">Male</th>
+      <th style="text-align:right;padding:6px 18px;border-bottom:2px solid var(--tf);color:var(--tf)">Female</th>
+      <th style="text-align:right;padding:6px 18px;border-bottom:2px solid var(--tf)">Unclear</th>
+    </tr></thead>
+    <tbody id="people-stats-body"></tbody>
+  </table>
+
+
+  <div class="count-bar" id="count-bar" style="margin-top:36px">Loading…</div>
+
+  <div class="filter-bar" id="filter-bar" style="display:none"></div>
+
+  <div class="tbl-wrap">
+    <table class="brands-tbl">
+      <thead>
+        <tr>
+          <th class="th-num">#</th>
+          <th style="min-width:150px">Brand</th>
+          <th style="min-width:140px">URL</th>
+          <th style="min-width:130px">Instagram · Followers</th>
+          <th style="min-width:260px">Tagged people · Followers<input id="tag-search" type="search" placeholder="Search handle, role…" oninput="tagQuery=this.value.trim().toLowerCase();applyFilter()" style="display:block;margin-top:6px;width:100%;box-sizing:border-box;font-size:13px;font-family:inherit;font-weight:400;text-transform:none;letter-spacing:0;color:var(--ink);border:1px solid var(--rule);border-radius:4px;padding:4px 8px;background:#fff"><div id="fol-filter" style="display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:6px;font-size:13px;font-weight:400;text-transform:none;letter-spacing:0;color:var(--ink)"><label style="display:flex;align-items:center;gap:4px;cursor:pointer"><input type="checkbox" value="0-5000" onchange="setFolBuckets()" style="accent-color:var(--tf);margin:0;cursor:pointer">&lt;5K</label><label style="display:flex;align-items:center;gap:4px;cursor:pointer"><input type="checkbox" value="5000-10000" onchange="setFolBuckets()" style="accent-color:var(--tf);margin:0;cursor:pointer">5–10K</label><label style="display:flex;align-items:center;gap:4px;cursor:pointer"><input type="checkbox" value="10000-50000" onchange="setFolBuckets()" style="accent-color:var(--tf);margin:0;cursor:pointer">10–50K</label><label style="display:flex;align-items:center;gap:4px;cursor:pointer"><input type="checkbox" value="50000-100000" onchange="setFolBuckets()" style="accent-color:var(--tf);margin:0;cursor:pointer">50–100K</label><label style="display:flex;align-items:center;gap:4px;cursor:pointer"><input type="checkbox" value="100000-" onchange="setFolBuckets()" style="accent-color:var(--tf);margin:0;cursor:pointer">100K+</label></div></th>
+          <th style="min-width:110px">Gender</th>
+          <th style="min-width:270px">Relevant to contact<div style="font-weight:400;color:var(--sub);font-size:12px;text-transform:none;letter-spacing:0">A Alena · C Chris · M Maria · AX Alex</div></th>
+          <th style="min-width:260px">Creator email</th>
+          <th style="min-width:150px">Contact email</th>
+          <th style="min-width:110px">Annual Revenue</th>
+          <th style="min-width:120px">Category</th>
+          <th style="min-width:190px">Positioning</th>
+          <th style="min-width:100px">Country origin</th>
+          <th style="min-width:120px">Sells to</th>
+          <th style="min-width:190px">Why relevant for SMTHG</th>
+          <th style="min-width:200px">LinkedIn (owner / commercial)</th>
+          <th class="th-del"></th>
+        </tr>
+      </thead>
+      <tbody id="brands-tbody"></tbody>
+    </table>
+    <button class="add-btn" onclick="addRow()">+ Add brand</button>
+  </div>
+
+  
+
+  
+
+
+</div>
+
+<script>
+var DB   = 'https://terra-ferra-1ac34-default-rtdb.firebaseio.com';
+var ROOT = '/tf-brands/v1';
+
+var fbData  = {};
+var fbOrder = [];
+var textTimers = {};
+var currentVoter = null;
+var filterCountry = '';
+var ONLY_ORIGIN = 'US NY';
+function inScope(id){ return fbData[id] && (fbData[id].origin||'').trim() === ONLY_ORIGIN; }
+var VOTER_KEYS = {alena:'va', chris:'vc', maxim:'vm', alex:'vx', claude:'vl'};
+
+var DEFAULTS = [];
+
+function blankItem(src){
+  var base = {name:'',url:'',instagram:'',followers:'',telegram:'',tagged:'',revenue:'',category:'',positioning:'',origin:'',sellsTo:'',whyRelevant:'',contactEmail:'',linkedinContacts:'',comments:'',isExample:false,va:false,vc:false,vm:false,vx:false,vl:false};
+  if(src){ Object.keys(src).forEach(function(k){ base[k]=src[k]; }); }
+  return base;
+}
+
+var FIELDS = [
+  {key:'name',        ph:'Brand name…',          w:'150px'},
+  {key:'url',         ph:'https://…',             w:'140px'},
+  {key:'instagram',   ph:'https://instagram.com/…', w:'130px'},
+  {key:'telegram',    ph:'https://t.me/…',        w:'120px'},
+  {key:'revenue',     ph:'e.g. $2M…',            w:'110px'},
+  {key:'category',    ph:'Apparel, jewellery…',   w:'120px'},
+  {key:'positioning', ph:'What they make…',       w:'190px'},
+  {key:'origin',      ph:'UK, US…',              w:'100px'},
+  {key:'sellsTo',     ph:'Global, US, EU…',      w:'120px'},
+  {key:'whyRelevant',      ph:'Reason for SMTHG…',              w:'190px'},
+];
+
+// ── URL / Instagram display helpers ──────────────────────────────────────────
+function cleanUrl(url){
+  if(!url) return '';
+  try{ return new URL(url).hostname.replace(/^www\./,''); }
+  catch(e){ return url.replace(/^https?:\/\/(www\.)?/,'').split('/')[0]||url; }
+}
+function cleanInstagram(url){
+  if(!url) return '';
+  var m = url.match(/instagram\.com\/([^\/\?#]+)/);
+  return m ? '@'+m[1].replace(/\/+$/,'') : url.replace(/^https?:\/\/(www\.)?/,'');
+}
+function cleanTelegram(url){
+  if(!url) return '';
+  var m = url.match(/(?:t|telegram)\.me\/([^\/\?#]+)/);
+  return m ? '@'+m[1] : url.replace(/^https?:\/\/(www\.)?/,'');
+}
+function makeFollowersInput(id, value){
+  var inp = document.createElement('input');
+  inp.type = 'text';
+  inp.className = 'followers-inp'+(value ? ' has-text' : '');
+  inp.id = 'inp-followers-'+id;
+  inp.value = value || '';
+  inp.placeholder = 'followers…';
+  inp.autocomplete = 'off';
+  inp.spellcheck = false;
+  inp.addEventListener('input', function(){
+    inp.classList.toggle('has-text', !!inp.value);
+    updateField(id, 'followers', inp.value);
+  });
+  return inp;
+}
+
+function makeLinkCell(id, field, value, openId, cleanFn, openTitle){
+  var cell = document.createElement('div');
+  cell.className = 'link-cell';
+
+  var disp = document.createElement('div');
+  disp.className = 'link-disp';
+
+  var cleanVal = cleanFn(value||'');
+  var textEl = document.createElement('a');
+  textEl.id = 'ltext-'+field+'-'+id;
+  textEl.className = 'link-disp-text'+(cleanVal?'':' empty');
+  textEl.textContent = cleanVal||'Add link…';
+  if(value){ textEl.href=value; textEl.target='_blank'; textEl.rel='noopener'; }
+  disp.appendChild(textEl);
+
+  var openLink = document.createElement('a');
+  openLink.id = openId;
+  openLink.className = 'link-open';
+  openLink.href = value||'#';
+  openLink.target = '_blank';
+  openLink.rel = 'noopener';
+  openLink.textContent = '↗';
+  openLink.title = openTitle;
+  openLink.style.display = value ? 'inline' : 'none';
+  disp.appendChild(openLink);
+
+  disp.addEventListener('click', function(e){
+    if(e.target.tagName==='A') return;
+    cell.classList.add('editing');
+    inp.focus();
+    inp.setSelectionRange(0,inp.value.length);
+  });
+  cell.appendChild(disp);
+
+  var inp = makeInput(id, field, value, 'https://…');
+  inp.addEventListener('blur', function(){
+    var val = inp.value.trim();
+    var cleaned = cleanFn(val);
+    var tEl = document.getElementById('ltext-'+field+'-'+id);
+    if(tEl){ tEl.textContent=cleaned||'Add link…'; tEl.className='link-disp-text'+(cleaned?'':' empty'); if(val){tEl.href=val;tEl.target='_blank';tEl.rel='noopener';}else{tEl.removeAttribute('href');} }
+    var oEl = document.getElementById(openId);
+    if(oEl){ oEl.href=val||'#'; oEl.style.display=val?'inline':'none'; }
+    cell.classList.remove('editing');
+  });
+  cell.appendChild(inp);
+  return cell;
+}
+
+// ── LinkedIn / Email clickable cell helpers ───────────────────────────────────
+function renderLinkedinDisplay(dispEl, val){
+  dispEl.innerHTML = '';
+  var lines = (val||'').split('\n').map(function(l){return l.trim();}).filter(Boolean);
+  if(!lines.length){
+    var ph = document.createElement('span');
+    ph.className = 'link-disp-text empty';
+    ph.style.cssText = 'font-size:13px;white-space:nowrap;';
+    ph.textContent = 'Full Name \u00b7 linkedin.com/in/\u2026';
+    dispEl.appendChild(ph);
+    return;
+  }
+  lines.forEach(function(line){
+    var urlM = line.match(/(?:https?:\/\/)?(?:[a-z]{2,3}\.)?linkedin\.com\/(?:in|company|school|pub)\/[^\s]+/i);
+    var url = urlM ? (urlM[0].match(/^https?:\/\//) ? urlM[0] : 'https://'+urlM[0]) : null;
+    if(url) url = url.replace(/\/+$/,'');
+    var label = line;
+    if(urlM){
+      label = line.replace(urlM[0],'').replace(/^[\s\u00b7|,\-\u2013\u2014]+/,'').replace(/[\s\u00b7|,\-\u2013\u2014]+$/,'').trim();
+    }
+    if(!label && url) label = url.replace(/^https?:\/\/(www\.)?/,'');
+    var row = document.createElement('div');
+    row.style.cssText = 'margin-bottom:2px;overflow:hidden;';
+    var el = document.createElement(url ? 'a' : 'span');
+    if(url){ el.href = url; el.target = '_blank'; el.rel = 'noopener'; el.title = url; }
+    el.textContent = label;
+    el.style.cssText = 'display:block;font-size:13px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;'+(url?'text-decoration:underline;':'');
+    row.appendChild(el);
+    dispEl.appendChild(row);
+  });
+}
+
+function makeLinkedinCell(id, value){
+  var cell = document.createElement('div');
+  cell.className = 'link-cell';
+  var disp = document.createElement('div');
+  disp.id = 'li-disp-'+id;
+  disp.className = 'link-disp';
+  disp.style.cssText = 'flex-direction:column;align-items:flex-start;min-height:36px;overflow:hidden;cursor:text;';
+  renderLinkedinDisplay(disp, value);
+  disp.addEventListener('click', function(e){
+    if(e.target.tagName==='A') return;
+    cell.classList.add('editing'); inp.focus();
+  });
+  cell.appendChild(disp);
+  var inp = makeInput(id, 'linkedinContacts', value, 'Full Name · linkedin.com/in/…');
+  inp.addEventListener('blur', function(){ renderLinkedinDisplay(disp, inp.value); cell.classList.remove('editing'); });
+  cell.appendChild(inp);
+  return cell;
+}
+
+function renderEmailDisplay(dispEl, val){
+  dispEl.innerHTML = '';
+  var lines = (val||'').split('\n').map(function(l){return l.trim();}).filter(Boolean);
+  if(!lines.length){
+    var ph = document.createElement('span');
+    ph.className = 'link-disp-text empty';
+    ph.style.cssText = 'font-size:13px;white-space:nowrap;';
+    ph.textContent = 'contact@brand.com…';
+    dispEl.appendChild(ph);
+    return;
+  }
+  lines.forEach(function(line){
+    var em = line.match(/[\w._%+\-]+@[\w.\-]+\.[a-z]{2,}/i);
+    var urlM = line.match(/^https?:\/\/\S+/);
+    var a = document.createElement('a');
+    a.style.cssText = 'font-size:13px;text-decoration:none;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:1px;';
+    a.textContent = line;
+    if(em){ a.href = 'mailto:'+em[0]; a.style.color='var(--tf)'; a.title='Send email'; }
+    else if(urlM){ a.href=urlM[0]; a.target='_blank'; a.rel='noopener'; a.style.color='var(--tf)'; a.title='Open contact page'; }
+    else { a.style.color='var(--ink)'; }
+    dispEl.appendChild(a);
+  });
+}
+
+// Tagged people: every @handle opens its Instagram profile
+function renderTaggedDisplay(dispEl, val){
+  dispEl.innerHTML = '';
+  var lines = (val||'').split('\n').map(function(l){return l.trim();}).filter(Boolean);
+  if(!lines.length){
+    var ph = document.createElement('span');
+    ph.className = 'link-disp-text empty';
+    ph.style.cssText = 'font-size:13px;white-space:nowrap;';
+    ph.textContent = '@handle · role · followers';
+    dispEl.appendChild(ph);
+    return;
+  }
+  lines.forEach(function(line){
+    var row = document.createElement('div');
+    row.style.cssText = 'font-size:13px;white-space:nowrap;margin-bottom:0;color:var(--ink);height:22px;line-height:22px;';
+    var m = line.match(/^@([A-Za-z0-9._]+)(.*)$/);
+    row.className = 'tag-line';
+    if(m){
+      row.dataset.h = m[1];
+      var a = document.createElement('a');
+      a.href = 'https://www.instagram.com/'+m[1]+'/';
+      a.target = '_blank'; a.rel = 'noopener';
+      a.style.cssText = 'color:'+(/photographer/i.test(m[2]) ? 'var(--ink)' : 'var(--tf)')+';text-decoration:none;';
+      a.title = 'Open Instagram';
+      a.textContent = '@'+m[1];
+      row.appendChild(a);
+      row.appendChild(document.createTextNode(m[2]));
+    } else {
+      row.textContent = line;
+    }
+    dispEl.appendChild(row);
+  });
+}
+
+function makeTaggedCell(id, value){
+  var cell = document.createElement('div');
+  cell.className = 'link-cell';
+  var disp = document.createElement('div');
+  disp.id = 'tag-disp-'+id;
+  disp.className = 'link-disp';
+  disp.style.cssText = 'flex-direction:column;align-items:flex-start;min-height:36px;overflow:hidden;cursor:text;';
+  renderTaggedDisplay(disp, value);
+  disp.addEventListener('click', function(e){
+    if(e.target.tagName==='A') return;
+    cell.classList.add('editing'); inp.focus();
+  });
+  cell.appendChild(disp);
+  var inp = makeInput(id, 'tagged', value, '@handle · role · followers');
+  inp.addEventListener('blur', function(){ renderTaggedDisplay(disp, inp.value); cell.classList.remove('editing'); });
+  cell.appendChild(inp);
+  return cell;
+}
+
+// Tick boxes are stored per account and per person as items/<id>/rc<A|C|M>_<handle> (true/false),
+// gender as items/<id>/g_<handle> ("Man"/"Woman"), so several people can edit at the same time without clashes.
+function relKey(handle){ return 'rc_' + handle.replace(/\./g, '~'); }
+function personKey(p, handle){ return 'rc' + p + '_' + handle.replace(/\./g, '~'); }
+function genderKey(handle){ return 'g_' + handle.replace(/\./g, '~'); }
+function emailKey(handle){ return 'em_' + handle.replace(/\./g, '~'); }
+var REL_PEOPLE = [['A','Alena'],['C','Chris'],['M','Maria'],['AX','Alex']];
+function taggedHandles(item){
+  var handles = [];
+  (item.tagged||'').split('\n').forEach(function(l){
+    var m = l.trim().match(/^@([A-Za-z0-9._]+)/);
+    if(m && handles.indexOf(m[1]) < 0) handles.push(m[1]);
+  });
+  return handles;
+}
+// Handle colour: photographers black, men dark blue, everyone else red
+function handleColor(item, h){
+  if(isPhotographer(item, h)) return 'var(--ink)';
+  if(item[genderKey(h)] === 'Man') return '#1F3A8A';
+  return 'var(--tf)';
+}
+// Accounts tagged by more than one New York brand get a "★ N brands" flag next to the handle
+var multiBrand = {};
+function computeMultiBrand(){
+  var c = {};
+  Object.keys(fbData).forEach(function(id){
+    if(!inScope(id)) return;
+    var seen = {};
+    (fbData[id].tagged||'').split('\n').forEach(function(l){
+      var m = l.trim().match(/^@([A-Za-z0-9._]+)/);
+      if(m && !seen[m[1]]){ seen[m[1]] = 1; c[m[1]] = (c[m[1]]||0) + 1; }
+    });
+  });
+  multiBrand = {};
+  Object.keys(c).forEach(function(h){ if(c[h] > 1) multiBrand[h] = c[h]; });
+}
+function flagMultiBrand(tr){
+  tr.querySelectorAll('.link-disp .tag-line[data-h]').forEach(function(row){
+    var old = row.querySelector('.multi-badge'); if(old) old.remove();
+    var n = multiBrand[row.dataset.h]; if(!n) return;
+    var b = document.createElement('span');
+    b.className = 'multi-badge';
+    b.textContent = '★ ' + n + ' brands';
+    b.title = 'Tagged by ' + n + ' brands on this list';
+    b.style.cssText = 'display:inline-block;margin-left:6px;padding:0 6px;border-radius:9px;background:var(--tf);color:#fff;font-size:12px;font-weight:700;line-height:18px;vertical-align:middle;';
+    var a = row.querySelector('a'); if(a) a.after(b); else row.appendChild(b);
+  });
+}
+function recolorHandles(tr){
+  var item = tr._item || fbData[tr.id.replace('brow-','')];
+  if(!item) return;
+  tr.querySelectorAll('.tag-line[data-h] a').forEach(function(a){ a.style.color = handleColor(item, a.closest('.tag-line').dataset.h); });
+}
+function isPhotographer(item, h){
+  return (item.tagged||'').split('\n').some(function(l){ var t = l.trim(); return t.indexOf('@'+h+' ') === 0 && /photographer/i.test(t); });
+}
+function igLink(h, black){
+  var a = document.createElement('a');
+  a.href = 'https://www.instagram.com/'+h+'/';
+  a.target = '_blank'; a.rel = 'noopener';
+  a.style.cssText = 'color:'+(black ? 'var(--ink)' : 'var(--tf)')+';text-decoration:none;';
+  a.title = 'Open Instagram';
+  a.textContent = '@'+h;
+  return a;
+}
+var REL_ROW = 'font-size:13px;white-space:nowrap;display:flex;align-items:center;gap:6px;color:var(--ink);height:22px;';
+function makeGenderCell(id, item, base){
+  base = base || '/items/';
+  var box = document.createElement('div');
+  box.style.cssText = 'display:flex;flex-direction:column;gap:6px;padding:6px 0;';
+  taggedHandles(item).forEach(function(h){
+    var row = document.createElement('div');
+    row.style.cssText = REL_ROW;
+    row.className = 'tag-line'; row.dataset.h = h;
+    var sel = document.createElement('select');
+    sel.style.cssText = 'font-size:13px;font-family:inherit;color:var(--ink);border:1px solid var(--rule);border-radius:4px;background:#fff;height:20px;padding:0 2px;cursor:pointer;';
+    sel.title = '@'+h;
+    ['','Man','Woman','Unclear'].forEach(function(v){
+      var o = document.createElement('option'); o.value = v; o.textContent = v || '—'; sel.appendChild(o);
+    });
+    sel.value = item[genderKey(h)] || '';
+    sel.onchange = function(){
+      var k = genderKey(h);
+      item[k] = sel.value;
+      fput(base+id+'/'+k, sel.value || null);
+      renderPeopleStats();
+      var tr = sel.closest('tr'); if(tr) recolorHandles(tr);
+    };
+    row.appendChild(sel);
+    box.appendChild(row);
+  });
+  return box;
+}
+function makeRelevantCell(id, item, base){
+  base = base || '/items/';
+  var box = document.createElement('div');
+  box.style.cssText = 'display:flex;flex-direction:column;gap:6px;padding:6px 0;';
+  taggedHandles(item).forEach(function(h){
+    var lab = document.createElement('div');
+    lab.style.cssText = REL_ROW;
+    lab.className = 'tag-line'; lab.dataset.h = h;
+    REL_PEOPLE.forEach(function(p){
+      var l = document.createElement('label');
+      l.title = p[1];
+      l.style.cssText = 'display:flex;align-items:center;gap:2px;cursor:pointer;color:var(--sub);';
+      var cb = document.createElement('input');
+      cb.type = 'checkbox';
+      cb.checked = !!item[personKey(p[0], h)];
+      cb.style.cssText = 'accent-color:var(--tf);margin:0;cursor:pointer;';
+      cb.onchange = function(){
+        var k = personKey(p[0], h);
+        item[k] = cb.checked;
+        fput(base+id+'/'+k, cb.checked);
+      };
+      l.appendChild(document.createTextNode(p[0]));
+      l.appendChild(cb);
+      lab.appendChild(l);
+    });
+    lab.appendChild(igLink(h, isPhotographer(item, h)));
+    box.appendChild(lab);
+  });
+  return box;
+}
+// Creator email per tagged account: items/<id>/em_<handle>
+function makeCreatorEmailCell(id, item, base){
+  base = base || '/items/';
+  var box = document.createElement('div');
+  box.style.cssText = 'display:flex;flex-direction:column;gap:6px;padding:6px 0;';
+  taggedHandles(item).forEach(function(h){
+    var row = document.createElement('div');
+    row.style.cssText = REL_ROW;
+    row.className = 'tag-line'; row.dataset.h = h;
+    var inp = document.createElement('input');
+    inp.type = 'text'; inp.title = '@'+h; inp.placeholder = '—';
+    inp.style.cssText = 'font-size:13px;font-family:inherit;color:var(--ink);border:1px solid transparent;border-radius:4px;background:transparent;height:20px;padding:0 4px;width:250px;outline:none;';
+    inp.value = item[emailKey(h)] || '';
+    inp.onfocus = function(){ inp.style.borderColor = 'var(--rule)'; inp.style.background = '#fff'; };
+    inp.onblur = function(){ inp.style.borderColor = 'transparent'; inp.style.background = 'transparent'; };
+    inp.onchange = function(){
+      var k = emailKey(h), v = inp.value.trim();
+      item[k] = v;
+      fput(base+id+'/'+k, v || null);
+    };
+    row.appendChild(inp);
+    box.appendChild(row);
+  });
+  return box;
+}
+
+function makeEmailCell(id, value){
+  var cell = document.createElement('div');
+  cell.className = 'link-cell';
+  var disp = document.createElement('div');
+  disp.id = 'email-disp-'+id;
+  disp.className = 'link-disp';
+  disp.style.cssText = 'flex-direction:column;align-items:flex-start;min-height:36px;overflow:hidden;cursor:text;';
+  renderEmailDisplay(disp, value);
+  disp.addEventListener('click', function(e){
+    if(e.target.tagName==='A') return;
+    cell.classList.add('editing'); inp.focus();
+  });
+  cell.appendChild(disp);
+  var inp = makeInput(id, 'contactEmail', value, 'contact@brand.com…');
+  inp.addEventListener('blur', function(){ renderEmailDisplay(disp, inp.value); cell.classList.remove('editing'); });
+  cell.appendChild(inp);
+  return cell;
+}
+
+// ── Firebase helpers ──────────────────────────────────────────────────────────
+function furl(path){ return DB+ROOT+(path||'')+'.json'; }
+function fput(path,data){
+  return fetch(furl(path),{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+}
+
+// ── Init ──────────────────────────────────────────────────────────────────────
+async function init(){
+  setSyncStatus('connecting');
+  try{
+    var r = await fetch(furl());
+    var saved = await r.json();
+    if(saved && saved.progress){ progData = saved.progress; renderProgress(); }
+    if(saved && saved.items && saved.order){
+      fbData  = saved.items;
+      fbOrder = saved.order;
+      // Ensure all items have vote fields
+      // Missing vote fields are written one field at a time, never the whole database,
+      // so nothing another person is ticking at the same moment can be overwritten.
+      Object.keys(fbData).forEach(function(id){
+        ['va','vc','vm','vx','vl'].forEach(function(k){
+          if(fbData[id][k] === undefined){ fbData[id][k] = false; fput('/items/'+id+'/'+k, false); }
+        });
+      });
+      mergeDefaults();
+    } else {
+      // Empty or unreadable response: show nothing new and never write, so a bad load cannot wipe the database
+      fbData  = {};
+      fbOrder = [];
+    }
+    setSyncStatus('live');
+  } catch(e){
+    setSyncStatus('err');
+    fbData  = {};
+    fbOrder = [];
+    DEFAULTS.forEach(function(d){
+      fbData[d.id] = blankItem(d);
+      fbOrder.push(d.id);
+    });
+  }
+  renderAll();
+  startSSE();
+}
+
+function mergeDefaults(){
+  // Only items missing from the database are added, each with its own write; the order list is
+  // re-read from the database first so rows added by other people are kept.
+  var missing = DEFAULTS.filter(function(d){ return !fbData[d.id]; });
+  if(!missing.length) return;
+  missing.forEach(function(d){ fbData[d.id] = blankItem(d); fput('/items/'+d.id, fbData[d.id]); });
+  fetch(furl('/order')).then(function(r){ return r.json(); }).then(function(live){
+    live = live || [];
+    missing.forEach(function(d){ if(live.indexOf(d.id) < 0) live.unshift(d.id); });
+    fbOrder = live; fput('/order', live);
+  });
+}
+
+// ── SSE ───────────────────────────────────────────────────────────────────────
+function startSSE(){
+  var src = new EventSource(furl()+'?accept=text/event-stream');
+  src.addEventListener('put',   function(e){ try{ handlePut(JSON.parse(e.data));   }catch(ex){} });
+  src.addEventListener('patch', function(e){ try{ handlePatch(JSON.parse(e.data)); }catch(ex){} });
+  src.onopen  = function(){ setSyncStatus('live'); };
+  src.onerror = function(){ setSyncStatus('err');  };
+}
+
+var SORT_KEYS = ['origin','sortRank','isExample'];   // fields that decide a row's position
+
+function handlePut(p){
+  var path  = (p.path||'/').replace(/^\/+/,'');
+  var val   = p.data;
+  var parts = path.split('/').filter(Boolean);
+  var fid   = focusedId();
+
+  if(parts.length === 0){
+    if(val && val.items && val.order){ fbData = val.items; fbOrder = val.order; renderAll(fid); }
+    if(val && val.progress){ progData = val.progress; renderProgress(); }
+    return;
+  }
+  if(parts[0] === 'progress'){
+    if(parts.length === 1) progData = val || {};
+    else if(parts.length === 2){ if(val === null) delete progData[parts[1]]; else progData[parts[1]] = val; }
+    else if(parts.length === 3){ progData[parts[1]] = progData[parts[1]] || {}; progData[parts[1]][parts[2]] = val; }
+    renderProgress();
+    return;
+  }
+  if(parts[0] === 'items'){
+    if(parts.length === 2){
+      if(val === null){
+        delete fbData[parts[1]];
+        var ix = fbOrder.indexOf(parts[1]);
+        if(ix >= 0) fbOrder.splice(ix,1);
+        var row = document.getElementById('brow-'+parts[1]);
+        if(row) row.remove();
+        updateCount();
+      } else if(val){
+        fbData[parts[1]] = val;
+        renderAll(fid);                 // whole item replaced: its sort position may have changed
+      }
+    } else if(parts.length === 3 && val !== undefined){
+      if(!fbData[parts[1]]) fbData[parts[1]] = blankItem();
+      fbData[parts[1]][parts[2]] = val;
+      if(SORT_KEYS.indexOf(parts[2]) >= 0) renderAll(fid);   // re-sort so row numbers stay correct
+      else renderRow(parts[1], fid);
+    }
+    return;
+  }
+  if(parts[0] === 'order' && Array.isArray(val)){
+    fbOrder = val; renderAll(fid);
+  }
+}
+
+function handlePatch(p){
+  var path  = (p.path||'/').replace(/^\/+/,'');
+  var pData = p.data;
+  if(!pData) return;
+  var parts = path.split('/').filter(Boolean);
+  var fid   = focusedId();
+  if(parts[0] === 'progress' && parts.length === 2){
+    progData[parts[1]] = Object.assign(progData[parts[1]]||{}, pData); renderProgress(); return;
+  }
+  if(parts[0] === 'items' && parts.length === 2){
+    if(!fbData[parts[1]]) fbData[parts[1]] = blankItem();
+    Object.assign(fbData[parts[1]], pData);
+    if(Object.keys(pData).some(function(k){ return SORT_KEYS.indexOf(k) >= 0; })) renderAll(fid);
+    else renderRow(parts[1], fid);
+  }
+}
+
+// ── Vote ─────────────────────────────────────────────────────────────────────
+function vote(id){
+  if(!currentVoter){
+    var st = document.getElementById('voter-status');
+    if(st){ st.textContent = '← Select your name first'; st.className = 'voter-status'; }
+    return;
+  }
+  if(!fbData[id]) return;
+  var vk = VOTER_KEYS[currentVoter];
+  var newVal = !fbData[id][vk];
+  fbData[id][vk] = newVal;
+  updateVoteButtons(id);
+  fput('/items/'+id+'/'+vk, newVal).catch(function(){
+    fbData[id][vk] = !newVal;
+    updateVoteButtons(id);
+  });
+}
+
+// ── Write ─────────────────────────────────────────────────────────────────────
+function updateField(id, field, value){
+  if(!fbData[id]) return;
+  fbData[id][field] = value;
+  if(field === 'url'){
+    var link = document.getElementById('url-link-'+id);
+    if(link){ link.href = value||'#'; link.style.display = value ? 'inline' : 'none'; }
+  }
+  if(field === 'instagram'){
+    var iglink = document.getElementById('ig-link-'+id);
+    if(iglink){ iglink.href = value||'#'; iglink.style.display = value ? 'inline' : 'none'; }
+  }
+  if(field === 'telegram'){
+    var tglink = document.getElementById('tg-link-'+id);
+    if(tglink){ tglink.href = value||'#'; tglink.style.display = value ? 'inline' : 'none'; }
+  }
+  clearTimeout(textTimers[id+'_'+field]);
+  textTimers[id+'_'+field] = setTimeout(function(){
+    fput('/items/'+id+'/'+field, value).catch(function(){});
+  }, 600);
+}
+
+function addRow(){
+  var newId   = 'b-'+Date.now();
+  var newItem = blankItem();
+  newItem.origin = ONLY_ORIGIN;
+  fbData[newId]  = newItem;
+  fbOrder.push(newId);
+  fput('/items/'+newId, newItem);
+  fput('/order', fbOrder);
+  var tbody = document.getElementById('brands-tbody');
+  tbody.appendChild(buildRow(newId, fbOrder.length));
+  updateCount();
+  setTimeout(function(){
+    var inp = document.getElementById('inp-name-'+newId);
+    if(inp) inp.focus();
+  }, 30);
+}
+
+function deleteRow(id){
+  var idx = fbOrder.indexOf(id);
+  if(idx < 0) return;
+  fbOrder.splice(idx, 1);
+  delete fbData[id];
+  fput('/items/'+id, null);
+  fput('/order', fbOrder);
+  var row = document.getElementById('brow-'+id);
+  if(row) row.remove();
+  renumberRows();
+  updateCount();
+}
+
+// ── Render ────────────────────────────────────────────────────────────────────
+function focusedId(){
+  return (document.activeElement && document.activeElement.id) ? document.activeElement.id : null;
+}
+
+function resizeAllTextareas(){
+  document.querySelectorAll('#brands-tbody .cell-inp').forEach(function(ta){ autoResize(ta); });
+}
+
+function setFilter(country){
+  filterCountry = country;
+  document.querySelectorAll('.filter-btn').forEach(function(b){
+    b.classList.toggle('active', b.dataset.country === country);
+  });
+  applyFilter();
+}
+
+var EU_COUNTRIES = ['Austria','Belgium','Bulgaria','Croatia','Cyprus','Czechia','Denmark','Estonia','Finland','France','Germany','Greece','Hungary','Ireland','Italy','Latvia','Lithuania','Luxembourg','Malta','Netherlands','Poland','Portugal','Romania','Slovakia','Slovenia','Spain','Sweden'];
+var NON_EU_ORDER = ['Russia']; // US and Canada are pinned before EU in renderFilter
+
+var US_PIN = ['US','US LA','US NY','US Miami'];   // every US row first, in this order
+function originRank(o){
+  var p = US_PIN.indexOf(o);
+  if(p>=0) return p;                 // every US tag, in US_PIN order
+  var n = US_PIN.length;             // everything else ranks after the last US tag
+  if(o==='Canada') return n;
+  if(EU_COUNTRIES.indexOf(o)>=0) return n+2; // EU last, matching the filter bar
+  if(o) return n+1;
+  return 99;
+}
+
+// Counts of unique tagged accounts across the New York brands, by role and gender
+function peopleGroup(role){
+  if(/photographer/i.test(role)) return 'Photographers';
+  if(/\bmodel\b/i.test(role)) return 'Models';
+  if(/creator|artist|celebrity|tv host|comedian/i.test(role)) return 'Influencers';
+  return 'Others';
+}
+function renderPeopleStats(){
+  var body = document.getElementById('people-stats-body');
+  if(!body) return;
+  var seen = {}, groups = ['Influencers','Models','Photographers','Others'], c = {};
+  groups.forEach(function(g){ c[g] = {t:0, m:0, f:0, u:0}; });
+  Object.keys(fbData).forEach(function(id){
+    if(!inScope(id)) return;
+    var item = fbData[id];
+    (item.tagged||'').split('\n').forEach(function(l){
+      var m = l.trim().match(/^@([A-Za-z0-9._]+)\s*·?\s*(.*)$/);
+      if(!m || seen[m[1]]) return;
+      seen[m[1]] = 1;
+      var g = peopleGroup(m[2]), sex = item[genderKey(m[1])];
+      c[g].t++; if(sex === 'Man') c[g].m++; if(sex === 'Woman') c[g].f++; if(sex === 'Unclear') c[g].u++;
+    });
+  });
+  body.innerHTML = '';
+  groups.forEach(function(g){
+    var tr = document.createElement('tr');
+    [g, c[g].t, c[g].m, c[g].f, c[g].u].forEach(function(v, i){
+      var td = document.createElement('td');
+      td.textContent = v;
+      td.style.cssText = 'padding:5px '+(i ? '18px' : '18px 5px 0')+';border-bottom:1px solid var(--rule);text-align:'+(i ? 'right' : 'left')+';'+(i ? '' : 'font-weight:600;');
+      tr.appendChild(td);
+    });
+    body.appendChild(tr);
+  });
+}
+// ── Brands in progress: stored under tf-brands/v1/progress/<id>, same gender / tick-box keys as the brand list
+var progData = {};
+function renderProgress(){
+  var tb = document.getElementById('progress-tbody'); if(!tb) return;
+  tb.innerHTML = '';
+  var td0 = 'padding:10px 14px;border-bottom:1px solid var(--rule);text-align:left;white-space:nowrap;vertical-align:top';
+  Object.keys(progData).sort(function(a,b){ return (progData[a].sort||0) - (progData[b].sort||0); }).forEach(function(id){
+    var it = progData[id]; if(!it || typeof it !== 'object') return;
+    var tr = document.createElement('tr'); tr.id = 'prow-'+id; tr._item = it;
+    function cell(node, extra){ var td = document.createElement('td'); td.style.cssText = td0 + (extra||''); if(typeof node === 'string') td.textContent = node; else if(node) td.appendChild(node); tr.appendChild(td); return td; }
+    cell(it.brand||'', ';font-weight:700');
+    var w = document.createElement('a'); w.href = 'https://'+(it.website||'').replace(/^https?:\/\//,'')+'/'; w.target='_blank'; w.rel='noopener'; w.style.cssText='color:var(--tf);text-decoration:none'; w.textContent = it.website||''; cell(it.website ? w : '');
+    var ig = document.createElement('span'); ig.appendChild(igLink(it.instagram||'')); var f = document.createElement('b'); f.textContent = it.followers||''; ig.appendChild(document.createTextNode(' · ')); ig.appendChild(f); cell(ig);
+    var disp = document.createElement('div'); disp.className = 'link-disp'; disp.style.cssText = 'flex-direction:column;align-items:flex-start;padding:6px 0;min-height:0;cursor:default;'; renderTaggedDisplay(disp, it.tagged||''); cell(disp, ';padding-top:4px');
+    cell(makeGenderCell(id, it, '/progress/'), ';padding-top:4px');
+    cell(it.name||'');
+    cell(makeRelevantCell(id, it, '/progress/'), ';padding-top:4px');
+    ['revenue','stock','production','quantity','status'].forEach(function(k){ cell(it[k]||''); });
+    tb.appendChild(tr);
+    recolorHandles(tr);
+  });
+  applyProgFilter();
+}
+// Follower-count tick boxes for Brands in progress (same ranges as the brand table)
+function applyProgFilter(){
+  var picked = [].map.call(document.querySelectorAll('#prog-fol-filter input:checked'), function(c){ return c.value; });
+  var q = ((document.getElementById('prog-search')||{}).value||'').trim().toLowerCase();
+  document.querySelectorAll('#progress-tbody tr').forEach(function(tr){
+    var hit = {};
+    tr.querySelectorAll('.link-disp .tag-line[data-h]').forEach(function(el){
+      var n = lineFollowers(el.textContent);
+      var ok = !picked.length || (n !== null && picked.some(function(b){ var r = b.split('-'), lo = +r[0], hi = r[1] === '' ? Infinity : +r[1]; return n >= lo && n < hi; }));
+      if(ok && (!q || el.textContent.toLowerCase().indexOf(q) >= 0)) hit[el.dataset.h] = 1;
+    });
+    tr.querySelectorAll('.tag-line[data-h]').forEach(function(el){
+      var on = (!picked.length && !q) || hit[el.dataset.h];
+      el.style.display = on ? (el.parentNode.classList.contains('link-disp') ? 'block' : 'flex') : 'none';
+    });
+    tr.style.display = ((picked.length || q) && !Object.keys(hit).length) ? 'none' : '';
+  });
+}
+var tagQuery = '';
+var folBuckets = [];
+function setFolBuckets(){
+  folBuckets = [].map.call(document.querySelectorAll('#fol-filter input:checked'), function(c){ return c.value; });
+  applyFilter();
+}
+// "@h · role · 44K" -> 44000; null when the count is missing
+function lineFollowers(t){
+  var m = t.trim().match(/·\s*([\d.,]+)\s*([KM]?)\s*$/i);
+  if(!m) return null;
+  var n = parseFloat(m[1].replace(/,/g, ''));
+  if(/k/i.test(m[2])) n *= 1e3; else if(/m/i.test(m[2])) n *= 1e6;
+  return n;
+}
+function inBucket(t){
+  if(!folBuckets.length) return true;
+  var n = lineFollowers(t); if(n === null) return false;
+  return folBuckets.some(function(b){
+    var r = b.split('-'), lo = +r[0], hi = r[1] === '' ? Infinity : +r[1];
+    return n >= lo && n < hi;
+  });
+}
+function applyFilter(){
+  computeMultiBrand();
+  document.querySelectorAll('#brands-tbody tr').forEach(function(tr){
+    flagMultiBrand(tr);
+    var id = tr.id.replace('brow-','');
+    var item = fbData[id];
+    var show;
+    if(!filterCountry || !item){
+      show = true;
+    } else if(filterCountry === 'EU'){
+      show = EU_COUNTRIES.indexOf((item.origin||'').trim()) >= 0;
+    } else {
+      show = (item.origin||'').trim() === filterCountry.trim();
+    }
+    // Tagged-people search: keep only the matching accounts (in Tagged, Gender and Relevant), hide brands with none
+    recolorHandles(tr);
+    var lines = tr.querySelectorAll('.tag-line');
+    var hit = {};
+    lines.forEach(function(el){
+      if(el.closest('td') && el.closest('td').querySelector('.link-disp') && el.parentNode.classList.contains('link-disp')){
+        if((!tagQuery || el.textContent.toLowerCase().indexOf(tagQuery) >= 0) && inBucket(el.textContent)) hit[el.dataset.h || ('#'+el.textContent)] = 1;
+      }
+    });
+    lines.forEach(function(el){ var on = (!tagQuery && !folBuckets.length) || hit[el.dataset.h || ('#'+el.textContent)]; el.style.display = on ? (el.parentNode.classList.contains('link-disp') ? 'block' : 'flex') : 'none'; });
+    if((tagQuery || folBuckets.length) && !Object.keys(hit).length) show = false;
+    tr.style.display = show ? '' : 'none';
+  });
+  renumberRows();
+  renderPeopleStats();
+  requestAnimationFrame(resizeAllTextareas);
+}
+
+function renderFilter(){
+  var bar = document.getElementById('filter-bar');
+  if(!bar) return;
+  var origins = {};
+  Object.keys(fbData).forEach(function(id){
+    var o = (fbData[id].origin||'').trim();
+    if(o) origins[o] = true;
+  });
+  bar.querySelectorAll('[data-country]:not([data-country=""])').forEach(function(b){ b.remove(); });
+
+  var allOrigins = Object.keys(origins);
+  var euInData   = allOrigins.filter(function(o){ return EU_COUNTRIES.indexOf(o) >= 0; }).sort();
+  var otherInData = allOrigins.filter(function(o){ return EU_COUNTRIES.indexOf(o) < 0 && o !== 'Canada' && US_PIN.indexOf(o) < 0; });
+  otherInData.sort(function(a,b){
+    var ai = NON_EU_ORDER.indexOf(a), bi = NON_EU_ORDER.indexOf(b);
+    if(ai>=0 && bi>=0) return ai-bi;
+    if(ai>=0) return -1;
+    if(bi>=0) return 1;
+    return a.localeCompare(b);
+  });
+
+  function addBtn(country, extraClass){
+    var btn = document.createElement('button');
+    btn.className = 'filter-btn'+(extraClass?' '+extraClass:'')+(filterCountry===country?' active':'');
+    btn.dataset.country = country;
+    var count = country === 'EU'
+      ? Object.keys(fbData).filter(function(id){ return fbData[id] && EU_COUNTRIES.indexOf((fbData[id].origin||'').trim()) >= 0; }).length
+      : Object.keys(fbData).filter(function(id){ return fbData[id] && (fbData[id].origin||'').trim() === country; }).length;
+    btn.innerHTML = country + '<span class="filter-count">(' + count + ')</span>';
+    (function(c){ btn.onclick = function(){ setFilter(c); }; })(country);
+    bar.appendChild(btn);
+  }
+
+  // Order: US → Canada → others (Russia first, then alpha) → EU group + EU countries last
+  US_PIN.forEach(function(o){ if(origins[o]) addBtn(o); });
+  if(origins['Canada']) addBtn('Canada');
+  otherInData.forEach(function(o){ addBtn(o); });
+  if(euInData.length > 0){
+    var brk = document.createElement('div');
+    brk.className = 'filter-break';
+    brk.dataset.country = '__break';
+    bar.appendChild(brk);
+    addBtn('EU', 'eu-group');
+    euInData.forEach(function(o){ addBtn(o); });
+  }
+}
+
+var firstRenderDone = false;
+function renderAll(fid){
+  var tbody = document.getElementById('brands-tbody');
+  if(!tbody) return;
+  tbody.innerHTML = '';
+  // Sort: examples first, then by country rank (US→Canada→EU alpha→others), then brand name
+  var sorted = fbOrder.slice().sort(function(a,b){
+    var ae = fbData[a] && fbData[a].isExample ? 1 : 0;
+    var be = fbData[b] && fbData[b].isExample ? 1 : 0;
+    if(ae !== be) return be - ae;
+    var oa = ((fbData[a]&&fbData[a].origin)||'').trim();
+    var ob = ((fbData[b]&&fbData[b].origin)||'').trim();
+    var ra = originRank(oa), rb = originRank(ob);
+    if(ra !== rb) return ra - rb;
+    if(oa !== ob) return oa.localeCompare(ob); // within EU: alphabetical by country
+    var sa = fbData[a] && fbData[a].sortRank, sb = fbData[b] && fbData[b].sortRank;
+    if(sa && sb && sa !== sb) return sa - sb;  // explicit research order within a tag
+    if(sa && !sb) return -1;
+    if(!sa && sb) return 1;
+    var na = ((fbData[a]&&fbData[a].name)||'').toLowerCase();
+    var nb = ((fbData[b]&&fbData[b].name)||'').toLowerCase();
+    return na.localeCompare(nb);
+  });
+  sorted = sorted.filter(inScope);
+  sorted.forEach(function(id, i){
+    if(fbData[id] !== undefined) tbody.appendChild(buildRow(id, i+1));
+  });
+  updateCount();
+  renderFilter();
+  applyFilter();
+  renderDashboard();
+  requestAnimationFrame(function(){
+    resizeAllTextareas();
+    if(!firstRenderDone){
+      firstRenderDone = true;
+      window.scrollTo(0, 0);
+      document.documentElement.classList.remove('tf-loading');
+    }
+  });
+  if(fid){
+    var el = document.getElementById(fid);
+    if(el){ el.focus(); if(el.setSelectionRange) el.setSelectionRange(el.value.length, el.value.length); }
+  }
+}
+
+function renderRow(id, fid){
+  var item = fbData[id];
+  if(!item) return;
+  FIELDS.forEach(function(fc){
+    var inp = document.getElementById('inp-'+fc.key+'-'+id);
+    if(inp && document.activeElement !== inp){
+      inp.value = item[fc.key] || '';
+      inp.classList.toggle('has-text', !!(item[fc.key] && item[fc.key].length > 0));
+      autoResize(inp);
+    }
+    if(fc.key === 'url'){
+      var link = document.getElementById('url-link-'+id);
+      if(link){ link.href = item.url||'#'; link.style.display = item.url ? 'inline' : 'none'; }
+      var tEl = document.getElementById('ltext-url-'+id);
+      if(tEl){ var c=cleanUrl(item.url||''); tEl.textContent=c||'Add link…'; tEl.className='link-disp-text'+(c?'':' empty'); if(item.url){tEl.href=item.url;tEl.target='_blank';}else{tEl.removeAttribute('href');} }
+    }
+    if(fc.key === 'telegram'){
+      var tgl = document.getElementById('tg-link-'+id);
+      if(tgl){ tgl.href = item.telegram||'#'; tgl.style.display = item.telegram ? 'inline' : 'none'; }
+      var tElT = document.getElementById('ltext-telegram-'+id);
+      if(tElT){ var ct=cleanTelegram(item.telegram||''); tElT.textContent=ct||'Add link…'; tElT.className='link-disp-text'+(ct?'':' empty'); if(item.telegram){tElT.href=item.telegram;tElT.target='_blank';}else{tElT.removeAttribute('href');} }
+    }
+    if(fc.key === 'instagram'){
+      var iglink = document.getElementById('ig-link-'+id);
+      if(iglink){ iglink.href = item.instagram||'#'; iglink.style.display = item.instagram ? 'inline' : 'none'; }
+      var tElI = document.getElementById('ltext-instagram-'+id);
+      if(tElI){ var ci=cleanInstagram(item.instagram||''); tElI.textContent=ci||'Add link…'; tElI.className='link-disp-text'+(ci?'':' empty'); if(item.instagram){tElI.href=item.instagram;tElI.target='_blank';}else{tElI.removeAttribute('href');} }
+      var fEl = document.getElementById('inp-followers-'+id);
+      if(fEl && document.activeElement !== fEl){
+        fEl.value = item.followers || '';
+        fEl.classList.toggle('has-text', !!(item.followers && item.followers.length > 0));
+      }
+    }
+  });
+  // Update contact fields (not in FIELDS loop)
+  ['contactEmail','linkedinContacts'].forEach(function(field){
+    var inp = document.getElementById('inp-'+field+'-'+id);
+    if(inp && document.activeElement !== inp){
+      inp.value = item[field] || '';
+      inp.classList.toggle('has-text', !!(item[field] && item[field].length > 0));
+      autoResize(inp);
+    }
+    // Refresh clickable display
+    var dispEl = document.getElementById((field==='linkedinContacts'?'li-disp-':field==='tagged'?'tag-disp-':'email-disp-')+id);
+    if(dispEl && document.activeElement !== inp){
+      if(field==='linkedinContacts') renderLinkedinDisplay(dispEl, item[field]||'');
+      else if(field==='tagged') renderTaggedDisplay(dispEl, item[field]||'');
+      else renderEmailDisplay(dispEl, item[field]||'');
+    }
+  });
+
+  updateVoteButtons(id);
+  renderFilter();
+  applyFilter();
+  if(fid){
+    var el = document.getElementById(fid);
+    if(el){ el.focus(); if(el.setSelectionRange) el.setSelectionRange(el.value.length, el.value.length); }
+  }
+}
+
+function updateVoteButtons(id){
+  var item = fbData[id];
+  if(!item) return;
+  var vconf = [{k:'va',cls:'va',lbl:'A'},{k:'vx',cls:'vx',lbl:'X'},{k:'vc',cls:'vc',lbl:'C'},{k:'vm',cls:'vm',lbl:'M'},{k:'vl',cls:'vl',lbl:'AI'}];
+  var total = 0;
+  vconf.forEach(function(v){
+    var btn = document.getElementById('vbtn-'+v.k+'-'+id);
+    if(btn){
+      btn.className = 'vote-btn'+(item[v.k] ? ' '+v.cls : '');
+      if(item[v.k]) total++;
+    }
+  });
+  var cnt = document.getElementById('vcnt-'+id);
+  if(cnt) cnt.textContent = total > 0 ? total : '';
+  renderDashboard();
+}
+
+function buildRow(id, num){
+  var item = fbData[id] || blankItem();
+  var tr = document.createElement('tr');
+  tr.id = 'brow-'+id;
+  if(item.isExample) tr.className = 'example-row';
+
+  // # cell
+  var tdNum = document.createElement('td');
+  tdNum.className = 'row-num';
+  tdNum.id = 'rnum-'+id;
+  tdNum.textContent = num;
+  tr.appendChild(tdNum);
+
+  // Field cells
+  var tdTelegram = null;
+  FIELDS.forEach(function(fc){
+    var td = document.createElement('td');
+    td.style.minWidth = fc.w;
+
+    if(fc.key === 'name' && item.isExample){
+      var wrap = document.createElement('div');
+      wrap.className = 'name-wrap';
+      wrap.appendChild(makeInput(id, fc.key, item[fc.key], fc.ph));
+      var badge = document.createElement('span');
+      badge.className = 'example-badge';
+      badge.textContent = 'Example';
+      wrap.appendChild(badge);
+      td.appendChild(wrap);
+    } else if(fc.key === 'name' && /^competitor/i.test(item.whyRelevant||'')){
+      td.appendChild(makeInput(id, fc.key, item[fc.key], fc.ph));
+      var comp = document.createElement('div');
+      comp.style.cssText = 'color:var(--tf);font-weight:700;font-size:13px;padding:0 8px 6px';
+      comp.textContent = item.whyRelevant;
+      td.appendChild(comp);
+    } else if(fc.key === 'url'){
+      td.appendChild(makeLinkCell(id, 'url', item.url, 'url-link-'+id, cleanUrl, 'Open URL'));
+    } else if(fc.key === 'instagram'){
+      td.appendChild(makeLinkCell(id, 'instagram', item.instagram, 'ig-link-'+id, cleanInstagram, 'Open Instagram'));
+      td.appendChild(makeFollowersInput(id, item.followers));
+    } else if(fc.key === 'telegram'){
+      td.appendChild(makeLinkCell(id, 'telegram', item.telegram, 'tg-link-'+id, cleanTelegram, 'Open Telegram'));
+    } else {
+      td.appendChild(makeInput(id, fc.key, item[fc.key], fc.ph));
+    }
+    if(fc.key === 'telegram'){ tdTelegram = td; return; }
+    tr.appendChild(td);
+    if(fc.key === 'instagram'){
+      // Tagged people cell: accounts credited in the brand's posts
+      var tdTagged = document.createElement('td');
+      tdTagged.style.minWidth = '260px';
+      tdTagged.appendChild(makeTaggedCell(id, item.tagged));
+      tr.appendChild(tdTagged);
+      // Gender: Man / Woman per tagged account
+      var tdGen = document.createElement('td');
+      tdGen.style.minWidth = '110px';
+      tdGen.appendChild(makeGenderCell(id, item));
+      tr.appendChild(tdGen);
+      // Relevant to contact: tick boxes per tagged account for A (Alena), C (Chris), M (Maria), AX (Alex)
+      var tdRel = document.createElement('td');
+      tdRel.style.minWidth = '270px';
+      tdRel.appendChild(makeRelevantCell(id, item));
+      tr.appendChild(tdRel);
+      // Creator email per tagged account
+      var tdCem = document.createElement('td');
+      tdCem.style.minWidth = '260px';
+      tdCem.appendChild(makeCreatorEmailCell(id, item));
+      tr.appendChild(tdCem);
+      // Contact email cell
+      var tdEmail = document.createElement('td');
+      tdEmail.style.minWidth = '150px';
+      tdEmail.appendChild(makeEmailCell(id, item.contactEmail));
+      tr.appendChild(tdEmail);
+    }
+  });
+
+  // LinkedIn cell
+  var tdLinkedin = document.createElement('td');
+  tdLinkedin.style.minWidth = '200px';
+  tdLinkedin.appendChild(makeLinkedinCell(id, item.linkedinContacts));
+  tr.appendChild(tdLinkedin);
+
+  // Telegram cell (last data column)
+  // Telegram column is not shown on this page
+
+  // Delete cell
+  var tdDel = document.createElement('td');
+  tdDel.style.width = '36px';
+  tdDel.style.textAlign = 'center';
+  tdDel.style.verticalAlign = 'middle';
+  var delBtn = document.createElement('button');
+  delBtn.className = 'del-btn';
+  delBtn.title = 'Remove brand';
+  delBtn.textContent = '×';
+  (function(cId){
+    delBtn.onclick = function(){
+      if(confirm('Remove this brand from the list?')) deleteRow(cId);
+    };
+  })(id);
+  tdDel.appendChild(delBtn);
+  tr.appendChild(tdDel);
+
+  return tr;
+}
+
+function autoResize(ta){
+  ta.style.height = 'auto';
+  ta.style.height = ta.scrollHeight + 'px';
+}
+
+function makeInput(id, field, value, placeholder){
+  var inp = document.createElement('textarea');
+  inp.rows = 1;
+  inp.className = 'cell-inp'+(field==='name' ? ' brand-field' : '')+(value ? ' has-text' : '');
+  inp.id = 'inp-'+field+'-'+id;
+  inp.value = value || '';
+  inp.placeholder = placeholder;
+  inp.autocomplete = 'off';
+  inp.spellcheck = false;
+  (function(cId, cField){
+    inp.addEventListener('input', function(){ autoResize(inp); updateField(cId, cField, inp.value); });
+  })(id, field);
+  return inp;
+}
+
+function renumberRows(){
+  document.querySelectorAll('#brands-tbody tr').forEach(function(tr, i){
+    var numCell = tr.querySelector('.row-num');
+    if(numCell) numCell.textContent = i+1;
+  });
+}
+
+function updateCount(){
+  var n = Object.keys(fbData).filter(function(id){ return inScope(id) && fbData[id].name; }).length;
+  var el = document.getElementById('count-bar');
+  if(el) el.textContent = 'New York based brands - ' + n;
+}
+
+// ── Voter selector ────────────────────────────────────────────────────────────
+function setVoter(name){
+  currentVoter = name;
+  document.querySelectorAll('.voter-btn').forEach(function(b){
+    b.classList.toggle('active', b.dataset.voter === name);
+  });
+  var st = document.getElementById('voter-status');
+  if(st){ st.textContent = 'Voting as '+name.charAt(0).toUpperCase()+name.slice(1); st.className = 'voter-status ready'; }
+}
+
+// ── Dashboard ─────────────────────────────────────────────────────────────────
+function escHtml(s){
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function renderDashboard(){
+  var panel = document.getElementById('vote-dashboard');
+  if(!panel) return;
+
+  var vconf = [{k:'va',cls:'va',lbl:'A'},{k:'vx',cls:'vx',lbl:'X'},{k:'vc',cls:'vc',lbl:'C'},{k:'vm',cls:'vm',lbl:'M'},{k:'vl',cls:'vl',lbl:'AI'}];
+  var vtitles = {va:'Alena',vx:'Alex',vc:'Chris',vm:'Maxim',vl:'Claude'};
+
+  var voted = Object.keys(fbData).filter(inScope).filter(function(id){
+    var item = fbData[id];
+    return item && item.name && vconf.some(function(v){ return item[v.k]; });
+  });
+
+  if(voted.length === 0){
+    panel.innerHTML = '<div class="vote-dashboard-hd">Leaderboard <span class="vote-dashboard-hd-sub">top 6 highlighted</span></div><div class="dash-empty">No votes yet — select your name above and click vote buttons on brands below.</div>';
+    return;
+  }
+
+  voted.sort(function(a, b){
+    var ta = vconf.filter(function(v){ return fbData[a][v.k]; }).length;
+    var tb = vconf.filter(function(v){ return fbData[b][v.k]; }).length;
+    if(ta !== tb) return tb - ta;
+    return (fbData[a].name||'').localeCompare(fbData[b].name||'');
+  });
+
+  var html = '<div class="vote-dashboard-hd">Leaderboard <span class="vote-dashboard-hd-sub">top 6 highlighted</span></div>';
+  html += '<div class="dash-cols dash-header"><span class="dash-header-cell">#</span><span class="dash-header-cell">Brand</span><span class="dash-header-cell">Website</span><span class="dash-header-cell">Instagram</span><span class="dash-header-cell">Origin</span><span class="dash-header-cell">Votes</span><span class="dash-header-cell right">Count</span></div>';
+  html += '<div class="dash-grid">';
+
+  voted.forEach(function(id, i){
+    var item = fbData[id];
+    var rank = i + 1;
+    var isTop = rank <= 6;
+    var total = vconf.filter(function(v){ return item[v.k]; }).length;
+    var dots = vconf.map(function(v){
+      if(item[v.k]) return '<span class="dash-dot dash-dot-'+v.cls+'" title="'+vtitles[v.k]+'">'+v.lbl+'</span>';
+      return '<span class="dash-dot dash-dot-empty"></span>';
+    }).join('');
+
+    var urlHost = item.url ? (function(u){ try{ return new URL(u).hostname.replace(/^www\./,''); }catch(e){ return u.replace(/^https?:\/\/(www\.)?/,'').split('/')[0]||u; } })(item.url) : '';
+    var igHandle = item.instagram ? (function(u){ var m=u.match(/instagram\.com\/([^\/\?#]+)/); return m?'@'+m[1].replace(/\/+$/,''):u.replace(/^https?:\/\/(www\.)?/,''); })(item.instagram) : '';
+    var webCell = item.url ? '<a class="dash-web" href="'+escHtml(item.url)+'" target="_blank" rel="noopener">'+escHtml(urlHost)+'</a>' : '<span class="dash-link-empty">—</span>';
+    var igCell  = item.instagram ? '<a class="dash-ig" href="'+escHtml(item.instagram)+'" target="_blank" rel="noopener">'+escHtml(igHandle)+'</a>' : '<span class="dash-link-empty">—</span>';
+
+    html += '<div class="dash-row'+(isTop?' dash-top6':'')+'"><div class="dash-cols">'+
+      '<span class="dash-rank'+(isTop?' dash-rank-top':'')+'">'+rank+'</span>'+
+      '<span class="dash-name">'+escHtml(item.name)+'</span>'+
+      '<span>'+webCell+'</span>'+
+      '<span>'+igCell+'</span>'+
+      '<span class="dash-origin">'+escHtml(item.origin||'')+'</span>'+
+      '<span class="dash-voters">'+dots+'</span>'+
+      '<span class="dash-count">'+total+'</span>'+
+    '</div></div>';
+  });
+  html += '</div>';
+  panel.innerHTML = html;
+}
+
+function setSyncStatus(state){
+  var dot   = document.getElementById('sync-dot');
+  var label = document.getElementById('sync-label');
+  if(!dot || !label) return;
+  dot.className = 'sync-dot';
+  if(state==='live'){ dot.classList.add('live'); label.textContent = 'Live'; }
+  else if(state==='err'){ dot.classList.add('err'); label.textContent = 'Offline'; }
+  else { label.textContent = 'Connecting…'; }
+}
+
+init();
+</script>
+</body>
+</html>

@@ -957,6 +957,10 @@ function renderFilter(){
     var o = (fbData[id].origin||'').trim();
     if(o) origins[o] = true;
   });
+  // Skip the rebuild when nothing changed: recreating buttons on every live update swallowed clicks
+  var sig = JSON.stringify(Object.keys(fbData).map(function(id){ return fbData[id] ? (fbData[id].origin||'').trim() : ''; }).sort()) + '|' + filterCountry;
+  if(sig === renderFilter.lastSig && bar.querySelector('[data-country]:not([data-country=""])')) return;
+  renderFilter.lastSig = sig;
   bar.querySelectorAll('[data-country]:not([data-country=""])').forEach(function(b){ b.remove(); });
 
   var allOrigins = Object.keys(origins);
