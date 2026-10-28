@@ -1304,6 +1304,12 @@ function buildRow(id, num){
       badge.textContent = 'Example';
       wrap.appendChild(badge);
       td.appendChild(wrap);
+    } else if(fc.key === 'name' && /^competitor/i.test(item.whyRelevant||'')){
+      td.appendChild(makeInput(id, fc.key, item[fc.key], fc.ph));
+      var comp = document.createElement('div');
+      comp.style.cssText = 'color:var(--tf);font-weight:700;font-size:13px;padding:0 8px 6px';
+      comp.textContent = item.whyRelevant;
+      td.appendChild(comp);
     } else if(fc.key === 'url'){
       td.appendChild(makeLinkCell(id, 'url', item.url, 'url-link-'+id, cleanUrl, 'Open URL'));
     } else if(fc.key === 'instagram'){
