@@ -6,106 +6,188 @@
 <meta name="robots" content="noindex, nofollow"/>
 <title>Brands &amp; Influencers</title>
 <link rel="icon" type="image/svg+xml" href="smthg_favicon.svg"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--tf:#E8002D;--off-white:#F8F6F2;--ink:#161616;--sub:#5C5A56;--rule:#E6E2DA}
-body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink);min-height:100vh;font-size:15px;line-height:1.55}
-a{color:var(--tf);text-decoration:none}
-a:hover{text-decoration:underline}
-.wrap{max-width:1240px;margin:0 auto;padding:40px 48px 80px}
-@media(max-width:700px){.wrap{padding:24px 16px 60px}}
-.page-hd{margin-bottom:28px}
-.page-hd h1{font-size:30px;font-weight:800;margin-bottom:8px}
-.meta{font-size:13px;color:var(--sub)}
-.sec{margin-top:40px}
-.sec h2{font-size:22px;font-weight:800;padding-bottom:8px;border-bottom:3px solid var(--tf);margin-bottom:16px}
-.sec-num{color:var(--tf);margin-right:12px}
-.box{background:white;border:1px solid var(--rule);padding:20px 24px}
-.box ul{padding-left:20px}
-.box li{margin:6px 0}
-.facts{width:100%;border-collapse:collapse;background:white;border:1px solid var(--rule);border-top:3px solid var(--tf)}
-.facts th{width:220px;text-align:left;font-weight:700;padding:10px 16px;border-bottom:1px solid var(--rule);vertical-align:top;white-space:nowrap}
-.facts td{padding:10px 16px;border-bottom:1px solid var(--rule);vertical-align:top}
-@media(max-width:700px){.facts th{width:auto;white-space:normal}}
-.tbl-wrap{background:white;border:1px solid var(--rule);border-top:3px solid var(--tf);overflow-x:auto;-webkit-overflow-scrolling:touch}
-.cr-tbl{width:100%;border-collapse:collapse;font-size:14px;min-width:760px}
-.cr-tbl th{padding:10px 14px;border-bottom:2px solid var(--rule);text-align:left;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;white-space:nowrap}
-.cr-tbl td{padding:8px 14px;border-bottom:1px solid var(--rule);vertical-align:middle;white-space:nowrap}
-.cr-tbl select{font-size:14px;font-family:inherit;color:var(--ink);border:1px solid var(--rule);border-radius:4px;background:#fff;padding:2px 4px;cursor:pointer}
-.ticks{display:flex;gap:12px}
-.ticks label{display:flex;align-items:center;gap:3px;color:var(--sub);cursor:pointer}
-.ticks input{accent-color:var(--tf);margin:0;cursor:pointer}
-.sync-dot{width:8px;height:8px;border-radius:50%;background:#ccc;display:inline-block;margin-right:6px}
-.sync-dot.live{background:#22c55e}
-.sync-dot.err{background:#ef4444}
-.back-to-top{position:fixed;right:24px;bottom:24px;width:44px;height:44px;border-radius:50%;background:var(--tf);color:white;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:20px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:100}
-.back-to-top.show{opacity:1;pointer-events:auto}
-.back-to-top:hover{text-decoration:none}
-@media(max-width:700px){.back-to-top{width:36px;height:36px;right:14px;bottom:14px;font-size:16px}}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
-@media(max-width:1000px){.grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.grid{grid-template-columns:1fr}}
-.card{background:white;border-top:3px solid var(--ink);padding:28px 26px 24px;min-height:180px;transition:border-top-color .2s}
-.card:hover{border-top-color:var(--tf)}
-.card-num{font-size:13px;font-weight:800;letter-spacing:2px;color:var(--tf);margin-bottom:12px}
-.card-title{font-size:20px;font-weight:800;margin-bottom:14px}
-.card-links{border-top:1px solid var(--rule);padding-top:12px;display:flex;flex-direction:column;gap:10px}
-.row{font-size:15px;font-weight:600}
-.row a{color:var(--ink)}
-.row a:hover{color:var(--tf);text-decoration:none}
-.sublabel{font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;margin-top:8px;padding-top:12px;border-top:1px solid var(--rule)}
-.sublabel.first{margin-top:0;padding-top:0;border-top:none}
-.sep{color:var(--sub);margin:0 8px;font-weight:400}
+:root{
+  --red:#E8002D;
+  --red-dark:#C0001F;
+  --black:#0A0A0A;
+  --white:#FFFFFF;
+  --off:#F7F7F7;
+  --mid:#888888;
+  --sub:#555555;
+  --border:#E5E5E5;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--off);color:var(--black);min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+
+/* ── TOP NAV ── */
+.topnav{
+  background:var(--white);border-bottom:1px solid var(--border);
+  padding:12px 52px;min-height:56px;
+  display:flex;align-items:center;flex-wrap:wrap;
+  position:sticky;top:0;z-index:100;font-family:'Inter',sans-serif;
+  gap:28px;row-gap:8px;
+}
+.topnav-home{font-size:17px;font-weight:900;letter-spacing:-0.5px;color:var(--black);text-decoration:none;line-height:1;flex-shrink:0}
+.topnav-home .dot{color:var(--red)}
+.topnav-home:hover{color:var(--red)}
+.topnav-links{display:flex;gap:14px;row-gap:6px;align-items:center;flex-wrap:wrap;min-width:0}
+.topnav-links a{display:flex;align-items:center;gap:5px;font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--mid);text-decoration:none;transition:color .15s;white-space:nowrap;flex-shrink:0}
+.topnav-links a:hover{color:var(--black)}
+.topnav-links a.active{color:var(--red)}
+.topnav-links a .num{color:var(--red);font-weight:800}
+@media(max-width:700px){
+  .topnav{position:static;padding:10px 18px;height:auto}
+  .topnav-links{gap:12px}
+  .topnav-links a{font-size:9.5px}
+}
+
+/* ── HEADER ── */
+header{background:var(--off);border-bottom:1px solid var(--border);padding:24px 52px 20px}
+.header-inner{max-width:1200px;margin:0 auto}
+.eyebrow{font-size:10px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:6px;display:block}
+.logo{font-size:clamp(26px,3.2vw,40px);font-weight:900;letter-spacing:-1.2px;line-height:1;color:var(--black);margin-bottom:4px}
+.logo .dot{color:var(--red)}
+.tagline{font-size:11px;font-weight:800;letter-spacing:5px;text-transform:uppercase;color:rgba(0,0,0,.32)}
+
+/* ── MAIN GRID ── */
+main{flex:1;padding:48px 52px 80px}
+.grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+
+/* ── CARDS ── */
+.card{
+  background:var(--white);
+  border-top:3px solid var(--black);
+  padding:32px 28px 28px;
+  color:var(--black);
+  display:flex;flex-direction:column;
+  min-height:200px;
+  transition:border-top-color .2s;
+}
+.card:hover{border-top-color:var(--red)}
+.card-num{font-size:10px;font-weight:800;letter-spacing:2px;color:var(--red);margin-bottom:18px}
+.card-title{font-size:17px;font-weight:800;line-height:1.2;color:var(--black);letter-spacing:-.3px;margin-bottom:10px}
+.card-links{margin-top:14px;display:flex;flex-direction:column;gap:6px;padding-top:14px;border-top:1px solid var(--border)}
+.card-link{font-size:12.5px;font-weight:600;color:var(--black);text-decoration:none;line-height:1.4;transition:color .15s}
+.card-link:hover{color:var(--red)}
+.card-link.hi{color:var(--red)}
+.card-link.purple{color:#4B2E83}
+.card-link.purple:hover{color:#341F5C}
+.card-sublabel{font-size:9.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--black);margin-top:12px;padding-top:12px;border-top:1px solid var(--border)}
+.tc-group{font-size:9.5px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:var(--mid);margin-top:10px}
+.card-link.tc-missing{color:var(--mid);cursor:default;text-decoration:none}
+
+/* ── ARCHIVED PAGES ── */
+.archive-section{background:#EDEDED;border-top:1px solid var(--border);padding:40px 52px}
+.archive-section-inner{max-width:1200px;margin:0 auto}
+.archive-label{font-size:10px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--mid);margin-bottom:20px}
+.card.archived{background:#E2E2E2;border-top-color:var(--mid)}
+.card.archived .card-num{color:var(--mid)}
+.card.archived .card-links{border-top-color:#CFCFCF}
+
+/* ── FOOTER ── */
+footer{background:var(--white);border-top:1px solid var(--border);padding:22px 52px;display:flex;justify-content:space-between;align-items:center}
+.footer-logo{font-size:14px;font-weight:900;letter-spacing:-.5px;color:var(--black)}
+.footer-logo .dot{color:var(--red)}
+.footer-note{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mid)}
+
+/* ── BACK TO TOP ── */
+#back-to-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--red);color:var(--white);border:none;border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900;transition:background .15s}
+#back-to-top:hover{background:var(--red-dark)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1000px){
+  header{padding:20px 24px 18px}
+  main{padding:24px 24px 60px}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .archive-section{padding:28px 24px}
+}
+@media(max-width:600px){
+  header{padding:16px 18px 14px}
+  main{padding:18px 18px 48px}
+  footer{padding:16px 18px;flex-direction:column;gap:8px;text-align:center}
+  .grid{grid-template-columns:1fr}
+  .card{padding:24px 20px}
+  .card-title{font-size:15px}
+  .archive-section{padding:20px 18px}
+}
 </style>
 </head>
 <body>
-<div class="wrap">
 
-  <div class="page-hd">
-    <h1>Brands &amp; Influencers</h1>
-    <p class="meta">Created: 30 October 2026 · Last updated: 30 October 2026</p>
+<header>
+  <div class="header-inner">
+    <div class="logo">smthg<span class="dot">.</span></div>
+    <div class="tagline">Brands &amp; Influencers</div>
+    <div style="font-size:12px;color:var(--sub);margin-top:10px">Created: 30 October 2026 · Last updated: 30 October 2026</div>
   </div>
+</header>
 
-
+<main>
   <div class="grid">
+
     <div class="card">
       <div class="card-num">01</div>
-      <div class="card-title">MVP Brand pages</div>
+      <div class="card-title">SMTHG MVP Brand pages</div>
       <div class="card-links">
-        <div class="sublabel first">Confirmed</div>
-        <div class="row"><a href="smthg_brand_chintamani.html">Chintamani Alchemistry – Polina</a></div>
-        <div class="row"><a href="smthg_brand_lamagnetique.html">La Magnetique – Katerina and Alexander</a></div>
-        <div class="row"><a href="smthg_brand_egosystema.html">EGOSYSTEMA – Anastasia</a></div>
-        <div class="sublabel">In progress</div>
-        <div class="row"><a href="smthg_brand_sofico.html">Sofi&amp;Co Family – Sofi</a></div>
+        <div class="card-sublabel" style="margin-top:0;padding-top:0;border-top:none">Confirmed</div>
+        <a class="card-link" href="smthg_brand_chintamani.html">Chintamani Alchemistry – Polina</a>
+        <a class="card-link" href="smthg_brand_lamagnetique.html">La Magnetique – Katerina and Alexander</a>
+        <a class="card-link" href="smthg_brand_egosystema.html">EGOSYSTEMA – Anastasia</a>
+        <div class="card-sublabel">In progress</div>
+        <a class="card-link" href="smthg_brand_sofico.html">Sofi&amp;Co Family – Sofi</a>
       </div>
     </div>
+
     <div class="card">
       <div class="card-num">02</div>
-      <div class="card-title">Brands</div>
+      <div class="card-title">SMTHG Brands</div>
       <div class="card-links">
-        <div class="row"><a href="TFsmthgbrands_la.html">MVP Brand Candidates — Los Angeles</a></div>
-        <div class="row"><a href="TFsmthgbrands_ny.html">MVP Brand Candidates — New York</a></div>
-        <div class="row"><a href="TFsmthgbrands_miami.html">MVP Brand Candidates — Miami</a><span class="sep">–</span><a href="https://app.notion.com/p/smthg-us/3fe8b826854a80da8fd6f85acc966360" target="_blank" rel="noopener">CRM Miami Brands</a></div>
-        <div class="row"><a href="https://app.notion.com/p/smthg-us/bbcc0902bd6544d3b9336839cc8eb6ce" target="_blank" rel="noopener">CRM US Brands</a></div>
+        <a class="card-link" href="TFsmthgbrands_la.html">MVP Brand Candidates — Los Angeles</a>
+        <a class="card-link" href="TFsmthgbrands_ny.html">MVP Brand Candidates — New York</a>
+        <a class="card-link" href="TFsmthgbrands_miami.html">MVP Brand Candidates — Miami</a>
       </div>
     </div>
+
     <div class="card">
       <div class="card-num">03</div>
-      <div class="card-title">Influencers</div>
+      <div class="card-title">SMTHG CRM Brands</div>
       <div class="card-links">
-        <div class="row"><a href="TFinfluencers_miami.html">Influencers Miami</a><span class="sep">–</span><a href="https://app.notion.com/p/smthg-us/4008b826854a80a9913bf76305e81110" target="_blank" rel="noopener">CRM Influencers Miami</a></div>
-        <div class="row"><a href="https://app.notion.com/p/smthg-us/4078b826854a8060b942c2674a92ba99" target="_blank" rel="noopener">CRM Influencers New York</a></div>
-        <div class="row"><a href="https://app.notion.com/p/smthg-us/4078b826854a80d2a730d82585227c0f" target="_blank" rel="noopener">CRM Influencers LA</a></div>
+        <a class="card-link" href="https://app.notion.com/p/smthg-us/bbcc0902bd6544d3b9336839cc8eb6ce" target="_blank" rel="noopener">US Brands / Alena</a>
+        <a class="card-link" href="https://app.notion.com/p/smthg-us/3fe8b826854a80da8fd6f85acc966360" target="_blank" rel="noopener">Miami Brands / Alena</a>
       </div>
     </div>
-  </div>
 
-</div>
-<a href="#" class="back-to-top" id="btt" aria-label="Back to top">↑</a>
-<script>
-(function(){var b=document.getElementById('btt');window.addEventListener('scroll',function(){b.classList.toggle('show',window.scrollY>400)});b.addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'})})})();
-</script>
+    <div class="card">
+      <div class="card-num">04</div>
+      <div class="card-title">SMTHG Influencers</div>
+      <div class="card-links">
+        <a class="card-link" href="TFinfluencers_miami.html">Influencers — Miami</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-num">05</div>
+      <div class="card-title">SMTHG CRM Influencers</div>
+      <div class="card-links">
+        <a class="card-link" href="https://app.notion.com/p/smthg-us/4078b826854a80d2a730d82585227c0f" target="_blank" rel="noopener">Influencers LA</a>
+        <a class="card-link" href="https://app.notion.com/p/smthg-us/4078b826854a8060b942c2674a92ba99" target="_blank" rel="noopener">Influencers New York</a>
+        <a class="card-link" href="https://app.notion.com/p/smthg-us/4008b826854a80a9913bf76305e81110" target="_blank" rel="noopener">Influencers Miami</a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-logo">smthg<span class="dot">.</span></div>
+</footer>
+
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" title="Back to top">↑</button>
+
+<script>window.addEventListener('scroll',function(){var b=document.getElementById('back-to-top');b.style.display=window.scrollY>400?'flex':'none';});</script>
 </body>
 </html>
