@@ -43,9 +43,18 @@ a:hover{text-decoration:underline}
 .back-to-top.show{opacity:1;pointer-events:auto}
 .back-to-top:hover{text-decoration:none}
 @media(max-width:700px){.back-to-top{width:36px;height:36px;right:14px;bottom:14px;font-size:16px}}
-.lnks{display:flex;flex-direction:column;padding:8px 24px}
-.lnk{display:block;padding:10px 0;border-bottom:1px solid var(--rule);font-weight:600;font-size:16px}
-.lnk:last-child{border-bottom:none}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+@media(max-width:1000px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.grid{grid-template-columns:1fr}}
+.card{background:white;border-top:3px solid var(--ink);padding:28px 26px 24px;min-height:180px;transition:border-top-color .2s}
+.card:hover{border-top-color:var(--tf)}
+.card-num{font-size:13px;font-weight:800;letter-spacing:2px;color:var(--tf);margin-bottom:12px}
+.card-title{font-size:20px;font-weight:800;margin-bottom:14px}
+.card-links{border-top:1px solid var(--rule);padding-top:12px;display:flex;flex-direction:column;gap:10px}
+.row{font-size:15px;font-weight:600}
+.row a{color:var(--ink)}
+.row a:hover{color:var(--tf);text-decoration:none}
+.sep{color:var(--sub);margin:0 8px;font-weight:400}
 </style>
 </head>
 <body>
@@ -56,40 +65,48 @@ a:hover{text-decoration:underline}
     <p class="meta">Created: 30 October 2026 · Last updated: 30 October 2026</p>
   </div>
 
-  <div class="sec">
-    <h2><span class="sec-num">01</span>Brand pages</h2>
-    <div class="box lnks">
-      <a class="lnk" href="smthg_brand_chintamani.html">Chintamani Alchemistry – Polina →</a>
-      <a class="lnk" href="smthg_brand_lamagnetique.html">La Magnetique – Katerina and Alexander →</a>
-      <a class="lnk" href="smthg_brand_sofico.html">Sofi&amp;Co Family – Sofi →</a>
-      <a class="lnk" href="smthg_brand_egosystema.html">EGOSYSTEMA – Anastasia →</a>
-    </div>
-  </div>
 
-  <div class="sec">
-    <h2><span class="sec-num">02</span>Brand candidates by city</h2>
-    <div class="box lnks">
-      <a class="lnk" href="TFsmthgbrands_la.html">MVP Brand Candidates — Los Angeles →</a>
-      <a class="lnk" href="TFsmthgbrands_ny.html">MVP Brand Candidates — New York →</a>
-      <a class="lnk" href="TFsmthgbrands_miami.html">MVP Brand Candidates — Miami →</a>
+  <div class="grid">
+    <div class="card">
+      <div class="card-num">01</div>
+      <div class="card-title">Brand pages</div>
+      <div class="card-links">
+        <div class="row"><a href="smthg_brand_chintamani.html">Chintamani Alchemistry – Polina</a></div>
+        <div class="row"><a href="smthg_brand_lamagnetique.html">La Magnetique – Katerina and Alexander</a></div>
+        <div class="row"><a href="smthg_brand_sofico.html">Sofi&amp;Co Family – Sofi</a></div>
+        <div class="row"><a href="smthg_brand_egosystema.html">EGOSYSTEMA – Anastasia</a></div>
+      </div>
     </div>
-  </div>
-
-  <div class="sec">
-    <h2><span class="sec-num">03</span>Influencers</h2>
-    <div class="box lnks">
-      <a class="lnk" href="TFinfluencers_miami.html">Influencers — Miami →</a>
+    <div class="card">
+      <div class="card-num">02</div>
+      <div class="card-title">Miami</div>
+      <div class="card-links">
+        <div class="row"><a href="TFsmthgbrands_miami.html">Brand Candidates Miami</a><span class="sep">–</span><a href="https://app.notion.com/p/smthg-us/3fe8b826854a80da8fd6f85acc966360" target="_blank" rel="noopener">CRM Miami Brands</a></div>
+        <div class="row"><a href="TFinfluencers_miami.html">Influencers Miami</a><span class="sep">–</span><a href="https://app.notion.com/p/smthg-us/4008b826854a80a9913bf76305e81110" target="_blank" rel="noopener">CRM Influencers Miami</a></div>
+      </div>
     </div>
-  </div>
-
-  <div class="sec">
-    <h2><span class="sec-num">04</span>CRM in Notion</h2>
-    <div class="box lnks">
-      <a class="lnk" href="https://app.notion.com/p/smthg-us/4078b826854a80d2a730d82585227c0f" target="_blank" rel="noopener">Influencers LA →</a>
-      <a class="lnk" href="https://app.notion.com/p/smthg-us/4078b826854a8060b942c2674a92ba99" target="_blank" rel="noopener">Influencers New York →</a>
-      <a class="lnk" href="https://app.notion.com/p/smthg-us/4008b826854a80a9913bf76305e81110" target="_blank" rel="noopener">Influencers Miami →</a>
-      <a class="lnk" href="https://app.notion.com/p/smthg-us/3fe8b826854a80da8fd6f85acc966360" target="_blank" rel="noopener">Miami Brands / Alena →</a>
-      <a class="lnk" href="https://app.notion.com/p/smthg-us/bbcc0902bd6544d3b9336839cc8eb6ce" target="_blank" rel="noopener">US Brands / Alena →</a>
+    <div class="card">
+      <div class="card-num">03</div>
+      <div class="card-title">New York</div>
+      <div class="card-links">
+        <div class="row"><a href="TFsmthgbrands_ny.html">Brand Candidates New York</a></div>
+        <div class="row"><a href="https://app.notion.com/p/smthg-us/4078b826854a8060b942c2674a92ba99" target="_blank" rel="noopener">CRM Influencers New York</a></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-num">04</div>
+      <div class="card-title">Los Angeles</div>
+      <div class="card-links">
+        <div class="row"><a href="TFsmthgbrands_la.html">Brand Candidates Los Angeles</a></div>
+        <div class="row"><a href="https://app.notion.com/p/smthg-us/4078b826854a80d2a730d82585227c0f" target="_blank" rel="noopener">CRM Influencers LA</a></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-num">05</div>
+      <div class="card-title">US</div>
+      <div class="card-links">
+        <div class="row"><a href="https://app.notion.com/p/smthg-us/bbcc0902bd6544d3b9336839cc8eb6ce" target="_blank" rel="noopener">CRM US Brands</a></div>
+      </div>
     </div>
   </div>
 
