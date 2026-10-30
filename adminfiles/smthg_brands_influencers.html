@@ -117,6 +117,12 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:22px 5
 /* page-specific: readable sizes, red group labels */
 .card-sublabel{color:var(--red)}
 .call-date{font-size:12.5px;color:var(--sub);margin-top:-3px;margin-bottom:4px}
+@media(max-width:600px){
+  .card-link{font-size:15px;display:block;padding:7px 0}
+  .call-date{font-size:13.5px;margin-top:-4px}
+  .card-sublabel{font-size:11px}
+  .tagline{font-size:11px;letter-spacing:3px}
+}
 </style>
 </head>
 <body>
@@ -163,7 +169,10 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:22px 5
       <div class="card-num">03</div>
       <div class="card-title">SMTHG <span style="color:var(--red)">CRM</span> Brands</div>
       <div class="card-links">
-        <a class="card-link" href="https://app.notion.com/p/smthg-us/3fe8b826854a80da8fd6f85acc966360" target="_blank" rel="noopener">Miami Brands / Alena →</a>
+        <div class="card-sublabel" style="margin-top:0;padding-top:0;border-top:none">MVP brand candidates &amp; their influencers</div>
+        <a class="card-link" href="https://app.notion.com/p/smthg-us/3fe8b826854a80da8fd6f85acc966360" target="_blank" rel="noopener">Miami →</a>
+        <div class="card-sublabel">Other influencers, not linked to brands</div>
+        <a class="card-link hi" href="https://app.notion.com/p/smthg-us/4098b826854a8068a75df64f4e527271?v=4898b826854a8278a56d08bfd73963be" target="_blank" rel="noopener">Miami →</a>
       </div>
     </div>
 
@@ -173,7 +182,7 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:22px 5
       <div class="card-title">SMTHG <span style="color:var(--red)">CRM</span> Influencers</div>
       <div class="card-links">
         <a class="card-link" href="https://app.notion.com/p/smthg-us/4078b826854a80d2a730d82585227c0f" target="_blank" rel="noopener">Influencers LA →</a>
-        <a class="card-link" href="https://app.notion.com/p/smthg-us/4078b826854a8060b942c2674a92ba99" target="_blank" rel="noopener">Influencers New York →</a>
+        <a class="card-link" href="https://app.notion.com/p/smthg-us/4078b826854a80afbb4ded078ad0a03f" target="_blank" rel="noopener">Influencers New York →</a>
         <a class="card-link" href="https://app.notion.com/p/smthg-us/4008b826854a80a9913bf76305e81110" target="_blank" rel="noopener">Influencers Miami →</a>
       </div>
     </div>
