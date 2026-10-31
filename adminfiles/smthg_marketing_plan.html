@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>SMTHG Marketing Plan</title>
+<link rel="icon" type="image/svg+xml" href="smthg_favicon.svg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --red:#E8002D;
+  --red-dark:#C0001F;
+  --black:#0A0A0A;
+  --white:#FFFFFF;
+  --off:#F7F7F7;
+  --mid:#888888;
+  --sub:#555555;
+  --border:#E5E5E5;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--off);color:var(--black);min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+
+/* ── TOP NAV ── */
+.topnav{
+  background:var(--white);border-bottom:1px solid var(--border);
+  padding:12px 52px;min-height:56px;
+  display:flex;align-items:center;flex-wrap:wrap;
+  position:sticky;top:0;z-index:100;font-family:'Inter',sans-serif;
+  gap:28px;row-gap:8px;
+}
+.topnav-home{font-size:17px;font-weight:900;letter-spacing:-0.5px;color:var(--black);text-decoration:none;line-height:1;flex-shrink:0}
+.topnav-home .dot{color:var(--red)}
+.topnav-home:hover{color:var(--red)}
+.topnav-links{display:flex;gap:14px;row-gap:6px;align-items:center;flex-wrap:wrap;min-width:0}
+.topnav-links a{display:flex;align-items:center;gap:5px;font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--mid);text-decoration:none;transition:color .15s;white-space:nowrap;flex-shrink:0}
+.topnav-links a:hover{color:var(--black)}
+.topnav-links a.active{color:var(--red)}
+.topnav-links a .num{color:var(--red);font-weight:800}
+@media(max-width:700px){
+  .topnav{position:static;padding:10px 18px;height:auto}
+  .topnav-links{gap:12px}
+  .topnav-links a{font-size:9.5px}
+}
+
+/* ── HEADER ── */
+header{background:var(--off);border-bottom:1px solid var(--border);padding:24px 52px 20px}
+.header-inner{max-width:1200px;margin:0 auto}
+.eyebrow{font-size:10px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:6px;display:block}
+.logo{font-size:clamp(26px,3.2vw,40px);font-weight:900;letter-spacing:-1.2px;line-height:1;color:var(--black);margin-bottom:4px}
+.logo .dot{color:var(--red)}
+.tagline{font-size:11px;font-weight:800;letter-spacing:5px;text-transform:uppercase;color:rgba(0,0,0,.32)}
+
+/* ── MAIN GRID ── */
+main{flex:1;padding:48px 52px 80px}
+.grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+
+/* ── CARDS ── */
+.card{
+  background:var(--white);
+  border-top:3px solid var(--black);
+  padding:32px 28px 28px;
+  color:var(--black);
+  display:flex;flex-direction:column;
+  min-height:200px;
+  transition:border-top-color .2s;
+}
+.card:hover{border-top-color:var(--red)}
+.card-num{font-size:10px;font-weight:800;letter-spacing:2px;color:var(--red);margin-bottom:18px}
+.card-title{font-size:17px;font-weight:800;line-height:1.2;color:var(--black);letter-spacing:-.3px;margin-bottom:10px}
+.card-links{margin-top:14px;display:flex;flex-direction:column;gap:6px;padding-top:14px;border-top:1px solid var(--border)}
+.card-link{font-size:12.5px;font-weight:600;color:var(--black);text-decoration:none;line-height:1.4;transition:color .15s}
+.card-link:hover{color:var(--red)}
+.card-link.hi{color:var(--red)}
+.card-link.purple{color:#4B2E83}
+.card-link.purple:hover{color:#341F5C}
+.card-sublabel{font-size:9.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--black);margin-top:12px;padding-top:12px;border-top:1px solid var(--border)}
+.tc-group{font-size:9.5px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:var(--mid);margin-top:10px}
+.card-link.tc-missing{color:var(--mid);cursor:default;text-decoration:none}
+
+/* ── ARCHIVED PAGES ── */
+.archive-section{background:#EDEDED;border-top:1px solid var(--border);padding:40px 52px}
+.archive-section-inner{max-width:1200px;margin:0 auto}
+.archive-label{font-size:10px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--mid);margin-bottom:20px}
+.card.archived{background:#E2E2E2;border-top-color:var(--mid)}
+.card.archived .card-num{color:var(--mid)}
+.card.archived .card-links{border-top-color:#CFCFCF}
+
+/* ── FOOTER ── */
+footer{background:var(--white);border-top:1px solid var(--border);padding:22px 52px;display:flex;justify-content:space-between;align-items:center}
+.footer-logo{font-size:14px;font-weight:900;letter-spacing:-.5px;color:var(--black)}
+.footer-logo .dot{color:var(--red)}
+.footer-note{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mid)}
+
+/* ── BACK TO TOP ── */
+#back-to-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--red);color:var(--white);border:none;border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900;transition:background .15s}
+#back-to-top:hover{background:var(--red-dark)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1000px){
+  header{padding:20px 24px 18px}
+  main{padding:24px 24px 60px}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .archive-section{padding:28px 24px}
+}
+@media(max-width:600px){
+  header{padding:16px 18px 14px}
+  main{padding:18px 18px 48px}
+  footer{padding:16px 18px;flex-direction:column;gap:8px;text-align:center}
+  .grid{grid-template-columns:1fr}
+  .card{padding:24px 20px}
+  .card-title{font-size:15px}
+  .archive-section{padding:20px 18px}
+}
+</style>
+<style>
+.sec-hd{max-width:1200px;margin:44px auto 14px;font-size:22px;font-weight:900;letter-spacing:-.4px}
+.sec-hd .n{color:var(--red);margin-right:10px}
+.sec-hd:first-child{margin-top:0}
+.stats{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:3px}
+.stat{background:var(--white);border-top:3px solid var(--red);padding:22px 24px}
+.stat b{display:block;font-size:34px;font-weight:900;letter-spacing:-1px;line-height:1}
+.stat span{display:block;font-size:14px;font-weight:600;margin-top:8px}
+.card{min-height:0}
+.card p,.card li{font-size:14px;line-height:1.5;color:var(--black)}
+.card ul{padding-left:18px;margin-top:4px}
+.card li{margin:5px 0}
+.tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+.grid.two{grid-template-columns:repeat(2,1fr)}
+.grid.four{grid-template-columns:repeat(4,1fr)}
+@media(max-width:1000px){.grid.four{grid-template-columns:repeat(2,1fr)}}
+.src{max-width:1200px;margin:10px auto 0;font-size:12px;color:var(--sub)}
+.src a{color:var(--sub)}
+@media(max-width:1000px){.stats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.stats,.grid.two,.grid.four{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">smthg<span class="dot">.</span></div>
+    <div class="tagline">Marketing Plan · Launch</div>
+    <div style="font-size:12px;color:var(--sub);margin-top:10px">Created: 31 October 2026 · Last updated: 31 October 2026</div>
+  </div>
+</header>
+
+<main>
+  <div class="sec-hd"><span class="n">01</span>Goal of the launch</div>
+  <div class="stats">
+    <div class="stat"><b>10</b><span>Founding Brands launching together</span></div>
+    <div class="stat"><b>500</b><span>members in the community</span></div>
+    <div class="stat"><b>$20K</b><span>sales across the first drops</span></div>
+    <div class="stat"><b>1</b><span>live event for members</span></div>
+  </div>
+  <div class="src">From deck v8 (pilot) and <a href="https://docs.google.com/document/d/1oJW2KU1U2p5JlMMlWE96IEMitzUtAYNfgectK3wsSlg/edit" target="_blank" rel="noopener">Product Strategy</a> §4.</div>
+  <div class="sec-hd"><span class="n">02</span>One message per audience</div>
+  <div class="grid">
+    <div class="card">
+      <div class="card-num">BRANDS</div>
+      <div class="card-title">Find the people who’ll love what you make.</div>
+      <ul><li>Creators sell your drop. You make it.</li><li>Brands of a similar style share their buyers.</li></ul>
+    </div>
+    <div class="card">
+      <div class="card-num">CREATORS</div>
+      <div class="card-title">Turn your taste into discovery.</div>
+      <ul><li>Wear new designers through try-on, no samples.</li><li>Earn on what your audience buys.</li></ul>
+    </div>
+    <div class="card">
+      <div class="card-num">SHOPPERS</div>
+      <div class="card-title">Find your next favorite. Make it your own.</div>
+      <ul><li>Try it on yourself before you buy.</li><li>Follow the brands, share your looks.</li></ul>
+    </div>
+  </div>
+  <div class="sec-hd"><span class="n">03</span>Channels</div>
+  <div class="grid">
+    <div class="card">
+      <div class="card-num">01</div>
+      <span class="tag">Sells</span><div class="card-title">Creators</div>
+      <ul><li>Main sales channel.</li><li>Picked from people who already wear labels like ours.</li><li>Post the drop with a personal link to the drop store.</li></ul>
+    </div>
+    <div class="card">
+      <div class="card-num">02</div>
+      <span class="tag">Keeps</span><div class="card-title">Community + live event</div>
+      <ul><li>Circle: Brand Space, Style Space, Events.</li><li>The live event is the reason to join.</li><li>Buyers are invited after checkout.</li></ul>
+    </div>
+    <div class="card">
+      <div class="card-num">03</div>
+      <span class="tag">Shows</span><div class="card-title">@smthg.us Instagram</div>
+      <ul><li>Drop calendar, try-on looks, brand stories.</li><li>Repost every creator post.</li></ul>
+    </div>
+    <div class="card">
+      <div class="card-num">04</div>
+      <span class="tag">Brings back</span><div class="card-title">Email list</div>
+      <ul><li>Sign-up on smthg.us: “Hear about drops first.”</li><li>Drop alerts; next drop for those who missed one.</li></ul>
+    </div>
+    <div class="card">
+      <div class="card-num">05</div>
+      <span class="tag">Moment</span><div class="card-title">Fashion week</div>
+      <ul><li>Creators wear the Founding Brands’ drops.</li><li>Content for creators, brands and @smthg.us.</li></ul>
+    </div>
+    <div class="card">
+      <div class="card-num">06</div>
+      <span class="tag">Test</span><div class="card-title">Paid ads</div>
+      <ul><li>Small test only, behind creator content.</li><li>Retarget visitors who did not buy.</li></ul>
+    </div>
+  </div>
+  <div class="sec-hd"><span class="n">04</span>Every drop, in four steps</div>
+  <div class="grid four">
+    <div class="card">
+      <div class="card-num">BEFORE</div>
+      <div class="card-title">Build the waitlist</div>
+      <ul><li>Creators get try-on looks of the pieces.</li><li>Brand Space opens; teasers on Instagram and email.</li></ul>
+    </div>
+    <div class="card">
+      <div class="card-num">OPEN</div>
+      <div class="card-title">Drop day</div>
+      <ul><li>Creators post with their links.</li><li>Alert to the email list and members.</li></ul>
+    </div>
+    <div class="card">
+      <div class="card-num">LIVE</div>
+      <div class="card-title">Drop window</div>
+      <ul><li>Live session with the brand in the community.</li><li>Reposts of creator and buyer looks.</li></ul>
+    </div>
+    <div class="card">
+      <div class="card-num">AFTER</div>
+      <div class="card-title">Next drop starts bigger</div>
+      <ul><li>Buyers join the Brand Space.</li><li>Those who missed it go first on the next drop.</li></ul>
+    </div>
+  </div>
+  <div class="sec-hd"><span class="n">05</span>Who does what</div>
+  <div class="grid two">
+    <div class="card">
+      <div class="card-num">SMTHG</div>
+      <div class="card-title">We run</div>
+      <ul><li>Creator selection, brief and campaign.</li><li>Community, Instagram, email, ads.</li><li>Store, payment, tax, results report.</li></ul>
+    </div>
+    <div class="card">
+      <div class="card-num">BRAND</div>
+      <div class="card-title">The brand gives</div>
+      <ul><li>Photos, story and stock for the drop.</li><li>Live session in its Brand Space.</li><li>Shipping and returns.</li></ul>
+    </div>
+  </div>
+  <div class="sec-hd"><span class="n">06</span>What we measure after each drop</div>
+  <div class="grid two">
+    <div class="card">
+      <div class="card-num"></div>
+      <div class="card-title">Per drop</div>
+      <ul><li>Sales and sales per creator.</li><li>Try-ons and new members.</li><li>Email sign-ups and live event attendance.</li></ul>
+    </div>
+  </div>
+  <div class="sec-hd"><span class="n">07</span>To decide on Wednesday</div>
+  <div class="grid two">
+    <div class="card">
+      <div class="card-num"></div>
+      <div class="card-title">Open decisions</div>
+      <ul><li>Ad budget for the pilot, and who pays.</li><li>Fashion week: which brands, which creators, who is there.</li><li>Date and format of the live event.</li><li>Owner for each channel.</li><li>Creator attribution window: 30 or 45 days.</li></ul>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-logo">smthg<span class="dot">.</span></div>
+</footer>
+
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" title="Back to top">↑</button>
+<script>window.addEventListener('scroll',function(){var b=document.getElementById('back-to-top');b.style.display=window.scrollY>400?'flex':'none';});</script>
+</body>
+</html>
