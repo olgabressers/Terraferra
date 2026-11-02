@@ -28,6 +28,17 @@ a:hover{text-decoration:underline}
 .facts th{width:220px;text-align:left;font-weight:700;padding:10px 16px;border-bottom:1px solid var(--rule);vertical-align:top;white-space:nowrap}
 .facts td{padding:10px 16px;border-bottom:1px solid var(--rule);vertical-align:top}
 @media(max-width:700px){.facts th{width:auto;white-space:normal}}
+.tbl-wrap{background:white;border:1px solid var(--rule);border-top:3px solid var(--tf);overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cr-tbl{width:100%;border-collapse:collapse;font-size:14px;min-width:760px}
+.cr-tbl th{padding:10px 14px;border-bottom:2px solid var(--rule);text-align:left;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;white-space:nowrap}
+.cr-tbl td{padding:8px 14px;border-bottom:1px solid var(--rule);vertical-align:middle;white-space:nowrap}
+.cr-tbl select{font-size:14px;font-family:inherit;color:var(--ink);border:1px solid var(--rule);border-radius:4px;background:#fff;padding:2px 4px;cursor:pointer}
+.ticks{display:flex;gap:12px}
+.ticks label{display:flex;align-items:center;gap:3px;color:var(--sub);cursor:pointer}
+.ticks input{accent-color:var(--tf);margin:0;cursor:pointer}
+.sync-dot{width:8px;height:8px;border-radius:50%;background:#ccc;display:inline-block;margin-right:6px}
+.sync-dot.live{background:#22c55e}
+.sync-dot.err{background:#ef4444}
 .back-to-top{position:fixed;right:24px;bottom:24px;width:44px;height:44px;border-radius:50%;background:var(--tf);color:white;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:20px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:100}
 .back-to-top.show{opacity:1;pointer-events:auto}
 .back-to-top:hover{text-decoration:none}
@@ -42,71 +53,149 @@ a:hover{text-decoration:underline}
     <p class="meta">Created: 2 November 2026 · Last updated: 2 November 2026</p>
   </div>
 
+
   <table class="facts">
     <tr><th>Brand</th><td>10eleven</td></tr>
-    <tr><th>Contact</th><td>Arina, SMM and marketing for the brand · Telegram <a href="https://t.me/krylarin" target="_blank" rel="noopener">@krylarin</a> · lives in Sochi, Russia</td></tr>
+    <tr><th>Owner</th><td></td></tr>
+    <tr><th>Contact</th><td>Arina, SMM and marketing for the brand · Telegram <a href="https://t.me/krylarin" target="_blank" rel="noopener">@krylarin</a></td></tr>
+    <tr><th>WhatsApp</th><td></td></tr>
+    <tr><th>Email</th><td></td></tr>
+    <tr><th>URL</th><td></td></tr>
     <tr><th>Instagram · Followers</th><td><a href="https://www.instagram.com/10eleven.io/" target="_blank" rel="noopener">@10eleven.io</a> · <b>?</b></td></tr>
     <tr><th>Revenue</th><td>?</td></tr>
     <tr><th>Number of items per model</th><td>?</td></tr>
-    <tr><th>Founder</th><td>Based in Miami</td></tr>
-    <tr><th>Production</th><td>Russia and China, goods then shipped to Miami</td></tr>
-    <tr><th>Sells to</th><td>US. Global delivery exists, advertising targets the US only. No delivery to Russia</td></tr>
-    <tr><th>Drops</th><td>One drop released. Second drop planned for mid-December</td></tr>
-    <tr><th>Product for the test</th><td>Not chosen</td></tr>
+    <tr><th>Production</th><td>Russia and China</td></tr>
+    <tr><th>Stock</th><td>Goods are shipped to Miami</td></tr>
+    <tr><th>Product for the test</th><td></td></tr>
+    <tr><th>Price level</th><td></td></tr>
     <tr><th>Zoom notes</th><td><a href="https://mynotes.zoom.us/RQzHD5B_QPul1Mu0KgaY8A" target="_blank" rel="noopener">Call 2 November 2026</a></td></tr>
+    <tr><th>SMTHG on the call</th><td>Alena and Maria</td></tr>
   </table>
 
   <div class="sec">
-    <h2><span class="sec-num">01</span>Call 2 November 2026 – summary</h2>
+    <h2><span class="sec-num">00</span>Content for Shopify</h2>
+    <div class="box"><ul>
+    </ul></div>
+  </div>
+
+  <div class="sec">
+    <h2><span class="sec-num">01</span>Brand and owner</h2>
+    <div class="box"><ul>
+      <li>Arina has worked with the brand since it started: she launched the Instagram and the targeted ads. She lives in Sochi, Russia.</li>
+      <li>The founder is based in Miami.</li>
+      <li>One drop has been released, a very basic one. The second drop has more of the brand's identity and more unique pieces; it is planned for mid-December.</li>
+    </ul></div>
+  </div>
+
+  <div class="sec">
+    <h2><span class="sec-num">02</span>Sales, shipping and returns</h2>
+    <div class="box"><ul>
+      <li>Sells to the US. Global delivery exists, advertising targets the US only. No delivery to Russia.</li>
+      <li>Outside the US, for some countries such as Canada and Greece, the tax a customer pays on delivery is higher than the price of the item. 10eleven has not solved this yet.</li>
+    </ul></div>
+  </div>
+
+  <div class="sec">
+    <h2><span class="sec-num">03</span>Stock and production</h2>
+    <div class="box"><ul>
+      <li>Production in Russia and China, goods then shipped to Miami. Arina said she is not fully competent on this.</li>
+      <li>Items per drop and per model: Arina could not answer. The operations director handles it and she will request the information.</li>
+    </ul></div>
+  </div>
+
+  <div class="sec">
+    <h2><span class="sec-num">04</span>Call 2 November 2026 – summary</h2>
     <div class="box"><ul>
       <li>Participants: Arina (10eleven), SMTHG.</li>
-      <li>Arina works with the brand since it started: she launched the Instagram and the targeted ads. The brand has released one drop, a very basic one. The second drop has more of the brand's identity and more unique pieces.</li>
       <li>10eleven needs influencers and media for the second drop and wants to build a community. Arina's questions: how SMTHG works with influencers and media, and how payment works.</li>
-      <li>Arina could not answer how many items each product had in the first drop. The operations director handles it, and she will request the information.</li>
-      <li>Production and shipping to Miami: Arina said she is not fully competent on this.</li>
-      <li>Tax and delivery outside the US: for some countries, such as Canada and Greece, the tax a customer pays on delivery is higher than the price of the item. 10eleven has not solved this yet.</li>
+      <li>Terms presented: 30% commission on sales, nothing paid if nothing sells. Founding Brand: no onboarding fee and no $500 monthly fee for the first 12 months. The contract is in preparation and will state this.</li>
+      <li>The pilot runs in the US only. Prices on SMTHG include all costs, including delivery within the US, and should match the brand's website. Shopify calculates taxes by state.</li>
+      <li>Arina asked whether the first month is a trial period. Answer given: the time does not matter, the drop has to sell.</li>
+      <li>No exclusive pieces are required at the start. Virtual try-on replaces physical samples; SMTHG covers the cost of each generation.</li>
+      <li>What the brand does: choose products and send photos, sizes and descriptions, or the link to the product pages. Video is optional.</li>
       <li>Content: the brand's content stays the brand's. Influencer content goes to SMTHG's platform, where the product can be bought. The brand can repost it.</li>
-    </ul></div>
-  </div>
-
-  <div class="sec">
-    <h2><span class="sec-num">02</span>Terms and conditions presented to Arina</h2>
-    <div class="box"><ul>
-      <li>Commission: 30% of sales. Nothing is paid if nothing sells.</li>
-      <li>Founding Brand: no onboarding fee and no $500 monthly fee for the first 12 months. The contract is in preparation and will state this.</li>
-      <li>The pilot runs in the US only. Prices on SMTHG include all costs, including delivery within the US. The price should match the brand's website.</li>
-      <li>Taxes are calculated by Shopify by state.</li>
-      <li>Arina's question: whether the first month is a trial period. The answer given: the time does not matter, the drop has to sell.</li>
-      <li>No exclusive pieces are required at the start.</li>
-      <li>Virtual try-on replaces physical samples. SMTHG covers the cost of each generation.</li>
-      <li>The brand's effort: choose products and send photos, sizes and descriptions, or the link to the product pages. Video is optional.</li>
-    </ul></div>
-  </div>
-
-  <div class="sec">
-    <h2><span class="sec-num">03</span>Product and timing discussed</h2>
-    <div class="box"><ul>
-      <li>SMTHG: at least 20–25 pieces per model, an easy size range, a simple product to keep returns low, and an original element rather than a plain white T-shirt. Pants without stretch are not recommended.</li>
-      <li>SMTHG suggested a hoodie and two T-shirts from the current stock.</li>
-      <li>SMTHG: do not wait for the mid-December drop. Sales slow down after 15 December and the Christmas gifting period is the best moment to launch.</li>
+      <li>SMTHG advice on product: at least 20–25 pieces per model, an easy size range, a simple product to keep returns low, and an original element rather than a plain white T-shirt. Pants without stretch are not recommended. SMTHG suggested a hoodie and two T-shirts from the current stock.</li>
+      <li>SMTHG advice on timing: do not wait for the mid-December drop. Sales slow down after 15 December and the Christmas gifting period is the best moment to launch.</li>
       <li>Arina: the second drop date came from the brand's management. She prefers to test with the second drop and to enter step by step with what already exists. She will bring SMTHG's proposal to the decision.</li>
     </ul></div>
   </div>
 
   <div class="sec">
-    <h2><span class="sec-num">04</span>Next steps</h2>
+    <h2><span class="sec-num">05</span>Next steps</h2>
     <div class="box"><ul>
-      <li><b>Arina:</b> brief the operations director on 3 November, in the evening. If he decides it needs sign-off from the top of the company, it goes there. Otherwise 10eleven moves forward on its own. She will write back to SMTHG.</li>
+      <li><b>Arina:</b> brief the operations director on 3 November in the evening. If he decides it needs sign-off from the top of the company, it goes there; otherwise 10eleven moves forward on its own. She will write back to SMTHG.</li>
       <li><b>Arina:</b> request from the operations director the number of items per model.</li>
-      <li><b>SMTHG:</b> send Arina on Telegram the SMTHG website link, the virtual try-on link and the brand onboarding guide.</li>
       <li><b>10eleven:</b> choose the product or products for the test and the quantity of each.</li>
+      <li><b>SMTHG:</b> send Arina on Telegram the SMTHG website link, the virtual try-on link and the brand onboarding guide.</li>
     </ul></div>
   </div>
 
-</div>
+  <div class="sec">
+    <h2><span class="sec-num">06</span>Proposed products – 2 November 2026</h2>
+    <div class="tbl-wrap">
+      <table class="cr-tbl">
+        <thead><tr><th>Type</th><th>Product</th><th>Price on the website</th><th>Colours</th><th>Pilot</th></tr></thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
+  <div class="sec">
+    <h2><span class="sec-num">07</span>Creators and models she worked with</h2>
+    <p class="meta" style="margin-bottom:10px"><span class="sync-dot" id="sync-dot"></span><span id="sync-label">Connecting…</span></p>
+    <div class="tbl-wrap">
+      <table class="cr-tbl">
+        <thead><tr><th>Instagram · Role · Followers</th><th>Gender</th><th>Relevant to contact<div style="font-weight:400;color:var(--sub);font-size:12px;text-transform:none;letter-spacing:0">A Alena · C Chris · M Maria · AX Alex</div></th></tr></thead>
+        <tbody id="cr-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
 <a href="#" class="back-to-top" aria-label="Back to top">↑</a>
 <script>
+// Record for this brand page: tf-brands/v1/brandpages/10eleven.
+// Gender (g_<handle>) and tick boxes (rcA_/rcC_/rcM_/rcAX_<handle>) are written one field at a time, never the whole record.
+var DB = 'https://terra-ferra-1ac34-default-rtdb.firebaseio.com/tf-brands/v1/brandpages/10eleven';
+var PEOPLE = [['A','Alena'],['C','Chris'],['M','Maria'],['AX','Alex']];
+var item = {};
+function key(h){ return h.replace(/\./g, '~'); }
+function put(k, v){ return fetch(DB+'/'+k+'.json', {method:'PUT', headers:{'Content-Type':'application/json'}, body:JSON.stringify(v)}).catch(function(){ sync('err'); }); }
+function sync(st){ var d = document.getElementById('sync-dot'), l = document.getElementById('sync-label'); d.className = 'sync-dot' + (st==='live' ? ' live' : st==='err' ? ' err' : ''); l.textContent = st==='live' ? 'Live' : st==='err' ? 'Offline' : 'Connecting…'; }
+function color(line, h){ if(/·\s*photographer/i.test(line)) return 'var(--ink)'; if(item['g_'+key(h)] === 'Man') return '#1F3A8A'; return 'var(--tf)'; }
+function render(){
+  var tb = document.getElementById('cr-body'); tb.innerHTML = '';
+  (item.tagged||'').split('\n').forEach(function(line){
+    var m = line.trim().match(/^@([A-Za-z0-9._]+)(.*)$/); if(!m) return;
+    var h = m[1], tr = document.createElement('tr');
+    var td1 = document.createElement('td'), a = document.createElement('a');
+    a.href = 'https://www.instagram.com/'+h+'/'; a.target = '_blank'; a.rel = 'noopener'; a.textContent = '@'+h; a.style.color = color(line, h);
+    td1.appendChild(a); td1.appendChild(document.createTextNode(m[2])); tr.appendChild(td1);
+    var td2 = document.createElement('td'), sel = document.createElement('select');
+    ['','Man','Woman','Unclear'].forEach(function(v){ var o = document.createElement('option'); o.value = v; o.textContent = v || '—'; sel.appendChild(o); });
+    sel.value = item['g_'+key(h)] || '';
+    sel.onchange = function(){ item['g_'+key(h)] = sel.value; put('g_'+key(h), sel.value || null); a.style.color = color(line, h); };
+    td2.appendChild(sel); tr.appendChild(td2);
+    var td3 = document.createElement('td'), box = document.createElement('div'); box.className = 'ticks';
+    PEOPLE.forEach(function(p){
+      var l = document.createElement('label'); l.title = p[1];
+      var cb = document.createElement('input'); cb.type = 'checkbox'; cb.checked = !!item['rc'+p[0]+'_'+key(h)];
+      cb.onchange = function(){ item['rc'+p[0]+'_'+key(h)] = cb.checked; put('rc'+p[0]+'_'+key(h), cb.checked); };
+      l.appendChild(document.createTextNode(p[0])); l.appendChild(cb); box.appendChild(l);
+    });
+    td3.appendChild(box); tr.appendChild(td3);
+    tb.appendChild(tr);
+  });
+}
+sync('connecting');
+var src = new EventSource(DB+'.json');
+src.onopen = function(){ sync('live'); };
+src.onerror = function(){ sync('err'); };
+src.addEventListener('put', function(e){ var m = JSON.parse(e.data);
+  if(m.path === '/') item = m.data || {}; else { var k = m.path.replace(/^\//,''); if(m.data === null) delete item[k]; else item[k] = m.data; }
+  sync('live'); render(); });
+src.addEventListener('patch', function(e){ var m = JSON.parse(e.data); Object.assign(item, m.data||{}); render(); });
 var btt = document.querySelector('.back-to-top');
 window.addEventListener('scroll', function(){ btt.classList.toggle('show', window.scrollY > 400); });
 btt.addEventListener('click', function(e){ e.preventDefault(); window.scrollTo({top:0, behavior:'smooth'}); });
