@@ -25,6 +25,8 @@ section{padding:28.6px 52px 0}
 .perks{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;margin-top:15.6px}
 .perk{background:#fff;border-top:3px solid var(--ink);padding:15.6px 14.560000000000002px}
 .perk h3{font-size:18px;font-weight:800;letter-spacing:-.3px;line-height:1.2;margin-bottom:4px}
+.story{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+.story .eye{margin-bottom:6px}
 .tips{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:20.8px;margin-top:15.6px}
 .tips li{border-left:3px solid var(--red);padding-left:10px}
 .contact{background:var(--ink);color:#fff;padding:26.0px 52px 28.6px;margin-top:31.2px}
@@ -37,7 +39,7 @@ section{padding:28.6px 52px 0}
 .wrap{max-width:1200px;margin:0 auto;background:var(--cream)}
 .back-to-top{position:fixed;bottom:28px;right:28px;width:40px;height:40px;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;opacity:0;transition:opacity .3s;z-index:200;border-radius:2px}
 .back-to-top.vis{opacity:1}
-@media(max-width:900px){.hero{grid-template-columns:1fr}.perks{grid-template-columns:1fr 1fr}.tips{grid-template-columns:1fr}}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.perks{grid-template-columns:1fr 1fr}.story{grid-template-columns:1fr}}
 @media(max-width:700px){section,.top,.hero,.contact{padding-left:18px;padding-right:18px}
 .road{grid-template-columns:1fr;gap:18px}.stop{grid-row:auto!important;grid-column:auto!important;text-align:left;display:grid;grid-template-columns:52px 1fr;column-gap:12px}
 .stop .dot{grid-row:1/3}.track{display:none}.links{grid-template-columns:1fr}
@@ -76,13 +78,11 @@ section{padding:28.6px 52px 0}
 <div class="perk"><h3>First in</h3><p>You help shape smthg from day one.</p></div>
   </div>
 </section>
-<section class="tips-sec">
-  <span class="eye">What works</span>
-  <ul class="tips">
-    <li>Wear it on you: post your own try-on photo.</li>
-<li>Tell the label&#8217;s story along with the look.</li>
-<li>Tag <b>@smthg.us</b> and the brand, and add your link.</li>
-  </ul>
+<section class="story-sec">
+  <div class="story">
+    <div class="perk"><span class="eye">Long term</span><h3>A collaboration that grows with you</h3><p>As part of the smthg community you work with your brands drop after drop, season after season, and grow together with them.</p></div>
+    <div class="perk"><span class="eye">Sustainability</span><h3>Lighter on the planet</h3><p>Every try-on is virtual. No samples travel to you and back, which means fewer parcels and less packaging for every piece you show.</p></div>
+  </div>
 </section>
 <section class="contact">
   <h2>Ready to start? Write to us.</h2>
