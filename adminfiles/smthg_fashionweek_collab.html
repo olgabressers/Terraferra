@@ -1,98 +1,82 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <meta name="robots" content="noindex, nofollow"/>
-<script src="/site-lock.js"></script>
-<title>smthg — Fashion Week Collaboration Process</title>
+<title>smthg × Fashion Week — Virtual Try-On</title>
 <link rel="icon" type="image/svg+xml" href="smthg_favicon.svg"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--ink:#161616;--red:#FF4340;--cream:#F8F6F2;--off:#F1EEE9;--border:#E6E2DA;--sub:#5C5A56}
+:root{--ink:#161616;--red:#FF4340;--cream:#F8F6F2;--off:#F1EEE9;--border:#E6E2DA;--dark:#2A2A2A;--line:#4A4A4A}
 body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--cream);font-size:15px;line-height:1.55}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:1240px;margin:0 auto;padding:40px 48px 80px}
-.sm{font-weight:900;letter-spacing:-.3px}.sm i{font-style:normal;color:var(--red)}
+.sm{font-weight:900;letter-spacing:-.3px;text-transform:none}.sm i{font-style:normal;color:var(--red)}
 .eye{font-size:15px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--red);display:block}
 .logo{font-size:29px;font-weight:900;letter-spacing:-1px}.logo i{font-style:normal;color:var(--red)}
-.meta{color:var(--sub);margin-top:6px}
-.hero{background:var(--off);padding:28px 32px;margin-top:20px;border-radius:12px}
-.hero h1{font-size:44px;font-weight:900;line-height:1.05;letter-spacing:-1.2px;margin:8px 0 12px}
-.hero ul{list-style:none;display:grid;gap:6px}
-.hero li{padding-left:16px;position:relative}.hero li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:var(--red)}
-section{margin-top:40px}
-.phase-h{display:flex;align-items:baseline;gap:14px;margin-bottom:18px}
-.phase-h h2{font-size:18px;font-weight:900;letter-spacing:-.4px}
+.hero{margin-top:24px}
+.hero h1{font-size:44px;font-weight:900;line-height:1.05;letter-spacing:-1px;margin:8px 0 22px;text-transform:uppercase}
+.why{display:grid;grid-template-columns:repeat(4,1fr);gap:3px}
+.why div{background:#fff;border-top:3px solid var(--red);padding:18px}
+.why h3{font-size:18px;font-weight:900;text-transform:uppercase;letter-spacing:.3px;margin-bottom:6px}
+.phase{background:var(--dark);color:#fff;border-radius:12px;padding:28px 28px 32px;margin-top:28px}
+.phase h2{font-size:18px;font-weight:900;letter-spacing:2px;text-transform:uppercase;margin-bottom:22px}
+.phase h2 span{color:var(--red);margin-right:10px}
 .track{position:relative;display:grid;gap:18px}
-.track::before{content:"";position:absolute;left:10%;right:10%;top:22px;height:6px;background:var(--border);border-radius:3px;z-index:0}
-.c5{grid-template-columns:repeat(5,1fr)}.c3{grid-template-columns:repeat(3,1fr)}
-.c3::before{left:16.6%;right:16.6%}
+.track::before{content:"";position:absolute;left:10%;right:10%;top:22px;height:6px;background:var(--line);border-radius:3px;z-index:0}
+.c5{grid-template-columns:repeat(5,1fr)}.c1{grid-template-columns:1fr}.c1::before{display:none}
 .stop{position:relative;z-index:1;text-align:center;padding:0 4px}
-.dot{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:var(--red);color:#fff;font-size:18px;font-weight:900;border:4px solid var(--cream);box-sizing:content-box;margin-bottom:8px}
-.stop h3{font-size:18px;font-weight:800;letter-spacing:-.4px;line-height:1.15;margin-bottom:4px}
+.dot{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:var(--red);color:#fff;font-size:18px;font-weight:900;border:4px solid var(--dark);box-sizing:content-box;margin-bottom:8px}
+.stop h3{font-size:18px;font-weight:800;letter-spacing:.3px;line-height:1.2;margin-bottom:4px;text-transform:uppercase}
 .who{display:inline-block;font-weight:800;color:var(--red);margin-bottom:6px}
-.stop p{text-align:center}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
-.card{background:#fff;border-top:3px solid var(--ink);padding:18px 18px}
-.card h3{font-size:18px;font-weight:800;margin-bottom:6px}
-.card ul{padding-left:18px}
+.stop p{color:#E6E2DA}
+.c1 .stop{display:grid;grid-template-columns:60px 1fr;text-align:left;column-gap:12px;max-width:760px}.c1 .dot{grid-row:1/4}
 .back-to-top{position:fixed;bottom:28px;right:28px;width:40px;height:40px;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;opacity:0;transition:opacity .3s;z-index:200;border-radius:2px}
 .back-to-top.vis{opacity:1}
-@media(max-width:1000px){.c5{grid-template-columns:repeat(3,1fr)}.track::before{display:none}.cards{grid-template-columns:1fr}}
-@media(max-width:700px){.wrap{padding:24px 18px 60px}.hero h1{font-size:32px}.c5,.c3{grid-template-columns:1fr}
-.stop{text-align:left;display:grid;grid-template-columns:56px 1fr;column-gap:10px}.stop .dot{grid-row:1/4}.stop p{text-align:left}
+@media(max-width:1000px){.c5{grid-template-columns:repeat(3,1fr)}.track::before{display:none}.why{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.wrap{padding:24px 18px 60px}.hero h1{font-size:30px}.c5,.why{grid-template-columns:1fr}.phase{padding:22px 18px}
+.stop{text-align:left;display:grid;grid-template-columns:56px 1fr;column-gap:10px}.stop .dot{grid-row:1/4}
 .back-to-top{width:34px;height:34px;font-size:15px;bottom:14px;right:14px}}
 </style></head><body><div class="wrap">
 
 <div class="logo">smthg<i>.</i></div>
-<div class="meta">Created: 2026-11-04 · Last updated: 2026-11-04 · Source: team call 4 November</div>
 
 <div class="hero">
   <span class="eye">Florida Men&#8217;s Fashion Week × smthg</span>
-  <h1>Virtual try-on at the show: the process.</h1>
-  <ul>
-    <li>Guests try on the collections from the show with Virtual Try-On, right at the event.</li>
-    <li>The aim is presence and contact with the fashion audience: light, native PR for <b class="sm">smthg<i>.</i></b> at low cost.</li>
-    <li>Brands get a try-on feature for their collection, given to them free by the organisers.</li>
-    <li>One QR code and one page for the whole event. Logos and design are prepared now; collection photos can go in on the last day.</li>
-  </ul>
+  <h1>Virtual try-on at the show</h1>
+  <div class="why">
+    <div><h3>For guests</h3><p>Try on looks from the show on themselves, right at the event, and keep the photo.</p></div>
+    <div><h3>For brands</h3><p>Guests try on the collection they have just seen on the runway. The brand&#8217;s name sits on every piece.</p></div>
+    <div><h3>For the fashion week</h3><p>A new interactive experience for guests. Every saved image carries the fashion week logo.</p></div>
+    <div><h3>For <b class="sm">smthg<i>.</i></b></h3><p>Presence at the show and a first meeting with the fashion week audience.</p></div>
+  </div>
 </div>
 
-<section>
-  <div class="phase-h"><span class="eye">Phase 1</span><h2>Before the event</h2></div>
+<section class="phase">
+  <h2><span>Phase 1</span>Before the show</h2>
   <div class="track c5">
-    <div class="stop"><span class="dot">1</span><h3>Confirm the designers</h3><span class="who">Maria</span><p>List of participating designers from the project directors. Logos and brand info taken from their websites.</p></div>
-    <div class="stop"><span class="dot">2</span><h3>Collection photos</h3><span class="who">Maria</span><p>Designers send photos through the directors. They can be uploaded through the admin up to the last day.</p></div>
-    <div class="stop"><span class="dot">3</span><h3>Event page</h3><span class="who">Alex</span><p>Storefront, domain and link ready in advance. All brands on one page, 1&#8211;3 pieces each; a separate layout per brand if there are many.</p></div>
-    <div class="stop"><span class="dot">4</span><h3>QR code and print</h3><span class="who">Alex · Maria · Alena</span><p>QR code made now for the final page. Maria asks Valentina whether the organisers print it; if not, Alena orders the print and ships it to the venue.</p></div>
-    <div class="stop"><span class="dot">5</span><h3>Placement</h3><span class="who">Maria</span><p>QR stickers on the mirror, at the photo zone or at the entrance, agreed with the organisers.</p></div>
+    <div class="stop"><span class="dot">1</span><h3>Designers</h3><span class="who">Fashion week team</span><p>Share the list of participating designers.</p></div>
+    <div class="stop"><span class="dot">2</span><h3>Collection photos</h3><span class="who">Designers</span><p>Send photos of the pieces from the show. They can be added up to the last day.</p></div>
+    <div class="stop"><span class="dot">3</span><h3>Event page</h3><span class="who">smthg</span><p>One page with all participating brands and their pieces, with the <b class="sm">smthg<i>.</i></b> × fashion week logos on top.</p></div>
+    <div class="stop"><span class="dot">4</span><h3>QR code</h3><span class="who">smthg</span><p>One QR code that leads to the event page, ready for print.</p></div>
+    <div class="stop"><span class="dot">5</span><h3>Placement</h3><span class="who">Fashion week team · smthg</span><p>QR codes at the mirror, the photo zone or the entrance.</p></div>
   </div>
 </section>
 
-<section>
-  <div class="phase-h"><span class="eye">Phase 2</span><h2>At the event: the guest&#8217;s route</h2></div>
+<section class="phase">
+  <h2><span>Phase 2</span>At the show: the guest&#8217;s route</h2>
   <div class="track c5">
-    <div class="stop"><span class="dot">6</span><h3>Scan the QR code</h3><p>At the mirror, photo zone or entrance.</p></div>
-    <div class="stop"><span class="dot">7</span><h3>See the brands</h3><p>One page with the <b class="sm">smthg<i>.</i></b> × fashion week logos on top. Brand names on each card.</p></div>
+    <div class="stop"><span class="dot">6</span><h3>Scan</h3><p>The guest scans the QR code.</p></div>
+    <div class="stop"><span class="dot">7</span><h3>Choose</h3><p>All brands and pieces on one page. The guest picks a piece.</p></div>
     <div class="stop"><span class="dot">8</span><h3>Add a photo</h3><p>Upload a photo or take a selfie, for example in the mirror.</p></div>
-    <div class="stop"><span class="dot">9</span><h3>Generate</h3><p>While it generates: random compliments and &#8220;Become our model: repost in your stories and tag us&#8221;.</p></div>
-    <div class="stop"><span class="dot">10</span><h3>Save the photo</h3><p>Logos on the image. No &#8220;share to Instagram&#8221; button: the guest saves and posts.</p></div>
+    <div class="stop"><span class="dot">9</span><h3>Try it on</h3><p>The guest sees the piece on themselves, with a compliment and an invitation to share: &#8220;Become our model.&#8221;</p></div>
+    <div class="stop"><span class="dot">10</span><h3>Save and share</h3><p>The guest saves the image and posts it in stories, tagging the brand, the fashion week and <b class="sm">smthg<i>.</i></b></p></div>
   </div>
 </section>
 
-<section>
-  <div class="phase-h"><span class="eye">Phase 3</span><h2>After the event</h2></div>
-  <div class="track c3">
-    <div class="stop"><span class="dot">11</span><h3>Collect the reposts</h3><span class="who">Team</span><p>Only posts where <b class="sm">smthg<i>.</i></b> is tagged are visible to us. Generated images are not stored.</p></div>
-    <div class="stop"><span class="dot">12</span><h3>Use the content</h3><span class="who">Team</span><p>Where and how to post the collected content is decided later.</p></div>
-    <div class="stop"><span class="dot">13</span><h3>Next city</h3><span class="who">Maria</span><p>New York fashion week on 15 November, or after New Year: Maria decides.</p></div>
-  </div>
-</section>
-
-<section>
-  <div class="cards">
-    <div class="card"><span class="eye">Open</span><h3>Guest photo consent</h3><p>Posting guests&#8217; photos on our Instagram needs their consent. Option discussed: a checkbox, off by default. Not decided.</p></div>
-    <div class="card"><span class="eye">Open</span><h3>Generator</h3><p>The generator on the site took the model&#8217;s photo instead of the product photo. To be fixed (Alex). The fashion week generator works better.</p></div>
-    <div class="card"><span class="eye">Plan B</span><h3>If designers send nothing</h3><p>The agreement with the organisers is saved in screenshots. A backup with our own brands is not agreed.</p></div>
+<section class="phase">
+  <h2><span>Phase 3</span>After the show</h2>
+  <div class="track c1">
+    <div class="stop"><span class="dot">11</span><h3>Repost</h3><span class="who">Brands · fashion week · smthg</span><p>Guests&#8217; stories with tags are reposted by the brands, the fashion week and <b class="sm">smthg<i>.</i></b></p></div>
   </div>
 </section>
 
