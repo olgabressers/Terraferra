@@ -28,6 +28,7 @@ section{padding:28.6px 52px 0}
 .perk h3{font-size:18px;font-weight:800;letter-spacing:-.3px;line-height:1.2;margin-bottom:4px}
 .story{display:grid;grid-template-columns:1fr 1fr;gap:3px}
 .story .eye{margin-bottom:6px}
+.req{grid-template-columns:repeat(3,1fr)}
 .tips{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:20.8px;margin-top:15.6px}
 .tips li{border-left:3px solid var(--red);padding-left:10px}
 .contact{background:var(--ink);color:#fff;padding:26.0px 52px 28.6px;margin-top:31.2px}
@@ -40,9 +41,9 @@ section{padding:28.6px 52px 0}
 .wrap{max-width:1200px;margin:0 auto;background:var(--cream)}
 .back-to-top{position:fixed;bottom:28px;right:28px;width:40px;height:40px;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;opacity:0;transition:opacity .3s;z-index:200;border-radius:2px}
 .back-to-top.vis{opacity:1}
-@media(max-width:900px){.hero{grid-template-columns:1fr}.perks{grid-template-columns:1fr 1fr}.story{grid-template-columns:1fr}}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.perks,.req{grid-template-columns:1fr 1fr}.story{grid-template-columns:1fr}}
 @media(max-width:700px){section,.top,.hero,.contact{padding-left:18px;padding-right:18px}
-.road{grid-template-columns:1fr;gap:18px}.stop{grid-row:auto!important;grid-column:auto!important;text-align:left;display:grid;grid-template-columns:52px 1fr;column-gap:12px}
+.req{grid-template-columns:1fr}.road{grid-template-columns:1fr;gap:18px}.stop{grid-row:auto!important;grid-column:auto!important;text-align:left;display:grid;grid-template-columns:52px 1fr;column-gap:12px}
 .stop .dot{grid-row:1/3}.track{display:none}.links{grid-template-columns:1fr}
 .back-to-top{width:34px;height:34px;font-size:15px;bottom:14px;right:14px}}
 </style></head><body><div class="wrap">
@@ -83,6 +84,17 @@ section{padding:28.6px 52px 0}
   <div class="story">
     <div class="perk"><span class="eye">Long term</span><h3>A collaboration that grows with you</h3><p>As part of the <b class="sm">smthg<i>.</i></b> community you work with <b class="sm">smthg<i>.</i></b> brands drop after drop, season after season, and grow together with them.</p></div>
     <div class="perk"><span class="eye">Sustainability</span><h3>Lighter on the planet</h3><p>Every try-on is virtual. No samples travel to you and back, which is better for our planet and people.</p></div>
+  </div>
+</section>
+<section class="req-sec">
+  <span class="eye">To sign your contract</span>
+  <div class="perks req">
+    <div class="perk"><h3>Full legal name</h3><p>As on your ID.</p></div>
+    <div class="perk"><h3>Address</h3><p>Street, number, postcode, city, country.</p></div>
+    <div class="perk"><h3>Email</h3><p>Where we send the contract.</p></div>
+    <div class="perk"><h3>Instagram handle</h3><p>The account the contract covers.</p></div>
+    <div class="perk"><h3>Payout details</h3><p>Bank account holder name and IBAN, or PayPal email.</p></div>
+    <div class="perk"><h3>Age confirmation</h3><p>You confirm you are 18 or older.</p></div>
   </div>
 </section>
 <section class="contact">
