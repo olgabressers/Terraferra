@@ -940,6 +940,8 @@ function applyFilter(){
     var show;
     if(!filterCountry || !item){
       show = true;
+    } else if(filterCountry === 'MVP check'){
+      show = !!item.mvpCheck;
     } else if(filterCountry === 'EU'){
       show = EU_COUNTRIES.indexOf((item.origin||'').trim()) >= 0;
     } else {
@@ -960,7 +962,7 @@ function renderFilter(){
     if(o) origins[o] = true;
   });
   // Skip the rebuild when nothing changed: recreating buttons on every live update swallowed clicks
-  var sig = JSON.stringify(Object.keys(fbData).map(function(id){ return fbData[id] ? (fbData[id].origin||'').trim() : ''; }).sort()) + '|' + filterCountry;
+  var sig = JSON.stringify(Object.keys(fbData).map(function(id){ return fbData[id] ? (fbData[id].origin||'').trim() + (fbData[id].mvpCheck?'*':'') : ''; }).sort()) + '|' + filterCountry;
   if(sig === renderFilter.lastSig && bar.querySelector('[data-country]:not([data-country=""])')) return;
   renderFilter.lastSig = sig;
   bar.querySelectorAll('[data-country]:not([data-country=""])').forEach(function(b){ b.remove(); });
@@ -980,7 +982,9 @@ function renderFilter(){
     var btn = document.createElement('button');
     btn.className = 'filter-btn'+(extraClass?' '+extraClass:'')+(filterCountry===country?' active':'');
     btn.dataset.country = country;
-    var count = country === 'EU'
+    var count = country === 'MVP check'
+      ? Object.keys(fbData).filter(function(id){ return fbData[id] && fbData[id].mvpCheck; }).length
+      : country === 'EU'
       ? Object.keys(fbData).filter(function(id){ return fbData[id] && EU_COUNTRIES.indexOf((fbData[id].origin||'').trim()) >= 0; }).length
       : Object.keys(fbData).filter(function(id){ return fbData[id] && (fbData[id].origin||'').trim() === country; }).length;
     btn.innerHTML = country + '<span class="filter-count">(' + count + ')</span>';
@@ -999,6 +1003,14 @@ function renderFilter(){
     bar.appendChild(brk);
     addBtn('EU', 'eu-group');
     euInData.forEach(function(o){ addBtn(o); });
+  }
+  // Separate filter: brands flagged for an MVP check (does not change row order)
+  if(Object.keys(fbData).some(function(id){ return fbData[id] && fbData[id].mvpCheck; })){
+    var brk2 = document.createElement('div');
+    brk2.className = 'filter-break';
+    brk2.dataset.country = '__break2';
+    bar.appendChild(brk2);
+    addBtn('MVP check', 'eu-group');
   }
 }
 
