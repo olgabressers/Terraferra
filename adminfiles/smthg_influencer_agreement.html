@@ -59,6 +59,11 @@ a{color:var(--ink);text-decoration:underline}
 .pending-box .pending-label{display:block;color:var(--tf);font-weight:900;font-size:12.5px;text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px}
 .pending-box p{margin-bottom:0;font-size:13.5px;color:var(--ink)}
 
+.todo{background:white;border:2px solid var(--tf);border-radius:10px;padding:18px 22px 8px;margin-bottom:32px}
+.todo h2.todo-title{margin:0 0 6px;text-transform:uppercase}
+.todo h3{font-size:14.5px;font-weight:800;text-transform:uppercase;margin:14px 0 4px}
+.todo ol,.todo ul{margin:0 0 6px 22px}
+
 #btt{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--tf);color:white;border:none;border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900}
 #btt:hover{background:var(--tf-dark)}
 @media(max-width:700px){#btt{width:38px;height:38px;font-size:17px;bottom:16px;right:16px}}
@@ -71,6 +76,54 @@ a{color:var(--ink);text-decoration:underline}
 </nav>
 
 <div class="wrap">
+
+  <div class="todo">
+    <h2 class="todo-title">Setting up Shopify Collabs from zero (<a href="https://help.shopify.com/en/manual/promoting-marketing/collabs/merchants/setup" target="_blank" rel="noopener">Shopify Help</a>)</h2>
+    <h3>A. Store</h3>
+    <ol start="1">
+      <li>The SMTHG Shopify store needs a plan other than Starter or Retail.</li>
+      <li>Shopify admin &gt; Settings &gt; Customer privacy: turn on Shopify Network Intelligence. Collabs requires it.</li>
+    </ol>
+    <h3>B. Install</h3>
+    <ol start="3">
+      <li>Open <a href="https://apps.shopify.com/collabs" target="_blank" rel="noopener">apps.shopify.com/collabs</a> and click Install.</li>
+      <li>Shopify admin &gt; Apps &gt; Collabs &gt; Get started.</li>
+      <li>Set the contact email. Influencers see it on every invite.</li>
+      <li>Choose the product category, audience and creator country (US), then Finish setup.</li>
+      <li>Settings &gt; Point of contact: verify the email. Invites can't go out before this.</li>
+    </ol>
+    <h3>C. Brand profile</h3>
+    <ol start="8">
+      <li>Overview &gt; Edit profile: logo, brand values, up to 4 images, and a description of how you work with creators.</li>
+    </ol>
+    <h3>D. Commission</h3>
+    <ol start="9">
+      <li>Programs &gt; Create invite program.</li>
+      <li>Commission: 20%. Set the link destination, then Create.</li>
+    </ol>
+    <h3>E. Payment settings</h3>
+    <ol start="11">
+      <li>Payments &gt; Settings: holding period, default 30 days. You can set 1–90.</li>
+      <li>Payments &gt; Settings: turn on W-9 collection from US creators.</li>
+    </ol>
+    <h3>F. Invite</h3>
+    <ol start="13">
+      <li>Recruiting &gt; Invite creators.</li>
+      <li>Welcome offer: select the 20% program.</li>
+      <li>Add each influencer's email, with a creator code if you want one.</li>
+      <li>Write the message, add the Terms link, then Send invite.</li>
+    </ol>
+    <h3>G. After they accept</h3>
+    <ol start="17">
+      <li>Add each one to the 20% program. That creates their affiliate link and code.</li>
+    </ol>
+    <h3>Before Monday you need:</h3>
+    <ul>
+      <li>The Shopify store on an eligible plan.</li>
+      <li>Each influencer's email.</li>
+      <li>The Terms link.</li>
+    </ul>
+  </div>
 
   <h1>Influencer Agreement</h1>
   <p class="effective">Effective date: <span class="needs-input">[insert publication date]</span> · Applies to: Influencers participating in the smthg<span style="color:var(--tf);font-weight:900">.</span> Community</p>
