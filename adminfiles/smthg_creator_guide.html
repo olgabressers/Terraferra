@@ -32,11 +32,6 @@ section{padding:28.6px 52px 0}
 .tips li{border-left:3px solid var(--red);padding-left:10px}
 .contact{background:var(--ink);color:#fff;padding:26.0px 52px 28.6px;margin-top:31.2px}
 .contact h2{font-size:18px;font-weight:900;margin-bottom:10px}
-.cgrid{display:grid;grid-template-columns:1fr 1.7fr;gap:36px}
-.cgrid .links{grid-template-columns:1fr}
-.reqs{list-style:none;margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:10px 24px}
-.reqs li{border-left:3px solid var(--red);padding-left:12px}
-.reqs b{display:block;font-weight:800}
 .links{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
 .links a{background:#fff;color:var(--ink);border-top:3px solid var(--red);padding:10px 14px}
 .links small{display:block;font-size:15px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--red)}
@@ -45,8 +40,8 @@ section{padding:28.6px 52px 0}
 .wrap{max-width:1200px;margin:0 auto;background:var(--cream)}
 .back-to-top{position:fixed;bottom:28px;right:28px;width:40px;height:40px;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;opacity:0;transition:opacity .3s;z-index:200;border-radius:2px}
 .back-to-top.vis{opacity:1}
-@media(max-width:900px){.cgrid{grid-template-columns:1fr}.hero{grid-template-columns:1fr}.perks{grid-template-columns:1fr 1fr}.story{grid-template-columns:1fr}}
-@media(max-width:700px){.reqs{grid-template-columns:1fr}section,.top,.hero,.contact{padding-left:18px;padding-right:18px}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.perks{grid-template-columns:1fr 1fr}.story{grid-template-columns:1fr}}
+@media(max-width:700px){section,.top,.hero,.contact{padding-left:18px;padding-right:18px}
 .road{grid-template-columns:1fr;gap:18px}.stop{grid-row:auto!important;grid-column:auto!important;text-align:left;display:grid;grid-template-columns:52px 1fr;column-gap:12px}
 .stop .dot{grid-row:1/3}.track{display:none}.links{grid-template-columns:1fr}
 .back-to-top{width:34px;height:34px;font-size:15px;bottom:14px;right:14px}}
@@ -91,27 +86,12 @@ section{padding:28.6px 52px 0}
   </div>
 </section>
 <section class="contact">
-<div class="cgrid">
-<div>
   <h2>Ready to start? Write to us.</h2>
   <div class="links">
     <a href="https://www.smthg.us" target="_blank" rel="noopener"><small>Website</small><span>www.smthg.us</span></a>
     <a href="mailto:contact@smthg.us?subject=Founding%20Creator"><small>Email</small><span>contact@smthg.us</span></a>
     <a href="https://www.instagram.com/smthg.us/" target="_blank" rel="noopener"><small>Instagram</small><span>@smthg.us</span></a>
   </div>
-</div>
-<div>
-  <h2>To sign your contract</h2>
-  <ul class="reqs">
-    <li><b>Full legal name</b>As on your ID.</li>
-    <li><b>Address</b>Street, number, postcode, city, country.</li>
-    <li><b>Email</b>Where we send the contract.</li>
-    <li><b>Instagram handle</b>The account the contract covers.</li>
-    <li><b>Payout details</b>Bank account holder name and IBAN, or PayPal email.</li>
-    <li><b>Date of birth</b>Day, month, year.</li>
-  </ul>
-</div>
-</div>
 </section>
 </div><a class="back-to-top" id="btt" href="#" aria-label="Back to top">↑</a><script>
 function fit(){var s=document.querySelectorAll('.stop'),r=document.querySelector('.road');
