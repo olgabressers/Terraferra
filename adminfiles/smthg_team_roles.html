@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <meta name="robots" content="noindex, nofollow"/>
-<title>Roles &amp; Responsibilities · smthg.</title>
+<title>SMTHG Roles &amp; Responsibilities</title>
 <link rel="icon" type="image/svg+xml" href="smthg_favicon.svg"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
@@ -29,9 +29,11 @@ h1 .caps{text-transform:uppercase}
 .node.lead{background:var(--tf-dark);border-color:var(--tf-dark);color:white;font-size:17px;font-weight:900}
 .emps{display:flex;align-items:center;justify-content:center;gap:2px;margin-top:5px;min-height:16px}
 .frac{font-size:15px;font-weight:800;color:var(--tf)}
-.emp{width:16px;height:16px;fill:var(--tf);margin:0 2px}
 .legend{display:flex;align-items:center;gap:6px;margin-top:14px;font-size:15px;color:var(--ink)}
-.legend .emp{margin:0}
+.b-f div.node:not(.lead){background:rgba(29,43,58,.13)}
+.b-ceo div.node:not(.lead){background:rgba(181,0,35,.13)}
+.b-cto div.node:not(.lead){background:rgba(26,122,74,.15)}
+.b-cd div.node:not(.lead){background:rgba(29,95,191,.13)}
 .b-f .node.lead{background:#1D2B3A;border-color:#1D2B3A}
 .b-cto .node.lead{background:#1A7A4A;border-color:#1A7A4A}
 .b-cd .node.lead{background:#1D5FBF;border-color:#1D5FBF}
@@ -53,10 +55,13 @@ h1 .caps{text-transform:uppercase}
 .role-card{display:flex;flex-direction:column;background:white;border:1px solid var(--rule);border-top:3px solid var(--tf);border-radius:10px;padding:20px 22px 18px;scroll-margin-top:16px}
 .role-title{font-size:17px;font-weight:900;letter-spacing:-.3px;color:var(--ink);text-transform:uppercase;margin-bottom:14px}
 .jd{margin:0 0 16px;padding:0 0 0 16px;list-style:disc}
-.jd li{font-size:15px;color:var(--ink);line-height:1.6;margin-bottom:5px}
-.area{margin-bottom:12px}
-.area-title{font-size:15px;font-weight:800;color:var(--ink);text-transform:uppercase;margin-bottom:3px}
-.area-desc{font-size:15px;color:var(--ink);line-height:1.6}
+.jd li{font-size:14px;color:var(--ink);line-height:1.5;margin-bottom:5px}
+.topics{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;align-items:start}
+.topics-col{display:grid;gap:18px}
+@media(max-width:900px){.topics{grid-template-columns:1fr}}
+.area{margin-bottom:10px}
+.area-title{font-size:14px;font-weight:800;color:var(--ink);text-transform:uppercase;margin-bottom:3px}
+.area-desc{font-size:14px;color:var(--ink);line-height:1.45}
 .sub-title{font-size:15px;font-weight:800;letter-spacing:.3px;color:var(--tf);text-transform:uppercase;margin-bottom:8px}
 
 
@@ -70,7 +75,7 @@ h1 .caps{text-transform:uppercase}
 
 <div class="wrap">
 
-  <h1>smthg<span style="color:var(--tf)">.</span> <span class="caps">Roles &amp; Responsibilities</span></h1>
+  <h1><span class="caps">SMTHG Roles &amp; Responsibilities</span></h1>
   <p class="stamp">Created: 6 November 2026 · Last updated: 6 November 2026</p>
 
   <h2 class="sec-h2">Org structure</h2>
@@ -92,9 +97,9 @@ h1 .caps{text-transform:uppercase}
           <div class="node">Finance</div>
           <div class="node">Legal</div>
           <div class="node">Sales &amp; Assortment</div>
-          <a class="node" href="#brand"><span>Brands Operations<span class="emps"><svg class="emp" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="4.5" r="3.5"/><path d="M1 16c0-4.4 3.1-7 7-7s7 2.6 7 7z"/></svg></span></span></a>
+          <a class="node" href="#brand"><span>Brands Operations<span class="emps"><span class="frac">1</span></span></span></a>
           <div class="node">Marketing</div>
-          <a class="node" href="#customer"><span>Operations<span class="emps"><svg class="emp" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="4.5" r="3.5"/><path d="M1 16c0-4.4 3.1-7 7-7s7 2.6 7 7z"/></svg><span class="frac">1/2</span></span></span></a>
+          <a class="node" href="#customer"><span>Operations<span class="emps"><span class="frac">1/2</span></span></span></a>
           <div class="node">Outsourcing</div>
           <div class="node">HR</div>
           <div class="node">Business Insights</div>
@@ -103,7 +108,7 @@ h1 .caps{text-transform:uppercase}
       <div class="branch b-cto">
         <div class="node lead">CTO</div>
         <div class="group">
-          <a class="node" href="#developers"><span>Product &amp; Engineering<span class="emps"><svg class="emp" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="4.5" r="3.5"/><path d="M1 16c0-4.4 3.1-7 7-7s7 2.6 7 7z"/></svg><svg class="emp" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="4.5" r="3.5"/><path d="M1 16c0-4.4 3.1-7 7-7s7 2.6 7 7z"/></svg></span></span></a>
+          <a class="node" href="#developers"><span>Product &amp; Engineering<span class="emps"><span class="frac">2</span></span></span></a>
           <div class="node">Technology</div>
           <div class="node">Maintenance &amp; Vendors</div>
           <div class="node">Analytics</div>
@@ -114,37 +119,23 @@ h1 .caps{text-transform:uppercase}
         <div class="group">
           <div class="node">Platform Identity</div>
           <div class="node">PR</div>
-          <a class="node" href="#social"><span>Social Media &amp; Content Management<span class="emps"><svg class="emp" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="4.5" r="3.5"/><path d="M1 16c0-4.4 3.1-7 7-7s7 2.6 7 7z"/></svg><span class="frac">1 + 1/2</span></span></span></a>
+          <a class="node" href="#social"><span>Social Media &amp; Content Management<span class="emps"><span class="frac">1 + 1/2</span></span></span></a>
           <div class="node">Brands Engagement</div>
-          <a class="node" href="#influencer"><span>Influencers<span class="emps"><svg class="emp" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="4.5" r="3.5"/><path d="M1 16c0-4.4 3.1-7 7-7s7 2.6 7 7z"/></svg><span class="frac">1/2</span></span></span></a>
-          <a class="node" href="#community"><span>Community<span class="emps"><svg class="emp" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="4.5" r="3.5"/><path d="M1 16c0-4.4 3.1-7 7-7s7 2.6 7 7z"/></svg></span></span></a>
+          <a class="node" href="#influencer"><span>Influencers<span class="emps"><span class="frac">1/2</span></span></span></a>
+          <a class="node" href="#community"><span>Community<span class="emps"><span class="frac">1</span></span></span></a>
         </div>
       </div>
     </div>
-    <p class="legend"><svg class="emp" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="4.5" r="3.5"/><path d="M1 16c0-4.4 3.1-7 7-7s7 2.6 7 7z"/></svg> Employee planned, 1/2 = half a role</p>
+    <p class="legend">Coloured: done by the position itself. White: employee planned, the number shows how many roles.</p>
   </div>
 
   <h2 class="sec-h2">Topics by position</h2>
-  <div class="role-grid" style="align-items:start">
+  <div class="topics">
+    <div class="topics-col">
     <div class="role-card">
       <div class="role-title">Founder</div>
       <div class="area"><div class="area-title">Vision &amp; Strategy</div><div class="area-desc">Brand vision and positioning, strategic partnerships, advisory.</div></div>
       <div class="area"><div class="area-title">Capital Strategy</div><div class="area-desc">Capital strategy, investor list and warm introductions.</div></div>
-    </div>
-    <div class="role-card">
-      <div class="role-title">CEO</div>
-      <div class="area"><div class="area-title">Investors</div><div class="area-desc">Investor deck, investor relationships and reporting.</div></div>
-      <div class="area"><div class="area-title">Governance</div><div class="area-desc">Board management, C-corp governance, banking setup, budget approval, IP registration in the US and worldwide.</div></div>
-      <div class="area"><div class="area-title">Finance</div><div class="area-desc">Budgeting, bookkeeping, US accounting firm and tax arrangements.</div></div>
-      <div class="area"><div class="area-title">Legal</div><div class="area-desc">T&amp;Cs and privacy, KYC/AML compliance.</div></div>
-      <div class="area"><div class="area-title">Sales &amp; Assortment</div><div class="area-desc">Commercial positioning (pricing, messaging), target customer profile, demo and pitch process, drops and assortment definition, digital merchandising.</div></div>
-      <div class="area"><div class="area-title">Brands Operations</div><div class="area-desc">Short list of brands, onboarding, ongoing support, payout management. Team: Brand Operations.</div></div>
-      <div class="area"><div class="area-title">Marketing</div><div class="area-desc">Digital marketing, email marketing, AI search optimisation.</div></div>
-      <div class="area"><div class="area-title">Operating Model</div><div class="area-desc">Operating model design, scope definition, community mechanics definition, MVP target setting and progress monitoring.</div></div>
-      <div class="area"><div class="area-title">Operations</div><div class="area-desc">Operations set-up and day-to-day order operations, consumer support, ticket management, non-IT vendor management. Team: Customer Operations.</div></div>
-      <div class="area"><div class="area-title">Outsourcing</div><div class="area-desc">Establish and manage outsourced services: customer support, email marketing, accounting, influencer management freelancers.</div></div>
-      <div class="area"><div class="area-title">HR</div><div class="area-desc">Roles, hiring and pay.</div></div>
-      <div class="area"><div class="area-title">Business Insights</div><div class="area-desc">Reporting cadence, analytics, business directions.</div></div>
     </div>
     <div class="role-card">
       <div class="role-title">CTO</div>
@@ -162,9 +153,27 @@ h1 .caps{text-transform:uppercase}
       <div class="area"><div class="area-title">Influencers</div><div class="area-desc">Influencer platform selection, payout management, influencer search, recruitment, daily operations, support. Team: Influencer Relations.</div></div>
             <div class="area"><div class="area-title">Community</div><div class="area-desc">Establishing the community, setting up themes, recruiting founding members, events, community facilitation and support, consumer insights. Team: Community.</div></div>
     </div>
+    </div>
+    <div class="topics-col">
+    <div class="role-card">
+      <div class="role-title">CEO</div>
+      <div class="area"><div class="area-title">Investors</div><div class="area-desc">Investor deck, investor relationships and reporting.</div></div>
+      <div class="area"><div class="area-title">Governance</div><div class="area-desc">Board management, C-corp governance, banking setup, budget approval, IP registration in the US and worldwide.</div></div>
+      <div class="area"><div class="area-title">Finance</div><div class="area-desc">Budgeting, bookkeeping, US accounting firm and tax arrangements.</div></div>
+      <div class="area"><div class="area-title">Legal</div><div class="area-desc">T&amp;Cs and privacy, KYC/AML compliance.</div></div>
+      <div class="area"><div class="area-title">Sales &amp; Assortment</div><div class="area-desc">Commercial positioning (pricing, messaging), target customer profile, demo and pitch process, drops and assortment definition, digital merchandising.</div></div>
+      <div class="area"><div class="area-title">Brands Operations</div><div class="area-desc">Short list of brands, onboarding, ongoing support, payout management. Team: Brand Operations.</div></div>
+      <div class="area"><div class="area-title">Marketing</div><div class="area-desc">Digital marketing, email marketing, AI search optimisation.</div></div>
+      <div class="area"><div class="area-title">Operating Model</div><div class="area-desc">Operating model design, scope definition, community mechanics definition, MVP target setting and progress monitoring.</div></div>
+      <div class="area"><div class="area-title">Operations</div><div class="area-desc">Operations set-up and day-to-day order operations, consumer support, ticket management, non-IT vendor management. Team: Customer Operations.</div></div>
+      <div class="area"><div class="area-title">Outsourcing</div><div class="area-desc">Establish and manage outsourced services: customer support, email marketing, accounting, influencer management freelancers.</div></div>
+      <div class="area"><div class="area-title">HR</div><div class="area-desc">Roles, hiring and pay.</div></div>
+      <div class="area"><div class="area-title">Business Insights</div><div class="area-desc">Reporting cadence, analytics, business directions.</div></div>
+    </div>
+    </div>
   </div>
 
-  <h2 class="sec-h2">Team roles</h2>
+    <h2 class="sec-h2">Team roles</h2>
   <div class="role-grid">
 
     <div class="role-card" id="developers">
