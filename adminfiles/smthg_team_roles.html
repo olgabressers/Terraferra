@@ -25,30 +25,18 @@ h1 .caps{text-transform:uppercase}
 .sec-h2{font-size:clamp(16px,2vw,21px);font-weight:900;letter-spacing:-.5px;margin:44px 0 14px;color:var(--ink);text-transform:uppercase}
 
 /* ── ORG STRUCTURE ── */
-.node{display:flex;align-items:center;justify-content:center;text-align:center;min-height:58px;background:white;border:1px solid var(--rule);border-radius:8px;padding:10px;font-size:15px;font-weight:700;line-height:1.3;color:var(--ink);text-transform:uppercase;text-decoration:none}
+.node{display:flex;align-items:center;justify-content:center;text-align:center;min-height:58px;background:white;border:1px solid var(--rule);border-radius:8px;padding:10px 8px;font-size:15px;font-weight:700;line-height:1.3;color:var(--ink);text-transform:uppercase;text-decoration:none}
 .node.lead{background:var(--ink);border-color:var(--ink);color:white;font-size:17px;font-weight:900}
 .node.role{color:var(--tf);font-weight:800}
 .node.role:hover{border-color:var(--tf)}
-.root{display:flex;justify-content:center}
-.root .node{flex-direction:column;min-width:300px;padding:12px 24px}
-.root-topics{display:block;margin-top:4px;font-size:15px;font-weight:500;text-transform:none}
-.tree{position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:44px;align-items:start}
-.tree::before{content:'';position:absolute;top:-22px;left:calc((100% - 70px)/6*1.5 + 14px);right:calc((100% - 70px)/6 + 7px);border-top:2px solid var(--sub)}
-.tree::after{content:'';position:absolute;top:-44px;left:50%;height:22px;border-left:2px solid var(--sub)}
-.branch{position:relative}
-.branch::before{content:'';position:absolute;top:-22px;left:50%;height:22px;border-left:2px solid var(--sub)}
-.b-ceo{grid-column:span 3}.b-cto{grid-column:span 1}.b-cd{grid-column:span 2}
-.group{position:relative;display:grid;gap:10px;margin-top:22px;padding:12px;background:var(--tf-ghost);border-radius:10px}
+.tree{display:grid;grid-template-columns:1fr 1.75fr 1.75fr 1.75fr;gap:14px;align-items:start}
+.group{position:relative;display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:22px;padding:12px;background:var(--tf-ghost);border-radius:10px}
 .group::before{content:'';position:absolute;top:-22px;left:50%;height:22px;border-left:2px solid var(--sub)}
-.b-ceo .group{grid-template-columns:repeat(3,1fr)}
-.b-cd .group{grid-template-columns:repeat(2,1fr)}
+.b-f .group{grid-template-columns:1fr}
 @media(max-width:900px){
-  .tree{grid-template-columns:1fr;margin-top:18px}
-  .tree::before,.tree::after,.branch::before{display:none}
-  .b-ceo,.b-cto,.b-cd{grid-column:span 1}
+  .tree{grid-template-columns:1fr}
   .group{margin-top:10px}.group::before{display:none}
-  .b-ceo .group,.b-cd .group{grid-template-columns:repeat(2,1fr)}
-  .root .node{min-width:0;width:100%}
+  .b-f .group{grid-template-columns:repeat(2,1fr)}
 }
 
 /* ── ROLE CARDS ── */
@@ -86,8 +74,15 @@ h1 .caps{text-transform:uppercase}
 
   <h2 class="sec-h2">Org structure</h2>
   <div class="chart">
-    <div class="root"><div class="node lead">Founder<span class="root-topics">Vision &amp; Strategy · Capital Strategy · Governance</span></div></div>
     <div class="tree">
+      <div class="branch b-f">
+        <div class="node lead">Founder</div>
+        <div class="group">
+          <div class="node">Vision &amp; Strategy</div>
+          <div class="node">Capital Strategy</div>
+          <div class="node">Governance</div>
+        </div>
+      </div>
       <div class="branch b-ceo">
         <div class="node lead">CEO</div>
         <div class="group">
@@ -103,8 +98,9 @@ h1 .caps{text-transform:uppercase}
         <div class="node lead">CTO</div>
         <div class="group">
           <div class="node">Product &amp; Engineering</div>
-          <div class="node">Maintenance &amp; Analytics</div>
-          <div class="node">Shopify</div>
+          <div class="node">E-commerce</div>
+          <div class="node">Maintenance</div>
+          <div class="node">Analytics</div>
         </div>
       </div>
       <div class="branch b-cd">
@@ -121,8 +117,10 @@ h1 .caps{text-transform:uppercase}
 
   <h2 class="sec-h2">Organization</h2>
   <div class="chart">
-    <div class="root"><div class="node lead">Founder</div></div>
     <div class="tree">
+      <div class="branch b-f">
+        <div class="node lead">Founder</div>
+      </div>
       <div class="branch b-ceo">
         <div class="node lead">CEO</div>
         <div class="group">
@@ -136,7 +134,7 @@ h1 .caps{text-transform:uppercase}
       <div class="branch b-cto">
         <div class="node lead">CTO</div>
         <div class="group">
-          <a class="node role" href="#developers">Developers × 2</a>
+          <a class="node role" href="#developers">Developers&nbsp;×&nbsp;2</a>
         </div>
       </div>
       <div class="branch b-cd">
@@ -169,8 +167,9 @@ h1 .caps{text-transform:uppercase}
     <div class="role-card">
       <div class="role-title">CTO</div>
       <div class="area"><div class="area-title">Product &amp; Engineering</div><div class="area-desc">Product build, testing and QA, infrastructure, security audit, vendor selection and integration (e-commerce, payment, anti-fraud, CRM, try-on and AI), vendor contracts. Team: Developers × 2.</div></div>
-      <div class="area"><div class="area-title">Maintenance &amp; Analytics</div><div class="area-desc">Ongoing maintenance, IT user support, ticketing systems, analytics tools and reporting set-up.</div></div>
-      <div class="area"><div class="area-title">Shopify</div><div class="area-desc">Setting up e-commerce, brands&#8217; technical onboarding, merchandising standards.</div></div>
+      <div class="area"><div class="area-title">E-commerce</div><div class="area-desc">Setting up the Shopify store, brands&#8217; technical onboarding, merchandising standards.</div></div>
+      <div class="area"><div class="area-title">Maintenance</div><div class="area-desc">Ongoing maintenance, IT user support, ticketing systems.</div></div>
+      <div class="area"><div class="area-title">Analytics</div><div class="area-desc">Analytics tools and reporting set-up.</div></div>
     </div>
     <div class="role-card">
       <div class="role-title">Creative Director</div>
