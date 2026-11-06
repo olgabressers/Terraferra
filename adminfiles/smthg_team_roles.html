@@ -25,16 +25,31 @@ h1 .caps{text-transform:uppercase}
 .sec-h2{font-size:clamp(16px,2vw,21px);font-weight:900;letter-spacing:-.5px;margin:44px 0 14px;color:var(--ink);text-transform:uppercase}
 
 /* ── ORG STRUCTURE ── */
-.org{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:start}
-@media(max-width:1000px){.org{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.org{grid-template-columns:1fr}}
-.org-lead{background:var(--ink);color:white;border-radius:10px;padding:16px 18px;font-size:17px;font-weight:900;letter-spacing:-.2px;text-align:center;text-transform:uppercase}
-.org-areas{list-style:none;margin:0 0 0 18px;border-left:2px solid var(--rule)}
-.org-areas li{position:relative;margin:12px 0 0 16px;background:white;border:1px solid var(--rule);border-radius:8px;padding:10px 12px}
-.org-areas li::before{content:'';position:absolute;left:-18px;top:22px;width:17px;border-top:2px solid var(--rule)}
-.org-area{display:block;font-size:15px;font-weight:700;line-height:1.35;color:var(--ink);text-transform:uppercase}
-.org-role{display:block;margin-top:7px;font-size:15px;font-weight:800;line-height:1.35;color:var(--tf);text-decoration:none}
-.org-role:hover{text-decoration:underline}
+.node{display:flex;align-items:center;justify-content:center;text-align:center;min-height:58px;background:white;border:1px solid var(--rule);border-radius:8px;padding:10px;font-size:15px;font-weight:700;line-height:1.3;color:var(--ink);text-transform:uppercase;text-decoration:none}
+.node.lead{background:var(--ink);border-color:var(--ink);color:white;font-size:17px;font-weight:900}
+.node.role{color:var(--tf);font-weight:800}
+.node.role:hover{border-color:var(--tf)}
+.root{display:flex;justify-content:center}
+.root .node{flex-direction:column;min-width:300px;padding:12px 24px}
+.root-topics{display:block;margin-top:4px;font-size:15px;font-weight:500;text-transform:none}
+.tree{position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:44px;align-items:start}
+.tree::before{content:'';position:absolute;top:-22px;left:calc((100% - 70px)/6*1.5 + 14px);right:calc((100% - 70px)/6 + 7px);border-top:2px solid var(--sub)}
+.tree::after{content:'';position:absolute;top:-44px;left:50%;height:22px;border-left:2px solid var(--sub)}
+.branch{position:relative}
+.branch::before{content:'';position:absolute;top:-22px;left:50%;height:22px;border-left:2px solid var(--sub)}
+.b-ceo{grid-column:span 3}.b-cto{grid-column:span 1}.b-cd{grid-column:span 2}
+.group{position:relative;display:grid;gap:10px;margin-top:22px;padding:12px;background:var(--tf-ghost);border-radius:10px}
+.group::before{content:'';position:absolute;top:-22px;left:50%;height:22px;border-left:2px solid var(--sub)}
+.b-ceo .group{grid-template-columns:repeat(3,1fr)}
+.b-cd .group{grid-template-columns:repeat(2,1fr)}
+@media(max-width:900px){
+  .tree{grid-template-columns:1fr;margin-top:18px}
+  .tree::before,.tree::after,.branch::before{display:none}
+  .b-ceo,.b-cto,.b-cd{grid-column:span 1}
+  .group{margin-top:10px}.group::before{display:none}
+  .b-ceo .group,.b-cd .group{grid-template-columns:repeat(2,1fr)}
+  .root .node{min-width:0;width:100%}
+}
 
 /* ── ROLE CARDS ── */
 .role-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
@@ -70,80 +85,99 @@ h1 .caps{text-transform:uppercase}
   <p class="stamp">Created: 6 November 2026 · Last updated: 6 November 2026</p>
 
   <h2 class="sec-h2">Org structure</h2>
-  <div class="org">
-    <div class="org-col">
-      <div class="org-lead">Founder</div>
-      <ul class="org-areas">
-        <li><span class="org-area">Fundraising, Strategy &amp; Brand Direction</span></li>
-        <li><span class="org-area">Finance &amp; Legal</span></li>
-      </ul>
-    </div>
-    <div class="org-col">
-      <div class="org-lead">CEO</div>
-      <ul class="org-areas">
-        <li><span class="org-area">Fundraising &amp; Investors</span><a class="org-role" href="#investor">Investor Relations</a></li>
-        <li><span class="org-area">Finance, Legal &amp; Compliance</span></li>
-        <li><span class="org-area">Operating Model Set-up</span></li>
-        <li><span class="org-area">Operations</span><a class="org-role" href="#customer">Customer Operations Manager</a></li>
-        <li><span class="org-area">Outsourcing</span></li>
-        <li><span class="org-area">Sales</span></li>
-        <li><span class="org-area">Marketing</span><a class="org-role" href="#social">Social Media Manager</a></li>
-        <li><span class="org-area">Brands Operations</span><a class="org-role" href="#brand">Brand Relations: Operations</a></li>
-        <li><span class="org-area">Influencers</span><a class="org-role" href="#influencer">Influencer Relations</a></li>
-        <li><span class="org-area">Business Insights</span></li>
-      </ul>
-    </div>
-    <div class="org-col">
-      <div class="org-lead">CTO</div>
-      <ul class="org-areas">
-        <li><span class="org-area">Product, Engineering &amp; Vendors</span><a class="org-role" href="#developers">Developers × 2</a></li>
-        <li><span class="org-area">Maintenance, Support &amp; Analytics</span></li>
-        <li><span class="org-area">Shopify</span></li>
-      </ul>
-    </div>
-    <div class="org-col">
-      <div class="org-lead">Creative Director</div>
-      <ul class="org-areas">
-        <li><span class="org-area">Creativity &amp; PR</span></li>
-        <li><span class="org-area">Social Media &amp; Content Management</span><a class="org-role" href="#content">Content Creation Specialist</a></li>
-        <li><span class="org-area">Brands Engagement &amp; Assortment</span><a class="org-role" href="#brand">Brand Relations: Relations</a></li>
-        <li><span class="org-area">Community</span><a class="org-role" href="#community">Community Manager</a></li>
-      </ul>
+  <div class="chart">
+    <div class="root"><div class="node lead">Founder<span class="root-topics">Vision &amp; Strategy · Capital Strategy · Governance</span></div></div>
+    <div class="tree">
+      <div class="branch b-ceo">
+        <div class="node lead">CEO</div>
+        <div class="group">
+          <div class="node">Investors</div>
+          <div class="node">Finance &amp; Legal</div>
+          <div class="node">Sales</div>
+          <div class="node">Marketing</div>
+          <div class="node">Operations</div>
+          <div class="node">HR</div>
+        </div>
+      </div>
+      <div class="branch b-cto">
+        <div class="node lead">CTO</div>
+        <div class="group">
+          <div class="node">Product &amp; Engineering</div>
+          <div class="node">Maintenance &amp; Analytics</div>
+          <div class="node">Shopify</div>
+        </div>
+      </div>
+      <div class="branch b-cd">
+        <div class="node lead">Creative Director</div>
+        <div class="group">
+          <div class="node">Brand &amp; PR</div>
+          <div class="node">Content</div>
+          <div class="node">Assortment</div>
+          <div class="node">Community</div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <h2 class="sec-h2">Leadership</h2>
+  <h2 class="sec-h2">Organization</h2>
+  <div class="chart">
+    <div class="root"><div class="node lead">Founder</div></div>
+    <div class="tree">
+      <div class="branch b-ceo">
+        <div class="node lead">CEO</div>
+        <div class="group">
+          <a class="node role" href="#investor">Investor Relations</a>
+          <a class="node role" href="#brand">Brand Relations</a>
+          <a class="node role" href="#influencer">Influencer Relations</a>
+          <a class="node role" href="#social">Social Media Manager</a>
+          <a class="node role" href="#customer">Customer Operations Manager</a>
+        </div>
+      </div>
+      <div class="branch b-cto">
+        <div class="node lead">CTO</div>
+        <div class="group">
+          <a class="node role" href="#developers">Developers × 2</a>
+        </div>
+      </div>
+      <div class="branch b-cd">
+        <div class="node lead">Creative Director</div>
+        <div class="group">
+          <a class="node role" href="#content">Content Creation Specialist</a>
+          <a class="node role" href="#community">Community Manager</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="sec-h2">Topics by position</h2>
   <div class="role-grid" style="align-items:start">
     <div class="role-card">
       <div class="role-title">Founder</div>
-      <div class="area"><div class="area-title">Fundraising, Strategy &amp; Brand Direction</div><div class="area-desc">Brand vision and positioning, capital strategy, investor list and warm introductions, board management, strategic partnerships, advisory.</div></div>
-      <div class="area"><div class="area-title">Finance &amp; Legal</div><div class="area-desc">C-corp governance, banking setup, budget approval, IP registration in the US and worldwide.</div></div>
+      <div class="area"><div class="area-title">Vision &amp; Strategy</div><div class="area-desc">Brand vision and positioning, strategic partnerships, advisory.</div></div>
+      <div class="area"><div class="area-title">Capital Strategy</div><div class="area-desc">Capital strategy and warm introductions to investors.</div></div>
+      <div class="area"><div class="area-title">Governance</div><div class="area-desc">Board management, C-corp governance, banking setup, budget approval, IP registration in the US and worldwide.</div></div>
     </div>
     <div class="role-card">
       <div class="role-title">CEO</div>
-      <div class="area"><div class="area-title">Fundraising &amp; Investors</div><div class="area-desc">Investor deck, investor relationships and reporting.</div></div>
-      <div class="area"><div class="area-title">Finance, Legal &amp; Compliance</div><div class="area-desc">Budgeting, bookkeeping, T&amp;Cs and privacy, KYC/AML compliance, US accounting firm and tax arrangements.</div></div>
-      <div class="area"><div class="area-title">Operating Model Set-up</div><div class="area-desc">Operating model design, scope definition, community mechanics definition, MVP target setting and progress monitoring.</div></div>
-      <div class="area"><div class="area-title">Operations</div><div class="area-desc">Operations set-up and day-to-day order operations, consumer support, ticket management, non-IT vendor management, Instagram content posting.</div></div>
-      <div class="area"><div class="area-title">Outsourcing</div><div class="area-desc">Establish and manage outsourced services: customer support, email marketing, accounting, influencer management freelancers.</div></div>
-      <div class="area"><div class="area-title">Sales</div><div class="area-desc">Commercial positioning (pricing, messaging), target customer profile, demo and pitch process set-up.</div></div>
-      <div class="area"><div class="area-title">Marketing</div><div class="area-desc">Digital marketing, email marketing, SMM, AI search optimisation.</div></div>
-      <div class="area"><div class="area-title">Brands Operations</div><div class="area-desc">Short list of brands, onboarding, ongoing support, payout management.</div></div>
-      <div class="area"><div class="area-title">Influencers</div><div class="area-desc">Influencer platform selection, payout management. Manages the freelancer who handles influencer search, recruitment, daily operations and support.</div></div>
-      <div class="area"><div class="area-title">Business Insights</div><div class="area-desc">Reporting cadence, analytics, business directions.</div></div>
+      <div class="area"><div class="area-title">Investors</div><div class="area-desc">Investor deck, investor relationships and reporting. Team: Investor Relations.</div></div>
+      <div class="area"><div class="area-title">Finance &amp; Legal</div><div class="area-desc">Budgeting, bookkeeping, T&amp;Cs and privacy, KYC/AML compliance, US accounting firm and tax arrangements.</div></div>
+      <div class="area"><div class="area-title">Sales</div><div class="area-desc">Commercial positioning (pricing, messaging), target customer profile, demo and pitch process, brand recruitment and retention. Team: Brand Relations.</div></div>
+      <div class="area"><div class="area-title">Marketing</div><div class="area-desc">Digital marketing, email marketing, social media, AI search optimisation, influencers. Team: Social Media Manager, Influencer Relations.</div></div>
+      <div class="area"><div class="area-title">Operations</div><div class="area-desc">Operating model, scope, MVP targets and progress, day-to-day orders, consumer support, non-IT vendors, outsourced services, reporting cadence. Team: Customer Operations Manager.</div></div>
+      <div class="area"><div class="area-title">HR</div><div class="area-desc">Roles, hiring and pay.</div></div>
     </div>
     <div class="role-card">
       <div class="role-title">CTO</div>
-      <div class="area"><div class="area-title">Product, Engineering &amp; Vendors</div><div class="area-desc">Product build, testing and QA, infrastructure, security audit, vendor selection and integration (e-commerce, payment, anti-fraud, CRM, try-on and AI), vendor contracts and management.</div></div>
-      <div class="area"><div class="area-title">Maintenance, Support &amp; Analytics</div><div class="area-desc">Ongoing maintenance, IT user support, ticketing systems management, analytics tools and reporting set-up.</div></div>
+      <div class="area"><div class="area-title">Product &amp; Engineering</div><div class="area-desc">Product build, testing and QA, infrastructure, security audit, vendor selection and integration (e-commerce, payment, anti-fraud, CRM, try-on and AI), vendor contracts. Team: Developers × 2.</div></div>
+      <div class="area"><div class="area-title">Maintenance &amp; Analytics</div><div class="area-desc">Ongoing maintenance, IT user support, ticketing systems, analytics tools and reporting set-up.</div></div>
       <div class="area"><div class="area-title">Shopify</div><div class="area-desc">Setting up e-commerce, brands&#8217; technical onboarding, merchandising standards.</div></div>
     </div>
     <div class="role-card">
       <div class="role-title">Creative Director</div>
-      <div class="area"><div class="area-title">Creativity &amp; PR</div><div class="area-desc">Brand identity, website look and feel, PR launch, content marketing, US PR agency for press.</div></div>
-      <div class="area"><div class="area-title">Social Media &amp; Content Management</div><div class="area-desc">Content strategy, content plan, content creation: visuals for website, Instagram and community.</div></div>
-      <div class="area"><div class="area-title">Brands Engagement &amp; Assortment</div><div class="area-desc">Long list of brands, brand recruitment, drops and assortment definition, digital merchandising, brand retention.</div></div>
-      <div class="area"><div class="area-title">Community</div><div class="area-desc">Establishing the community, setting up themes, recruiting founding members, events, community facilitation and support, consumer insights.</div></div>
+      <div class="area"><div class="area-title">Brand &amp; PR</div><div class="area-desc">Brand identity, website look and feel, PR launch, US PR agency for press.</div></div>
+      <div class="area"><div class="area-title">Content</div><div class="area-desc">Content strategy, content plan, content marketing, content creation: visuals for website, Instagram and community. Team: Content Creation Specialist.</div></div>
+      <div class="area"><div class="area-title">Assortment</div><div class="area-desc">Drops and assortment definition, digital merchandising.</div></div>
+      <div class="area"><div class="area-title">Community</div><div class="area-desc">Establishing the community, setting up themes, recruiting founding members, events, community facilitation and support, consumer insights. Team: Community Manager.</div></div>
     </div>
   </div>
 
@@ -226,7 +260,6 @@ h1 .caps{text-transform:uppercase}
         <li>Find brands by city; keep the Notion brands CRM up to date</li>
         <li>Recruit brands: first contact, the brand questionnaire, first calls, platform and try-on presentation</li>
         <li>Explain the terms: commission on actual sales only, Founding Brand conditions, who ships and who handles returns</li>
-        <li>Define drops and assortment: agree the product selection for each drop; digital merchandising</li>
         <li>Send the brand agreement and get it signed</li>
         <li>Run monthly brand success reviews: sell-through rates, engagement, recommendations</li>
         <li>Own brand retention: identify at-risk brands, flag issues to the platform team</li>
@@ -235,12 +268,13 @@ h1 .caps{text-transform:uppercase}
       <div class="sub-title">Operations</div>
       <ul class="jd">
         <li>Keep a page per brand: owner, contacts, stock, shipping, call summary, next steps</li>
+        <li>Agree the product selection with the brand, within the assortment set by the Creative Director</li>
         <li>Send the content guide and collect content in one folder, with sizes for every product</li>
         <li>Onboard the brand: profile setup, first drop walkthrough, rules briefing</li>
         <li>Establish which system holds the brand&#8217;s stock and arrange the integration with the developers</li>
         <li>Confirm shipping and returns: where stock sits, carrier, delivery time, duties, return handling</li>
         <li>Test the brand page with the brand before launch</li>
-        <li>Ongoing brand support and payout management</li>
+        <li>Ongoing brand support and payout management: payout every 45 days, after the return period</li>
       </ul>
       <div class="pay">
         <div class="pay-row"><span class="pay-label">Year 1 budget, contractor</span><span class="pay-main">Not in the budget</span></div>
@@ -254,7 +288,6 @@ h1 .caps{text-transform:uppercase}
         <li>Keep the investor deck up to date</li>
         <li>Investor relationships: first contact, meetings, follow-up</li>
         <li>Investor reporting</li>
-        <li>Investor list and warm introductions, with the Founder</li>
       </ul>
       <div class="pay">
         <div class="pay-row"><span class="pay-label">Year 1 budget, contractor</span><span class="pay-main">Not in the budget</span></div>
@@ -267,7 +300,6 @@ h1 .caps{text-transform:uppercase}
       <ul class="jd">
         <li>Social strategy for @smthg.us on Instagram and TikTok</li>
         <li>Own the social calendar and post scheduling: 5–7 posts a week</li>
-        <li>Plan weekly content around pre-launch and drops</li>
         <li>Community posts: brands, creators, members</li>
         <li>Answer comments and direct messages on the SMTHG accounts</li>
         <li>Influencer outreach coordination with Influencer Relations</li>
@@ -305,7 +337,7 @@ h1 .caps{text-transform:uppercase}
         <li>Order logistics: pass orders to the brand, which ships direct, and follow each one to delivery</li>
         <li>Cross-border shipments: follow carrier, customs and delivery issues with the brand</li>
         <li>Returns: two weeks from receipt, handled with the brand; quality returns and chargebacks sit with the brand</li>
-        <li>Handle brand issues: dashboard access, drop submission errors, payout queries (payout every 45 days, after the return period)</li>
+        <li>Handle brand issues: dashboard access, drop submission errors</li>
         <li>Maintain response times: under 4 hours first response, under 24 hours resolution; satisfaction tracking per brand</li>
         <li>Build macros and FAQ for recurring queries</li>
         <li>Document recurring quality complaints and fraud patterns; alert the platform team if systemic</li>
