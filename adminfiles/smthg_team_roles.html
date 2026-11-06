@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Roles &amp; Responsibilities · smthg.</title>
+<link rel="icon" type="image/svg+xml" href="smthg_favicon.svg"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --tf:#E8002D;--tf-dark:#B50023;--tf-ghost:#F1EEE9;
+  --off-white:#F8F6F2;--ink:#161616;--sub:#5C5A56;--rule:#E6E2DA;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink);overflow-x:hidden}
+
+.wrap{max-width:1240px;margin:0 auto;padding:40px 48px 80px}
+@media(max-width:700px){.wrap{padding:24px 16px 60px}}
+
+h1{font-size:clamp(24px,3.8vw,40px);font-weight:900;letter-spacing:-1.2px;line-height:1.1;color:var(--ink)}
+h1 .caps{text-transform:uppercase}
+.stamp{font-size:13px;color:var(--sub);margin-top:10px}
+.sec-h2{font-size:clamp(16px,2vw,21px);font-weight:900;letter-spacing:-.5px;margin:44px 0 14px;color:var(--ink);text-transform:uppercase}
+
+/* ── ROLE BOXES ── */
+.box-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:900px){.box-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.box-grid{grid-template-columns:1fr}}
+.box{display:flex;align-items:center;min-height:84px;background:white;border:1px solid var(--rule);border-top:3px solid var(--tf);border-radius:10px;padding:16px 20px;font-size:16px;font-weight:900;letter-spacing:-.2px;line-height:1.3;color:var(--ink);text-decoration:none;text-transform:uppercase}
+.box:hover{color:var(--tf)}
+
+/* ── ROLE CARDS ── */
+.role-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+@media(max-width:900px){.role-grid{grid-template-columns:1fr}}
+.role-card{display:flex;flex-direction:column;background:white;border:1px solid var(--rule);border-top:3px solid var(--tf);border-radius:10px;padding:20px 22px 18px;scroll-margin-top:16px}
+.role-title{font-size:17px;font-weight:900;letter-spacing:-.3px;color:var(--ink);text-transform:uppercase;margin-bottom:14px}
+.jd{margin:0 0 16px;padding:0 0 0 16px;list-style:disc}
+.jd li{font-size:15px;color:var(--ink);line-height:1.6;margin-bottom:5px}
+
+.pay{margin-top:auto;border-top:1px solid var(--rule);padding-top:12px}
+.pay-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;padding:3px 0}
+.pay-label{font-size:15px;color:var(--ink)}
+.pay-main{font-size:17px;font-weight:900;color:var(--ink)}
+.pay-src{font-size:12px;color:var(--sub);margin-top:6px;line-height:1.5}
+.pay-src a{color:var(--tf);text-decoration:none}
+.pay-src a:hover{text-decoration:underline}
+
+.back-to-top{position:fixed;right:24px;bottom:24px;width:44px;height:44px;border-radius:50%;background:var(--tf);color:white;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:20px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:100}
+.back-to-top.show{opacity:1;pointer-events:auto}
+.back-to-top:hover{text-decoration:none}
+@media(max-width:700px){.back-to-top{width:36px;height:36px;right:14px;bottom:14px;font-size:16px}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <h1>smthg<span style="color:var(--tf)">.</span> <span class="caps">Roles &amp; Responsibilities</span></h1>
+  <p class="stamp">Created: 6 November 2026 · Last updated: 6 November 2026</p>
+
+  <h2 class="sec-h2">Roles</h2>
+  <div class="box-grid">
+    <a class="box" href="#developers">Developers × 2</a>
+    <a class="box" href="#community">Community Manager</a>
+    <a class="box" href="#influencer">Influencer Relations</a>
+    <a class="box" href="#social">Social Media Manager</a>
+    <a class="box" href="#content">Content Creation Specialist</a>
+    <a class="box" href="#customer">Customer Operations Manager</a>
+  </div>
+
+  <h2 class="sec-h2">What each role does</h2>
+  <div class="role-grid">
+
+    <div class="role-card" id="developers">
+      <div class="role-title">Developers × 2</div>
+      <ul class="jd">
+        <li>Backend: API, GMV reporting, Stripe integrations, brand dashboards, security</li>
+        <li>Frontend and mobile: drop browsing, checkout flow, influencer commission views, app performance</li>
+        <li>App maintenance, feature development, code reviews, dependency updates</li>
+      </ul>
+      <div class="pay">
+        <div class="pay-row"><span class="pay-label">Year 1 budget, contractor</span><span class="pay-main">$2,000/mo per person</span></div>
+        <div class="pay-row"><span class="pay-label">US market</span><span class="pay-main">$9,200–13,300/mo</span></div>
+        <div class="pay-src">US market, senior backend. Source: <a href="https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm" target="_blank" rel="noopener">BLS SOC 15-1252</a>, US median $130K/yr</div>
+      </div>
+    </div>
+
+    <div class="role-card" id="community">
+      <div class="role-title">Community Manager</div>
+      <ul class="jd">
+        <li>Onboard pilot brands: profile setup, first drop walkthrough, rules briefing</li>
+        <li>Curate and moderate the So-Me-Space feed: quality standards, spam</li>
+        <li>Run monthly brand success reviews: sell-through rates, engagement, recommendations</li>
+        <li>Build community rituals: drop countdowns, new brand spotlights</li>
+        <li>Own brand retention: identify at-risk brands, flag issues to the platform team</li>
+      </ul>
+      <div class="pay">
+        <div class="pay-row"><span class="pay-label">Year 1 budget, contractor</span><span class="pay-main">$2,500/mo</span></div>
+        <div class="pay-row"><span class="pay-label">US market</span><span class="pay-main">$4,000–6,200/mo</span></div>
+        <div class="pay-src">US market source: Glassdoor / LinkedIn Salary 2025, Community Manager, e-commerce, US</div>
+      </div>
+    </div>
+
+    <div class="role-card" id="influencer">
+      <div class="role-title">Influencer Relations</div>
+      <ul class="jd">
+        <li>Recruit and vet influencers: audience fit, follower quality, niche alignment</li>
+        <li>Brief influencers on upcoming drops: creative direction, timing, commission terms</li>
+        <li>Track influencer GMV, conversion rate and engagement per drop; share performance reports</li>
+        <li>Handle commission queries and Founding Creator applications</li>
+        <li>Build long-term relationships with top performers for exclusive drops and co-marketing</li>
+      </ul>
+      <div class="pay">
+        <div class="pay-row"><span class="pay-label">Year 1 budget, contractor</span><span class="pay-main">$4,200/mo</span></div>
+        <div class="pay-row"><span class="pay-label">US market</span><span class="pay-main">$4,200–6,500/mo</span></div>
+        <div class="pay-src">US market source: Glassdoor / LinkedIn Salary 2025, Influencer / Creator Relations, fashion, US</div>
+      </div>
+    </div>
+
+    <div class="role-card" id="social">
+      <div class="role-title">Social Media Manager</div>
+      <ul class="jd">
+        <li>Social strategy</li>
+        <li>Post scheduling</li>
+        <li>Community posts</li>
+        <li>Influencer outreach coordination</li>
+      </ul>
+      <div class="pay">
+        <div class="pay-row"><span class="pay-label">Year 1 budget, contractor</span><span class="pay-main">$2,500/mo</span></div>
+        <div class="pay-row"><span class="pay-label">US market</span><span class="pay-main">$3,800/mo</span></div>
+        <div class="pay-src">US market source: SMTHG budget market rate</div>
+      </div>
+    </div>
+
+    <div class="role-card" id="content">
+      <div class="role-title">Content Creation Specialist</div>
+      <ul class="jd">
+        <li>Produce drop announcement assets: images, reels, captions for brand launches</li>
+        <li>Manage the SMTHG social calendar (Instagram, TikTok): 5–7 posts a week</li>
+        <li>Build content kits for brand onboarding: brand templates, tone guidelines</li>
+        <li>Brief AI image tools (Midjourney, Canva) and review for brand consistency</li>
+        <li>Own email and push templates for drop countdowns and new collection alerts</li>
+      </ul>
+      <div class="pay">
+        <div class="pay-row"><span class="pay-label">Year 1 budget, contractor</span><span class="pay-main">$2,000/mo</span></div>
+        <div class="pay-row"><span class="pay-label">US market</span><span class="pay-main">$3,800–5,500/mo</span></div>
+        <div class="pay-src">US market source: Glassdoor / LinkedIn Salary 2025, Social Media / Content Manager, fashion, US</div>
+      </div>
+    </div>
+
+    <div class="role-card" id="customer">
+      <div class="role-title">Customer Operations Manager</div>
+      <ul class="jd">
+        <li>Resolve buyer tickets through Intercom: orders, tracking, returns, payment disputes</li>
+        <li>Handle brand issues: dashboard access, drop submission errors, payout queries</li>
+        <li>Order logistics and escalations</li>
+        <li>Maintain response times: under 4 hours first response, under 24 hours resolution; satisfaction tracking per brand</li>
+        <li>Build macros and FAQ for recurring queries</li>
+        <li>Document recurring quality complaints and fraud patterns; alert the platform team if systemic</li>
+      </ul>
+      <div class="pay">
+        <div class="pay-row"><span class="pay-label">Year 1 budget, contractor</span><span class="pay-main">$2,500/mo</span></div>
+        <div class="pay-row"><span class="pay-label">US market</span><span class="pay-main">$3,200–4,300/mo</span></div>
+        <div class="pay-src">US market source: <a href="https://www.bls.gov/ooh/office-and-administrative-support/customer-service-representatives.htm" target="_blank" rel="noopener">BLS SOC 43-1011</a>, US median $38.7K/yr</div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<a href="#" class="back-to-top" aria-label="Back to top">↑</a>
+<script>
+var btt = document.querySelector('.back-to-top');
+window.addEventListener('scroll', function(){ btt.classList.toggle('show', window.scrollY > 400); });
+btt.addEventListener('click', function(e){ e.preventDefault(); window.scrollTo({top:0,behavior:'smooth'}); });
+</script>
+</body>
+</html>
