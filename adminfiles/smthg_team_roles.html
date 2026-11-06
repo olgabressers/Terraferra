@@ -38,6 +38,7 @@ h1 .caps{text-transform:uppercase}
 .role-title{font-size:17px;font-weight:900;letter-spacing:-.3px;color:var(--ink);text-transform:uppercase;margin-bottom:14px}
 .jd{margin:0 0 16px;padding:0 0 0 16px;list-style:disc}
 .jd li{font-size:15px;color:var(--ink);line-height:1.6;margin-bottom:5px}
+.sub-title{font-size:15px;font-weight:800;letter-spacing:.3px;color:var(--tf);text-transform:uppercase;margin-bottom:8px}
 
 .pay{margin-top:auto;border-top:1px solid var(--rule);padding-top:12px}
 .pay-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;padding:3px 0}
@@ -77,8 +78,13 @@ h1 .caps{text-transform:uppercase}
     <div class="role-card" id="developers">
       <div class="role-title">Developers × 2</div>
       <ul class="jd">
-        <li>Backend: API, GMV reporting, Stripe integrations, brand dashboards, security</li>
-        <li>Frontend and mobile: drop browsing, checkout flow, influencer commission views, app performance</li>
+        <li>Shopify storefront: drop pages, brand pages, checkout flow, app performance</li>
+        <li>Payments through Stripe and Stripe Tax</li>
+        <li>Affiliate links: each influencer&#8217;s link, sales tracking and commission views</li>
+        <li>Virtual try-on: generation and its place in the shopping flow</li>
+        <li>Stock integrations: connect each brand&#8217;s stock system so SMTHG never sells a piece already sold elsewhere</li>
+        <li>So-Me-Space: Brand Space, Style Space, Events and Feed</li>
+        <li>Backend: API, GMV reporting, brand dashboards, security</li>
         <li>App maintenance, feature development, code reviews, dependency updates</li>
       </ul>
       <div class="pay">
@@ -91,8 +97,13 @@ h1 .caps{text-transform:uppercase}
     <div class="role-card" id="community">
       <div class="role-title">Community Manager</div>
       <ul class="jd">
-        <li>Curate and moderate the So-Me-Space feed: quality standards, spam</li>
-        <li>Build community rituals: drop countdowns, new brand spotlights</li>
+        <li>Run So-Me-Space day to day: Brand Space, Style Space, Events and Feed</li>
+        <li>Curate and moderate the feed: quality standards, spam</li>
+        <li>Run live sessions with brands and creators</li>
+        <li>Keep chats and interest groups active</li>
+        <li>Run points, status and levels for members</li>
+        <li>Keep the drop calendar up to date and build rituals: drop countdowns, new brand spotlights</li>
+        <li>Organise community access to fashion events for partner creators</li>
         <li>Community growth and platform engagement</li>
       </ul>
       <div class="pay">
@@ -104,12 +115,24 @@ h1 .caps{text-transform:uppercase}
 
     <div class="role-card" id="influencer">
       <div class="role-title">Influencer Relations</div>
+      <div class="sub-title">Relations</div>
       <ul class="jd">
-        <li>Recruit and vet influencers: audience fit, follower quality, niche alignment</li>
-        <li>Brief influencers on upcoming drops: creative direction, timing, commission terms</li>
-        <li>Track influencer GMV, conversion rate and engagement per drop; share performance reports</li>
+        <li>Find influencers by city and by brand; keep the Notion CRM boards up to date</li>
+        <li>Vet influencers: audience fit, follower quality, niche, and match with the style of each brand</li>
+        <li>Contact and remind influencers, run first calls, share the Founding Creator Guide</li>
+        <li>Explain the terms: 20% on every sale through their own link, no samples needed</li>
+        <li>Send the influencer agreement and get it signed</li>
         <li>Handle commission queries and Founding Creator applications</li>
         <li>Build long-term relationships with top performers for exclusive drops and co-marketing</li>
+      </ul>
+      <div class="sub-title">Operations</div>
+      <ul class="jd">
+        <li>Keep a page per influencer: profile, contact, style, call summary, contract details, next steps</li>
+        <li>Agree the format with each influencer: try-on content, live sessions with the brands, cross-posting</li>
+        <li>Brief influencers on upcoming drops: creative direction, timing, commission terms</li>
+        <li>Set up each influencer&#8217;s affiliate link to the drop</li>
+        <li>Track influencer GMV, conversion rate and engagement per drop; share performance reports</li>
+        <li>Keep contact between influencers and brands through SMTHG</li>
       </ul>
       <div class="pay">
         <div class="pay-row"><span class="pay-label">Year 1 budget, contractor</span><span class="pay-main">$4,200/mo</span></div>
@@ -120,12 +143,25 @@ h1 .caps{text-transform:uppercase}
 
     <div class="role-card" id="brand">
       <div class="role-title">Brand Relations</div>
+      <div class="sub-title">Relations</div>
       <ul class="jd">
-        <li>Recruit brands</li>
-        <li>Onboard brands: profile setup, first drop walkthrough, rules briefing</li>
+        <li>Find brands by city; keep the Notion brands CRM up to date</li>
+        <li>Recruit brands: first contact, the brand questionnaire, first calls, platform and try-on presentation</li>
+        <li>Explain the terms: commission on actual sales only, Founding Brand conditions, who ships and who handles returns</li>
+        <li>Send the brand agreement and get it signed</li>
         <li>Run monthly brand success reviews: sell-through rates, engagement, recommendations</li>
         <li>Own brand retention: identify at-risk brands, flag issues to the platform team</li>
-        <li>Maintain the long-term relationship with each brand</li>
+        <li>Maintain the long-term relationship with each brand, including a group chat per brand</li>
+      </ul>
+      <div class="sub-title">Operations</div>
+      <ul class="jd">
+        <li>Keep a page per brand: owner, contacts, stock, shipping, call summary, next steps</li>
+        <li>Agree the product selection for each drop</li>
+        <li>Send the content guide and collect content in one folder, with sizes for every product</li>
+        <li>Onboard the brand: profile setup, first drop walkthrough, rules briefing</li>
+        <li>Establish which system holds the brand&#8217;s stock and arrange the integration with the developers</li>
+        <li>Confirm shipping and returns: where stock sits, carrier, delivery time, duties, return handling</li>
+        <li>Test the brand page with the brand before launch</li>
       </ul>
       <div class="pay">
         <div class="pay-row"><span class="pay-label">Year 1 budget, contractor</span><span class="pay-main">Not in the budget</span></div>
@@ -136,10 +172,12 @@ h1 .caps{text-transform:uppercase}
     <div class="role-card" id="social">
       <div class="role-title">Social Media Manager</div>
       <ul class="jd">
-        <li>Social strategy</li>
-        <li>Post scheduling</li>
-        <li>Community posts</li>
-        <li>Influencer outreach coordination</li>
+        <li>Social strategy for @smthg.us on Instagram and TikTok</li>
+        <li>Own the social calendar and post scheduling: 5–7 posts a week</li>
+        <li>Plan weekly content around pre-launch and drops</li>
+        <li>Community posts: brands, creators, members</li>
+        <li>Answer comments and direct messages on the SMTHG accounts</li>
+        <li>Influencer outreach coordination with Influencer Relations</li>
       </ul>
       <div class="pay">
         <div class="pay-row"><span class="pay-label">Year 1 budget, contractor</span><span class="pay-main">$2,500/mo</span></div>
@@ -152,9 +190,12 @@ h1 .caps{text-transform:uppercase}
       <div class="role-title">Content Creation Specialist</div>
       <ul class="jd">
         <li>Produce drop announcement assets: images, reels, captions for brand launches</li>
-        <li>Manage the SMTHG social calendar (Instagram, TikTok): 5–7 posts a week</li>
+        <li>Produce the posts for the social calendar</li>
+        <li>Prepare brand content for Shopify from what brands deliver: images, descriptions, sizes</li>
+        <li>Create virtual try-on content for drops</li>
         <li>Build content kits for brand onboarding: brand templates, tone guidelines</li>
         <li>Brief AI image tools (Midjourney, Canva) and review for brand consistency</li>
+        <li>Brief freelance photography and video projects</li>
         <li>Own email and push templates for drop countdowns and new collection alerts</li>
       </ul>
       <div class="pay">
@@ -167,9 +208,11 @@ h1 .caps{text-transform:uppercase}
     <div class="role-card" id="customer">
       <div class="role-title">Customer Operations Manager</div>
       <ul class="jd">
-        <li>Resolve buyer tickets through Intercom: orders, tracking, returns, payment disputes</li>
-        <li>Handle brand issues: dashboard access, drop submission errors, payout queries</li>
-        <li>Order logistics and escalations</li>
+        <li>First contact for buyers, as SMTHG is the seller: resolve tickets through Intercom on orders, tracking, returns, payment disputes</li>
+        <li>Order logistics: pass orders to the brand, which ships direct, and follow each one to delivery</li>
+        <li>Cross-border shipments: follow carrier, customs and delivery issues with the brand</li>
+        <li>Returns: two weeks from receipt, handled with the brand; quality returns and chargebacks sit with the brand</li>
+        <li>Handle brand issues: dashboard access, drop submission errors, payout queries (payout every 45 days, after the return period)</li>
         <li>Maintain response times: under 4 hours first response, under 24 hours resolution; satisfaction tracking per brand</li>
         <li>Build macros and FAQ for recurring queries</li>
         <li>Document recurring quality complaints and fraud patterns; alert the platform team if systemic</li>
