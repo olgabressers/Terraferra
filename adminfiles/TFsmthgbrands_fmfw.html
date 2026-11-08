@@ -329,7 +329,7 @@ tr:hover .del-btn{opacity:1}
           <th style="min-width:150px">Brand</th>
           <th style="min-width:140px">URL</th>
           <th style="min-width:130px">Instagram · Followers</th>
-          <th style="min-width:260px">Tagged people · Followers<input id="tag-search" type="search" placeholder="Search handle, role…" oninput="tagQuery=this.value.trim().toLowerCase();applyFilter()" style="display:block;margin-top:6px;width:100%;box-sizing:border-box;font-size:13px;font-family:inherit;font-weight:400;text-transform:none;letter-spacing:0;color:var(--ink);border:1px solid var(--rule);border-radius:4px;padding:4px 8px;background:#fff"><div id="fol-filter" style="display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:6px;font-size:13px;font-weight:400;text-transform:none;letter-spacing:0;color:var(--ink)"><label style="display:flex;align-items:center;gap:4px;cursor:pointer"><input type="checkbox" value="0-5000" onchange="setFolBuckets()" style="accent-color:var(--tf);margin:0;cursor:pointer">&lt;5K</label><label style="display:flex;align-items:center;gap:4px;cursor:pointer"><input type="checkbox" value="5000-10000" onchange="setFolBuckets()" style="accent-color:var(--tf);margin:0;cursor:pointer">5–10K</label><label style="display:flex;align-items:center;gap:4px;cursor:pointer"><input type="checkbox" value="10000-50000" onchange="setFolBuckets()" style="accent-color:var(--tf);margin:0;cursor:pointer">10–50K</label><label style="display:flex;align-items:center;gap:4px;cursor:pointer"><input type="checkbox" value="50000-100000" onchange="setFolBuckets()" style="accent-color:var(--tf);margin:0;cursor:pointer">50–100K</label><label style="display:flex;align-items:center;gap:4px;cursor:pointer"><input type="checkbox" value="100000-" onchange="setFolBuckets()" style="accent-color:var(--tf);margin:0;cursor:pointer">100K+</label></div></th>
+          <th style="min-width:260px">Tagged people · Followers<input id="tag-search" type="search" placeholder="Search handle, role…" oninput="tagQuery=this.value.trim().toLowerCase();applyFilter()" style="display:block;margin-top:6px;width:100%;box-sizing:border-box;font-size:13px;font-family:inherit;font-weight:400;text-transform:none;letter-spacing:0;color:var(--ink);border:1px solid var(--rule);border-radius:4px;padding:4px 8px;background:#fff"><div id="role-filter" style="display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:6px;font-size:13px;font-weight:400;text-transform:none;letter-spacing:0;color:var(--ink)"><label style="display:flex;align-items:center;gap:4px;cursor:pointer"><input type="checkbox" value="model" onchange="setFolBuckets()" style="accent-color:var(--tf);margin:0;cursor:pointer">Models</label><label style="display:flex;align-items:center;gap:4px;cursor:pointer"><input type="checkbox" value="influencer" onchange="setFolBuckets()" style="accent-color:var(--tf);margin:0;cursor:pointer">Influencers</label></div><div id="fol-filter" style="display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:6px;font-size:13px;font-weight:400;text-transform:none;letter-spacing:0;color:var(--ink)"><label style="display:flex;align-items:center;gap:4px;cursor:pointer"><input type="checkbox" value="0-5000" onchange="setFolBuckets()" style="accent-color:var(--tf);margin:0;cursor:pointer">&lt;5K</label><label style="display:flex;align-items:center;gap:4px;cursor:pointer"><input type="checkbox" value="5000-10000" onchange="setFolBuckets()" style="accent-color:var(--tf);margin:0;cursor:pointer">5–10K</label><label style="display:flex;align-items:center;gap:4px;cursor:pointer"><input type="checkbox" value="10000-50000" onchange="setFolBuckets()" style="accent-color:var(--tf);margin:0;cursor:pointer">10–50K</label><label style="display:flex;align-items:center;gap:4px;cursor:pointer"><input type="checkbox" value="50000-100000" onchange="setFolBuckets()" style="accent-color:var(--tf);margin:0;cursor:pointer">50–100K</label><label style="display:flex;align-items:center;gap:4px;cursor:pointer"><input type="checkbox" value="100000-" onchange="setFolBuckets()" style="accent-color:var(--tf);margin:0;cursor:pointer">100K+</label></div></th>
           <th style="min-width:110px">Gender</th>
           <th style="min-width:270px">Relevant to contact<div style="font-weight:400;color:var(--sub);font-size:12px;text-transform:none;letter-spacing:0">A Alena · C Chris · M Maria · AX Alex</div></th>
           <th style="min-width:260px">Creator email</th>
@@ -1077,8 +1077,16 @@ function applyProgFilter(){
 }
 var tagQuery = '';
 var folBuckets = [];
+var roleSel = [];
+// Role filter: Models / Influencers, read from the role after the handle
+function inRole(t){
+  if(!roleSel.length) return true;
+  var r = (t.split('·')[1]||'').toLowerCase();
+  return roleSel.some(function(x){ return x === 'model' ? /\bmodel\b/.test(r) : /creator|artist|celebrity|tv host|comedian/.test(r); });
+}
 function setFolBuckets(){
   folBuckets = [].map.call(document.querySelectorAll('#fol-filter input:checked'), function(c){ return c.value; });
+  roleSel = [].map.call(document.querySelectorAll('#role-filter input:checked'), function(c){ return c.value; });
   applyFilter();
 }
 // "@h · role · 44K" -> 44000; null when the count is missing
@@ -1117,11 +1125,11 @@ function applyFilter(){
     var hit = {};
     lines.forEach(function(el){
       if(el.closest('td') && el.closest('td').querySelector('.link-disp') && el.parentNode.classList.contains('link-disp')){
-        if((!tagQuery || el.textContent.toLowerCase().indexOf(tagQuery) >= 0) && inBucket(el.textContent)) hit[el.dataset.h || ('#'+el.textContent)] = 1;
+        if((!tagQuery || el.textContent.toLowerCase().indexOf(tagQuery) >= 0) && inBucket(el.textContent) && inRole(el.textContent)) hit[el.dataset.h || ('#'+el.textContent)] = 1;
       }
     });
-    lines.forEach(function(el){ var on = (!tagQuery && !folBuckets.length) || hit[el.dataset.h || ('#'+el.textContent)]; el.style.display = on ? (el.parentNode.classList.contains('link-disp') ? 'block' : 'flex') : 'none'; });
-    if((tagQuery || folBuckets.length) && !Object.keys(hit).length) show = false;
+    lines.forEach(function(el){ var on = (!tagQuery && !folBuckets.length && !roleSel.length) || hit[el.dataset.h || ('#'+el.textContent)]; el.style.display = on ? (el.parentNode.classList.contains('link-disp') ? 'block' : 'flex') : 'none'; });
+    if((tagQuery || folBuckets.length || roleSel.length) && !Object.keys(hit).length) show = false;
     tr.style.display = show ? '' : 'none';
   });
   renumberRows();
