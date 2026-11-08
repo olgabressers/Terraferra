@@ -291,6 +291,24 @@ tr:hover .del-btn{opacity:1}
   .prog-tbl th:nth-child(4){min-width:260px}
   .brands-tbl td:nth-child(2) .cell-inp{font-size:13px;padding:6px 4px;overflow:hidden;resize:none;word-wrap:normal;overflow-wrap:normal;word-break:normal}
 }
+
+/* Phone: designer cards instead of the wide table */
+#mob-list{display:none}
+@media(max-width:700px){
+  .tbl-wrap,#count-bar{display:none!important}
+  #mob-list{display:block}
+  .mob-filter{display:flex;gap:8px;margin:0 0 14px}
+  .mob-filter button{flex:1;font:inherit;font-size:15px;font-weight:700;padding:10px 0;border:1px solid var(--tf);background:#fff;color:var(--tf);border-radius:6px}
+  .mob-filter button.on{background:var(--tf);color:#fff}
+  .mob-card{background:#fff;border:1px solid var(--rule);border-top:3px solid var(--tf);padding:14px 14px 6px;margin-bottom:14px}
+  .mob-card h3{font-size:17px;font-weight:800;color:var(--ink);margin:0 0 6px;text-transform:uppercase}
+  .mob-meta{font-size:15px;color:var(--ink);line-height:1.6;margin-bottom:8px;word-break:break-word}
+  .mob-meta a,.mob-p a{color:var(--tf);text-decoration:none}
+  .mob-p{border-top:1px solid var(--rule);padding:9px 0;font-size:15px;color:var(--ink);line-height:1.5;word-break:break-word}
+  .mob-p .h{font-weight:700}
+  .mob-p .also{display:block;color:var(--tf);font-weight:700}
+  .mob-p .sub{display:block;color:var(--sub)}
+}
 </style>
 </head>
 <body>
@@ -317,6 +335,7 @@ tr:hover .del-btn{opacity:1}
   </table>
 
 
+  <div id="mob-list"></div>
   <div class="count-bar" id="count-bar" style="margin-top:36px">Loading…</div>
 
   <div class="filter-bar" id="filter-bar" style="display:none"></div>
@@ -1536,6 +1555,54 @@ function setSyncStatus(state){
 }
 
 init();
+</script>
+
+<script>
+// Phone card view: one card per designer, people listed under it
+var mobRole = '';
+function setMobRole(r){ mobRole = (mobRole === r) ? '' : r; renderMobile(); }
+function mobEsc(t){ return String(t||'').replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+function renderMobile(){
+  var box = document.getElementById('mob-list'); if(!box) return;
+  var ids = [].map.call(document.querySelectorAll('#brands-tbody tr[id^="brow-"]'), function(tr){ return tr.id.replace('brow-',''); });
+  if(!ids.length) ids = fbOrder.slice();
+  var html = '<div class="mob-filter"><button class="'+(mobRole==='model'?'on':'')+'" onclick="setMobRole(\'model\')">Models</button><button class="'+(mobRole==='influencer'?'on':'')+'" onclick="setMobRole(\'influencer\')">Influencers</button></div>';
+  ids.forEach(function(id){
+    var it = fbData[id]; if(!it) return;
+    var ig = (it.instagram||'').replace(/\/$/,'');
+    var igh = ig.indexOf('/p/') < 0 ? ig.split('/').pop() : '';
+    var meta = [];
+    if(it.url) meta.push('<a href="'+mobEsc(it.url)+'" target="_blank" rel="noopener">'+mobEsc(it.url.replace(/^https?:\/\/(www\.)?/,'').replace(/\/$/,''))+'</a>');
+    if(igh) meta.push('<a href="https://www.instagram.com/'+mobEsc(igh)+'/" target="_blank" rel="noopener">@'+mobEsc(igh)+'</a>'+(it.followers?' · '+mobEsc(it.followers):''));
+    if(it.contactEmail) meta.push(it.contactEmail.split('\n').map(function(e){ return '<a href="mailto:'+mobEsc(e.trim())+'">'+mobEsc(e.trim())+'</a>'; }).join('<br>'));
+    if(it.comments) meta.push(mobEsc(it.comments).replace(/\n/g,'<br>'));
+    var people = '';
+    (it.tagged||'').split('\n').forEach(function(l){
+      var m = l.trim().match(/^@([A-Za-z0-9._]+)\s*·?\s*(.*)$/); if(!m) return;
+      var rest = m[2], role = (rest.split(',')[0]||'').trim();
+      var isModel = /\bmodel\b/i.test(role), isInf = /creator|artist|celebrity|tv host|comedian/i.test(role);
+      if(mobRole === 'model' && !isModel) return;
+      if(mobRole === 'influencer' && !isInf) return;
+      var fol = (rest.match(/·\s*([\d.,]+\s*[KMkm]?)\s*$/)||[])[1] || '';
+      var also = (rest.match(/also on [^·]+/i)||[''])[0].replace(/,\s*$/,'').trim();
+      var how = rest.replace(/·\s*[\d.,]+\s*[KMkm]?\s*$/,'').replace(/,?\s*also on [^·]+/i,'').replace(/^[^,]*,?\s*/,'').trim();
+      var key = m[1].replace(/\./g,'~'), g = it['g_'+key]||'', em = it['em_'+key]||'';
+      people += '<div class="mob-p"><a class="h" href="https://www.instagram.com/'+m[1]+'/" target="_blank" rel="noopener">@'+mobEsc(m[1])+'</a>'+(fol?' · '+mobEsc(fol):'')+' · '+mobEsc(role)+(g?' · '+mobEsc(g):'')+
+        (also?'<span class="also">★ '+mobEsc(also.replace(/^also on/i,'ALSO ON'))+'</span>':'')+
+        (em?'<span><a href="mailto:'+mobEsc(em.split(' ')[0])+'">'+mobEsc(em)+'</a></span>':'')+
+        (how?'<span class="sub">'+mobEsc(how)+'</span>':'')+'</div>';
+    });
+    if(mobRole && !people) return;
+    html += '<div class="mob-card"><h3>'+mobEsc(it.name)+'</h3><div class="mob-meta">'+meta.join('<br>')+'</div>'+people+'</div>';
+  });
+  box.innerHTML = html;
+}
+var mobT = null;
+function renderMobileSoon(){ clearTimeout(mobT); mobT = setTimeout(renderMobile, 150); }
+['renderAll','applyFilter','handlePut','handlePatch'].forEach(function(f){
+  var orig = window[f]; if(typeof orig !== 'function') return;
+  window[f] = function(){ var r = orig.apply(this, arguments); renderMobileSoon(); return r; };
+});
 </script>
 </body>
 </html>
