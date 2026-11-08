@@ -1008,7 +1008,7 @@ function peopleGroup(role){
 function renderPeopleStats(){
   var body = document.getElementById('people-stats-body');
   if(!body) return;
-  var seen = {}, groups = ['Influencers','Models','Photographers','Others'], c = {};
+  var seen = {}, groups = ['Models','Influencers'], c = {};
   groups.forEach(function(g){ c[g] = {t:0, m:0, f:0, u:0}; });
   Object.keys(fbData).forEach(function(id){
     if(!inScope(id)) return;
@@ -1017,7 +1017,8 @@ function renderPeopleStats(){
       var m = l.trim().match(/^@([A-Za-z0-9._]+)\s*·?\s*(.*)$/);
       if(!m || seen[m[1]]) return;
       seen[m[1]] = 1;
-      var g = peopleGroup(m[2]), sex = item[genderKey(m[1])];
+      var g = peopleGroup(m[2]); if(!c[g]) return;
+      var sex = item[genderKey(m[1])];
       c[g].t++; if(sex === 'Man') c[g].m++; if(sex === 'Woman') c[g].f++; if(sex === 'Unclear') c[g].u++;
     });
   });
