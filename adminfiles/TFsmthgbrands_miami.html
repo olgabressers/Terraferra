@@ -579,7 +579,16 @@ function renderTaggedDisplay(dispEl, val){
       a.title = 'Open Instagram';
       a.textContent = '@'+m[1];
       row.appendChild(a);
-      row.appendChild(document.createTextNode(m[2]));
+      // "also on <page> (<brand>)" shows as a red badge right after the handle
+      var rest = m[2], al = rest.match(/,\s*(also on [^·]+?)\s*(?=·|$)/i);
+      if(al){
+        rest = rest.replace(al[0], '');
+        var bd = document.createElement('span');
+        bd.textContent = ' ★ ' + al[1].replace(/^also on/i, 'ALSO ON');
+        bd.style.cssText = 'color:var(--tf);font-weight:700;margin-left:4px;';
+        row.appendChild(bd);
+      }
+      row.appendChild(document.createTextNode(rest));
     } else {
       row.textContent = line;
     }
