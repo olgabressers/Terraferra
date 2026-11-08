@@ -1589,7 +1589,7 @@ function renderMobile(){
       var key = m[1].replace(/\./g,'~'), g = it['g_'+key]||'', em = it['em_'+key]||'';
       people += '<div class="mob-p"><a class="h" href="https://www.instagram.com/'+m[1]+'/" target="_blank" rel="noopener">@'+mobEsc(m[1])+'</a>'+(fol?' · '+mobEsc(fol):'')+' · '+mobEsc(role)+(g?' · '+mobEsc(g):'')+
         (also?'<span class="also">★ '+mobEsc(also.replace(/^also on/i,'ALSO ON'))+'</span>':'')+
-        (em?'<span><a href="mailto:'+mobEsc(em.split(' ')[0])+'">'+mobEsc(em)+'</a></span>':'')+
+        (em?'<span style="display:block"><a href="mailto:'+mobEsc(em.split(' ')[0])+'">'+mobEsc(em)+'</a></span>':'')+
         (how?'<span class="sub">'+mobEsc(how)+'</span>':'')+'</div>';
     });
     if(mobRole && !people) return;
