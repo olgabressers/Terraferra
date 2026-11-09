@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<script src="/site-lock.js"></script>
+<title>Brand Agreement</title>
+<link rel="icon" type="image/svg+xml" href="smthg_favicon.svg"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --tf:#E8002D;--tf-dark:#B50023;--tf-ghost:#F1EEE9;
+  --off-white:#F8F6F2;--ink:#161616;--sub:#5C5A56;--rule:#E6E2DA;
+  --green:#1A7A4A;--green-bg:#EDFAF3;
+  --amber:#B45309;--amber-bg:#FEF3C7;
+  --navy:#1D2B3A;
+}
+body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink);overflow-x:hidden}
+
+.topnav{background:white;border-bottom:1px solid var(--rule);padding:14px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:50}
+.topnav-home{font-weight:900;letter-spacing:2px;color:var(--ink);text-decoration:none;font-size:13px}
+.topnav-links{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:var(--sub);font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:12px}
+.topnav-links a:hover{color:var(--tf)}
+@media(max-width:700px){
+  .topnav{position:static;padding:10px 14px}
+  .topnav-links{gap:8px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%}
+  .topnav-links a{font-size:11px;white-space:nowrap}
+}
+
+.wrap{max-width:900px;margin:0 auto;padding:48px 32px 90px}
+@media(max-width:700px){.wrap{padding:28px 18px 60px}}
+
+h1{font-size:clamp(24px,3.5vw,34px);font-weight:900;letter-spacing:-1px;line-height:1.15;color:var(--ink);margin-bottom:6px}
+.effective{font-size:13px;color:var(--sub);margin-bottom:16px}
+
+h2{font-size:16px;font-weight:800;color:var(--ink);margin:32px 0 12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+p{font-size:14.5px;line-height:1.75;color:var(--ink);margin-bottom:12px}
+ul{margin:0 0 12px 20px}
+li{font-size:14.5px;line-height:1.75;color:var(--ink);margin-bottom:6px}
+strong{font-weight:800}
+a{color:var(--ink);text-decoration:underline}
+
+.callout{background:var(--amber-bg);border:1px solid #F3D9A8;border-radius:8px;padding:14px 16px;font-size:13.5px;line-height:1.65;color:var(--ink);margin-bottom:14px}
+.callout strong{color:var(--amber)}
+
+.src-tag{display:inline-flex;align-items:center;font-size:10px;font-weight:800;letter-spacing:.3px;text-transform:uppercase;padding:3px 10px;border-radius:20px;white-space:nowrap}
+.src-shopify{background:#EAF0F6;color:var(--navy)}
+.src-added{background:var(--tf-ghost);color:var(--tf-dark)}
+.src-shopmy{background:#FFF4DC;color:#8A4B00}
+
+.key{background:white;border:1px solid var(--rule);border-radius:10px;padding:14px 18px;font-size:12.5px;color:var(--sub);line-height:1.8;margin-bottom:22px}
+.key strong{color:var(--ink)}
+
+.needs-input{background:var(--amber-bg);color:var(--amber-dark,#8A4B00);font-weight:800;padding:1px 7px;border-radius:5px;border:1px solid #F3D9A8}
+
+.pending-box{border:2px solid var(--tf);background:#FFF1F2;border-radius:8px;padding:12px 16px;margin:10px 0 4px}
+.pending-box .pending-label{display:block;color:var(--tf);font-weight:900;font-size:12.5px;text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px}
+.pending-box p{margin-bottom:0;font-size:13.5px;color:var(--ink)}
+
+.todo{background:white;border:2px solid var(--tf);border-radius:10px;padding:18px 22px 8px;margin-bottom:32px}
+.todo h2.todo-title{margin:0 0 6px;text-transform:uppercase}
+.todo h3{font-size:14.5px;font-weight:800;text-transform:uppercase;margin:14px 0 4px}
+.todo ol,.todo ul{margin:0 0 6px 22px}
+
+.add,.add strong{color:#1F5FD6}
+.sigblock{margin-top:28px;border-top:1px solid var(--rule);padding-top:12px}
+.clean h1,.clean h2,h1.working{text-transform:uppercase}
+.clean{background:white;border:3px solid var(--ink);border-radius:12px;padding:36px 44px;margin-bottom:56px}
+@media(max-width:700px){.clean{padding:22px 18px}}
+h1.working{margin-top:64px;padding-top:32px;border-top:3px solid var(--rule)}
+#btt{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--tf);color:white;border:none;border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:900}
+#btt:hover{background:var(--tf-dark)}
+@media(max-width:700px){#btt{width:38px;height:38px;font-size:17px;bottom:16px;right:16px}}
+.dot{color:var(--tf);font-weight:900}
+.src-pv{background:#EDF5EE;color:#1A5A34}
+h1,h2{text-transform:uppercase}
+table.terms{width:100%;border-collapse:collapse;margin:4px 0 14px;font-size:14px;background:white}
+table.terms th,table.terms td{border:1px solid var(--rule);padding:8px 12px;text-align:left;vertical-align:top;line-height:1.5}
+table.terms th{font-weight:800;background:var(--tf-ghost)}
+table.terms td:first-child{width:42%}
+</style>
+
+</head>
+<body>
+
+<nav class="topnav">
+  <a class="topnav-home" href="index.html">smthg<span class="dot">.</span></a>
+</nav>
+
+<div class="wrap">
+
+  <h1>Brand Agreement</h1>
+  <p class="effective">Created: 9 November 2026 · Last updated: 9 November 2026</p>
+
+  <div class="key"><span class="src-tag src-shopify">Designer T&amp;C — base</span> = clause taken from the smthg<span class="dot">.</span> Designer T&amp;C — Internal Reference (<a href="smthg_designer_terms.html" target="_blank" rel="noopener">smthg_designer_terms.html</a>, itself built on Wolf &amp; Badger's Seller Terms), adapted · <span class="src-tag src-shopmy">ShopMy — added</span> = text taken from ShopMy's Terms of Service (<a href="https://shopmy.us/legal/terms-of-service" target="_blank" rel="noopener">shopmy.us/legal/terms-of-service</a>), adapted. ShopMy publishes no separate brand terms: shopmy.us/legal/brand-terms shows the same Terms, and ShopMy signs brands under separate written contracts · <span class="src-tag src-pv">PuppetVendors — added</span> = clause taken from the PuppetVendors Vendor Agreement Generator, Advanced Mode (<a href="https://tools.puppetvendors.com/vendor-agreement-generator" target="_blank" rel="noopener">tools.puppetvendors.com</a>), made by a third-party app for Shopify marketplaces · <span class="src-tag src-added">smthg<span class="dot">.</span> — added</span> = not covered by any of the three sources, written for smthg<span class="dot">.</span>.</div>
+
+  <p>This Agreement is between SMTHG Inc., a Delaware corporation with its registered office at 16192 Coastal Highway, Lewes, Delaware 19958 ("SMTHG"), and the company named in the signature block ("Brand"). It is effective on the date both parties have signed it. <span class="src-tag src-added">smthg<span class="dot">.</span> — added</span></p>
+  <p><strong>BY SIGNING THIS AGREEMENT, BRAND AGREES TO ALL ITS TERMS, INCLUDING BINDING INDIVIDUAL ARBITRATION AND THE WAIVER OF JURY TRIAL AND CLASS ACTIONS IN SECTION 19, AND THE LIMITATION OF SMTHG'S LIABILITY IN SECTION 18. BRAND AGREES TO RECEIVE NOTICES BY EMAIL.</strong> <span class="src-tag src-shopmy">ShopMy — added</span></p>
+
+  <h2>1. Definitions <span class="src-tag src-shopify">Designer T&amp;C — base</span></h2>
+  <p>"Website" means the online store SMTHG operates under the smthg<span class="dot">.</span> name. "Products" means the goods Brand supplies for sale on the Website. "Customer" means a buyer on the Website. "Order" means a Customer's paid order for Products. "Retail Price" means the price a Customer pays for a Product, excluding sales tax. "GMV" means the total Retail Price of Orders, less refunds. "Purchase Price" means the Retail Price less the Platform Commission. "Fees" means the Onboarding Fee, Platform Fee and Platform Commission in Section 3. "Influencer" means a person who promotes Products under an agreement with SMTHG; "Creator" means the same.</p>
+
+  <h2>2. How Sales Work <span class="src-tag src-added">smthg<span class="dot">.</span> — added</span></h2>
+  <p>SMTHG lists the Products on the Website, sells them to Customers in its own name and collects payment. Brand supplies each sold Product to SMTHG at the Purchase Price and ships it directly to the Customer on SMTHG's behalf. Title to a Product passes to SMTHG when the Customer pays and to the Customer on delivery. Risk of loss or damage stays with Brand until the Customer receives the Product.</p>
+  <p>Brand does not sign the terms of SMTHG's technology providers, such as Shopify. This Agreement is the whole contract between Brand and SMTHG.</p>
+
+  <h2>3. Commercial Terms <span class="src-tag src-shopify">Designer T&amp;C — base</span></h2>
+  <p>Brand ticks one.</p>
+  <table class="terms">
+    <tr><th></th><th>Standard</th><th>Founding Brand</th></tr>
+    <tr><td>Tick one</td><td>☐</td><td>☐</td></tr>
+    <tr><td>Onboarding Fee (one-time, on signing)</td><td>$250</td><td>Waived</td></tr>
+    <tr><td>Platform Fee (per month)</td><td>$500</td><td>$0 for the first 12 months</td></tr>
+    <tr><td>Platform Commission</td><td>30% of GMV</td><td>30% of GMV</td></tr>
+    <tr><td>Payment to Brand</td><td>45 days after delivery</td><td>45 days after delivery</td></tr>
+  </table>
+  <div class="pending-box"><span class="pending-label">Decision needed</span><p>Founding Brand Platform Fee from month 13: $250 or $500 per month.</p></div>
+  <p>The Platform Commission covers SMTHG's share and everything paid to Influencers for Website sales. Brand pays Influencers nothing for those sales. SMTHG deducts Fees from payments to Brand; any Fee not covered is invoiced and payable within 15 days. <span class="src-tag src-shopify">Designer T&amp;C — base</span></p>
+
+  <h2>4. Listings, Prices and Stock <span class="src-tag src-shopify">Designer T&amp;C — base</span> <span class="src-tag src-pv">PuppetVendors — added</span></h2>
+  <p>Brand gives SMTHG accurate and complete Product information: description, materials and fibre content, country of origin, care instructions, sizes and images, and keeps it current. SMTHG decides which Products appear on the Website and may edit or remove any listing.</p>
+  <p>Brand sets the Retail Price after consulting SMTHG. The Retail Price includes shipping to the Customer. Brand does not sell the same Product for a lower price on its own website or any other channel.</p>
+  <p>Brand keeps stock levels accurate in the stock connection SMTHG uses and updates them within one business day of any change. Brand fulfils every Order placed for a Product shown as in stock. For a pre-order Product, Brand states the expected ship date in the listing and meets it. <span class="src-tag src-pv">PuppetVendors — added</span></p>
+
+  <h2>5. Shipping <span class="src-tag src-shopify">Designer T&amp;C — base</span> <span class="src-tag src-added">smthg<span class="dot">.</span> — added</span></h2>
+  <p>Brand ships each Order to the Customer within <span class="needs-input">[__]</span> business days, using a tracked carrier, and enters the carrier and tracking number the same business day it ships. Each shipment carries a packing slip with the Order number that names SMTHG as the seller. Brand puts no own contact details, website, discount codes or marketing material in the shipment.</p>
+  <div class="pending-box"><span class="pending-label">Decision needed</span><p>Number of business days to ship an in-stock Order.</p></div>
+  <p>For Orders shipped from outside the United States, Brand ships delivered duty paid: Brand pays all export charges, import duties, customs fees and brokerage, and the Customer pays nothing on delivery. <span class="src-tag src-added">smthg<span class="dot">.</span> — added</span></p>
+  <p>If Brand cancels an Order or does not ship it on time, SMTHG may cancel it and refund the Customer, and Brand pays SMTHG <span class="needs-input">[__]</span> for each late or cancelled Order. <span class="src-tag src-shopify">Designer T&amp;C — base</span></p>
+  <div class="pending-box"><span class="pending-label">Decision needed</span><p>Fee Brand pays for a late or cancelled Order (amount, or the lost Platform Commission plus costs). Without a figure, this sentence is removed.</p></div>
+
+  <h2>6. Returns, Refunds and Defects <span class="src-tag src-shopify">Designer T&amp;C — base</span></h2>
+  <p>SMTHG sets the Customer return policy on the Website and deals with Customers. Brand accepts returned Products at its return address and confirms their condition within 5 business days of receipt. When SMTHG refunds a Customer, the Purchase Price of that Product is deducted from Brand's next payment. Brand bears all costs of a defective, wrong, damaged or not-as-described Product, including shipping both ways and the replacement or refund.</p>
+  <div class="pending-box"><span class="pending-label">Decision needed</span><p>Customer return window (number of days) and who pays return shipping for change-of-mind returns.</p></div>
+
+  <h2>7. Chargebacks <span class="src-tag src-shopify">Designer T&amp;C — base</span></h2>
+  <p>SMTHG defends chargebacks through its payment provider. If a chargeback is lost, the loss is Brand's when it relates to the Product or its delivery, and SMTHG's when a platform fault caused it.</p>
+  <table class="terms">
+    <tr><th>Cause</th><th>Loss borne by</th></tr>
+    <tr><td>Product defective, wrong, damaged or not as described</td><td>Brand</td></tr>
+    <tr><td>Late, lost or undelivered shipment</td><td>Brand</td></tr>
+    <tr><td>Checkout error, duplicate charge, or SMTHG fraud-screening failure</td><td>SMTHG</td></tr>
+    <tr><td>Approved refund not processed by SMTHG, or Order not passed to Brand because of a platform fault</td><td>SMTHG</td></tr>
+  </table>
+
+  <h2>8. Payment to Brand <span class="src-tag src-pv">PuppetVendors — added</span> <span class="src-tag src-added">smthg<span class="dot">.</span> — added</span></h2>
+  <p>SMTHG pays Brand the Purchase Price of each Order within 45 days after the Order is delivered to the Customer, by bank transfer to the account Brand names, in US dollars. Brand bears its own bank and currency-conversion charges. Each month SMTHG gives Brand a statement of Orders, Fees, deductions and payments.</p>
+  <p>SMTHG may deduct from any payment refunds, chargebacks, Fees, return and Order costs, and any other amount Brand owes. SMTHG may hold a reasonable reserve to cover expected returns and payment disputes, and may withhold payment while an Order is under dispute or where SMTHG reasonably suspects fraud or a breach of this Agreement. If the amount Brand owes exceeds what SMTHG holds, Brand pays the difference within 15 days of SMTHG's invoice. <span class="src-tag src-pv">PuppetVendors — added</span></p>
+  <p>Brand raises any disagreement with a statement in writing within 60 days of receiving it; after that the statement is final. <span class="src-tag src-pv">PuppetVendors — added</span></p>
+
+  <h2>9. Taxes <span class="src-tag src-shopify">Designer T&amp;C — base</span></h2>
+  <p>SMTHG collects and remits the sales tax charged to Customers on Website sales. Brand is responsible for all other taxes on its business and income, and for the duties in Section 5. Brand gives SMTHG any tax information or form SMTHG reasonably requests.</p>
+
+  <h2>10. Product Warranties and Compliance <span class="src-tag src-shopify">Designer T&amp;C — base</span> <span class="src-tag src-added">smthg<span class="dot">.</span> — added</span></h2>
+  <p>Brand warrants that: (a) it owns the Products and has the right to sell them; (b) the Products are genuine, are not counterfeit and do not infringe anyone's intellectual property; (c) the Products are safe, of satisfactory quality and match their description; (d) the Products and their labels comply with all laws that apply to their sale in the United States and in each country where Brand ships, including fibre-content, country-of-origin and care labelling and product-safety rules; (e) no Product is made with forced or child labour; and (f) Brand holds evidence for every claim it makes about a Product, such as "organic" or "handmade". <span class="src-tag src-shopmy">ShopMy — added</span></p>
+  <p>Brand gives SMTHG compliance documents within 5 business days of request. Brand tells SMTHG within 24 hours of learning of any safety issue or recall affecting a Product, and pays all costs of a recall.</p>
+  <div class="pending-box"><span class="pending-label">Decision needed</span><p>Whether Brand must carry product liability insurance, and the minimum amount.</p></div>
+
+  <h2>11. Brand Content and Virtual Try-On <span class="src-tag src-shopify">Designer T&amp;C — base</span> <span class="src-tag src-added">smthg<span class="dot">.</span> — added</span></h2>
+  <p>Brand keeps ownership of its trademarks, designs, images and other content. Brand grants SMTHG a non-exclusive, worldwide, royalty-free license, which SMTHG may sublicense to its service providers and Influencers, to use, copy, edit, crop, translate and display Brand's Product images, videos, descriptions, names, logos and trademarks to list, advertise and promote the Products and smthg<span class="dot">.</span> on the Website, social media, paid advertising, email and the smthg<span class="dot">.</span> community. This includes using Product images to create Virtual Try-On images with artificial intelligence. Brand warrants that its content does not infringe anyone's rights.</p>
+  <p>The license lasts while this Agreement is in force. After it ends, SMTHG removes the listings within 14 days but does not have to delete posts, advertisements and Influencer content already published.</p>
+  <p>Photos, videos, Virtual Try-On images and other content made by SMTHG or Influencers do not belong to Brand. Brand may use Influencer content about its Products on its own channels to the extent SMTHG's Influencer Agreement allows, crediting the Influencer and following the US Federal Trade Commission's endorsement rules.</p>
+
+  <h2>12. Influencers and Non-Circumvention <span class="src-tag src-added">smthg<span class="dot">.</span> — added</span> <span class="src-tag src-shopmy">ShopMy — added</span></h2>
+  <p>SMTHG chooses, contracts with and pays the Influencers. Brand does not pay, contract with or give instructions to an Influencer for Website sales. Any extra arrangement with an Influencer goes through SMTHG, for an additional fee agreed case by case. <span class="src-tag src-shopify">Designer T&amp;C — base</span></p>
+  <p>While this Agreement is in force and for 12 months after it ends, Brand does not, directly or through anyone else, engage or pay any Influencer who promoted Brand's Products through smthg<span class="dot">.</span>, unless SMTHG agrees in writing. Brand does not contact Customers or use Customer data to sell to them outside the Website.</p>
+  <div class="pending-box"><span class="pending-label">Decision needed</span><p>Fixed amount Brand pays SMTHG for each breach of this Section (the Designer T&amp;C notes that Wolf &amp; Badger charges £1,000 per breach of its no-solicitation clause). Without a figure, SMTHG claims its actual loss.</p></div>
+
+  <h2>13. Customer Data <span class="src-tag src-shopify">Designer T&amp;C — base</span></h2>
+  <p>Customer data belongs to SMTHG. Brand uses the Customer data it receives only to ship and handle the Order, keeps it secure, and deletes it 30 days after the return period for that Order ends. Brand tells SMTHG within 72 hours of any loss of or unauthorised access to Customer data.</p>
+
+  <h2>14. Confidentiality <span class="src-tag src-shopmy">ShopMy — added</span></h2>
+  <p>All non-public information Brand receives about SMTHG, its Influencers, Customers or campaigns, including commission rates, sales data and this Agreement's terms, is confidential. Brand does not disclose or use it except to perform this Agreement. SMTHG keeps Brand's non-public information confidential in the same way. This Section survives the end of this Agreement.</p>
+
+  <h2>15. Term, Suspension and Termination <span class="src-tag src-shopify">Designer T&amp;C — base</span></h2>
+  <p>This Agreement continues until either party ends it on 30 days' notice by email. SMTHG may suspend a listing or Brand's account at any time, and may end this Agreement immediately by email if Brand breaches it, sells counterfeit or unsafe Products, acts fraudulently, becomes insolvent, becomes subject to sanctions under Section 20, or exposes SMTHG to legal or reputational harm.</p>
+  <p>When this Agreement ends: Brand ships every Order placed before the end date and handles its returns; SMTHG pays the amounts due under Section 8 after its holds and deductions; Fees already paid are not refunded; and SMTHG owes Brand no compensation for ending the Agreement.</p>
+
+  <h2>16. No Guarantee <span class="src-tag src-shopmy">ShopMy — added</span></h2>
+  <p>SMTHG PROVIDES THE WEBSITE AND ITS SERVICES "AS IS" AND "AS AVAILABLE". SMTHG DOES NOT GUARANTEE ANY SALES, TRAFFIC, INFLUENCER POSTS OR RESULTS, OR UNINTERRUPTED OPERATION. SMTHG may change, pause or stop the Website or any feature at any time.</p>
+
+  <h2>17. Indemnification <span class="src-tag src-shopmy">ShopMy — added</span> <span class="src-tag src-shopify">Designer T&amp;C — base</span></h2>
+  <p>Brand will defend, indemnify and hold harmless SMTHG, its affiliates and their officers, directors, employees and agents against all losses, liabilities, damages, fines, recall costs and expenses, including reasonable attorneys', expert and arbitration fees, arising from: (a) any Product, including defects, injury, property damage, labelling or recall; (b) any claim that a Product or Brand's content infringes anyone's rights; (c) Brand's breach of this Agreement or of any law; (d) taxes or duties Brand owes; or (e) Brand's handling of Customer data. SMTHG may take part in the defence with its own lawyers. Brand does not settle a claim that admits fault by SMTHG or puts an obligation on SMTHG without SMTHG's written consent.</p>
+
+  <h2>18. Limitation of Liability <span class="src-tag src-shopmy">ShopMy — added</span></h2>
+  <p>SMTHG IS NOT LIABLE FOR ANY INDIRECT, SPECIAL, INCIDENTAL, CONSEQUENTIAL OR EXEMPLARY DAMAGES, LOST PROFITS OR SALES, LOSS OF GOODWILL OR REPUTATION, OR LOSS OF DATA. SMTHG'S TOTAL LIABILITY UNDER THIS AGREEMENT IS LIMITED TO THE FEES BRAND PAID SMTHG IN THE 3 MONTHS BEFORE THE EVENT GIVING RISE TO THE CLAIM. This Section does not limit SMTHG's liability for fraud or willful misconduct, or SMTHG's duty to pay amounts due under Section 8.</p>
+
+  <h2>19. Governing Law and Disputes <span class="src-tag src-shopmy">ShopMy — added</span> <span class="src-tag src-added">smthg<span class="dot">.</span> — added</span></h2>
+  <p>This Agreement is governed by the laws of the State of Delaware. The United Nations Convention on Contracts for the International Sale of Goods does not apply. The parties first try for 30 days to settle any dispute by email. <span class="src-tag src-pv">PuppetVendors — added</span></p>
+  <p>Any dispute that is not settled is resolved only by final and binding individual arbitration under the Federal Arbitration Act, administered by the American Arbitration Association under its Commercial Arbitration Rules or, where Brand is based outside the United States, by the International Centre for Dispute Resolution under its International Arbitration Rules. There is one arbitrator, the language is English, the seat is Lewes, Delaware, and hearings may be held by video. The arbitrator decides any question about the scope or validity of this Section. The arbitration and the award are confidential, and judgment on the award may be entered in any court with jurisdiction.</p>
+  <p>Each party waives the right to a court or jury trial and to bring or join a class, collective or representative action. Any claim must be brought within one year after the claimant knew or should have known of it. SMTHG may ask any court for an injunction to protect its intellectual property, confidential information, Customers or Influencers, without posting a bond.</p>
+
+  <h2>20. Sanctions <span class="src-tag src-shopmy">ShopMy — added</span></h2>
+  <p>Brand confirms that neither Brand nor any of its owners or managers is subject to sanctions administered by the United States, the European Union or the United Kingdom, or is located in a sanctioned territory. Brand tells SMTHG at once if this changes.</p>
+
+  <h2>21. General <span class="src-tag src-shopify">Designer T&amp;C — base</span> <span class="src-tag src-shopmy">ShopMy — added</span></h2>
+  <p>The parties are independent contractors; this Agreement creates no partnership, agency or joint venture. SMTHG may change this Agreement on 30 days' notice by email; if Brand does not accept a change, it may end this Agreement before the change takes effect, and continuing after that date means Brand accepts it. SMTHG may assign this Agreement; Brand may not assign it without SMTHG's written consent. Notices go by email to contact@smthg.us and to the Brand email in the signature block. Neither party is liable for a delay caused by events beyond its reasonable control, except for payment obligations. If any part of this Agreement is unenforceable, the rest stays in force. Not enforcing a right does not waive it. This Agreement is the entire agreement between the parties and replaces all earlier proposals and discussions on its subject.</p>
+  <p>Sections 6 to 8, 10, 11 (as to content already published), 12 to 14 and 16 to 21 survive the end of this Agreement.</p>
+
+  <div class="sigblock">
+  <h2>Signatures <span class="src-tag src-added">smthg<span class="dot">.</span> — added</span></h2>
+  <p>This Agreement may be signed electronically and in counterparts. An electronic signature has the same effect as a handwritten signature.</p>
+  <p><strong>BRAND</strong><br/>
+  Brand name on smthg<span class="dot">.</span>: ______________________________<br/>
+  Company legal name: ______________________________<br/>
+  Legal form and country: ______________________________<br/>
+  Registration number: ______________________________<br/>
+  Registered address: ______________________________<br/>
+  Email for notices: ______________________________<br/>
+  Signed by (name and title): ______________________________<br/>
+  ☐ I confirm that I am authorised to sign this Agreement for Brand.<br/>
+  Signature: ____________________________________<br/>
+  Date: ________________________________________</p>
+  <p><strong>SMTHG INC.</strong><br/>
+  By: Maxim Nogotkov, CEO<br/>
+  Signature: ____________________________________<br/>
+  Date: ________________________________________</p>
+  </div>
+
+  <p style="margin-top:28px">Copyright © 2026 SMTHG Inc. All Rights Reserved.</p>
+
+</div>
+
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('btt').style.display=window.scrollY>400?'flex':'none'});
+</script>
+
+</body>
+</html>
