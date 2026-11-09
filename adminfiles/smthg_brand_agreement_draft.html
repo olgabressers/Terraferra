@@ -81,6 +81,13 @@ table.terms{width:100%;border-collapse:collapse;margin:4px 0 14px;font-size:14px
 table.terms th,table.terms td{border:1px solid var(--rule);padding:8px 12px;text-align:left;vertical-align:top;line-height:1.5}
 table.terms th{font-weight:800;background:var(--tf-ghost)}
 table.terms td:first-child{width:42%}
+.sig{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:14px}
+@media(max-width:700px){.sig{grid-template-columns:1fr;gap:28px}}
+.sighead{font-weight:900;font-size:14.5px;letter-spacing:.5px;margin-bottom:6px}
+.sl{display:flex;align-items:flex-end;gap:10px;border-bottom:1px solid var(--ink);min-height:38px;padding-bottom:4px;font-size:13.5px}
+.sl span{color:var(--sub);white-space:nowrap}
+.sl b{font-weight:600}
+.sigtick{font-size:13.5px;margin-top:12px}
 </style>
 
 </head>
@@ -103,8 +110,10 @@ table.terms td:first-child{width:42%}
   <h2>1. Definitions <span class="src-tag src-shopify">Designer T&amp;C — base</span></h2>
   <p>"Website" means the online store SMTHG operates under the smthg<span class="dot">.</span> name. "Products" means the goods Brand supplies for sale on the Website. "Customer" means a buyer on the Website. "Order" means a Customer's paid order for Products. "Retail Price" means the price a Customer pays for a Product, excluding sales tax. "GMV" means the total Retail Price of Orders, less refunds. "Purchase Price" means the Retail Price less the Platform Commission. "Fees" means the Onboarding Fee, Platform Fee and Platform Commission in Section 3. "Influencer" means a person who promotes Products under an agreement with SMTHG; "Creator" means the same.</p>
 
-  <h2>2. How Sales Work <span class="src-tag src-added">smthg<span class="dot">.</span> — added</span></h2>
-  <p>SMTHG lists the Products on the Website, sells them to Customers in its own name and collects payment. Brand supplies each sold Product to SMTHG at the Purchase Price and ships it directly to the Customer on SMTHG's behalf. Title to a Product passes to SMTHG when the Customer pays and to the Customer on delivery. Risk of loss or damage stays with Brand until the Customer receives the Product.</p>
+  <h2>2. SMTHG as Seller of Record, Brand as Supplier <span class="src-tag src-added">smthg<span class="dot">.</span> — added</span></h2>
+  <p><strong>2.1 Seller of Record.</strong> SMTHG is the seller of record for every sale on the Website. SMTHG sells the Products to Customers in its own name and collects payment from them.</p>
+  <p><strong>2.2 Brand as supplier.</strong> Brand supplies each sold Product to SMTHG at the Purchase Price and fulfils the Order directly to the Customer under Section 5. Title to a Product passes to SMTHG when the Customer pays and to the Customer on delivery. Risk of loss or damage stays with Brand until the Customer receives the Product.</p>
+  <p><strong>2.3 Resale authorization.</strong> Brand authorizes SMTHG to resell the Products and to use their photos, descriptions and trademarks to promote them, as set out in Section 11.</p>
   <p>Brand does not sign the terms of SMTHG's technology providers, such as Shopify. This Agreement is the whole contract between Brand and SMTHG.</p>
 
   <h2>3. Commercial Terms <span class="src-tag src-shopify">Designer T&amp;C — base</span></h2>
@@ -126,14 +135,14 @@ table.terms td:first-child{width:42%}
   <p>Brand keeps stock levels accurate in the stock connection SMTHG uses and updates them within one business day of any change. Brand fulfils every Order placed for a Product shown as in stock. For a pre-order Product, Brand states the expected ship date in the listing and meets it. <span class="src-tag src-pv">PuppetVendors — added</span></p>
 
   <h2>5. Shipping <span class="src-tag src-shopify">Designer T&amp;C — base</span> <span class="src-tag src-added">smthg<span class="dot">.</span> — added</span></h2>
-  <p>Brand ships each Order to the Customer within <span class="needs-input">[__]</span> business days, using a tracked carrier, and enters the carrier and tracking number the same business day it ships. Each shipment carries a packing slip with the Order number that names SMTHG as the seller. Brand puts no own contact details, website, discount codes or marketing material in the shipment.</p>
+  <p>Brand is responsible for fulfilment: shipping, delivery times and tracking information. Brand ships each Order to the Customer within <span class="needs-input">[__]</span> business days, using a tracked carrier, and enters the carrier and tracking number the same business day it ships. Each shipment carries a packing slip with the Order number that names SMTHG as the seller. Brand puts no own contact details, website, discount codes or marketing material in the shipment.</p>
   <div class="pending-box"><span class="pending-label">Decision needed</span><p>Number of business days to ship an in-stock Order.</p></div>
   <p>For Orders shipped from outside the United States, Brand ships delivered duty paid: Brand pays all export charges, import duties, customs fees and brokerage, and the Customer pays nothing on delivery. <span class="src-tag src-added">smthg<span class="dot">.</span> — added</span></p>
   <p>If Brand cancels an Order or does not ship it on time, SMTHG may cancel it and refund the Customer, and Brand pays SMTHG <span class="needs-input">[__]</span> for each late or cancelled Order. <span class="src-tag src-shopify">Designer T&amp;C — base</span></p>
   <div class="pending-box"><span class="pending-label">Decision needed</span><p>Fee Brand pays for a late or cancelled Order (amount, or the lost Platform Commission plus costs). Without a figure, this sentence is removed.</p></div>
 
   <h2>6. Returns, Refunds and Defects <span class="src-tag src-shopify">Designer T&amp;C — base</span></h2>
-  <p>SMTHG sets the Customer return policy on the Website and deals with Customers. Brand accepts returned Products at its return address and confirms their condition within 5 business days of receipt. When SMTHG refunds a Customer, the Purchase Price of that Product is deducted from Brand's next payment. Brand bears all costs of a defective, wrong, damaged or not-as-described Product, including shipping both ways and the replacement or refund.</p>
+  <p>SMTHG is responsible to the Customer for returns and refunds, sets the Customer return policy on the Website and deals with Customers. Brand performs the return and defect obligations in this Section. Brand accepts returned Products at its return address and confirms their condition within 5 business days of receipt. When SMTHG refunds a Customer, the Purchase Price of that Product is deducted from Brand's next payment. Brand bears all costs of a defective, wrong, damaged or not-as-described Product, including shipping both ways and the replacement or refund.</p>
   <div class="pending-box"><span class="pending-label">Decision needed</span><p>Customer return window (number of days) and who pays return shipping for change-of-mind returns.</p></div>
 
   <h2>7. Chargebacks <span class="src-tag src-shopify">Designer T&amp;C — base</span></h2>
@@ -203,21 +212,28 @@ table.terms td:first-child{width:42%}
   <div class="sigblock">
   <h2>Signatures <span class="src-tag src-added">smthg<span class="dot">.</span> — added</span></h2>
   <p>This Agreement may be signed electronically and in counterparts. An electronic signature has the same effect as a handwritten signature.</p>
-  <p><strong>BRAND</strong><br/>
-  Brand name on smthg<span class="dot">.</span>: ______________________________<br/>
-  Company legal name: ______________________________<br/>
-  Legal form and country: ______________________________<br/>
-  Registration number: ______________________________<br/>
-  Registered address: ______________________________<br/>
-  Email for notices: ______________________________<br/>
-  Signed by (name and title): ______________________________<br/>
-  ☐ I confirm that I am authorised to sign this Agreement for Brand.<br/>
-  Signature: ____________________________________<br/>
-  Date: ________________________________________</p>
-  <p><strong>SMTHG INC.</strong><br/>
-  By: Maxim Nogotkov, CEO<br/>
-  Signature: ____________________________________<br/>
-  Date: ________________________________________</p>
+  <div class="sig">
+    <div class="sigcol">
+      <div class="sighead">BRAND</div>
+      <div class="sl"><span>Brand name on smthg<span class="dot">.</span></span></div>
+      <div class="sl"><span>Company legal name</span></div>
+      <div class="sl"><span>Legal form and country</span></div>
+      <div class="sl"><span>Registration number</span></div>
+      <div class="sl"><span>Registered address</span></div>
+      <div class="sl"><span>Email for notices</span></div>
+      <div class="sl"><span>Name and title of signatory</span></div>
+      <div class="sl"><span>Signature</span></div>
+      <div class="sl"><span>Date</span></div>
+      <p class="sigtick">☐ I confirm that I am authorised to sign this Agreement for Brand.</p>
+    </div>
+    <div class="sigcol">
+      <div class="sighead">SMTHG INC.</div>
+      <div class="sl"><span>Name</span><b>Maxim Nogotkov</b></div>
+      <div class="sl"><span>Title</span><b>CEO</b></div>
+      <div class="sl"><span>Signature</span></div>
+      <div class="sl"><span>Date</span></div>
+    </div>
+  </div>
   </div>
 
   <p style="margin-top:28px">Copyright © 2026 SMTHG Inc. All Rights Reserved.</p>
