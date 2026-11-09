@@ -68,7 +68,8 @@ h1 .caps{text-transform:uppercase}
 @media(max-width:700px){.back-to-top{width:36px;height:36px;right:14px;bottom:14px;font-size:16px}}
 .maria{background:#DCEBFF!important}
 .gcol{display:flex;flex-direction:column;gap:10px}
-.gcol-label{font-size:15px;font-weight:900;text-transform:uppercase;color:#1D5FBF;text-align:center;min-height:20px}
+.gcol-label{font-size:15px;font-weight:900;text-transform:uppercase;color:var(--ink);text-align:center;min-height:20px}
+.gcol-label.span{grid-column:1/-1}
 </style>
 </head>
 <body>
@@ -84,6 +85,7 @@ h1 .caps{text-transform:uppercase}
       <div class="branch b-f">
         <div class="node lead">Founder</div>
         <div class="group">
+          <div class="gcol-label span">Maxim</div>
           <div class="node">Vision &amp; Strategy</div>
           <div class="node">Capital Strategy</div>
         </div>
@@ -91,6 +93,7 @@ h1 .caps{text-transform:uppercase}
       <div class="branch b-ceo">
         <div class="node lead">CEO</div>
         <div class="group">
+          <div class="gcol-label span">Olga</div>
           <div class="node">Investors</div>
           <div class="node">Governance</div>
           <div class="node">Operating Model</div>
@@ -108,6 +111,7 @@ h1 .caps{text-transform:uppercase}
       <div class="branch b-cto">
         <div class="node lead">CTO</div>
         <div class="group">
+          <div class="gcol-label span">Alex</div>
           <a class="node" href="#developers"><span>Product &amp; Engineering</span></a>
           <div class="node">Technology</div>
           <div class="node">Maintenance &amp; Vendors</div>
@@ -124,7 +128,7 @@ h1 .caps{text-transform:uppercase}
             <a class="node maria" href="#influencer"><span>Influencers</span></a>
           </div>
           <div class="gcol">
-            <div class="gcol-label">&nbsp;</div>
+            <div class="gcol-label">Chris</div>
             <div class="node">Platform Identity</div>
             <a class="node" href="#social"><span>Social Media &amp; Content Management</span></a>
             <a class="node" href="#community"><span>Community</span></a>
