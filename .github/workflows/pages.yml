@@ -20,7 +20,7 @@ permissions:
 # which fails the deploy step on nearly every subsequent push. This matches
 # GitHub's official Pages workflow (cancel-in-progress: false).
 concurrency:
-  group: pages-v3
+  group: pages-v4
   cancel-in-progress: false
 
 jobs:
